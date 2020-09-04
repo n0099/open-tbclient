@@ -9,23 +9,23 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public final class UserAgent {
-    private static UserAgent ofY = new UserAgent();
-    public final String id = ecn();
+    private static UserAgent ogq = new UserAgent();
+    public final String id = ecw();
     public final String ua = Vv(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent ecm() {
-        return ofY;
+    public static UserAgent ecv() {
+        return ogq;
     }
 
-    private static String ecn() {
+    private static String ecw() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
     static String Vv(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", UM(), eco(), str);
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", UM(), ecx(), str);
     }
 
     private static String UM() {
@@ -40,24 +40,24 @@ public final class UserAgent {
         }
     }
 
-    private static String eco() {
+    private static String ecx() {
         try {
             String trim = Build.MODEL.trim();
-            String gr = gr(Build.MANUFACTURER.trim(), trim);
-            if (TextUtils.isEmpty(gr)) {
-                gr = gr(Build.BRAND.trim(), trim);
+            String gs = gs(Build.MANUFACTURER.trim(), trim);
+            if (TextUtils.isEmpty(gs)) {
+                gs = gs(Build.BRAND.trim(), trim);
             }
             StringBuilder sb = new StringBuilder();
-            if (gr == null) {
-                gr = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            if (gs == null) {
+                gs = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.VB(sb.append(gr).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
+            return StringUtils.VB(sb.append(gs).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String gr(String str, String str2) {
+    private static String gs(String str, String str2) {
         String lowerCase = str.toLowerCase(Locale.getDefault());
         if (lowerCase.startsWith("unknown") || lowerCase.startsWith("alps") || lowerCase.startsWith("android") || lowerCase.startsWith("sprd") || lowerCase.startsWith("spreadtrum") || lowerCase.startsWith("rockchip") || lowerCase.startsWith("wondermedia") || lowerCase.startsWith("mtk") || lowerCase.startsWith("mt65") || lowerCase.startsWith("nvidia") || lowerCase.startsWith("brcm") || lowerCase.startsWith("marvell") || str2.toLowerCase(Locale.getDefault()).contains(lowerCase)) {
             return null;

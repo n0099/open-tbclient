@@ -7,68 +7,68 @@ import com.baidu.swan.apps.adaptation.a.ar;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes8.dex */
 public class a implements com.baidu.swan.apps.media.a {
-    private ar cCO;
-    private c cCP;
-    private String cCg;
-    private boolean cCi;
+    private ar cCS;
+    private c cCT;
+    private String cCk;
+    private boolean cCm;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.cCP = cVar;
-        this.cCg = cVar.cyk;
+        this.cCT = cVar;
+        this.cCk = cVar.cyo;
         atN();
         atJ();
     }
 
     private void atJ() {
-        if (!TextUtils.isEmpty(this.cCg)) {
+        if (!TextUtils.isEmpty(this.cCk)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
 
     public void a(c cVar) {
         com.baidu.swan.apps.console.c.d("VrVideo", "update 接口");
-        if (this.cCO != null) {
-            this.cCO.a(cVar, true);
+        if (this.cCS != null) {
+            this.cCS.a(cVar, true);
         }
-        this.cCP = cVar;
+        this.cCT = cVar;
     }
 
     public c atM() {
-        return this.cCP;
+        return this.cCT;
     }
 
     public void b(c cVar) {
-        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.cyk);
-        if (this.cCO != null) {
-            this.cCO.a(cVar, this.mContext);
+        com.baidu.swan.apps.console.c.i("VrVideo", "Open Player " + cVar.cyo);
+        if (this.cCS != null) {
+            this.cCS.a(cVar, this.mContext);
         }
-        this.cCP = cVar;
+        this.cCT = cVar;
     }
 
     public ar atN() {
-        if (this.cCO == null) {
+        if (this.cCS == null) {
             com.baidu.swan.apps.console.c.i("VrVideo", "create player");
-            this.cCO = com.baidu.swan.apps.t.a.apF().aad();
+            this.cCS = com.baidu.swan.apps.t.a.apF().aad();
         }
-        return this.cCO;
+        return this.cCS;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String aop() {
-        return this.cCg;
+        return this.cCk;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String ass() {
-        return this.cCP != null ? this.cCP.cCu : "";
+        return this.cCT != null ? this.cCT.cCy : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.cCP.caU;
+        return this.cCT.caY;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -77,36 +77,36 @@ public class a implements com.baidu.swan.apps.media.a {
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void eH(boolean z) {
+    public void eI(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.cCi) {
+            if (this.cCm) {
                 atN().resume();
             }
             atN().onForeground();
-        } else if (this.cCO != null) {
-            this.cCi = atN().isPlaying();
+        } else if (this.cCS != null) {
+            this.cCm = atN().isPlaying();
             atN().pause();
             atN().onBackground();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void eI(boolean z) {
+    public void eJ(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("VrVideo", "onBackPressed");
-        return this.cCO != null && this.cCO.onBackPressed();
+        return this.cCS != null && this.cCS.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
-        if (this.cCO != null) {
-            this.cCO.stop();
-            this.cCO = null;
+        if (this.cCS != null) {
+            this.cCS.stop();
+            this.cCS = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }

@@ -18,15 +18,15 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public final class c implements d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int ctZ = ah.H(38.0f);
-    private String bTJ;
-    private ShowConfirmBarLayout cbH;
+    private static final int cud = ah.H(38.0f);
+    private String bTN;
+    private ShowConfirmBarLayout cbL;
     @Nullable
-    private e cbs;
-    private int cbu;
+    private e cbw;
+    private int cby;
     @Nullable
-    private String ctq;
-    private a cua;
+    private String ctv;
+    private a cue;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -36,36 +36,36 @@ public final class c implements d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ZeusPluginFactory.Invoker invoker, String str) {
         if (invoker != null) {
-            this.ctq = (String) invoker.get("id");
+            this.ctv = (String) invoker.get("id");
         }
-        this.bTJ = str;
-        this.cbs = anS();
+        this.bTN = str;
+        this.cbw = anS();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     public void a(@NonNull d.a aVar) {
         if (com.baidu.swan.apps.runtime.e.azI() == null) {
-            aVar.eq(false);
+            aVar.er(false);
         } else {
-            aVar.eq(true);
+            aVar.er(true);
         }
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
     public String anL() {
-        return this.ctq;
+        return this.ctv;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
     public String getSlaveId() {
-        return this.bTJ;
+        return this.bTN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull a aVar) {
-        this.cua = aVar;
+        this.cue = aVar;
     }
 
     public void j(final int i, final int i2, final int i3, final int i4) {
@@ -79,17 +79,17 @@ public final class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(int i, int i2, int i3, int i4) {
-        if (this.cbs != null) {
+        if (this.cbw != null) {
             com.baidu.swan.apps.adaptation.b.d arJ = f.arY().arJ();
-            if (this.cbu != i3 && arJ != null) {
-                this.cbu = i3;
-                int i5 = this.cbH == null ? 0 : ctZ;
-                int webViewScrollY = arJ.getWebViewScrollY() + ((this.cbs.getWebViewContainer().getHeight() - i) - i2);
+            if (this.cby != i3 && arJ != null) {
+                this.cby = i3;
+                int i5 = this.cbL == null ? 0 : cud;
+                int webViewScrollY = arJ.getWebViewScrollY() + ((this.cbw.getWebViewContainer().getHeight() - i) - i2);
                 if (webViewScrollY - i4 < i3) {
                     if (i4 > webViewScrollY) {
-                        this.cbs.getWebViewContainer().setScrollY(i5 + i3);
+                        this.cbw.getWebViewContainer().setScrollY(i5 + i3);
                     } else {
-                        this.cbs.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
+                        this.cbw.getWebViewContainer().setScrollY(i5 + (i3 - webViewScrollY) + i4);
                     }
                 }
             }
@@ -107,10 +107,10 @@ public final class c implements d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void anQ() {
-        if (this.cbs != null && this.cbu != 0) {
-            this.cbu = 0;
-            if (this.cbs.getWebViewContainer().getScrollY() > 0) {
-                this.cbs.getWebViewContainer().setScrollY(0);
+        if (this.cbw != null && this.cby != 0) {
+            this.cby = 0;
+            if (this.cbw.getWebViewContainer().getScrollY() > 0) {
+                this.cbw.getWebViewContainer().setScrollY(0);
             }
         }
     }
@@ -130,20 +130,20 @@ public final class c implements d {
         if (anR != null) {
             View decorView = anR.getWindow().getDecorView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            if (this.cbH == null) {
-                this.cbH = new ShowConfirmBarLayout(anR);
-                this.cbH.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.inlinewidget.d.c.4
+            if (this.cbL == null) {
+                this.cbL = new ShowConfirmBarLayout(anR);
+                this.cbL.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.inlinewidget.d.c.4
                     @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.a
                     public void onClick(View view) {
                         c.this.bw("onConfirmBtnClick", null);
-                        if (c.this.cua != null) {
-                            c.this.cua.aod();
+                        if (c.this.cue != null) {
+                            c.this.cue.aod();
                         }
                     }
                 });
                 FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-                layoutParams.topMargin = (frameLayout.getHeight() - i) - ctZ;
-                frameLayout.addView(this.cbH, layoutParams);
+                layoutParams.topMargin = (frameLayout.getHeight() - i) - cud;
+                frameLayout.addView(this.cbL, layoutParams);
             }
         }
     }
@@ -162,9 +162,9 @@ public final class c implements d {
         Activity anR = anR();
         if (anR != null) {
             View decorView = anR.getWindow().getDecorView();
-            if (this.cbH != null && this.cbH.getVisibility() == 0) {
-                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.cbH);
-                this.cbH = null;
+            if (this.cbL != null && this.cbL.getVisibility() == 0) {
+                ((FrameLayout) decorView.findViewById(16908290)).removeView(this.cbL);
+                this.cbL = null;
             }
         }
     }
@@ -183,7 +183,7 @@ public final class c implements d {
             com.baidu.swan.apps.core.d.c gY = XX.gY(i);
             if (gY instanceof e) {
                 e eVar = (e) gY;
-                if (TextUtils.equals(eVar.agW(), this.bTJ)) {
+                if (TextUtils.equals(eVar.agW(), this.bTN)) {
                     return eVar;
                 }
             }

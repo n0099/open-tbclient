@@ -19,8 +19,8 @@ import com.baidu.tieba.R;
 import java.util.Random;
 /* loaded from: classes16.dex */
 public class ay {
-    private static TextView eVH;
-    private static final int[] kKA = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static TextView eVL;
+    private static final int[] kKH = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aF(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -34,11 +34,11 @@ public class ay {
         return intent;
     }
 
-    public static int dah() {
-        return kKA[new Random().nextInt(kKA.length)];
+    public static int dai() {
+        return kKH[new Random().nextInt(kKH.length)];
     }
 
-    public static String NG(String str) {
+    public static String NH(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
@@ -65,10 +65,10 @@ public class ay {
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(context) - (com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds44) * 2);
         int contentSize = TbConfig.getContentSize();
         try {
-            if (eVH == null) {
-                eVH = new TextView(TbadkCoreApplication.getInst().getContext());
+            if (eVL == null) {
+                eVL = new TextView(TbadkCoreApplication.getInst().getContext());
             }
-            TextView textView = eVH;
+            TextView textView = eVL;
             if (textView.getLayoutParams() == null) {
                 textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
@@ -84,20 +84,20 @@ public class ay {
         }
     }
 
-    public static int dai() {
+    public static int daj() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
-    public static int daj() {
+    public static int dak() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds195);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.cVl() == null) {
+        if (fVar == null || fVar.cVm() == null) {
             return 0;
         }
-        if (fVar.cVl().bgb()) {
-            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.cVI()) && (fVar.cVk() == null || StringUtils.isNull(fVar.cVk().getForumName()))) ? 0 : 2;
+        if (fVar.cVm().bgb()) {
+            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.cVJ()) && (fVar.cVl() == null || StringUtils.isNull(fVar.cVl().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

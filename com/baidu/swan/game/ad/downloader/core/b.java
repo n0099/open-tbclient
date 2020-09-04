@@ -9,7 +9,7 @@ import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes19.dex */
 public class b implements com.baidu.swan.game.ad.downloader.c.d {
-    private final com.baidu.swan.game.ad.downloader.c.a djN;
+    private final com.baidu.swan.game.ad.downloader.c.a djR;
     private final Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.swan.game.ad.downloader.core.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -17,7 +17,7 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
             DownloadInfo downloadInfo = (DownloadInfo) message.obj;
             int status = downloadInfo.getStatus();
             if (downloadInfo.getDownloadListener() != null) {
-                switch (AnonymousClass2.djI[SwanAdDownloadState.convert(status).ordinal()]) {
+                switch (AnonymousClass2.djM[SwanAdDownloadState.convert(status).ordinal()]) {
                     case 1:
                         downloadInfo.getDownloadListener().s(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
@@ -47,41 +47,41 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
     };
 
     public b(com.baidu.swan.game.ad.downloader.c.a aVar) {
-        this.djN = aVar;
+        this.djR = aVar;
     }
 
     /* renamed from: com.baidu.swan.game.ad.downloader.core.b$2  reason: invalid class name */
     /* loaded from: classes19.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] djI = new int[SwanAdDownloadState.values().length];
+        static final /* synthetic */ int[] djM = new int[SwanAdDownloadState.values().length];
 
         static {
             try {
-                djI[SwanAdDownloadState.DOWNLOADING.ordinal()] = 1;
+                djM[SwanAdDownloadState.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                djI[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+                djM[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                djI[SwanAdDownloadState.WAIT.ordinal()] = 3;
+                djM[SwanAdDownloadState.WAIT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                djI[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+                djM[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                djI[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
+                djM[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                djI[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                djM[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                djI[SwanAdDownloadState.DELETED.ordinal()] = 7;
+                djM[SwanAdDownloadState.DELETED.ordinal()] = 7;
             } catch (NoSuchFieldError e7) {
             }
         }
@@ -90,7 +90,7 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
     @Override // com.baidu.swan.game.ad.downloader.c.d
     public void l(DownloadInfo downloadInfo) {
         if (downloadInfo.getStatus() != SwanAdDownloadState.DELETED.value()) {
-            this.djN.m(downloadInfo);
+            this.djR.m(downloadInfo);
         }
         Message obtainMessage = this.mHandler.obtainMessage(downloadInfo.getId().hashCode());
         obtainMessage.obj = downloadInfo;

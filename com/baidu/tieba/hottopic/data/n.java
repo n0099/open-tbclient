@@ -10,35 +10,35 @@ import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes15.dex */
 public class n extends com.baidu.tieba.card.data.a {
-    public static final BdUniqueId iZT = BdUniqueId.gen();
-    public List<q> iZU = null;
-    public boolean iZV = true;
-    public boolean iZW = false;
+    public static final BdUniqueId iZZ = BdUniqueId.gen();
+    public List<q> jaa = null;
+    public boolean jab = true;
+    public boolean jac = false;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iZT;
+        return iZZ;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
         if (list != null && list.size() != 0) {
             this.showTopDivider = true;
             this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-            this.iZU = new ArrayList();
+            this.jaa = new ArrayList();
             for (RelateForum relateForum : list) {
                 if (!StringUtils.isNull(relateForum.forum_name)) {
                     RelateForumItemData relateForumItemData = new RelateForumItemData();
                     relateForumItemData.parserProtobuf(relateForum);
-                    this.iZU.add(relateForumItemData);
+                    this.jaa.add(relateForumItemData);
                 }
             }
         }
     }
 
     public int getCount() {
-        if (this.iZU == null || this.iZU.size() == 0) {
+        if (this.jaa == null || this.jaa.size() == 0) {
             return 0;
         }
-        return this.iZU.size();
+        return this.jaa.size();
     }
 }

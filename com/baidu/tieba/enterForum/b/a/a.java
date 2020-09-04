@@ -4,39 +4,39 @@ import java.util.List;
 import tbclient.ForumPopupInfo;
 /* loaded from: classes16.dex */
 public class a {
-    private long huI;
-    private long huJ;
-    private List<String> huK;
+    private long huO;
+    private long huP;
+    private List<String> huQ;
     private int mForumId;
     private String mForumName;
 
     public void a(ForumPopupInfo forumPopupInfo) {
         if (forumPopupInfo != null) {
             this.mForumId = forumPopupInfo.forum_id.intValue();
-            this.huI = forumPopupInfo.mem_count_static.intValue();
-            this.huJ = forumPopupInfo.thread_count_static.intValue();
-            this.huK = forumPopupInfo.forum_names;
+            this.huO = forumPopupInfo.mem_count_static.intValue();
+            this.huP = forumPopupInfo.thread_count_static.intValue();
+            this.huQ = forumPopupInfo.forum_names;
             this.mForumName = forumPopupInfo.forum_name;
         }
     }
 
-    public List<String> ceX() {
-        return this.huK;
+    public List<String> ceY() {
+        return this.huQ;
     }
 
-    public long ceY() {
-        return this.huI;
+    public long ceZ() {
+        return this.huO;
     }
 
-    public int ceZ() {
+    public int cfa() {
         return this.mForumId;
     }
 
-    public long cfa() {
-        return this.huJ;
+    public long cfb() {
+        return this.huP;
     }
 
-    public String cfb() {
+    public String cfc() {
         return this.mForumName;
     }
 }

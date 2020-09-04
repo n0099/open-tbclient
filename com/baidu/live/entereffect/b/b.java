@@ -22,8 +22,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class b {
-    private boolean aMk;
-    private com.baidu.live.entereffect.a.a aMl;
+    private boolean aMm;
+    private com.baidu.live.entereffect.a.a aMn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3) {
@@ -36,10 +36,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.aMk = z;
-                b.this.aMl = aVar;
+                b.this.aMm = z;
+                b.this.aMn = aVar;
                 if (com.baidu.live.f.a.existFile(str2)) {
-                    b.this.fW(str2);
+                    b.this.fX(str2);
                 } else if (!new File(str2).mkdirs()) {
                     return null;
                 }
@@ -138,14 +138,14 @@ public class b {
                 public List<String> doInBackground(Void... voidArr) {
                     List<String> al = b.this.al(str, str2);
                     if (al == null || al.isEmpty()) {
-                        b.this.fW(str);
-                        b.this.fW(str2);
+                        b.this.fX(str);
+                        b.this.fX(str2);
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aMl != null) {
-                                str3 = b.this.aMk ? b.this.aMl.videoUrl : b.this.aMl.aMa;
+                            if (b.this.aMn != null) {
+                                str3 = b.this.aMm ? b.this.aMn.videoUrl : b.this.aMn.aMc;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -166,7 +166,7 @@ public class b {
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.Dj().a(b.this.aMk, b.this.aMl, str2, list);
+                        c.Dj().a(b.this.aMm, b.this.aMn, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -400,7 +400,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fW(String str) {
+    public void fX(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

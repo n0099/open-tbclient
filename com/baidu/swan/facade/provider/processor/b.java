@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes20.dex */
 public class b extends com.baidu.swan.facade.provider.processor.a {
-    private static final String[] coC = {IMConstants.MSG_ROW_ID, "app_id", "app_key", "app_sign", "version_code", SharedPrefConfig.VERSION_NAME, "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    private static final String[] coG = {IMConstants.MSG_ROW_ID, "app_id", "app_key", "app_sign", "version_code", SharedPrefConfig.VERSION_NAME, "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
 
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
@@ -32,7 +32,7 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
             return null;
         }
         Collections.sort(aHn, new a());
-        MatrixCursor matrixCursor = new MatrixCursor(coC, aHn.size());
+        MatrixCursor matrixCursor = new MatrixCursor(coG, aHn.size());
         int i = 0;
         Iterator<C0474b> it = aHn.iterator();
         while (true) {
@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
 
     private void a(MatrixCursor matrixCursor, int i, C0474b c0474b, PMSAppInfo pMSAppInfo) {
         if (matrixCursor != null && i >= 0 && c0474b != null && pMSAppInfo != null) {
-            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(c0474b.coE));
+            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(c0474b.coI));
         }
     }
 
@@ -78,11 +78,11 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
     /* loaded from: classes20.dex */
     public class C0474b {
         String appId;
-        long coE;
+        long coI;
 
         C0474b(String str, long j) {
             this.appId = str;
-            this.coE = j;
+            this.coI = j;
         }
     }
 
@@ -95,7 +95,7 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(C0474b c0474b, C0474b c0474b2) {
-            return Long.compare(c0474b2.coE, c0474b.coE);
+            return Long.compare(c0474b2.coI, c0474b.coI);
         }
     }
 }

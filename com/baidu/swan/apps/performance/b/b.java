@@ -10,23 +10,23 @@ import com.baidu.swan.apps.y.f;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean cHe;
-    private static volatile boolean cHf;
-    private static volatile a cHg;
+    public static final boolean cHi;
+    private static volatile boolean cHj;
+    private static volatile a cHk;
 
     static {
-        cHe = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.aoM().Zi();
-        cHf = false;
+        cHi = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.aoM().Zi();
+        cHj = false;
     }
 
     public static void init() {
-        if (!cHf) {
+        if (!cHj) {
             if (DEBUG) {
-                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + cHe);
+                Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + cHi);
             }
             awe();
             awf();
-            cHf = true;
+            cHj = true;
         }
     }
 
@@ -47,56 +47,56 @@ public class b {
     }
 
     private static a awg() {
-        if (cHg == null) {
+        if (cHk == null) {
             synchronized (a.class) {
-                if (cHg == null) {
-                    cHg = new a();
+                if (cHk == null) {
+                    cHk = new a();
                     if (DEBUG) {
                         Log.d("SwanAbSwitchCache", "getAbSwitchHolder:init.");
                     }
                 }
             }
         }
-        return cHg;
+        return cHk;
     }
 
     public static boolean awh() {
-        return cHf;
+        return cHj;
     }
 
     public static boolean awi() {
-        return cHe && cHf && cHg != null;
+        return cHi && cHj && cHk != null;
     }
 
     public static boolean auK() {
-        return awg().cHk;
+        return awg().cHo;
     }
 
     public static boolean ann() {
-        return awg().cHl;
+        return awg().cHp;
     }
 
     public static boolean getNgWebViewHeightSwitch() {
-        return awg().cHm;
+        return awg().cHq;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private final int cHh;
-        private final long cHi;
-        private final boolean cHj;
-        private final boolean cHk;
-        private final boolean cHl;
-        private final boolean cHm;
+        private final int cHl;
+        private final long cHm;
+        private final boolean cHn;
+        private final boolean cHo;
+        private final boolean cHp;
+        private final boolean cHq;
 
         private a() {
-            this.cHh = com.baidu.swan.apps.t.a.aoM().Zj();
-            this.cHi = com.baidu.swan.apps.t.a.aoM().YV();
-            this.cHj = com.baidu.swan.apps.t.a.aoM().YR();
-            this.cHk = f.auK();
-            this.cHl = com.baidu.swan.apps.framework.c.ann();
-            this.cHm = PullToRefreshBase.getNgWebViewHeightSwitch();
+            this.cHl = com.baidu.swan.apps.t.a.aoM().Zj();
+            this.cHm = com.baidu.swan.apps.t.a.aoM().YV();
+            this.cHn = com.baidu.swan.apps.t.a.aoM().YR();
+            this.cHo = f.auK();
+            this.cHp = com.baidu.swan.apps.framework.c.ann();
+            this.cHq = PullToRefreshBase.getNgWebViewHeightSwitch();
         }
     }
 }

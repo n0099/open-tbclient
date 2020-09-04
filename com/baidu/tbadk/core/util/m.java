@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m {
     private StringBuilder builder;
 

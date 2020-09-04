@@ -62,7 +62,7 @@ public class FlutterDelegateStatic extends b {
         Resources resources = g.ld().getResources();
         cVar.textResId = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.showIconType = c.ePz;
+        cVar.showIconType = c.ePD;
         return cVar;
     }
 
@@ -71,7 +71,7 @@ public class FlutterDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.ld().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.ePQ = this.mIndicator;
+        aVar.ePU = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
@@ -92,7 +92,7 @@ public class FlutterDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).ePr);
+                    FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).ePv);
                     if (FlutterDelegateStatic.this.isNew.booleanValue()) {
                         FlutterDelegateStatic.this.tipView.refresh(0);
                         FlutterDelegateStatic.this.tipView.setVisibility(0);

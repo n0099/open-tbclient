@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public interface a {
     void N(JSONObject jSONObject);
 
-    void co(boolean z);
+    void cp(boolean z);
 
     void j(r rVar);
 

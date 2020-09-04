@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes7.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e oje;
-    private final m<PointF, PointF> ojf;
-    private final g ojg;
-    private final b ojh;
-    private final d oji;
+    private final d ojA;
     @Nullable
-    private final b ojj;
+    private final b ojB;
     @Nullable
-    private final b ojk;
+    private final b ojC;
+    private final e ojw;
+    private final m<PointF, PointF> ojx;
+    private final g ojy;
+    private final b ojz;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.oje = eVar;
-        this.ojf = mVar;
-        this.ojg = gVar;
-        this.ojh = bVar;
-        this.oji = dVar;
-        this.ojj = bVar2;
-        this.ojk = bVar3;
+        this.ojw = eVar;
+        this.ojx = mVar;
+        this.ojy = gVar;
+        this.ojz = bVar;
+        this.ojA = dVar;
+        this.ojB = bVar2;
+        this.ojC = bVar3;
     }
 
-    public e edh() {
-        return this.oje;
+    public e edq() {
+        return this.ojw;
     }
 
-    public m<PointF, PointF> edi() {
-        return this.ojf;
+    public m<PointF, PointF> edr() {
+        return this.ojx;
     }
 
-    public g edj() {
-        return this.ojg;
+    public g eds() {
+        return this.ojy;
     }
 
-    public b edk() {
-        return this.ojh;
+    public b edt() {
+        return this.ojz;
     }
 
-    public d edl() {
-        return this.oji;
-    }
-
-    @Nullable
-    public b edm() {
-        return this.ojj;
+    public d edu() {
+        return this.ojA;
     }
 
     @Nullable
-    public b edn() {
-        return this.ojk;
+    public b edv() {
+        return this.ojB;
     }
 
-    public o edo() {
+    @Nullable
+    public b edw() {
+        return this.ojC;
+    }
+
+    public o edx() {
         return new o(this);
     }
 

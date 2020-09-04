@@ -8,7 +8,7 @@ public class a extends HttpMessage {
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private boolean bcy;
+    private boolean bcA;
     private String content;
     private int groupId;
     private String[] imEffect;
@@ -20,7 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bcy = false;
+        this.bcA = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -39,11 +39,11 @@ public class a extends HttpMessage {
         return this.msgType;
     }
 
-    public void gb(String str) {
+    public void gc(String str) {
         this.liveId = str;
     }
 
-    public void gS(String str) {
+    public void gT(String str) {
         this.roomId = str;
     }
 
@@ -75,7 +75,7 @@ public class a extends HttpMessage {
         return this.barrageId;
     }
 
-    public void gR(String str) {
+    public void gS(String str) {
         this.barrageId = str;
     }
 
@@ -96,10 +96,10 @@ public class a extends HttpMessage {
     }
 
     public void bS(boolean z) {
-        this.bcy = z;
+        this.bcA = z;
     }
 
     public boolean Ka() {
-        return this.bcy;
+        return this.bcA;
     }
 }

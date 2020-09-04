@@ -16,7 +16,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes12.dex */
 public class e {
-    private static e bAI;
+    private static e bAL;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -27,11 +27,11 @@ public class e {
     public static synchronized e SR() {
         e eVar;
         synchronized (e.class) {
-            if (bAI == null) {
+            if (bAL == null) {
                 b = Utils.f();
-                bAI = new e();
+                bAL = new e();
             }
-            eVar = bAI;
+            eVar = bAL;
         }
         return eVar;
     }

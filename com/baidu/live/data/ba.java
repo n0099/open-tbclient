@@ -10,12 +10,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ba extends BaseData {
-    public List<a> aJf;
-    public String aJg;
-    public String aJh;
+    public List<a> aJh;
     public String aJi;
     public String aJj;
     public String aJk;
+    public String aJl;
+    public String aJm;
     public String point;
     public String text;
 
@@ -27,24 +27,24 @@ public class ba extends BaseData {
             this.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
-                this.aJf = new ArrayList();
+                this.aJh = new ArrayList();
                 for (int i = 0; i < length; i++) {
-                    this.aJf.add(new a(optJSONArray.optJSONObject(i)));
+                    this.aJh.add(new a(optJSONArray.optJSONObject(i)));
                 }
-                this.aJg = jSONObject.optString("text_color");
-                if (!TextUtils.isEmpty(this.aJg) && this.aJg.charAt(0) != '#') {
-                    this.aJg = UgcConstant.TOPIC_PATTERN_TAG + this.aJg;
-                }
-                this.aJh = jSONObject.optString("value_color");
-                if (!TextUtils.isEmpty(this.aJh) && this.aJh.charAt(0) != '#') {
-                    this.aJh = UgcConstant.TOPIC_PATTERN_TAG + this.aJh;
-                }
-                this.aJi = jSONObject.optString("background_color");
+                this.aJi = jSONObject.optString("text_color");
                 if (!TextUtils.isEmpty(this.aJi) && this.aJi.charAt(0) != '#') {
                     this.aJi = UgcConstant.TOPIC_PATTERN_TAG + this.aJi;
                 }
-                this.aJj = jSONObject.optString("transparency");
-                this.aJk = jSONObject.optString("timer_point_text");
+                this.aJj = jSONObject.optString("value_color");
+                if (!TextUtils.isEmpty(this.aJj) && this.aJj.charAt(0) != '#') {
+                    this.aJj = UgcConstant.TOPIC_PATTERN_TAG + this.aJj;
+                }
+                this.aJk = jSONObject.optString("background_color");
+                if (!TextUtils.isEmpty(this.aJk) && this.aJk.charAt(0) != '#') {
+                    this.aJk = UgcConstant.TOPIC_PATTERN_TAG + this.aJk;
+                }
+                this.aJl = jSONObject.optString("transparency");
+                this.aJm = jSONObject.optString("timer_point_text");
             }
         }
     }

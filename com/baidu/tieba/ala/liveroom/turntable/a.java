@@ -7,10 +7,10 @@ public interface a {
     public interface InterfaceC0640a {
         void a(String str, com.baidu.tieba.ala.liveroom.turntable.lucky.c cVar);
 
-        void aW(int i, String str);
+        void aV(int i, String str);
     }
 
-    void Gz(String str);
+    void GA(String str);
 
     void a(InterfaceC0640a interfaceC0640a);
 

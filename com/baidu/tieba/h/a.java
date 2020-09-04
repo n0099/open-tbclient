@@ -1,62 +1,62 @@
 package com.baidu.tieba.h;
 
 import tbclient.EsportRank;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private String aSJ;
-    private String bsW;
-    private String fnL;
-    private String iAN;
-    private String iAO;
-    private String iAP;
+    private String aSL;
+    private String bsZ;
+    private String fnP;
+    private String iAT;
+    private String iAU;
+    private String iAV;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.iAN = String.valueOf(esportRank.rank);
-            this.aSJ = esportRank.text;
-            this.fnL = esportRank.url;
+            this.iAT = String.valueOf(esportRank.rank);
+            this.aSL = esportRank.text;
+            this.fnP = esportRank.url;
             if (esportRank.user != null) {
-                this.iAO = esportRank.user.steam_name;
-                this.iAP = esportRank.user.steam_portrait;
+                this.iAU = esportRank.user.steam_name;
+                this.iAV = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cuO() {
+    public String cuP() {
         return this.mTitle;
     }
 
-    public String cuP() {
-        return this.iAN;
-    }
-
     public String cuQ() {
-        return this.aSJ;
+        return this.iAT;
     }
 
     public String cuR() {
-        return this.iAO;
+        return this.aSL;
     }
 
     public String cuS() {
-        return this.iAP;
+        return this.iAU;
     }
 
     public String cuT() {
-        return this.bsW;
-    }
-
-    public void Jd(String str) {
-        this.bsW = str;
+        return this.iAV;
     }
 
     public String cuU() {
-        return this.fnL;
+        return this.bsZ;
     }
 
     public void Je(String str) {
-        this.fnL = str;
+        this.bsZ = str;
+    }
+
+    public String cuV() {
+        return this.fnP;
+    }
+
+    public void Jf(String str) {
+        this.fnP = str;
     }
 }

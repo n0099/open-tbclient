@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BazhuGradeData extends com.baidu.tbadk.core.data.m implements Serializable {
     private String mDesc = "";
     private String mLevel = "";

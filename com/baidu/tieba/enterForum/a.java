@@ -37,9 +37,9 @@ public class a {
     public static void a(AbsThreadDataSupport absThreadDataSupport, String str) {
         if (absThreadDataSupport != null && absThreadDataSupport.bce() != null) {
             if (absThreadDataSupport.bce().bdk()) {
-                s.cbX().e(l.b(absThreadDataSupport.bce(), str));
+                s.cbY().e(l.b(absThreadDataSupport.bce(), str));
             } else {
-                s.cbX().e(l.a(absThreadDataSupport.bce(), str));
+                s.cbY().e(l.a(absThreadDataSupport.bce(), str));
             }
         }
     }

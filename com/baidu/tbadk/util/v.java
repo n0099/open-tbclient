@@ -8,25 +8,25 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class v {
-    private static v eVu = null;
-    private String eVt;
-    private Runnable eVv = new Runnable() { // from class: com.baidu.tbadk.util.v.1
+    private static v eVy = null;
+    private String eVx;
+    private Runnable eVz = new Runnable() { // from class: com.baidu.tbadk.util.v.1
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap = new HashMap();
             hashMap.put("from", String.valueOf(v.this.mFrom));
             hashMap.put("field_id", v.this.mFieldId);
             if (v.this.mFrom == 2) {
-                hashMap.put("fid", v.this.eVt);
+                hashMap.put("fid", v.this.eVx);
             }
             hashMap.put("animated", false);
             hashMap.put("transparent", true);
             hashMap.put("swipeback", false);
-            if (PluginPackageManager.pO().cz("com.baidu.tieba.pluginFlutter")) {
+            if (PluginPackageManager.pO().cA("com.baidu.tieba.pluginFlutter")) {
                 if (MessageManager.getInstance().findTask(2002015) == null) {
-                    com.baidu.adp.lib.f.e.mS().postDelayed(v.this.eVv, 0L);
+                    com.baidu.adp.lib.f.e.mS().postDelayed(v.this.eVz, 0L);
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
@@ -40,13 +40,13 @@ public class v {
     private v() {
     }
 
-    public static synchronized v bvB() {
+    public static synchronized v bvC() {
         v vVar;
         synchronized (v.class) {
-            if (eVu == null) {
-                eVu = new v();
+            if (eVy == null) {
+                eVy = new v();
             }
-            vVar = eVu;
+            vVar = eVy;
         }
         return vVar;
     }
@@ -67,15 +67,15 @@ public class v {
             removeCallbacks();
             this.mFrom = i;
             this.mFieldId = newGodData.getFieldId();
-            com.baidu.adp.lib.f.e.mS().postDelayed(this.eVv, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
+            com.baidu.adp.lib.f.e.mS().postDelayed(this.eVz, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
         }
     }
 
     public void removeCallbacks() {
-        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.eVv);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.eVz);
     }
 
     public void setFid(String str) {
-        this.eVt = str;
+        this.eVx = str;
     }
 }

@@ -14,7 +14,7 @@ import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> extends TbSocketReponsedMessage {
     private D data;
 
@@ -88,9 +88,9 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String bto = eVar.bto();
+                String btp = eVar.btp();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(bto) && bArr != null && (dv = a.bhb().dv(bto, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(btp) && bArr != null && (dv = a.bhb().dv(btp, currentAccount)) != null) {
                     dv.setForever(cacheKey, bArr);
                 }
             }

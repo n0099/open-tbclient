@@ -30,7 +30,7 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.caU) || TextUtils.isEmpty(this.caT)) ? false : true;
+        return (TextUtils.isEmpty(this.caY) || TextUtils.isEmpty(this.caX)) ? false : true;
     }
 
     public boolean XN() {

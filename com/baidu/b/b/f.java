@@ -5,11 +5,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes20.dex */
 public class f implements Comparator<e.c.a> {
-    final /* synthetic */ e.c acz;
+    final /* synthetic */ e.c acB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e.c cVar) {
-        this.acz = cVar;
+        this.acB = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -10,6 +10,7 @@ import java.util.Map;
 /* loaded from: classes10.dex */
 public class ContainerRecord implements IContainerRecord {
     private final IFlutterViewContainer mContainer;
+    private final long mCreatTime;
     private final FlutterViewContainerManager mManager;
     private final String mUniqueId;
     private int mState = 0;
@@ -25,11 +26,17 @@ public class ContainerRecord implements IContainerRecord {
         }
         this.mManager = flutterViewContainerManager;
         this.mContainer = iFlutterViewContainer;
+        this.mCreatTime = System.currentTimeMillis();
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
     public String uniqueId() {
         return this.mUniqueId;
+    }
+
+    @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
+    public long creatTime() {
+        return this.mCreatTime;
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
@@ -68,6 +75,7 @@ public class ContainerRecord implements IContainerRecord {
             if (this != peekShowRecord) {
                 this.mManager.pushShowRecord(this);
             }
+            this.mManager.logShowRecord();
         }
         this.mProxy.appear();
         this.mContainer.getBoostFlutterView().onAttach();
@@ -109,6 +117,7 @@ public class ContainerRecord implements IContainerRecord {
             if (peekShowRecord != null && !peekShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
                 peekShowRecord.getContainer().getBoostFlutterView().onAttach();
             }
+            this.mManager.logShowRecord();
         }
         this.mManager.removeRecord(this);
         this.mManager.setContainerResult(this, -1, -1, null);

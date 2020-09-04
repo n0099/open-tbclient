@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPoisByLocation.DataRes;
 import tbclient.GetPoisByLocation.PoiInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocationData implements Serializable {
     private String formatted_address;
     private List<NearByAddressData> poi_info;
@@ -46,7 +46,7 @@ public class LocationData implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class NearByAddressData implements Serializable {
         private String addr;
         private String name;

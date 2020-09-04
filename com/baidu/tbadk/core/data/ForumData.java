@@ -27,7 +27,7 @@ import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ForumData implements com.baidu.adp.widget.ListView.q, com.baidu.tbadk.core.util.ah, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     public static final String FROM_PAGE_FRS = "frs";

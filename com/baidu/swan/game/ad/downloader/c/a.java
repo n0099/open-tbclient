@@ -9,5 +9,5 @@ public interface a {
 
     void n(DownloadInfo downloadInfo);
 
-    DownloadInfo tG(String str);
+    DownloadInfo tH(String str);
 }

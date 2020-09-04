@@ -3,7 +3,7 @@ package com.baidu.swan.apps.t.a;
 import com.baidu.searchbox.http.cookie.CookieManager;
 /* loaded from: classes8.dex */
 public class c implements com.baidu.swan.config.a {
-    private static int cvq = -1;
+    private static int cvu = -1;
 
     @Override // com.baidu.swan.config.a
     public boolean isDebug() {

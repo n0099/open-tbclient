@@ -13,8 +13,8 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.helios.channels.a {
-    a.C0148a avw;
-    private C0144a awa;
+    a.C0148a avy;
+    private C0144a awc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.channels.a.a$a  reason: collision with other inner class name */
@@ -72,7 +72,7 @@ public class a extends com.baidu.helios.channels.a {
             Context context;
             this.i = false;
             try {
-                context = a.this.avM.applicationContext.createPackageContext(str, 0);
+                context = a.this.avO.applicationContext.createPackageContext(str, 0);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 context = null;
@@ -92,7 +92,7 @@ public class a extends com.baidu.helios.channels.a {
         }
 
         public boolean c() {
-            return c(a.this.avw.q("pub.dat", true));
+            return c(a.this.avy.q("pub.dat", true));
         }
 
         public boolean d() {
@@ -103,7 +103,7 @@ public class a extends com.baidu.helios.channels.a {
                         jSONObject.put("pub_id", this.g);
                         jSONObject.put("pub_lst_ts", this.f);
                         jSONObject.put("d_form_ver", 1);
-                        a.this.avw.d("pub.dat", jSONObject.toString(), true);
+                        a.this.avy.d("pub.dat", jSONObject.toString(), true);
                         this.h = false;
                         return true;
                     } catch (Exception e) {
@@ -116,7 +116,7 @@ public class a extends com.baidu.helios.channels.a {
 
         public boolean e() {
             try {
-                File file = new File(a.this.avM.applicationContext.getExternalCacheDir(), "com.baidu.helios" + File.separator + "esc-es");
+                File file = new File(a.this.avO.applicationContext.getExternalCacheDir(), "com.baidu.helios" + File.separator + "esc-es");
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("pub_id", this.g);
                 jSONObject.put("pub_lst_ts", this.f);
@@ -139,7 +139,7 @@ public class a extends com.baidu.helios.channels.a {
         private String n;
 
         public b(String str) {
-            super(a.this.avw, str);
+            super(a.this.avy, str);
         }
 
         public boolean Q(long j) {
@@ -227,18 +227,18 @@ public class a extends com.baidu.helios.channels.a {
 
     public a() {
         super("esc-es", 7000000L);
-        this.awa = new C0144a();
+        this.awc = new C0144a();
     }
 
     private a.e b(a.d dVar) {
-        String Am = this.avM.avQ.fw("aid").Am();
-        if (Am.equals(this.awa.b())) {
+        String Am = this.avO.avS.fx("aid").Am();
+        if (Am.equals(this.awc.b())) {
             return a.e.zN();
         }
-        this.awa.a(Am);
-        this.awa.a(System.currentTimeMillis());
-        this.awa.d();
-        return this.awa.e() ? a.e.zN() : a.e.zO();
+        this.awc.a(Am);
+        this.awc.a(System.currentTimeMillis());
+        this.awc.d();
+        return this.awc.e() ? a.e.zN() : a.e.zO();
     }
 
     @Override // com.baidu.helios.channels.a
@@ -246,11 +246,11 @@ public class a extends com.baidu.helios.channels.a {
         if (Build.VERSION.SDK_INT >= 28) {
             return a.e.zO();
         }
-        this.awa.c();
+        this.awc.c();
         try {
             return b(dVar);
         } finally {
-            this.awa.d();
+            this.awc.d();
         }
     }
 
@@ -258,7 +258,7 @@ public class a extends com.baidu.helios.channels.a {
     public a.g a(String str, a.f fVar) {
         PackageInfo packageInfo;
         b bVar = null;
-        Context context = this.avM.applicationContext;
+        Context context = this.avO.applicationContext;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -273,7 +273,7 @@ public class a extends com.baidu.helios.channels.a {
             if (str.equals(bVar.a()) && packageInfo.lastUpdateTime == bVar.c()) {
                 String b2 = bVar.b();
                 if (!TextUtils.isEmpty(b2)) {
-                    return a.g.ft(b2);
+                    return a.g.fu(b2);
                 }
             }
         }
@@ -287,7 +287,7 @@ public class a extends com.baidu.helios.channels.a {
                     bVar.a(str);
                     bVar.zM();
                 }
-                return a.g.ft(c0144a.b());
+                return a.g.fu(c0144a.b());
             }
             return a.g.dn(-2);
         }
@@ -296,6 +296,6 @@ public class a extends com.baidu.helios.channels.a {
 
     @Override // com.baidu.helios.channels.a
     public void a(a.c cVar) {
-        this.avw = this.avN.fv("esc-es");
+        this.avy = this.avP.fw("esc-es");
     }
 }

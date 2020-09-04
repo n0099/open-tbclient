@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void dKj();
+    void dKs();
 
-    void dKk();
+    void dKt();
 
-    void dKl();
+    void dKu();
 
     Object getTag();
 
@@ -56,28 +56,28 @@ public interface UrlRequest {
 
     /* loaded from: classes10.dex */
     public static final class Builder {
-        String dpW;
+        String dqa;
         final Executor mExecutor;
         Object mTag;
         final String mUrl;
-        final Callback naP;
-        boolean nbf;
-        boolean nbg;
-        boolean nbh;
-        boolean nbj;
-        int nbk;
-        int nbl;
-        int nbm;
-        int nbn;
-        String nbo;
-        String nbp;
-        final TurbonetEngine ncB;
-        UploadDataProvider ndp;
-        Executor ndq;
-        boolean ndr;
-        final ArrayList<Pair<String, String>> ndo = new ArrayList<>();
+        boolean nbB;
+        int nbC;
+        int nbD;
+        int nbE;
+        int nbF;
+        String nbG;
+        String nbH;
+        final Callback nbh;
+        boolean nbx;
+        boolean nby;
+        boolean nbz;
+        final TurbonetEngine ncT;
+        UploadDataProvider ndH;
+        Executor ndI;
+        boolean ndJ;
+        final ArrayList<Pair<String, String>> ndG = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> nbe = Collections.emptyList();
+        Collection<Object> nbw = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes10.dex */
@@ -98,29 +98,29 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.naP = callback;
+            this.nbh = callback;
             this.mExecutor = executor;
-            this.ncB = turbonetEngine;
-            this.ndr = false;
-            this.nbj = false;
-            this.nbk = 0;
-            this.nbl = 0;
-            this.nbm = 0;
-            this.nbn = 0;
+            this.ncT = turbonetEngine;
+            this.ndJ = false;
+            this.nbB = false;
+            this.nbC = 0;
+            this.nbD = 0;
+            this.nbE = 0;
+            this.nbF = 0;
             this.mTag = null;
-            this.nbo = null;
-            this.nbp = null;
+            this.nbG = null;
+            this.nbH = null;
         }
 
         public Builder Tt(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
-            this.dpW = str;
+            this.dqa = str;
             return this;
         }
 
-        public Builder gi(String str, String str2) {
+        public Builder gj(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.ndo.add(Pair.create(str, str2));
+                this.ndG.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder dLd() {
-            this.nbf = true;
+        public Builder dLm() {
+            this.nbx = true;
             return this;
         }
 
-        public Builder dLe() {
-            this.ndr = true;
+        public Builder dLn() {
+            this.ndJ = true;
             return this;
         }
 
-        public Builder dLf() {
-            this.nbh = true;
+        public Builder dLo() {
+            this.nbz = true;
             return this;
         }
 
         public Builder Ks(int i) {
-            this.nbk = i;
+            this.nbC = i;
             return this;
         }
 
         public Builder Kt(int i) {
-            this.nbl = i;
+            this.nbD = i;
             return this;
         }
 
         public Builder Ku(int i) {
-            this.nbm = i;
+            this.nbE = i;
             return this;
         }
 
         public Builder Tu(String str) {
-            this.nbo = str;
+            this.nbG = str;
             return this;
         }
 
         public Builder Tv(String str) {
-            this.nbp = str;
+            this.nbH = str;
             return this;
         }
 
@@ -182,53 +182,53 @@ public interface UrlRequest {
             if (executor == null) {
                 throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            if (this.dpW == null) {
-                this.dpW = "POST";
+            if (this.dqa == null) {
+                this.dqa = "POST";
             }
-            this.ndp = uploadDataProvider;
-            this.ndq = executor;
+            this.ndH = uploadDataProvider;
+            this.ndI = executor;
             return this;
         }
 
-        public UrlRequest dLg() {
-            UrlRequest a = this.ncB.a(this.mUrl, this.naP, this.mExecutor, this.mPriority, this.nbe, this.nbf, this.nbg, this.nbh);
-            if (this.dpW != null) {
-                a.Th(this.dpW);
+        public UrlRequest dLp() {
+            UrlRequest a = this.ncT.a(this.mUrl, this.nbh, this.mExecutor, this.mPriority, this.nbw, this.nbx, this.nby, this.nbz);
+            if (this.dqa != null) {
+                a.Th(this.dqa);
             }
-            Iterator<Pair<String, String>> it = this.ndo.iterator();
+            Iterator<Pair<String, String>> it = this.ndG.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.ndp != null) {
-                a.a(this.ndp, this.ndq);
+            if (this.ndH != null) {
+                a.a(this.ndH, this.ndI);
             }
-            if (this.ndr) {
-                a.dKk();
+            if (this.ndJ) {
+                a.dKt();
             }
-            if (this.nbj) {
-                a.dKl();
+            if (this.nbB) {
+                a.dKu();
             }
-            if (this.nbk > 0) {
-                a.setTimeout(this.nbk);
+            if (this.nbC > 0) {
+                a.setTimeout(this.nbC);
             }
-            if (this.nbl > 0) {
-                a.Kd(this.nbl);
+            if (this.nbD > 0) {
+                a.Kd(this.nbD);
             }
-            if (this.nbm > 0) {
-                a.Ke(this.nbm);
+            if (this.nbE > 0) {
+                a.Ke(this.nbE);
             }
-            if (this.nbn > 0) {
-                a.Kf(this.nbn);
+            if (this.nbF > 0) {
+                a.Kf(this.nbF);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.nbo)) {
-                a.Ti(this.nbo);
+            if (!TextUtils.isEmpty(this.nbG)) {
+                a.Ti(this.nbG);
             }
-            if (!TextUtils.isEmpty(this.nbp)) {
-                a.Tj(this.nbp);
+            if (!TextUtils.isEmpty(this.nbH)) {
+                a.Tj(this.nbH);
             }
             return a;
         }

@@ -1,4 +1,4 @@
 package com.baidu.tbadk.mvc.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
 }

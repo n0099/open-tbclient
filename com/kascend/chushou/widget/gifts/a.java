@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.h;
 /* loaded from: classes6.dex */
 public class a extends PopupWindow implements View.OnClickListener {
     private final TextView a;
-    private InterfaceC0916a obY;
+    private InterfaceC0916a ocq;
 
     /* renamed from: com.kascend.chushou.widget.gifts.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -102,8 +102,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         int parseInt = h.parseInt(this.a.getText().toString());
         if (parseInt != 0) {
             dismiss();
-            if (this.obY != null) {
-                this.obY.a(parseInt);
+            if (this.ocq != null) {
+                this.ocq.a(parseInt);
             }
         }
     }
@@ -116,8 +116,8 @@ public class a extends PopupWindow implements View.OnClickListener {
         } else if (charSequence.length() < 4) {
             this.a.setText(String.valueOf(charSequence + i));
         }
-        if (this.obY != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.obY.b(parseInt);
+        if (this.ocq != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ocq.b(parseInt);
         }
     }
 
@@ -127,12 +127,12 @@ public class a extends PopupWindow implements View.OnClickListener {
         if (charSequence.length() > 0) {
             this.a.setText(charSequence.substring(0, charSequence.length() - 1));
         }
-        if (this.obY != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
-            this.obY.b(parseInt);
+        if (this.ocq != null && (parseInt = h.parseInt(this.a.getText().toString())) != 0) {
+            this.ocq.b(parseInt);
         }
     }
 
     public void a(InterfaceC0916a interfaceC0916a) {
-        this.obY = interfaceC0916a;
+        this.ocq = interfaceC0916a;
     }
 }

@@ -21,7 +21,7 @@ public class a {
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: c */
                     public void I(com.baidu.swan.apps.setting.oauth.e eVar) {
-                        if (eVar == null || eVar.forbidden || eVar.cVk != 1) {
+                        if (eVar == null || eVar.forbidden || eVar.cVo != 1) {
                             a.a(c.this, false, "system deny");
                         } else {
                             a.a(c.this, true, "authorize:ok");

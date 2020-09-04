@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes17.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder kTS;
-    private int kTT;
+    private SpannableStringBuilder kTZ;
+    private int kUa;
     private int textSize;
 
     public g() {
-        this.kTT = 0;
+        this.kUa = 0;
         this.textSize = -1;
-        this.kTS = new SpannableStringBuilder();
+        this.kTZ = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.kTT = 0;
+        this.kUa = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.kTS = new SpannableStringBuilder();
+            this.kTZ = new SpannableStringBuilder();
             if (excContent != null) {
-                this.kTS.append((CharSequence) excContent.text);
+                this.kTZ.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.kTT = excContent.align.intValue();
+                this.kUa = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void r(CharSequence charSequence) {
         if (charSequence != null) {
-            this.kTS.append(charSequence);
+            this.kTZ.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence ddr() {
-        return this.kTS;
+    public CharSequence dds() {
+        return this.kTZ;
     }
 
-    public int ddt() {
-        return this.kTT;
+    public int ddu() {
+        return this.kUa;
     }
 
-    public String ddu() {
+    public String ddv() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dds() {
-        return (this.kTT > 0 && this.kTT < 3) || !StringUtils.isNull(this.color);
+    public boolean ddt() {
+        return (this.kUa > 0 && this.kUa < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

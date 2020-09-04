@@ -28,25 +28,25 @@ import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes20.dex */
 public class d implements s {
-    private static int ejT = 2097152;
-    private final com.baidu.tbadk.core.util.a.a ejO;
-    private com.baidu.tieba.recapp.download.http.c lDa = new com.baidu.tieba.recapp.download.http.c();
+    private static int ejX = 2097152;
+    private final com.baidu.tbadk.core.util.a.a ejS;
+    private com.baidu.tieba.recapp.download.http.c lDl = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public d(com.baidu.tbadk.core.util.a.a aVar) {
-        this.ejO = aVar;
+        this.ejS = aVar;
         com.baidu.tieba.recapp.download.http.c.setUserAgent("bdtb for Android " + TbConfig.getVersion());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
-        com.baidu.tieba.recapp.download.http.c.bN((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? com.baidu.tbadk.browser.a.dSg : cookie);
+        com.baidu.tieba.recapp.download.http.c.bN((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? com.baidu.tbadk.browser.a.dSk : cookie);
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.ejO.bjv().bjz().mPostData != null) {
-            this.ejO.bjv().bjz().mPostData.clear();
+        if (this.ejS.bjv().bjz().mPostData != null) {
+            this.ejS.bjv().bjz().mPostData.clear();
         }
         int i = 0;
         while (true) {
@@ -62,7 +62,7 @@ public class d implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public ArrayList<BasicNameValuePair> getPostData() {
-        return this.ejO.bjv().bjz().mPostData;
+        return this.ejS.bjv().bjz().mPostData;
     }
 
     @Override // com.baidu.tbadk.core.util.s
@@ -73,19 +73,19 @@ public class d implements s {
     @Override // com.baidu.tbadk.core.util.s
     public void addPostData(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.ejO.bjv().bjz().mPostData == null) {
-                this.ejO.bjv().bjz().mPostData = new ArrayList<>();
+            if (this.ejS.bjv().bjz().mPostData == null) {
+                this.ejS.bjv().bjz().mPostData = new ArrayList<>();
             }
-            int c = c(this.ejO.bjv().bjz().mPostData, basicNameValuePair.getName());
-            int size = this.ejO.bjv().bjz().mPostData.size();
+            int c = c(this.ejS.bjv().bjz().mPostData, basicNameValuePair.getName());
+            int size = this.ejS.bjv().bjz().mPostData.size();
             if (c >= 0 && c < size) {
-                if (basicNameValuePair.getName().equals(this.ejO.bjv().bjz().mPostData.get(c).getName())) {
-                    this.ejO.bjv().bjz().mPostData.set(c, basicNameValuePair);
+                if (basicNameValuePair.getName().equals(this.ejS.bjv().bjz().mPostData.get(c).getName())) {
+                    this.ejS.bjv().bjz().mPostData.set(c, basicNameValuePair);
                 } else {
-                    this.ejO.bjv().bjz().mPostData.add(c, basicNameValuePair);
+                    this.ejS.bjv().bjz().mPostData.add(c, basicNameValuePair);
                 }
             } else if (c == size) {
-                this.ejO.bjv().bjz().mPostData.add(c, basicNameValuePair);
+                this.ejS.bjv().bjz().mPostData.add(c, basicNameValuePair);
             }
         }
     }
@@ -117,32 +117,32 @@ public class d implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public void addPostData(String str, byte[] bArr) {
-        if (this.ejO.bjv().bjz().mFileData == null) {
-            this.ejO.bjv().bjz().mFileData = new HashMap<>();
+        if (this.ejS.bjv().bjz().mFileData == null) {
+            this.ejS.bjv().bjz().mFileData = new HashMap<>();
         }
-        this.ejO.bjv().bjz().mFileData.put(str, bArr);
+        this.ejS.bjv().bjz().mFileData.put(str, bArr);
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void cancelNetConnect() {
-        this.lDa.cancel();
+        this.lDl.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void setCancel() {
-        if (this.lDa != null) {
-            this.lDa.setCancel();
+        if (this.lDl != null) {
+            this.lDl.setCancel();
         }
     }
 
     private LinkedList<BasicNameValuePair> biT() {
-        if (this.ejO != null) {
+        if (this.ejS != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.ejO.bjv().bjz().mSeqId)) {
-                linkedList.add(new BasicNameValuePair(UbcStatConstant.KEY_CONTENT_EXT_SID, this.ejO.bjv().bjz().mSeqId));
+            if (!TextUtils.isEmpty(this.ejS.bjv().bjz().mSeqId)) {
+                linkedList.add(new BasicNameValuePair(UbcStatConstant.KEY_CONTENT_EXT_SID, this.ejS.bjv().bjz().mSeqId));
             }
-            if (!TextUtils.isEmpty(this.ejO.bjv().bjz().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.ejO.bjv().bjz().mNetType));
+            if (!TextUtils.isEmpty(this.ejS.bjv().bjz().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.ejS.bjv().bjz().mNetType));
                 return linkedList;
             }
             return linkedList;
@@ -150,21 +150,21 @@ public class d implements s {
         return null;
     }
 
-    public void Aa(String str) {
-        this.ejO.bjw().mServerErrorCode = -1;
+    public void Ab(String str) {
+        this.ejS.bjw().mServerErrorCode = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.ejO.bjw().mServerErrorCode = errorData.getError_code();
-                if (this.ejO.bjw().mServerErrorCode == -1) {
-                    this.ejO.bjw().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
-                } else if (this.ejO.bjw().mServerErrorCode != 0) {
-                    this.ejO.bjw().mErrorString = errorData.getError_msg();
+                this.ejS.bjw().mServerErrorCode = errorData.getError_code();
+                if (this.ejS.bjw().mServerErrorCode == -1) {
+                    this.ejS.bjw().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
+                } else if (this.ejS.bjw().mServerErrorCode != 0) {
+                    this.ejS.bjw().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                this.ejO.bjw().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
+                this.ejS.bjw().mErrorString = this.mContext.getString(R.string.error_unkown_try_again);
             }
         }
     }
@@ -195,10 +195,10 @@ public class d implements s {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (this.ejO.bjv().bjz().mPostData == null || i2 >= this.ejO.bjv().bjz().mPostData.size()) {
+            if (this.ejS.bjv().bjz().mPostData == null || i2 >= this.ejS.bjv().bjz().mPostData.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.ejO.bjv().bjz().mPostData.get(i2);
+            BasicNameValuePair basicNameValuePair = this.ejS.bjv().bjz().mPostData.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -208,95 +208,95 @@ public class d implements s {
             }
             i = i2 + 1;
         }
-        if (this.ejO.bjv().bjz().mIsBaiduServer) {
+        if (this.ejS.bjv().bjz().mIsBaiduServer) {
             sb.append("tiebaclient!!!");
             addPostData("sign", com.baidu.adp.lib.util.s.toMd5(sb.toString()));
         }
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.lDa.isCanceled()) {
+            if (this.lDl.isCanceled()) {
                 return null;
             }
-            if (this.lDa.b(this.ejO.bjv().bjz().mUrl, this.ejO.bjv().bjz().mPostData, this.ejO.bjv().bjz().mRequestGzip, 5, -1, biT()) == null) {
+            if (this.lDl.b(this.ejS.bjv().bjz().mUrl, this.ejS.bjv().bjz().mPostData, this.ejS.bjv().bjz().mRequestGzip, 5, -1, biT()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dnw = this.lDa.dnw();
-            if (dnw == null) {
+            com.baidu.tieba.recapp.download.http.g dnz = this.lDl.dnz();
+            if (dnz == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i dny = dnw.dny();
-            if (dnw == null || dnw.mu() == null || dnw.mu().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i dnB = dnz.dnB();
+            if (dnz == null || dnz.mu() == null || dnz.mu().size() > 0) {
             }
-            this.ejO.bjw().mNetErrorCode = dny.responseCode;
-            this.ejO.bjw().mHeader = dny.LK;
-            if (this.ejO.bjw().mNetErrorCode != 200) {
-                if (this.ejO.bjx().elw != null && !TextUtils.isEmpty(this.ejO.bjx().elw.exception)) {
-                    this.ejO.bjw().mException = this.ejO.bjx().elw.exception;
+            this.ejS.bjw().mNetErrorCode = dnB.responseCode;
+            this.ejS.bjw().mHeader = dnB.LK;
+            if (this.ejS.bjw().mNetErrorCode != 200) {
+                if (this.ejS.bjx().elA != null && !TextUtils.isEmpty(this.ejS.bjx().elA.exception)) {
+                    this.ejS.bjw().mException = this.ejS.bjx().elA.exception;
                 } else {
-                    this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry);
+                    this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry);
                 }
-                TiebaStatic.net(this.ejO);
+                TiebaStatic.net(this.ejS);
                 return null;
-            } else if (this.lDa.isCanceled()) {
+            } else if (this.lDl.isCanceled()) {
                 return null;
             } else {
-                str = new String(dny.retBytes, "utf-8");
+                str = new String(dnB.retBytes, "utf-8");
                 try {
-                    if (this.ejO.bjv().bjz().mIsBaiduServer && this.ejO.bjv().bjz().mIsJson) {
-                        Aa(str);
+                    if (this.ejS.bjv().bjz().mIsBaiduServer && this.ejS.bjv().bjz().mIsJson) {
+                        Ab(str);
                     }
                     ad.a aVar = new ad.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
-                    aVar.mSize = this.ejO.bjx().elw.downloadSize;
-                    aVar.mTime = this.ejO.bjx().elw.Lh;
-                    aVar.mTimesNum = this.ejO.bjx().elw.retry;
+                    aVar.mSize = this.ejS.bjx().elA.downloadSize;
+                    aVar.mTime = this.ejS.bjx().elA.Lh;
+                    aVar.mTimesNum = this.ejS.bjx().elA.retry;
                     aVar.mMethod = 1;
                     ad.a(aVar);
-                    ad.mErrorNums.set(this.ejO.bjx().elw.retry);
-                    TiebaStatic.net(this.ejO);
+                    ad.mErrorNums.set(this.ejS.bjx().elA.retry);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (BdHttpCancelException e5) {
                     bdHttpCancelException = e5;
                     str2 = str;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                    this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                    this.ejO.bjw().mNetErrorCode = -14;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.ejS.bjw().mNetErrorCode = -14;
                     return str2;
                 } catch (OutOfMemoryError e6) {
                     e4 = e6;
-                    this.ejO.bjw().mNetErrorCode = -15;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    this.ejS.bjw().mNetErrorCode = -15;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
                     BdLog.e(e4.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (SocketException e7) {
                     e3 = e7;
-                    this.ejO.bjw().mNetErrorCode = -12;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -12;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (SocketTimeoutException e8) {
                     e2 = e8;
-                    this.ejO.bjw().mNetErrorCode = -13;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -13;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (Exception e9) {
                     e = e9;
-                    this.ejO.bjw().mNetErrorCode = -10;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    this.ejS.bjw().mNetErrorCode = -10;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (Throwable th2) {
                     th = th2;
-                    this.ejO.bjw().mNetErrorCode = -10;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -10;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 }
             }
@@ -338,29 +338,29 @@ public class d implements s {
         boolean z = true;
         com.baidu.tieba.recapp.download.http.c.setUid(TbadkCoreApplication.getCurrentAccount());
         try {
-            if (this.ejO.bjv().bjz().mPostData != null && this.ejO.bjv().bjz().mPostData.size() > 0 && !this.ejO.bjv().mIsFromCDN) {
+            if (this.ejS.bjv().bjz().mPostData != null && this.ejS.bjv().bjz().mPostData.size() > 0 && !this.ejS.bjv().mIsFromCDN) {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.ejO.bjv().bjz().mUrl);
-                if (this.ejO.bjv().bjz().mUrl.indexOf("?") < 0) {
+                sb.append(this.ejS.bjv().bjz().mUrl);
+                if (this.ejS.bjv().bjz().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.ejO.bjv().bjz().mUrl.endsWith("?") && !this.ejO.bjv().bjz().mUrl.endsWith(ETAG.ITEM_SEPARATOR)) {
+                } else if (!this.ejS.bjv().bjz().mUrl.endsWith("?") && !this.ejS.bjv().bjz().mUrl.endsWith(ETAG.ITEM_SEPARATOR)) {
                     sb.append(ETAG.ITEM_SEPARATOR);
                 }
-                for (int i = 0; i < this.ejO.bjv().bjz().mPostData.size(); i++) {
+                for (int i = 0; i < this.ejS.bjv().bjz().mPostData.size(); i++) {
                     if (i != 0) {
                         sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(this.ejO.bjv().bjz().mPostData.get(i).getName());
+                    sb.append(this.ejS.bjv().bjz().mPostData.get(i).getName());
                     sb.append(ETAG.EQUAL);
-                    sb.append(at.getUrlEncode(this.ejO.bjv().bjz().mPostData.get(i).getValue()));
+                    sb.append(at.getUrlEncode(this.ejS.bjv().bjz().mPostData.get(i).getValue()));
                 }
                 str = sb.toString();
             } else {
-                str = this.ejO.bjv().bjz().mUrl;
+                str = this.ejS.bjv().bjz().mUrl;
             }
             if (TbConfig.getDebugSwitch()) {
             }
-            if ((!this.ejO.bjv().bjz().mRequestGzip || this.ejO.bjv().bjz().mIsBDImage) && !this.ejO.bjv().mIsFromCDN) {
+            if ((!this.ejS.bjv().bjz().mRequestGzip || this.ejS.bjv().bjz().mIsBDImage) && !this.ejS.bjv().mIsFromCDN) {
                 z = false;
             }
         } catch (BdHttpCancelException e) {
@@ -379,65 +379,65 @@ public class d implements s {
             e = e5;
             iVar = null;
         }
-        if (this.lDa.isCanceled()) {
+        if (this.lDl.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.lDa.b(str, z, 5, 100, -1, -1, biT());
-        com.baidu.tieba.recapp.download.http.g dnw = this.lDa.dnw();
-        if (dnw == null) {
+        this.lDl.b(str, z, 5, 100, -1, -1, biT());
+        com.baidu.tieba.recapp.download.http.g dnz = this.lDl.dnz();
+        if (dnz == null) {
             return null;
         }
-        iVar = dnw.dny();
-        if (dnw != null) {
+        iVar = dnz.dnB();
+        if (dnz != null) {
             try {
-                if (dnw.mu() == null || dnw.mu().size() > 0) {
+                if (dnz.mu() == null || dnz.mu().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
                 bdHttpCancelException = e6;
-                this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                this.ejO.bjw().mNetErrorCode = -14;
+                this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                this.ejS.bjw().mNetErrorCode = -14;
                 iVar = iVar2;
                 if (iVar == null) {
                 }
                 return bArr;
             } catch (SocketException e7) {
                 e = e7;
-                this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw != null ? this.ejO.bjx().elw.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.ejO.bjw().mNetErrorCode = -12;
-                TiebaStatic.net(this.ejO);
+                this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA != null ? this.ejS.bjx().elA.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.ejS.bjw().mNetErrorCode = -12;
+                TiebaStatic.net(this.ejS);
                 if (iVar == null) {
                 }
                 return bArr;
             } catch (SocketTimeoutException e8) {
                 e = e8;
-                this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw != null ? this.ejO.bjx().elw.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.ejO.bjw().mNetErrorCode = -13;
-                TiebaStatic.net(this.ejO);
+                this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA != null ? this.ejS.bjx().elA.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.ejS.bjw().mNetErrorCode = -13;
+                TiebaStatic.net(this.ejS);
                 if (iVar == null) {
                 }
                 return bArr;
             } catch (Exception e9) {
                 e = e9;
-                this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw != null ? this.ejO.bjx().elw.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.ejO.bjw().mNetErrorCode = -10;
+                this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA != null ? this.ejS.bjx().elA.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.ejS.bjw().mNetErrorCode = -10;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.ejO);
+                TiebaStatic.net(this.ejS);
                 if (iVar == null) {
                 }
                 return bArr;
             } catch (OutOfMemoryError e10) {
                 e = e10;
-                this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw != null ? this.ejO.bjx().elw.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.ejO.bjw().mNetErrorCode = -15;
+                this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA != null ? this.ejS.bjx().elA.retry : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.ejS.bjw().mNetErrorCode = -15;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.ejO);
+                TiebaStatic.net(this.ejS);
                 if (iVar == null) {
                 }
                 return bArr;
@@ -446,33 +446,33 @@ public class d implements s {
         if (iVar == null) {
             return null;
         }
-        this.ejO.bjw().mNetErrorCode = iVar.responseCode;
-        if (this.ejO.bjw().mNetErrorCode != 200) {
-            this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-            if (this.ejO.bjx().elw != null && !TextUtils.isEmpty(this.ejO.bjx().elw.exception)) {
-                this.ejO.bjw().mException = this.ejO.bjx().elw.exception;
+        this.ejS.bjw().mNetErrorCode = iVar.responseCode;
+        if (this.ejS.bjw().mNetErrorCode != 200) {
+            this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+            if (this.ejS.bjx().elA != null && !TextUtils.isEmpty(this.ejS.bjx().elA.exception)) {
+                this.ejS.bjw().mException = this.ejS.bjx().elA.exception;
             } else {
-                this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry);
+                this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry);
             }
-            TiebaStatic.net(this.ejO);
+            TiebaStatic.net(this.ejS);
             return null;
         }
         if (TbadkCoreApplication.getInst().isMainProcess(true) && (str2 = iVar.contentLength) != null) {
             try {
                 int parseInt = Integer.parseInt(str2);
-                if (parseInt > ejT) {
-                    this.ejO.bjw().mNetErrorCode = -11;
-                    TiebaStatic.net(this.ejO);
+                if (parseInt > ejX) {
+                    this.ejS.bjw().mNetErrorCode = -11;
+                    TiebaStatic.net(this.ejS);
                     bArr = null;
                 } else {
                     int i2 = parseInt * 10;
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.bsW().freePicCache(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.ejO.bjv().bjz().mUrl + "], size:" + i2);
-                            this.ejO.bjw().mNetErrorCode = -16;
-                            TiebaStatic.net(this.ejO);
+                        if (!com.baidu.tbadk.imageManager.c.bsX().freePicCache(i2)) {
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.ejS.bjv().bjz().mUrl + "], size:" + i2);
+                            this.ejS.bjw().mNetErrorCode = -16;
+                            TiebaStatic.net(this.ejS);
                             bArr = null;
                         }
                     }
@@ -483,13 +483,13 @@ public class d implements s {
         }
         ad.a aVar = new ad.a();
         aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
-        aVar.mSize = this.ejO.bjx().elw.downloadSize;
+        aVar.mSize = this.ejS.bjx().elA.downloadSize;
         aVar.mTime = new Date().getTime() - j;
-        aVar.mTimesNum = this.ejO.bjx().elw.retry;
+        aVar.mTimesNum = this.ejS.bjx().elA.retry;
         aVar.mMethod = 2;
         ad.a(aVar);
-        ad.mErrorNums.set(this.ejO.bjx().elw.retry);
-        TiebaStatic.net(this.ejO);
+        ad.mErrorNums.set(this.ejS.bjx().elA.retry);
+        TiebaStatic.net(this.ejS);
         bArr = iVar == null ? iVar.retBytes : null;
         return bArr;
     }
@@ -500,12 +500,12 @@ public class d implements s {
         OutOfMemoryError e;
         Exception e2;
         byte[] netData = getNetData();
-        if (netData == null || this.ejO.bjw().mNetErrorCode != 200) {
+        if (netData == null || this.ejS.bjw().mNetErrorCode != 200) {
             return null;
         }
         try {
-            this.ejO.bjv().bjz().charSet = TextUtils.isEmpty(this.ejO.bjv().bjz().charSet) ? "UTF-8" : this.ejO.bjv().bjz().charSet;
-            str = new String(netData, 0, netData.length, this.ejO.bjv().bjz().charSet);
+            this.ejS.bjv().bjz().charSet = TextUtils.isEmpty(this.ejS.bjv().bjz().charSet) ? "UTF-8" : this.ejS.bjv().bjz().charSet;
+            str = new String(netData, 0, netData.length, this.ejS.bjv().bjz().charSet);
         } catch (Exception e3) {
             str = null;
             e2 = e3;
@@ -514,7 +514,7 @@ public class d implements s {
             e = e4;
         }
         try {
-            Aa(str);
+            Ab(str);
             return str;
         } catch (Exception e5) {
             e2 = e5;
@@ -541,10 +541,10 @@ public class d implements s {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (this.ejO.bjv().bjz().mPostData == null || i2 >= this.ejO.bjv().bjz().mPostData.size()) {
+            if (this.ejS.bjv().bjz().mPostData == null || i2 >= this.ejS.bjv().bjz().mPostData.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.ejO.bjv().bjz().mPostData.get(i2);
+            BasicNameValuePair basicNameValuePair = this.ejS.bjv().bjz().mPostData.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -554,95 +554,95 @@ public class d implements s {
             }
             i = i2 + 1;
         }
-        if (this.ejO.bjv().bjz().mIsBaiduServer) {
+        if (this.ejS.bjv().bjz().mIsBaiduServer) {
             sb.append("tiebaclient!!!");
             addPostData("sign", com.baidu.adp.lib.util.s.toMd5(sb.toString()));
         }
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.lDa.isCanceled()) {
+            if (this.lDl.isCanceled()) {
                 return null;
             }
-            if (this.lDa.b(this.ejO.bjv().bjz().mUrl, this.ejO.bjv().bjz().mPostData, this.ejO.bjv().bjz().mRequestGzip, 5, -1, biT()) == null) {
+            if (this.lDl.b(this.ejS.bjv().bjz().mUrl, this.ejS.bjv().bjz().mPostData, this.ejS.bjv().bjz().mRequestGzip, 5, -1, biT()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dnw = this.lDa.dnw();
-            if (dnw == null) {
+            com.baidu.tieba.recapp.download.http.g dnz = this.lDl.dnz();
+            if (dnz == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i dny = dnw.dny();
-            if (dnw == null || dnw.mu() == null || dnw.mu().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i dnB = dnz.dnB();
+            if (dnz == null || dnz.mu() == null || dnz.mu().size() > 0) {
             }
-            this.ejO.bjw().mNetErrorCode = dny.responseCode;
-            this.ejO.bjw().mHeader = dny.LK;
-            if (this.ejO.bjw().mNetErrorCode != 200) {
-                if (this.ejO.bjx().elw != null && !TextUtils.isEmpty(this.ejO.bjx().elw.exception)) {
-                    this.ejO.bjw().mException = this.ejO.bjx().elw.exception;
+            this.ejS.bjw().mNetErrorCode = dnB.responseCode;
+            this.ejS.bjw().mHeader = dnB.LK;
+            if (this.ejS.bjw().mNetErrorCode != 200) {
+                if (this.ejS.bjx().elA != null && !TextUtils.isEmpty(this.ejS.bjx().elA.exception)) {
+                    this.ejS.bjw().mException = this.ejS.bjx().elA.exception;
                 } else {
-                    this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry);
+                    this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry);
                 }
-                TiebaStatic.net(this.ejO);
+                TiebaStatic.net(this.ejS);
                 return null;
-            } else if (this.lDa.isCanceled()) {
+            } else if (this.lDl.isCanceled()) {
                 return null;
             } else {
-                str = new String(dny.retBytes, "utf-8");
+                str = new String(dnB.retBytes, "utf-8");
                 try {
-                    if (this.ejO.bjv().bjz().mIsBaiduServer && this.ejO.bjv().bjz().mIsJson) {
-                        Aa(str);
+                    if (this.ejS.bjv().bjz().mIsBaiduServer && this.ejS.bjv().bjz().mIsJson) {
+                        Ab(str);
                     }
                     ad.a aVar = new ad.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
-                    aVar.mSize = this.ejO.bjx().elw.downloadSize;
-                    aVar.mTime = this.ejO.bjx().elw.Lh;
-                    aVar.mTimesNum = this.ejO.bjx().elw.retry;
+                    aVar.mSize = this.ejS.bjx().elA.downloadSize;
+                    aVar.mTime = this.ejS.bjx().elA.Lh;
+                    aVar.mTimesNum = this.ejS.bjx().elA.retry;
                     aVar.mMethod = 1;
                     ad.a(aVar);
-                    ad.mErrorNums.set(this.ejO.bjx().elw.retry);
-                    TiebaStatic.net(this.ejO);
+                    ad.mErrorNums.set(this.ejS.bjx().elA.retry);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (BdHttpCancelException e5) {
                     bdHttpCancelException = e5;
                     str2 = str;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
-                    this.ejO.bjw().mException = String.valueOf(this.ejO.bjw().mNetErrorCode) + "|retryCount:" + (this.ejO.bjx().elw == null ? -1 : this.ejO.bjx().elw.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                    this.ejO.bjw().mNetErrorCode = -14;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mException = String.valueOf(this.ejS.bjw().mNetErrorCode) + "|retryCount:" + (this.ejS.bjx().elA == null ? -1 : this.ejS.bjx().elA.retry) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.ejS.bjw().mNetErrorCode = -14;
                     return str2;
                 } catch (OutOfMemoryError e6) {
                     e4 = e6;
-                    this.ejO.bjw().mNetErrorCode = -15;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+                    this.ejS.bjw().mNetErrorCode = -15;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
                     BdLog.e(e4.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (SocketException e7) {
                     e3 = e7;
-                    this.ejO.bjw().mNetErrorCode = -12;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -12;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (SocketTimeoutException e8) {
                     e2 = e8;
-                    this.ejO.bjw().mNetErrorCode = -13;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -13;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (Exception e9) {
                     e = e9;
-                    this.ejO.bjw().mNetErrorCode = -10;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+                    this.ejS.bjw().mNetErrorCode = -10;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 } catch (Throwable th2) {
                     th = th2;
-                    this.ejO.bjw().mNetErrorCode = -10;
-                    this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
+                    this.ejS.bjw().mNetErrorCode = -10;
+                    this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    TiebaStatic.net(this.ejO);
+                    TiebaStatic.net(this.ejS);
                     return str;
                 }
             }
@@ -671,41 +671,41 @@ public class d implements s {
     @Override // com.baidu.tbadk.core.util.s
     public boolean downloadFile(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.lDa.isCanceled()) {
+            if (this.lDl.isCanceled()) {
                 return false;
             }
-            return this.lDa.a(this.ejO.bjv().bjz().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, biT(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
-                int ejV = 0;
-                int ejW = 0;
-                int ejX = 0;
+            return this.lDl.a(this.ejS.bjv().bjz().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, biT(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
+                int ejZ = 0;
+                int eka = 0;
+                int ekb = 0;
 
                 @Override // com.baidu.tieba.recapp.download.http.j
                 public void onProgress(int i4, int i5) {
                     if (i5 > 0) {
-                        this.ejV = i5 / 50;
+                        this.ejZ = i5 / 50;
                     }
-                    this.ejW += i4 - this.ejX;
-                    this.ejX = i4;
+                    this.eka += i4 - this.ekb;
+                    this.ekb = i4;
                     if (handler != null) {
-                        if (this.ejW > this.ejV || i4 == i5) {
-                            this.ejW = 0;
+                        if (this.eka > this.ejZ || i4 == i5) {
+                            this.eka = 0;
                             handler.sendMessage(handler.obtainMessage(i, i4, i5));
                         }
                     }
                 }
             }, true);
         } catch (Exception e) {
-            this.ejO.bjw().mNetErrorCode = -10;
-            this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
+            this.ejS.bjw().mNetErrorCode = -10;
+            this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.neterror) + " detailException:" + e.getMessage();
             BdLog.e(e.getMessage());
             return false;
         } catch (OutOfMemoryError e2) {
-            this.ejO.bjw().mNetErrorCode = -15;
-            this.ejO.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
+            this.ejS.bjw().mNetErrorCode = -15;
+            this.ejS.bjw().mErrorString = this.mContext.getResources().getString(R.string.memoryerror);
             BdLog.e(e2.getMessage());
             return false;
         } finally {
-            TiebaStatic.net(this.ejO);
+            TiebaStatic.net(this.ejS);
         }
     }
 }

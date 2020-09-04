@@ -1,5 +1,5 @@
 package com.baidu.tbadk.mutiprocess;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public enum DataType {
     PARCELABLE,
     SERIALIZABLE

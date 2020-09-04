@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aq {
     private String key;
     private List<Object> params = new ArrayList();
@@ -49,6 +49,12 @@ public class aq {
         return this;
     }
 
+    public aq c(String str, double d) {
+        this.params.add(str);
+        this.params.add(Double.valueOf(d));
+        return this;
+    }
+
     private void aV(List<Object> list) {
         this.params = list;
     }
@@ -61,7 +67,7 @@ public class aq {
         }
     }
 
-    public boolean Ac(String str) {
+    public boolean Ad(String str) {
         int indexOf;
         return !at.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
@@ -76,7 +82,7 @@ public class aq {
         TiebaStatic.log(this);
     }
 
-    public static aq Ad(String str) {
+    public static aq Ae(String str) {
         return new aq(str);
     }
 

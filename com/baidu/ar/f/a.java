@@ -16,7 +16,7 @@ public class a implements SensorEventListener {
     private LinkedList<Double> vh = new LinkedList<>();
 
     /* renamed from: vi  reason: collision with root package name */
-    private LinkedList<Float> f961vi = new LinkedList<>();
+    private LinkedList<Float> f960vi = new LinkedList<>();
     private LinkedList<Float> vj = new LinkedList<>();
     private LinkedList<Float> vk = new LinkedList<>();
     private int vl = 10;
@@ -65,7 +65,7 @@ public class a implements SensorEventListener {
         }
         com.baidu.ar.g.b.aN("max acc is : " + this.vm);
         a(this.vh, sqrt);
-        a((LinkedList) this.f961vi, Math.abs(f));
+        a((LinkedList) this.f960vi, Math.abs(f));
         a((LinkedList) this.vj, Math.abs(f2));
         a((LinkedList) this.vk, Math.abs(f3));
         if (this.vh.size() == this.vl) {
@@ -80,7 +80,7 @@ public class a implements SensorEventListener {
                     break;
                 }
                 d += this.vh.get(i2).doubleValue();
-                f4 += this.f961vi.get(i2).floatValue();
+                f4 += this.f960vi.get(i2).floatValue();
                 f5 += this.vj.get(i2).floatValue();
                 f6 += this.vk.get(i2).floatValue();
                 i = i2 + 1;

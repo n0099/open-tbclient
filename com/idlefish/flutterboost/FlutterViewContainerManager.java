@@ -2,7 +2,10 @@ package com.idlefish.flutterboost;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
+import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
+import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
@@ -59,6 +62,26 @@ public class FlutterViewContainerManager implements IContainerManager {
             return null;
         }
         return this.mShowRecord.pop();
+    }
+
+    public void logShowRecord() {
+        if (FlutterCrabReportEnableSwitch.isOn() && this.mShowRecord != null && this.mShowRecord.size() > 0) {
+            StringBuffer stringBuffer = new StringBuffer();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.mShowRecord.size()) {
+                    IContainerRecord iContainerRecord = this.mShowRecord.get(i2);
+                    if (iContainerRecord != null && iContainerRecord.getContainer() != null) {
+                        stringBuffer.append("--" + iContainerRecord.getContainer().getContainerUrl() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + iContainerRecord.creatTime());
+                    }
+                    i = i2 + 1;
+                } else {
+                    a.getInstance().setOpenFlutterPage(stringBuffer.toString());
+                    return;
+                }
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

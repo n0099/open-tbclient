@@ -14,13 +14,13 @@ import com.baidu.swan.apps.y.b.a;
 /* loaded from: classes8.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile String cEe = "";
-    private static volatile boolean cEf = true;
+    private static volatile String cEi = "";
+    private static volatile boolean cEj = true;
 
     public static void auC() {
     }
 
-    public static void eX(boolean z) {
+    public static void eY(boolean z) {
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "on swan page change, isFromRoute : " + z);
         }
@@ -32,7 +32,7 @@ public final class e {
             return;
         }
         if (z) {
-            cEf = false;
+            cEj = false;
         }
         if (!z) {
             auF();
@@ -46,19 +46,19 @@ public final class e {
     }
 
     public static void auD() {
-        cEe = "";
-        cEf = true;
+        cEi = "";
+        cEj = true;
     }
 
-    public static void oH(String str) {
-        cEe = str;
+    public static void oI(String str) {
+        cEi = str;
     }
 
     public static boolean g(com.baidu.swan.apps.core.d.e eVar) {
         if (eVar == null) {
             return false;
         }
-        boolean equals = TextUtils.equals(cEe, eVar.agW());
+        boolean equals = TextUtils.equals(cEi, eVar.agW());
         if (DEBUG) {
             Log.d("SwanArrivalMonitor", "FirstPage: " + equals);
             return equals;
@@ -87,7 +87,7 @@ public final class e {
                     return;
                 }
             }
-            if (dVar != null && dVar.bSU > 0) {
+            if (dVar != null && dVar.bSY > 0) {
                 com.baidu.swan.apps.statistic.e.a(dVar);
             }
         }
@@ -109,12 +109,12 @@ public final class e {
                 if (DEBUG) {
                     Log.d("SwanArrivalMonitor", "start check for na arrival");
                 }
-                oI(ahn.agW());
+                oJ(ahn.agW());
             }
         }
     }
 
-    private static void oI(final String str) {
+    private static void oJ(final String str) {
         ak.m(new Runnable() { // from class: com.baidu.swan.apps.y.e.1
             @Override // java.lang.Runnable
             public void run() {
@@ -123,15 +123,15 @@ public final class e {
                 SwanAppActivity arI = com.baidu.swan.apps.v.f.arY().arI();
                 if (arI != null && !arI.isFinishing() && !arI.isDestroyed() && (XX = arI.XX()) != null && (ahn = XX.ahn()) != null) {
                     final Bitmap aFc = ah.aFc();
-                    AbsoluteLayout nY = com.baidu.swan.apps.v.f.arY().nY(str);
+                    AbsoluteLayout nZ = com.baidu.swan.apps.v.f.arY().nZ(str);
                     final int f = c.f(ahn);
-                    final Rect a = c.a(aFc, ahn, nY);
+                    final Rect a = c.a(aFc, ahn, nZ);
                     p.aEN().execute(new Runnable() { // from class: com.baidu.swan.apps.y.e.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.y.b.a oJ = a.C0461a.oJ("simple_parser");
-                            oJ.iA(f);
-                            if (!oJ.a(aFc, a)) {
+                            com.baidu.swan.apps.y.b.a oK = a.C0461a.oK("simple_parser");
+                            oK.iA(f);
+                            if (!oK.a(aFc, a)) {
                                 e.auG();
                             }
                         }
@@ -151,6 +151,6 @@ public final class e {
     }
 
     public static boolean auH() {
-        return cEf;
+        return cEj;
     }
 }

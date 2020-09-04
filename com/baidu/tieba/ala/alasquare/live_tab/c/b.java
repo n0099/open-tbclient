@@ -15,49 +15,49 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
     private List<q> dataList;
-    private List<q> fHm;
+    private List<q> fHq;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> fHn = new ArrayList();
-    private List<SdkLiveInfoData> fHk = new ArrayList();
-    private List<q> fHl = new ArrayList();
+    private List<String> fHr = new ArrayList();
+    private List<SdkLiveInfoData> fHo = new ArrayList();
+    private List<q> fHp = new ArrayList();
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bGo();
+        bGp();
     }
 
-    private void bGo() {
-        this.fHm = new ArrayList();
+    private void bGp() {
+        this.fHq = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.fEC = this.stageLiveInfo;
-            this.fHm.add(fVar);
-            this.fHn.add(this.stageLiveInfo.fED.liveId);
+            fVar.fEG = this.stageLiveInfo;
+            this.fHq.add(fVar);
+            this.fHr.add(this.stageLiveInfo.fEH.liveId);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<q> bGp = bGp();
-            if (!y.isEmpty(bGp)) {
-                this.fHm.addAll(bGp);
+            ArrayList<q> bGq = bGq();
+            if (!y.isEmpty(bGq)) {
+                this.fHq.addAll(bGq);
             }
         }
-        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.fEv)) {
+        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.fEz)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.fEx = this.officialRecommendLiveInfo;
-            this.fHm.add(cVar);
+            cVar.fEB = this.officialRecommendLiveInfo;
+            this.fHq.add(cVar);
         }
-        this.dataList = new ArrayList(this.fHm);
+        this.dataList = new ArrayList(this.fHq);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<q> bGp() {
-        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.fEv;
+    private ArrayList<q> bGq() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.fEz;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -65,9 +65,9 @@ public class b {
         for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.liveId;
-                if (!this.fHn.contains(str)) {
+                if (!this.fHr.contains(str)) {
                     arrayList2.add(sdkLiveInfoData);
-                    this.fHn.add(str);
+                    this.fHr.add(str);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class b {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.fEv;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.fEz;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -100,18 +100,18 @@ public class b {
             SdkLiveInfoData next = it.next();
             if (next != null) {
                 String str = next.liveId;
-                if (!this.fHn.contains(str)) {
+                if (!this.fHr.contains(str)) {
                     arrayList2.add(next);
-                    this.fHn.add(str);
+                    this.fHr.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.fHk.addAll(arrayList2);
-        this.fHl = bC(this.fHk);
-        return !y.isEmpty(this.fHl);
+        this.fHo.addAll(arrayList2);
+        this.fHp = bC(this.fHo);
+        return !y.isEmpty(this.fHp);
     }
 
     private ArrayList<q> bC(List<SdkLiveInfoData> list) {
@@ -120,17 +120,17 @@ public class b {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.fCu = list.get(i);
+            aVar.fCy = list.get(i);
             aVar.isLeft = true;
-            eVar.fEz = aVar;
+            eVar.fED = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.fCu = list.get(i + 1);
-                eVar.fEA = aVar2;
+                aVar2.fCy = list.get(i + 1);
+                eVar.fEE = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.fCv = true;
+                aVar.fCz = true;
             }
             arrayList.add(eVar);
         }
@@ -146,8 +146,8 @@ public class b {
         if (!y.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!y.isEmpty(this.fHl)) {
-            arrayList.addAll(this.fHl);
+        if (!y.isEmpty(this.fHp)) {
+            arrayList.addAll(this.fHp);
         }
         return arrayList;
     }
@@ -157,20 +157,20 @@ public class b {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.fHm != null) {
-            this.fHm.clear();
+        if (this.fHq != null) {
+            this.fHq.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.fHn != null) {
-            this.fHn.clear();
+        if (this.fHr != null) {
+            this.fHr.clear();
         }
-        if (this.fHk != null) {
-            this.fHk.clear();
+        if (this.fHo != null) {
+            this.fHo.clear();
         }
-        if (this.fHl != null) {
-            this.fHl.clear();
+        if (this.fHp != null) {
+            this.fHp.clear();
         }
     }
 }

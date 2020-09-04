@@ -13,13 +13,13 @@ import org.b.c;
 import org.b.d;
 /* loaded from: classes7.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int ooJ;
+    final int opb;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int eff() {
-        return this.ooJ;
+    public int efo() {
+        return this.opb;
     }
 
     @Override // io.reactivex.parallel.a

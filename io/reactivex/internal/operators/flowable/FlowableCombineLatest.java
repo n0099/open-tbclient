@@ -15,19 +15,19 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.b.b<? extends T>[] omL;
-    final Iterable<? extends org.b.b<? extends T>> omM;
+    final org.b.b<? extends T>[] ond;
+    final Iterable<? extends org.b.b<? extends T>> onf;
 
     @Override // io.reactivex.g
     public void a(org.b.c<? super R> cVar) {
         int length;
         org.b.b<? extends T>[] bVarArr;
         org.b.b<? extends T>[] bVarArr2;
-        org.b.b<? extends T>[] bVarArr3 = this.omL;
+        org.b.b<? extends T>[] bVarArr3 = this.ond;
         if (bVarArr3 == null) {
             org.b.b<? extends T>[] bVarArr4 = new org.b.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.omM.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.k(this.onf.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {

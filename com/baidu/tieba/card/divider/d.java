@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes15.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a.a<f>> {
-    private f hod;
+    private f hoh;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
@@ -25,16 +25,16 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aK */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
-        this.hod = new f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a(this.hod);
+        this.hoh = new f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a(this.hoh);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar == null || aVar.ccE() == null) {
+        if (aVar == null || aVar.ccF() == null) {
             return null;
         }
-        aVar.ccE().a(eVar);
+        aVar.ccF().a(eVar);
         return aVar.getView();
     }
 }

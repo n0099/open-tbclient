@@ -7,8 +7,8 @@ import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 /* loaded from: classes8.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    private int cMG;
-    private boolean cMH;
+    private int cMK;
+    private boolean cML;
     public boolean isInited;
 
     public HeaderRefreshIndicator(Context context) {
@@ -18,14 +18,14 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isInited = false;
-        this.cMG = -1;
-        this.cMH = false;
+        this.cMK = -1;
+        this.cML = false;
     }
 
     public void Wy() {
         if (!this.isInited) {
             this.isInited = true;
-            this.cMH = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
+            this.cML = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
             ayL();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
@@ -35,9 +35,9 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public void ayK() {
         boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
-        if (this.cMH != nightModeSwitcherState) {
+        if (this.cML != nightModeSwitcherState) {
             ayL();
-            this.cMH = nightModeSwitcherState;
+            this.cML = nightModeSwitcherState;
         }
     }
 

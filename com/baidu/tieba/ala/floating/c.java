@@ -4,22 +4,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
-    private JSONObject fWb;
-    private JSONObject fWg;
+    private JSONObject fWf;
+    private JSONObject fWk;
 
     public void dj(JSONObject jSONObject) {
-        this.fWb = jSONObject;
+        this.fWf = jSONObject;
     }
 
     public void dk(JSONObject jSONObject) {
-        this.fWg = jSONObject;
+        this.fWk = jSONObject;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("extra", this.fWb);
-            jSONObject.put("src", this.fWg);
+            jSONObject.put("extra", this.fWf);
+            jSONObject.put("src", this.fWk);
         } catch (JSONException e) {
             e.printStackTrace();
         }

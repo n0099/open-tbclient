@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes7.dex */
 public class b implements a {
-    private final String oCY;
+    private final String oDq;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.oCY = str;
+        this.oDq = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean WA(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.oCY.equals(str2)) {
+            if (this.oDq.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String ejy() {
-        return this.oCY;
+    public String ejH() {
+        return this.oDq;
     }
 
     @Override // org.java_websocket.d.a
-    public a ejz() {
-        return new b(ejy());
+    public a ejI() {
+        return new b(ejH());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return ejy();
+        return ejH();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.oCY.equals(((b) obj).oCY);
+        return this.oDq.equals(((b) obj).oDq);
     }
 
     public int hashCode() {
-        return this.oCY.hashCode();
+        return this.oDq.hashCode();
     }
 }

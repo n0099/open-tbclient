@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.d;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a();

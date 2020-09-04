@@ -31,25 +31,25 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes16.dex */
 public class a {
-    private View htD;
-    private ImageView hwA;
-    private ImageView hwB;
-    private String hwC;
-    private com.baidu.tieba.enterForum.hotuserrank.a.a hwD;
-    private TextView hwm;
-    private TextView hwn;
-    private TextView hwo;
-    private ImageView hwp;
-    private ImageView hwq;
-    private ImageView hwr;
-    private ImageView hws;
-    private ImageView hwt;
-    private IrregularImageView hwu;
-    private TextView hwv;
-    private RelativeLayout hww;
+    private View htJ;
+    private IrregularImageView hwA;
+    private TextView hwB;
+    private RelativeLayout hwC;
+    private ImageView hwD;
+    private TextView hwE;
+    private ImageOverlayView hwF;
+    private ImageView hwG;
+    private ImageView hwH;
+    private String hwI;
+    private com.baidu.tieba.enterForum.hotuserrank.a.a hwJ;
+    private TextView hws;
+    private TextView hwt;
+    private TextView hwu;
+    private ImageView hwv;
+    private ImageView hww;
     private ImageView hwx;
-    private TextView hwy;
-    private ImageOverlayView hwz;
+    private ImageView hwy;
+    private ImageView hwz;
     private final String mCategory;
     private final long mForumId;
     private View mRootView;
@@ -57,18 +57,18 @@ public class a {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == a.this.htD.getId() && a.this.hwD != null && a.this.hwD.hxA != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.mRootView.getContext(), a.this.hwD.hxA.getUserId(), a.this.hwD.hxA.getName_show())));
+            if (view.getId() == a.this.htJ.getId() && a.this.hwJ != null && a.this.hwJ.hxG != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(a.this.mRootView.getContext(), a.this.hwJ.hxG.getUserId(), a.this.hwJ.hxG.getName_show())));
                 if (!TextUtils.isEmpty(a.this.mCategory)) {
                     aq aqVar = new aq("c13659");
                     aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
-                    aqVar.dD("resource_id", a.this.hwD.hxy);
-                    aqVar.dD("friend_uid", a.this.hwD.hxA.rankNum);
+                    aqVar.dD("resource_id", a.this.hwJ.hxE);
+                    aqVar.dD("friend_uid", a.this.hwJ.hxG.rankNum);
                     TiebaStatic.log(aqVar);
                     return;
                 }
                 aq aqVar2 = new aq("c13683");
-                aqVar2.dD("uid", a.this.hwD.hxA.getUserId());
+                aqVar2.dD("uid", a.this.hwJ.hxG.getUserId());
                 aqVar2.u("fid", a.this.mForumId);
                 TiebaStatic.log(aqVar2);
             }
@@ -79,28 +79,28 @@ public class a {
         this.mRootView = view;
         this.mCategory = str;
         this.mForumId = j;
-        this.htD = view.findViewById(R.id.top_container);
-        this.htD.setOnClickListener(this.mOnClickListener);
-        this.hwm = (TextView) view.findViewById(R.id.rank_name);
-        this.hwm.getPaint().setFakeBoldText(true);
-        this.hwn = (TextView) view.findViewById(R.id.top_user_name);
-        this.hwo = (TextView) view.findViewById(R.id.rank_data);
-        this.hwp = (ImageView) view.findViewById(R.id.img_left_top_cover);
-        this.hwq = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
-        this.hwr = (ImageView) view.findViewById(R.id.img_center_top_cover);
-        this.hws = (ImageView) view.findViewById(R.id.img_right_top_cover);
-        this.hwt = (ImageView) view.findViewById(R.id.img_right_bottom_cover);
-        this.hwu = (IrregularImageView) view.findViewById(R.id.img_user_head);
-        this.hwu.setErrorRes(R.drawable.pic_list_avatar);
-        this.hwp.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_rule_line100, 1, false));
-        this.hwq.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_circle, 1, false));
-        this.hwr.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_line, 1, false));
-        this.hws.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_circle2, 1, false));
-        this.hwt.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_line2, 1, false));
-        this.hwv = (TextView) view.findViewById(R.id.text_compute_method);
-        this.hwv.setText(this.mRootView.getResources().getString(R.string.hot_user_rank_influence_desc));
-        this.hww = (RelativeLayout) view.findViewById(R.id.hot_rank_entry);
-        this.hww.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.a.1
+        this.htJ = view.findViewById(R.id.top_container);
+        this.htJ.setOnClickListener(this.mOnClickListener);
+        this.hws = (TextView) view.findViewById(R.id.rank_name);
+        this.hws.getPaint().setFakeBoldText(true);
+        this.hwt = (TextView) view.findViewById(R.id.top_user_name);
+        this.hwu = (TextView) view.findViewById(R.id.rank_data);
+        this.hwv = (ImageView) view.findViewById(R.id.img_left_top_cover);
+        this.hww = (ImageView) view.findViewById(R.id.img_left_bottom_cover);
+        this.hwx = (ImageView) view.findViewById(R.id.img_center_top_cover);
+        this.hwy = (ImageView) view.findViewById(R.id.img_right_top_cover);
+        this.hwz = (ImageView) view.findViewById(R.id.img_right_bottom_cover);
+        this.hwA = (IrregularImageView) view.findViewById(R.id.img_user_head);
+        this.hwA.setErrorRes(R.drawable.pic_list_avatar);
+        this.hwv.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_rule_line100, 1, false));
+        this.hww.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_circle, 1, false));
+        this.hwx.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_line, 1, false));
+        this.hwy.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_circle2, 1, false));
+        this.hwz.setImageDrawable(SvgManager.bjq().i(R.drawable.svg_pic_mask_list_line2, 1, false));
+        this.hwB = (TextView) view.findViewById(R.id.text_compute_method);
+        this.hwB.setText(this.mRootView.getResources().getString(R.string.hot_user_rank_influence_desc));
+        this.hwC = (RelativeLayout) view.findViewById(R.id.hot_rank_entry);
+        this.hwC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (a.this.mForumId > 0) {
@@ -109,48 +109,48 @@ public class a {
                     TiebaStatic.log(aqVar);
                 }
                 HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(a.this.mRootView.getContext());
-                hotUserRankActivityConfig.setCategory(a.this.hwC);
+                hotUserRankActivityConfig.setCategory(a.this.hwI);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
             }
         });
-        this.hwx = (ImageView) view.findViewById(R.id.hot_rank_entry_crown);
-        this.hwy = (TextView) view.findViewById(R.id.hot_rank_entry_describe);
-        this.hwB = (ImageView) view.findViewById(R.id.hot_rank_entry_first_tag);
-        this.hwz = (ImageOverlayView) view.findViewById(R.id.hot_rank_entry_image_group);
+        this.hwD = (ImageView) view.findViewById(R.id.hot_rank_entry_crown);
+        this.hwE = (TextView) view.findViewById(R.id.hot_rank_entry_describe);
+        this.hwH = (ImageView) view.findViewById(R.id.hot_rank_entry_first_tag);
+        this.hwF = (ImageOverlayView) view.findViewById(R.id.hot_rank_entry_image_group);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds82);
-        this.hwz.j(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.cp_mask_c_alpha50, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds25));
-        this.hwz.setStrokeStyle(1);
-        this.hwz.setFirstImageStrokeColor(R.color.cp_other_h);
-        this.hwz.setLoadImageType(12);
-        this.hwA = (ImageView) view.findViewById(R.id.hot_rank_entry_arrow);
+        this.hwF.j(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.cp_mask_c_alpha50, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds25));
+        this.hwF.setStrokeStyle(1);
+        this.hwF.setFirstImageStrokeColor(R.color.cp_other_h);
+        this.hwF.setLoadImageType(12);
+        this.hwG = (ImageView) view.findViewById(R.id.hot_rank_entry_arrow);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void a(com.baidu.tieba.enterForum.hotuserrank.a.a aVar, boolean z) {
-        this.hwD = aVar;
+        this.hwJ = aVar;
         if (aVar != null) {
-            this.hwm.setText(aVar.hxy);
-            if (aVar.hxA != null) {
-                String str = aVar.hxz;
-                if (ae.getTextLengthWithEmoji(aVar.hxz) > 10) {
-                    str = ae.subStringWithEmoji(aVar.hxz, 10) + StringHelper.STRING_MORE;
+            this.hws.setText(aVar.hxE);
+            if (aVar.hxG != null) {
+                String str = aVar.hxF;
+                if (ae.getTextLengthWithEmoji(aVar.hxF) > 10) {
+                    str = ae.subStringWithEmoji(aVar.hxF, 10) + StringHelper.STRING_MORE;
                 }
-                this.hwn.setText(String.format(this.mRootView.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
+                this.hwt.setText(String.format(this.mRootView.getContext().getResources().getString(R.string.hot_user_rank_top_name), str));
             }
-            if (aVar.hxB == 0) {
-                this.hwo.setVisibility(8);
+            if (aVar.hxH == 0) {
+                this.hwu.setVisibility(8);
             } else {
-                this.hwo.setVisibility(0);
-                this.hwo.setText(String.format(this.mRootView.getContext().getString(R.string.hot_user_rank_data), at.cK(aVar.hxB * 1000)));
+                this.hwu.setVisibility(0);
+                this.hwu.setText(String.format(this.mRootView.getContext().getString(R.string.hot_user_rank_data), at.cK(aVar.hxH * 1000)));
             }
-            this.hwu.setImage(aVar.hxC, eU(this.mRootView.getContext()), R.drawable.mask_list_avatar);
-            if (aVar.hxD != null && !z && !TextUtils.isEmpty(aVar.hxD.tieba_name)) {
-                this.hww.setVisibility(0);
-                this.hwy.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.hxD.tieba_name));
-                List<String> cj = cj(aVar.hxD.user_rank);
-                this.hwz.setData(cj);
+            this.hwA.setImage(aVar.hxI, eU(this.mRootView.getContext()), R.drawable.mask_list_avatar);
+            if (aVar.hxJ != null && !z && !TextUtils.isEmpty(aVar.hxJ.tieba_name)) {
+                this.hwC.setVisibility(0);
+                this.hwE.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.cat_hot_rank), aVar.hxJ.tieba_name));
+                List<String> cj = cj(aVar.hxJ.user_rank);
+                this.hwF.setData(cj);
                 ck(cj);
-                this.hwC = aVar.hxD.tieba_name;
+                this.hwI = aVar.hxJ.tieba_name;
                 if (this.mForumId > 0) {
                     aq aqVar = new aq("c13670");
                     aqVar.u("fid", this.mForumId);
@@ -159,7 +159,7 @@ public class a {
                 }
                 return;
             }
-            this.hww.setVisibility(8);
+            this.hwC.setVisibility(8);
         }
     }
 
@@ -179,28 +179,28 @@ public class a {
     private void ck(List<String> list) {
         int count = y.getCount(list);
         if (count == 0) {
-            this.hwB.setVisibility(8);
+            this.hwH.setVisibility(8);
             return;
         }
-        this.hwB.setVisibility(0);
+        this.hwH.setVisibility(0);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds267);
         if (count < 3) {
             int dimensionPixelOffset2 = dimensionPixelOffset - ((3 - count) * TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57));
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hwB.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hwH.getLayoutParams();
             layoutParams.rightMargin = dimensionPixelOffset2;
-            this.hwB.setLayoutParams(layoutParams);
+            this.hwH.setLayoutParams(layoutParams);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.hwv, R.color.cp_cont_d);
-            SvgManager.bjq().a(this.hwx, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bjq().a(this.hwB, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bjq().a(this.hwA, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
-            ap.setViewTextColor(this.hwy, R.color.cp_cont_b);
-            this.hwz.onChangeSkinType();
+            ap.setViewTextColor(this.hwB, R.color.cp_cont_d);
+            SvgManager.bjq().a(this.hwD, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.hwH, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.hwG, R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, SvgManager.SvgResourceStateType.NORMAL);
+            ap.setViewTextColor(this.hwE, R.color.cp_cont_b);
+            this.hwF.onChangeSkinType();
         }
     }
 

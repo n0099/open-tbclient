@@ -14,7 +14,7 @@ public interface b {
 
     boolean a(AlaLiveUserInfoData alaLiveUserInfoData, e eVar);
 
-    void cH(boolean z);
+    void cI(boolean z);
 
     void t(int i, String str);
 

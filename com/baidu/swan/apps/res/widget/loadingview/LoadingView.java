@@ -11,7 +11,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 /* loaded from: classes8.dex */
 public class LoadingView extends FrameLayout implements b<LoadingView> {
-    private SmoothProgressBar cPz;
+    private SmoothProgressBar cPD;
     private TextView mMsg;
     private View mRootView;
 
@@ -33,7 +33,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     protected void init() {
         LayoutInflater.from(getContext()).inflate(a.g.aiapps_loading_layout, (ViewGroup) this, true);
         this.mRootView = findViewById(a.f.root_container);
-        this.cPz = (SmoothProgressBar) findViewById(a.f.loading_bar);
+        this.cPD = (SmoothProgressBar) findViewById(a.f.loading_bar);
         this.mMsg = (TextView) findViewById(a.f.message);
         setPageResources();
     }
@@ -56,8 +56,8 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         if (this.mRootView != null) {
             this.mRootView.setBackground(this.mRootView.getResources().getDrawable(a.e.aiapps_loading_bg));
         }
-        if (this.cPz != null) {
-            this.cPz.setIndeterminateDrawable(this.cPz.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
+        if (this.cPD != null) {
+            this.cPD.setIndeterminateDrawable(this.cPD.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
         }
         if (this.mMsg != null) {
             this.mMsg.setTextColor(this.mMsg.getResources().getColor(a.c.aiapps_loading_text_color));

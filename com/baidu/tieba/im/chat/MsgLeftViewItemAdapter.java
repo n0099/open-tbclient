@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     private boolean mNeedShowName;
 
@@ -15,7 +15,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void qf(boolean z) {
+    public void qh(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -33,24 +33,24 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgleftView cBS = aVar.cBS();
-        cBS.AK(this.jfJ);
-        cBS.qf(this.mNeedShowName);
+        MsgleftView cBT = aVar.cBT();
+        cBT.AK(this.jfP);
+        cBT.qh(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cBS.a(this.jfA);
-        cBS.setOnItemViewLongClickListener(this.jfB);
-        cBS.setPosition(i);
-        cBS.eY(this.fwM);
-        cBS.eX(chatMessage.getCacheData().getLastMsgTime());
-        cBS.a(viewGroup, chatMessage);
-        cBS.b(viewGroup, chatMessage);
+        cBT.a(this.jfG);
+        cBT.setOnItemViewLongClickListener(this.jfH);
+        cBT.setPosition(i);
+        cBT.eY(this.fwQ);
+        cBT.eX(chatMessage.getCacheData().getLastMsgTime());
+        cBT.a(viewGroup, chatMessage);
+        cBT.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends e.a<MsgleftView> {
         public a(View view, MsgleftView msgleftView) {
             super(view, msgleftView);

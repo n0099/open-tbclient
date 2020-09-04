@@ -3,7 +3,7 @@ package com.baidu.media.duplayer;
 public class d {
     private int a;
     private String b;
-    private a bAH;
+    private a bAK;
     private String c;
     private String d;
 
@@ -17,16 +17,16 @@ public class d {
         this.a = i;
         this.b = str;
         this.c = str2;
-        this.bAH = a.LIB_TYPE_SO;
+        this.bAK = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bAH = aVar;
+        this.bAK = aVar;
     }
 
     public a SQ() {
-        return this.bAH;
+        return this.bAK;
     }
 
     public String a() {

@@ -5,7 +5,7 @@ import com.baidu.adp.base.e;
 import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static VoiceManager fH(Context context) {
         TbPageContext tbPageContext;

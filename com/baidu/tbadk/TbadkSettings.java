@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import android.content.SharedPreferences;
 import com.baidu.tbadk.core.sharedPref.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbadkSettings {
     private static TbadkSettings mSettings = new TbadkSettings();
     protected SharedPreferences sp;

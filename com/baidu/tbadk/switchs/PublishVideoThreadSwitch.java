@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PublishVideoThreadSwitch extends a {
     public static final int MOTU = 1;
     public static final String PUBLISH_VIDEO_THREAD_KEY = "add_video_thread_switch";

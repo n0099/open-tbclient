@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 import tbclient.OriForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class OriginalForumInfo implements Serializable {
     public String id;
     public String ori_avatar;

@@ -14,7 +14,7 @@ import java.util.Set;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File dwZ;
+    private File dxd;
     private SharedPreferences mPref;
 
     public b() {
@@ -24,9 +24,9 @@ public class b {
         }
         if (aPr != null) {
             this.mPref = com.baidu.swan.apps.t.a.aoJ().getSharedPreferences(aPr, 0);
-            this.dwZ = new File(aPv(), aPr + ".xml");
+            this.dxd = new File(aPv(), aPr + ".xml");
         }
-        e.dai.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
+        e.dam.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.am.c.a
             /* renamed from: aCT */
@@ -50,8 +50,8 @@ public class b {
     }
 
     public long aCR() {
-        if (this.dwZ != null) {
-            return this.dwZ.length();
+        if (this.dxd != null) {
+            return this.dxd.length();
         }
         return 0L;
     }
@@ -97,15 +97,15 @@ public class b {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
-    public static void vQ(String str) {
-        vR(String.format("aigame_storage_%s_anonymous", str, ""));
+    public static void vR(String str) {
+        vS(String.format("aigame_storage_%s_anonymous", str, ""));
     }
 
     public static void aPw() {
-        vR("aigame_storage_");
+        vS("aigame_storage_");
     }
 
-    private static void vR(String str) {
+    private static void vS(String str) {
         File[] listFiles;
         if (str != null && str.startsWith("aigame_storage_") && (listFiles = aPv().listFiles()) != null) {
             for (File file : listFiles) {

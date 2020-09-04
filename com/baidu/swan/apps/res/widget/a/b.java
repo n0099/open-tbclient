@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes8.dex */
 public class b {
-    protected a cPF;
+    protected a cPJ;
     protected boolean mChecked;
     protected Context mContext;
     protected boolean mEnabled;
@@ -48,6 +48,6 @@ public class b {
     }
 
     public a azw() {
-        return this.cPF;
+        return this.cPJ;
     }
 }

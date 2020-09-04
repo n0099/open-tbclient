@@ -1,18 +1,18 @@
 package com.baidu.h.a.b.a;
 /* loaded from: classes18.dex */
 public class c {
-    public String bwC;
-    public String bwD;
-    public String bwE;
+    public String bwF;
+    public String bwG;
     public String bwH;
-    public C0131c bwJ;
     public String bwK;
-    public String bwM;
+    public C0131c bwM;
+    public String bwN;
     public String bwP;
-    public String bwQ;
-    public C0131c bwR;
-    public a bwS;
+    public String bwS;
     public String bwT;
+    public C0131c bwU;
+    public a bwV;
+    public String bwW;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String bwF = "0";
-    public String bwG = "1005";
     public String bwI = "0";
+    public String bwJ = "1005";
     public String bwL = "0";
-    public String bwN = "0";
-    public String bwO = "1005";
+    public String bwO = "0";
+    public String bwQ = "0";
+    public String bwR = "1005";
 
     /* loaded from: classes18.dex */
     public static class a {
-        public int bxb;
-        public int bxc;
-        public c bxd;
-        public long[] bxe;
+        public int bxe;
         public int bxf;
-        public String bxg;
-        public String bxh;
+        public c bxg;
+        public long[] bxh;
+        public int bxi;
+        public String bxj;
+        public String bxk;
         public int feedback = 0;
-        public String bwU = "";
-        public int bwV = 0;
-        public String duration = "";
-        public String bwW = "";
         public String bwX = "";
-        public String bwY = "";
+        public int bwY = 0;
+        public String duration = "";
         public String bwZ = "";
         public String bxa = "";
+        public String bxb = "";
+        public String bxc = "";
+        public String bxd = "";
     }
 
     /* loaded from: classes18.dex */
@@ -56,16 +56,16 @@ public class c {
     /* renamed from: com.baidu.h.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     public static class C0131c {
-        public e bxi;
-        public d bxj;
-        public f bxk;
-        public b bxl;
+        public e bxl;
+        public d bxm;
+        public f bxn;
+        public b bxo;
     }
 
     /* loaded from: classes18.dex */
     public static class d {
-        public a bxm;
-        public a bxn;
+        public a bxp;
+        public a bxq;
 
         /* loaded from: classes18.dex */
         public static class a {
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.bwC + "}";
+        return "LiveMessageBean:{" + this.bwF + "}";
     }
 }

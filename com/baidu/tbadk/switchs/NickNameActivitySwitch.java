@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NickNameActivitySwitch extends a {
     public static final String NICK_NAME_ACTIVITY = "nickname_activity";
     public static final int OFF_TYPE = 0;

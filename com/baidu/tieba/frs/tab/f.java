@@ -18,9 +18,9 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class f implements a {
-    private BdListView irR;
-    private e irS;
-    private e.b irw;
+    private e.b irC;
+    private BdListView irX;
+    private e irY;
     private Context mContext;
     private List<bf> mData;
     private final BaseAdapter mAdapter = new BaseAdapter() { // from class: com.baidu.tieba.frs.tab.f.1
@@ -30,33 +30,33 @@ public class f implements a {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.tab_item_menu_item_view, (ViewGroup) null);
                 view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.ds80)));
                 e.c cVar = new e.c();
-                cVar.dzi = (TextView) view.findViewById(R.id.tab_menu_name);
-                cVar.irO = (ImageView) view.findViewById(R.id.tab_menu_check);
-                cVar.irP = view.findViewById(R.id.tab_menu_line_s);
-                cVar.irQ = view.findViewById(R.id.tab_menu_line_f);
+                cVar.dzm = (TextView) view.findViewById(R.id.tab_menu_name);
+                cVar.irU = (ImageView) view.findViewById(R.id.tab_menu_check);
+                cVar.irV = view.findViewById(R.id.tab_menu_line_s);
+                cVar.irW = view.findViewById(R.id.tab_menu_line_f);
                 view.setTag(cVar);
             }
             ap.setBackgroundResource(view, R.color.cp_bg_line_d);
             e.c cVar2 = (e.c) view.getTag();
             bf item = getItem(i);
             if (item != null) {
-                cVar2.dzi.setText(item.name);
+                cVar2.dzm.setText(item.name);
                 if (item.isSelected) {
-                    ap.setViewTextColor(cVar2.dzi, R.color.cp_link_tip_a, 1);
-                    ap.setImageResource(cVar2.irO, R.drawable.chx_tips_list_ok);
-                    cVar2.irO.setVisibility(0);
+                    ap.setViewTextColor(cVar2.dzm, R.color.cp_link_tip_a, 1);
+                    ap.setImageResource(cVar2.irU, R.drawable.chx_tips_list_ok);
+                    cVar2.irU.setVisibility(0);
                 } else {
-                    ap.setViewTextColor(cVar2.dzi, R.color.cp_cont_c, 1);
-                    cVar2.irO.setVisibility(8);
+                    ap.setViewTextColor(cVar2.dzm, R.color.cp_cont_c, 1);
+                    cVar2.irU.setVisibility(8);
                 }
                 if (i >= 0 && i == getCount() - 1) {
-                    cVar2.irQ.setVisibility(0);
-                    cVar2.irP.setVisibility(8);
-                    ap.setBackgroundColor(cVar2.irQ, R.color.cp_bg_line_c);
+                    cVar2.irW.setVisibility(0);
+                    cVar2.irV.setVisibility(8);
+                    ap.setBackgroundColor(cVar2.irW, R.color.cp_bg_line_c);
                 } else {
-                    cVar2.irP.setVisibility(0);
-                    cVar2.irQ.setVisibility(8);
-                    ap.setBackgroundColor(cVar2.irP, R.color.cp_bg_line_c);
+                    cVar2.irV.setVisibility(0);
+                    cVar2.irW.setVisibility(8);
+                    ap.setBackgroundColor(cVar2.irV, R.color.cp_bg_line_c);
                 }
             }
             return view;
@@ -88,10 +88,10 @@ public class f implements a {
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.tab.f.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (f.this.irS != null) {
-                f.this.irS.dismissMenu();
+            if (f.this.irY != null) {
+                f.this.irY.dismissMenu();
             }
-            if (f.this.mAdapter != null && f.this.irw != null) {
+            if (f.this.mAdapter != null && f.this.irC != null) {
                 for (bf bfVar : f.this.mData) {
                     if (bfVar != null) {
                         bfVar.isSelected = false;
@@ -100,29 +100,29 @@ public class f implements a {
                 bf bfVar2 = (bf) f.this.mAdapter.getItem(i);
                 if (bfVar2 != null) {
                     bfVar2.isSelected = true;
-                    f.this.irw.yB(bfVar2.hXn);
+                    f.this.irC.yB(bfVar2.hXt);
                 }
             }
         }
     };
 
     private void initView() {
-        this.irR = new BdListView(this.mContext);
-        this.irR.setAlwaysDrawnWithCacheEnabled(false);
-        this.irR.setDivider(null);
-        this.irR.setDividerHeight(0);
-        this.irR.setSelector(17170445);
-        this.irR.setCacheColorHint(this.mContext.getResources().getColor(17170445));
-        this.irR.setOnItemClickListener(this.mOnItemClickListener);
-        this.irR.setAdapter((ListAdapter) this.mAdapter);
+        this.irX = new BdListView(this.mContext);
+        this.irX.setAlwaysDrawnWithCacheEnabled(false);
+        this.irX.setDivider(null);
+        this.irX.setDividerHeight(0);
+        this.irX.setSelector(17170445);
+        this.irX.setCacheColorHint(this.mContext.getResources().getColor(17170445));
+        this.irX.setOnItemClickListener(this.mOnItemClickListener);
+        this.irX.setAdapter((ListAdapter) this.mAdapter);
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.irS = eVar;
-            this.irw = eVar.csz();
+            this.irY = eVar;
+            this.irC = eVar.csA();
             initView();
         }
     }
@@ -135,11 +135,11 @@ public class f implements a {
 
     @Override // com.baidu.tieba.frs.tab.a
     public View getView() {
-        return this.irR;
+        return this.irX;
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int csx() {
+    public int csy() {
         return 0;
     }
 }

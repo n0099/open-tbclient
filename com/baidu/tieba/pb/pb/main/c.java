@@ -8,11 +8,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class c extends com.baidu.tbadk.widget.richText.a {
-    private static double kzA = 0.5d;
+    private static double kzH = 0.5d;
 
     public c(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        jW(true);
+        jY(true);
         setSupportNoImage();
         setLineSpacing(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds15), 1.0f);
         rj(0);
@@ -21,10 +21,10 @@ public class c extends com.baidu.tbadk.widget.richText.a {
         br(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         bs(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
         rm(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds14));
-        this.feB = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.feC = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        this.feD = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        this.ajz = new TbImageView.c() { // from class: com.baidu.tieba.pb.pb.main.c.1
+        this.feF = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.feG = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        this.feH = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.ajB = new TbImageView.c() { // from class: com.baidu.tieba.pb.pb.main.c.1
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -32,10 +32,10 @@ public class c extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a Cl = com.baidu.tbadk.imageManager.c.bsW().Cl(com.baidu.adp.lib.e.c.mM().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
-                    if (Cl != null) {
-                        i2 = Cl.getWidth();
-                        i = Cl.getHeight();
+                    com.baidu.adp.widget.ImageView.a Cm = com.baidu.tbadk.imageManager.c.bsX().Cm(com.baidu.adp.lib.e.c.mM().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
+                    if (Cm != null) {
+                        i2 = Cm.getWidth();
+                        i = Cm.getHeight();
                     } else {
                         i = 0;
                     }
@@ -64,18 +64,18 @@ public class c extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.feq || fec <= 1.0f) {
+        if (!this.feu || feg <= 1.0f) {
             i3 = i;
         } else {
-            if (i * fec <= i3 * kzA) {
-                i3 = (int) (i * fec);
+            if (i * feg <= i3 * kzH) {
+                i3 = (int) (i * feg);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.feo = ImageView.ScaleType.MATRIX;
+                this.fes = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.feo = ImageView.ScaleType.CENTER_CROP;
+                this.fes = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

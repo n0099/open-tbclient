@@ -19,12 +19,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i extends Dialog {
     private Context context;
-    private com.baidu.adp.base.e efK;
-    private float efL;
-    private k efM;
+    private com.baidu.adp.base.e efO;
+    private float efP;
+    private k efQ;
     private boolean isDismissing;
     private boolean isShowing;
     protected View mContentView;
@@ -33,48 +33,48 @@ public class i extends Dialog {
 
     public i(com.baidu.adp.base.e eVar, k kVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.efL = 0.3f;
+        this.efP = 0.3f;
         this.isDismissing = false;
         this.isShowing = false;
         this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.efM != null) {
-                    i.this.efM.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.efQ != null) {
+                    i.this.efQ.onChangeSkinType();
                 }
             }
         };
-        this.efK = eVar;
+        this.efO = eVar;
         this.context = eVar.getPageActivity();
-        this.efM = kVar;
+        this.efQ = kVar;
         this.mContentView = kVar.bhw();
     }
 
     public i(com.baidu.adp.base.e eVar) {
         super(eVar.getPageActivity(), 16973835);
-        this.efL = 0.3f;
+        this.efP = 0.3f;
         this.isDismissing = false;
         this.isShowing = false;
         this.skinChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.core.dialog.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.efM != null) {
-                    i.this.efM.onChangeSkinType();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && i.this.efQ != null) {
+                    i.this.efQ.onChangeSkinType();
                 }
             }
         };
         this.context = eVar.getPageActivity();
-        this.efK = eVar;
+        this.efO = eVar;
     }
 
     public void U(float f) {
-        this.efL = f;
+        this.efP = f;
     }
 
     public void a(k kVar) {
-        this.efM = kVar;
+        this.efQ = kVar;
         this.mContentView = kVar.bhw();
     }
 
@@ -84,18 +84,18 @@ public class i extends Dialog {
     }
 
     public void a(String str, String[] strArr, k.c cVar) {
-        this.efM = new k(this.context);
+        this.efQ = new k(this.context);
         if (!StringUtils.isNull(str)) {
-            this.efM.setTitleText(str);
+            this.efQ.setTitleText(str);
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < strArr.length; i++) {
-            arrayList.add(new g(i, strArr[i], this.efM));
+            arrayList.add(new g(i, strArr[i], this.efQ));
         }
-        this.efM.aT(arrayList);
-        this.efM.a(cVar);
+        this.efQ.aT(arrayList);
+        this.efQ.a(cVar);
         setCanceledOnTouchOutside(true);
-        this.mContentView = this.efM.bhw();
+        this.mContentView = this.efQ.bhw();
     }
 
     @Override // android.app.Dialog
@@ -108,7 +108,7 @@ public class i extends Dialog {
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
-        getWindow().setDimAmount(this.efL);
+        getWindow().setDimAmount(this.efP);
         getWindow().setGravity(80);
         getWindow().setWindowAnimations(0);
         setCanceledOnTouchOutside(true);
@@ -139,7 +139,7 @@ public class i extends Dialog {
         if (isShowing()) {
             super.dismiss();
         }
-        com.baidu.adp.lib.f.g.a(this, this.efK);
+        com.baidu.adp.lib.f.g.a(this, this.efO);
         if (this.mRootView != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_enter_anim);
             loadAnimation.setFillAfter(true);
@@ -165,7 +165,7 @@ public class i extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         super.show();
-        this.efK.registerListener(this.skinChangeListener);
+        this.efO.registerListener(this.skinChangeListener);
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -185,8 +185,8 @@ public class i extends Dialog {
                     i.this.mRootView.post(new Runnable() { // from class: com.baidu.tbadk.core.dialog.i.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (i.this.efK != null && i.this.efK.getPageActivity() != null) {
-                                Activity pageActivity = i.this.efK.getPageActivity();
+                            if (i.this.efO != null && i.this.efO.getPageActivity() != null) {
+                                Activity pageActivity = i.this.efO.getPageActivity();
                                 if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
                                     i.super.dismiss();
                                 }

@@ -8,12 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class GetArStickerListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public static String fxC = "live_face";
-    public List<FuFaceItem> fxB;
+    public static String fxG = "live_face";
+    public List<FuFaceItem> fxF;
 
     public GetArStickerListHttpResponseMessage() {
         super(1021155);
-        this.fxB = null;
+        this.fxF = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,21 +26,21 @@ public class GetArStickerListHttpResponseMessage extends JsonHttpResponsedMessag
             }
             if (opt != null && (opt instanceof JSONArray)) {
                 JSONArray jSONArray = (JSONArray) opt;
-                if (this.fxB == null) {
-                    this.fxB = new ArrayList();
+                if (this.fxF == null) {
+                    this.fxF = new ArrayList();
                 } else {
-                    this.fxB.clear();
+                    this.fxF.clear();
                 }
                 FuFaceItem fuFaceItem = new FuFaceItem();
                 fuFaceItem.isCancelItem = true;
                 fuFaceItem.getSticker().setId("cancelItem");
-                if (this.fxB != null) {
-                    this.fxB.add(fuFaceItem);
+                if (this.fxF != null) {
+                    this.fxF.add(fuFaceItem);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                         FuFaceItem fuFaceItem2 = new FuFaceItem();
                         fuFaceItem2.parse(optJSONObject);
-                        this.fxB.add(fuFaceItem2);
+                        this.fxF.add(fuFaceItem2);
                     }
                 }
             }

@@ -37,7 +37,7 @@ public class a {
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            m.GY(bce.getTid());
+            m.GZ(bce.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -63,7 +63,7 @@ public class a {
 
     public static void b(c cVar, int i) {
         aq aC;
-        if (cVar != null && cVar.bce() != null && com.baidu.tieba.card.data.m.aa(cVar.dUS) && (aC = cVar.aC("c13494", true)) != null) {
+        if (cVar != null && cVar.bce() != null && com.baidu.tieba.card.data.m.aa(cVar.dUW) && (aC = cVar.aC("c13494", true)) != null) {
             aC.ai("obj_type", i);
             TiebaStatic.log(aC);
         }
@@ -71,7 +71,7 @@ public class a {
 
     public static void c(c cVar, int i) {
         aq aC;
-        if (cVar != null && com.baidu.tieba.card.data.m.aa(cVar.dUS) && (aC = cVar.aC("c13495", true)) != null) {
+        if (cVar != null && com.baidu.tieba.card.data.m.aa(cVar.dUW) && (aC = cVar.aC("c13495", true)) != null) {
             aC.ai("obj_type", i);
             TiebaStatic.log(aC);
         }
@@ -82,7 +82,7 @@ public class a {
         if (cVar != null && (aC = cVar.aC("c13488", true)) != null) {
             if (cVar.bce() != null) {
                 bw bce = cVar.bce();
-                aC.ai("obj_name", bce.bgh() != null && (bce.bgh().dwH() != null || bce.bgh().bxE() != null) ? 1 : 0);
+                aC.ai("obj_name", bce.bgh() != null && (bce.bgh().dwM() != null || bce.bgh().bxF() != null) ? 1 : 0);
                 if (bce.beE() != null) {
                     aC.ai(TiebaInitialize.Params.AB_TYPE, bce.beE().hadConcerned() ? 1 : 0);
                 }

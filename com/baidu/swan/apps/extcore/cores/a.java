@@ -8,17 +8,17 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a cqY;
+    private static volatile a crd;
 
     public static a aml() {
-        if (cqY == null) {
+        if (crd == null) {
             synchronized (a.class) {
-                if (cqY == null) {
-                    cqY = new a();
+                if (crd == null) {
+                    crd = new a();
                 }
             }
         }
-        return cqY;
+        return crd;
     }
 
     public void a(@Nullable final com.baidu.swan.apps.ap.e.b<Exception> bVar, final int i) {

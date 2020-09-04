@@ -3,9 +3,9 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
-    private static e eJr;
+    private static e eJv;
     public String isOn;
     public final String NET_TYPENAME_2G = "2g";
     public final String NET_TYPENAME_3G = "3g";
@@ -15,13 +15,13 @@ public class e {
     public HashMap<String, String> uploadDataNumMap = new HashMap<>();
     public HashMap<String, String> mergeDataFrequencyMap = new HashMap<>();
 
-    public static synchronized e bqR() {
+    public static synchronized e bqS() {
         e eVar;
         synchronized (e.class) {
-            if (eJr == null) {
-                eJr = new e();
+            if (eJv == null) {
+                eJv = new e();
             }
-            eVar = eJr;
+            eVar = eJv;
         }
         return eVar;
     }

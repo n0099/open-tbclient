@@ -11,16 +11,16 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class g extends h<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean cVT;
-    private final String cWi;
+    private boolean cVX;
+    private final String cWm;
     protected final Activity mActivity;
     private final String mScope;
 
     public g(Activity activity, String str, String str2, boolean z) {
         this.mActivity = activity;
         this.mScope = str;
-        this.cWi = str2;
-        this.cVT = z;
+        this.cWm = str2;
+        this.cVX = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -41,15 +41,15 @@ public class g extends h<JSONObject> {
             if (aBW.XZ() != null && aBW.XZ().aqN() != null) {
                 jSONObject.put("scene", aBW.XZ().aqN());
             }
-            if (this.cVT) {
+            if (this.cVX) {
                 jSONObject.put(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "1");
             }
             String aal = com.baidu.swan.apps.t.a.aoV().aal();
             if (!TextUtils.isEmpty(aal)) {
                 jSONObject.put("host_api_key", aal);
             }
-            if (!TextUtils.isEmpty(this.cWi)) {
-                jSONObject.put("provider_appkey", this.cWi);
+            if (!TextUtils.isEmpty(this.cWm)) {
+                jSONObject.put("provider_appkey", this.cWm);
             }
         } catch (JSONException e) {
             if (DEBUG) {

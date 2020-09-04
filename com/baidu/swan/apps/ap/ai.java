@@ -147,7 +147,7 @@ public final class ai {
         return str;
     }
 
-    public static String sH(String str) {
+    public static String sI(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -160,8 +160,8 @@ public final class ai {
         return str;
     }
 
-    public static String sI(String str) {
-        return sH(delAllParamsFromUrl(str));
+    public static String sJ(String str) {
+        return sI(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {

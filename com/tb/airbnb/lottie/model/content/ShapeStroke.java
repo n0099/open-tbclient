@@ -9,13 +9,13 @@ public class ShapeStroke implements b {
     private final float EX;
     private final List<com.tb.airbnb.lottie.model.a.b> EY;
     private final String name;
+    private final com.tb.airbnb.lottie.model.a.d ojA;
+    private final com.tb.airbnb.lottie.model.a.b ojK;
+    private final LineCapType ojL;
+    private final LineJoinType ojM;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b ojG;
-    private final com.tb.airbnb.lottie.model.a.a oja;
-    private final com.tb.airbnb.lottie.model.a.d oji;
-    private final com.tb.airbnb.lottie.model.a.b ojs;
-    private final LineCapType ojt;
-    private final LineJoinType oju;
+    private final com.tb.airbnb.lottie.model.a.b ojY;
+    private final com.tb.airbnb.lottie.model.a.a ojs;
 
     /* loaded from: classes7.dex */
     public enum LineCapType {
@@ -57,13 +57,13 @@ public class ShapeStroke implements b {
 
     public ShapeStroke(String str, @Nullable com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.a aVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.ojG = bVar;
+        this.ojY = bVar;
         this.EY = list;
-        this.oja = aVar;
-        this.oji = dVar;
-        this.ojs = bVar2;
-        this.ojt = lineCapType;
-        this.oju = lineJoinType;
+        this.ojs = aVar;
+        this.ojA = dVar;
+        this.ojK = bVar2;
+        this.ojL = lineCapType;
+        this.ojM = lineJoinType;
         this.EX = f;
     }
 
@@ -76,32 +76,32 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a edL() {
-        return this.oja;
-    }
-
-    public com.tb.airbnb.lottie.model.a.d edl() {
-        return this.oji;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b edu() {
+    public com.tb.airbnb.lottie.model.a.a edU() {
         return this.ojs;
+    }
+
+    public com.tb.airbnb.lottie.model.a.d edu() {
+        return this.ojA;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b edD() {
+        return this.ojK;
     }
 
     public List<com.tb.airbnb.lottie.model.a.b> jV() {
         return this.EY;
     }
 
-    public com.tb.airbnb.lottie.model.a.b edx() {
-        return this.ojG;
+    public com.tb.airbnb.lottie.model.a.b edG() {
+        return this.ojY;
     }
 
-    public LineCapType edv() {
-        return this.ojt;
+    public LineCapType edE() {
+        return this.ojL;
     }
 
-    public LineJoinType edw() {
-        return this.oju;
+    public LineJoinType edF() {
+        return this.ojM;
     }
 
     public float jX() {

@@ -7,17 +7,17 @@ import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes11.dex */
 public abstract class a {
-    protected C0136a ave;
-    protected b avf;
+    protected C0136a avg;
+    protected b avh;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public static class C0136a {
         public Context applicationContext;
-        public b.a avg;
-        public b.a avh;
-        public ExecutorService avi;
-        public ExecutorService avj;
+        public b.a avi;
+        public b.a avj;
+        public ExecutorService avk;
+        public ExecutorService avl;
     }
 
     /* loaded from: classes11.dex */
@@ -53,7 +53,7 @@ public abstract class a {
             return dVar;
         }
 
-        public static d fq(String str) {
+        public static d fr(String str) {
             d dVar = new d();
             dVar.errCode = 0;
             dVar.id = str;
@@ -66,11 +66,11 @@ public abstract class a {
     }
 
     public void a(C0136a c0136a) {
-        this.ave = c0136a;
+        this.avg = c0136a;
     }
 
     public void a(b bVar) {
-        this.avf = bVar;
+        this.avh = bVar;
         b(bVar);
     }
 
@@ -80,5 +80,5 @@ public abstract class a {
 
     public abstract d c(String str, Bundle bundle);
 
-    public abstract boolean fp(String str);
+    public abstract boolean fq(String str);
 }

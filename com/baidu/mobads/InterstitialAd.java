@@ -11,10 +11,10 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes20.dex */
 public class InterstitialAd {
     public static final String TAG = InterstitialAd.class.getSimpleName();
-    IOAdEventListener bCX;
-    private AdSize bDn;
-    private com.baidu.mobads.production.f.a bDo;
-    private InterstitialAdListener bDp;
+    IOAdEventListener bDa;
+    private AdSize bDq;
+    private com.baidu.mobads.production.f.a bDr;
+    private InterstitialAdListener bDs;
     private final IXAdLogger d;
 
     public InterstitialAd(Context context, String str) {
@@ -23,54 +23,54 @@ public class InterstitialAd {
 
     public InterstitialAd(Context context, AdSize adSize, String str) {
         this.d = XAdSDKFoundationFacade.getInstance().getAdLogger();
-        this.bDp = new m(this);
-        this.bCX = new n(this);
+        this.bDs = new m(this);
+        this.bDa = new n(this);
         XAdView xAdView = new XAdView(context);
         xAdView.setListener(new p(this));
-        this.bDn = adSize;
+        this.bDq = adSize;
         if (a()) {
-            this.bDo = new com.baidu.mobads.production.f.b(context, xAdView, true, str);
+            this.bDr = new com.baidu.mobads.production.f.b(context, xAdView, true, str);
         } else if (b()) {
-            this.bDo = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
+            this.bDr = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
         }
-        this.bDo.addEventListener(IXAdEvent.AD_LOADED, this.bCX);
-        this.bDo.addEventListener(IXAdEvent.AD_ERROR, this.bCX);
-        this.bDo.addEventListener(IXAdEvent.AD_STOPPED, this.bCX);
-        this.bDo.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bCX);
-        this.bDo.addEventListener(IXAdEvent.AD_STARTED, this.bCX);
-        this.bDo.addEventListener("AdUserClick", this.bCX);
-        this.bDo.request();
+        this.bDr.addEventListener(IXAdEvent.AD_LOADED, this.bDa);
+        this.bDr.addEventListener(IXAdEvent.AD_ERROR, this.bDa);
+        this.bDr.addEventListener(IXAdEvent.AD_STOPPED, this.bDa);
+        this.bDr.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bDa);
+        this.bDr.addEventListener(IXAdEvent.AD_STARTED, this.bDa);
+        this.bDr.addEventListener("AdUserClick", this.bDa);
+        this.bDr.request();
     }
 
     private boolean a() {
-        return this.bDn.getValue() <= AdSize.InterstitialOther.getValue() && this.bDn.getValue() >= AdSize.InterstitialGame.getValue();
+        return this.bDq.getValue() <= AdSize.InterstitialOther.getValue() && this.bDq.getValue() >= AdSize.InterstitialGame.getValue();
     }
 
     private boolean b() {
-        return this.bDn.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.bDn.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
+        return this.bDq.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.bDq.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
     }
 
     public boolean isAdReady() {
-        return this.bDo.v();
+        return this.bDr.v();
     }
 
     public void loadAd() {
-        this.bDo.q();
+        this.bDr.q();
     }
 
     public void loadAdForVideoApp(int i, int i2) {
-        this.bDo.a(i, i2);
+        this.bDr.a(i, i2);
     }
 
     public void setListener(InterstitialAdListener interstitialAdListener) {
         if (interstitialAdListener == null) {
             throw new IllegalArgumentException();
         }
-        this.bDp = interstitialAdListener;
+        this.bDs = interstitialAdListener;
     }
 
     public void showAd(Activity activity) {
-        this.bDo.a(activity);
+        this.bDr.a(activity);
     }
 
     public static void setAppSid(Context context, String str) {
@@ -82,13 +82,13 @@ public class InterstitialAd {
     }
 
     public void destroy() {
-        this.bDo.p();
+        this.bDr.p();
     }
 
     public void showAdInParentForVideoApp(Activity activity, RelativeLayout relativeLayout) {
         if (activity == null || relativeLayout == null) {
             throw new IllegalArgumentException();
         }
-        this.bDo.a(activity, relativeLayout);
+        this.bDr.a(activity, relativeLayout);
     }
 }

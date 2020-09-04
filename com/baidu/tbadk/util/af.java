@@ -6,23 +6,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class af {
-    private boolean eev;
+    private boolean eez;
     private List<com.baidu.tieba.card.data.d> list = new LinkedList();
 
     public List<com.baidu.tieba.card.data.d> j(List<PbLinkData> list, List<PbGoodsData> list2) {
         if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 PbLinkData pbLinkData = list.get(i);
-                if (pbLinkData.urlType == 2 && !this.eev) {
-                    this.eev = true;
+                if (pbLinkData.urlType == 2 && !this.eez) {
+                    this.eez = true;
                 }
                 this.list.add(pbLinkData);
             }
         }
         if (!com.baidu.tbadk.core.util.y.isEmpty(list2)) {
-            this.eev = true;
+            this.eez = true;
             for (int i2 = 0; i2 < list2.size(); i2++) {
                 this.list.add(list2.get(i2));
             }
@@ -38,7 +38,7 @@ public class af {
         return this.list;
     }
 
-    public boolean bvK() {
-        return this.eev;
+    public boolean bvL() {
+        return this.eez;
     }
 }

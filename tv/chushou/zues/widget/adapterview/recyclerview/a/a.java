@@ -20,9 +20,9 @@ import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes6.dex */
 public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListenerC1014a> {
     private List<T> data;
-    private d oNt;
-    private e oNu;
-    private int oak;
+    private d oNL;
+    private e oNM;
+    private int oaC;
 
     public abstract void a(View$OnLongClickListenerC1014a view$OnLongClickListenerC1014a, T t);
 
@@ -36,8 +36,8 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
         } else {
             this.data = list;
         }
-        this.oak = i;
-        this.oNt = dVar;
+        this.oaC = i;
+        this.oNL = dVar;
     }
 
     public a(List<T> list, @LayoutRes int i, d dVar, e eVar) {
@@ -46,9 +46,9 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
         } else {
             this.data = list;
         }
-        this.oak = i;
-        this.oNt = dVar;
-        this.oNu = eVar;
+        this.oaC = i;
+        this.oNL = dVar;
+        this.oNM = eVar;
     }
 
     public void ge(List<T> list) {
@@ -63,12 +63,12 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: M */
     public View$OnLongClickListenerC1014a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new View$OnLongClickListenerC1014a(LayoutInflater.from(viewGroup.getContext()).inflate(Nr(i), viewGroup, false), this.oNt, this.oNu);
+        return new View$OnLongClickListenerC1014a(LayoutInflater.from(viewGroup.getContext()).inflate(Nr(i), viewGroup, false), this.oNL, this.oNM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int Nr(int i) {
-        return this.oak;
+        return this.oaC;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -108,32 +108,32 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
     /* loaded from: classes6.dex */
     public static class View$OnLongClickListenerC1014a extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         private final View.OnClickListener mOnClickListener;
-        private d oNt;
-        private e oNu;
-        private SparseArray<View> oau;
+        private d oNL;
+        private e oNM;
+        private SparseArray<View> oaM;
 
         public View$OnLongClickListenerC1014a(View view, d dVar, e eVar) {
             super(view);
             this.mOnClickListener = new tv.chushou.zues.a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.a.a.1
                 @Override // tv.chushou.zues.a
                 public void dC(View view2) {
-                    if (View$OnLongClickListenerC1014a.this.oNt != null) {
-                        View$OnLongClickListenerC1014a.this.oNt.C(view2, View$OnLongClickListenerC1014a.this.getLayoutPosition());
+                    if (View$OnLongClickListenerC1014a.this.oNL != null) {
+                        View$OnLongClickListenerC1014a.this.oNL.C(view2, View$OnLongClickListenerC1014a.this.getLayoutPosition());
                     }
                 }
             };
-            this.oNt = dVar;
-            this.oNu = eVar;
-            this.oau = new SparseArray<>();
+            this.oNL = dVar;
+            this.oNM = eVar;
+            this.oaM = new SparseArray<>();
             view.setOnClickListener(this.mOnClickListener);
             view.setOnLongClickListener(this);
         }
 
         public <V extends View> V qW(int i) {
-            V v = (V) this.oau.get(i);
+            V v = (V) this.oaM.get(i);
             if (v == null) {
                 V v2 = (V) this.itemView.findViewById(i);
-                this.oau.put(i, v2);
+                this.oaM.put(i, v2);
                 return v2;
             }
             return v;
@@ -211,8 +211,8 @@ public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListener
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            if (this.oNu != null) {
-                this.oNu.D(view, getLayoutPosition());
+            if (this.oNM != null) {
+                this.oNM.D(view, getLayoutPosition());
                 return false;
             }
             return false;

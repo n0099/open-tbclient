@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SimpleVideoPlayActivityConfig extends IntentConfig {
     public static final String THUMB_URL = "thumb_url";
     public static final String VIDEO_URL = "video_url";
@@ -17,17 +17,17 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         private String thumbUrl;
         private String videoUrl;
 
-        public a yV(String str) {
+        public a yW(String str) {
             this.videoUrl = str;
             return this;
         }
 
-        public a yW(String str) {
+        public a yX(String str) {
             this.thumbUrl = str;
             return this;
         }

@@ -21,27 +21,27 @@ import com.baidu.tieba.hottopic.data.p;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class c {
-    private View hIo;
+    private View hIu;
     private boolean isShow = false;
-    private Animation jdo;
-    private Animation jdp;
-    private ViewGroup jdu;
-    private a jdv;
-    private b jdw;
+    private ViewGroup jdA;
+    private a jdB;
+    private b jdC;
+    private Animation jdu;
+    private Animation jdv;
     private View rootView;
     private int topHeight;
 
     /* loaded from: classes15.dex */
     public interface a {
-        void cAr();
+        void cAs();
     }
 
     public c(ViewGroup viewGroup) {
-        this.jdu = viewGroup;
+        this.jdA = viewGroup;
     }
 
     public void a(a aVar) {
-        this.jdv = aVar;
+        this.jdB = aVar;
     }
 
     public boolean isShowing() {
@@ -52,7 +52,7 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.jdu.addView(this.rootView);
+            this.jdA.addView(this.rootView);
             if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
                 this.rootView.setBackgroundColor(this.rootView.getContext().getResources().getColor(R.color.topic_more_background_1));
             } else {
@@ -70,17 +70,17 @@ public class c {
 
     private View b(final Context context, List<p> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.topic_scroll_fragment_more, (ViewGroup) null);
-        this.hIo = inflate.findViewById(R.id.topic_more_top_view);
+        this.hIu = inflate.findViewById(R.id.topic_more_top_view);
         AD(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(R.id.topic_scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.jdw = new b(context, i);
-        this.jdw.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.jdw);
+        this.jdC = new b(context, i);
+        this.jdC.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.jdC);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.jdw.getItem(i2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW, c.this.jdC.getItem(i2)));
                 c.this.fc(context);
             }
         });
@@ -88,33 +88,33 @@ public class c {
     }
 
     public void AD(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hIo.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hIu.getLayoutParams();
         layoutParams.height = i;
-        this.hIo.setLayoutParams(layoutParams);
+        this.hIu.setLayoutParams(layoutParams);
     }
 
     private Animation fd(Context context) {
-        if (this.jdo == null) {
-            this.jdo = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+        if (this.jdu == null) {
+            this.jdu = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
         }
-        return this.jdo;
+        return this.jdu;
     }
 
     private Animation fe(Context context) {
-        if (this.jdp == null) {
-            this.jdp = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+        if (this.jdv == null) {
+            this.jdv = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        this.jdp.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
+        this.jdv.setAnimationListener(new d() { // from class: com.baidu.tieba.hottopic.view.indicator.c.2
             @Override // com.baidu.adp.lib.f.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.jdv != null) {
-                    c.this.jdv.cAr();
+                if (c.this.jdB != null) {
+                    c.this.jdB.cAs();
                 }
-                c.this.jdu.removeView(c.this.rootView);
+                c.this.jdA.removeView(c.this.rootView);
             }
         });
-        return this.jdp;
+        return this.jdv;
     }
 
     public void AE(int i) {

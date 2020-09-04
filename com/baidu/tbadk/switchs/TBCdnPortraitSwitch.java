@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TBCdnPortraitSwitch extends a {
     public static final String CDNPORTRAIT_SWITCH_KEY = "portrait_cdn_open";
     public static final int TYPE_OFF = 0;

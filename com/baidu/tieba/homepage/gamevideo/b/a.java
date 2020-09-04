@@ -17,22 +17,22 @@ import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a {
-    private TbPageContext efn;
-    private GameVideoGridView iKe;
-    private com.baidu.tieba.homepage.gamevideo.a.b iKf;
-    private InterfaceC0695a iKg;
+    private TbPageContext efr;
+    private GameVideoGridView iKk;
+    private com.baidu.tieba.homepage.gamevideo.a.b iKl;
+    private InterfaceC0695a iKm;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.iKf != null && i < a.this.iKf.getCount() && a.this.iKf.getItem(i) != null && (a.this.iKf.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.iKf.getItem(i);
+            if (a.this.iKl != null && i < a.this.iKl.getCount() && a.this.iKl.getItem(i) != null && (a.this.iKl.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.iKl.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.iKf.zR(aVar.sub_class_id);
-                    if (a.this.iKg != null) {
-                        a.this.iKg.a(aVar);
+                    a.this.iKl.zR(aVar.sub_class_id);
+                    if (a.this.iKm != null) {
+                        a.this.iKm.a(aVar);
                     }
-                    a.this.cwY();
+                    a.this.cwZ();
                     com.baidu.tbadk.core.sharedPref.b.bik().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.bik().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new aq("c13485").ai("obj_type", aVar.sub_class_id));
@@ -50,26 +50,26 @@ public class a {
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
         init();
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.iKe = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.iKf = new com.baidu.tieba.homepage.gamevideo.a.b(this.efn, 101, this.mBdUniqueId);
-        this.iKe.setNumColumns(4);
-        this.iKe.setAdapter((ListAdapter) this.iKf);
-        this.iKe.setOnItemClickListener(this.mOnItemClickListener);
+        this.mRootView = LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
+        this.iKk = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.iKl = new com.baidu.tieba.homepage.gamevideo.a.b(this.efr, 101, this.mBdUniqueId);
+        this.iKk.setNumColumns(4);
+        this.iKk.setAdapter((ListAdapter) this.iKl);
+        this.iKk.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!y.isEmpty(list)) {
-            this.iKf.setData(list);
-            this.iKf.notifyDataSetChanged();
+            this.iKl.setData(list);
+            this.iKl.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void cwY() {
+    public void cwZ() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void a(InterfaceC0695a interfaceC0695a) {
-        this.iKg = interfaceC0695a;
+        this.iKm = interfaceC0695a;
     }
 
     public void onDestroy() {
-        if (this.iKe != null) {
-            this.iKe.onDestroy();
+        if (this.iKk != null) {
+            this.iKk.onDestroy();
         }
     }
 }

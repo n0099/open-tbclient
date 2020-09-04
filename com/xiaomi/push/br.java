@@ -26,9 +26,9 @@ public class br extends ai.a {
         Context context2;
         com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
         c = this.a.c();
-        context = this.a.f136a;
+        context = this.a.f135a;
         bu buVar = new bu(c, new WeakReference(context));
-        context2 = this.a.f136a;
+        context2 = this.a.f135a;
         cb.a(context2).a(buVar);
         this.a.b("check_time");
     }

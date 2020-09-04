@@ -22,118 +22,118 @@ public interface a {
 
     void clear();
 
-    void eiC();
+    void eiL();
 
     void release();
 
-    void yV(boolean z);
+    void yX(boolean z);
 
-    void yW(boolean z);
+    void yY(boolean z);
 
     /* loaded from: classes6.dex */
     public static class b {
         public long beginTime;
         public long endTime;
-        public long fUL;
-        public boolean oyG;
-        public int oyH;
-        public int oyI;
-        public d oyJ;
-        public int oyK;
-        public int oyL;
-        public int oyM;
-        public int oyN;
-        public int oyO;
-        public int oyP;
-        public int oyQ;
-        public long oyR;
-        public boolean oyS;
-        public long oyT;
-        public long oyU;
-        private boolean oyW;
-        public f ouL = new f();
-        private l oyV = new master.flame.danmaku.danmaku.model.android.d(4);
+        public long fUP;
+        public boolean oyY;
+        public int oyZ;
+        public int oza;
+        public d ozb;
+        public int ozc;
+        public int ozd;
+        public int oze;
+        public int ozf;
+        public int ozg;
+        public int ozh;
+        public int ozi;
+        public long ozj;
+        public boolean ozk;
+        public long ozl;
+        public long ozm;
+        private boolean ozo;
+        public f ovd = new f();
+        private l ozn = new master.flame.danmaku.danmaku.model.android.d(4);
 
         public int Oe(int i) {
-            this.oyP += i;
-            return this.oyP;
+            this.ozh += i;
+            return this.ozh;
         }
 
         public int el(int i, int i2) {
             switch (i) {
                 case 1:
-                    this.oyK += i2;
-                    return this.oyK;
+                    this.ozc += i2;
+                    return this.ozc;
                 case 2:
                 case 3:
                 default:
                     return 0;
                 case 4:
-                    this.oyN += i2;
-                    return this.oyN;
+                    this.ozf += i2;
+                    return this.ozf;
                 case 5:
-                    this.oyM += i2;
-                    return this.oyM;
+                    this.oze += i2;
+                    return this.oze;
                 case 6:
-                    this.oyL += i2;
-                    return this.oyL;
+                    this.ozd += i2;
+                    return this.ozd;
                 case 7:
-                    this.oyO += i2;
-                    return this.oyO;
+                    this.ozg += i2;
+                    return this.ozg;
             }
         }
 
         public void reset() {
-            this.oyQ = this.oyP;
-            this.oyP = 0;
-            this.oyO = 0;
-            this.oyN = 0;
-            this.oyM = 0;
-            this.oyL = 0;
-            this.oyK = 0;
-            this.oyR = 0L;
+            this.ozi = this.ozh;
+            this.ozh = 0;
+            this.ozg = 0;
+            this.ozf = 0;
+            this.oze = 0;
+            this.ozd = 0;
+            this.ozc = 0;
+            this.ozj = 0L;
             this.endTime = 0L;
             this.beginTime = 0L;
-            this.fUL = 0L;
-            this.oyS = false;
+            this.fUP = 0L;
+            this.ozk = false;
             synchronized (this) {
-                this.oyV.clear();
+                this.ozn.clear();
             }
         }
 
         public void b(b bVar) {
             if (bVar != null) {
-                this.oyQ = bVar.oyQ;
-                this.oyK = bVar.oyK;
-                this.oyL = bVar.oyL;
-                this.oyM = bVar.oyM;
-                this.oyN = bVar.oyN;
-                this.oyO = bVar.oyO;
-                this.oyP = bVar.oyP;
-                this.oyR = bVar.oyR;
+                this.ozi = bVar.ozi;
+                this.ozc = bVar.ozc;
+                this.ozd = bVar.ozd;
+                this.oze = bVar.oze;
+                this.ozf = bVar.ozf;
+                this.ozg = bVar.ozg;
+                this.ozh = bVar.ozh;
+                this.ozj = bVar.ozj;
                 this.beginTime = bVar.beginTime;
                 this.endTime = bVar.endTime;
-                this.oyS = bVar.oyS;
-                this.fUL = bVar.fUL;
-                this.oyT = bVar.oyT;
-                this.oyU = bVar.oyU;
+                this.ozk = bVar.ozk;
+                this.fUP = bVar.fUP;
+                this.ozl = bVar.ozl;
+                this.ozm = bVar.ozm;
             }
         }
 
         public void v(d dVar) {
-            if (!this.oyW) {
-                this.oyV.k(dVar);
+            if (!this.ozo) {
+                this.ozn.k(dVar);
             }
         }
 
-        public l eiD() {
+        public l eiM() {
             l lVar;
-            this.oyW = true;
+            this.ozo = true;
             synchronized (this) {
-                lVar = this.oyV;
-                this.oyV = new master.flame.danmaku.danmaku.model.android.d(4);
+                lVar = this.ozn;
+                this.ozn = new master.flame.danmaku.danmaku.model.android.d(4);
             }
-            this.oyW = false;
+            this.ozo = false;
             return lVar;
         }
     }

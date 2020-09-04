@@ -8,7 +8,7 @@ public abstract class g {
     public abstract JSONObject b();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String dF(String str) {
+    public String dG(String str) {
         return com.cmic.sso.sdk.e.d.a(str);
     }
 }

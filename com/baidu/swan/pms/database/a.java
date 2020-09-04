@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes14.dex */
 public abstract class a {
-    private static volatile a dET;
+    private static volatile a dEX;
 
     public abstract boolean W(String str, String str2, String str3);
 
@@ -50,26 +50,26 @@ public abstract class a {
 
     public abstract boolean s(PMSAppInfo pMSAppInfo);
 
-    public abstract boolean wA(String str);
+    public abstract PMSAppInfo wA(String str);
+
+    public abstract boolean wB(String str);
 
     @WorkerThread
-    public abstract int wB(@NonNull String str);
+    public abstract int wC(@NonNull String str);
 
-    public abstract void wC(String str);
+    public abstract void wD(String str);
 
     @Nullable
-    public abstract i wy(String str);
-
-    public abstract PMSAppInfo wz(String str);
+    public abstract i wz(String str);
 
     public static a aTt() {
-        if (dET == null) {
+        if (dEX == null) {
             synchronized (a.class) {
-                if (dET == null) {
-                    dET = new b();
+                if (dEX == null) {
+                    dEX = new b();
                 }
             }
         }
-        return dET;
+        return dEX;
     }
 }

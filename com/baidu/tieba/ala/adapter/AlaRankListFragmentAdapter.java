@@ -14,45 +14,45 @@ import com.baidu.tieba.ala.data.g;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class AlaRankListFragmentAdapter extends PagerAdapter {
-    private BaseActivity buT;
-    private boolean fvF;
-    private ArrayList<g> fxs;
-    private ArrayList<d> fxu;
+    private BaseActivity buW;
+    private boolean fvJ;
+    private ArrayList<g> fxw;
+    private ArrayList<d> fxy;
     private String otherParams;
 
     public AlaRankListFragmentAdapter(BaseActivity baseActivity, int i, long j, String str, boolean z, String str2, String str3, String str4, long j2, String str5) {
-        this.buT = baseActivity;
-        this.fvF = z;
+        this.buW = baseActivity;
+        this.fvJ = z;
         this.otherParams = str3;
         a(i, j, str, str2, str4, j2, str5);
     }
 
     private void a(int i, long j, String str, String str2, String str3, long j2, String str4) {
-        this.fxu = new ArrayList<>();
-        this.fxs = new ArrayList<>();
+        this.fxy = new ArrayList<>();
+        this.fxw = new ArrayList<>();
         g gVar = new g();
-        gVar.fUE = this.buT.getString(a.i.hour_rank_list_title);
-        gVar.fUF = "hour";
-        this.fxu.add(new com.baidu.tieba.ala.fragment.a(this.buT, "hour", i, j, str, this.fvF, str2, this.otherParams, str3, j2, str4, gVar.fUE));
-        this.fxs.add(gVar);
+        gVar.fUI = this.buW.getString(a.i.hour_rank_list_title);
+        gVar.fUJ = "hour";
+        this.fxy.add(new com.baidu.tieba.ala.fragment.a(this.buW, "hour", i, j, str, this.fvJ, str2, this.otherParams, str3, j2, str4, gVar.fUI));
+        this.fxw.add(gVar);
         g gVar2 = new g();
-        gVar2.fUE = this.buT.getString(a.i.rank_list_day_charm_title);
-        gVar2.fUF = "charm_day";
-        this.fxu.add(new com.baidu.tieba.ala.fragment.a(this.buT, "charm_day", i, j, str, this.fvF, str2, this.otherParams, str3, j2, str4, gVar2.fUE));
-        this.fxs.add(gVar2);
+        gVar2.fUI = this.buW.getString(a.i.rank_list_day_charm_title);
+        gVar2.fUJ = "charm_day";
+        this.fxy.add(new com.baidu.tieba.ala.fragment.a(this.buW, "charm_day", i, j, str, this.fvJ, str2, this.otherParams, str3, j2, str4, gVar2.fUI));
+        this.fxw.add(gVar2);
     }
 
-    public int Eb(String str) {
-        if (this.fxu == null || StringUtils.isNull(str)) {
+    public int Ec(String str) {
+        if (this.fxy == null || StringUtils.isNull(str)) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.fxs.size()) {
+            if (i2 >= this.fxw.size()) {
                 return -1;
             }
-            if (!str.equals(this.fxs.get(i2).fUF)) {
+            if (!str.equals(this.fxw.get(i2).fUJ)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -62,14 +62,14 @@ public class AlaRankListFragmentAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.fxu != null) {
-            return this.fxu.size();
+        if (this.fxy != null) {
+            return this.fxy.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.fxu;
+        return this.fxy;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -78,14 +78,14 @@ public class AlaRankListFragmentAdapter extends PagerAdapter {
     }
 
     public void sq(int i) {
-        if (!this.fvF && i >= 0 && i < this.fxs.size()) {
-            g gVar = this.fxs.get(i);
+        if (!this.fvJ && i >= 0 && i < this.fxw.size()) {
+            g gVar = this.fxw.get(i);
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_RANK_TAB);
                 alaStaticItem.addParams("other_params", this.otherParams);
-                if (gVar.fUF.equals(SdkStaticKeys.RANK_TYPE_FLOWER)) {
+                if (gVar.fUJ.equals(SdkStaticKeys.RANK_TYPE_FLOWER)) {
                     alaStaticItem.addParams("type", SdkStaticKeys.RANK_TYPE_FLOWER);
-                } else if (gVar.fUF.equals(SdkStaticKeys.RANK_TYPE_CHARM)) {
+                } else if (gVar.fUJ.equals(SdkStaticKeys.RANK_TYPE_CHARM)) {
                     alaStaticItem.addParams("type", SdkStaticKeys.RANK_TYPE_CHARM);
                 }
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);

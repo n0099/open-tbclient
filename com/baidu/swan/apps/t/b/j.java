@@ -60,7 +60,7 @@ public interface j {
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
-    void eB(boolean z);
+    void eC(boolean z);
 
     int getCurrentPosition();
 
@@ -74,7 +74,7 @@ public interface j {
 
     void mute(boolean z);
 
-    void ni(String str);
+    void nj(String str);
 
     boolean onBackPressed();
 

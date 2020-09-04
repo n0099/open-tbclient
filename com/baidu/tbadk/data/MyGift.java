@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GiftInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MyGift extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
     private String mGiftIcon;

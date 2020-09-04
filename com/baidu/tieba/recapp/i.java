@@ -1,5 +1,5 @@
 package com.baidu.tieba.recapp;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface i {
     void onDestroy();
 

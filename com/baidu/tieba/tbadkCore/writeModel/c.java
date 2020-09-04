@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static void c(Context context, View view) {
         Toast toast = new Toast(context);
@@ -61,7 +61,7 @@ public class c {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxi().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxn().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

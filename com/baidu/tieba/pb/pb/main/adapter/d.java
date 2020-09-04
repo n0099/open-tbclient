@@ -64,45 +64,45 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
 
     /* loaded from: classes16.dex */
     public class a extends af.a implements View.OnClickListener {
-        View efZ;
-        View iet;
-        ImageView ixA;
-        CardForumHeadLayout kNs;
-        private h kNt;
+        View egd;
+        View iez;
+        ImageView ixG;
+        private h kNA;
+        CardForumHeadLayout kNz;
 
         public a(View view) {
             super(view);
-            this.kNs = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.kNs != null) {
-                this.kNs.setOnClickListener(this.kNs);
-                this.kNs.setAfterClickListener(this);
+            this.kNz = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.kNz != null) {
+                this.kNz.setOnClickListener(this.kNz);
+                this.kNz.setAfterClickListener(this);
             }
-            this.efZ = ((ViewGroup) view).getChildAt(1);
-            this.ixA = (ImageView) ((ViewGroup) view).getChildAt(2);
-            this.iet = ((ViewGroup) view).getChildAt(3);
+            this.egd = ((ViewGroup) view).getChildAt(1);
+            this.ixG = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.iez = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.kNt = hVar;
-                this.iet.setVisibility(hVar.kxE ? 0 : 8);
+                this.kNA = hVar;
+                this.iez.setVisibility(hVar.kxL ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.kxE ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.kxL ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.kNs.setData(hVar.forumName, hVar.kxD, hVar.postNum, hVar.memberNum);
+                this.kNz.setData(hVar.forumName, hVar.kxK, hVar.postNum, hVar.memberNum);
             }
         }
 
         public void bkF() {
-            SvgManager.bjq().a(this.ixA, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
-            ap.setBackgroundColor(this.efZ, R.color.cp_bg_line_b);
-            ap.setBackgroundColor(this.iet, R.color.cp_bg_line_b);
-            this.kNs.onChangeSkinType();
+            SvgManager.bjq().a(this.ixG, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null);
+            ap.setBackgroundColor(this.egd, R.color.cp_bg_line_b);
+            ap.setBackgroundColor(this.iez, R.color.cp_bg_line_b);
+            this.kNz.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new aq("c13698").dD("tid", this.kNt.tid).dD("fid", this.kNt.fid).u("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new aq("c13698").dD("tid", this.kNA.tid).dD("fid", this.kNA.fid).u("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

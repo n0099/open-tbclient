@@ -3,8 +3,8 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes5.dex */
 public final class e<T, R> implements d.a<R> {
-    final d.a<T> oER;
-    final d.b<? extends R, ? super T> oES;
+    final d.a<T> oFj;
+    final d.b<? extends R, ? super T> oFk;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -12,15 +12,15 @@ public final class e<T, R> implements d.a<R> {
     }
 
     public e(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
-        this.oER = aVar;
-        this.oES = bVar;
+        this.oFj = aVar;
+        this.oFk = bVar;
     }
 
     public void call(rx.j<? super R> jVar) {
         try {
-            rx.j<? super T> call = rx.c.c.b(this.oES).call(jVar);
+            rx.j<? super T> call = rx.c.c.b(this.oFk).call(jVar);
             call.onStart();
-            this.oER.call(call);
+            this.oFj.call(call);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
             jVar.onError(th);

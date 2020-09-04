@@ -15,11 +15,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     private BdListView Vo;
-    private l efm;
-    private TbPageContext<?> efn;
+    private l efq;
+    private TbPageContext<?> efr;
     private AlertDialog mDialog;
     private ArrayList<m> mItems;
     private View mLineView;
@@ -31,7 +31,7 @@ public class e {
     private int mDialogGravity = -1;
     private boolean mDialogCreated = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static final int BOTTOM_TO_TOP = R.style.dialog_ani_b2t;
         public static final int TOP_TO_BOTTOM = R.style.dialog_ani_t2b;
@@ -40,21 +40,21 @@ public class e {
     }
 
     public e(TbPageContext<?> tbPageContext) {
-        this.efn = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
+        this.efr = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
         this.Vo = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
-        this.efm = new l(this.efn);
+        this.efq = new l(this.efr);
     }
 
-    public e zB(String str) {
+    public e zC(String str) {
         this.mTitle = str;
         return this;
     }
 
     public e nA(int i) {
-        return zB(this.efn.getResources().getString(i));
+        return zC(this.efr.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -79,9 +79,9 @@ public class e {
                 this.mTitleView.setVisibility(8);
                 this.mLineView.setVisibility(8);
             }
-            this.Vo.setAdapter((ListAdapter) this.efm);
-            this.efm.setData(this.mItems);
-            c(this.efn);
+            this.Vo.setAdapter((ListAdapter) this.efq);
+            this.efq.setData(this.mItems);
+            c(this.efr);
         }
         return this;
     }
@@ -94,7 +94,7 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.efm.setData(this.mItems);
+        this.efq.setData(this.mItems);
     }
 
     public e bhk() {
@@ -102,11 +102,11 @@ public class e {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.a(this.mDialog, this.efn);
+            com.baidu.adp.lib.f.g.a(this.mDialog, this.efr);
         } else {
-            this.mDialog = new AlertDialog.Builder(this.efn.getPageActivity()).create();
+            this.mDialog = new AlertDialog.Builder(this.efr.getPageActivity()).create();
             this.mDialog.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.efn.getPageActivity())) {
+            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.efr.getPageActivity())) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
                     this.mAnimationStyleId = a.BOTTOM_TO_TOP;
@@ -135,15 +135,15 @@ public class e {
     }
 
     public void onChangeSkinType() {
-        c(this.efn);
-        if (this.efm != null) {
-            this.efm.notifyDataSetChanged();
+        c(this.efr);
+        if (this.efq != null) {
+            this.efq.notifyDataSetChanged();
         }
     }
 
     public void dismiss() {
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.efn.getPageActivity());
+            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.efr.getPageActivity());
         }
     }
 }

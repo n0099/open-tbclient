@@ -16,11 +16,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes16.dex */
 public class a {
     private static final String TAG = a.class.getName();
-    private int aiB = 3;
-    private TextView dTQ;
-    private HeadImageView jGM;
-    private TextView jGN;
-    private TbRichTextView jGO;
+    private int aiD = 3;
+    private TextView dTU;
+    private HeadImageView jGS;
+    private TextView jGT;
+    private TbRichTextView jGU;
     private View mBottomLine;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -28,53 +28,53 @@ public class a {
     public a(TbPageContext tbPageContext, ViewGroup viewGroup, View.OnClickListener onClickListener) {
         this.mPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.official_notification_text_item, viewGroup, false);
-        this.jGM = (HeadImageView) this.mRootView.findViewById(R.id.iv_head);
-        this.jGM.setIsRound(true);
-        this.jGM.setOnClickListener(onClickListener);
-        this.jGM.setPlaceHolder(1);
-        this.dTQ = (TextView) this.mRootView.findViewById(R.id.tv_user_name);
-        this.dTQ.setOnClickListener(onClickListener);
-        this.jGN = (TextView) this.mRootView.findViewById(R.id.tv_date);
-        this.jGO = (TbRichTextView) this.mRootView.findViewById(R.id.tv_content);
-        this.jGO.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
-        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jGO.getLayoutStrategy();
+        this.jGS = (HeadImageView) this.mRootView.findViewById(R.id.iv_head);
+        this.jGS.setIsRound(true);
+        this.jGS.setOnClickListener(onClickListener);
+        this.jGS.setPlaceHolder(1);
+        this.dTU = (TextView) this.mRootView.findViewById(R.id.tv_user_name);
+        this.dTU.setOnClickListener(onClickListener);
+        this.jGT = (TextView) this.mRootView.findViewById(R.id.tv_date);
+        this.jGU = (TbRichTextView) this.mRootView.findViewById(R.id.tv_content);
+        this.jGU.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
+        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jGU.getLayoutStrategy();
         layoutStrategy.setLineSpacing(tbPageContext.getResources().getDimension(R.dimen.tbds12), 1.0f);
-        this.jGO.setLayoutStrategy(layoutStrategy);
-        this.jGO.setClickable(true);
-        this.jGO.setFocusable(true);
+        this.jGU.setLayoutStrategy(layoutStrategy);
+        this.jGU.setClickable(true);
+        this.jGU.setFocusable(true);
         this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void setData(ChatMessage chatMessage) {
         if (chatMessage.getUserInfo() != null) {
-            this.jGM.setUserId(chatMessage.getUserInfo().getUserId());
-            this.jGM.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
-            this.jGN.setText(at.getFormatTimeShort(chatMessage.getTime() * 1000));
-            if (this.mPageContext != null && this.jGO != null) {
-                j.a(this.mPageContext.getContext(), this.jGO, chatMessage, TAG, 0);
+            this.jGS.setUserId(chatMessage.getUserInfo().getUserId());
+            this.jGS.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
+            this.jGT.setText(at.getFormatTimeShort(chatMessage.getTime() * 1000));
+            if (this.mPageContext != null && this.jGU != null) {
+                j.a(this.mPageContext.getContext(), this.jGU, chatMessage, TAG, 0);
                 if (chatMessage != null && chatMessage.getContent() != null) {
                     String[] split = chatMessage.getContent().split("#");
                     StringBuffer stringBuffer = new StringBuffer();
                     for (String str : split) {
                         stringBuffer.append(str);
                     }
-                    this.jGO.setContentDescription(stringBuffer.toString());
-                    this.jGO.getTextView().setContentDescription(stringBuffer.toString());
+                    this.jGU.setContentDescription(stringBuffer.toString());
+                    this.jGU.getTextView().setContentDescription(stringBuffer.toString());
                 }
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.aiB != TbadkCoreApplication.getInst().getSkinType()) {
+        if (this.aiD != TbadkCoreApplication.getInst().getSkinType()) {
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-            ap.setViewTextColor(this.dTQ, R.color.cp_cont_f);
-            ap.setViewTextColor(this.jGN, R.color.cp_cont_d);
-            this.jGO.setTextColor(ap.getColor(R.color.cp_cont_b));
-            this.jGO.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
+            ap.setViewTextColor(this.dTU, R.color.cp_cont_f);
+            ap.setViewTextColor(this.jGT, R.color.cp_cont_d);
+            this.jGU.setTextColor(ap.getColor(R.color.cp_cont_b));
+            this.jGU.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
             ap.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_c);
-            this.aiB = TbadkCoreApplication.getInst().getSkinType();
+            this.aiD = TbadkCoreApplication.getInst().getSkinType();
         }
     }
 

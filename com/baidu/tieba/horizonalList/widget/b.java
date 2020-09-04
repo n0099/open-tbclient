@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private List<c> dataList;
-    public final ArrayList<e> far = new ArrayList<>();
-    private e iWT;
+    public final ArrayList<e> fav = new ArrayList<>();
+    private e iWZ;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.iWT = eVar;
+        this.iWZ = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,10 +59,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e bT = this.iWT.bT(view);
+            e bT = this.iWZ.bT(view);
             bT.setOnClickListener(this.mOnClickListener);
             view.setTag(bT);
-            this.far.add(bT);
+            this.fav.add(bT);
         }
         e eVar = (e) view.getTag();
         if (y.getItem(this.dataList, i) != null) {
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void onSkinTypeChanged(int i) {
-        if (y.getCount(this.far) > 0) {
-            Iterator<e> it = this.far.iterator();
+        if (y.getCount(this.fav) > 0) {
+            Iterator<e> it = this.fav.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

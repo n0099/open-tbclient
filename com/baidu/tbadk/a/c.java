@@ -10,12 +10,12 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static c dRi;
+    private static c dRm;
     private final HashMap<String, e> mSwitchs = new HashMap<>();
-    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> dRj = new HashMap<>();
-    private final HashMap<BdUniqueId, e> dRk = new HashMap<>();
+    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> dRn = new HashMap<>();
+    private final HashMap<BdUniqueId, e> dRo = new HashMap<>();
 
     private c() {
         aZM();
@@ -30,36 +30,36 @@ public class c {
     }
 
     public static c aZN() {
-        if (dRi == null) {
+        if (dRm == null) {
             synchronized (c.class) {
-                if (dRi == null) {
-                    dRi = new c();
+                if (dRm == null) {
+                    dRm = new c();
                 }
             }
         }
-        return dRi;
+        return dRm;
     }
 
     protected void a(com.baidu.tbadk.a.a.a aVar) {
         if (aVar != null && aVar.baj() != null) {
-            this.dRj.put(aVar.baj(), aVar);
+            this.dRn.put(aVar.baj(), aVar);
         }
     }
 
     public Map<BdUniqueId, e> aZO() {
-        return this.dRk;
+        return this.dRo;
     }
 
     private void aZP() {
-        this.dRk.clear();
-        for (BdUniqueId bdUniqueId : this.dRj.keySet()) {
-            this.dRk.put(bdUniqueId, j(bdUniqueId));
+        this.dRo.clear();
+        for (BdUniqueId bdUniqueId : this.dRn.keySet()) {
+            this.dRo.put(bdUniqueId, j(bdUniqueId));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e j(BdUniqueId bdUniqueId) {
-        com.baidu.tbadk.a.a.a aVar = this.dRj.get(bdUniqueId);
+        com.baidu.tbadk.a.a.a aVar = this.dRn.get(bdUniqueId);
         if (aVar == null) {
             return null;
         }
@@ -67,7 +67,7 @@ public class c {
     }
 
     private void aZQ() {
-        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.dRj.entrySet()) {
+        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.dRn.entrySet()) {
             com.baidu.tbadk.a.a.a value = entry.getValue();
             if (value != null) {
                 b(value);
@@ -99,7 +99,7 @@ public class c {
         return "ubs_abtest_config";
     }
 
-    public synchronized e xZ(String str) {
+    public synchronized e ya(String str) {
         return this.mSwitchs.get(str);
     }
 

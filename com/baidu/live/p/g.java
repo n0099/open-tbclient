@@ -4,18 +4,25 @@ import android.content.Context;
 import android.media.AudioManager;
 /* loaded from: classes7.dex */
 public class g {
-    private AudioManager bgN;
-    private a bgO;
-    private boolean bgP;
-    private AudioManager.OnAudioFocusChangeListener bgQ = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.p.g.1
+    private AudioManager bgP;
+    private a bgQ;
+    private boolean bgR;
+    private boolean bgS;
+    private AudioManager.OnAudioFocusChangeListener bgT = new AudioManager.OnAudioFocusChangeListener() { // from class: com.baidu.live.p.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             switch (i) {
                 case -3:
                 case -2:
+                    if (g.this.bgQ != null) {
+                        g.this.bgQ.cg(false);
+                        return;
+                    }
+                    return;
                 case -1:
-                    if (g.this.bgO != null) {
-                        g.this.bgO.cg(false);
+                    g.this.setFocus(false);
+                    if (g.this.bgQ != null) {
+                        g.this.bgQ.cg(false);
                         return;
                     }
                     return;
@@ -26,8 +33,9 @@ public class g {
                 case 2:
                 case 3:
                 case 4:
-                    if (g.this.bgO != null) {
-                        g.this.bgO.cg(true);
+                    g.this.setFocus(true);
+                    if (g.this.bgQ != null) {
+                        g.this.bgQ.cg(true);
                         return;
                     }
                     return;
@@ -42,12 +50,13 @@ public class g {
 
     public void requestAudioFocus() {
         if (this.mContext != null) {
-            if (this.bgN == null) {
-                this.bgN = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.bgP == null) {
+                this.bgP = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.bgN != null) {
+            if (this.bgP != null) {
                 try {
-                    this.bgP = this.bgN.requestAudioFocus(this.bgQ, 3, 1) == 1;
+                    setFocus(this.bgP.requestAudioFocus(this.bgT, 3, 1) == 1);
+                    ci(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -55,18 +64,37 @@ public class g {
         }
     }
 
+    public boolean hasFocus() {
+        return this.bgR;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setFocus(boolean z) {
+        this.bgR = z;
+    }
+
+    private void ci(boolean z) {
+        this.bgS = z;
+    }
+
     public void abandonAudioFocus() {
         if (this.mContext != null) {
-            if (this.bgN == null) {
-                this.bgN = (AudioManager) this.mContext.getSystemService("audio");
+            if (this.bgP == null) {
+                this.bgP = (AudioManager) this.mContext.getSystemService("audio");
             }
-            if (this.bgN != null) {
-                this.bgN.abandonAudioFocus(this.bgQ);
+            if (this.bgP != null) {
+                ci(false);
+                try {
+                    setFocus(false);
+                    this.bgP.abandonAudioFocus(this.bgT);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
     public void setIPlayerAudioFocusCallBack(a aVar) {
-        this.bgO = aVar;
+        this.bgQ = aVar;
     }
 }

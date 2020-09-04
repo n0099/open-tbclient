@@ -3,82 +3,82 @@ package com.baidu.swan.game.ad.b;
 import com.baidu.swan.apps.ap.ah;
 /* loaded from: classes19.dex */
 public class b {
-    private int YG;
-    private String dkI;
-    private String dkJ;
-    private String dkK;
-    private int dkL;
-    private int dkM;
+    private int YI;
+    private String dkM;
+    private String dkN;
+    private String dkO;
+    private int dkP;
+    private int dkQ;
 
     private b(a aVar) {
-        this.dkJ = aVar.dkJ;
-        this.dkI = aVar.dkI;
-        this.dkL = aVar.dkL;
+        this.dkN = aVar.dkN;
         this.dkM = aVar.dkM;
-        this.dkK = aVar.dkK;
-        this.YG = aVar.YG;
+        this.dkP = aVar.dkP;
+        this.dkQ = aVar.dkQ;
+        this.dkO = aVar.dkO;
+        this.YI = aVar.YI;
     }
 
     public int aJd() {
-        return this.dkL;
+        return this.dkP;
     }
 
     public int aJe() {
-        return this.dkM;
+        return this.dkQ;
     }
 
     public String getAppSid() {
-        return this.dkJ;
+        return this.dkN;
     }
 
     public String aJf() {
-        return this.dkI;
+        return this.dkM;
     }
 
     public String aJg() {
-        return this.dkK;
+        return this.dkO;
     }
 
     public int rO() {
-        return this.YG;
+        return this.YI;
     }
 
     /* loaded from: classes19.dex */
     public static class a {
-        private int YG;
-        private String dkI;
-        private String dkJ;
-        private String dkK;
-        private int dkL;
-        private int dkM;
-
-        public a tV(String str) {
-            this.dkJ = str;
-            return this;
-        }
+        private int YI;
+        private String dkM;
+        private String dkN;
+        private String dkO;
+        private int dkP;
+        private int dkQ;
 
         public a tW(String str) {
-            this.dkI = str;
+            this.dkN = str;
             return this;
         }
 
         public a tX(String str) {
-            this.dkK = str;
+            this.dkM = str;
+            return this;
+        }
+
+        public a tY(String str) {
+            this.dkO = str;
             return this;
         }
 
         public a kM(int i) {
-            this.dkL = ah.H(i);
+            this.dkP = ah.H(i);
             return this;
         }
 
         public a kN(int i) {
-            this.dkM = ah.H(i);
+            this.dkQ = ah.H(i);
             return this;
         }
 
         public a kO(int i) {
-            this.YG = i;
+            this.YI = i;
             return this;
         }
 

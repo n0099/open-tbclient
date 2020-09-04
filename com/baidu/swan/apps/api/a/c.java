@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public abstract class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bUS;
-    private d bUT;
+    private String bUW;
+    private d bUX;
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes8.dex */
@@ -26,29 +26,29 @@ public abstract class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(@NonNull String str) {
-        this.bUS = str;
+        this.bUW = str;
     }
 
     public com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull d dVar) {
-        this.bUT = dVar;
+        this.bUX = dVar;
         if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.bUS + " is called, can use sync mode: " + abK() + ", params" + jSONObject.toString() + ", callback: " + str);
+            Log.d("SwanAutoSyncApiHandler", this.bUW + " is called, can use sync mode: " + abK() + ", params" + jSONObject.toString() + ", callback: " + str);
         }
         return abK() ? ao(jSONObject) : p(jSONObject, str);
     }
 
     private com.baidu.swan.apps.api.c.b ao(@NonNull JSONObject jSONObject) {
         if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.bUS + " start handle sync");
+            Log.d("SwanAutoSyncApiHandler", this.bUW + " start handle sync");
         }
         com.baidu.swan.apps.api.c.b ap = ap(jSONObject);
         if (!ap.l("isSync", true)) {
             if (DEBUG) {
-                Log.e("SwanAutoSyncApiHandler", this.bUS + " handleSync encounter error, json exception");
+                Log.e("SwanAutoSyncApiHandler", this.bUW + " handleSync encounter error, json exception");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "make result json error");
         } else if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.bUS + " end handle sync, result: " + ap.toString());
+            Log.d("SwanAutoSyncApiHandler", this.bUW + " end handle sync, result: " + ap.toString());
             return ap;
         } else {
             return ap;
@@ -57,24 +57,24 @@ public abstract class c {
 
     private com.baidu.swan.apps.api.c.b p(@NonNull JSONObject jSONObject, @Nullable final String str) {
         if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.bUS + " start handle async");
+            Log.d("SwanAutoSyncApiHandler", this.bUW + " start handle async");
         }
         com.baidu.swan.apps.api.c.b a2 = a(jSONObject, new a() { // from class: com.baidu.swan.apps.api.a.c.1
             @Override // com.baidu.swan.apps.api.a.c.a
             public void b(com.baidu.swan.apps.api.c.b bVar) {
                 if (c.DEBUG) {
-                    Log.d("SwanAutoSyncApiHandler", c.this.bUS + " async callback: " + bVar.toString());
+                    Log.d("SwanAutoSyncApiHandler", c.this.bUW + " async callback: " + bVar.toString());
                 }
-                c.this.bUT.a(str, bVar);
+                c.this.bUX.a(str, bVar);
             }
         });
         if (!a2.l("isSync", false)) {
             if (DEBUG) {
-                Log.e("SwanAutoSyncApiHandler", this.bUS + " handleAsync encounter error, json exception");
+                Log.e("SwanAutoSyncApiHandler", this.bUW + " handleAsync encounter error, json exception");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "make result json error");
         } else if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.bUS + " end handle async, processing in other thread, sync result: " + a2.toString());
+            Log.d("SwanAutoSyncApiHandler", this.bUW + " end handle async, processing in other thread, sync result: " + a2.toString());
             return a2;
         } else {
             return a2;

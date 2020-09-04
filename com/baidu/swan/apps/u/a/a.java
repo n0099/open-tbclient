@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a implements com.baidu.swan.apps.u.d.a {
     public static List<af.a> getStorageList() {
-        List<af.a> list = (List) b.aqu().nl("getStorageListCache");
+        List<af.a> list = (List) b.aqu().nm("getStorageListCache");
         if (list == null) {
             List<af.a> storageList = af.getStorageList();
             b.aqu().p("getStorageListCache", storageList);
@@ -23,13 +23,13 @@ public class a implements com.baidu.swan.apps.u.d.a {
         b.aqu().p("getNightModeStateCache", bool);
     }
 
-    public static Boolean eC(boolean z) {
-        Boolean bool = (Boolean) b.aqu().nl("getNightModeStateCache");
+    public static Boolean eD(boolean z) {
+        Boolean bool = (Boolean) b.aqu().nm("getNightModeStateCache");
         if (bool == null) {
             return Boolean.valueOf(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState());
         }
         if (z) {
-            b.aqu().nm("getNightModeStateCache");
+            b.aqu().nn("getNightModeStateCache");
             return bool;
         }
         return bool;
@@ -53,7 +53,7 @@ public class a implements com.baidu.swan.apps.u.d.a {
             return null;
         }
         if (c.awm()) {
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aqu().nl(file.getAbsolutePath());
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aqu().nm(file.getAbsolutePath());
             if (swanAppConfigData == null) {
                 SwanAppConfigData z = z(file);
                 b.aqu().p(file.getAbsolutePath(), z);

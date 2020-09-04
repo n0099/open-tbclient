@@ -10,11 +10,11 @@ import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes19.dex */
 public final class c implements Runnable {
     final /* synthetic */ Context a;
-    final /* synthetic */ a aeP;
+    final /* synthetic */ a aeR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, Context context) {
-        this.aeP = aVar;
+        this.aeR = aVar;
         this.a = context;
     }
 
@@ -22,7 +22,7 @@ public final class c implements Runnable {
     public final void run() {
         if (this.a != null) {
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            a aVar = this.aeP;
+            a aVar = this.aeR;
             Context context = this.a;
             if (WebKitFactory.isUserPrivacyEnabled() && !aVar.d && com.baidu.browser.sailor.util.b.a(context)) {
                 a.C0093a c0093a = new a.C0093a(context, "https://mbrowser.baidu.com/api/update/kernel?version=");

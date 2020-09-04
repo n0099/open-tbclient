@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class b {
-    static ArrayList<Integer> nhd = new ArrayList<>(4);
-    static String nhe;
+    static ArrayList<Integer> nhv = new ArrayList<>(4);
+    static String nhw;
 
     static {
-        nhd.add(10000);
-        nhd.add(10001);
-        nhd.add(10002);
-        nhd.add(Integer.valueOf((int) com.baidu.sapi2.share.b.h));
-        nhd.add(-1);
+        nhv.add(10000);
+        nhv.add(10001);
+        nhv.add(10002);
+        nhv.add(Integer.valueOf((int) com.baidu.sapi2.share.b.h));
+        nhv.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int dMP() {
-        if (TextUtils.isEmpty(nhe)) {
-            nhe = com.baidu.q.a.c.d.getManufacturer();
+    public static int dMY() {
+        if (TextUtils.isEmpty(nhw)) {
+            nhw = com.baidu.q.a.c.d.getManufacturer();
         }
-        if (TextUtils.isEmpty(nhe)) {
+        if (TextUtils.isEmpty(nhw)) {
             return com.baidu.sapi2.share.b.h;
         }
-        if (nhe.toUpperCase().contains("HUAWEI")) {
+        if (nhw.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        if (nhe.toUpperCase().contains("XIAOMI")) {
+        if (nhw.toUpperCase().contains("XIAOMI")) {
             return 10002;
         }
         return com.baidu.sapi2.share.b.h;

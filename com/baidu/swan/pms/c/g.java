@@ -6,10 +6,10 @@ import com.baidu.swan.pms.c.f;
 import okhttp3.Response;
 /* loaded from: classes14.dex */
 public class g implements StatResponseCallback<String> {
-    private final f.a dFv;
+    private final f.a dFz;
 
     public g(f.a aVar) {
-        this.dFv = aVar;
+        this.dFz = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class g implements StatResponseCallback<String> {
             str2 = response.body().string();
         }
         if (NI()) {
-            this.dFv.b(str, str2, networkStatRecord.toUBCJson());
+            this.dFz.b(str, str2, networkStatRecord.toUBCJson());
         }
         return str2;
     }
@@ -32,18 +32,18 @@ public class g implements StatResponseCallback<String> {
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onSuccess(String str, int i) {
         if (NI()) {
-            this.dFv.onSuccess(str, i);
+            this.dFz.onSuccess(str, i);
         }
     }
 
     @Override // com.baidu.searchbox.http.callback.StatResponseCallback
     public void onFail(Exception exc) {
         if (NI()) {
-            this.dFv.onFail(exc);
+            this.dFz.onFail(exc);
         }
     }
 
     private boolean NI() {
-        return this.dFv != null;
+        return this.dFz != null;
     }
 }

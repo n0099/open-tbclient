@@ -16,36 +16,36 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes8.dex */
 public class g {
-    private static final CancellationException nuC = new CancellationException("Prefetching is not enabled");
-    private final m nuD;
-    private final com.facebook.imagepipeline.h.c nuE;
-    private final com.facebook.common.internal.j<Boolean> nuF;
-    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> nuG;
-    private final p<com.facebook.cache.common.b, PooledByteBuffer> nuH;
-    private final com.facebook.imagepipeline.c.e nuI;
-    private final com.facebook.imagepipeline.c.e nuJ;
-    private final com.facebook.imagepipeline.c.f nuK;
-    private final at nuL;
-    private final com.facebook.common.internal.j<Boolean> nuM;
-    private AtomicLong nuN = new AtomicLong();
-    private final com.facebook.common.internal.j<Boolean> nuO;
+    private static final CancellationException nuU = new CancellationException("Prefetching is not enabled");
+    private final m nuV;
+    private final com.facebook.imagepipeline.h.c nuW;
+    private final com.facebook.common.internal.j<Boolean> nuX;
+    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> nuY;
+    private final p<com.facebook.cache.common.b, PooledByteBuffer> nuZ;
+    private final com.facebook.imagepipeline.c.e nva;
+    private final com.facebook.imagepipeline.c.e nvb;
+    private final com.facebook.imagepipeline.c.f nvc;
+    private final at nvd;
+    private final com.facebook.common.internal.j<Boolean> nve;
+    private AtomicLong nvf = new AtomicLong();
+    private final com.facebook.common.internal.j<Boolean> nvg;
 
     public g(m mVar, Set<com.facebook.imagepipeline.h.c> set, com.facebook.common.internal.j<Boolean> jVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, at atVar, com.facebook.common.internal.j<Boolean> jVar2, com.facebook.common.internal.j<Boolean> jVar3) {
-        this.nuD = mVar;
-        this.nuE = new com.facebook.imagepipeline.h.b(set);
-        this.nuF = jVar;
-        this.nuG = pVar;
-        this.nuH = pVar2;
-        this.nuI = eVar;
-        this.nuJ = eVar2;
-        this.nuK = fVar;
-        this.nuL = atVar;
-        this.nuM = jVar2;
-        this.nuO = jVar3;
+        this.nuV = mVar;
+        this.nuW = new com.facebook.imagepipeline.h.b(set);
+        this.nuX = jVar;
+        this.nuY = pVar;
+        this.nuZ = pVar2;
+        this.nva = eVar;
+        this.nvb = eVar2;
+        this.nvc = fVar;
+        this.nvd = atVar;
+        this.nve = jVar2;
+        this.nvg = jVar3;
     }
 
-    private String dSB() {
-        return String.valueOf(this.nuN.getAndIncrement());
+    private String dSK() {
+        return String.valueOf(this.nvf.getAndIncrement());
     }
 
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> d(ImageRequest imageRequest, Object obj) {
@@ -62,7 +62,7 @@ public class g {
 
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a(ImageRequest imageRequest, Object obj, ImageRequest.RequestLevel requestLevel, @Nullable com.facebook.imagepipeline.h.c cVar) {
         try {
-            return a(this.nuD.d(imageRequest), imageRequest, requestLevel, obj, cVar);
+            return a(this.nuV.d(imageRequest), imageRequest, requestLevel, obj, cVar);
         } catch (Exception e) {
             return com.facebook.datasource.c.z(e);
         }
@@ -70,14 +70,14 @@ public class g {
 
     public com.facebook.datasource.b<Void> f(ImageRequest imageRequest, Object obj) {
         aj<Void> e;
-        if (!this.nuF.get().booleanValue()) {
-            return com.facebook.datasource.c.z(nuC);
+        if (!this.nuX.get().booleanValue()) {
+            return com.facebook.datasource.c.z(nuU);
         }
         try {
-            if (this.nuM.get().booleanValue()) {
-                e = this.nuD.b(imageRequest);
+            if (this.nve.get().booleanValue()) {
+                e = this.nuV.b(imageRequest);
             } else {
-                e = this.nuD.e(imageRequest);
+                e = this.nuV.e(imageRequest);
             }
             return a(e, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, Priority.MEDIUM);
         } catch (Exception e2) {
@@ -86,11 +86,11 @@ public class g {
     }
 
     public com.facebook.datasource.b<Void> a(ImageRequest imageRequest, Object obj, Priority priority) {
-        if (!this.nuF.get().booleanValue()) {
-            return com.facebook.datasource.c.z(nuC);
+        if (!this.nuX.get().booleanValue()) {
+            return com.facebook.datasource.c.z(nuU);
         }
         try {
-            return a(this.nuD.b(imageRequest), imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, priority);
+            return a(this.nuV.b(imageRequest), imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, priority);
         } catch (Exception e) {
             return com.facebook.datasource.c.z(e);
         }
@@ -100,11 +100,11 @@ public class g {
         if (uri == null) {
             return false;
         }
-        return this.nuG.b(U(uri));
+        return this.nuY.b(U(uri));
     }
 
-    public p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> dSC() {
-        return this.nuG;
+    public p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> dSL() {
+        return this.nuY;
     }
 
     public com.facebook.datasource.b<Boolean> T(Uri uri) {
@@ -113,15 +113,15 @@ public class g {
 
     /* JADX DEBUG: Type inference failed for r3v0. Raw type applied. Possible types: bolts.f<java.lang.Boolean, bolts.g<java.lang.Boolean>>, bolts.f<java.lang.Boolean, bolts.g<TContinuationResult>> */
     public com.facebook.datasource.b<Boolean> a(ImageRequest imageRequest) {
-        final com.facebook.cache.common.b c = this.nuK.c(imageRequest, null);
-        final com.facebook.datasource.g dPi = com.facebook.datasource.g.dPi();
-        this.nuI.k(c).b(new bolts.f<Boolean, bolts.g<Boolean>>() { // from class: com.facebook.imagepipeline.d.g.2
+        final com.facebook.cache.common.b c = this.nvc.c(imageRequest, null);
+        final com.facebook.datasource.g dPr = com.facebook.datasource.g.dPr();
+        this.nva.k(c).b(new bolts.f<Boolean, bolts.g<Boolean>>() { // from class: com.facebook.imagepipeline.d.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: c */
             public bolts.g<Boolean> a(bolts.g<Boolean> gVar) throws Exception {
                 if (gVar.isCancelled() || gVar.ik() || !gVar.getResult().booleanValue()) {
-                    return g.this.nuJ.k(c);
+                    return g.this.nvb.k(c);
                 }
                 return bolts.g.l(true);
             }
@@ -130,18 +130,18 @@ public class g {
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<Boolean> gVar) throws Exception {
-                dPi.aW(Boolean.valueOf((gVar.isCancelled() || gVar.ik() || !gVar.getResult().booleanValue()) ? false : true));
+                dPr.aW(Boolean.valueOf((gVar.isCancelled() || gVar.ik() || !gVar.getResult().booleanValue()) ? false : true));
                 return null;
             }
         });
-        return dPi;
+        return dPr;
     }
 
     private <T> com.facebook.datasource.b<com.facebook.common.references.a<T>> a(aj<com.facebook.common.references.a<T>> ajVar, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, @Nullable com.facebook.imagepipeline.h.c cVar) {
         boolean z = false;
         com.facebook.imagepipeline.h.c a = a(imageRequest, cVar);
         try {
-            return com.facebook.imagepipeline.e.c.a(ajVar, new ap(imageRequest, dSB(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dVq(), requestLevel), false, (imageRequest.dWl() || !com.facebook.common.util.d.I(imageRequest.dWg())) ? true : true, imageRequest.dVs()), a);
+            return com.facebook.imagepipeline.e.c.a(ajVar, new ap(imageRequest, dSK(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dVz(), requestLevel), false, (imageRequest.dWu() || !com.facebook.common.util.d.I(imageRequest.dWp())) ? true : true, imageRequest.dVB()), a);
         } catch (Exception e) {
             return com.facebook.datasource.c.z(e);
         }
@@ -150,7 +150,7 @@ public class g {
     private com.facebook.datasource.b<Void> a(aj<Void> ajVar, ImageRequest imageRequest, ImageRequest.RequestLevel requestLevel, Object obj, Priority priority) {
         com.facebook.imagepipeline.h.c a = a(imageRequest, null);
         try {
-            return com.facebook.imagepipeline.e.d.a(ajVar, new ap(imageRequest, dSB(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dVq(), requestLevel), true, false, priority), a);
+            return com.facebook.imagepipeline.e.d.a(ajVar, new ap(imageRequest, dSK(), a, obj, ImageRequest.RequestLevel.getMax(imageRequest.dVz(), requestLevel), true, false, priority), a);
         } catch (Exception e) {
             return com.facebook.datasource.c.z(e);
         }
@@ -158,14 +158,14 @@ public class g {
 
     private com.facebook.imagepipeline.h.c a(ImageRequest imageRequest, @Nullable com.facebook.imagepipeline.h.c cVar) {
         if (cVar == null) {
-            if (imageRequest.dPt() == null) {
-                return this.nuE;
+            if (imageRequest.dPC() == null) {
+                return this.nuW;
             }
-            return new com.facebook.imagepipeline.h.b(this.nuE, imageRequest.dPt());
-        } else if (imageRequest.dPt() == null) {
-            return new com.facebook.imagepipeline.h.b(this.nuE, cVar);
+            return new com.facebook.imagepipeline.h.b(this.nuW, imageRequest.dPC());
+        } else if (imageRequest.dPC() == null) {
+            return new com.facebook.imagepipeline.h.b(this.nuW, cVar);
         } else {
-            return new com.facebook.imagepipeline.h.b(this.nuE, cVar, imageRequest.dPt());
+            return new com.facebook.imagepipeline.h.b(this.nuW, cVar, imageRequest.dPC());
         }
     }
 
@@ -181,14 +181,14 @@ public class g {
     }
 
     public void pause() {
-        this.nuL.dWc();
+        this.nvd.dWl();
     }
 
     public void resume() {
-        this.nuL.dWd();
+        this.nvd.dWm();
     }
 
-    public com.facebook.imagepipeline.c.f dSD() {
-        return this.nuK;
+    public com.facebook.imagepipeline.c.f dSM() {
+        return this.nvc;
     }
 }

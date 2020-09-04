@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.view.j;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, com.baidu.tieba.ala.alasquare.live_tab.view.d> {
-    private j fEu;
+    private j fEy;
     private TbPageContext mPageContext;
     private int tabType;
 
     public e(TbPageContext tbPageContext, int i) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fEy);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fEC);
         this.mPageContext = tbPageContext;
         this.tabType = i;
     }
@@ -22,19 +22,19 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: K */
     public com.baidu.tieba.ala.alasquare.live_tab.view.d b(ViewGroup viewGroup) {
-        this.fEu = new j(this.mPageContext, viewGroup, this.tabType);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.d(this.fEu);
+        this.fEy = new j(this.mPageContext, viewGroup, this.tabType);
+        return new com.baidu.tieba.ala.alasquare.live_tab.view.d(this.fEy);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, com.baidu.tieba.ala.alasquare.live_tab.view.d dVar) {
-        if (dVar == null || dVar.fEu == null) {
+        if (dVar == null || dVar.fEy == null) {
             return null;
         }
-        dVar.fEu.a(eVar);
-        dVar.fEu.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        dVar.fEy.a(eVar);
+        dVar.fEy.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return dVar.getView();
     }
 }

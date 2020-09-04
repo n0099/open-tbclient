@@ -9,14 +9,14 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
     private float lastX;
     private int mDuration;
     private boolean mIsDisallowIntercept;
     private int mTouchSlop;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends Scroller {
         public a(Context context) {
             super(context);

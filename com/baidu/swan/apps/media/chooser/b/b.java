@@ -21,26 +21,26 @@ public class b {
         if (resultDispatcher != null) {
             Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
             if (intent.resolveActivity(activity.getPackageManager()) != null) {
-                final File om = om(str);
-                if (om == null || !om.exists()) {
+                final File oo = oo(str);
+                if (oo == null || !oo.exists()) {
                     if (bVar != null) {
-                        bVar.ok("error create file");
+                        bVar.ol("error create file");
                         return;
                     }
                     return;
                 }
                 if (com.baidu.swan.apps.ap.c.hasNougat()) {
-                    fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", om);
+                    fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", oo);
                     intent.setFlags(3);
                 } else {
-                    fromFile = Uri.fromFile(om);
+                    fromFile = Uri.fromFile(oo);
                 }
                 intent.putExtra("output", fromFile);
                 resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.media.chooser.b.b.1
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                     public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
                         if (i == -1 && com.baidu.swan.apps.media.chooser.c.b.this != null) {
-                            com.baidu.swan.apps.media.chooser.c.b.this.B(om);
+                            com.baidu.swan.apps.media.chooser.c.b.this.B(oo);
                             return true;
                         }
                         return true;
@@ -56,12 +56,12 @@ public class b {
         ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher();
         if (resultDispatcher != null) {
             Intent intent = new Intent("android.media.action.VIDEO_CAPTURE");
-            final File oo = oo(str);
+            final File op = op(str);
             if (com.baidu.swan.apps.ap.c.hasNougat()) {
-                fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", oo);
+                fromFile = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", op);
                 intent.setFlags(3);
             } else {
-                fromFile = Uri.fromFile(oo);
+                fromFile = Uri.fromFile(op);
             }
             intent.putExtra("output", fromFile);
             intent.putExtra("android.intent.extra.durationLimit", i);
@@ -79,7 +79,7 @@ public class b {
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
                 public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i2, Intent intent2) {
                     if (i2 == -1 && com.baidu.swan.apps.media.chooser.c.b.this != null) {
-                        com.baidu.swan.apps.media.chooser.c.b.this.B(oo);
+                        com.baidu.swan.apps.media.chooser.c.b.this.B(op);
                         return true;
                     }
                     return true;
@@ -155,14 +155,14 @@ public class b {
         return false;
     }
 
-    private static File om(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.storage.b.rH(str) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
+    private static File oo(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.storage.b.rI(str) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
         com.baidu.swan.c.d.createNewFileSafely(file);
         return file;
     }
 
-    private static File oo(@NonNull String str) {
-        File file = new File(com.baidu.swan.apps.storage.b.rH(str) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
+    private static File op(@NonNull String str) {
+        File file = new File(com.baidu.swan.apps.storage.b.rI(str) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
         com.baidu.swan.c.d.createNewFileSafely(file);
         return file;
     }

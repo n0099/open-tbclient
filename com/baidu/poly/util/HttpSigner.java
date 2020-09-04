@@ -35,7 +35,7 @@ public class HttpSigner {
             }
             bVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
             sb.append(nativeGetCommissionSk()).append(ETAG.ITEM_SEPARATOR).append(bVar.get("timestamp"));
-            bVar.g("sign", com.baidu.poly.a.g.b.dC(sb.toString()));
+            bVar.g("sign", com.baidu.poly.a.g.b.dD(sb.toString()));
         }
     }
 
@@ -54,6 +54,6 @@ public class HttpSigner {
             }
         }
         sb.append(str).append(ETAG.EQUAL).append(nativeGetStatisticsKey(i));
-        return com.baidu.poly.a.g.b.dC(sb.toString());
+        return com.baidu.poly.a.g.b.dD(sb.toString());
     }
 }

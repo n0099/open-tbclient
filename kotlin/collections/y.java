@@ -14,15 +14,15 @@ public class y extends x {
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable orX;
+        final /* synthetic */ Iterable osp;
 
         public a(Iterable iterable) {
-            this.orX = iterable;
+            this.osp = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.orX.iterator();
+            return this.osp.iterator();
         }
     }
 
@@ -99,7 +99,7 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.efR();
+                    return o.ega();
                 case 1:
                     return o.bL(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

@@ -16,7 +16,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
     private static final String LOG_TAG = BdRecyclerView.class.getSimpleName();
     private h VC;
@@ -39,12 +39,12 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
     private Runnable preLoadRunnable;
     private Runnable refreshRunnable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a<T> {
         void a(ViewGroup viewGroup, View view, T t, int i, long j);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b<T> {
         boolean b(ViewGroup viewGroup, View view, T t, int i, long j);
     }

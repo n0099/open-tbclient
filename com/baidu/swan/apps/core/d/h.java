@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class h extends c implements View.OnClickListener {
-    private RelativeLayout civ;
-    private RelativeLayout ciw;
+    private RelativeLayout ciA;
+    private RelativeLayout ciz;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     @Nullable
@@ -27,10 +27,10 @@ public class h extends c implements View.OnClickListener {
     }
 
     private void ak(View view) {
-        this.civ = (RelativeLayout) view.findViewById(a.f.message_item);
-        this.civ.setOnClickListener(this);
-        this.ciw = (RelativeLayout) view.findViewById(a.f.authority_item);
-        this.ciw.setOnClickListener(this);
+        this.ciz = (RelativeLayout) view.findViewById(a.f.message_item);
+        this.ciz.setOnClickListener(this);
+        this.ciA = (RelativeLayout) view.findViewById(a.f.authority_item);
+        this.ciA.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,8 +39,8 @@ public class h extends c implements View.OnClickListener {
         al(view);
         gV(-1);
         gW(ViewCompat.MEASURED_STATE_MASK);
-        lg(getString(a.h.swan_app_menu_setting));
-        dV(true);
+        lh(getString(a.h.swan_app_menu_setting));
+        dW(true);
         setRightZoneVisibility(false);
     }
 
@@ -86,8 +86,8 @@ public class h extends c implements View.OnClickListener {
             com.baidu.swan.apps.res.widget.b.d.k(getContext(), a.h.aiapps_open_fragment_failed_toast).showToast();
             return;
         }
-        XX.ln("navigateTo").al(f.cig, f.cii).a("authority", null).commit();
-        com.baidu.swan.apps.menu.a.oA("permission");
+        XX.lo("navigateTo").al(f.cik, f.cim).a("authority", null).commit();
+        com.baidu.swan.apps.menu.a.oB("permission");
     }
 
     public static h ahz() {

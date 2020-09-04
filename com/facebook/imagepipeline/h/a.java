@@ -23,7 +23,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public void gn(String str, String str2) {
+    public void go(String str, String str2) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am

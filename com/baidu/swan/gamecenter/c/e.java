@@ -1,15 +1,15 @@
 package com.baidu.swan.gamecenter.c;
 /* loaded from: classes14.dex */
 public class e {
-    private static volatile d dnK;
+    private static volatile d dnO;
 
     public static synchronized d aKG() {
         d dVar;
         synchronized (e.class) {
-            if (dnK == null) {
-                dnK = new d();
+            if (dnO == null) {
+                dnO = new d();
             }
-            dVar = dnK;
+            dVar = dnO;
         }
         return dVar;
     }

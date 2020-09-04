@@ -5,9 +5,9 @@ import com.baidu.swan.bdprivate.b;
 /* loaded from: classes3.dex */
 public class a {
     private String agreeText;
-    private boolean dgH;
-    private String dgI;
-    private String dgJ;
+    private boolean dgL;
+    private String dgM;
+    private String dgN;
     private String encryptPhoneNum;
     private boolean hasHistory;
     private int loginMode;
@@ -21,18 +21,18 @@ public class a {
     }
 
     public boolean aGL() {
-        return this.dgH;
+        return this.dgL;
     }
 
-    public void go(boolean z) {
-        this.dgH = z;
+    public void gp(boolean z) {
+        this.dgL = z;
     }
 
     public String aGM() {
         return this.encryptPhoneNum;
     }
 
-    public void tk(String str) {
+    public void tl(String str) {
         this.encryptPhoneNum = str;
     }
 
@@ -40,16 +40,16 @@ public class a {
         return this.hasHistory;
     }
 
-    public void gp(boolean z) {
+    public void gq(boolean z) {
         this.hasHistory = z;
     }
 
-    public void tl(String str) {
-        this.dgI = str;
+    public void tm(String str) {
+        this.dgM = str;
     }
 
     public String aGO() {
-        String str = this.dgI;
+        String str = this.dgM;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:
@@ -73,20 +73,20 @@ public class a {
         }
         switch (c) {
             case 0:
-                this.dgJ = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+                this.dgN = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
                 break;
             case 1:
-                this.dgJ = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+                this.dgN = "https://ms.zzx9.cn/html/oauth/protocol2.html";
                 break;
             case 2:
-                this.dgJ = "https://wap.cmpassport.com/resources/html/contract.html";
+                this.dgN = "https://wap.cmpassport.com/resources/html/contract.html";
                 break;
         }
-        return this.dgJ;
+        return this.dgN;
     }
 
     public String aGP() {
-        String str = this.dgI;
+        String str = this.dgM;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:

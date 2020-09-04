@@ -44,7 +44,7 @@ public class h extends aa {
         if (TextUtils.isEmpty(optString)) {
             optString = "0";
         }
-        if (!com.baidu.swan.apps.core.a.a.a.kX(optString)) {
+        if (!com.baidu.swan.apps.core.a.a.a.kY(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
             return false;
         }
@@ -138,8 +138,8 @@ public class h extends aa {
                     List<String> g = com.baidu.swan.apps.core.pms.d.a.g(arrayList);
                     if (!g.isEmpty()) {
                         com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aFr());
-                        bVar.wO(str);
-                        bVar.wN("1");
+                        bVar.wP(str);
+                        bVar.wO("1");
                         com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().hj(5));
                     }
                 }

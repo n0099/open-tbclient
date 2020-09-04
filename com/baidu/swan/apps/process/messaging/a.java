@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.d;
 /* loaded from: classes8.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b cJc;
+    private b cJg;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -19,18 +19,18 @@ public final class a {
 
         void clear(String str);
 
-        void pN(String str);
+        void pO(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0421a {
-        private static a cJf = new a();
+        private static a cJj = new a();
     }
 
     public static a axs() {
-        return C0421a.cJf;
+        return C0421a.cJj;
     }
 
     public void a(@NonNull final c cVar) {
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.cJc == null) {
-            this.cJc = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.cJg == null) {
+            this.cJg = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.cJc);
-        this.cJc.axv();
-        this.cJc.a(cVar);
-        this.cJc.axv();
+        log("send: sender=" + this.cJg);
+        this.cJg.axv();
+        this.cJg.a(cVar);
+        this.cJg.axv();
     }
 
-    public void pL(String str) {
-        if (this.cJc != null) {
-            this.cJc.clear(str);
+    public void pM(String str) {
+        if (this.cJg != null) {
+            this.cJg.clear(str);
         }
     }
 
     public void axt() {
-        if (this.cJc != null) {
-            this.cJc.axv();
+        if (this.cJg != null) {
+            this.cJg.axv();
         }
     }
 
-    public void pM(String str) {
-        if (this.cJc != null) {
-            this.cJc.pN(str);
+    public void pN(String str) {
+        if (this.cJg != null) {
+            this.cJg.pO(str);
         }
     }
 

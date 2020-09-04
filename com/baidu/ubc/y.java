@@ -6,7 +6,7 @@ import org.json.JSONException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes18.dex */
 public class y {
-    public static void xp(String str) {
+    public static void xq(String str) {
     }
 
     public static void e(ah ahVar) {
@@ -16,8 +16,8 @@ public class y {
             boolean aWv = ahVar.aWv();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (aWv != g.dLN().xa(aWu.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + aWv + "  content " + ahVar.dMf().toString());
+                    if (aWv != g.dLW().xb(aWu.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + aWv + "  content " + ahVar.dMo().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

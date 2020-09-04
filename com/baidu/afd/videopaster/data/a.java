@@ -6,38 +6,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.b.b;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.b.b {
-    public String YH;
-    public String YI;
-    public int YJ;
+    public String YJ;
     public String YK;
-    public String YL;
+    public int YL;
     public String YM;
     public String YN;
-    public boolean YO;
-    public int YP;
-    public int YQ;
-    private b.a YT;
+    public String YO;
+    public String YP;
+    public boolean YQ;
+    public int YR;
+    public int YS;
+    private b.a YV;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int YG = 3;
-    public ArrayList<String> YR = new ArrayList<>();
-    public ArrayList<String> YS = new ArrayList<>();
+    private int YI = 3;
+    public ArrayList<String> YT = new ArrayList<>();
+    public ArrayList<String> YU = new ArrayList<>();
 
     public void aW(int i) {
-        this.YG = i;
+        this.YI = i;
     }
 
     public boolean isEmpty() {
-        return this.YG == 2;
+        return this.YI == 2;
     }
 
     public int rO() {
-        return this.YG;
+        return this.YI;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     }
 
     public String rP() {
-        return StringUtils.isNull(this.YM) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.YM;
+        return StringUtils.isNull(this.YO) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.YO;
     }
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.YT == null) {
-            this.YT = new b.a();
-            this.YT.jOs = this.YR;
-            this.YT.jOt = this.YS;
+        if (this.YV == null) {
+            this.YV = new b.a();
+            this.YV.jOy = this.YT;
+            this.YV.jOz = this.YU;
         }
-        return this.YT;
+        return this.YV;
     }
 }

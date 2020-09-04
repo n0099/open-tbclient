@@ -10,33 +10,33 @@ import java.util.Iterator;
 import tbclient.ThreadInfo;
 /* loaded from: classes15.dex */
 public class b implements q {
-    public int atH;
+    public int atJ;
     public String cover;
-    public bw dUS;
+    public bw dUW;
     public String desc;
-    public boolean hNV;
+    public boolean hOb;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.hNV = z;
+        this.hOb = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.kma;
+        return a.kmh;
     }
 
     private void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.dUS = new bw();
-            this.dUS.a(threadInfo);
+            this.dUW = new bw();
+            this.dUW.a(threadInfo);
             this.desc = threadInfo.title;
-            this.atH = threadInfo.reply_num.intValue();
+            this.atJ = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
-            if (!y.isEmpty(this.dUS.beN())) {
-                Iterator<MediaData> it = this.dUS.beN().iterator();
+            if (!y.isEmpty(this.dUW.beN())) {
+                Iterator<MediaData> it = this.dUW.beN().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {

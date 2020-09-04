@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private HTypeListView ldt;
-    private c ldu;
-    private b ldv;
-    private a ldw;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private HTypeListView ldA;
+    private c ldB;
+    private b ldC;
+    private a ldD;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.ldt = hTypeListView;
+        this.ldA = hTypeListView;
         Jv();
     }
 
     private void Jv() {
-        this.ldu = new c(this.mTbPageContext, m.ahK);
-        this.ldv = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.ldE);
-        this.ldw = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ldj);
-        this.bbu.add(this.ldu);
-        this.bbu.add(this.ldv);
-        this.bbu.add(this.ldw);
-        this.ldt.addAdapters(this.bbu);
+        this.ldB = new c(this.mTbPageContext, m.ahM);
+        this.ldC = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.ldL);
+        this.ldD = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ldq);
+        this.bbw.add(this.ldB);
+        this.bbw.add(this.ldC);
+        this.bbw.add(this.ldD);
+        this.ldA.addAdapters(this.bbw);
     }
 
     public void setDatas(List<q> list) {
-        if (this.ldt != null) {
-            this.ldt.setData(list);
+        if (this.ldA != null) {
+            this.ldA.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.ldt != null && (this.ldt.getAdapter() instanceof af)) {
-            ((af) this.ldt.getAdapter()).notifyDataSetChanged();
+        if (this.ldA != null && (this.ldA.getAdapter() instanceof af)) {
+            ((af) this.ldA.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.ldu.F(onClickListener);
-        this.ldv.F(onClickListener);
+        this.ldB.F(onClickListener);
+        this.ldC.F(onClickListener);
     }
 }

@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dve;
+    private a dvi;
     private final Object mLock = new Object();
-    private boolean dvc = true;
-    private List<b> dvd = new ArrayList(3);
+    private boolean dvg = true;
+    private List<b> dvh = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.dve = aVar;
+        this.dvi = aVar;
     }
 
     public void aOF() {
         synchronized (this.mLock) {
-            this.dvc = false;
+            this.dvg = false;
             aOG();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.dvc) {
+            if (this.dvg) {
                 f(1, obj);
             } else {
-                this.dve.a(new b(1, obj));
+                this.dvi.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.dvc) {
+            if (this.dvg) {
                 f(2, bVar);
             } else {
-                this.dve.a(new b(2, bVar));
+                this.dvi.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.dvc) {
+            if (this.dvg) {
                 f(3, jSEvent);
             } else {
-                this.dve.a(new b(3, jSEvent));
+                this.dvi.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
     private void aOG() {
-        for (b bVar : this.dvd) {
-            this.dve.a(bVar);
+        for (b bVar : this.dvh) {
+            this.dvi.a(bVar);
         }
-        this.dvd.clear();
+        this.dvh.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.dvd.add(new b(i, obj));
+            this.dvh.add(new b(i, obj));
         }
     }
 }

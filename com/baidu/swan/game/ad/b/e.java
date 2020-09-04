@@ -23,14 +23,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class e extends d {
-    private String aml;
-    private int dlh;
+    private String amn;
+    private int dll;
     private int mPos;
     private int mType;
 
     public e(Context context, b bVar, int i, int i2) {
         super(context, bVar);
-        this.dlh = 1;
+        this.dll = 1;
         this.mType = 1;
         this.mPos = 1;
         this.mType = i;
@@ -57,7 +57,7 @@ public class e extends d {
         try {
             jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("id", this.dle.getAppSid());
+            jSONObject2.put("id", this.dli.getAppSid());
             jSONObject2.put("name", com.baidu.swan.apps.t.a.apw().getHostName());
             jSONObject2.put("bundle", com.baidu.swan.apps.t.a.aoJ().getPackageName());
             jSONObject2.put("version", ak.getVersionName());
@@ -66,7 +66,7 @@ public class e extends d {
             jSONObject3.put(j.c, getUserAgent());
             jSONObject3.put("imei", ak.aFm());
             jSONObject3.put("android_id", getAndroidId());
-            jSONObject3.put(TableDefine.UserInfoColumns.COLUMN_IP, gs(true));
+            jSONObject3.put(TableDefine.UserInfoColumns.COLUMN_IP, gt(true));
             jSONObject3.put("type", 1);
             jSONObject3.put("os", 1);
             jSONObject3.put("os_version", com.baidu.swan.apps.i.c.adC());
@@ -81,12 +81,12 @@ public class e extends d {
             jSONObject3.put("screen_orientation", this.mContext.getResources().getConfiguration().orientation);
             jSONObject.put(Config.DEVICE_PART, jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.dle.aJf());
-            jSONObject4.put("ad_count", this.dlh);
+            jSONObject4.put(UbcStatConstant.KEY_CONTENT_EXT_SID, this.dli.aJf());
+            jSONObject4.put("ad_count", this.dll);
             jSONObject4.put("ad_type", this.mType);
             jSONObject4.put("pos", this.mPos);
-            jSONObject4.put("width", this.dle.aJd());
-            jSONObject4.put("height", this.dle.aJe());
+            jSONObject4.put("width", this.dli.aJd());
+            jSONObject4.put("height", this.dli.aJe());
             jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(jSONObject4);
@@ -143,18 +143,18 @@ public class e extends d {
     }
 
     private String getUserAgent() {
-        if (TextUtils.isEmpty(this.aml)) {
+        if (TextUtils.isEmpty(this.amn)) {
             try {
-                this.aml = WebSettings.getDefaultUserAgent(this.mContext);
+                this.amn = WebSettings.getDefaultUserAgent(this.mContext);
             } catch (Exception e) {
                 try {
-                    this.aml = System.getProperty("http.agent");
+                    this.amn = System.getProperty("http.agent");
                 } catch (Exception e2) {
-                    this.aml = "";
+                    this.amn = "";
                 }
             }
         }
-        return this.aml;
+        return this.amn;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x002d, code lost:
@@ -163,7 +163,7 @@ public class e extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String gs(boolean z) {
+    private String gt(boolean z) {
         String str;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();

@@ -8,31 +8,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
-    private final List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private com.baidu.adp.base.e efK;
-    private BdTypeListView fCP;
-    private b iih;
+    private final List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private com.baidu.adp.base.e efO;
+    private BdTypeListView fCT;
+    private b iin;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.efK = eVar;
-        this.fCP = bdTypeListView;
+        this.efO = eVar;
+        this.fCT = bdTypeListView;
         Jv();
     }
 
     private void Jv() {
-        this.iih = new b((TbPageContext) this.efK, com.baidu.tieba.frs.game.strategy.data.b.ihp);
-        this.bbu.add(this.iih);
-        this.fCP.addAdapters(this.bbu);
+        this.iin = new b((TbPageContext) this.efO, com.baidu.tieba.frs.game.strategy.data.b.ihv);
+        this.bbw.add(this.iin);
+        this.fCT.addAdapters(this.bbw);
     }
 
     public void setData(List<q> list) {
-        if (this.fCP != null) {
-            this.fCP.setData(list);
+        if (this.fCT != null) {
+            this.fCT.setData(list);
         }
     }
 
     public void b(ab abVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
             if (aVar != null) {
                 aVar.a(abVar);
             }
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.fCP.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.fCP.getAdapter().notifyDataSetChanged();
+        if (this.fCT.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.fCT.getAdapter().notifyDataSetChanged();
         }
     }
 }

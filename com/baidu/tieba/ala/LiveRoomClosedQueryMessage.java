@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
     private List<Long> mIds;
     private List<Object> mOriginData;

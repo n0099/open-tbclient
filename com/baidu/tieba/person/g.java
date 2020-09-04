@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.UcCard;
 import tbclient.UcCardInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     public String document;
     public String icon;
-    public String ldp;
-    public List<a> ldq;
+    public String ldw;
+    public List<a> ldx;
     public String name;
 
     public void a(UcCard ucCard) {
@@ -17,24 +17,24 @@ public class g {
             this.name = ucCard.name;
             this.icon = ucCard.icon;
             this.document = ucCard.doc;
-            this.ldp = ucCard.jmp;
-            this.ldq = new ArrayList();
+            this.ldw = ucCard.jmp;
+            this.ldx = new ArrayList();
             if (ucCard.uc_cards != null) {
                 for (UcCardInfo ucCardInfo : ucCard.uc_cards) {
                     if (ucCardInfo != null) {
                         a aVar = new a();
                         aVar.a(ucCardInfo);
-                        this.ldq.add(aVar);
+                        this.ldx.add(aVar);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        public String ldp;
-        public boolean ldr;
+        public String ldw;
+        public boolean ldy;
         public String pic;
         public long timeStamp;
         public String tip;
@@ -44,7 +44,7 @@ public class g {
             if (ucCardInfo != null) {
                 this.title = ucCardInfo.title;
                 this.pic = ucCardInfo.pic;
-                this.ldp = ucCardInfo.jmp;
+                this.ldw = ucCardInfo.jmp;
                 this.tip = ucCardInfo.tip;
                 this.timeStamp = ucCardInfo.st.intValue();
             }

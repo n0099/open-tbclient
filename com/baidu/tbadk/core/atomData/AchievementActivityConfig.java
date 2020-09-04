@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AchievementActivityConfig extends IntentConfig {
     public static final String KEY_SHARE_URL = "key_share_url";
     public static final String KEY_URL = "key_url";

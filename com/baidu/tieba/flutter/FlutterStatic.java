@@ -80,13 +80,13 @@ public class FlutterStatic {
             public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     Context context = customMessage.getData().getContext();
-                    String dws = customMessage.getData().dws();
+                    String dwx = customMessage.getData().dwx();
                     HashMap params = customMessage.getData().getParams();
                     if (params == null || params.isEmpty()) {
                         params = new HashMap();
                     }
-                    if (context != null && !TextUtils.isEmpty(dws) && params != null && !params.isEmpty()) {
-                        OpenFlutter.openFlutterPage(context, dws, params);
+                    if (context != null && !TextUtils.isEmpty(dwx) && params != null && !params.isEmpty()) {
+                        OpenFlutter.openFlutterPage(context, dwx, params);
                     }
                 }
                 return null;

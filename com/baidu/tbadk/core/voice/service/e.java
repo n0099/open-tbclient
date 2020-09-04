@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.voice.service;
 import android.media.MediaPlayer;
 import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object ezt = new Object();
-    private static e ezu = null;
-    private boolean ezv = false;
-    private boolean ezw = true;
+    private static Object ezx = new Object();
+    private static e ezy = null;
+    private boolean ezz = false;
+    private boolean ezA = true;
     private int errorNo = -1;
 
     private e() {
     }
 
     public static e bmi() {
-        if (ezu == null) {
-            synchronized (ezt) {
-                if (ezu == null) {
-                    ezu = new e();
+        if (ezy == null) {
+            synchronized (ezx) {
+                if (ezy == null) {
+                    ezy = new e();
                 }
             }
         }
-        return ezu;
+        return ezy;
     }
 
     public void setStreamType(int i) {
@@ -30,10 +30,10 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean AR(String str) {
+    public boolean AS(String str) {
         this.errorNo = -1;
-        if (!this.ezv) {
-            this.ezw = true;
+        if (!this.ezz) {
+            this.ezA = true;
             reset();
             try {
                 setDataSource(str);
@@ -59,22 +59,22 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.ezv = true;
+        this.ezz = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void bmf() {
         start();
-        this.ezw = false;
+        this.ezA = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void bmb() {
-        if (!this.ezw) {
+        if (!this.ezA) {
             stop();
-            this.ezw = true;
-            this.ezv = false;
+            this.ezA = true;
+            this.ezz = false;
         }
     }
 
@@ -86,8 +86,8 @@ public class e extends MediaPlayer implements c {
     @Override // com.baidu.tbadk.core.voice.service.c
     public void bmh() {
         reset();
-        this.ezv = false;
-        this.ezw = true;
+        this.ezz = false;
+        this.ezA = true;
         this.errorNo = -1;
     }
 
@@ -98,7 +98,7 @@ public class e extends MediaPlayer implements c {
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public boolean isPrepared() {
-        return this.ezv;
+        return this.ezz;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c

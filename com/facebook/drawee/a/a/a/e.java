@@ -9,43 +9,43 @@ public class e {
     @Nullable
     private final String mRequestId;
     @Nullable
-    private final String nmB;
+    private final String nmT;
     @Nullable
-    private final Object nmD;
+    private final Object nmV;
     @Nullable
-    private final ImageRequest nmE;
+    private final ImageRequest nmW;
     @Nullable
-    private final com.facebook.imagepipeline.g.f nmF;
-    private final long nmG;
-    private final long nmH;
-    private final long nmI;
-    private final long nmJ;
-    private final long nmK;
-    private final long nmL;
-    private final long nmM;
-    private final int nmN;
-    private final boolean nmO;
-    private final int nmP;
-    private final int nmQ;
+    private final com.facebook.imagepipeline.g.f nmX;
+    private final long nmY;
+    private final long nmZ;
+    private final long nna;
+    private final long nnb;
+    private final long nnc;
+    private final long nnd;
+    private final long nne;
+    private final int nnf;
+    private final boolean nng;
+    private final int nnh;
+    private final int nni;
 
     public e(@Nullable String str, @Nullable String str2, @Nullable ImageRequest imageRequest, @Nullable Object obj, @Nullable com.facebook.imagepipeline.g.f fVar, long j, long j2, long j3, long j4, long j5, long j6, long j7, int i, boolean z, boolean z2, boolean z3, int i2, int i3) {
-        this.nmB = str;
+        this.nmT = str;
         this.mRequestId = str2;
-        this.nmE = imageRequest;
-        this.nmD = obj;
-        this.nmF = fVar;
-        this.nmG = j;
-        this.nmH = j2;
-        this.nmI = j3;
-        this.nmJ = j4;
-        this.nmK = j5;
-        this.nmL = j6;
-        this.nmM = j7;
-        this.nmN = i;
+        this.nmW = imageRequest;
+        this.nmV = obj;
+        this.nmX = fVar;
+        this.nmY = j;
+        this.nmZ = j2;
+        this.nna = j3;
+        this.nnb = j4;
+        this.nnc = j5;
+        this.nnd = j6;
+        this.nne = j7;
+        this.nnf = i;
         this.mIsCanceled = z;
         this.Ub = z2;
-        this.nmO = z3;
-        this.nmP = i2;
-        this.nmQ = i3;
+        this.nng = z3;
+        this.nnh = i2;
+        this.nni = i3;
     }
 }

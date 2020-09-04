@@ -3,8 +3,8 @@ package com.baidu.rtc.camera.a;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 /* loaded from: classes11.dex */
 public class b {
-    private static b bNj = new b();
-    public com.baidu.rtc.camera.b.a bNk;
+    private static b bNn = new b();
+    public com.baidu.rtc.camera.b.a bNo;
     public int encodeWidth = 270;
     public int encodeHeight = 480;
     public int encodeBitrate = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
@@ -16,6 +16,6 @@ public class b {
     }
 
     public static b WF() {
-        return bNj;
+        return bNn;
     }
 }

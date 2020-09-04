@@ -13,13 +13,13 @@ public class b {
     private static String mTitle = "background";
     private static String mType = "page";
     private static String mUrl = "runtime/index.js";
-    private static String cdK = "ws://localhost:4000";
+    private static String cdO = "ws://localhost:4000";
     private String mId = String.valueOf(System.currentTimeMillis());
-    private String cdL = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
+    private String cdP = "http://chrome-devtools-frontend.appspot.com/serve_rev/@793eb32f50bafcb87fb5d1a0fd3f44e66470e580/inspector.html?ws=localhost:4000";
     private boolean mAttached = false;
-    private boolean cdM = true;
-    private int cdN = 0;
-    private int cdO = 0;
+    private boolean cdQ = true;
+    private int cdR = 0;
+    private int cdS = 0;
     private boolean mVisible = true;
 
     public String toString() {
@@ -30,15 +30,15 @@ public class b {
             jSONObject.putOpt("title", mTitle);
             jSONObject.putOpt("type", mType);
             jSONObject.putOpt("url", mUrl);
-            jSONObject.putOpt("webSocketDebuggerUrl", cdK);
+            jSONObject.putOpt("webSocketDebuggerUrl", cdO);
             jSONObject.putOpt("id", this.mId);
-            jSONObject.putOpt("devtoolsFrontendUrl", this.cdL);
+            jSONObject.putOpt("devtoolsFrontendUrl", this.cdP);
             jSONObject.putOpt("swanJsVersion", com.baidu.swan.apps.swancore.b.jC(0));
             jSONObject.putOpt("appVersion", ak.getVersionName());
             jSONObject2.putOpt("attached", Boolean.valueOf(this.mAttached));
-            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cdM));
-            jSONObject2.putOpt("screenX", Integer.valueOf(this.cdN));
-            jSONObject2.putOpt("screenY", Integer.valueOf(this.cdO));
+            jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.cdQ));
+            jSONObject2.putOpt("screenX", Integer.valueOf(this.cdR));
+            jSONObject2.putOpt("screenY", Integer.valueOf(this.cdS));
             jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.mVisible));
             jSONObject.putOpt("description", jSONObject2.toString());
             jSONArray.put(jSONObject);

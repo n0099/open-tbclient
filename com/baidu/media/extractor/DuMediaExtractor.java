@@ -15,8 +15,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 /* loaded from: classes12.dex */
 public class DuMediaExtractor implements b {
-    private b.a bAL;
-    private a bAM;
+    private b.a bAO;
+    private a bAP;
     @Keep
     private long mNativeDuMediaExtractor;
 
@@ -49,14 +49,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bAM = new a(this, myLooper);
+            this.bAP = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bAM = new a(this, mainLooper);
+            this.bAP = new a(this, mainLooper);
         } else {
-            this.bAM = null;
+            this.bAP = null;
         }
     }
 
@@ -85,8 +85,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bAL = null;
-            this.bAM = null;
+            this.bAO = null;
+            this.bAP = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

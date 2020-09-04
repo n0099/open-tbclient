@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.util.aq;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
 /* loaded from: classes16.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private StickyAppBarLayoutBehavior iJF;
-    private a iJG;
+    private StickyAppBarLayoutBehavior iJL;
+    private a iJM;
     CustomMessageListener listener;
     private int mSkinType;
 
     /* loaded from: classes16.dex */
     public interface a {
-        void pD(boolean z);
+        void pF(boolean z);
     }
 
     public StickyAppBarLayout(Context context) {
@@ -33,9 +33,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cwQ();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.cwR();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.cwS();
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cwQ();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.cwR();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.cwS();
                     }
                 }
             }
@@ -64,55 +64,55 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        cwP();
+        cwQ();
     }
 
-    private void cwP() {
+    private void cwQ() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.iJF = (StickyAppBarLayoutBehavior) behavior;
+                this.iJL = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean cwQ() {
-        if (this.iJF == null) {
-            cwP();
+    public boolean cwR() {
+        if (this.iJL == null) {
+            cwQ();
         }
-        if (this.iJF != null) {
-            if (isSticky() && this.iJF.cwV() != null && this.iJF.cwV().getVisibility() == 0) {
-                cwS();
+        if (this.iJL != null) {
+            if (isSticky() && this.iJL.cwW() != null && this.iJL.cwW().getVisibility() == 0) {
+                cwT();
             }
-            this.iJF.cwT();
+            this.iJL.cwU();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cwR() {
-        if (this.iJF == null) {
-            cwP();
+    public boolean cwS() {
+        if (this.iJL == null) {
+            cwQ();
         }
-        if (this.iJF != null) {
-            this.iJF.cwU();
+        if (this.iJL != null) {
+            this.iJL.cwV();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.iJF == null) {
-            cwP();
+        if (this.iJL == null) {
+            cwQ();
         }
-        if (this.iJF != null) {
-            return this.iJF.isSticky();
+        if (this.iJL != null) {
+            return this.iJL.isSticky();
         }
         return false;
     }
 
-    private void cwS() {
+    private void cwT() {
         aq aqVar = new aq("c13422");
         aqVar.ai("obj_type", 1);
         aqVar.ai("obj_locate", 1);
@@ -122,11 +122,11 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.iJG = aVar;
+        this.iJM = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.iJG;
+        return this.iJM;
     }
 
     @Override // android.view.ViewGroup, android.view.View

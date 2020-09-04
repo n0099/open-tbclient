@@ -6,7 +6,7 @@ import android.graphics.RectF;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class s extends a {
-    private RectF aCa;
+    private RectF aCc;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -14,7 +14,7 @@ public class s extends a {
             if (jSONArray.length() == 4) {
                 int H = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(0));
                 int H2 = com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(1));
-                this.aCa = new RectF(H, H2, H + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(2)), H2 + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(3)));
+                this.aCc = new RectF(H, H2, H + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(2)), H2 + com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(3)));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -25,8 +25,8 @@ public class s extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.aCa != null) {
-            bVar.mPath.addRect(this.aCa, Path.Direction.CW);
+        if (this.aCc != null) {
+            bVar.mPath.addRect(this.aCc, Path.Direction.CW);
         }
     }
 }

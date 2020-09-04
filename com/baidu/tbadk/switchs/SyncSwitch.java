@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.g.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SyncSwitch {
     public static void initSyncSwitch() {
         SwitchManager.getInstance().registerSwitch(GiftSwitch.class);
@@ -96,5 +96,7 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(XiaomiWebViewInitSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterPersonCenterEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterCrashRepairEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterCrabReportEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterLifeCycleBugEnableSwitch.class);
     }
 }

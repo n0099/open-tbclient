@@ -27,7 +27,7 @@ public class i extends aa {
             Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
         }
         final String uuid = UUID.randomUUID().toString();
-        com.baidu.swan.apps.performance.j.pk(uuid);
+        com.baidu.swan.apps.performance.j.pl(uuid);
         String a = a.a(unitedSchemeEntity, "params");
         if (TextUtils.isEmpty(a)) {
             com.baidu.swan.apps.console.c.e("redirect", "url is null");
@@ -43,13 +43,13 @@ public class i extends aa {
         }
         final com.baidu.swan.apps.model.b bP = com.baidu.swan.apps.model.b.bP(a, arY.arF());
         if (!ak.a(arY.arD(), bP, false)) {
-            com.baidu.swan.apps.console.c.e("redirect", "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDC);
+            com.baidu.swan.apps.console.c.e("redirect", "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDG);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String str = unitedSchemeEntity.getParams().get("initData");
-        if (!TextUtils.isEmpty(str) && bP != null && !TextUtils.isEmpty(bP.cDC) && com.baidu.swan.apps.runtime.e.azI() != null) {
-            com.baidu.swan.apps.runtime.e.azI().ce(str, bP.cDC);
+        if (!TextUtils.isEmpty(str) && bP != null && !TextUtils.isEmpty(bP.cDG) && com.baidu.swan.apps.runtime.e.azI() != null) {
+            com.baidu.swan.apps.runtime.e.azI().ce(str, bP.cDG);
         }
         String a2 = a.a(unitedSchemeEntity, "params", "startTime");
         if (!TextUtils.isEmpty(a2)) {
@@ -59,7 +59,7 @@ public class i extends aa {
             Log.d("redirectTo", "PreloadSlaveManager start.");
         }
         final b.a F = com.baidu.swan.apps.core.slave.b.F(arY.arI());
-        final String aaU = F.cmK.aaU();
+        final String aaU = F.cmO.aaU();
         if (DEBUG) {
             Log.d("redirectTo", "webview id: " + aaU);
         }
@@ -78,8 +78,8 @@ public class i extends aa {
             arY.showLoadingView();
             g.a(eVar, bP, aaU, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.i.1
                 @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                public void iT(String str2) {
-                    com.baidu.swan.apps.performance.j.pj(uuid);
+                public void iU(String str2) {
+                    com.baidu.swan.apps.performance.j.pk(uuid);
                     com.baidu.swan.apps.console.c.i("redirect", "check pages success");
                     arY.Ya();
                     a.a(unitedSchemeEntity, callbackHandler, eVar, aaU, bP.mPage, null, optString);
@@ -114,7 +114,7 @@ public class i extends aa {
                     Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.j.a(aVar, str);
-                a.a(aVar.cmK, bVar, str);
+                a.a(aVar.cmO, bVar, str);
                 com.baidu.swan.apps.api.module.g.c.a(fVar, bVar, str, false);
                 if (i.DEBUG) {
                     Log.d("redirectTo", "tryToExecutePageRoute onReady end.");

@@ -11,7 +11,7 @@ import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
     public c(int i, String str, Class<T> cls) {
         super(i, str, cls);
@@ -34,7 +34,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
             return null;
         }
         ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) btL();
+        com.baidu.tbadk.mvc.b.d dVar3 = (com.baidu.tbadk.mvc.b.d) btM();
         try {
             try {
                 if (readCacheMessage.isNeedUid()) {
@@ -53,7 +53,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                 if (c != null) {
                                     ArrayList arrayList5 = new ArrayList(c.size());
                                     for (l.b<byte[]> bVar : c) {
-                                        if (bVar != null && (bArr = bVar.value) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) btL()) != null) {
+                                        if (bVar != null && (bArr = bVar.value) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) btM()) != null) {
                                             ((com.baidu.tbadk.mvc.b.b) dVar2).initByByteArray(bArr);
                                             arrayList5.add(dVar2);
                                         }
@@ -66,8 +66,8 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                             } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.bhb().dw(this.tableName, str))) != null) {
                                 ArrayList arrayList6 = new ArrayList(b.size());
                                 for (l.b<String> bVar2 : b) {
-                                    if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) btL()) != null) {
-                                        ((f) dVar).Cp(str3);
+                                    if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) btM()) != null) {
+                                        ((f) dVar).Cq(str3);
                                         arrayList6.add(dVar);
                                     }
                                 }
@@ -80,9 +80,9 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                         }
                     } else {
                         String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                        String bto = readCacheMessage.getRequestData().bto();
+                        String btp = readCacheMessage.getRequestData().btp();
                         if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                            byte[] bArr2 = com.baidu.tbadk.core.c.a.bhb().dv(bto, str).get(cacheKey);
+                            byte[] bArr2 = com.baidu.tbadk.core.c.a.bhb().dv(btp, str).get(cacheKey);
                             if (bArr2 != null) {
                                 ((com.baidu.tbadk.mvc.b.b) dVar3).initByByteArray(bArr2);
                                 ArrayList arrayList7 = new ArrayList();
@@ -99,8 +99,8 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                     return new ReadCacheRespMsg(this.cmd, arrayList);
                                 }
                             }
-                        } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.bhb().dw(bto, str).get(cacheKey)) != null) {
-                            ((f) dVar3).Cp(str2);
+                        } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.bhb().dw(btp, str).get(cacheKey)) != null) {
+                            ((f) dVar3).Cq(str2);
                             ArrayList arrayList8 = new ArrayList();
                             try {
                                 arrayList8.add(dVar3);

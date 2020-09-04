@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 /* loaded from: classes8.dex */
 public interface a {
     @NonNull
-    public static final a bYi = new b(202, "params parsed as JSONObject is null");
+    public static final a bYm = new b(202, "params parsed as JSONObject is null");
 
     boolean isSuccess();
 

@@ -17,9 +17,9 @@ import javax.crypto.spec.PSource;
 public final class f {
     private static final Map<String, byte[]> h = Collections.synchronizedMap(new HashMap());
     private final int a;
-    private SecureRandom acW;
-    private MessageDigest acX;
-    private MessageDigest acY;
+    private SecureRandom acY;
+    private MessageDigest acZ;
+    private MessageDigest ada;
     private final int b;
     private final int d;
     private byte[] g;
@@ -27,7 +27,7 @@ public final class f {
     private f(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
         this.a = i;
         this.b = i2;
-        this.acW = secureRandom;
+        this.acY = secureRandom;
         if (i2 < 64) {
             throw new InvalidKeyException("Padded size must be at least 64");
         }
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.acX = MessageDigest.getInstance(str);
-                this.acY = MessageDigest.getInstance(str2);
-                this.g = c(this.acX, bArr);
+                this.acZ = MessageDigest.getInstance(str);
+                this.ada = MessageDigest.getInstance(str2);
+                this.g = c(this.acZ, bArr);
                 this.d = (i2 - 2) - (this.g.length * 2);
                 if (this.d <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -88,10 +88,10 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.acY.update(bArr, i, i2);
-            this.acY.update(bArr3);
+            this.ada.update(bArr, i, i2);
+            this.ada.update(bArr3);
             try {
-                this.acY.digest(bArr4, 0, bArr4.length);
+                this.ada.digest(bArr4, 0, bArr4.length);
                 int i7 = i5;
                 int i8 = i6;
                 for (int i9 = 0; i9 < bArr4.length && i7 > 0; i9++) {
@@ -146,8 +146,8 @@ public final class f {
         int i4 = 2;
         bArr2[1] = (byte) this.a;
         if (this.a != 1) {
-            if (this.acW == null) {
-                this.acW = b.acK;
+            if (this.acY == null) {
+                this.acY = b.acM;
             }
             byte[] bArr3 = new byte[64];
             int i5 = length;
@@ -159,7 +159,7 @@ public final class f {
                 }
                 while (true) {
                     if (i3 < 0) {
-                        this.acW.nextBytes(bArr3);
+                        this.acY.nextBytes(bArr3);
                         i3 = bArr3.length - 1;
                     }
                     i = i3 - 1;
@@ -219,12 +219,12 @@ public final class f {
     }
 
     private byte[] u(byte[] bArr) {
-        if (this.acW == null) {
-            this.acW = b.acK;
+        if (this.acY == null) {
+            this.acY = b.acM;
         }
         int length = this.g.length;
         byte[] bArr2 = new byte[length];
-        this.acW.nextBytes(bArr2);
+        this.acY.nextBytes(bArr2);
         byte[] bArr3 = new byte[this.b];
         System.arraycopy(bArr2, 0, bArr3, 1, length);
         int i = length + 1;

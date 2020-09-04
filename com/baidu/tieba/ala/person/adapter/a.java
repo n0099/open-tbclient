@@ -14,10 +14,10 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int fRo;
-    private InterfaceC0648a gPB;
-    private c gPC;
-    private b gPD;
+    private int fRs;
+    private InterfaceC0648a gPF;
+    private c gPG;
+    private b gPH;
     private List mList;
     private int mSkinType;
     private int type;
@@ -39,9 +39,9 @@ public class a extends BaseAdapter {
     }
 
     public a(Context context, int i) {
-        this.fRo = 2;
+        this.fRs = 2;
         this.context = context;
-        this.fRo = i;
+        this.fRs = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -81,22 +81,22 @@ public class a extends BaseAdapter {
         com.baidu.tieba.ala.person.view.c cVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.fRo == 1) {
+                if (this.fRs == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.fRo);
+                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.fRs);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.h.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.fRo);
+                        cVar = new e(view, this.fRs);
                     }
-                } else if (this.fRo == 2) {
+                } else if (this.fRs == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.h.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.fRo);
+                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.fRs);
                 }
                 if (cVar != null) {
-                    cVar.a(this.gPB);
-                    cVar.a(this.gPD);
-                    cVar.a(this.gPC);
+                    cVar.a(this.gPF);
+                    cVar.a(this.gPH);
+                    cVar.a(this.gPG);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -119,9 +119,9 @@ public class a extends BaseAdapter {
                     com.baidu.tieba.ala.person.a.b bVar = (com.baidu.tieba.ala.person.a.b) obj;
                     if (str.equals(bVar.id)) {
                         if (z) {
-                            bVar.ghn = 1;
+                            bVar.ghr = 1;
                         } else {
-                            bVar.ghn = 0;
+                            bVar.ghr = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -136,14 +136,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0648a interfaceC0648a) {
-        this.gPB = interfaceC0648a;
+        this.gPF = interfaceC0648a;
     }
 
     public void a(c cVar) {
-        this.gPC = cVar;
+        this.gPG = cVar;
     }
 
     public void a(b bVar) {
-        this.gPD = bVar;
+        this.gPH = bVar;
     }
 }

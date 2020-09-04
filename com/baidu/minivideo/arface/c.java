@@ -4,15 +4,12 @@ import android.os.Environment;
 import android.text.TextUtils;
 /* loaded from: classes6.dex */
 public class c {
-    private static String bBJ;
-    private static String bBK;
-    private static String bBL;
     private static String bBM;
     private static String bBN;
     private static String bBO;
+    private static String bBP;
     private static String bBQ;
     private static String bBR;
-    private static String bBS;
     private static String bBT;
     private static String bBU;
     private static String bBV;
@@ -23,67 +20,70 @@ public class c {
     private static String bCa;
     private static String bCb;
     private static String bCc;
-    public static String bBG = "arface_main_res_version";
-    public static int bBH = 0;
-    public static boolean bBI = true;
-    public static String bBP = "global/res/filter";
+    private static String bCd;
+    private static String bCe;
+    private static String bCf;
+    public static String bBJ = "arface_main_res_version";
+    public static int bBK = 0;
+    public static boolean bBL = true;
+    public static String bBS = "global/res/filter";
 
     public c(String str) {
         setPath(str);
     }
 
     private static void setPath(String str) {
-        bBJ = str + "/";
-        bBK = bBJ;
-        bBL = bBJ + "ext/";
-        bBM = bBK + "faceModels/";
+        bBM = str + "/";
+        bBN = bBM;
+        bBO = bBM + "ext/";
+        bBP = bBN + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            bBV = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            bBT = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            bBU = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            bBM = "file:///android_asset/arsource/faceModels/";
+            bBY = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            bBW = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            bBX = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            bBP = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            bBW = str2 + "/makeup";
-            bBX = str2 + "/beauty";
-            bBY = str2 + "/arFilterInit";
-            bBZ = str2 + "/arFilterEditInit";
-            bCa = bBX + "/liveVideoFace/live_face_knead.json";
-            bCb = bBX + "/liveVideoFace/goddess_face_knead.json";
-            bCc = bBX + "/liveVideoFace/baby_face_knead.json";
+            bBZ = str2 + "/makeup";
+            bCa = str2 + "/beauty";
+            bCb = str2 + "/arFilterInit";
+            bCc = str2 + "/arFilterEditInit";
+            bCd = bCa + "/liveVideoFace/live_face_knead.json";
+            bCe = bCa + "/liveVideoFace/goddess_face_knead.json";
+            bCf = bCa + "/liveVideoFace/baby_face_knead.json";
         } else {
-            bBV = bBK + "filters/yuantu/yuantu.png";
-            bBT = bBK + "filter/beauty_skin_stream.png";
-            bBU = bBK + "filter/beauty_skin_small_video.png";
-            bBW = bBJ + "makeup/";
-            bBX = bBJ + "beauty/";
-            bBY = bBJ + "arFilterInit/";
-            bBZ = bBJ + "arFilterEditInit/";
-            bCa = bBX + "liveVideoFace/live_face_knead.json";
-            bCb = bBX + "liveVideoFace/goddess_face_knead.json";
-            bCc = bBX + "liveVideoFace/baby_face_knead.json";
+            bBY = bBN + "filters/yuantu/yuantu.png";
+            bBW = bBN + "filter/beauty_skin_stream.png";
+            bBX = bBN + "filter/beauty_skin_small_video.png";
+            bBZ = bBM + "makeup/";
+            bCa = bBM + "beauty/";
+            bCb = bBM + "arFilterInit/";
+            bCc = bBM + "arFilterEditInit/";
+            bCd = bCa + "liveVideoFace/live_face_knead.json";
+            bCe = bCa + "liveVideoFace/goddess_face_knead.json";
+            bCf = bCa + "liveVideoFace/baby_face_knead.json";
         }
-        bBO = bBK + "global";
-        bBS = bBK + "vip_list.json";
-        bBR = bBK + "filters";
-        bBN = bBK + "dlModels/";
-        bBQ = bBR + "/all";
-        bBP = bBK + "global/res/filter";
+        bBR = bBN + "global";
+        bBV = bBN + "vip_list.json";
+        bBU = bBN + "filters";
+        bBQ = bBN + "dlModels/";
+        bBT = bBU + "/all";
+        bBS = bBN + "global/res/filter";
     }
 
     public static String Td() {
-        return bBV;
+        return bBY;
     }
 
     public static String Te() {
-        return bBK;
+        return bBN;
     }
 
     public static String Tf() {
-        return bBM;
+        return bBP;
     }
 
     public static String Tg() {
-        return bBO;
+        return bBR;
     }
 
     public static String Th() {
@@ -96,15 +96,15 @@ public class c {
 
     public static String fK(int i) {
         if (i == 1) {
-            return bCb;
+            return bCe;
         }
         if (i == 2) {
-            return bCc;
+            return bCf;
         }
-        return bCa;
+        return bCd;
     }
 
-    public static String cW(boolean z) {
-        return z ? bBY : bBZ;
+    public static String cX(boolean z) {
+        return z ? bCb : bCc;
     }
 }

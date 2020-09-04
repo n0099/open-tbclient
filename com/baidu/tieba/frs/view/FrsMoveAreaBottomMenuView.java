@@ -18,10 +18,10 @@ import com.baidu.tieba.view.BdTopToast;
 import java.util.Locale;
 /* loaded from: classes16.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
-    private TextView dDw;
-    private TextView iyG;
-    private View iyH;
-    private FrsMoveAreaChooseView iyI;
+    private TextView dDA;
+    private TextView iyM;
+    private View iyN;
+    private FrsMoveAreaChooseView iyO;
     private TbPageContext mPageContext;
 
     public FrsMoveAreaBottomMenuView(Context context) {
@@ -39,11 +39,11 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_bottom_menu_layout, this);
-        this.dDw = (TextView) findViewById(R.id.frs_move_area_cancel);
-        this.iyG = (TextView) findViewById(R.id.frs_move_area_move);
-        this.iyH = findViewById(R.id.frs_move_area_top_line);
-        this.dDw.setOnClickListener(this);
-        this.iyG.setOnClickListener(this);
+        this.dDA = (TextView) findViewById(R.id.frs_move_area_cancel);
+        this.iyM = (TextView) findViewById(R.id.frs_move_area_move);
+        this.iyN = findViewById(R.id.frs_move_area_top_line);
+        this.dDA.setOnClickListener(this);
+        this.iyM.setOnClickListener(this);
         onChangeSkinType();
         setClickable(true);
     }
@@ -52,14 +52,14 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         this.mPageContext = tbPageContext;
     }
 
-    public boolean cuH() {
-        return this.iyI != null && this.iyI.getVisibility() == 0;
+    public boolean cuI() {
+        return this.iyO != null && this.iyO.getVisibility() == 0;
     }
 
-    public void cuI() {
-        if (this.iyI.getParent() != null) {
-            ((ViewGroup) this.iyI.getParent()).removeView(this.iyI);
-            this.iyI = null;
+    public void cuJ() {
+        if (this.iyO.getParent() != null) {
+            ((ViewGroup) this.iyO.getParent()).removeView(this.iyO);
+            this.iyO = null;
         }
     }
 
@@ -68,29 +68,29 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         if (i > 0) {
             string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
         }
-        this.iyG.setText(string);
+        this.iyM.setText(string);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof String) {
-            cuI();
-        } else if (view == this.dDw) {
-            this.iyI = null;
-            com.baidu.tieba.frs.a.ckL().reset();
-        } else if (view == this.iyG) {
-            if (this.mPageContext == null || this.iyI != null || y.isEmpty(com.baidu.tieba.frs.a.ckL().ckP())) {
-                if (this.iyI == null && getContext() != null) {
-                    new BdTopToast(getContext()).wS(false).Sp(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aE((ViewGroup) getParent());
+            cuJ();
+        } else if (view == this.dDA) {
+            this.iyO = null;
+            com.baidu.tieba.frs.a.ckM().reset();
+        } else if (view == this.iyM) {
+            if (this.mPageContext == null || this.iyO != null || y.isEmpty(com.baidu.tieba.frs.a.ckM().ckQ())) {
+                if (this.iyO == null && getContext() != null) {
+                    new BdTopToast(getContext()).wU(false).Sp(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aE((ViewGroup) getParent());
                     return;
                 }
                 return;
             }
-            this.iyI = new FrsMoveAreaChooseView(this.mPageContext);
-            this.iyI.setOnClickListener(this);
-            ((ViewGroup) getParent()).addView(this.iyI, -1, -1);
-        } else if (this.iyI != null && view == this.iyI) {
-            cuI();
+            this.iyO = new FrsMoveAreaChooseView(this.mPageContext);
+            this.iyO.setOnClickListener(this);
+            ((ViewGroup) getParent()).addView(this.iyO, -1, -1);
+        } else if (this.iyO != null && view == this.iyO) {
+            cuJ();
         }
     }
 
@@ -102,10 +102,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.dDw, R.color.cp_cont_b);
-        ap.setBackgroundResource(this.dDw, R.drawable.bg_bottom_up_list_dialog_item);
-        ap.setViewTextColor(this.iyG, R.color.cp_link_tip_a);
-        ap.setBackgroundResource(this.iyG, R.drawable.bg_bottom_up_list_dialog_item);
-        ap.setBackgroundColor(this.iyH, R.color.cp_bg_line_c);
+        ap.setViewTextColor(this.dDA, R.color.cp_cont_b);
+        ap.setBackgroundResource(this.dDA, R.drawable.bg_bottom_up_list_dialog_item);
+        ap.setViewTextColor(this.iyM, R.color.cp_link_tip_a);
+        ap.setBackgroundResource(this.iyM, R.drawable.bg_bottom_up_list_dialog_item);
+        ap.setBackgroundColor(this.iyN, R.color.cp_bg_line_c);
     }
 }

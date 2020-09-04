@@ -11,18 +11,18 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.utils.g;
 /* loaded from: classes7.dex */
 public class a {
-    private int guE;
-    private InterfaceC0627a guM;
-    private AnimatorSet guN;
-    private ValueAnimator guO;
-    private ValueAnimator guP;
-    private int guQ;
-    private int guR;
+    private int guI;
+    private InterfaceC0627a guQ;
+    private AnimatorSet guR;
+    private ValueAnimator guS;
+    private ValueAnimator guT;
+    private int guU;
+    private int guV;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public interface InterfaceC0627a {
-        void bQw();
+        void bQA();
 
         void bQx();
 
@@ -32,13 +32,13 @@ public class a {
     }
 
     public a(Context context) {
-        this.guE = 0;
-        this.guE = g.az(context);
+        this.guI = 0;
+        this.guI = g.az(context);
     }
 
     public void bO(int i, int i2) {
-        this.guQ = i;
-        this.guR = i2;
+        this.guU = i;
+        this.guV = i2;
     }
 
     private ValueAnimator a(AlaChallengeLiveView alaChallengeLiveView, final int i, final int i2, final int i3, final int i4, final int i5, final int i6, final boolean z) {
@@ -139,7 +139,7 @@ public class a {
 
     private ValueAnimator a(AlaChallengeLiveView alaChallengeLiveView, final boolean z) {
         final View leftTimeView = alaChallengeLiveView.getLeftTimeView();
-        int i = this.guE;
+        int i = this.guI;
         int height = leftTimeView.getHeight();
         final int i2 = z ? i - height : i;
         int i3 = z ? i : i - height;
@@ -215,22 +215,22 @@ public class a {
     public void d(AlaChallengeLiveView alaChallengeLiveView) {
         final View rivalAnimLiveLayout;
         if (alaChallengeLiveView != null && (rivalAnimLiveLayout = alaChallengeLiveView.getRivalAnimLiveLayout()) != null && rivalAnimLiveLayout.getAlpha() != 0.0f) {
-            this.guP = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.guP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.12
+            this.guT = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.guT.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.12
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     rivalAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.guP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.13
+            this.guT.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.13
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.guM != null) {
-                        a.this.guM.bQz();
+                    if (a.this.guQ != null) {
+                        a.this.guQ.bQA();
                     }
                 }
 
@@ -242,30 +242,30 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.guP.setDuration(300L);
-            this.guP.start();
+            this.guT.setDuration(300L);
+            this.guT.start();
         }
     }
 
     public void e(AlaChallengeLiveView alaChallengeLiveView) {
         final View anchorAnimLiveLayout;
         if (alaChallengeLiveView != null && (anchorAnimLiveLayout = alaChallengeLiveView.getAnchorAnimLiveLayout()) != null && anchorAnimLiveLayout.getAlpha() != 0.0f) {
-            this.guO = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.guO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.2
+            this.guS = ValueAnimator.ofFloat(1.0f, 0.0f);
+            this.guS.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.2
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     anchorAnimLiveLayout.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
-            this.guO.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.3
+            this.guS.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.3
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (a.this.guM != null) {
-                        a.this.guM.bQy();
+                    if (a.this.guQ != null) {
+                        a.this.guQ.bQz();
                     }
                 }
 
@@ -277,20 +277,20 @@ public class a {
                 public void onAnimationRepeat(Animator animator) {
                 }
             });
-            this.guO.setDuration(300L);
-            this.guO.start();
+            this.guS.setDuration(300L);
+            this.guS.start();
         }
     }
 
     public void Fw() {
-        if (this.guN != null) {
-            this.guN.cancel();
+        if (this.guR != null) {
+            this.guR.cancel();
         }
-        if (this.guO != null) {
-            this.guO.cancel();
+        if (this.guS != null) {
+            this.guS.cancel();
         }
-        if (this.guP != null) {
-            this.guP.cancel();
+        if (this.guT != null) {
+            this.guT.cancel();
         }
     }
 
@@ -299,7 +299,7 @@ public class a {
         int i = screenFullSize[0];
         int i2 = screenFullSize[1];
         int i3 = screenFullSize[0] / 2;
-        ValueAnimator a = a(alaChallengeLiveView, i, i3, i2, g.fv(i3), 0, this.guE, true);
+        ValueAnimator a = a(alaChallengeLiveView, i, i3, i2, g.fv(i3), 0, this.guI, true);
         int i4 = screenFullSize[0];
         int i5 = screenFullSize[0] / 2;
         int i6 = i4 > i5 ? i4 : i5;
@@ -307,22 +307,22 @@ public class a {
         ValueAnimator c = c(alaChallengeLiveView, true);
         ValueAnimator a3 = a(alaChallengeLiveView, true);
         ValueAnimator b = b(alaChallengeLiveView, true);
-        if (this.guN != null) {
-            this.guN.cancel();
+        if (this.guR != null) {
+            this.guR.cancel();
         }
-        this.guN = new AnimatorSet();
-        this.guN.play(a);
-        this.guN.play(a2).with(c).after(a);
-        this.guN.play(a3).with(b).after(a2);
-        this.guN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
+        this.guR = new AnimatorSet();
+        this.guR.play(a);
+        this.guR.play(a2).with(c).after(a);
+        this.guR.play(a3).with(b).after(a2);
+        this.guR.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.guM != null) {
-                    a.this.guM.bQw();
+                if (a.this.guQ != null) {
+                    a.this.guQ.bQx();
                 }
             }
 
@@ -334,7 +334,7 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.guN.start();
+        this.guR.start();
     }
 
     public void b(Activity activity, AlaChallengeLiveView alaChallengeLiveView) {
@@ -347,20 +347,20 @@ public class a {
         int i3 = i > i2 ? i : i2;
         ValueAnimator a2 = a(alaChallengeLiveView, i, i2, i3 - ((i + i2) - i3), false);
         int i4 = screenFullSize[0] / 2;
-        ValueAnimator a3 = a(alaChallengeLiveView, i4, screenFullSize[0], g.fv(i4), screenFullSize[1], this.guE, 0, false);
-        if (this.guN != null) {
-            this.guN.cancel();
+        ValueAnimator a3 = a(alaChallengeLiveView, i4, screenFullSize[0], g.fv(i4), screenFullSize[1], this.guI, 0, false);
+        if (this.guR != null) {
+            this.guR.cancel();
         }
-        this.guN = new AnimatorSet();
-        this.guN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
+        this.guR = new AnimatorSet();
+        this.guR.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.a.5
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (a.this.guM != null) {
-                    a.this.guM.bQx();
+                if (a.this.guQ != null) {
+                    a.this.guQ.bQy();
                 }
             }
 
@@ -372,13 +372,13 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.guN.play(a).with(b);
-        this.guN.play(a2).after(a);
-        this.guN.play(a3).with(c).after(a2);
-        this.guN.start();
+        this.guR.play(a).with(b);
+        this.guR.play(a2).after(a);
+        this.guR.play(a3).with(c).after(a2);
+        this.guR.start();
     }
 
     public void a(InterfaceC0627a interfaceC0627a) {
-        this.guM = interfaceC0627a;
+        this.guQ = interfaceC0627a;
     }
 }

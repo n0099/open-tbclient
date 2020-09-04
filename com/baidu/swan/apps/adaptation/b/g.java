@@ -12,5 +12,5 @@ public interface g<T extends d> extends e<T> {
 
     void d(View.OnClickListener onClickListener);
 
-    void dx(boolean z);
+    void dy(boolean z);
 }

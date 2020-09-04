@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.av;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f implements com.baidu.adp.lib.e.e<a> {
-    private final r emz = new r();
+    private final r emD = new r();
 
     public f() {
-        this.emz.io(true);
+        this.emD.ip(true);
     }
 
     @Override // com.baidu.adp.lib.e.e
@@ -50,7 +50,7 @@ public class f implements com.baidu.adp.lib.e.e<a> {
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.a aVar, Object... objArr) {
         bjL();
-        com.baidu.adp.widget.ImageView.a a2 = this.emz.a(str, str2, i, i2, aVar, objArr);
+        com.baidu.adp.widget.ImageView.a a2 = this.emD.a(str, str2, i, i2, aVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.lG().b(a3) && a3.getFileInfo() != null) {
@@ -65,7 +65,7 @@ public class f implements com.baidu.adp.lib.e.e<a> {
     /* renamed from: c */
     public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.e.a aVar, Object... objArr) {
         bjL();
-        com.baidu.adp.widget.ImageView.a a2 = this.emz.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
+        com.baidu.adp.widget.ImageView.a a2 = this.emD.a(str, str2, i, i2, bdAsyncTask, aVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
             if (com.baidu.adp.lib.Disk.d.lG().b(a3) && a3.getFileInfo() != null) {
@@ -77,20 +77,20 @@ public class f implements com.baidu.adp.lib.e.e<a> {
 
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
-        this.emz.a(str, obj, i, i2, objArr);
+        this.emD.a(str, obj, i, i2, objArr);
     }
 
     @Override // com.baidu.adp.lib.e.e
     public BdAsyncTaskParallel mQ() {
-        return this.emz.mQ();
+        return this.emD.mQ();
     }
 
     @Override // com.baidu.adp.lib.e.e
     public int mR() {
-        return this.emz.mR();
+        return this.emD.mR();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
         public b(String str, String str2, DiskFileOperate.Action action) {
             super(str, str2, action);
@@ -102,13 +102,13 @@ public class f implements com.baidu.adp.lib.e.e<a> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        public com.baidu.adp.widget.ImageView.a emA;
+        public com.baidu.adp.widget.ImageView.a emE;
         public String path;
 
         public a(com.baidu.adp.widget.ImageView.a aVar, String str) {
-            this.emA = aVar;
+            this.emE = aVar;
             this.path = str;
         }
     }

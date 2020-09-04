@@ -12,44 +12,44 @@ import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private SelectMusicModel mvg;
-    private com.baidu.tieba.video.editvideo.b.a mvi;
-    private BaseActivity mxL;
-    private com.baidu.tieba.video.b mxM;
-    private String mxN;
+    private com.baidu.tieba.video.editvideo.b.a mvA;
+    private SelectMusicModel mvy;
+    private BaseActivity myd;
+    private com.baidu.tieba.video.b mye;
+    private String myf;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.mxM = bVar;
-        this.mxL = this.mxM.activity;
+        this.mye = bVar;
+        this.myd = this.mye.activity;
     }
 
     @Override // com.baidu.tieba.c.b
     public void start() {
-        dCk();
+        dCt();
     }
 
     @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.mxM != null) {
-            this.mxM.wy(true);
+        if (this.mye != null) {
+            this.mye.wA(true);
         }
-        if (this.mvi != null && this.mvi.dBx()) {
-            this.mvi.dBy();
+        if (this.mvA != null && this.mvA.dBG()) {
+            this.mvA.dBH();
         }
     }
 
-    public void dCk() {
-        if (this.mxM != null) {
-            if (this.mxM.isCancel()) {
-                this.mxM.onCancel();
-                this.mxM = null;
-            } else if (!StringUtils.isNull(this.mxM.musicPath) || this.mxM.isMute) {
-                if (this.mvg == null) {
-                    this.mvg = new SelectMusicModel(this.mxL.getPageContext(), this);
+    public void dCt() {
+        if (this.mye != null) {
+            if (this.mye.isCancel()) {
+                this.mye.onCancel();
+                this.mye = null;
+            } else if (!StringUtils.isNull(this.mye.musicPath) || this.mye.isMute) {
+                if (this.mvy == null) {
+                    this.mvy = new SelectMusicModel(this.myd.getPageContext(), this);
                 }
-                this.mvg.h(this.mxM.originPath, this.mxM.musicPath, com.baidu.tieba.video.c.mtA + "video_" + System.currentTimeMillis() + ".mp4", !this.mxM.isMute);
+                this.mvy.h(this.mye.originPath, this.mye.musicPath, com.baidu.tieba.video.c.mtS + "video_" + System.currentTimeMillis() + ".mp4", !this.mye.isMute);
             } else {
-                t(this.mxM.originPath, -4399, "");
+                s(this.mye.originPath, -4399, "");
             }
         }
     }
@@ -59,73 +59,73 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
     }
 
     @Override // com.baidu.tieba.video.editvideo.b
-    public void t(String str, int i, String str2) {
-        if (this.mxM != null && this.mxM.isCancel()) {
-            this.mxM.onCancel();
-            this.mxM = null;
+    public void s(String str, int i, String str2) {
+        if (this.mye != null && this.mye.isCancel()) {
+            this.mye.onCancel();
+            this.mye = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.mxL.showToast(R.string.mixing_fail);
-            if (this.mxM != null) {
-                this.mxM.bD(i, str2);
+            this.myd.showToast(R.string.mixing_fail);
+            if (this.mye != null) {
+                this.mye.bC(i, str2);
             }
         } else {
-            if (this.mxM != null) {
-                this.mxM.dAN();
+            if (this.mye != null) {
+                this.mye.dAW();
             }
-            if (!StringUtils.isNull(this.mxM.filterName)) {
-                if (!at.equals(str, this.mxM.originPath)) {
-                    this.mxM.mtx = str;
+            if (!StringUtils.isNull(this.mye.filterName)) {
+                if (!at.equals(str, this.mye.originPath)) {
+                    this.mye.mtP = str;
                 }
-                if (this.mvi == null) {
-                    this.mvi = new com.baidu.tieba.video.editvideo.b.a(this.mxL.getActivity());
-                    this.mvi.a(this);
+                if (this.mvA == null) {
+                    this.mvA = new com.baidu.tieba.video.editvideo.b.a(this.myd.getActivity());
+                    this.mvA.a(this);
                 }
-                this.mvi.fY(str, this.mxM.filterName);
+                this.mvA.fZ(str, this.mye.filterName);
                 return;
             }
-            if (this.mxM != null) {
-                this.mxM.dAO();
+            if (this.mye != null) {
+                this.mye.dAX();
             }
             RP(str);
         }
     }
 
     private void RP(String str) {
-        if (this.mxM != null) {
-            if (this.mxM.isCancel()) {
-                this.mxM.onCancel();
-                this.mxM = null;
+        if (this.mye != null) {
+            if (this.mye.isCancel()) {
+                this.mye.onCancel();
+                this.mye = null;
                 return;
             }
-            this.mxN = str;
+            this.myf = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.mxN);
-            videoInfo.setThumbPath(this.mxM.coverPath);
-            if (this.mxM != null) {
-                this.mxM.a(videoInfo);
+            videoInfo.setVideoPath(this.myf);
+            videoInfo.setThumbPath(this.mye.coverPath);
+            if (this.mye != null) {
+                this.mye.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void RH(String str) {
-        if (this.mxM != null) {
-            this.mxM.dAO();
+        if (this.mye != null) {
+            this.mye.dAX();
         }
         RP(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void bF(int i, String str) {
-        if (this.mxM != null) {
-            this.mxM.bE(i, str);
+    public void bE(int i, String str) {
+        if (this.mye != null) {
+            this.mye.bD(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void bG(int i, String str) {
-        if (this.mxM != null) {
-            this.mxM.bE(i, str);
+    public void bF(int i, String str) {
+        if (this.mye != null) {
+            this.mye.bD(i, str);
         }
     }
 }

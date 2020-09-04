@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mPG;
+    private com.baidu.tieba.write.b.b.a mPY;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,11 +27,11 @@ public final class b {
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0830b {
-        private static final b mPJ = new b();
+        private static final b mQb = new b();
     }
 
-    public static final b dGz() {
-        return C0830b.mPJ;
+    public static final b dGI() {
+        return C0830b.mQb;
     }
 
     private b() {
@@ -45,16 +45,16 @@ public final class b {
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
             com.baidu.d.a.a.uv().setAppName("tieba");
-            if (this.mPG == null) {
-                this.mPG = new com.baidu.tieba.write.b.b.a();
+            if (this.mPY == null) {
+                this.mPY = new com.baidu.tieba.write.b.b.a();
             }
-            this.mPG.xi(false);
+            this.mPY.xk(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mPG != null) {
-                        b.this.mPG.xi(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mPY != null) {
+                        b.this.mPY.xk(false);
                     }
                 }
             });

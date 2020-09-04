@@ -9,8 +9,8 @@ public class e extends com.baidu.swan.apps.process.a.a.a {
     public void y(@NonNull Bundle bundle) {
         a.a(bundle.getString("key_result_client_id"), bundle.getStringArrayList("key_param_tpl_list"), new b.a() { // from class: com.baidu.swan.bdprivate.a.e.1
             @Override // com.baidu.swan.bdprivate.api.b.a
-            public void sV(String str) {
-                e.this.cIG.putString("result", str);
+            public void sW(String str) {
+                e.this.cIK.putString("result", str);
                 e.this.finish();
             }
         });

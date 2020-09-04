@@ -4,7 +4,7 @@ import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class b {
     private DataSetObservable mObservable = new DataSetObservable();
 

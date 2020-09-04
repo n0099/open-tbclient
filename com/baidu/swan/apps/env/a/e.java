@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class e implements a {
-    private Set<String> cps;
+    private Set<String> cpx;
 
     public e(@Nullable Set<String> set) {
-        this.cps = set;
+        this.cpx = set;
     }
 
     @Override // com.baidu.swan.apps.env.a.a
@@ -29,7 +29,7 @@ public class e implements a {
                         Log.d("IDiskCleanStrategy", "过滤「智能小程序」");
                     }
                     it.remove();
-                } else if (this.cps != null && this.cps.contains(next)) {
+                } else if (this.cpx != null && this.cpx.contains(next)) {
                     if (DEBUG) {
                         Log.d("IDiskCleanStrategy", "过滤指定id: " + next);
                     }

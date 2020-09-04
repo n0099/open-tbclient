@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
     public static final String CALL_FROM_OTHER = "0";

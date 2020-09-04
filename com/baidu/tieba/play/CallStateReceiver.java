@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.telephony.TelephonyManager;
 import com.baidu.adp.framework.MessageManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CallStateReceiver extends BroadcastReceiver {
     public void register(Context context) {
         if (context != null) {

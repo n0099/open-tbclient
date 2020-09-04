@@ -9,18 +9,18 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes8.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final int nyA;
-    private final a nyx;
-    private final Runnable nyy = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a nyP;
+    private final int nyS;
+    private final Runnable nyQ = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dVJ();
+            JobScheduler.this.dVS();
         }
     };
-    private final Runnable nyz = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    private final Runnable nyR = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.dVI();
+            JobScheduler.this.dVR();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState nyB = JobState.IDLE;
+    JobState nyT = JobState.IDLE;
     @GuardedBy("this")
-    long nyC = 0;
+    long nyU = 0;
     @GuardedBy("this")
-    long nyD = 0;
+    long nyV = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
     public static class b {
-        private static ScheduledExecutorService nyG;
+        private static ScheduledExecutorService nyY;
 
-        static ScheduledExecutorService dVM() {
-            if (nyG == null) {
-                nyG = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService dVV() {
+            if (nyY == null) {
+                nyY = Executors.newSingleThreadScheduledExecutor();
             }
-            return nyG;
+            return nyY;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.nyx = aVar;
-        this.nyA = i;
+        this.nyP = aVar;
+        this.nyS = i;
     }
 
-    public void dVG() {
+    public void dVP() {
         com.facebook.imagepipeline.g.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,25 +91,25 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean dVH() {
+    public boolean dVQ() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.nyB) {
+                switch (this.nyT) {
                     case IDLE:
-                        j = Math.max(this.nyD + this.nyA, uptimeMillis);
-                        this.nyC = uptimeMillis;
-                        this.nyB = JobState.QUEUED;
+                        j = Math.max(this.nyV + this.nyS, uptimeMillis);
+                        this.nyU = uptimeMillis;
+                        this.nyT = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.nyB = JobState.RUNNING_AND_PENDING;
+                        this.nyT = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
-                    gw(j - uptimeMillis);
+                    gy(j - uptimeMillis);
                 }
                 return true;
             }
@@ -117,21 +117,21 @@ public class JobScheduler {
         }
     }
 
-    private void gw(long j) {
+    private void gy(long j) {
         if (j > 0) {
-            b.dVM().schedule(this.nyz, j, TimeUnit.MILLISECONDS);
+            b.dVV().schedule(this.nyR, j, TimeUnit.MILLISECONDS);
         } else {
-            this.nyz.run();
+            this.nyR.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dVI() {
-        this.mExecutor.execute(this.nyy);
+    public void dVR() {
+        this.mExecutor.execute(this.nyQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dVJ() {
+    public void dVS() {
         com.facebook.imagepipeline.g.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,35 +140,35 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.nyB = JobState.RUNNING;
-            this.nyD = uptimeMillis;
+            this.nyT = JobState.RUNNING;
+            this.nyV = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.nyx.d(eVar, i);
+                this.nyP.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.g.e.e(eVar);
-            dVK();
+            dVT();
         }
     }
 
-    private void dVK() {
+    private void dVT() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.nyB == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.nyD + this.nyA, uptimeMillis);
+            if (this.nyT == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.nyV + this.nyS, uptimeMillis);
                 z = true;
-                this.nyC = uptimeMillis;
-                this.nyB = JobState.QUEUED;
+                this.nyU = uptimeMillis;
+                this.nyT = JobState.QUEUED;
             } else {
-                this.nyB = JobState.IDLE;
+                this.nyT = JobState.IDLE;
             }
         }
         if (z) {
-            gw(j - uptimeMillis);
+            gy(j - uptimeMillis);
         }
     }
 
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.Ml(i) || com.facebook.imagepipeline.producers.b.dJ(i, 4) || com.facebook.imagepipeline.g.e.f(eVar);
     }
 
-    public synchronized long dVL() {
-        return this.nyD - this.nyC;
+    public synchronized long dVU() {
+        return this.nyV - this.nyU;
     }
 }

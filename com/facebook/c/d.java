@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes8.dex */
 public class d {
-    private static d nsi;
-    private int nsj;
+    private static d nsA;
+    private int nsB;
     @Nullable
-    private List<c.a> nsk;
-    private final c.a nsl = new a();
+    private List<c.a> nsC;
+    private final c.a nsD = new a();
 
     private d() {
-        dRu();
+        dRD();
     }
 
     public void fI(@Nullable List<c.a> list) {
-        this.nsk = list;
-        dRu();
+        this.nsC = list;
+        dRD();
     }
 
     public c r(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.nsj];
-        int a = a(this.nsj, inputStream, bArr);
-        c o = this.nsl.o(bArr, a);
-        if (o == null || o == c.nsg) {
-            if (this.nsk != null) {
-                for (c.a aVar : this.nsk) {
+        byte[] bArr = new byte[this.nsB];
+        int a = a(this.nsB, inputStream, bArr);
+        c o = this.nsD.o(bArr, a);
+        if (o == null || o == c.nsy) {
+            if (this.nsC != null) {
+                for (c.a aVar : this.nsC) {
                     c o2 = aVar.o(bArr, a);
-                    if (o2 != null && o2 != c.nsg) {
+                    if (o2 != null && o2 != c.nsy) {
                         return o2;
                     }
                 }
             }
-            return c.nsg;
+            return c.nsy;
         }
         return o;
     }
 
-    private void dRu() {
-        this.nsj = this.nsl.getHeaderSize();
-        if (this.nsk != null) {
-            for (c.a aVar : this.nsk) {
-                this.nsj = Math.max(this.nsj, aVar.getHeaderSize());
+    private void dRD() {
+        this.nsB = this.nsD.getHeaderSize();
+        if (this.nsC != null) {
+            for (c.a aVar : this.nsC) {
+                this.nsB = Math.max(this.nsB, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dRv() {
+    public static synchronized d dRE() {
         d dVar;
         synchronized (d.class) {
-            if (nsi == null) {
-                nsi = new d();
+            if (nsA == null) {
+                nsA = new d();
             }
-            dVar = nsi;
+            dVar = nsA;
         }
         return dVar;
     }
 
     public static c s(InputStream inputStream) throws IOException {
-        return dRv().r(inputStream);
+        return dRE().r(inputStream);
     }
 
     public static c t(InputStream inputStream) {

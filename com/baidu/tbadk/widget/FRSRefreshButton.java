@@ -12,14 +12,14 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FRSRefreshButton extends ImageView {
     private int color;
-    private PorterDuffXfermode eWc;
-    private PorterDuffXfermode eWd;
-    private boolean eWe;
-    private AlphaAnimation eWf;
-    private AlphaAnimation eWg;
+    private PorterDuffXfermode eWg;
+    private PorterDuffXfermode eWh;
+    private boolean eWi;
+    private AlphaAnimation eWj;
+    private AlphaAnimation eWk;
     private int mHeight;
     private Drawable mIcon;
     private Paint mPaint;
@@ -37,12 +37,12 @@ public class FRSRefreshButton extends ImageView {
     public FRSRefreshButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.color = R.color.cp_bg_line_k;
-        this.eWc = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.eWd = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.eWg = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.eWh = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
-        this.eWe = false;
-        this.eWf = null;
-        this.eWg = null;
+        this.eWi = false;
+        this.eWj = null;
+        this.eWk = null;
         init();
     }
 
@@ -91,9 +91,9 @@ public class FRSRefreshButton extends ImageView {
     }
 
     private void G(Canvas canvas) {
-        this.mPaint.setXfermode(this.eWc);
+        this.mPaint.setXfermode(this.eWg);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.eWd);
+        this.mPaint.setXfermode(this.eWh);
     }
 
     public void onChangeSkinType(int i) {
@@ -105,31 +105,31 @@ public class FRSRefreshButton extends ImageView {
     }
 
     public void hide() {
-        if (this.eWe) {
-            if (this.eWf != null) {
-                this.eWf.cancel();
+        if (this.eWi) {
+            if (this.eWj != null) {
+                this.eWj.cancel();
             }
-            this.eWf = new AlphaAnimation(1.0f, 0.0f);
-            this.eWf.setDuration(300L);
-            this.eWf.setFillAfter(true);
-            startAnimation(this.eWf);
+            this.eWj = new AlphaAnimation(1.0f, 0.0f);
+            this.eWj.setDuration(300L);
+            this.eWj.setFillAfter(true);
+            startAnimation(this.eWj);
             setClickable(false);
-            this.eWe = false;
+            this.eWi = false;
         }
     }
 
     public void show() {
-        if (!this.eWe) {
+        if (!this.eWi) {
             setVisibility(0);
-            if (this.eWg != null) {
-                this.eWg.cancel();
+            if (this.eWk != null) {
+                this.eWk.cancel();
             }
-            this.eWg = new AlphaAnimation(0.0f, 1.0f);
-            this.eWg.setDuration(300L);
-            this.eWg.setFillAfter(true);
-            startAnimation(this.eWg);
+            this.eWk = new AlphaAnimation(0.0f, 1.0f);
+            this.eWk.setDuration(300L);
+            this.eWk.setFillAfter(true);
+            startAnimation(this.eWk);
             setClickable(true);
-            this.eWe = true;
+            this.eWi = true;
         }
     }
 }

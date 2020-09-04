@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaseGroupData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;

@@ -8,7 +8,7 @@ public interface d {
 
     void a(ap apVar, at atVar, at atVar2);
 
-    void bPl();
-
     void bPm();
+
+    void bPn();
 }

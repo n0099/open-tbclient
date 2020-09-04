@@ -20,22 +20,22 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes8.dex */
 public class NeutralRefreshAnimView extends View {
     private static final boolean DEBUG = b.DEBUG;
-    private static final int cMQ = ah.H(3.5f);
-    private static final int cMR = Color.parseColor("#000000");
-    private static final int cMS = ah.H(18.0f);
-    private static final int cMT = cMS >> 1;
-    private float cMU;
-    private Paint cMV;
-    private Paint cMW;
-    private PointF cMX;
-    private ValueAnimator cMY;
-    private ValueAnimator cMZ;
-    private float cNa;
-    private float cNb;
+    private static final int cMU = ah.H(3.5f);
+    private static final int cMV = Color.parseColor("#000000");
+    private static final int cMW = ah.H(18.0f);
+    private static final int cMX = cMW >> 1;
+    private float cMY;
+    private Paint cMZ;
+    private Paint cNa;
+    private PointF cNb;
     private ValueAnimator cNc;
     private ValueAnimator cNd;
-    private int cNe;
-    private int cNf;
+    private float cNe;
+    private float cNf;
+    private ValueAnimator cNg;
+    private ValueAnimator cNh;
+    private int cNi;
+    private int cNj;
     private AnimatorSet mAnimatorSet;
     private Bitmap mBitmap;
     private Canvas mCanvas;
@@ -54,17 +54,17 @@ public class NeutralRefreshAnimView extends View {
     }
 
     private void init() {
-        this.cMX = new PointF();
-        this.cMV = new Paint(1);
-        this.cMW = new Paint(1);
-        this.cMV.setColor(cMR);
-        this.cMW.setColor(cMR);
+        this.cNb = new PointF();
+        this.cMZ = new Paint(1);
+        this.cNa = new Paint(1);
+        this.cMZ.setColor(cMV);
+        this.cNa.setColor(cMV);
     }
 
     public void setAnimPercent(float f) {
         float f2 = f >= 0.0f ? f : 0.0f;
         float f3 = f2 <= 1.0f ? f2 : 1.0f;
-        this.cMU = f3;
+        this.cMY = f3;
         changeState(1);
         postInvalidate();
         if (DEBUG) {
@@ -73,11 +73,11 @@ public class NeutralRefreshAnimView extends View {
     }
 
     public boolean gu(int i) {
-        if (this.cMW == null || this.cMV == null) {
+        if (this.cNa == null || this.cMZ == null) {
             return false;
         }
-        this.cMV.setColor(i);
-        this.cMW.setColor(i);
+        this.cMZ.setColor(i);
+        this.cNa.setColor(i);
         return true;
     }
 
@@ -86,7 +86,7 @@ public class NeutralRefreshAnimView extends View {
         super.onMeasure(i, i2);
         this.mWidth = getMeasuredWidth();
         this.mHeight = getMeasuredHeight();
-        this.cMX.set(this.mWidth >> 1, this.mHeight >> 1);
+        this.cNb.set(this.mWidth >> 1, this.mHeight >> 1);
     }
 
     @Override // android.view.View
@@ -138,42 +138,42 @@ public class NeutralRefreshAnimView extends View {
         }
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
-            if (this.cMU == 0.0f) {
-                this.cMW.setAlpha(0);
-                this.mCanvas.drawCircle(this.cMX.x, this.cMX.y, cMQ, this.cMW);
+            if (this.cMY == 0.0f) {
+                this.cNa.setAlpha(0);
+                this.mCanvas.drawCircle(this.cNb.x, this.cNb.y, cMU, this.cNa);
                 canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
-            } else if (this.cMU <= 0.5f) {
-                int i = (int) (this.cMU * 77.0f);
-                this.cMW.setAlpha(i);
-                this.mCanvas.drawCircle(this.cMX.x, this.cMX.y, cMQ, this.cMW);
+            } else if (this.cMY <= 0.5f) {
+                int i = (int) (this.cMY * 77.0f);
+                this.cNa.setAlpha(i);
+                this.mCanvas.drawCircle(this.cNb.x, this.cNb.y, cMU, this.cNa);
                 canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
                 if (DEBUG) {
                     Log.e("NeutralRefreshAnimView", "first level,alpha=" + i);
                 }
-            } else if (this.cMU < 1.0f) {
-                int iN = iN((int) (this.cMU * 77.0f));
-                this.cMW.setAlpha(iN);
-                float f = (this.cMU - 0.5f) * 2.0f;
+            } else if (this.cMY < 1.0f) {
+                int iN = iN((int) (this.cMY * 77.0f));
+                this.cNa.setAlpha(iN);
+                float f = (this.cMY - 0.5f) * 2.0f;
                 int iN2 = iN((int) (26.0f * f));
-                this.cMV.setAlpha(iN2);
-                this.mCanvas.drawCircle(this.cMX.x + (cMT * f), this.cMX.y, cMQ, this.cMW);
-                this.mCanvas.drawCircle(this.cMX.x - (cMT * f), this.cMX.y, cMQ, this.cMV);
+                this.cMZ.setAlpha(iN2);
+                this.mCanvas.drawCircle(this.cNb.x + (cMX * f), this.cNb.y, cMU, this.cNa);
+                this.mCanvas.drawCircle(this.cNb.x - (cMX * f), this.cNb.y, cMU, this.cMZ);
                 canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
                 if (DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.cMU);
+                    Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.cMY);
                     Log.e("NeutralRefreshAnimView", "second level,rightBallAlpha=" + iN);
                     Log.e("NeutralRefreshAnimView", "second level,leftBallAlpha=" + iN2);
                     Log.e("NeutralRefreshAnimView", "second level,fraction=" + f);
-                    Log.e("NeutralRefreshAnimView", "second level,HALF_MAX_DISTANCE * fraction=" + (f * cMT));
+                    Log.e("NeutralRefreshAnimView", "second level,HALF_MAX_DISTANCE * fraction=" + (f * cMX));
                 }
-            } else if (this.cMU == 1.0f) {
-                this.cMV.setAlpha(26);
-                this.cMW.setAlpha(77);
-                this.mCanvas.drawCircle(this.cMX.x + cMT, this.cMX.y, cMQ, this.cMW);
-                this.mCanvas.drawCircle(this.cMX.x - cMT, this.cMX.y, cMQ, this.cMV);
+            } else if (this.cMY == 1.0f) {
+                this.cMZ.setAlpha(26);
+                this.cNa.setAlpha(77);
+                this.mCanvas.drawCircle(this.cNb.x + cMX, this.cNb.y, cMU, this.cNa);
+                this.mCanvas.drawCircle(this.cNb.x - cMX, this.cNb.y, cMU, this.cMZ);
                 canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
                 if (DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "third level,mAnimPercent=" + this.cMU);
+                    Log.e("NeutralRefreshAnimView", "third level,mAnimPercent=" + this.cMY);
                 }
             }
         }
@@ -189,40 +189,40 @@ public class NeutralRefreshAnimView extends View {
 
     private void ayO() {
         ayM();
-        this.cMZ = ValueAnimator.ofFloat(1.0f, -1.0f);
-        this.cMZ.setDuration(480L);
-        this.cMZ.setRepeatMode(2);
-        this.cMZ.setRepeatCount(-1);
-        this.cMZ.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.cMZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.2
+        this.cNd = ValueAnimator.ofFloat(1.0f, -1.0f);
+        this.cNd.setDuration(480L);
+        this.cNd.setRepeatMode(2);
+        this.cNd.setRepeatCount(-1);
+        this.cNd.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.cNd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                NeutralRefreshAnimView.this.cNa = NeutralRefreshAnimView.cMT * floatValue;
+                NeutralRefreshAnimView.this.cNe = NeutralRefreshAnimView.cMX * floatValue;
                 if (NeutralRefreshAnimView.DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "mRightBallXPosi=" + NeutralRefreshAnimView.this.cNa + ",anim value=" + floatValue);
+                    Log.e("NeutralRefreshAnimView", "mRightBallXPosi=" + NeutralRefreshAnimView.this.cNe + ",anim value=" + floatValue);
                 }
                 NeutralRefreshAnimView.this.postInvalidate();
             }
         });
-        this.cMY = ValueAnimator.ofFloat(-1.0f, 1.0f);
-        this.cMY.setDuration(480L);
-        this.cMY.setRepeatMode(2);
-        this.cMY.setRepeatCount(-1);
-        this.cMY.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.cMY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.3
+        this.cNc = ValueAnimator.ofFloat(-1.0f, 1.0f);
+        this.cNc.setDuration(480L);
+        this.cNc.setRepeatMode(2);
+        this.cNc.setRepeatCount(-1);
+        this.cNc.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.cNc.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                NeutralRefreshAnimView.this.cNb = NeutralRefreshAnimView.cMT * floatValue;
+                NeutralRefreshAnimView.this.cNf = NeutralRefreshAnimView.cMX * floatValue;
                 if (NeutralRefreshAnimView.DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "mLeftBallXPosi=" + NeutralRefreshAnimView.this.cNb + ",anim value=" + floatValue);
+                    Log.e("NeutralRefreshAnimView", "mLeftBallXPosi=" + NeutralRefreshAnimView.this.cNf + ",anim value=" + floatValue);
                 }
                 NeutralRefreshAnimView.this.postInvalidate();
             }
         });
         this.mAnimatorSet = new AnimatorSet();
-        this.mAnimatorSet.playTogether(this.cMY, this.cMZ);
+        this.mAnimatorSet.playTogether(this.cNc, this.cNd);
         this.mAnimatorSet.setDuration(480L);
         this.mAnimatorSet.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.4
             @Override // android.animation.Animator.AnimatorListener
@@ -251,10 +251,10 @@ public class NeutralRefreshAnimView extends View {
     private void r(Canvas canvas) {
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
-            this.cMW.setAlpha(77);
-            this.mCanvas.drawCircle(this.cMX.x + this.cNa, this.cMX.y, cMQ, this.cMW);
-            this.cMV.setAlpha(26);
-            this.mCanvas.drawCircle(this.cMX.x + this.cNb, this.cMX.y, cMQ, this.cMV);
+            this.cNa.setAlpha(77);
+            this.mCanvas.drawCircle(this.cNb.x + this.cNe, this.cNb.y, cMU, this.cNa);
+            this.cMZ.setAlpha(26);
+            this.mCanvas.drawCircle(this.cNb.x + this.cNf, this.cNb.y, cMU, this.cMZ);
             canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
             if (DEBUG) {
                 Log.e("NeutralRefreshAnimView", "performOnRefreshingAnim");
@@ -272,35 +272,35 @@ public class NeutralRefreshAnimView extends View {
     }
 
     private void ayQ() {
-        this.cNc = ValueAnimator.ofInt(26, 0);
-        this.cNc.setDuration(300L);
-        this.cNc.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.5
+        this.cNg = ValueAnimator.ofInt(26, 0);
+        this.cNg.setDuration(300L);
+        this.cNg.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.5
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                NeutralRefreshAnimView.this.cNe = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                NeutralRefreshAnimView.this.cNi = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 if (NeutralRefreshAnimView.DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.cNe);
+                    Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.cNi);
                 }
                 NeutralRefreshAnimView.this.postInvalidate();
             }
         });
-        if (!this.cNc.isRunning()) {
-            this.cNc.start();
+        if (!this.cNg.isRunning()) {
+            this.cNg.start();
         }
-        this.cNd = ValueAnimator.ofInt(77, 0);
-        this.cNd.setDuration(300L);
-        this.cNd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.6
+        this.cNh = ValueAnimator.ofInt(77, 0);
+        this.cNh.setDuration(300L);
+        this.cNh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.NeutralRefreshAnimView.6
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                NeutralRefreshAnimView.this.cNf = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                NeutralRefreshAnimView.this.cNj = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 if (NeutralRefreshAnimView.DEBUG) {
-                    Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.cNe);
+                    Log.e("NeutralRefreshAnimView", "Complete anim: mAlpha=" + NeutralRefreshAnimView.this.cNi);
                 }
                 NeutralRefreshAnimView.this.postInvalidate();
             }
         });
-        if (!this.cNd.isRunning()) {
-            this.cNd.start();
+        if (!this.cNh.isRunning()) {
+            this.cNh.start();
         }
     }
 
@@ -310,18 +310,18 @@ public class NeutralRefreshAnimView extends View {
         }
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
-            this.cNe = iN(this.cNe);
-            this.cNf = iN(this.cNf);
-            this.cMW.setAlpha(this.cNf);
-            this.cMV.setAlpha(this.cNe);
-            this.mCanvas.drawCircle(this.cMX.x + this.cNa, this.cMX.y, cMQ, this.cMW);
-            this.cMV.setAlpha(this.cNe);
-            this.mCanvas.drawCircle(this.cMX.x + this.cNb, this.cMX.y, cMQ, this.cMV);
+            this.cNi = iN(this.cNi);
+            this.cNj = iN(this.cNj);
+            this.cNa.setAlpha(this.cNj);
+            this.cMZ.setAlpha(this.cNi);
+            this.mCanvas.drawCircle(this.cNb.x + this.cNe, this.cNb.y, cMU, this.cNa);
+            this.cMZ.setAlpha(this.cNi);
+            this.mCanvas.drawCircle(this.cNb.x + this.cNf, this.cNb.y, cMU, this.cMZ);
             canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
             if (DEBUG) {
-                Log.e("NeutralRefreshAnimView", "Complete:mAlpha=" + this.cNe);
-                Log.e("NeutralRefreshAnimView", "Complete:mRightBallXPosi=" + this.cNa);
-                Log.e("NeutralRefreshAnimView", "Complete:mLeftBallXPosi=" + this.cNb);
+                Log.e("NeutralRefreshAnimView", "Complete:mAlpha=" + this.cNi);
+                Log.e("NeutralRefreshAnimView", "Complete:mRightBallXPosi=" + this.cNe);
+                Log.e("NeutralRefreshAnimView", "Complete:mLeftBallXPosi=" + this.cNf);
             }
         }
     }
@@ -349,10 +349,10 @@ public class NeutralRefreshAnimView extends View {
     }
 
     private void ayM() {
-        a(this.cMY, true);
-        a(this.cMZ, true);
-        a(this.cNc, false);
-        a(this.cNd, false);
+        a(this.cNc, true);
+        a(this.cNd, true);
+        a(this.cNg, false);
+        a(this.cNh, false);
         if (this.mAnimatorSet != null) {
             this.mAnimatorSet.removeAllListeners();
             this.mAnimatorSet.end();

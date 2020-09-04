@@ -11,25 +11,29 @@ import tv.chushou.zues.widget.adapterview.c;
 /* loaded from: classes6.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LinearLayout mHeaderLayout;
-    private int oNA = 0;
-    private int oNB = 0;
-    private RecyclerView.AdapterDataObserver oNC = new RecyclerView.AdapterDataObserver() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.2
+    private LinearLayout oNO;
+    private RecyclerView.Adapter oNP;
+    private tv.chushou.zues.widget.adapterview.a oNQ;
+    private c oNR;
+    private int oNS = 0;
+    private int oNT = 0;
+    private RecyclerView.AdapterDataObserver oNU = new RecyclerView.AdapterDataObserver() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.2
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onChanged() {
             super.onChanged();
             b.this.notifyDataSetChanged();
-            if (b.this.oNy != null) {
-                if (b.this.oNx.getItemCount() == 0) {
-                    b.this.oNy.zk(true);
+            if (b.this.oNQ != null) {
+                if (b.this.oNP.getItemCount() == 0) {
+                    b.this.oNQ.zm(true);
                 } else {
-                    b.this.oNy.zk(false);
+                    b.this.oNQ.zm(false);
                 }
             }
-            if (b.this.oNz != null) {
-                b.this.oNA = b.this.oNB;
-                b.this.oNB = b.this.oNx.getItemCount();
-                if (b.this.oNB != b.this.oNA) {
-                    b.this.oNz.OG(b.this.oNB - b.this.oNA);
+            if (b.this.oNR != null) {
+                b.this.oNS = b.this.oNT;
+                b.this.oNT = b.this.oNP.getItemCount();
+                if (b.this.oNT != b.this.oNS) {
+                    b.this.oNR.OG(b.this.oNT - b.this.oNS);
                 }
             }
         }
@@ -48,17 +52,17 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeInserted(int i, int i2) {
             super.onItemRangeInserted(i, i2);
-            if (b.this.oNz != null) {
-                if (b.this.oNz.emq()) {
+            if (b.this.oNR != null) {
+                if (b.this.oNR.emz()) {
                     b.this.notifyItemRangeChanged(b.this.getHeaderViewsCount() + i, 1);
                     b.this.notifyItemRangeInserted(i + 1 + b.this.getHeaderViewsCount(), i2);
                 } else {
                     b.this.notifyItemRangeInserted(b.this.getHeaderViewsCount() + i, i2);
                 }
-                b.this.oNA = b.this.oNB;
-                b.this.oNB = b.this.oNx.getItemCount();
-                if (b.this.oNB != b.this.oNA) {
-                    b.this.oNz.OG(b.this.oNB - b.this.oNA);
+                b.this.oNS = b.this.oNT;
+                b.this.oNT = b.this.oNP.getItemCount();
+                if (b.this.oNT != b.this.oNS) {
+                    b.this.oNR.OG(b.this.oNT - b.this.oNS);
                     return;
                 }
                 return;
@@ -79,49 +83,45 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             b.this.notifyItemRangeChanged(i + headerViewsCount, headerViewsCount + i2 + i3);
         }
     };
-    private LinearLayout oNw;
-    private RecyclerView.Adapter oNx;
-    private tv.chushou.zues.widget.adapterview.a oNy;
-    private c oNz;
 
     public b(RecyclerView.Adapter adapter) {
         setAdapter(adapter);
     }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
-        this.oNA = 0;
-        this.oNB = 0;
-        if (this.oNx != null) {
-            notifyItemRangeRemoved(getHeaderViewsCount(), this.oNx.getItemCount());
-            this.oNx.unregisterAdapterDataObserver(this.oNC);
+        this.oNS = 0;
+        this.oNT = 0;
+        if (this.oNP != null) {
+            notifyItemRangeRemoved(getHeaderViewsCount(), this.oNP.getItemCount());
+            this.oNP.unregisterAdapterDataObserver(this.oNU);
         }
-        this.oNx = adapter;
-        this.oNx.registerAdapterDataObserver(this.oNC);
-        notifyItemRangeInserted(getHeaderViewsCount(), this.oNx.getItemCount());
+        this.oNP = adapter;
+        this.oNP.registerAdapterDataObserver(this.oNU);
+        notifyItemRangeInserted(getHeaderViewsCount(), this.oNP.getItemCount());
     }
 
     public void a(tv.chushou.zues.widget.adapterview.a aVar) {
-        this.oNy = aVar;
+        this.oNQ = aVar;
     }
 
     public void setLoadMoreProvider(c cVar) {
-        this.oNz = cVar;
+        this.oNR = cVar;
     }
 
-    public void emr() {
-        this.oNA = 0;
-        this.oNB = 0;
+    public void emA() {
+        this.oNS = 0;
+        this.oNT = 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        int itemCount = this.oNx.getItemCount();
+        int itemCount = this.oNP.getItemCount();
         int headerViewsCount = getHeaderViewsCount();
         if (i < headerViewsCount) {
             return Integer.MIN_VALUE;
         }
         if (i >= headerViewsCount && i < itemCount + headerViewsCount) {
-            int itemViewType = this.oNx.getItemViewType(i - getHeaderViewsCount());
+            int itemViewType = this.oNP.getItemViewType(i - getHeaderViewsCount());
             if (itemViewType >= 1073741823) {
                 throw new IllegalArgumentException("item view type in inner adapter should not be greater than Integer.MAX_VALUE / 2  ");
             }
@@ -137,16 +137,16 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return new a(this.mHeaderLayout);
         }
         if (i == -2147483647) {
-            return new a(this.oNw);
+            return new a(this.oNO);
         }
-        return this.oNx.createViewHolder(viewGroup, i - 1073741823);
+        return this.oNP.createViewHolder(viewGroup, i - 1073741823);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i, List<Object> list) {
         int headerViewsCount = getHeaderViewsCount();
-        if (i >= headerViewsCount && i < this.oNx.getItemCount() + headerViewsCount) {
-            this.oNx.onBindViewHolder(viewHolder, i - headerViewsCount, list);
+        if (i >= headerViewsCount && i < this.oNP.getItemCount() + headerViewsCount) {
+            this.oNP.onBindViewHolder(viewHolder, i - headerViewsCount, list);
             return;
         }
         ViewGroup.LayoutParams layoutParams = viewHolder.itemView.getLayoutParams();
@@ -158,8 +158,8 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         int headerViewsCount = getHeaderViewsCount();
-        if (i >= headerViewsCount && i < this.oNx.getItemCount() + headerViewsCount) {
-            this.oNx.onBindViewHolder(viewHolder, i - headerViewsCount);
+        if (i >= headerViewsCount && i < this.oNP.getItemCount() + headerViewsCount) {
+            this.oNP.onBindViewHolder(viewHolder, i - headerViewsCount);
             return;
         }
         ViewGroup.LayoutParams layoutParams = viewHolder.itemView.getLayoutParams();
@@ -170,7 +170,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return getHeaderViewsCount() + this.oNx.getItemCount() + getFooterViewsCount();
+        return getHeaderViewsCount() + this.oNP.getItemCount() + getFooterViewsCount();
     }
 
     public int getHeaderViewsCount() {
@@ -178,7 +178,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public int getFooterViewsCount() {
-        return (this.oNw == null || this.oNw.getChildCount() == 0) ? 0 : 1;
+        return (this.oNO == null || this.oNO.getChildCount() == 0) ? 0 : 1;
     }
 
     public void addFooterView(View view, int i) {
@@ -186,34 +186,34 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public void q(View view, int i, int i2) {
-        if (this.oNw == null) {
-            this.oNw = new LinearLayout(view.getContext());
+        if (this.oNO == null) {
+            this.oNO = new LinearLayout(view.getContext());
             if (i2 == 1) {
-                this.oNw.setOrientation(1);
-                this.oNw.setClipChildren(false);
-                this.oNw.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+                this.oNO.setOrientation(1);
+                this.oNO.setClipChildren(false);
+                this.oNO.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
             } else {
-                this.oNw.setOrientation(0);
-                this.oNw.setLayoutParams(new RecyclerView.LayoutParams(-2, -1));
+                this.oNO.setOrientation(0);
+                this.oNO.setLayoutParams(new RecyclerView.LayoutParams(-2, -1));
             }
         }
-        if (i >= this.oNw.getChildCount()) {
+        if (i >= this.oNO.getChildCount()) {
             i = -1;
         }
-        this.oNw.addView(view, i);
-        if (this.oNw.getChildCount() == 1) {
-            notifyItemInserted(getHeaderViewsCount() + this.oNx.getItemCount());
+        this.oNO.addView(view, i);
+        if (this.oNO.getChildCount() == 1) {
+            notifyItemInserted(getHeaderViewsCount() + this.oNP.getItemCount());
         }
     }
 
     public void dF(final View view) {
         if (getFooterViewsCount() != 0) {
-            this.oNw.post(new Runnable() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.1
+            this.oNO.post(new Runnable() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.oNw.removeView(view);
-                    if (b.this.oNw.getChildCount() == 0) {
-                        b.this.notifyItemRemoved(b.this.getHeaderViewsCount() + b.this.oNx.getItemCount());
+                    b.this.oNO.removeView(view);
+                    if (b.this.oNO.getChildCount() == 0) {
+                        b.this.notifyItemRemoved(b.this.getHeaderViewsCount() + b.this.oNP.getItemCount());
                     }
                 }
             });
@@ -226,11 +226,11 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public boolean dG(View view) {
-        if (this.oNw == null || this.oNw.getChildCount() == 0) {
+        if (this.oNO == null || this.oNO.getChildCount() == 0) {
             return false;
         }
-        for (int i = 0; i < this.oNw.getChildCount(); i++) {
-            if (this.oNw.getChildAt(i) == view) {
+        for (int i = 0; i < this.oNO.getChildCount(); i++) {
+            if (this.oNO.getChildAt(i) == view) {
                 return true;
             }
         }
@@ -238,7 +238,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public boolean OI(int i) {
-        return getFooterViewsCount() > 0 && i >= getHeaderViewsCount() + this.oNx.getItemCount() && i < getItemCount();
+        return getFooterViewsCount() > 0 && i >= getHeaderViewsCount() + this.oNP.getItemCount() && i < getItemCount();
     }
 
     /* loaded from: classes6.dex */

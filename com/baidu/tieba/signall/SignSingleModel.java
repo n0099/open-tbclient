@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 /* loaded from: classes18.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b lXt;
-    private a lXu;
+    private b lXI;
+    private a lXJ;
     private String mAuthSid;
     private String mForumId;
     private String mForumName;
@@ -19,14 +19,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public interface a {
         void c(SignData signData);
 
-        void fK(String str, String str2);
+        void fL(String str, String str2);
     }
 
     public SignSingleModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.lXt = null;
+        this.lXI = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,20 +39,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void duA() {
-        if (this.lXt != null) {
-            this.lXt.cancel();
-            this.lXt = null;
+    public void duF() {
+        if (this.lXI != null) {
+            this.lXI.cancel();
+            this.lXI = null;
         }
     }
 
-    public void fL(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.lXt == null) {
+    public void fM(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.lXI == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.lXt = new b();
-            this.lXt.setPriority(2);
-            this.lXt.execute(new Object[0]);
+            this.lXI = new b();
+            this.lXI.setPriority(2);
+            this.lXI.execute(new Object[0]);
         }
     }
 
@@ -84,7 +84,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork.addPostData("fid", SignSingleModel.this.mForumId);
                 this.mNetwork.addPostData("authsid", SignSingleModel.this.mAuthSid);
                 this.mNetwork.biQ().bjv().mIsNeedTbs = true;
-                this.mNetwork.ik(true);
+                this.mNetwork.il(true);
                 String postNetData = this.mNetwork.postNetData();
                 if (!this.mNetwork.isNetSuccess() || !this.mNetwork.biQ().bjw().isRequestSuccess()) {
                     signData = null;
@@ -121,9 +121,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.cancelNetConnect();
             }
-            SignSingleModel.this.lXt = null;
+            SignSingleModel.this.lXI = null;
             super.cancel(true);
-            SignSingleModel.this.lXu.fK(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.lXJ.fL(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -131,18 +131,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.lXt = null;
+            SignSingleModel.this.lXI = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.lXu.c(signData);
+                SignSingleModel.this.lXJ.c(signData);
                 return;
             }
             SignSingleModel.this.mErrorCode = this.mNetwork.getServerErrorCode();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.lXu.fK(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.lXJ.fL(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.lXu = aVar;
+        this.lXJ = aVar;
     }
 }

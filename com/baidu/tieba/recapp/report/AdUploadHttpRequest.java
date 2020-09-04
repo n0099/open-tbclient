@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_AD = "ad";
     private static final String KEY_BRAND = "brand";
@@ -53,7 +53,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             c next = it.next();
             if (next != null) {
-                jSONArray.put(next.doh());
+                jSONArray.put(next.dok());
             }
         }
         return jSONArray.toString();

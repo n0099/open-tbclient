@@ -8,19 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c {
-    private List<String> aCW;
-    private boolean aCX = false;
+    private List<String> aCY;
+    private boolean aCZ = false;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aCX = jSONObject.optInt("tags_switch", 0) == 1;
+            this.aCZ = jSONObject.optInt("tags_switch", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.aCW = new ArrayList();
+                this.aCY = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null && !StringUtils.isNull(optJSONObject.optString("member"))) {
-                        this.aCW.add(optJSONObject.optString("member"));
+                        this.aCY.add(optJSONObject.optString("member"));
                     }
                 }
             }
@@ -28,10 +28,10 @@ public class c {
     }
 
     public List<String> Cp() {
-        return this.aCW;
+        return this.aCY;
     }
 
     public boolean Cq() {
-        return this.aCX;
+        return this.aCZ;
     }
 }

@@ -26,14 +26,14 @@ public class a extends d {
         super(bVar);
     }
 
-    public b jK(String str) {
+    public b jL(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start set storage sync");
         }
-        return jL(str);
+        return jM(str);
     }
 
-    public b jL(String str) {
+    public b jM(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start set storage");
         }
@@ -58,14 +58,14 @@ public class a extends d {
         if (aA == null) {
             return new b(202);
         }
-        if (com.baidu.swan.apps.storage.c.rP(aA)) {
+        if (com.baidu.swan.apps.storage.c.rQ(aA)) {
             return new b(1001, "exceed storage key max length");
         }
         String az = az(jSONObject);
         if (az == null) {
             return new b(202);
         }
-        if (com.baidu.swan.apps.storage.c.rQ(az)) {
+        if (com.baidu.swan.apps.storage.c.rR(az)) {
             return new b(1001, "exceed storage item max length");
         }
         com.baidu.swan.apps.storage.c azT = azI.azT();
@@ -76,7 +76,7 @@ public class a extends d {
             return new b(1003, "exceed storage max length");
         }
         azT.aCP().putString(aA, az);
-        com.baidu.swan.apps.am.e.dai.update();
+        com.baidu.swan.apps.am.e.dam.update();
         return new b(0);
     }
 
@@ -96,18 +96,18 @@ public class a extends d {
             return new b(1001, "swan app is null");
         }
         azI.azT().aCP().edit().clear().apply();
-        com.baidu.swan.apps.am.e.dai.update();
+        com.baidu.swan.apps.am.e.dam.update();
         return new b(0);
     }
 
-    public b jM(String str) {
+    public b jN(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start remove storage sync");
         }
-        return jN(str);
+        return jO(str);
     }
 
-    public b jN(String str) {
+    public b jO(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start remove storage");
         }
@@ -129,18 +129,18 @@ public class a extends d {
             return new b(202);
         }
         azI.azT().aCP().remove(aA);
-        com.baidu.swan.apps.am.e.dai.update();
+        com.baidu.swan.apps.am.e.dam.update();
         return new b(0);
     }
 
-    public b jO(String str) {
+    public b jP(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start get storage sync");
         }
-        return jP(str);
+        return jQ(str);
     }
 
-    public b jP(String str) {
+    public b jQ(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start get storage");
         }
@@ -148,14 +148,14 @@ public class a extends d {
             @Override // com.baidu.swan.apps.api.module.i.a.InterfaceC0361a
             public b a(e eVar, String str2) {
                 String string = eVar.azT().aCP().getString(str2, null);
-                if (string == null && com.baidu.swan.apps.storage.c.cXT) {
+                if (string == null && com.baidu.swan.apps.storage.c.cXX) {
                     return new b(1002, "data not found");
                 }
-                JSONObject jQ = a.jQ(string);
-                if (jQ == null) {
+                JSONObject jR = a.jR(string);
+                if (jR == null) {
                     return new b(202, "JSONException");
                 }
-                return new b(0, jQ);
+                return new b(0, jR);
             }
         });
     }
@@ -202,7 +202,7 @@ public class a extends d {
     }
 
     @Nullable
-    public static JSONObject jQ(@Nullable String str) {
+    public static JSONObject jR(@Nullable String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -231,7 +231,7 @@ public class a extends d {
 
     @Nullable
     public static String az(@NonNull JSONObject jSONObject) {
-        if (com.baidu.swan.apps.storage.c.cXU) {
+        if (com.baidu.swan.apps.storage.c.cXY) {
             return jSONObject.optString("data");
         }
         if (jSONObject.isNull("data")) {

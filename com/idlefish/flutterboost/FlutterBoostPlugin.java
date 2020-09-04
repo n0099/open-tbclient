@@ -278,6 +278,12 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                         break;
                     }
                     break;
+                case 1882486492:
+                    if (str.equals("swipeBackControl")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
                 case 1964912673:
                     if (str.equals("openFlutterPage")) {
                         c = 4;
@@ -355,6 +361,19 @@ public class FlutterBoostPlugin implements FlutterPlugin {
                         return;
                     } catch (Exception e) {
                         e.printStackTrace();
+                        return;
+                    }
+                case 7:
+                    try {
+                        int intValue = ((Integer) methodCall.arguments).intValue();
+                        IFlutterViewContainer container2 = flutterViewContainerManager.getLastGenerateRecord().getContainer();
+                        if (container2 != null) {
+                            container2.swipeBackControl(intValue);
+                            return;
+                        }
+                        return;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         return;
                     }
                 default:

@@ -6,36 +6,36 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
 /* loaded from: classes7.dex */
 public class g {
-    private com.baidu.tieba.ala.guardclub.view.d gaL;
-    private e.a gaN = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
+    private com.baidu.tieba.ala.guardclub.view.d gaP;
+    private e.a gaR = new e.a() { // from class: com.baidu.tieba.ala.guardclub.g.1
     };
-    private BdUniqueId beV = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e gaM = new com.baidu.tieba.ala.guardclub.model.e(this.beV, this.gaN);
+    private BdUniqueId beX = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e gaQ = new com.baidu.tieba.ala.guardclub.model.e(this.beX, this.gaR);
 
     public g(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.gaL = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.gaL.setOtherParams(str);
-        this.gaM.a(this.gaL);
-        this.gaL.f(this.gaM);
+        this.gaP = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.gaP.setOtherParams(str);
+        this.gaQ.a(this.gaP);
+        this.gaP.f(this.gaQ);
     }
 
     public View getView() {
-        return this.gaL.getView();
+        return this.gaP.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gaL != null) {
-            this.gaL.notifyDataSetInvalidated();
+        if (this.gaP != null) {
+            this.gaP.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aQr() {
-        if (this.gaM != null) {
-            this.gaM.onDestory();
+        if (this.gaQ != null) {
+            this.gaQ.onDestory();
         }
-        if (this.gaL != null) {
-            this.gaL.bKf();
+        if (this.gaP != null) {
+            this.gaP.bKg();
         }
     }
 }

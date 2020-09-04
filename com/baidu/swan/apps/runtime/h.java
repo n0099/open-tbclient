@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public interface h {
-    public static final Set<String> cQu = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+    public static final Set<String> cQy = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
     int XP();
 
@@ -44,7 +44,7 @@ public interface h {
 
     void k(SwanAppActivity swanAppActivity);
 
-    void qg(String str);
+    void qh(String str);
 
     void v(com.baidu.swan.apps.ap.e.b<i.a> bVar);
 

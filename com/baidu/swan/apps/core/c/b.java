@@ -8,18 +8,18 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void afP() {
-        e lT = f.arY().lT(f.arY().agW());
-        if (lT != null) {
+        e lU = f.arY().lU(f.arY().agW());
+        if (lU != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
-            lT.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            lU.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
         }
     }
 
-    public static void la(String str) {
+    public static void lb(String str) {
         bi("sanFullData2Console", str);
     }
 
-    public static void lb(String str) {
+    public static void lc(String str) {
         bi("sanIncData2Console", str);
     }
 

@@ -5,13 +5,13 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 /* loaded from: classes6.dex */
 public class b extends a {
-    private final String orG;
-    private final String orH;
+    private final String orY;
+    private final String orZ;
 
     public b(Context context) {
         super(context);
-        this.orG = "com_kascend_prefs";
-        this.orH = "key_device";
+        this.orY = "com_kascend_prefs";
+        this.orZ = "key_device";
     }
 
     @Override // kascend.core.a.a

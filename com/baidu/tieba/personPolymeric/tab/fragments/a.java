@@ -4,9 +4,9 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes18.dex */
 public interface a {
-    List<q> cyS();
+    List<q> cyT();
 
-    com.baidu.tieba.personPolymeric.tab.view.a dji();
+    com.baidu.tieba.personPolymeric.tab.view.a djl();
 
-    boolean djj();
+    boolean djm();
 }

@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 /* loaded from: classes7.dex */
 public class a extends BdBaseModel {
-    private NetMessageListener bng;
+    private NetMessageListener bnj;
 
     /* renamed from: com.baidu.live.tieba.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
@@ -29,6 +29,6 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bng);
+        MessageManager.getInstance().unRegisterListener(this.bnj);
     }
 }

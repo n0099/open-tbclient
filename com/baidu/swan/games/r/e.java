@@ -11,16 +11,16 @@ public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b dox;
+    private com.baidu.swan.games.f.b doB;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.dox = bVar;
+        this.doB = bVar;
         aOK();
         aOL();
     }
 
     private boolean aOK() {
-        return cW(this.dox.getInitBasePath(), "swan-game-open-data.js");
+        return cW(this.doB.getInitBasePath(), "swan-game-open-data.js");
     }
 
     private boolean aOL() {
@@ -35,19 +35,19 @@ public class e {
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.dox.aMZ().aNl();
+        this.doB.aMZ().aNl();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.dox.aNc().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.doB.aNc().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean cW(String str, String str2) {
         if (!f.aOM().aON() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.dox.aMZ().cJ(str, str2);
+        this.doB.aMZ().cJ(str, str2);
         return true;
     }
 }

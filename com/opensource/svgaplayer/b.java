@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes11.dex */
 public final class b extends Drawable {
-    private boolean ocU;
-    private int ocV;
-    private final com.opensource.svgaplayer.a.b ocW;
-    private final f ocX;
-    private final c ocY;
+    private boolean odm;
+    private int odn;
+    private final com.opensource.svgaplayer.a.b odo;
+    private final f odp;
+    private final c odq;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.ocX = fVar;
-        this.ocY = cVar;
-        this.ocU = true;
+        this.odp = fVar;
+        this.odq = cVar;
+        this.odm = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.ocW = new com.opensource.svgaplayer.a.b(this.ocX, this.ocY);
+        this.odo = new com.opensource.svgaplayer.a.b(this.odp, this.odq);
     }
 
-    public final f eaV() {
-        return this.ocX;
+    public final f ebe() {
+        return this.odp;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.m(fVar, "videoItem");
     }
 
-    public final void yC(boolean z) {
-        if (this.ocU != z) {
-            this.ocU = z;
+    public final void yE(boolean z) {
+        if (this.odm != z) {
+            this.odm = z;
             invalidateSelf();
         }
     }
 
-    public final int eaU() {
-        return this.ocV;
+    public final int ebd() {
+        return this.odn;
     }
 
     public final void Nz(int i) {
-        if (this.ocV != i) {
-            this.ocV = i;
+        if (this.odn != i) {
+            this.odn = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.ocU && canvas != null) {
-            this.ocW.a(canvas, this.ocV, this.scaleType);
+        if (!this.odm && canvas != null) {
+            this.odo.a(canvas, this.odn, this.scaleType);
         }
     }
 

@@ -12,7 +12,7 @@ public interface j {
     public static final PointF BJ = new PointF();
     public static final PointF BK = new PointF();
     public static final PointF BL = new PointF();
-    public static final com.tb.airbnb.lottie.e.d ohU = new com.tb.airbnb.lottie.e.d();
+    public static final com.tb.airbnb.lottie.e.d oim = new com.tb.airbnb.lottie.e.d();
     public static final Float BN = Float.valueOf(1.0f);
     public static final Float BO = Float.valueOf(2.0f);
     public static final Float BP = Float.valueOf(3.0f);

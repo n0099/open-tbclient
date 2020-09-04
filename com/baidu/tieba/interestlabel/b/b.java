@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes17.dex */
 public class b {
-    private List<a> jKZ;
-    private List<Integer> jLa;
-    private List<a> jLd;
+    private List<a> jLf;
+    private List<Integer> jLg;
+    private List<a> jLj;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!y.isEmpty(dataRes.sex_taglist)) {
-                this.jLd = new ArrayList();
-                w(this.jLd, dataRes.sex_taglist);
+                this.jLj = new ArrayList();
+                w(this.jLj, dataRes.sex_taglist);
             }
             if (!y.isEmpty(dataRes.taglist)) {
-                this.jKZ = new ArrayList();
-                this.jLa = new ArrayList();
-                w(this.jKZ, dataRes.taglist);
+                this.jLf = new ArrayList();
+                this.jLg = new ArrayList();
+                w(this.jLf, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.jLa != null && aVar.isFollow) {
-                        this.jLa.add(Integer.valueOf(aVar.labelId));
+                    if (this.jLg != null && aVar.isFollow) {
+                        this.jLg.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> cLj() {
-        return this.jLd;
-    }
-
     public List<a> cLk() {
-        return this.jKZ;
+        return this.jLj;
     }
 
-    public List<Integer> cLl() {
-        return this.jLa;
+    public List<a> cLl() {
+        return this.jLf;
+    }
+
+    public List<Integer> cLm() {
+        return this.jLg;
     }
 }

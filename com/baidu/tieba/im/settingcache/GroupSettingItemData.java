@@ -2,7 +2,7 @@ package com.baidu.tieba.im.settingcache;
 
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GroupSettingItemData extends ChatSetting implements Serializable {
     private static final long serialVersionUID = -3083517174627940892L;
     private String gid;

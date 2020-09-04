@@ -8,7 +8,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView;
 /* loaded from: classes16.dex */
 public class k extends a<com.baidu.tieba.homepage.hotTopic.tab.b.f, com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView>> {
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLL);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class k extends a<com.baidu.tieba.homepage.hotTopic.tab.b.f, com.baidu.ad
     /* renamed from: bC */
     public com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView> b(ViewGroup viewGroup) {
         HotTopicTabThreadItemView hotTopicTabThreadItemView = new HotTopicTabThreadItemView(viewGroup.getContext());
-        hotTopicTabThreadItemView.setOnItemCoverListener(this.ahW);
+        hotTopicTabThreadItemView.setOnItemCoverListener(this.ahY);
         hotTopicTabThreadItemView.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         return new com.baidu.adp.widget.ListView.b<>(hotTopicTabThreadItemView);
     }

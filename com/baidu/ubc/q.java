@@ -5,9 +5,9 @@ import java.util.List;
 public interface q {
     String avl();
 
-    List<String> dtt();
+    List<String> dty();
 
     boolean isPeakTime();
 
-    boolean oQ(String str);
+    boolean oR(String str);
 }

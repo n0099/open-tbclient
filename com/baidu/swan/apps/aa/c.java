@@ -18,11 +18,11 @@ public class c extends i {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         inflate.findViewById(a.f.ai_apps_title_bar_root).setVisibility(8);
-        this.cix = aaL();
-        this.cix.a(abm());
-        this.bRR = this.cix.aaS();
-        this.cix.loadUrl(this.mUrl);
-        this.cix.a((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.bRR.covertToView());
+        this.ciB = aaL();
+        this.ciB.a(abm());
+        this.bRV = this.ciB.aaS();
+        this.ciB.loadUrl(this.mUrl);
+        this.ciB.a((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.bRV.covertToView());
         return enableSliding(immersionEnabled() ? initImmersion(inflate) : inflate, this);
     }
 
@@ -35,7 +35,7 @@ public class c extends i {
     protected com.baidu.swan.apps.core.f.d abm() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean hu(String str) {
+            public boolean hv(String str) {
                 if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
                     Map<String, String> stringToMap = ai.stringToMap(ai.getParams(str));
                     if (stringToMap != null && stringToMap.get("statusCode") != null) {
@@ -51,7 +51,7 @@ public class c extends i {
                     i.ahA();
                     return true;
                 }
-                return super.hu(str);
+                return super.hv(str);
             }
         };
     }

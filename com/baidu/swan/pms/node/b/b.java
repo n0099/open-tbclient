@@ -7,25 +7,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class b {
-    private static volatile b dGD;
-    private a dGE = new a();
+    private static volatile b dGH;
+    private a dGI = new a();
 
     public static b aUC() {
-        if (dGD == null) {
+        if (dGH == null) {
             synchronized (b.class) {
-                if (dGD == null) {
-                    dGD = new b();
+                if (dGH == null) {
+                    dGH = new b();
                 }
             }
         }
-        return dGD;
+        return dGH;
     }
 
     private b() {
     }
 
     public String getVersion() {
-        return this.dGE.getString("version", "0");
+        return this.dGI.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,7 +35,7 @@ public class b {
             if (!TextUtils.isEmpty(optString)) {
                 String optString2 = jSONObject.optString("data");
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.dGE.edit().putString("version", optString).putString("data", optString2).apply();
+                    this.dGI.edit().putString("version", optString).putString("data", optString2).apply();
                 }
             }
         }
@@ -45,13 +45,13 @@ public class b {
     public com.baidu.swan.pms.node.b.a aUD() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
-            aVar = com.baidu.swan.pms.node.b.a.cy(new JSONObject(this.dGE.getString("data", "")));
+            aVar = com.baidu.swan.pms.node.b.a.cy(new JSONObject(this.dGI.getString("data", "")));
         } catch (JSONException e) {
             e.printStackTrace();
             aVar = null;
         }
         if (aVar == null) {
-            return com.baidu.swan.pms.node.b.a.dGC;
+            return com.baidu.swan.pms.node.b.a.dGG;
         }
         return aVar;
     }

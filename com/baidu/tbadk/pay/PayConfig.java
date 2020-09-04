@@ -2,7 +2,7 @@ package com.baidu.tbadk.pay;
 
 import com.baidu.tbadk.util.PageDialogHelper;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PayConfig implements Serializable {
     public static final String PAYMENT_POS_KEY_DUIBA = "1634";
     public static final String PAYMENT_POS_KEY_MANGA = "37";

@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
 import com.baidu.adp.lib.featureSwitch.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class KeepAliveSwitch extends a {
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";
     public static final int OFF_TYPE = 0;

@@ -7,15 +7,15 @@ import com.baidu.swan.apps.v.f;
 /* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cUe;
+    private static a cUi;
 
     public static void aBc() {
         c.cq(com.baidu.swan.apps.t.a.aoJ());
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
         }
-        if (cUe == null) {
-            cUe = new a() { // from class: com.baidu.swan.apps.ah.b.1
+        if (cUi == null) {
+            cUi = new a() { // from class: com.baidu.swan.apps.ah.b.1
                 @Override // com.baidu.swan.apps.ah.a
                 public void a(c.b bVar) {
                     b.aBe();
@@ -23,16 +23,16 @@ public final class b {
                 }
             };
         }
-        c.a(cUe);
+        c.a(cUi);
     }
 
     public static void aBd() {
         if (DEBUG) {
             Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
         }
-        if (cUe != null) {
-            c.b(cUe);
-            cUe = null;
+        if (cUi != null) {
+            c.b(cUi);
+            cUi = null;
         }
     }
 
@@ -45,7 +45,7 @@ public final class b {
     public static void b(c.b bVar) {
         SwanAppActivity arI = f.arY().arI();
         if (arI != null) {
-            com.baidu.swan.apps.t.a.aoK().a(arI, bVar.mImagePath, bVar.cUq);
+            com.baidu.swan.apps.t.a.aoK().a(arI, bVar.mImagePath, bVar.cUu);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t {
     private static boolean QE(String str) {
         String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);

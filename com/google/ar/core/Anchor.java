@@ -3,8 +3,8 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes11.dex */
 public class Anchor {
-    private final Session nBT = null;
-    long nBU = 0;
+    private final Session nCl = null;
+    long nCm = 0;
 
     private native void nativeDetach(long j, long j2);
 
@@ -58,16 +58,16 @@ public class Anchor {
     }
 
     public boolean equals(Object obj) {
-        return obj != null && obj.getClass() == getClass() && ((Anchor) obj).nBU == this.nBU;
+        return obj != null && obj.getClass() == getClass() && ((Anchor) obj).nCm == this.nCm;
     }
 
     public int hashCode() {
-        return Long.valueOf(this.nBU).hashCode();
+        return Long.valueOf(this.nCm).hashCode();
     }
 
     protected void finalize() throws Throwable {
-        if (this.nBU != 0) {
-            nativeReleaseAnchor(this.nBU);
+        if (this.nCm != 0) {
+            nativeReleaseAnchor(this.nCm);
         }
         super.finalize();
     }

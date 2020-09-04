@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.at;
 import java.lang.ref.WeakReference;
 /* loaded from: classes16.dex */
 public class a {
-    private static final String kuZ = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String kvg = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes16.dex */
     public interface b {
@@ -27,10 +27,10 @@ public class a {
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     private static class C0763a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String eDP;
         private String eDT;
-        private String kva;
-        private WeakReference<b> kvb;
+        private String eDX;
+        private String kvh;
+        private WeakReference<b> kvi;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -43,12 +43,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.kva = str6;
-            this.eDT = str8;
-            this.eDP = str9;
+            this.kvh = str6;
+            this.eDX = str8;
+            this.eDT = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.kvb = new WeakReference<>(bVar);
+            this.kvi = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -57,8 +57,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: L */
         public ForbidResultData doInBackground(String... strArr) {
-            aa aaVar = new aa(a.kuZ);
-            aaVar.addPostData("day", this.kva);
+            aa aaVar = new aa(a.kvg);
+            aaVar.addPostData("day", this.kvh);
             aaVar.addPostData("un", this.mUserName);
             aaVar.addPostData("fid", this.mForumId);
             aaVar.addPostData("word", this.mForumName);
@@ -66,8 +66,8 @@ public class a {
             aaVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
             aaVar.addPostData("ntn", "banid");
             aaVar.addPostData("post_id", this.mPostId);
-            aaVar.addPostData("nick_name", this.eDT);
-            aaVar.addPostData("portrait", this.eDP);
+            aaVar.addPostData("nick_name", this.eDX);
+            aaVar.addPostData("portrait", this.eDT);
             aaVar.biQ().bjv().mIsNeedTbs = true;
             String postNetData = aaVar.postNetData();
             if (aaVar.biQ().bjw().isRequestSuccess()) {
@@ -92,7 +92,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.kvb.get();
+            b bVar = this.kvi.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && at.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

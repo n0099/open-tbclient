@@ -28,19 +28,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aiB != skinType) {
-                aVar.aiB = skinType;
-                ap.setBackgroundResource(aVar.ldO, dVar.backgroundId);
+            if (aVar.aiD != skinType) {
+                aVar.aiD = skinType;
+                ap.setBackgroundResource(aVar.ldV, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.ldO.getLayoutParams();
-            if (dVar.lal > 0) {
-                layoutParams.height = dVar.lal;
+            ViewGroup.LayoutParams layoutParams = aVar.ldV.getLayoutParams();
+            if (dVar.las > 0) {
+                layoutParams.height = dVar.las;
             }
-            if (dVar.lak > 0) {
-                layoutParams.width = dVar.lak;
+            if (dVar.lar > 0) {
+                layoutParams.width = dVar.lar;
             }
-            aVar.ldO.setLayoutParams(layoutParams);
-            aVar.ldO.setOnClickListener(null);
+            aVar.ldV.setLayoutParams(layoutParams);
+            aVar.ldV.setOnClickListener(null);
         }
         return view;
     }

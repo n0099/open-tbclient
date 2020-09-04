@@ -10,7 +10,7 @@ public class c implements az {
 
     @Override // com.baidu.swan.apps.adaptation.a.az
     public boolean aaF() {
-        return aaE() || com.baidu.swan.apps.env.b.c.cpW.mm("zeus");
+        return aaE() || com.baidu.swan.apps.env.b.c.cqa.mn("zeus");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az

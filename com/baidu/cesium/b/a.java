@@ -10,7 +10,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public abstract class a {
-    public static Comparator<a> ali = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> alk = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,8 +19,8 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0097a alg;
-    protected a.C0100a alh;
+    protected C0097a ali;
+    protected a.C0100a alj;
     private final String e;
     private long f;
 
@@ -28,18 +28,18 @@ public abstract class a {
     /* loaded from: classes9.dex */
     public static class C0097a {
         public Context a;
-        public com.baidu.cesium.e.a alj;
+        public com.baidu.cesium.e.a alm;
     }
 
     /* loaded from: classes9.dex */
     public static abstract class b {
-        private a.C0100a alk;
+        private a.C0100a aln;
         private String b;
         private String c;
         private boolean d = true;
 
         public b(a.C0100a c0100a, String str) {
-            this.alk = c0100a;
+            this.aln = c0100a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -51,7 +51,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.alk.a(this.c, true);
+            String a = this.aln.a(this.c, true);
             if (!TextUtils.isEmpty(a)) {
                 try {
                     a(new JSONObject(a));
@@ -70,7 +70,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.alk.c(this.c, jSONObject.toString(), true);
+                    this.aln.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -121,13 +121,13 @@ public abstract class a {
     /* loaded from: classes9.dex */
     public static class g {
         public g.a a;
-        public Exception acn;
+        public Exception acp;
         public int b;
 
         public g(int i, g.a aVar, Exception exc) {
             this.b = i;
             this.a = aVar;
-            this.acn = exc;
+            this.acp = exc;
         }
 
         public static g bC(int i) {
@@ -161,8 +161,8 @@ public abstract class a {
     }
 
     public final void a(C0097a c0097a) {
-        this.alg = c0097a;
-        this.alh = c0097a.alj.uq().dl(IXAdRequestInfo.CS);
+        this.ali = c0097a;
+        this.alj = c0097a.alm.uq().dm(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

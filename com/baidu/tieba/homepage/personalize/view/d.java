@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class d extends com.baidu.card.b<AbsThreadDataSupport> {
-    private e iQL;
+    private e iQR;
 
     public d(Context context, TbPageContext<?> tbPageContext) {
         super(context);
-        this.iQL = new e(tbPageContext);
+        this.iQR = new e(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iQL.getView();
+        return this.iQR.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ public class d extends com.baidu.card.b<AbsThreadDataSupport> {
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport instanceof com.baidu.tieba.homepage.personalize.data.g) {
-            this.iQL.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
+            this.iQR.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
         }
     }
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        this.iQL.onChangeSkinType(tbPageContext, i);
+        this.iQR.onChangeSkinType(tbPageContext, i);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.iQL.setTag(bdUniqueId);
+        this.iQR.setTag(bdUniqueId);
     }
 }

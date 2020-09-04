@@ -156,19 +156,19 @@ public class c {
         }
     }
 
-    public static synchronized boolean ww(String str) {
-        boolean ww;
-        synchronized (c.class) {
-            ww = com.baidu.swan.pms.c.a.d.d.aTU().ww(str);
-        }
-        return ww;
-    }
-
     public static synchronized boolean wx(String str) {
         boolean wx;
         synchronized (c.class) {
             wx = com.baidu.swan.pms.c.a.d.d.aTU().wx(str);
         }
         return wx;
+    }
+
+    public static synchronized boolean wy(String str) {
+        boolean wy;
+        synchronized (c.class) {
+            wy = com.baidu.swan.pms.c.a.d.d.aTU().wy(str);
+        }
+        return wy;
     }
 }

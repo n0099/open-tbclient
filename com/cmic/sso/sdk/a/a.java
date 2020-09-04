@@ -14,7 +14,7 @@ public class a {
         HUAWEI
     }
 
-    private static EnumC0855a dNe() {
+    private static EnumC0855a dNn() {
         String str = Build.BRAND;
         if (str.equalsIgnoreCase("samsung")) {
             return EnumC0855a.SAMSUNG;
@@ -27,7 +27,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a() {
-        return a(dNe());
+        return a(dNn());
     }
 
     private static int a(EnumC0855a enumC0855a) {

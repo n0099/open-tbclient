@@ -8,45 +8,45 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class a {
-    private Map<String, com.baidu.o.a> dNf;
+    private Map<String, com.baidu.o.a> dNj;
 
     private a() {
-        this.dNf = new HashMap();
+        this.dNj = new HashMap();
     }
 
     /* renamed from: com.baidu.o.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     private static class C0230a {
-        private static final a dNg = new a();
+        private static final a dNk = new a();
     }
 
     public static a aXK() {
-        return C0230a.dNg;
+        return C0230a.dNk;
     }
 
     public boolean a(com.baidu.o.a aVar, String str) {
         if (aVar == null || str == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.o.a> entry : this.dNf.entrySet()) {
+        for (Map.Entry<String, com.baidu.o.a> entry : this.dNj.entrySet()) {
             entry.getValue().stop();
         }
-        this.dNf.clear();
-        this.dNf.put(str, aVar);
+        this.dNj.clear();
+        this.dNj.put(str, aVar);
         return true;
     }
 
-    public void xC(String str) {
+    public void xD(String str) {
         com.baidu.o.a aVar;
-        if (str != null && (aVar = this.dNf.get(str)) != null) {
+        if (str != null && (aVar = this.dNj.get(str)) != null) {
             aVar.stop();
-            this.dNf.remove(str);
+            this.dNj.remove(str);
         }
     }
 
-    public com.baidu.o.a xD(String str) {
+    public com.baidu.o.a xE(String str) {
         com.baidu.o.a aVar;
-        if (str == null || (aVar = this.dNf.get(str)) == null) {
+        if (str == null || (aVar = this.dNj.get(str)) == null) {
             return null;
         }
         return aVar;

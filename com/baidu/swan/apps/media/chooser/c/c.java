@@ -5,5 +5,5 @@ import java.util.List;
 public interface c<T> {
     void aj(List<T> list);
 
-    void oj(String str);
+    void ok(String str);
 }

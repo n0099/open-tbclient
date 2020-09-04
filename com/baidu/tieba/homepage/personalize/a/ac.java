@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes16.dex */
 public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.g, al<com.baidu.tieba.homepage.personalize.data.g>> {
-    public BdUniqueId ePv;
+    public BdUniqueId ePz;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,7 +38,7 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         aj tQ = aVar.tQ();
         tQ.setSourceForPb(2);
         al<com.baidu.tieba.homepage.personalize.data.g> alVar = new al<>(tQ);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         return alVar;
     }
 

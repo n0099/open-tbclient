@@ -17,10 +17,10 @@ public class b {
 
     /* loaded from: classes6.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.k.a bGu;
+        final /* synthetic */ com.baidu.poly.a.k.a bGy;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.bGu = aVar;
+            this.bGy = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ public class b {
                     c0270a.statusCode = 0;
                     c0270a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0270a.bGr = optJSONObject.optLong("totalAmount");
-                    c0270a.bGs = optJSONObject.optLong("userPayAmount");
-                    c0270a.bGt = optJSONObject.optString("usedhostMarketingDetail");
+                    c0270a.bGv = optJSONObject.optLong("totalAmount");
+                    c0270a.bGw = optJSONObject.optLong("userPayAmount");
+                    c0270a.bGx = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
                     c0270a.statusCode = jSONObject.optInt("errorLevel", 2);
                     c0270a.message = jSONObject.optString("msg");
@@ -45,7 +45,7 @@ public class b {
                 c0270a.statusCode = 2;
                 c0270a.message = g.Us().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.bGu.a(c0270a);
+            this.bGy.a(c0270a);
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -53,7 +53,7 @@ public class b {
             a.C0270a c0270a = new a.C0270a();
             c0270a.statusCode = 2;
             c0270a.message = g.Us().getResources().getString(b.g.calculate_price_default_error);
-            this.bGu.a(c0270a);
+            this.bGy.a(c0270a);
         }
     }
 

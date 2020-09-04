@@ -8,16 +8,16 @@ import java.util.Iterator;
 /* loaded from: classes8.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long dxL = -1;
+    private static long dxP = -1;
 
     public static f aQa() {
         if (!com.baidu.swan.apps.t.a.apx().aaE()) {
-            return com.baidu.swan.apps.core.k.a.ec(false);
+            return com.baidu.swan.apps.core.k.a.ed(false);
         }
         if (!aQc()) {
             return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        com.baidu.swan.apps.t.a.apB().aK(a.dxM);
+        com.baidu.swan.apps.t.a.apB().aK(a.dxQ);
         return f.aQk();
     }
 
@@ -26,7 +26,7 @@ public final class d {
     }
 
     private static boolean aQc() {
-        boolean z = a.dxM > -1;
+        boolean z = a.dxQ > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
@@ -55,7 +55,7 @@ public final class d {
     }
 
     public static String aQf() {
-        return com.baidu.swan.apps.t.a.apB().aL(a.dxM);
+        return com.baidu.swan.apps.t.a.apB().aL(a.dxQ);
     }
 
     public static void Y(Bundle bundle) {
@@ -64,25 +64,25 @@ public final class d {
 
     public static void z(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            dxL = intent.getLongExtra("bundle_key_new_v8_so_switch", dxL);
+            dxP = intent.getLongExtra("bundle_key_new_v8_so_switch", dxP);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + dxL);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + dxP);
         }
     }
 
     public static long ZZ() {
-        return a.dxM;
+        return a.dxQ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static final long dxM = d.dxL;
+        private static final long dxQ = d.dxP;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + dxM);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + dxQ);
             }
         }
     }

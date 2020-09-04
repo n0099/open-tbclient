@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice.service;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class Voice implements Parcelable {
     public static final Parcelable.Creator<Voice> CREATOR = new Parcelable.Creator<Voice>() { // from class: com.baidu.tbadk.core.voice.service.Voice.1
         /* JADX DEBUG: Method merged with bridge method */

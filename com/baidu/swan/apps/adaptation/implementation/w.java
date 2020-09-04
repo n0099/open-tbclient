@@ -26,9 +26,9 @@ public class w implements ap {
     public String aL(long j) {
         if (!com.baidu.swan.apps.t.a.apx().aaE()) {
             if (com.baidu.swan.apps.core.k.a.ajv()) {
-                return com.baidu.swan.apps.core.k.a.cmi + File.separator + GlobalConstants.LIB_ZEUS;
+                return com.baidu.swan.apps.core.k.a.cmm + File.separator + GlobalConstants.LIB_ZEUS;
             }
-            return com.baidu.swan.apps.core.k.a.cmk + File.separator + GlobalConstants.LIB_ZEUS;
+            return com.baidu.swan.apps.core.k.a.cmo + File.separator + GlobalConstants.LIB_ZEUS;
         }
         return null;
     }

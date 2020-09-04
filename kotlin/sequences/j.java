@@ -17,15 +17,15 @@ public class j extends i {
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class a implements Iterable<T> {
-        final /* synthetic */ kotlin.sequences.c otp;
+        final /* synthetic */ kotlin.sequences.c otH;
 
         public a(kotlin.sequences.c cVar) {
-            this.otp = cVar;
+            this.otH = cVar;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
-            return this.otp.iterator();
+            return this.otH.iterator();
         }
     }
 
@@ -69,52 +69,52 @@ public class j extends i {
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c otq;
-        final /* synthetic */ Object otr;
+        final /* synthetic */ kotlin.sequences.c otI;
+        final /* synthetic */ Object otJ;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
-            return kotlin.sequences.e.a(this.otq, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
+            return kotlin.sequences.e.a(this.otI, new SequencesKt___SequencesKt$minus$1$iterator$1(this, booleanRef)).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c otq;
-        final /* synthetic */ Object[] ots;
+        final /* synthetic */ kotlin.sequences.c otI;
+        final /* synthetic */ Object[] otK;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.e.b(this.otq, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.P(this.ots))).iterator();
+            return kotlin.sequences.e.b(this.otI, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.P(this.otK))).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c otq;
-        final /* synthetic */ Iterable ott;
+        final /* synthetic */ kotlin.sequences.c otI;
+        final /* synthetic */ Iterable otL;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection c = o.c(this.ott);
-            return c.isEmpty() ? this.otq.iterator() : kotlin.sequences.e.b(this.otq, new SequencesKt___SequencesKt$minus$3$iterator$1(c)).iterator();
+            Collection c = o.c(this.otL);
+            return c.isEmpty() ? this.otI.iterator() : kotlin.sequences.e.b(this.otI, new SequencesKt___SequencesKt$minus$3$iterator$1(c)).iterator();
         }
     }
 
     @kotlin.h
     /* loaded from: classes20.dex */
     public static final class e implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c otq;
-        final /* synthetic */ kotlin.sequences.c otu;
+        final /* synthetic */ kotlin.sequences.c otI;
+        final /* synthetic */ kotlin.sequences.c otM;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.e.a(this.otu);
-            return a.isEmpty() ? this.otq.iterator() : kotlin.sequences.e.b(this.otq, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
+            HashSet a = kotlin.sequences.e.a(this.otM);
+            return a.isEmpty() ? this.otI.iterator() : kotlin.sequences.e.b(this.otI, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }
 

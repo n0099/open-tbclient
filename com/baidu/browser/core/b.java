@@ -5,8 +5,8 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 /* loaded from: classes19.dex */
 public class b extends ContextWrapper {
-    private static b adH;
-    private h adI;
+    private static b adJ;
+    private h adK;
 
     public b() {
         super(null);
@@ -16,10 +16,10 @@ public class b extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     /* renamed from: sZ */
     public h getResources() {
-        if (this.adI == null) {
-            this.adI = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.adK == null) {
+            this.adK = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.adI;
+        return this.adK;
     }
 
     @Override // android.content.ContextWrapper
@@ -30,10 +30,10 @@ public class b extends ContextWrapper {
     public static synchronized b ta() {
         b bVar;
         synchronized (b.class) {
-            if (adH == null) {
-                adH = new b();
+            if (adJ == null) {
+                adJ = new b();
             }
-            bVar = adH;
+            bVar = adJ;
         }
         return bVar;
     }

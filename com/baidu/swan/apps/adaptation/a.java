@@ -5,14 +5,14 @@ import com.baidu.swan.apps.adaptation.a.i;
 import com.baidu.swan.bdprivate.a.u;
 /* loaded from: classes14.dex */
 public class a {
-    private i bSu;
+    private i bSy;
 
     @NonNull
     public i Yq() {
-        if (this.bSu == null) {
-            this.bSu = Yr();
+        if (this.bSy == null) {
+            this.bSy = Yr();
         }
-        return this.bSu;
+        return this.bSy;
     }
 
     public i Yr() {

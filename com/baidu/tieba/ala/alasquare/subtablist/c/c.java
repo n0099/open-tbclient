@@ -24,12 +24,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c> {
-    private bw fCx;
-    private String fGE;
-    private i fKb;
-    View.OnClickListener fMA;
-    private a fMy;
-    private boolean fMz;
+    private bw fCB;
+    private String fGI;
+    private i fKf;
+    private a fMC;
+    private boolean fMD;
+    View.OnClickListener fME;
     private View.OnClickListener mOnClickListener;
     public int mSkinType;
     private TbPageContext<?> mTbPageContext;
@@ -38,13 +38,13 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     public c(TbPageContext<?> tbPageContext, boolean z) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.fMz = false;
+        this.fMD = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.isNetWorkAvailable()) {
-                    if (c.this.fCx != null && c.this.fCx.beY() != null && c.this.fKb != null) {
-                        c.this.fKb.a(c.this.tabId, c.this.fGE, c.this.fCx);
+                    if (c.this.fCB != null && c.this.fCB.beY() != null && c.this.fKf != null) {
+                        c.this.fKf.a(c.this.tabId, c.this.fGI, c.this.fCB);
                         return;
                     }
                     return;
@@ -52,32 +52,32 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
                 l.showLongToast(c.this.mTbPageContext.getPageActivity(), c.this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
             }
         };
-        this.fMA = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.2
+        this.fME = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.c.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.fCx != null && c.this.fCx.beE() != null && !StringUtils.isNull(c.this.fCx.beE().getUserId())) {
-                    long j = com.baidu.adp.lib.f.b.toLong(c.this.fCx.beE().getUserId(), 0L);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(c.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), c.this.fCx.beE().isBigV())));
+                if (c.this.fCB != null && c.this.fCB.beE() != null && !StringUtils.isNull(c.this.fCB.beE().getUserId())) {
+                    long j = com.baidu.adp.lib.f.b.toLong(c.this.fCB.beE().getUserId(), 0L);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(c.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), c.this.fCB.beE().isBigV())));
                 }
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.fMy = new a(getView());
-        this.fMz = z;
+        this.fMC = new a(getView());
+        this.fMD = z;
     }
 
     public void c(i iVar) {
-        this.fKb = iVar;
+        this.fKf = iVar;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.fMy.fMF, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.fMy.fME, (int) R.color.cp_cont_a);
-            ap.setViewTextColor(this.fMy.aOU, (int) R.color.cp_cont_a);
-            ap.setViewTextColor(this.fMy.fMH, (int) R.color.cp_cont_b);
-            ap.setViewTextColor(this.fMy.fMI, (int) R.color.cp_cont_d);
+            ap.setBackgroundResource(this.fMC.fMJ, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.fMC.fMI, (int) R.color.cp_cont_a);
+            ap.setViewTextColor(this.fMC.aOW, (int) R.color.cp_cont_a);
+            ap.setViewTextColor(this.fMC.fML, (int) R.color.cp_cont_b);
+            ap.setViewTextColor(this.fMC.fMM, (int) R.color.cp_cont_d);
             this.mSkinType = i;
         }
     }
@@ -91,39 +91,39 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     @Override // com.baidu.tieba.card.b
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
-        if (cVar == null || cVar.fCx == null || cVar.fCx.beY() == null) {
+        if (cVar == null || cVar.fCB == null || cVar.fCB.beY() == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
-        this.fCx = cVar.fCx;
+        this.fCB = cVar.fCB;
         this.tabId = cVar.tabId;
-        this.fGE = !TextUtils.isEmpty(cVar.labelName) ? cVar.labelName : cVar.entryName;
-        this.fMy.fMC.startLoad(this.fCx.beY().cover, 10, false);
-        this.fMy.fME.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.fCx.beY().audience_count)));
-        this.fMy.fMG.setData(this.fCx, false);
-        this.fMy.fMH.setText(this.fCx.getTitle());
-        if (this.fCx.beE() != null) {
-            String name_show = this.fCx.beE().getName_show();
+        this.fGI = !TextUtils.isEmpty(cVar.labelName) ? cVar.labelName : cVar.entryName;
+        this.fMC.fMG.startLoad(this.fCB.beY().cover, 10, false);
+        this.fMC.fMI.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.fCB.beY().audience_count)));
+        this.fMC.fMK.setData(this.fCB, false);
+        this.fMC.fML.setText(this.fCB.getTitle());
+        if (this.fCB.beE() != null) {
+            String name_show = this.fCB.beE().getName_show();
             if (ae.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ae.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
-            this.fMy.aOU.setText(name_show);
+            this.fMC.aOW.setText(name_show);
         }
-        String str = this.fCx.beY().label_name;
-        if (this.fMz && !StringUtils.isNull(str)) {
-            this.fMy.fMD.setText(str);
-            this.fMy.fMD.setVisibility(0);
+        String str = this.fCB.beY().label_name;
+        if (this.fMD && !StringUtils.isNull(str)) {
+            this.fMC.fMH.setText(str);
+            this.fMC.fMH.setVisibility(0);
         } else {
-            this.fMy.fMD.setVisibility(8);
+            this.fMC.fMH.setVisibility(8);
         }
-        if (cVar.fCy) {
-            this.fMy.fMI.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, at.numberUniformFormatExtra((long) (this.fCx.beY().distance / 1000.0d))));
-            this.fMy.fMI.setVisibility(0);
+        if (cVar.fCC) {
+            this.fMC.fMM.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, at.numberUniformFormatExtra((long) (this.fCB.beY().distance / 1000.0d))));
+            this.fMC.fMM.setVisibility(0);
         } else {
-            this.fMy.fMI.setVisibility(8);
+            this.fMC.fMM.setVisibility(8);
         }
-        this.fMy.aOU.setOnClickListener(this.fMA);
+        this.fMC.aOW.setOnClickListener(this.fME);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -133,41 +133,41 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
 
     /* loaded from: classes4.dex */
     public class a {
-        public TextView aOU;
-        public TbImageView fMC;
-        public TextView fMD;
-        public TextView fME;
-        public RelativeLayout fMF;
-        public ClickableHeaderImageView fMG;
+        public TextView aOW;
+        public TbImageView fMG;
         public TextView fMH;
         public TextView fMI;
+        public RelativeLayout fMJ;
+        public ClickableHeaderImageView fMK;
+        public TextView fML;
+        public TextView fMM;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.fMC = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.fMD = (TextView) view.findViewById(R.id.tvLiveFrom);
-            this.fME = (TextView) view.findViewById(R.id.tvLiveCount);
-            this.fMF = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.fMG = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
-            this.aOU = (TextView) view.findViewById(R.id.tvUserName);
-            this.fMH = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.fMI = (TextView) view.findViewById(R.id.tvSquareDistance);
+            this.fMG = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.fMH = (TextView) view.findViewById(R.id.tvLiveFrom);
+            this.fMI = (TextView) view.findViewById(R.id.tvLiveCount);
+            this.fMJ = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.fMK = (ClickableHeaderImageView) view.findViewById(R.id.imgUserCover);
+            this.aOW = (TextView) view.findViewById(R.id.tvUserName);
+            this.fML = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.fMM = (TextView) view.findViewById(R.id.tvSquareDistance);
             view.setOnClickListener(c.this.mOnClickListener);
-            this.fMC.setDefaultErrorResource(0);
-            this.fMC.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.fMC.setDrawerType(0);
-            this.fMG.setIsRound(true);
-            this.fMG.setDrawBorder(true);
-            this.fMG.setBorderColor(c.this.mTbPageContext.getPageActivity().getResources().getColor(R.color.white_alpha100));
-            this.fMG.setBorderWidth(c.this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
-            this.fMG.setIsGod(false);
-            this.fMG.setIsBigV(false);
-            this.fMG.setShowV(false);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fMF.getLayoutParams();
+            this.fMG.setDefaultErrorResource(0);
+            this.fMG.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.fMG.setDrawerType(0);
+            this.fMK.setIsRound(true);
+            this.fMK.setDrawBorder(true);
+            this.fMK.setBorderColor(c.this.mTbPageContext.getPageActivity().getResources().getColor(R.color.white_alpha100));
+            this.fMK.setBorderWidth(c.this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(R.dimen.ds1));
+            this.fMK.setIsGod(false);
+            this.fMK.setIsBigV(false);
+            this.fMK.setShowV(false);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fMJ.getLayoutParams();
             layoutParams.width = (l.getEquipmentWidth(view.getContext()) - view.getContext().getResources().getDimensionPixelSize(R.dimen.ds4)) / 2;
             layoutParams.height = (layoutParams.width * 9) / 16;
-            this.fMF.setLayoutParams(layoutParams);
+            this.fMJ.setLayoutParams(layoutParams);
         }
     }
 }

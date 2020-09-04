@@ -5,37 +5,37 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class af {
-    private static af ekh;
-    private static final BdUniqueId eki = BdUniqueId.gen();
+    private static af ekl;
+    private static final BdUniqueId ekm = BdUniqueId.gen();
 
     public static synchronized af biZ() {
         af afVar;
         synchronized (af.class) {
-            if (ekh == null) {
-                ekh = new af();
+            if (ekl == null) {
+                ekl = new af();
             }
-            afVar = ekh;
+            afVar = ekl;
         }
         return afVar;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String ekj;
-        private final boolean ekk;
-        private final boolean ekl;
-        private final boolean ekm;
+        private final String ekn;
+        private final boolean eko;
+        private final boolean ekp;
+        private final boolean ekq;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.ekj = str2;
-            this.ekk = z;
-            this.ekl = z2;
-            this.ekm = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, af.eki));
+            this.ekn = str2;
+            this.eko = z;
+            this.ekp = z2;
+            this.ekq = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, af.ekm));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class af {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                af.this.b(this.imageUrl, this.ekj, this.ekk, this.ekl, this.ekm);
+                af.this.b(this.imageUrl, this.ekn, this.eko, this.ekp, this.ekq);
             } finally {
                 return null;
             }
@@ -57,11 +57,11 @@ public class af {
             as.bjo().copyFile(str2, nameMd5FromUrl);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int Af = as.bjo().Af(nameMd5FromUrl);
-                    if (Af > 0) {
+                    int Ag = as.bjo().Ag(nameMd5FromUrl);
+                    if (Ag > 0) {
                         if (z) {
                             Bitmap image = as.bjo().getImage(nameMd5FromUrl);
-                            com.baidu.tbadk.imageManager.c.bsW().freePicCache(Af);
+                            com.baidu.tbadk.imageManager.c.bsX().freePicCache(Ag);
                             if (image != null) {
                                 a(str, image, z2, as.bjo().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                             }
@@ -104,7 +104,7 @@ public class af {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.bsW().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.bsX().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

@@ -8,7 +8,7 @@ import java.io.File;
 @TargetApi(14)
 /* loaded from: classes4.dex */
 public class c {
-    private static File bHw() {
+    private static File bHx() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bHx() {
+    private static File bHy() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,35 +24,35 @@ public class c {
         return file;
     }
 
-    public static File bHy() {
-        File file = new File(bHw(), "ar-solibs");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return file;
-    }
-
     public static File bHz() {
-        File file = new File(bHx(), "ar-resource");
+        File file = new File(bHx(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static d EE(String str) {
-        return d.dU("4.9_v3", str);
+    public static File bHA() {
+        File file = new File(bHy(), "ar-resource");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
+    }
+
+    public static d EF(String str) {
+        return d.dV("4.9_v4", str);
     }
 
     public static boolean eK(Context context) {
-        d EE = EE("so");
-        if (EE == null) {
+        d EF = EF("so");
+        if (EF == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.a.a.a.f.j(context, EE.bHB())) {
+        if (com.baidu.tieba.ala.a.a.a.f.j(context, EF.bHC())) {
             return true;
         }
-        com.baidu.tieba.ala.a.a.a.f.i(context, EE.bHB());
-        return com.baidu.tieba.ala.a.a.a.f.j(context, EE.bHB());
+        com.baidu.tieba.ala.a.a.a.f.i(context, EF.bHC());
+        return com.baidu.tieba.ala.a.a.a.f.j(context, EF.bHC());
     }
 }

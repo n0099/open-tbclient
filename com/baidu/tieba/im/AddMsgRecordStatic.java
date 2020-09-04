@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AddMsgRecordStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_ADD_MSG_RECORD, AddMsgRecordSocketResponse.class, false);

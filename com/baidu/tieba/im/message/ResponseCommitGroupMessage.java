@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public ResponseCommitGroupMessage() {
         super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);

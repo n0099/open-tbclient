@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.v.c;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class KuangFloatingFrsCopyLinkViewController {
     private static KuangFloatingFrsCopyLinkViewController instance = null;
     private Activity bgTopActivity;

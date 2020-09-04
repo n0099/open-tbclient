@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
-    private String dFl;
-    private ArrayList<String> mLP;
-    private final String mTx = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String dFp;
+    private ArrayList<String> mMh;
+    private final String mTP = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.mLP)) {
+        if (spannable != null && !y.isEmpty(this.mMh)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.mLP.iterator();
+                Iterator<String> it = this.mMh.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dFu())) {
+        if (y.isEmpty(dFD())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -114,19 +114,19 @@ public class c {
     }
 
     public void bf(ArrayList<String> arrayList) {
-        this.mLP = arrayList;
+        this.mMh = arrayList;
     }
 
-    public ArrayList<String> dFu() {
-        return this.mLP;
+    public ArrayList<String> dFD() {
+        return this.mMh;
     }
 
     public void Sw(String str) {
-        this.dFl = str;
+        this.dFp = str;
     }
 
-    public String dFy() {
-        return this.dFl;
+    public String dFH() {
+        return this.dFp;
     }
 
     private void c(Spannable spannable) {

@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes19.dex */
 public class b implements SensorEventListener {
-    private SensorManager bnK;
-    private double dAf;
-    private LocationClient dAg;
-    private BDLocation dAi;
-    private boolean dAh = false;
-    private boolean dAj = false;
-    private List<com.baidu.swan.impl.map.item.c> dAe = new ArrayList(1);
+    private SensorManager bnN;
+    private double dAj;
+    private LocationClient dAk;
+    private BDLocation dAm;
+    private boolean dAl = false;
+    private boolean dAn = false;
+    private List<com.baidu.swan.impl.map.item.c> dAi = new ArrayList(1);
 
     public b() {
         aRp();
@@ -35,24 +35,24 @@ public class b implements SensorEventListener {
         if (cVar == null) {
             return false;
         }
-        this.dAe.add(cVar);
+        this.dAi.add(cVar);
         return true;
     }
 
     public boolean remove(String str) {
-        com.baidu.swan.impl.map.item.c wr = wr(str);
-        if (wr != null) {
-            this.dAe.remove(wr);
+        com.baidu.swan.impl.map.item.c ws = ws(str);
+        if (ws != null) {
+            this.dAi.remove(ws);
             return true;
         }
         return false;
     }
 
-    public com.baidu.swan.impl.map.item.c wr(String str) {
+    public com.baidu.swan.impl.map.item.c ws(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (com.baidu.swan.impl.map.item.c cVar : this.dAe) {
+        for (com.baidu.swan.impl.map.item.c cVar : this.dAi) {
             if (cVar != null && TextUtils.equals(cVar.id, str)) {
                 return cVar;
             }
@@ -62,42 +62,42 @@ public class b implements SensorEventListener {
 
     public void resume() {
         aRp();
-        for (com.baidu.swan.impl.map.item.c cVar : this.dAe) {
-            cVar.dBo.onResume();
+        for (com.baidu.swan.impl.map.item.c cVar : this.dAi) {
+            cVar.dBs.onResume();
         }
     }
 
     public void pause() {
         stopLocation();
-        for (com.baidu.swan.impl.map.item.c cVar : this.dAe) {
-            cVar.dBo.onPause();
+        for (com.baidu.swan.impl.map.item.c cVar : this.dAi) {
+            cVar.dBs.onPause();
         }
     }
 
     public void release() {
         stopLocation();
-        this.dAj = false;
+        this.dAn = false;
         if (Build.VERSION.SDK_INT > 19) {
-            for (com.baidu.swan.impl.map.item.c cVar : this.dAe) {
-                cVar.dBo.onDestroy();
+            for (com.baidu.swan.impl.map.item.c cVar : this.dAi) {
+                cVar.dBs.onDestroy();
             }
         }
-        this.dAe.clear();
+        this.dAi.clear();
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         double d = sensorEvent.values[0];
-        if (Math.abs(d - this.dAf) > 1.0d) {
-            for (com.baidu.swan.impl.map.item.c cVar : this.dAe) {
-                MyLocationData locationData = cVar.dBo.getMap().getLocationData();
+        if (Math.abs(d - this.dAj) > 1.0d) {
+            for (com.baidu.swan.impl.map.item.c cVar : this.dAi) {
+                MyLocationData locationData = cVar.dBs.getMap().getLocationData();
                 if (locationData != null && cVar.isShowLocation) {
-                    cVar.dBo.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
+                    cVar.dBs.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
                     aRo();
                 }
             }
         }
-        this.dAf = d;
+        this.dAj = d;
     }
 
     @Override // android.hardware.SensorEventListener
@@ -111,15 +111,15 @@ public class b implements SensorEventListener {
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            if (bDLocation == null || b.this.dAe.size() <= 0) {
+            if (bDLocation == null || b.this.dAi.size() <= 0) {
                 b.this.stopLocation();
                 return;
             }
-            b.this.dAi = bDLocation;
-            for (com.baidu.swan.impl.map.item.c cVar : b.this.dAe) {
+            b.this.dAm = bDLocation;
+            for (com.baidu.swan.impl.map.item.c cVar : b.this.dAi) {
                 if (cVar.isShowLocation) {
                     MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
-                    BaiduMap map = cVar.dBo.getMap();
+                    BaiduMap map = cVar.dBs.getMap();
                     map.setMyLocationEnabled(true);
                     map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                     map.setMyLocationData(build);
@@ -129,31 +129,31 @@ public class b implements SensorEventListener {
     }
 
     private void aRo() {
-        if (this.dAg == null) {
-            this.dAg = new LocationClient(AppRuntime.getAppContext());
-            this.dAg.registerLocationListener(new a());
+        if (this.dAk == null) {
+            this.dAk = new LocationClient(AppRuntime.getAppContext());
+            this.dAk.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.dAg.setLocOption(locationClientOption);
+            this.dAk.setLocOption(locationClientOption);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopLocation() {
-        if (this.dAj && this.dAg != null && this.dAg.isStarted()) {
-            this.dAg.stop();
+        if (this.dAn && this.dAk != null && this.dAk.isStarted()) {
+            this.dAk.stop();
             aRr();
             com.baidu.swan.apps.console.c.w("map", "stop location");
         }
     }
 
     private void aRp() {
-        if (this.dAj) {
+        if (this.dAn) {
             aRo();
-            if (this.dAg != null && !this.dAg.isStarted()) {
-                this.dAg.start();
+            if (this.dAk != null && !this.dAk.isStarted()) {
+                this.dAk.start();
                 aRq();
                 com.baidu.swan.apps.console.c.w("map", "start location");
             }
@@ -161,37 +161,37 @@ public class b implements SensorEventListener {
     }
 
     private void aRq() {
-        if (!this.dAh) {
-            this.bnK = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
-            if (this.bnK != null) {
-                this.bnK.registerListener(this, this.bnK.getDefaultSensor(3), 2);
-                this.dAh = true;
+        if (!this.dAl) {
+            this.bnN = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
+            if (this.bnN != null) {
+                this.bnN.registerListener(this, this.bnN.getDefaultSensor(3), 2);
+                this.dAl = true;
             }
         }
     }
 
     private void aRr() {
-        if (this.bnK != null && this.dAh) {
-            this.bnK.unregisterListener(this);
-            this.dAh = false;
+        if (this.bnN != null && this.dAl) {
+            this.bnN.unregisterListener(this);
+            this.dAl = false;
         }
     }
 
     public boolean aRs() {
-        return this.dAg != null && this.dAg.isStarted();
+        return this.dAk != null && this.dAk.isStarted();
     }
 
     public BDLocation aRt() {
-        return this.dAi;
+        return this.dAm;
     }
 
-    public void gQ(boolean z) {
+    public void gR(boolean z) {
         if (z) {
-            this.dAj = true;
+            this.dAn = true;
             aRp();
             return;
         }
         stopLocation();
-        this.dAj = false;
+        this.dAn = false;
     }
 }

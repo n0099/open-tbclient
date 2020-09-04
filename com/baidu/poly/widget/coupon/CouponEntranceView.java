@@ -16,13 +16,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class CouponEntranceView extends FrameLayout {
-    private ImageView bIc;
-    private TextView bId;
-    private TextView bIe;
-    private TextView bIf;
-    private View bIg;
-    private a bIh;
-    private a.C0277a bIi;
+    private ImageView bIg;
+    private TextView bIh;
+    private TextView bIi;
+    private TextView bIj;
+    private View bIk;
+    private a bIl;
+    private a.C0277a bIm;
 
     public CouponEntranceView(Context context) {
         this(context, null);
@@ -30,67 +30,67 @@ public class CouponEntranceView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.coupon_entrance, (ViewGroup) this, true);
-        this.bIc = (ImageView) findViewById(b.e.coupon_icon);
-        this.bIf = (TextView) findViewById(b.e.coupon_text);
-        this.bId = (TextView) findViewById(b.e.coupon_title);
-        this.bIe = (TextView) findViewById(b.e.coupon_subtitle);
-        this.bIg = findViewById(b.e.icon_more);
+        this.bIg = (ImageView) findViewById(b.e.coupon_icon);
+        this.bIj = (TextView) findViewById(b.e.coupon_text);
+        this.bIh = (TextView) findViewById(b.e.coupon_title);
+        this.bIi = (TextView) findViewById(b.e.coupon_subtitle);
+        this.bIk = findViewById(b.e.icon_more);
     }
 
     public void a(a aVar) {
-        this.bIh = aVar;
+        this.bIl = aVar;
         h();
     }
 
     public a.C0277a getSelectedItem() {
-        return this.bIi;
+        return this.bIm;
     }
 
     public void h() {
         String str;
         List<a.C0277a> list;
-        this.bIi = null;
-        a aVar = this.bIh;
-        if (!((aVar == null || (list = aVar.bIk) == null || list.size() <= 0) ? false : true)) {
+        this.bIm = null;
+        a aVar = this.bIl;
+        if (!((aVar == null || (list = aVar.bIo) == null || list.size() <= 0) ? false : true)) {
             setVisibility(8);
             return;
         }
-        Iterator<a.C0277a> it = this.bIh.bIk.iterator();
+        Iterator<a.C0277a> it = this.bIl.bIo.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             a.C0277a next = it.next();
             if (next.cf == 1) {
-                this.bIi = next;
+                this.bIm = next;
                 break;
             }
         }
-        if (this.bIi == null) {
+        if (this.bIm == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.TZ().b(this.bIc, this.bIi.icon);
-        this.bId.setText(this.bIi.bIl);
-        a.C0277a c0277a = this.bIi;
+        com.baidu.poly.a.d.b.TZ().b(this.bIg, this.bIm.icon);
+        this.bIh.setText(this.bIm.bIp);
+        a.C0277a c0277a = this.bIm;
         if (c0277a.type == -1) {
-            str = c0277a.bIm;
-            this.bIe.setVisibility(8);
+            str = c0277a.bIq;
+            this.bIi.setVisibility(8);
         } else {
-            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bIi.bIn.longValue()) + "元";
-            this.bIe.setVisibility(0);
-            this.bIe.setText(this.bIi.bIm);
+            str = Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bIm.bIr.longValue()) + "元";
+            this.bIi.setVisibility(0);
+            this.bIi.setText(this.bIm.bIq);
         }
-        this.bIf.setText(str);
-        if (this.bIh.bIj) {
-            this.bIf.setTextColor(getResources().getColor(b.C0272b.coupon_description));
-            this.bIg.setVisibility(0);
+        this.bIj.setText(str);
+        if (this.bIl.bIn) {
+            this.bIj.setTextColor(getResources().getColor(b.C0272b.coupon_description));
+            this.bIk.setVisibility(0);
             setEnabled(true);
             return;
         }
-        this.bIf.setTextColor(getResources().getColor(b.C0272b.black));
-        this.bIg.setVisibility(8);
+        this.bIj.setTextColor(getResources().getColor(b.C0272b.black));
+        this.bIk.setVisibility(8);
         setEnabled(false);
     }
 

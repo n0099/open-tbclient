@@ -2,7 +2,7 @@ package com.baidu.tieba.j;
 
 import com.baidu.adp.framework.b.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends j {
     public c() {
         super(0);
@@ -13,7 +13,7 @@ public class c extends j {
     /* renamed from: e */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.zA(socketResponsedMessage.getCmd())) {
-            a.cvF();
+            a.cvG();
         }
         return socketResponsedMessage;
     }

@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
-    private static final int feH = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int kyJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int loI = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int feL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int kyQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int loT = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<q> eO(List<q> list) {
         bw bwVar;
@@ -29,7 +29,7 @@ public class a {
         }
         for (int i = 0; i < list.size(); i++) {
             q qVar = (q) y.getItem(list, i);
-            if ((qVar instanceof CardPersonDynamicThreadData) && (bwVar = ((CardPersonDynamicThreadData) qVar).dUS) != null) {
+            if ((qVar instanceof CardPersonDynamicThreadData) && (bwVar = ((CardPersonDynamicThreadData) qVar).dUW) != null) {
                 com.baidu.tbadk.a.a.a.a(bwVar);
                 c az = az(bwVar);
                 if (az != null) {
@@ -74,11 +74,11 @@ public class a {
         l lVar = null;
         lVar = null;
         if (bwVar != null) {
-            bwVar.eei = true;
+            bwVar.eem = true;
             bwVar.beg();
             if (bwVar.isShareThread) {
                 l lVar2 = new l();
-                lVar2.dUS = bwVar;
+                lVar2.dUW = bwVar;
                 lVar = lVar2;
             } else if (f.aa(bwVar)) {
                 lVar = new f(bwVar);
@@ -89,23 +89,23 @@ public class a {
                 if (bwVar.isLinkThread()) {
                     lVar3.isLinkThread = true;
                 } else if (bwVar.bfH()) {
-                    lVar3.eaI = true;
+                    lVar3.eaM = true;
                 } else {
                     lVar3.isLinkThread = false;
                     if (bwVar.beH()) {
-                        lVar3.hnk = true;
+                        lVar3.hno = true;
                     } else {
-                        lVar3.hnk = false;
+                        lVar3.hno = false;
                     }
                 }
-                lVar3.dUS = bwVar;
-                lVar3.hnl = true;
+                lVar3.dUW = bwVar;
+                lVar3.hnp = true;
                 lVar = lVar3;
             } else if (m.aa(bwVar)) {
                 lVar = new m(bwVar);
             }
             if (lVar != null) {
-                lVar.ccp();
+                lVar.ccq();
                 com.baidu.tbadk.a.a.a.a(lVar);
             }
         }
@@ -116,9 +116,9 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!y.isEmpty(list)) {
             k kVar = new k();
-            kVar.paddingBottom = loI;
-            kVar.paddingTop = kyJ;
-            kVar.paddingLeft = feH;
+            kVar.paddingBottom = loT;
+            kVar.paddingTop = kyQ;
+            kVar.paddingLeft = feL;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i = 0; i < list.size(); i++) {

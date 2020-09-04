@@ -39,7 +39,7 @@ public class b {
         this.imageId = i;
     }
 
-    public int bPb() {
+    public int bPc() {
         return this.titleId;
     }
 

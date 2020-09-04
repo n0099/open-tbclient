@@ -2,7 +2,7 @@ package com.baidu.afd;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface g {
     int rg();
 

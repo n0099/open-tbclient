@@ -5,29 +5,29 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public final class b {
-    private FrameLayout cWD = null;
+    private FrameLayout cWH = null;
 
     public void z(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            if (this.cWD == null) {
-                this.cWD = new FrameLayout(viewGroup.getContext());
-                this.cWD.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.cWH == null) {
+                this.cWH = new FrameLayout(viewGroup.getContext());
+                this.cWH.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.cWD);
-            viewGroup.addView(this.cWD, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.cWH);
+            viewGroup.addView(this.cWH, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void A(ViewGroup viewGroup) {
-        if (viewGroup != null && this.cWD != null) {
-            viewGroup.removeView(this.cWD);
-            this.cWD = null;
+        if (viewGroup != null && this.cWH != null) {
+            viewGroup.removeView(this.cWH);
+            this.cWH = null;
         }
     }
 
     public void setVisibility(int i) {
-        if (this.cWD != null) {
-            this.cWD.setVisibility(i);
+        if (this.cWH != null) {
+            this.cWH.setVisibility(i);
         }
     }
 }

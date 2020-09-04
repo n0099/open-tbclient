@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoMiddlePageSwitch extends a {
     public static final String KEY = "video_middle_page_three";
     public static final int OFF_TYPE = 0;

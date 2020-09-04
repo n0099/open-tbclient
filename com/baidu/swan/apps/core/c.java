@@ -7,8 +7,8 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.core.f;
 /* loaded from: classes8.dex */
 public class c {
-    private static long ceY;
-    private static volatile int ceZ = 0;
+    private static long cfc;
+    private static volatile int cfd = 0;
 
     public static void showToast(@StringRes int i) {
         showToast(i, 0);
@@ -16,16 +16,16 @@ public class c {
 
     private static synchronized void showToast(@StringRes int i, int i2) {
         synchronized (c.class) {
-            if (f.a.cfg) {
-                switch (ceZ) {
+            if (f.a.cfk) {
+                switch (cfd) {
                     case 0:
-                        ceZ = 1;
-                        ceY = System.currentTimeMillis();
+                        cfd = 1;
+                        cfc = System.currentTimeMillis();
                         ai(i, i2);
                         break;
                     case 1:
-                        if ((ceY + 5000) - System.currentTimeMillis() < 0) {
-                            ceZ = 2;
+                        if ((cfc + 5000) - System.currentTimeMillis() < 0) {
+                            cfd = 2;
                             ai(i, i2);
                             f.log("toast提示个数已达2个");
                             break;
@@ -65,11 +65,11 @@ public class c {
     }
 
     public static boolean afd() {
-        return ceZ < 2;
+        return cfd < 2;
     }
 
     public static void reset() {
-        ceZ = 0;
-        ceY = 0L;
+        cfd = 0;
+        cfc = 0L;
     }
 }

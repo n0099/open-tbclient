@@ -4,24 +4,24 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a implements Comparable<Object> {
     private String BD;
-    private String cBd;
-    public ArrayList<MediaModel> cBe;
+    private String cBh;
+    public ArrayList<MediaModel> cBi;
     private long lastModified;
 
     public String iL() {
         return this.BD;
     }
 
-    public void oq(String str) {
+    public void or(String str) {
         this.BD = str;
     }
 
     public String atj() {
-        return this.cBd;
+        return this.cBh;
     }
 
-    public void or(String str) {
-        this.cBd = str;
+    public void os(String str) {
+        this.cBh = str;
     }
 
     public long getLastModified() {
@@ -33,18 +33,18 @@ public class a implements Comparable<Object> {
     }
 
     public int atk() {
-        return this.cBe.size();
+        return this.cBi.size();
     }
 
     public ArrayList<MediaModel> ate() {
-        return this.cBe;
+        return this.cBi;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.cBe == null) {
-            this.cBe = new ArrayList<>();
+        if (this.cBi == null) {
+            this.cBi = new ArrayList<>();
         }
-        this.cBe.add(mediaModel);
+        this.cBi.add(mediaModel);
     }
 
     public String toString() {

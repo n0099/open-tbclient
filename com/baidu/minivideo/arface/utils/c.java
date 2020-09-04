@@ -3,7 +3,7 @@ package com.baidu.minivideo.arface.utils;
 import com.baidu.minivideo.arface.utils.f;
 /* loaded from: classes6.dex */
 public abstract class c implements f {
-    private f.a bCo;
+    private f.a bCr;
     private int mState = 0;
 
     public void a(f.a aVar) {
@@ -20,8 +20,8 @@ public abstract class c implements f {
     public void setState(int i) {
         if (this.mState != i) {
             this.mState = i;
-            if (this.bCo != null) {
-                this.bCo.a(this.mState, this);
+            if (this.bCr != null) {
+                this.bCr.a(this.mState, this);
             }
         }
     }
@@ -31,9 +31,9 @@ public abstract class c implements f {
     }
 
     public void b(f.a aVar) {
-        this.bCo = aVar;
-        if (this.bCo != null) {
-            this.bCo.a(getState(), this);
+        this.bCr = aVar;
+        if (this.bCr != null) {
+            this.bCr.a(getState(), this);
         }
     }
 }

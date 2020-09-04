@@ -5,10 +5,10 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class TagTextHelper {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private enum HotTopicTag {
         NEW(R.string.tag_str_new, R.color.cp_link_tip_d),
         HOT(R.string.tag_str_hot, R.color.cp_cont_h),

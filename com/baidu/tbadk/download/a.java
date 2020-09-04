@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.recapp.download.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
@@ -23,8 +23,8 @@ public class a implements c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            e.dnn().c(downloadData);
-            e.dnn().b(downloadData);
+            e.dnq().c(downloadData);
+            e.dnq().b(downloadData);
         }
     }
 
@@ -56,7 +56,7 @@ public class a implements c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            e.dnn().b(downloadData);
+            e.dnq().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
             }
@@ -65,13 +65,13 @@ public class a implements c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        e dnn = e.dnn();
+        e dnq = e.dnq();
         if (i == 3) {
-            dnn.l(downloadData);
+            dnq.l(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
         } else {
-            dnn.m(downloadData);
+            dnq.m(downloadData);
         }
-        e.dnn().b(downloadData);
+        e.dnq().b(downloadData);
     }
 }

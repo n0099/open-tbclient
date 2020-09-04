@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class c extends BaseAdapter {
-    private ViewGroup fBF;
-    private b gwS;
-    public final a[] gwR = {new a(a.f.img_live_filter_ziran, "delta", "自然"), new a(a.f.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.f.img_live_filter_rouguang, "pink", "柔光"), new a(a.f.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.f.img_live_filter_mgzc, "hongkong", "暮光之城")};
-    private int fBU = -1;
-    private int fBH = 0;
-    private ArrayList<Boolean> fBT = new ArrayList<>();
+    private ViewGroup fBJ;
+    private b gwW;
+    public final a[] gwV = {new a(a.f.img_live_filter_ziran, "delta", "自然"), new a(a.f.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.f.img_live_filter_rouguang, "pink", "柔光"), new a(a.f.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.f.img_live_filter_mgzc, "hongkong", "暮光之城")};
+    private int fBY = -1;
+    private int fBL = 0;
+    private ArrayList<Boolean> fBX = new ArrayList<>();
 
     /* loaded from: classes7.dex */
     public interface b {
@@ -23,32 +23,32 @@ public class c extends BaseAdapter {
     }
 
     public c(ViewGroup viewGroup) {
-        this.fBF = viewGroup;
-        bFl();
+        this.fBJ = viewGroup;
+        bFm();
     }
 
-    private void bFl() {
-        if (this.fBT != null) {
-            this.fBT.clear();
-            this.fBT.addAll(Arrays.asList(new Boolean[this.gwR.length]));
+    private void bFm() {
+        if (this.fBX != null) {
+            this.fBX.clear();
+            this.fBX.addAll(Arrays.asList(new Boolean[this.gwV.length]));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void tV(int i) {
         if (i >= 0) {
-            this.fBT.set(i, true);
-            this.fBU = i;
-            if (this.gwS != null) {
-                this.gwS.onItemSelected(i);
+            this.fBX.set(i, true);
+            this.fBY = i;
+            if (this.gwW != null) {
+                this.gwW.onItemSelected(i);
             }
         }
     }
 
-    public void Er(String str) {
+    public void Es(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.gwR.length; i++) {
-                if (str.equals(this.gwR[i].mFilterName)) {
+            for (int i = 0; i < this.gwV.length; i++) {
+                if (str.equals(this.gwV[i].mFilterName)) {
                     tV(i);
                     return;
                 }
@@ -57,12 +57,12 @@ public class c extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.gwS = bVar;
+        this.gwW = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.gwR.length;
+        return this.gwV.length;
     }
 
     @Override // android.widget.Adapter
@@ -80,54 +80,54 @@ public class c extends BaseAdapter {
         C0632c c0632c;
         if (view == null) {
             C0632c c0632c2 = new C0632c();
-            c0632c2.gwU = new AlaLiveMultiBeautyFilterItemView(this.fBF.getContext());
-            c0632c2.gwU.setTag(c0632c2);
+            c0632c2.gwY = new AlaLiveMultiBeautyFilterItemView(this.fBJ.getContext());
+            c0632c2.gwY.setTag(c0632c2);
             c0632c = c0632c2;
         } else {
             c0632c = (C0632c) view.getTag();
         }
-        if (this.fBT.get(i) == null || !this.fBT.get(i).booleanValue()) {
-            c0632c.gwU.setUnselectedBackground();
+        if (this.fBX.get(i) == null || !this.fBX.get(i).booleanValue()) {
+            c0632c.gwY.setUnselectedBackground();
         } else {
-            c0632c.gwU.setSelectedBackground();
+            c0632c.gwY.setSelectedBackground();
         }
-        c0632c.gwU.setItemIcon(this.gwR[i % this.gwR.length].mDrawableId);
-        c0632c.gwU.setItemText(this.gwR[i % this.gwR.length].mShowName);
-        c0632c.gwU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
+        c0632c.gwY.setItemIcon(this.gwV[i % this.gwV.length].mDrawableId);
+        c0632c.gwY.setItemText(this.gwV[i % this.gwV.length].mShowName);
+        c0632c.gwY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.fBU != i) {
-                    View childAt = c.this.fBF.getChildAt(c.this.fBU);
+                if (c.this.fBY != i) {
+                    View childAt = c.this.fBJ.getChildAt(c.this.fBY);
                     if (childAt != null && (childAt instanceof AlaLiveMultiBeautyFilterItemView)) {
                         ((AlaLiveMultiBeautyFilterItemView) childAt).setUnselectedBackground();
                     }
-                    if (c.this.fBU >= 0) {
-                        c.this.fBT.set(c.this.fBU, false);
+                    if (c.this.fBY >= 0) {
+                        c.this.fBX.set(c.this.fBY, false);
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((C0632c) view2.getTag()).gwU.setSelectedBackground();
+                    ((C0632c) view2.getTag()).gwY.setSelectedBackground();
                 }
                 c.this.tV(i);
                 c.this.notifyDataSetChanged();
             }
         });
-        if (i == 0 && this.fBH != 0) {
-            c0632c.gwU.setPadding(this.fBH, 0, 0, 0);
+        if (i == 0 && this.fBL != 0) {
+            c0632c.gwY.setPadding(this.fBL, 0, 0, 0);
         } else {
-            c0632c.gwU.setPadding(0, 0, 0, 0);
+            c0632c.gwY.setPadding(0, 0, 0, 0);
         }
-        return c0632c.gwU;
+        return c0632c.gwY;
     }
 
     public void sx(int i) {
-        this.fBH = i;
+        this.fBL = i;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     class C0632c {
-        AlaLiveMultiBeautyFilterItemView gwU;
+        AlaLiveMultiBeautyFilterItemView gwY;
 
         C0632c() {
         }

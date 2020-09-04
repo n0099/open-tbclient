@@ -26,7 +26,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a implements BoxAccountManager {
-    private static boolean mPA = false;
+    private static boolean mPS = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
@@ -44,7 +44,7 @@ public class a implements BoxAccountManager {
         com.baidu.tieba.write.b.a.a.setZid(mZid);
     }
 
-    public void xi(boolean z) {
+    public void xk(boolean z) {
         if (TbadkCoreApplication.isLogin()) {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
@@ -57,7 +57,7 @@ public class a implements BoxAccountManager {
                 c.bN(mBduss);
                 com.baidu.tieba.write.b.a.a.setZid(mZid);
                 com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_dynamic_publish_login_status", true);
-                mPA = true;
+                mPS = true;
                 return;
             }
             logout();
@@ -75,8 +75,8 @@ public class a implements BoxAccountManager {
 
     public void logout() {
         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_dynamic_publish_login_status", false);
-        mPA = false;
-        c.dGs();
+        mPS = false;
+        c.dGB();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -89,13 +89,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        mPA = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_dynamic_publish_login_status", false);
-        return mPA;
+        mPS = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_dynamic_publish_login_status", false);
+        return mPS;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return mPA;
+        return mPS;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoAggregationActivityConfig extends IntentConfig {
     public static final String PARAM_FROM = "PARAM_FROM";
     public static final String PARAM_ID = "PARAM_FID";

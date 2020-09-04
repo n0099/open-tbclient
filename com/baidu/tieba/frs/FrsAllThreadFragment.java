@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class FrsAllThreadFragment extends BaseFragment implements as {
     private String forumId;
-    private View hSb;
-    private RecyclerView hSc;
+    private View hSh;
+    private RecyclerView hSi;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,49 +28,49 @@ public class FrsAllThreadFragment extends BaseFragment implements as {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cly();
-        return this.hSb;
+        clz();
+        return this.hSh;
     }
 
     public void setView(View view) {
-        this.hSb = view;
-        this.hSc = (RecyclerView) this.hSb.findViewById(R.id.frs_lv_thread);
-        cly();
-    }
-
-    private void cly() {
-        if (this.hSb != null && (this.hSb.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.hSb.getParent()).removeView(this.hSb);
-            this.hSb.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.as
-    public void clz() {
-        if (this.hSc != null) {
-            this.hSc.scrollToPosition(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.as
-    public void bGQ() {
+        this.hSh = view;
+        this.hSi = (RecyclerView) this.hSh.findViewById(R.id.frs_lv_thread);
         clz();
+    }
+
+    private void clz() {
+        if (this.hSh != null && (this.hSh.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.hSh.getParent()).removeView(this.hSh);
+            this.hSh.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.as
+    public void clA() {
+        if (this.hSi != null) {
+            this.hSi.scrollToPosition(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.as
+    public void bGR() {
+        clA();
         v vVar = new v();
         vVar.tabId = 1;
-        vVar.fky = true;
+        vVar.fkC = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            bc(2, "4");
+            bb(2, "4");
         } else {
-            bc(2, "5");
+            bb(2, "5");
         }
     }
 
-    private void bc(int i, String str) {
+    private void bb(int i, String str) {
         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13008").dD("fid", this.forumId).dD("obj_type", str).ai("obj_locate", i).dD("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 

@@ -2,22 +2,22 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize ejM = null;
+    private static LocalViewSize ejQ = null;
     private Context mContext = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ImageSize implements Serializable {
         public int height;
         public int width;
     }
 
     public static LocalViewSize biN() {
-        if (ejM == null) {
-            ejM = new LocalViewSize();
+        if (ejQ == null) {
+            ejQ = new LocalViewSize();
         }
-        return ejM;
+        return ejQ;
     }
 
     private LocalViewSize() {

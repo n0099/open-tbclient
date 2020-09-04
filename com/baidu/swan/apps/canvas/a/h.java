@@ -40,23 +40,23 @@ public class h extends a {
             unitedSchemeEntity.result = gB(201);
             return false;
         }
-        String rH = com.baidu.swan.apps.storage.b.rH(eVar.id);
-        if (TextUtils.isEmpty(rH)) {
+        String rI = com.baidu.swan.apps.storage.b.rI(eVar.id);
+        if (TextUtils.isEmpty(rI)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = gB(201);
             return false;
         }
-        String str2 = rH + File.separator + Calendar.getInstance().getTimeInMillis();
+        String str2 = rI + File.separator + Calendar.getInstance().getTimeInMillis();
         if (d.acR()) {
             str = str2 + ".jpg";
         } else {
             str = str2 + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
         }
-        if (TextUtils.isEmpty(d.caU) && (ahn = com.baidu.swan.apps.v.f.arY().ahn()) != null) {
-            d.caU = ahn.agW();
+        if (TextUtils.isEmpty(d.caY) && (ahn = com.baidu.swan.apps.v.f.arY().ahn()) != null) {
+            d.caY = ahn.agW();
         }
-        if (TextUtils.isEmpty(d.caU) || TextUtils.isEmpty(d.caT)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.caU + " ; canvas id = " + d.caT);
+        if (TextUtils.isEmpty(d.caY) || TextUtils.isEmpty(d.caX)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath slave id = " + d.caY + " ; canvas id = " + d.caX);
             unitedSchemeEntity.result = gB(201);
             return false;
         }

@@ -5,15 +5,15 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class bh {
-    public long aJX;
-    public int aJY;
-    public int aJZ;
-    public long aKa;
-    public long aKb;
-    public int aKc;
-    public int aKd;
-    public bg aKe;
-    public String aKf;
+    public long aJZ;
+    public int aKa;
+    public int aKb;
+    public long aKc;
+    public long aKd;
+    public int aKe;
+    public int aKf;
+    public bg aKg;
+    public String aKh;
     public String call_type;
     public String extData;
     public String imei;
@@ -34,13 +34,13 @@ public class bh {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aJX = jSONObject.optInt(CashierData.CUSTOMER_ID);
+            this.aJZ = jSONObject.optInt(CashierData.CUSTOMER_ID);
             this.service = jSONObject.optString("service");
             this.orderId = jSONObject.optString(CashierData.ORDERID);
-            this.aJY = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
-            this.aJZ = jSONObject.optInt(CashierData.DEVICE_TYPE);
-            this.aKa = jSONObject.optLong(CashierData.PAY_AMOUNT);
-            this.aKb = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
+            this.aKa = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
+            this.aKb = jSONObject.optInt(CashierData.DEVICE_TYPE);
+            this.aKc = jSONObject.optLong(CashierData.PAY_AMOUNT);
+            this.aKd = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
             this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
             this.passuid = jSONObject.optString(CashierData.PASS_UID);
             this.title = jSONObject.optString("title");
@@ -49,21 +49,21 @@ public class bh {
             this.mobile = jSONObject.optString("mobile");
             this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
             this.imei = jSONObject.optString("imei");
-            this.aKc = jSONObject.optInt(CashierData.SDK);
-            this.aKd = jSONObject.optInt(CashierData.SDK_STYLE);
+            this.aKe = jSONObject.optInt(CashierData.SDK);
+            this.aKf = jSONObject.optInt(CashierData.SDK_STYLE);
             this.extData = jSONObject.optString(CashierData.EXT_DATA);
             this.signType = jSONObject.optInt(CashierData.SIGN_TYPE);
             this.tag = jSONObject.optString("tag");
             this.sign = jSONObject.optString("sign");
             JSONObject optJSONObject = jSONObject.optJSONObject(MapController.POPUP_LAYER_TAG);
             if (optJSONObject != null) {
-                this.aKe = new bg();
-                this.aKe.parserJson(optJSONObject);
+                this.aKg = new bg();
+                this.aKg.parserJson(optJSONObject);
             }
             this.pay_url = jSONObject.optString("pay_url");
             this.call_type = jSONObject.optString("call_type");
             this.pay_channel = jSONObject.optString("pay_channel");
-            this.aKf = jSONObject.optString("real_channel");
+            this.aKh = jSONObject.optString("real_channel");
         }
     }
 }

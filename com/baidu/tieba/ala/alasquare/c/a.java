@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a fIK;
-    private List<aq> fnc;
+    private static a fIO;
+    private List<aq> fng;
 
-    public static a bGx() {
-        if (fIK == null) {
+    public static a bGy() {
+        if (fIO == null) {
             synchronized (a.class) {
-                if (fIK == null) {
-                    fIK = new a();
+                if (fIO == null) {
+                    fIO = new a();
                 }
             }
         }
-        return fIK;
+        return fIO;
     }
 
     public void e(aq aqVar) {
         if (aqVar != null) {
-            if (this.fnc == null) {
-                this.fnc = new ArrayList();
+            if (this.fng == null) {
+                this.fng = new ArrayList();
             }
-            if (this.fnc != null) {
-                this.fnc.add(aqVar);
+            if (this.fng != null) {
+                this.fng.add(aqVar);
             }
         }
     }
 
-    public void EB(String str) {
+    public void EC(String str) {
         if (str != null) {
-            if (this.fnc == null) {
-                this.fnc = new ArrayList();
+            if (this.fng == null) {
+                this.fng = new ArrayList();
             }
-            if (this.fnc != null) {
-                this.fnc.add(new aq(str));
+            if (this.fng != null) {
+                this.fng.add(new aq(str));
             }
         }
     }
 
-    public void bDV() {
-        if (y.getCount(this.fnc) != 0) {
-            for (aq aqVar : this.fnc) {
+    public void bDW() {
+        if (y.getCount(this.fng) != 0) {
+            for (aq aqVar : this.fng) {
                 if (aqVar != null) {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fnc.clear();
+            this.fng.clear();
         }
     }
 
-    public void kK(boolean z) {
-        if (y.getCount(this.fnc) != 0) {
-            for (aq aqVar : this.fnc) {
+    public void kM(boolean z) {
+        if (y.getCount(this.fng) != 0) {
+            for (aq aqVar : this.fng) {
                 if (aqVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(aqVar);
                 }
             }
-            this.fnc.clear();
+            this.fng.clear();
         }
     }
 

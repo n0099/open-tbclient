@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SelectRuleView extends LinearLayout {
-    List<String> eWN;
-    private int eWT;
-    List<String> eWU;
-    List<String> eWV;
+    List<String> eWR;
+    private int eWX;
+    List<String> eWY;
+    List<String> eWZ;
     private int mSkinType;
     private int mType;
 
@@ -28,7 +28,7 @@ public class SelectRuleView extends LinearLayout {
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 0;
-        this.eWT = 2;
+        this.eWX = 2;
         this.mSkinType = 3;
         initUI();
     }
@@ -41,9 +41,9 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2) {
         if (!y.isEmpty(list) || !y.isEmpty(list2)) {
-            bwf();
-            this.eWU = list;
-            this.eWV = list2;
+            bwg();
+            this.eWY = list;
+            this.eWZ = list2;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
             List<String> arrayList2 = new ArrayList<>();
@@ -55,11 +55,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList.size() < size) {
                 arrayList.add("");
             }
-            for (int i = 0; i < ((this.eWT + size) - 1) / this.eWT; i++) {
+            for (int i = 0; i < ((this.eWX + size) - 1) / this.eWX; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eWT * i;
-                int i3 = (i + 1) * this.eWT;
+                int i2 = this.eWX * i;
+                int i3 = (i + 1) * this.eWX;
                 selectRuleRowItem.setData(d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -68,10 +68,10 @@ public class SelectRuleView extends LinearLayout {
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
         if (!y.isEmpty(list2) || !y.isEmpty(list3) || !y.isEmpty(list)) {
-            bwf();
-            this.eWU = list2;
-            this.eWV = list3;
-            this.eWN = list;
+            bwg();
+            this.eWY = list2;
+            this.eWZ = list3;
+            this.eWR = list;
             List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
             List<String> arrayList2 = new ArrayList<>();
@@ -91,11 +91,11 @@ public class SelectRuleView extends LinearLayout {
             while (arrayList3.size() < size) {
                 arrayList3.add("");
             }
-            for (int i = 0; i < ((this.eWT + size) - 1) / this.eWT; i++) {
+            for (int i = 0; i < ((this.eWX + size) - 1) / this.eWX; i++) {
                 SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
                 selectRuleRowItem.setType(this.mType);
-                int i2 = this.eWT * i;
-                int i3 = (i + 1) * this.eWT;
+                int i2 = this.eWX * i;
+                int i3 = (i + 1) * this.eWX;
                 selectRuleRowItem.setData(d(arrayList3, i2, i3), d(arrayList, i2, i3), d(arrayList2, i2, i3));
                 addView(selectRuleRowItem);
             }
@@ -103,7 +103,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setColumn(int i) {
-        this.eWT = i;
+        this.eWX = i;
     }
 
     public void setType(int i) {
@@ -124,16 +124,16 @@ public class SelectRuleView extends LinearLayout {
         return arrayList;
     }
 
-    private void bwf() {
+    private void bwg() {
         removeAllViews();
     }
 
     public void qM(int i) {
         if (this.mSkinType != i) {
             if (this.mType == 0) {
-                setData(this.eWU, this.eWV);
+                setData(this.eWY, this.eWZ);
             } else if (this.mType == 1) {
-                setData(this.eWN, this.eWU, this.eWV);
+                setData(this.eWR, this.eWY, this.eWZ);
             }
         }
     }

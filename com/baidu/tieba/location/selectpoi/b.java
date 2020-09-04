@@ -17,13 +17,13 @@ import java.util.List;
 /* loaded from: classes17.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private TbPageContext<SelectLocationActivity> efn;
+    private TbPageContext<SelectLocationActivity> efr;
     private boolean isShowLocation;
 
     public b(TbPageContext<SelectLocationActivity> tbPageContext) {
-        this.efn = tbPageContext;
-        LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxi().getLocationData();
-        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.b.dxi().dxj();
+        this.efr = tbPageContext;
+        LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxn().getLocationData();
+        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.b.dxn().dxo();
         if (locationData != null) {
             this.data = i(locationData.getPoi_info(), locationData.getFormatted_address());
         }
@@ -51,8 +51,8 @@ public class b extends BaseAdapter {
             nearByAddressData3.setName(str);
             arrayList.add(0, nearByAddressData3);
         }
-        if (this.efn != null) {
-            arrayList.add(0, this.efn.getString(R.string.select_position_no_location));
+        if (this.efr != null) {
+            arrayList.add(0, this.efr.getString(R.string.select_position_no_location));
         }
         return arrayList;
     }
@@ -113,8 +113,8 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     public static class C0741b {
-        View gUZ;
-        ImageView jVs;
+        View gVd;
+        ImageView jVy;
         TextView title;
 
         private C0741b() {
@@ -128,11 +128,11 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof C0741b)) {
-                View inflate = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                 c0741b = new C0741b();
                 c0741b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0741b.jVs = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0741b.gUZ = inflate.findViewById(R.id.select_location_line);
+                c0741b.jVy = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0741b.gVd = inflate.findViewById(R.id.select_location_line);
                 inflate.setTag(c0741b);
                 view2 = inflate;
             } else {
@@ -140,13 +140,13 @@ public class b extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0741b.jVs.setVisibility(0);
-                ap.setImageResource(c0741b.jVs, R.drawable.icon_site_ok);
+                c0741b.jVy.setVisibility(0);
+                ap.setImageResource(c0741b.jVy, R.drawable.icon_site_ok);
             } else {
-                c0741b.jVs.setVisibility(4);
+                c0741b.jVy.setVisibility(4);
             }
             c0741b.title.setText(str);
-            ap.setBackgroundColor(c0741b.gUZ, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(c0741b.gVd, R.color.cp_bg_line_c);
             ap.setViewTextColor(c0741b.title, R.color.cp_link_tip_a, 1);
             ap.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
             return view2;
@@ -157,9 +157,9 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
     public static class a {
-        TextView dzi;
-        TextView jVo;
-        ImageView jVs;
+        TextView dzm;
+        TextView jVu;
+        ImageView jVy;
 
         private a() {
         }
@@ -171,28 +171,28 @@ public class b extends BaseAdapter {
         if (item instanceof LocationData.NearByAddressData) {
             LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
             if (view == null || !(view.getTag() instanceof C0741b)) {
-                view = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.dzi = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.jVo = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.jVs = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.dzm = (TextView) view.findViewById(R.id.select_location_name);
+                aVar2.jVu = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.jVy = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.jVo.setText(nearByAddressData.getAddr());
+            aVar.jVu.setText(nearByAddressData.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.jVs.setVisibility(0);
+                aVar.jVy.setVisibility(0);
                 if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                    aVar.jVo.setText(R.string.select_location_current);
+                    aVar.jVu.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.jVs.setVisibility(4);
+                aVar.jVy.setVisibility(4);
             }
-            aVar.dzi.setText(nearByAddressData.getName());
-            this.efn.getLayoutMode().setNightMode(z);
-            this.efn.getLayoutMode().onModeChanged(view);
+            aVar.dzm.setText(nearByAddressData.getName());
+            this.efr.getLayoutMode().setNightMode(z);
+            this.efr.getLayoutMode().onModeChanged(view);
             ap.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
             return view;
         }

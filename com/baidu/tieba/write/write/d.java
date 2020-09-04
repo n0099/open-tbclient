@@ -23,10 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private LinkedList<t> hty = new LinkedList<>();
+    private LinkedList<t> htE = new LinkedList<>();
     private TbPageContext mPageContext;
-    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> mTy;
-    private a mTz;
+    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> mTQ;
+    private a mTR;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -41,28 +41,28 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hty == null) {
+        if (this.htE == null) {
             return 0;
         }
-        return this.hty.size();
+        return this.htE.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.hty == null || this.hty.size() <= i) {
+        if (this.htE == null || this.htE.size() <= i) {
             return null;
         }
-        return this.hty.get(i);
+        return this.htE.get(i);
     }
 
-    public LinkedList<t> dHo() {
-        return this.hty;
+    public LinkedList<t> dHx() {
+        return this.htE;
     }
 
     public com.baidu.tbadk.core.view.spanGroup.a JM(int i) {
         long itemId = getItemId(i);
-        if (itemId != 0 && this.mTy != null) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.mTy.iterator();
+        if (itemId != 0 && this.mTQ != null) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.mTQ.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.getId() == itemId) {
@@ -76,8 +76,8 @@ public class d extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2 = 0;
-        if (this.hty != null && this.hty.size() > i && this.hty.get(i) != null) {
-            i2 = this.hty.get(i).mId;
+        if (this.htE != null && this.htE.size() > i && this.htE.get(i) != null) {
+            i2 = this.htE.get(i).mId;
         }
         return i2;
     }
@@ -93,44 +93,44 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.item_commodity_link, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.mRootView = view.findViewById(R.id.commodity_root_view);
-            bVar2.jPI = view.findViewById(R.id.commodity_main_view);
-            bVar2.esP = (TbImageView) view.findViewById(R.id.commodity_link_icon);
-            bVar2.esP.setConrers(15);
-            bVar2.esP.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            bVar2.esP.setPlaceHolderAutoChangeSkinType(1);
-            bVar2.esP.setGifIconSupport(false);
-            bVar2.esP.setLongIconSupport(false);
-            bVar2.esP.setDrawBorder(true);
-            bVar2.esP.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            bVar2.esP.setBorderColor(ap.getColor(R.color.cp_border_a));
+            bVar2.jPO = view.findViewById(R.id.commodity_main_view);
+            bVar2.esT = (TbImageView) view.findViewById(R.id.commodity_link_icon);
+            bVar2.esT.setConrers(15);
+            bVar2.esT.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            bVar2.esT.setPlaceHolderAutoChangeSkinType(1);
+            bVar2.esT.setGifIconSupport(false);
+            bVar2.esT.setLongIconSupport(false);
+            bVar2.esT.setDrawBorder(true);
+            bVar2.esT.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            bVar2.esT.setBorderColor(ap.getColor(R.color.cp_border_a));
             bVar2.mTitle = (TextView) view.findViewById(R.id.commodity_link_content);
-            bVar2.mTC = (ImageView) view.findViewById(R.id.commodity_link_close_button);
-            bVar2.mTB = view.findViewById(R.id.extra_info_container);
-            bVar2.esR = (TextView) view.findViewById(R.id.commodity_price);
-            bVar2.mTD = (TextView) view.findViewById(R.id.commodity_extra_infos);
-            bVar2.mTE = view.findViewById(R.id.commodity_tail_text_mask);
+            bVar2.mTU = (ImageView) view.findViewById(R.id.commodity_link_close_button);
+            bVar2.mTT = view.findViewById(R.id.extra_info_container);
+            bVar2.esV = (TextView) view.findViewById(R.id.commodity_price);
+            bVar2.mTV = (TextView) view.findViewById(R.id.commodity_extra_infos);
+            bVar2.mTW = view.findViewById(R.id.commodity_tail_text_mask);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.esP.startLoad(tVar.mIcon, 10, false);
+        bVar.esT.startLoad(tVar.mIcon, 10, false);
         if (TextUtils.isEmpty(tVar.mPrice)) {
-            bVar.mTB.setVisibility(8);
+            bVar.mTT.setVisibility(8);
             bVar.mTitle.setMaxLines(2);
         } else {
-            bVar.mTB.setVisibility(0);
+            bVar.mTT.setVisibility(0);
             bVar.mTitle.setMaxLines(1);
         }
         if (TextUtils.isEmpty(tVar.mPrice)) {
-            bVar.esR.setVisibility(8);
+            bVar.esV.setVisibility(8);
         } else {
-            bVar.esR.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), tVar.mPrice));
-            bVar.esR.setVisibility(0);
+            bVar.esV.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), tVar.mPrice));
+            bVar.esV.setVisibility(0);
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (!TextUtils.isEmpty(tVar.dXA)) {
-            spannableStringBuilder.append((CharSequence) tVar.dXA);
+        if (!TextUtils.isEmpty(tVar.dXE)) {
+            spannableStringBuilder.append((CharSequence) tVar.dXE);
             int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
             int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
             int i2 = R.color.cp_link_tip_c;
@@ -142,53 +142,53 @@ public class d extends BaseAdapter {
             com.baidu.tbadk.core.view.b bVar3 = new com.baidu.tbadk.core.view.b(dimens, dimens2, i2, dimens3, i3, dimens4, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38));
             bVar3.ox(dimens5);
             bVar3.setMarginRight(dimens6);
-            spannableStringBuilder.setSpan(bVar3, 0, tVar.dXA.length(), 33);
+            spannableStringBuilder.setSpan(bVar3, 0, tVar.dXE.length(), 33);
         }
-        if (tVar.dXC || tVar.mType == 2 || tVar.dXx) {
+        if (tVar.dXG || tVar.mType == 2 || tVar.dXB) {
             if (tVar.mTitle != null) {
                 spannableStringBuilder.append((CharSequence) tVar.mTitle);
             }
         } else {
-            if (tVar.dXv != null) {
-                spannableStringBuilder.append((CharSequence) tVar.dXv);
+            if (tVar.dXz != null) {
+                spannableStringBuilder.append((CharSequence) tVar.dXz);
             }
             bVar.mTitle.setMaxLines(1);
         }
         bVar.mTitle.setText(spannableStringBuilder);
-        bVar.mTC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        bVar.mTU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 com.baidu.tbadk.core.view.spanGroup.a JM = d.this.JM(i);
                 if (JM != null) {
-                    if (d.this.mTz != null) {
-                        d.this.mTz.JN(JM.getId());
+                    if (d.this.mTR != null) {
+                        d.this.mTR.JN(JM.getId());
                     }
-                    if (d.this.mTz != null) {
-                        d.this.mTz.fC(d.this.hty);
+                    if (d.this.mTR != null) {
+                        d.this.mTR.fC(d.this.htE);
                     }
                 }
             }
         });
         int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         ap.c(bVar.mRootView, 0, R.color.cp_bg_line_e, R.color.cp_bg_line_e);
-        ap.c(bVar.jPI, dimens7, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
+        ap.c(bVar.jPO, dimens7, R.color.cp_bg_line_g, R.color.cp_bg_line_g);
         ap.setViewTextColor(bVar.mTitle, R.color.cp_cont_j);
-        ap.setViewTextColor(bVar.esR, R.color.cp_cont_h);
-        ap.setViewTextColor(bVar.mTD, R.color.cp_cont_d);
-        ap.a(bVar.mTE, R.color.cp_bg_line_g, GradientDrawable.Orientation.RIGHT_LEFT);
+        ap.setViewTextColor(bVar.esV, R.color.cp_cont_h);
+        ap.setViewTextColor(bVar.mTV, R.color.cp_cont_d);
+        ap.a(bVar.mTW, R.color.cp_bg_line_g, GradientDrawable.Orientation.RIGHT_LEFT);
         return view;
     }
 
     public void h(LinkedList<com.baidu.tbadk.core.view.spanGroup.a> linkedList) {
-        this.mTy = linkedList;
+        this.mTQ = linkedList;
     }
 
-    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dHp() {
-        return this.mTy;
+    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dHy() {
+        return this.mTQ;
     }
 
     public void refreshData() {
-        dHr();
+        dHA();
         notifyDataSetChanged();
     }
 
@@ -196,14 +196,14 @@ public class d extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean dHq() {
-        if (y.isEmpty(this.hty)) {
+    public boolean dHz() {
+        if (y.isEmpty(this.htE)) {
             return true;
         }
-        Iterator<t> it = this.hty.iterator();
+        Iterator<t> it = this.htE.iterator();
         while (it.hasNext()) {
             t next = it.next();
-            if (next.mType == 2 || !next.dXx) {
+            if (next.mType == 2 || !next.dXB) {
                 return false;
             }
             while (it.hasNext()) {
@@ -212,39 +212,39 @@ public class d extends BaseAdapter {
         return true;
     }
 
-    private void dHr() {
-        this.hty.clear();
-        if (!y.isEmpty(this.mTy)) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.mTy.iterator();
+    private void dHA() {
+        this.htE.clear();
+        if (!y.isEmpty(this.mTQ)) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.mTQ.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.isValid() && (next instanceof TbLinkSpanGroup)) {
                     TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
                     if (tbLinkSpanGroup.blI() != null) {
                         t blI = tbLinkSpanGroup.blI();
-                        blI.dXE = tbLinkSpanGroup.getStart();
-                        this.hty.add(blI);
+                        blI.dXI = tbLinkSpanGroup.getStart();
+                        this.htE.add(blI);
                     }
                 }
             }
-            Collections.sort(this.hty);
+            Collections.sort(this.htE);
         }
     }
 
     public void a(a aVar) {
-        this.mTz = aVar;
+        this.mTR = aVar;
     }
 
     /* loaded from: classes3.dex */
     private class b {
-        TbImageView esP;
-        TextView esR;
-        View jPI;
+        TbImageView esT;
+        TextView esV;
+        View jPO;
         View mRootView;
-        View mTB;
-        ImageView mTC;
-        TextView mTD;
-        View mTE;
+        View mTT;
+        ImageView mTU;
+        TextView mTV;
+        View mTW;
         TextView mTitle;
 
         private b() {

@@ -8,48 +8,48 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes19.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private b dBE;
-    private TextView dBS;
-    private View dBT;
-    private g dBU;
-    private e dBV;
+    private b dBI;
+    private TextView dBW;
+    private View dBX;
+    private g dBY;
+    private e dBZ;
     private TextView mSubTitle;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.dBE = bVar;
-        this.dBV = eVar;
+        this.dBI = bVar;
+        this.dBZ = eVar;
     }
 
     private void init(View view) {
-        this.dBS = (TextView) view.findViewById(R.id.main_title);
+        this.dBW = (TextView) view.findViewById(R.id.main_title);
         this.mSubTitle = (TextView) view.findViewById(R.id.sub_title);
-        this.dBT = view.findViewById(R.id.select);
-        this.dBT.setVisibility(8);
+        this.dBX = view.findViewById(R.id.select);
+        this.dBX.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dBE.aSd();
-        this.dBU.isSelected = true;
-        this.dBE.notifyDataSetChanged();
-        if (this.dBV != null) {
-            this.dBV.a(this.dBU);
+        this.dBI.aSd();
+        this.dBY.isSelected = true;
+        this.dBI.notifyDataSetChanged();
+        if (this.dBZ != null) {
+            this.dBZ.a(this.dBY);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.dBU = gVar;
-            this.dBS.setText(z ? dd(gVar.dBZ.name, str) : gVar.dBZ.name);
+            this.dBY = gVar;
+            this.dBW.setText(z ? dd(gVar.dCd.name, str) : gVar.dCd.name);
             this.mSubTitle.setVisibility(0);
-            this.mSubTitle.setText(gVar.dBZ.address);
-            if (gVar.dCa || TextUtils.isEmpty(gVar.dBZ.address)) {
+            this.mSubTitle.setText(gVar.dCd.address);
+            if (gVar.dCe || TextUtils.isEmpty(gVar.dCd.address)) {
                 this.mSubTitle.setVisibility(8);
             }
-            this.dBT.setVisibility(gVar.isSelected ? 0 : 8);
+            this.dBX.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 

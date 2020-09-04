@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 /* loaded from: classes16.dex */
 public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, al<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String agH;
-    public BdUniqueId ePv;
-    private NEGFeedBackView.a flJ;
+    private String agJ;
+    public BdUniqueId ePz;
+    private NEGFeedBackView.a flN;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +40,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         aj tQ = aVar.tQ();
         tQ.setSourceForPb(2);
         al<com.baidu.tieba.homepage.topic.topictab.b.a> alVar = new al<>(tQ);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         return alVar;
     }
 
@@ -52,19 +52,19 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         TiebaStatic.log(new aq("c13448").u("topic_id", aVar.topicId));
-        alVar.tR().setPage(this.agH);
-        alVar.aL(false).a(this.flJ);
+        alVar.tR().setPage(this.agJ);
+        alVar.aL(false).a(this.flN);
         alVar.b((al<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return alVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Dj(String str) {
-        this.agH = str;
+    public void Dk(String str) {
+        this.agJ = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.flJ = aVar;
+        this.flN = aVar;
     }
 }

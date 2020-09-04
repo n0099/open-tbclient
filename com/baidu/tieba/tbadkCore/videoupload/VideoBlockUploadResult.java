@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.videoupload;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoBlockUploadResult extends OrmObject implements Serializable {
     private static final long serialVersionUID = 6275774976385764456L;
     public Error error;

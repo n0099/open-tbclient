@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.e;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.baidu.tbadk.core.util.e.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static com.baidu.tbadk.core.util.e.b.a bjP() {
         return com.baidu.tbadk.core.util.e.b.a.bka();

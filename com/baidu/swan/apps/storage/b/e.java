@@ -6,21 +6,12 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class e implements c {
-    private d cYb;
-
-    @Override // com.baidu.swan.apps.storage.b.c
-    public String rR(String str) {
-        com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-        return azJ == null ? str : com.baidu.swan.apps.storage.b.d(str, azJ);
-    }
+    private d cYf;
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String rS(String str) {
         com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-        if (azJ == null) {
-            return null;
-        }
-        return com.baidu.swan.apps.storage.b.a(str, azJ, azJ.getVersion());
+        return azJ == null ? str : com.baidu.swan.apps.storage.b.d(str, azJ);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -29,23 +20,32 @@ public class e implements c {
         if (azJ == null) {
             return null;
         }
-        return com.baidu.swan.apps.storage.b.cn(str, azJ.id);
+        return com.baidu.swan.apps.storage.b.a(str, azJ, azJ.getVersion());
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String rU(String str) {
         com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-        return azJ == null ? str : com.baidu.swan.apps.storage.b.cp(str, azJ.id);
+        if (azJ == null) {
+            return null;
+        }
+        return com.baidu.swan.apps.storage.b.cn(str, azJ.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String rV(String str) {
-        String xu = com.baidu.swan.c.d.xu(str);
-        return TextUtils.isEmpty(xu) ? rU(str) : rU(str) + "." + xu;
+        com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
+        return azJ == null ? str : com.baidu.swan.apps.storage.b.cp(str, azJ.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String rW(String str) {
+        String xv = com.baidu.swan.c.d.xv(str);
+        return TextUtils.isEmpty(xv) ? rV(str) : rV(str) + "." + xv;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String rX(String str) {
         com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
         return azJ == null ? "" : com.baidu.swan.apps.storage.b.O(azJ.id, str, null);
     }
@@ -53,23 +53,18 @@ public class e implements c {
     @Override // com.baidu.swan.apps.storage.b.c
     public String aCZ() {
         com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-        return azJ == null ? "" : com.baidu.swan.apps.storage.b.rH(azJ.id);
+        return azJ == null ? "" : com.baidu.swan.apps.storage.b.rI(azJ.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
     public String aDa() {
         com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-        return azJ == null ? "" : com.baidu.swan.apps.storage.b.rE(azJ.id);
+        return azJ == null ? "" : com.baidu.swan.apps.storage.b.rF(azJ.id);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String rI(String str) {
-        return com.baidu.swan.apps.storage.b.rI(str);
-    }
-
-    @Override // com.baidu.swan.apps.storage.b.c
-    public boolean rC(String str) {
-        return com.baidu.swan.apps.storage.b.rC(str);
+    public String rJ(String str) {
+        return com.baidu.swan.apps.storage.b.rJ(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
@@ -78,21 +73,26 @@ public class e implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
+    public boolean rE(String str) {
+        return com.baidu.swan.apps.storage.b.rE(str);
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
     public boolean aa(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        PathType rJ = com.baidu.swan.apps.storage.b.rJ(str);
+        PathType rK = com.baidu.swan.apps.storage.b.rK(str);
         if (z) {
-            rJ = a(str, rJ);
+            rK = a(str, rK);
         }
-        return rJ != PathType.ERROR;
+        return rK != PathType.ERROR;
     }
 
     private PathType a(String str, PathType pathType) {
         switch (pathType) {
             case RELATIVE:
-                if (rX(str)) {
+                if (rY(str)) {
                     return PathType.ERROR;
                 }
                 return pathType;
@@ -111,13 +111,13 @@ public class e implements c {
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
     public synchronized d aDb() {
-        if (this.cYb == null) {
-            this.cYb = new f();
+        if (this.cYf == null) {
+            this.cYf = new f();
         }
-        return this.cYb;
+        return this.cYf;
     }
 
-    private boolean rX(String str) {
+    private boolean rY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

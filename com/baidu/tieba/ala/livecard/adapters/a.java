@@ -8,7 +8,7 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.livecard.a.b> implements y {
-    private com.baidu.tieba.ala.livecard.b.a giD;
+    private com.baidu.tieba.ala.livecard.b.a giH;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -24,9 +24,9 @@ public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
         if (this.mPageContext == null) {
             return null;
         }
-        this.giD = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
-        this.giD.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.b(this.giD);
+        this.giH = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
+        this.giH.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.b(this.giH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,12 +35,12 @@ public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.g gVar, com.baidu.tieba.ala.livecard.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (com.baidu.tieba.tbadkCore.g) bVar);
         if (gVar != null) {
-            int topThreadSize = this.hSn != null ? this.hSn.getTopThreadSize() : 0;
-            if (gVar.mcC != null && gVar.mcC.get(0) != null) {
-                gVar.mcC.get(0).dZb = (i + 1) - topThreadSize;
+            int topThreadSize = this.hSt != null ? this.hSt.getTopThreadSize() : 0;
+            if (gVar.mcR != null && gVar.mcR.get(0) != null) {
+                gVar.mcR.get(0).dZf = (i + 1) - topThreadSize;
             }
-            bVar.giW.setForumName(this.mForumName);
-            bVar.giW.a(gVar);
+            bVar.gja.setForumName(this.mForumName);
+            bVar.gja.a(gVar);
         }
         return view;
     }

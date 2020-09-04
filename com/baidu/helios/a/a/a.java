@@ -10,11 +10,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    private static a awi;
-    private Thread awj;
-    private b awk;
-    private com.baidu.helios.a.a.a.b awl;
-    private i awm;
+    private static a awk;
+    private Thread awl;
+    private b awm;
+    private com.baidu.helios.a.a.a.b awn;
+    private i awo;
     private AtomicInteger f;
     private AtomicBoolean g;
     private HashMap<String, String> j;
@@ -24,12 +24,12 @@ public class a {
     /* renamed from: com.baidu.helios.a.a.a$1  reason: invalid class name */
     /* loaded from: classes10.dex */
     class AnonymousClass1 implements Runnable {
-        final /* synthetic */ a awn;
+        final /* synthetic */ a awp;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.awn.awm != null) {
-                this.awn.awm.b();
+            if (this.awp.awo != null) {
+                this.awp.awo.b();
             }
         }
     }
@@ -37,44 +37,44 @@ public class a {
     /* renamed from: com.baidu.helios.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     public static class C0133a {
-        private static C0133a awo;
+        private static C0133a awq;
 
         private C0133a(Context context) {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            if (a.awi == null) {
+            if (a.awk == null) {
                 synchronized (a.class) {
-                    if (a.awi == null) {
-                        a unused = a.awi = new a(context.getApplicationContext(), null);
+                    if (a.awk == null) {
+                        a unused = a.awk = new a(context.getApplicationContext(), null);
                     }
                 }
             }
         }
 
         private void a() {
-            a.awi.j = new HashMap();
-            a.awi.j.put("Charset", "utf-8");
-            a.awi.j.put("Content-type", HttpHelper.CONTENT_JSON);
-            a.awi.awl = new com.baidu.helios.a.a.b.a();
+            a.awk.j = new HashMap();
+            a.awk.j.put("Charset", "utf-8");
+            a.awk.j.put("Content-type", HttpHelper.CONTENT_JSON);
+            a.awk.awn = new com.baidu.helios.a.a.b.a();
         }
 
         public static C0133a aj(Context context) {
-            if (awo == null) {
+            if (awq == null) {
                 synchronized (a.class) {
-                    if (awo == null) {
-                        awo = new C0133a(context);
+                    if (awq == null) {
+                        awq = new C0133a(context);
                     }
                 }
             }
-            return awo;
+            return awq;
         }
 
         public a zV() {
-            if (a.awi.awl == null) {
+            if (a.awk.awn == null) {
                 a();
             }
-            return a.awi;
+            return a.awk;
         }
     }
 
@@ -82,7 +82,7 @@ public class a {
         this.f = new AtomicInteger(0);
         this.g = new AtomicBoolean(false);
         this.m = context;
-        this.awm = new m(context);
+        this.awo = new m(context);
     }
 
     /* synthetic */ a(Context context, AnonymousClass1 anonymousClass1) {
@@ -101,8 +101,8 @@ public class a {
         com.baidu.helios.a.a.a.c zZ;
         String a = a("https://mbd.baidu.com/store");
         String str = null;
-        if (this.awl != null && (zZ = this.awl.zZ()) != null) {
-            str = zZ.a(a, "POST", this.j, this.awk.zW());
+        if (this.awn != null && (zZ = this.awn.zZ()) != null) {
+            str = zZ.a(a, "POST", this.j, this.awm.zW());
         }
         JSONObject a2 = l.a(str);
         if (a2 == null) {
@@ -113,8 +113,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.awm != null) {
-            this.awm.b(this.awk.zW());
+        if (this.awo != null) {
+            this.awo.b(this.awm.zW());
         }
     }
 
@@ -129,17 +129,17 @@ public class a {
         return new Runnable() { // from class: com.baidu.helios.a.a.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.awk = new f(a.this.m);
+                a.this.awm = new f(a.this.m);
                 boolean z = false;
-                if (a.this.awm != null) {
-                    a.this.awm.r(a.this.awk.zW());
-                    z = a.this.awm.a();
+                if (a.this.awo != null) {
+                    a.this.awo.r(a.this.awm.zW());
+                    z = a.this.awo.a();
                 }
                 if (z && a.this.c()) {
                     a.this.d();
                     a.this.e();
                 }
-                a.this.awj = null;
+                a.this.awl = null;
             }
         };
     }
@@ -151,10 +151,10 @@ public class a {
                     throw new NullPointerException("context should not be null");
                 }
                 this.f.set(1);
-                if (this.awj == null) {
-                    this.awj = new Thread(zT());
+                if (this.awl == null) {
+                    this.awl = new Thread(zT());
                 }
-                this.awj.start();
+                this.awl.start();
             }
         }
     }

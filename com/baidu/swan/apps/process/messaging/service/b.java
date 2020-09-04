@@ -17,9 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class b {
-    public static String cJw;
+    public static String cJA;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean cJx = false;
+    private static boolean cJB = false;
 
     public static void b(Context context, Bundle bundle) {
         Intent intent = new Intent(context, SwanAppMessengerService.class);
@@ -51,15 +51,15 @@ public final class b {
 
     public static void a(Context context, c cVar, Bundle bundle) {
         if (DEBUG) {
-            e.ayg().pV("b4 tryPreload client=" + cVar);
+            e.ayg().pW("b4 tryPreload client=" + cVar);
         }
-        if (ProcessUtils.isMainProcess() && cVar != null && cVar.cJz.isSwanAppProcess() && !cVar.axR()) {
+        if (ProcessUtils.isMainProcess() && cVar != null && cVar.cJD.isSwanAppProcess() && !cVar.axR()) {
             b(context, cVar, bundle);
         }
     }
 
     private static void b(final Context context, final c cVar, final Bundle bundle) {
-        if (cJx) {
+        if (cJB) {
             com.baidu.swan.games.utils.so.d.aQd();
             c(context, cVar, bundle);
             return;
@@ -67,7 +67,7 @@ public final class b {
         com.baidu.swan.apps.adaptation.b.a.c.abd().abe().abb().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
             @Override // com.baidu.swan.apps.core.container.a.b
             public void Yx() {
-                boolean unused = b.cJx = true;
+                boolean unused = b.cJB = true;
                 com.baidu.swan.games.utils.so.d.aQe();
                 b.c(context, cVar, bundle);
             }
@@ -93,11 +93,11 @@ public final class b {
         String str = isMainProcess ? "main" : "aiapp";
         long currentTimeMillis = System.currentTimeMillis();
         if (YD) {
-            if (isMainProcess && TextUtils.isEmpty(cJw)) {
+            if (isMainProcess && TextUtils.isEmpty(cJA)) {
                 try {
-                    cJw = new WebView(context).getSettings().getUserAgentString();
+                    cJA = new WebView(context).getSettings().getUserAgentString();
                 } catch (Exception e) {
-                    cJw = "exception::" + e.toString();
+                    cJA = "exception::" + e.toString();
                     if (DEBUG) {
                         e.printStackTrace();
                     }
@@ -106,32 +106,32 @@ public final class b {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", currentTimeMillis);
-                jSONObject.put("process", cVar.cJz.index);
-                jSONObject.put(j.c, cJw);
+                jSONObject.put("process", cVar.cJD.index);
+                jSONObject.put(j.c, cJA);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
             }
-            i.a pi = new i.a("812").pg("swan").ph(Config.LAUNCH).pi(str);
-            pi.bN(jSONObject);
-            i.onEvent(pi);
+            i.a pj = new i.a("812").ph("swan").pi(Config.LAUNCH).pj(str);
+            pj.bN(jSONObject);
+            i.onEvent(pj);
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (YD) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("time", currentTimeMillis2);
-                jSONObject2.put("process", cVar.cJz.index);
+                jSONObject2.put("process", cVar.cJD.index);
                 jSONObject2.put(BdStatsConstant.StatsKey.COST, currentTimeMillis2 - currentTimeMillis);
             } catch (JSONException e3) {
                 if (DEBUG) {
                     e3.printStackTrace();
                 }
             }
-            i.a pi2 = new i.a("812").pg("swan").ph("swan_updated").pi(str);
-            pi2.bN(jSONObject2);
-            i.onEvent(pi2);
+            i.a pj2 = new i.a("812").ph("swan").pi("swan_updated").pj(str);
+            pj2.bN(jSONObject2);
+            i.onEvent(pj2);
         }
         if (bundle == null) {
             bundle = new Bundle();
@@ -148,7 +148,7 @@ public final class b {
         }
         bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
         bundle.putString("bundle_key_preload_src", str);
-        bundle.putInt("bundle_key_process", cVar.cJz.index);
+        bundle.putInt("bundle_key_process", cVar.cJD.index);
         bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
         com.baidu.swan.games.utils.so.d.Y(bundle);
         cVar.e(context, bundle);

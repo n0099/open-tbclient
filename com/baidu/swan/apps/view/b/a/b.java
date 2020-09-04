@@ -15,19 +15,19 @@ import com.baidu.swan.apps.v.f;
 /* loaded from: classes8.dex */
 public class b implements View.OnTouchListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bTJ;
-    private String det;
-    private String deu;
-    private C0458b dex;
-    private long dey;
-    private boolean dev = false;
-    private int[] dew = new int[2];
-    private a dez = new a();
+    private String bTN;
+    private C0458b deB;
+    private long deC;
+    private String dex;
+    private String dey;
+    private boolean dez = false;
+    private int[] deA = new int[2];
+    private a deD = new a();
 
     public b(String str, String str2, String str3) {
-        this.bTJ = str;
-        this.det = str2;
-        this.deu = str3;
+        this.bTN = str;
+        this.dex = str2;
+        this.dey = str3;
         aGk();
         aGl();
     }
@@ -41,41 +41,41 @@ public class b implements View.OnTouchListener {
     public static boolean aGj() {
         SwanCoreVersion akn = d.ajS().akn();
         long j = akn != null ? akn.swanCoreVersion : 0L;
-        long sb = com.baidu.swan.apps.swancore.b.sb("1.12.0");
+        long sc = com.baidu.swan.apps.swancore.b.sc("1.12.0");
         if (DEBUG) {
-            Log.d("SwanAppTouchListener", "targetSwanVersion =" + sb + ";curSwanVersion: " + j);
+            Log.d("SwanAppTouchListener", "targetSwanVersion =" + sc + ";curSwanVersion: " + j);
         }
-        return j >= sb;
+        return j >= sc;
     }
 
     private void aGk() {
-        this.dev = !aGj() && TextUtils.equals("canvas", this.deu);
+        this.dez = !aGj() && TextUtils.equals("canvas", this.dey);
     }
 
     private void aGl() {
-        AbsoluteLayout nY = ak.nY(this.bTJ);
-        if (nY != null) {
-            nY.getLocationOnScreen(this.dew);
+        AbsoluteLayout nZ = ak.nZ(this.bTN);
+        if (nZ != null) {
+            nZ.getLocationOnScreen(this.deA);
         }
     }
 
     private void a(View view, MotionEvent motionEvent) {
-        if (view == null || motionEvent == null || TextUtils.isEmpty(this.bTJ) || TextUtils.isEmpty(this.det)) {
-            c.e("SwanAppTouchListener", "params is null, slaveId = " + this.bTJ + " ; viewId = " + this.det);
+        if (view == null || motionEvent == null || TextUtils.isEmpty(this.bTN) || TextUtils.isEmpty(this.dex)) {
+            c.e("SwanAppTouchListener", "params is null, slaveId = " + this.bTN + " ; viewId = " + this.dex);
             return;
         }
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
-            this.dex = new C0458b(motionEvent.getX(), motionEvent.getY());
-            this.dey = motionEvent.getEventTime();
-            this.dez.C(motionEvent);
-            view.postDelayed(this.dez, 350L);
+            this.deB = new C0458b(motionEvent.getX(), motionEvent.getY());
+            this.deC = motionEvent.getEventTime();
+            this.deD.C(motionEvent);
+            view.postDelayed(this.deD, 350L);
             aGl();
         } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0458b(motionEvent.getX(), motionEvent.getY()))) {
-            view.removeCallbacks(this.dez);
+            view.removeCallbacks(this.deD);
         }
         a(B(motionEvent));
-        if (actionMasked == 1 && a(new C0458b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.dey < 350) {
+        if (actionMasked == 1 && a(new C0458b(motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.deC < 350) {
             a(b(motionEvent, "tap"));
         }
     }
@@ -85,8 +85,8 @@ public class b implements View.OnTouchListener {
         if (DEBUG) {
             Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.mData);
         }
-        if (!this.dev) {
-            f.arY().a(this.bTJ, gVar);
+        if (!this.dez) {
+            f.arY().a(this.bTN, gVar);
         } else {
             f.arY().b(gVar);
         }
@@ -96,43 +96,43 @@ public class b implements View.OnTouchListener {
     /* JADX WARN: Type inference failed for: r0v2, types: [org.json.JSONObject, T] */
     public g b(MotionEvent motionEvent, String str) {
         com.baidu.swan.apps.view.b.a.a aVar = new com.baidu.swan.apps.view.b.a.a(motionEvent, str);
-        aVar.h(this.dew);
+        aVar.h(this.deA);
         g gVar = new g();
-        gVar.mData = com.baidu.swan.apps.view.b.b.a.c(this.bTJ, this.det, this.deu, aVar.aGg(), aVar.aGh());
+        gVar.mData = com.baidu.swan.apps.view.b.b.a.c(this.bTN, this.dex, this.dey, aVar.aGg(), aVar.aGh());
         return gVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [org.json.JSONObject, T] */
     private g B(MotionEvent motionEvent) {
         com.baidu.swan.apps.view.b.a.a aVar = new com.baidu.swan.apps.view.b.a.a(motionEvent);
-        aVar.h(this.dew);
+        aVar.h(this.deA);
         g gVar = new g();
-        gVar.mData = com.baidu.swan.apps.view.b.b.a.c(this.bTJ, this.det, this.deu, aVar.aGg(), aVar.aGh());
+        gVar.mData = com.baidu.swan.apps.view.b.b.a.c(this.bTN, this.dex, this.dey, aVar.aGg(), aVar.aGh());
         return gVar;
     }
 
     private boolean a(C0458b c0458b) {
-        return this.dex != null && this.dex.b(c0458b) <= ((double) ah.H(10.0f));
+        return this.deB != null && this.deB.b(c0458b) <= ((double) ah.H(10.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class a implements Runnable {
-        private MotionEvent deA;
-        private g deB;
+        private MotionEvent deE;
+        private g deF;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void C(MotionEvent motionEvent) {
-            this.deA = motionEvent;
-            this.deB = b.this.b(this.deA, "longtap");
+            this.deE = motionEvent;
+            this.deF = b.this.b(this.deE, "longtap");
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            b.this.a(this.deB);
+            b.this.a(this.deF);
         }
     }
 

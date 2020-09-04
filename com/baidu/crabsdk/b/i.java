@@ -4,21 +4,21 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class i {
-    private static Locale anp;
+    private static Locale anr;
 
     public static void A() {
-        anp = Locale.getDefault();
+        anr = Locale.getDefault();
     }
 
     public static String B() {
-        return anp.getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + anp.getCountry();
+        return anr.getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + anr.getCountry();
     }
 
     public static String getCountry() {
-        return anp.getCountry();
+        return anr.getCountry();
     }
 
     public static String getLanguage() {
-        return anp.getLanguage();
+        return anr.getLanguage();
     }
 }

@@ -18,16 +18,16 @@ public class ab {
 
     public static String aEV() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("SwanAppRefererUtils", "getFixedReferer: " + sD("https://smartapps.cn/%s/%s/page-frame.html"));
+            Log.d("SwanAppRefererUtils", "getFixedReferer: " + sE("https://smartapps.cn/%s/%s/page-frame.html"));
         }
-        return sD("https://smartapps.cn/%s/%s/page-frame.html");
+        return sE("https://smartapps.cn/%s/%s/page-frame.html");
     }
 
-    public static boolean sC(String str) {
+    public static boolean sD(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static String sD(String str) {
+    public static String sE(String str) {
         com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
         return azI != null ? String.format(str, azI.getAppKey(), azI.aAe()) : "";
     }

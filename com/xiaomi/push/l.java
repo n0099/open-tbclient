@@ -10,7 +10,7 @@ public class l {
     private static int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f787a = null;
+    private static Map<String, o> f786a = null;
 
     public static synchronized int a() {
         int i;
@@ -61,53 +61,53 @@ public class l {
 
     /* renamed from: a  reason: collision with other method in class */
     private static void m499a() {
-        if (f787a != null) {
+        if (f786a != null) {
             return;
         }
-        f787a = new HashMap();
-        f787a.put("CN", o.China);
-        f787a.put("FI", o.Europe);
-        f787a.put("SE", o.Europe);
-        f787a.put("NO", o.Europe);
-        f787a.put("FO", o.Europe);
-        f787a.put("EE", o.Europe);
-        f787a.put("LV", o.Europe);
-        f787a.put("LT", o.Europe);
-        f787a.put("BY", o.Europe);
-        f787a.put("MD", o.Europe);
-        f787a.put("UA", o.Europe);
-        f787a.put("PL", o.Europe);
-        f787a.put("CZ", o.Europe);
-        f787a.put("SK", o.Europe);
-        f787a.put("HU", o.Europe);
-        f787a.put("DE", o.Europe);
-        f787a.put("AT", o.Europe);
-        f787a.put("CH", o.Europe);
-        f787a.put("LI", o.Europe);
-        f787a.put("GB", o.Europe);
-        f787a.put("IE", o.Europe);
-        f787a.put("NL", o.Europe);
-        f787a.put("BE", o.Europe);
-        f787a.put("LU", o.Europe);
-        f787a.put("FR", o.Europe);
-        f787a.put("RO", o.Europe);
-        f787a.put("BG", o.Europe);
-        f787a.put("RS", o.Europe);
-        f787a.put("MK", o.Europe);
-        f787a.put("AL", o.Europe);
-        f787a.put("GR", o.Europe);
-        f787a.put("SI", o.Europe);
-        f787a.put("HR", o.Europe);
-        f787a.put("IT", o.Europe);
-        f787a.put("SM", o.Europe);
-        f787a.put("MT", o.Europe);
-        f787a.put("ES", o.Europe);
-        f787a.put("PT", o.Europe);
-        f787a.put("AD", o.Europe);
-        f787a.put("CY", o.Europe);
-        f787a.put("DK", o.Europe);
-        f787a.put("RU", o.Russia);
-        f787a.put("IN", o.India);
+        f786a = new HashMap();
+        f786a.put("CN", o.China);
+        f786a.put("FI", o.Europe);
+        f786a.put("SE", o.Europe);
+        f786a.put("NO", o.Europe);
+        f786a.put("FO", o.Europe);
+        f786a.put("EE", o.Europe);
+        f786a.put("LV", o.Europe);
+        f786a.put("LT", o.Europe);
+        f786a.put("BY", o.Europe);
+        f786a.put("MD", o.Europe);
+        f786a.put("UA", o.Europe);
+        f786a.put("PL", o.Europe);
+        f786a.put("CZ", o.Europe);
+        f786a.put("SK", o.Europe);
+        f786a.put("HU", o.Europe);
+        f786a.put("DE", o.Europe);
+        f786a.put("AT", o.Europe);
+        f786a.put("CH", o.Europe);
+        f786a.put("LI", o.Europe);
+        f786a.put("GB", o.Europe);
+        f786a.put("IE", o.Europe);
+        f786a.put("NL", o.Europe);
+        f786a.put("BE", o.Europe);
+        f786a.put("LU", o.Europe);
+        f786a.put("FR", o.Europe);
+        f786a.put("RO", o.Europe);
+        f786a.put("BG", o.Europe);
+        f786a.put("RS", o.Europe);
+        f786a.put("MK", o.Europe);
+        f786a.put("AL", o.Europe);
+        f786a.put("GR", o.Europe);
+        f786a.put("SI", o.Europe);
+        f786a.put("HR", o.Europe);
+        f786a.put("IT", o.Europe);
+        f786a.put("SM", o.Europe);
+        f786a.put("MT", o.Europe);
+        f786a.put("ES", o.Europe);
+        f786a.put("PT", o.Europe);
+        f786a.put("AD", o.Europe);
+        f786a.put("CY", o.Europe);
+        f786a.put("DK", o.Europe);
+        f786a.put("RU", o.Russia);
+        f786a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -121,7 +121,7 @@ public class l {
 
     private static o b(String str) {
         m499a();
-        return f787a.get(str.toUpperCase());
+        return f786a.get(str.toUpperCase());
     }
 
     public static String b() {

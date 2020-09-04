@@ -8,31 +8,31 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbu = new LinkedList();
-    private BdTypeRecyclerView lXS;
-    private c lXT;
-    private y lXU;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new LinkedList();
+    private BdTypeRecyclerView lYh;
+    private c lYi;
+    private y lYj;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.lXS = bdTypeRecyclerView;
+        this.lYh = bdTypeRecyclerView;
         Jv();
     }
 
     private void Jv() {
-        this.lXT = new c(this.mPageContext);
-        this.bbu.add(this.lXT);
-        this.lXU = new y(this.mPageContext);
-        this.bbu.add(this.lXU);
-        this.lXS.addAdapters(this.bbu);
+        this.lYi = new c(this.mPageContext);
+        this.bbw.add(this.lYi);
+        this.lYj = new y(this.mPageContext);
+        this.bbw.add(this.lYj);
+        this.lYh.addAdapters(this.bbw);
     }
 
     public void notifyDataSetChanged() {
-        this.lXS.getAdapter().notifyDataSetChanged();
+        this.lYh.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<q> list) {
-        this.lXS.setData(list);
+        this.lYh.setData(list);
     }
 }

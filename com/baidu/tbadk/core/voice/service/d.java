@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.service;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
-    boolean AO(String str);
+    boolean AP(String str);
 
     boolean bma();
 

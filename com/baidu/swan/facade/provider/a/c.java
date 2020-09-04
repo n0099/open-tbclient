@@ -7,22 +7,22 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes20.dex */
 public class c {
-    private static final char[] dhC = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] dhG = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    public static String tv(String str) {
-        Signature tw = tw(str);
-        if (tw == null) {
+    public static String tw(String str) {
+        Signature tx = tx(str);
+        if (tx == null) {
             return null;
         }
         try {
-            return toHexString(MessageDigest.getInstance("MD5").digest(tw.toByteArray()));
+            return toHexString(MessageDigest.getInstance("MD5").digest(tx.toByteArray()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static Signature tw(String str) {
+    private static Signature tx(String str) {
         try {
             return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
         } catch (PackageManager.NameNotFoundException e) {
@@ -35,8 +35,8 @@ public class c {
         char[] cArr = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
             byte b = bArr[i];
-            cArr[i * 2] = dhC[(b >>> 4) & 15];
-            cArr[(i * 2) + 1] = dhC[b & 15];
+            cArr[i * 2] = dhG[(b >>> 4) & 15];
+            cArr[(i * 2) + 1] = dhG[b & 15];
         }
         return new String(cArr);
     }

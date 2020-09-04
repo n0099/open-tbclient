@@ -14,7 +14,7 @@ import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface c {
     Anti GetAntiStat();
 

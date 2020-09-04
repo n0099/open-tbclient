@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore;
 
 import android.graphics.Color;
 import android.support.v7.widget.ActivityChooserView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static int l(int i, float f) {
         return (((int) ((i >>> 24) * f)) << 24) | (16777215 & i);
@@ -19,7 +19,7 @@ public class c {
         return Color.HSVToColor(fArr);
     }
 
-    public static int fn(String str) {
+    public static int fo(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

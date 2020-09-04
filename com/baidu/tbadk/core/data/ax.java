@@ -3,12 +3,12 @@ package com.baidu.tbadk.core.data;
 import java.util.ArrayList;
 import tbclient.PbPresent;
 import tbclient.PbPresentList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ax {
-    private ArrayList<a> dZo;
+    private ArrayList<a> dZs;
     private int total;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public int giftId;
         public String giftName;
@@ -20,7 +20,7 @@ public class ax {
         if (pbPresent != null) {
             this.total = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.dZo = new ArrayList<>();
+                this.dZs = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
@@ -28,7 +28,7 @@ public class ax {
                         aVar.giftName = pbPresentList.gift_name;
                         aVar.thumbnailUrl = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.dZo.add(aVar);
+                        this.dZs.add(aVar);
                     }
                 }
             }
@@ -44,10 +44,10 @@ public class ax {
     }
 
     public ArrayList<a> bdw() {
-        return this.dZo;
+        return this.dZs;
     }
 
     public void D(ArrayList<a> arrayList) {
-        this.dZo = arrayList;
+        this.dZs = arrayList;
     }
 }

@@ -11,12 +11,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ah {
-    public String aHS = "";
-    public String aHT;
-    public int aHU;
+    public String aHU = "";
     public String aHV;
     public int aHW;
     public String aHX;
+    public int aHY;
+    public String aHZ;
     public long ala_id;
     public long anchor_live;
     public int change_sex;
@@ -75,7 +75,7 @@ public class ah {
         if (jSONObject != null) {
             this.ala_id = jSONObject.optLong("ala_id");
             this.user_id = jSONObject.optString("user_id");
-            this.aHS = jSONObject.optString("meta_key");
+            this.aHU = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -88,8 +88,8 @@ public class ah {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.aHT = jSONObject.optString("bg_img");
-            this.aHV = jSONObject.optString("app_from");
+            this.aHV = jSONObject.optString("bg_img");
+            this.aHX = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");
@@ -118,7 +118,7 @@ public class ah {
             this.enter_live = jSONObject.optLong("enter_live");
             this.is_live_admin = jSONObject.optInt("is_live_admin");
             this.is_block = jSONObject.optInt("is_block");
-            this.aHU = jSONObject.optInt("is_chat_block");
+            this.aHW = jSONObject.optInt("is_chat_block");
             this.third_app_id = jSONObject.optString("third_app_id");
             this.stream_id = jSONObject.optLong(BdStatsConstant.StatsKey.STREAM_ID);
             this.has_tieba_username = jSONObject.optInt("has_tieba_username");
@@ -127,7 +127,7 @@ public class ah {
             this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
             this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
             this.petal_num = jSONObject.optInt("petal_num");
-            this.aHX = jSONObject.optString("bd_personal_page");
+            this.aHZ = jSONObject.optString("bd_personal_page");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.live_mark_info_new = new ArrayList(optJSONArray.length());
@@ -138,7 +138,7 @@ public class ah {
                     this.live_mark_info_new.add(alaLiveMarkData);
                 }
             }
-            this.aHW = jSONObject.optInt("live_mark_total");
+            this.aHY = jSONObject.optInt("live_mark_total");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }

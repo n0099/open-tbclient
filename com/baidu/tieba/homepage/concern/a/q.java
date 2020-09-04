@@ -27,16 +27,16 @@ import com.baidu.tieba.view.DynamicUserLikeButton;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class q extends RecyclerView.Adapter<a> {
-    private com.baidu.tbadk.h.f<MetaData> ahW;
-    private BdUniqueId eya;
-    private boolean iHo;
+    private com.baidu.tbadk.h.f<MetaData> ahY;
+    private BdUniqueId eyf;
+    private boolean iHu;
     private Context mContext;
     private List<MetaData> mData;
     private TbPageContext mPageContext;
     private int mSkinType = 3;
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f<MetaData> fVar) {
-        this.ahW = fVar;
+        this.ahY = fVar;
     }
 
     public q(Context context) {
@@ -68,21 +68,21 @@ public class q extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(a aVar, int i) {
         MetaData metaData;
         if (aVar != null && this.mData != null && (metaData = this.mData.get(i)) != null) {
-            aVar.pz(metaData.isNewGod());
+            aVar.pB(metaData.isNewGod());
             a(metaData, aVar);
             c(metaData, aVar);
             e(metaData, aVar);
             b(metaData, aVar);
-            if (this.ahW != null) {
-                this.ahW.b(aVar.itemView, metaData, i, i);
+            if (this.ahY != null) {
+                this.ahY.b(aVar.itemView, metaData, i, i);
             }
             aVar.onChangeSkinType(this.mSkinType);
         }
     }
 
     private void a(final MetaData metaData, final a aVar) {
-        aVar.iHu.setData(metaData, true);
-        aVar.iHu.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.q.1
+        aVar.iHA.setData(metaData, true);
+        aVar.iHA.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.q.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 aq aqVar = new aq("c13566");
@@ -94,7 +94,7 @@ public class q extends RecyclerView.Adapter<a> {
     }
 
     private void b(final MetaData metaData, a aVar) {
-        aVar.iHv.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.q.2
+        aVar.iHB.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.a.q.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void bZ(View view) {
                 if (metaData != null) {
@@ -110,9 +110,9 @@ public class q extends RecyclerView.Adapter<a> {
                 }
             }
         });
-        com.baidu.tbadk.core.view.userLike.c cVar = aVar.ajc;
+        com.baidu.tbadk.core.view.userLike.c cVar = aVar.aje;
         if (cVar != null) {
-            cVar.m(this.eya);
+            cVar.m(this.eyf);
             cVar.a(metaData);
         }
     }
@@ -125,11 +125,11 @@ public class q extends RecyclerView.Adapter<a> {
             } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
                 str = metaData.getBaijiahaoInfo().name;
             }
-            aVar.dTQ.setText(str);
+            aVar.dTU.setText(str);
             if (metaData.isNewGod()) {
-                ap.setViewTextColor(aVar.dTQ, R.color.cp_cont_h);
+                ap.setViewTextColor(aVar.dTU, R.color.cp_cont_h);
             }
-            aVar.dTQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.q.3
+            aVar.dTU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.a.q.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
@@ -146,8 +146,8 @@ public class q extends RecyclerView.Adapter<a> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(MetaData metaData, a aVar) {
-        if (this.ahW != null) {
-            this.ahW.a(aVar.itemView, metaData, aVar.getAdapterPosition(), aVar.getItemId());
+        if (this.ahY != null) {
+            this.ahY.a(aVar.itemView, metaData, aVar.getAdapterPosition(), aVar.getItemId());
         }
     }
 
@@ -167,7 +167,7 @@ public class q extends RecyclerView.Adapter<a> {
                     str = "";
                 }
             }
-            aVar.iHt.setText(str);
+            aVar.iHz.setText(str);
         }
     }
 
@@ -176,53 +176,53 @@ public class q extends RecyclerView.Adapter<a> {
     }
 
     public void setHasBorder(boolean z) {
-        this.iHo = z;
+        this.iHu = z;
     }
 
     /* loaded from: classes16.dex */
     public class a extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c ajc;
-        public TextView dTQ;
-        public TextView iHt;
-        public HeadPendantClickableView iHu;
-        public DynamicUserLikeButton iHv;
-        private boolean iHw;
+        public com.baidu.tbadk.core.view.userLike.c aje;
+        public TextView dTU;
+        public HeadPendantClickableView iHA;
+        public DynamicUserLikeButton iHB;
+        private boolean iHC;
+        public TextView iHz;
         public LinearLayout mContainer;
 
         public a(View view) {
             super(view);
-            this.iHw = false;
+            this.iHC = false;
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.iHu = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.iHu.getHeadView().setIsRound(true);
-            this.iHu.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.iHu.getHeadView().setDefaultResource(17170445);
-            this.iHu.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.iHu.getHeadView().setPlaceHolder(2);
-            this.iHu.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(q.this.mContext, R.dimen.tbds1));
-            this.iHu.getHeadView().setBorderColor(ap.getColor(R.color.cp_border_a));
-            this.dTQ = (TextView) view.findViewById(R.id.concern_user_name);
-            this.iHt = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.iHv = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.iHv.setUseNewStyle(true);
-            this.ajc = new com.baidu.tbadk.core.view.userLike.c(q.this.mPageContext, this.iHv);
+            this.iHA = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.iHA.getHeadView().setIsRound(true);
+            this.iHA.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.iHA.getHeadView().setDefaultResource(17170445);
+            this.iHA.getHeadView().setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.iHA.getHeadView().setPlaceHolder(2);
+            this.iHA.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(q.this.mContext, R.dimen.tbds1));
+            this.iHA.getHeadView().setBorderColor(ap.getColor(R.color.cp_border_a));
+            this.dTU = (TextView) view.findViewById(R.id.concern_user_name);
+            this.iHz = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.iHB = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.iHB.setUseNewStyle(true);
+            this.aje = new com.baidu.tbadk.core.view.userLike.c(q.this.mPageContext, this.iHB);
         }
 
         public void onChangeSkinType(int i) {
-            if (!this.iHw) {
-                ap.setViewTextColor(this.dTQ, R.color.cp_cont_b);
+            if (!this.iHC) {
+                ap.setViewTextColor(this.dTU, R.color.cp_cont_b);
             } else {
-                ap.setViewTextColor(this.dTQ, R.color.cp_cont_h);
+                ap.setViewTextColor(this.dTU, R.color.cp_cont_h);
             }
-            ap.setViewTextColor(this.iHt, R.color.cp_cont_d);
-            this.iHv.onChangeSkinType(i);
-            if (q.this.iHo) {
+            ap.setViewTextColor(this.iHz, R.color.cp_cont_d);
+            this.iHB.onChangeSkinType(i);
+            if (q.this.iHu) {
                 com.baidu.tbadk.core.util.e.a.bjQ().oe(0).oi(R.color.cp_bg_line_j).ok(com.baidu.adp.lib.util.l.getDimens(q.this.mContext, R.dimen.tbds1)).V(com.baidu.adp.lib.util.l.getDimens(q.this.mContext, R.dimen.tbds10)).aZ(this.mContainer);
             }
         }
 
-        public void pz(boolean z) {
-            this.iHw = z;
+        public void pB(boolean z) {
+            this.iHC = z;
         }
     }
 
@@ -231,6 +231,6 @@ public class q extends RecyclerView.Adapter<a> {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.eya = bdUniqueId;
+        this.eyf = bdUniqueId;
     }
 }

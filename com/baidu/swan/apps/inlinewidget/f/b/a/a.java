@@ -3,5 +3,5 @@ package com.baidu.swan.apps.inlinewidget.f.b.a;
 public interface a {
     void aoo();
 
-    void ew(boolean z);
+    void ex(boolean z);
 }

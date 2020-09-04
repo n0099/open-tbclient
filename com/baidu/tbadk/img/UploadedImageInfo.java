@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UploadedImageInfo implements Serializable {
     private static final String POST_BJH_FORMAT = "#(pic_bos,%s,%d,%d,%b)";
     private static final String POST_FORMAT = "#(pic,%s,%d,%d)";

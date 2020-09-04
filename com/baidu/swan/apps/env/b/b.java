@@ -8,29 +8,29 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class b {
-    public static final Set<String> cpP = i.N("zeus");
-    public static final Set<String> cpQ = new HashSet(cpP);
-    private static final Set<String> cpR = new HashSet(cpQ);
-    private static final Map<String, a> cpS = new HashMap();
-    private static boolean cpT = false;
+    public static final Set<String> cpT = i.N("zeus");
+    public static final Set<String> cpU = new HashSet(cpT);
+    private static final Set<String> cpV = new HashSet(cpU);
+    private static final Map<String, a> cpW = new HashMap();
+    private static boolean cpX = false;
 
-    public static a mj(String str) {
+    public static a mk(String str) {
         alC();
-        return cpS.get(str);
+        return cpW.get(str);
     }
 
     private static void alC() {
-        if (!cpT) {
-            for (String str : cpR) {
+        if (!cpX) {
+            for (String str : cpV) {
                 if ("zeus".equals(str)) {
-                    cpS.put(str, alD());
+                    cpW.put(str, alD());
                 }
             }
         }
-        cpT = true;
+        cpX = true;
     }
 
     private static a alD() {
-        return new a.C0400a().mi("zeus").a(com.baidu.swan.apps.t.a.apx().aaG()).el(com.baidu.swan.apps.t.a.apx().aaE()).alB();
+        return new a.C0400a().mj("zeus").a(com.baidu.swan.apps.t.a.apx().aaG()).em(com.baidu.swan.apps.t.a.apx().aaE()).alB();
     }
 }

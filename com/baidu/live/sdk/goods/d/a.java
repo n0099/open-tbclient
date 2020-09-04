@@ -15,9 +15,9 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class a {
     public static void m(Context context, String str, String str2) {
-        be beVar = com.baidu.live.w.a.Nk().bka;
-        if (beVar != null && beVar.aJC != null) {
-            String str3 = beVar.aJC.aLz;
+        be beVar = com.baidu.live.w.a.Nk().bkd;
+        if (beVar != null && beVar.aJE != null) {
+            String str3 = beVar.aJE.aLB;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }

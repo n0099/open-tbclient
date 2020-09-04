@@ -27,8 +27,8 @@ public class d {
             fVar.mSource = aVar.aqN();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
-            fVar.cXI = String.valueOf(currentTimeMillis - j);
-            fVar.ry(aqS.getString("ubc"));
+            fVar.cXM = String.valueOf(currentTimeMillis - j);
+            fVar.rz(aqS.getString("ubc"));
             h.onEvent(fVar);
             aqS.remove("page_display_flag_for_statistic");
         }
@@ -45,31 +45,31 @@ public class d {
             fVar.mSource = aVar.aqN();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realcancel";
-            fVar.cXH = String.valueOf(currentTimeMillis - j);
+            fVar.cXL = String.valueOf(currentTimeMillis - j);
             fVar.u(TiebaInitialize.LogFields.REASON, str);
             fVar.u("errorList", b.aPn().aPo());
-            fVar.ry(aqS.getString("ubc"));
+            fVar.rz(aqS.getString("ubc"));
             h.onEvent(fVar);
             aqS.remove("page_display_flag_for_statistic");
         }
     }
 
-    public static void vP(String str) {
+    public static void vQ(String str) {
         if (com.baidu.swan.apps.runtime.d.azE().XP() == 1 && !aPp()) {
-            i.oW("startup").f(new UbcFlowEvent(str));
+            i.oX("startup").f(new UbcFlowEvent(str));
         }
     }
 
     public static void I(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow oW = i.oW("startup");
+            HybridUbcFlow oX = i.oX("startup");
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("id");
                     long optLong = optJSONObject.optLong("timestamp");
                     if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        oW.f(new UbcFlowEvent(optString).a(UbcFlowEvent.RecordType.UPDATE_RECENT).br(optLong));
+                        oX.f(new UbcFlowEvent(optString).a(UbcFlowEvent.RecordType.UPDATE_RECENT).br(optLong));
                     }
                 }
             }

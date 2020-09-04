@@ -18,6 +18,6 @@ public class aa extends com.baidu.tieba.card.data.a {
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return bl.dZX;
+        return bl.eab;
     }
 }

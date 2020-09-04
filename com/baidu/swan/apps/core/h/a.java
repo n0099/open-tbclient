@@ -15,7 +15,7 @@ public final class a {
         }
         Bundle bundle2 = new Bundle();
         bundle2.putBundle("swan_app_on_launch_event", bundle);
-        com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.cJz).fo(true));
+        com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(122, bundle2).a(cVar.cJD).fp(true));
         if (DEBUG) {
             Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
         }
@@ -24,7 +24,7 @@ public final class a {
     /* renamed from: com.baidu.swan.apps.core.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0388a {
-        private static int clN = -1;
+        private static int clR = -1;
 
         public static String aje() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
@@ -62,13 +62,13 @@ public final class a {
                         return false;
                 }
             }
-            if (clN < 0) {
-                clN = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_sub_pkg_launch_switch", 0);
+            if (clR < 0) {
+                clR = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_sub_pkg_launch_switch", 0);
             }
             if (a.DEBUG) {
-                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + clN);
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + clR);
             }
-            return clN == 1;
+            return clR == 1;
         }
     }
 }

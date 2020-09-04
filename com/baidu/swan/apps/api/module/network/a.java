@@ -37,7 +37,7 @@ public class a extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b jw(String str) {
+    public com.baidu.swan.apps.api.c.b jx(String str) {
         final e azI = e.azI();
         if (azI == null) {
             if (DEBUG) {

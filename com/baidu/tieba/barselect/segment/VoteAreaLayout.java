@@ -21,11 +21,11 @@ import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
 /* loaded from: classes15.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private TextView ewf;
-    private RoundAndShadowLinearLayout hfQ;
-    private View hfR;
-    private TrapezoidButton hfS;
-    private TextView hfT;
+    private TextView ewj;
+    private RoundAndShadowLinearLayout hfU;
+    private View hfV;
+    private TrapezoidButton hfW;
+    private TextView hfX;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -50,31 +50,31 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     private void uf() {
-        this.hfQ = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.hfQ.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
-        this.ewf = (TextView) findViewById(R.id.vote_num);
-        this.hfS = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.hfT = (TextView) findViewById(R.id.vote_button_tv);
-        this.hfR = findViewById(R.id.button_container);
+        this.hfU = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.hfU.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
+        this.ewj = (TextView) findViewById(R.id.vote_num);
+        this.hfW = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.hfX = (TextView) findViewById(R.id.vote_button_tv);
+        this.hfV = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.hbV == null || this.hfJ == null || this.status < 0) {
+        if (this.hbZ == null || this.hfN == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.ewf.setText(at.numFormatOverWan(this.hfJ.caH()) + "票");
-        this.hfT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.ewj.setText(at.numFormatOverWan(this.hfN.caI()) + "票");
+        this.hfX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bg.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
                     new aq("c13441").bjn();
-                    if (VoteAreaLayout.this.hfJ != null && fVar != null && fVar.caS() != null) {
-                        if (fVar.caS().caP()) {
+                    if (VoteAreaLayout.this.hfN != null && fVar != null && fVar.caT() != null) {
+                        if (fVar.caT().caQ()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.hfJ.getUid(), fVar.getFid(), VoteAreaLayout.this.hfJ.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.hfN.getUid(), fVar.getFid(), VoteAreaLayout.this.hfN.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.hfJ.caJ()) {
-            this.hfT.setEnabled(false);
+        if (this.hfN.caK()) {
+            this.hfX.setEnabled(false);
         } else {
-            this.hfT.setEnabled(true);
+            this.hfX.setEnabled(true);
         }
     }
 
     public void tl(int i) {
-        ap.setViewTextColor(this.ewf, R.color.cp_link_tip_b, 1, i);
-        ap.a(this.hfR, R.color.cp_link_tip_b, 0.2f, i);
-        ap.setViewTextColor(this.hfT, R.color.cp_cont_a, 1, i);
-        ap.setBackgroundResource(this.hfT, R.drawable.bar_select_bg_gradient, i);
+        ap.setViewTextColor(this.ewj, R.color.cp_link_tip_b, 1, i);
+        ap.a(this.hfV, R.color.cp_link_tip_b, 0.2f, i);
+        ap.setViewTextColor(this.hfX, R.color.cp_cont_a, 1, i);
+        ap.setBackgroundResource(this.hfX, R.drawable.bar_select_bg_gradient, i);
     }
 }

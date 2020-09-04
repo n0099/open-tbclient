@@ -65,7 +65,7 @@ public class d extends aa {
                     Log.d("replaceSwanCore", "swanCoreZipFile: " + amq + " swanCoreDir: " + amo);
                 }
                 if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
-                    com.baidu.swan.apps.ad.a.a.fh(true);
+                    com.baidu.swan.apps.ad.a.a.fi(true);
                     com.baidu.swan.apps.res.widget.b.d.k(context, a.h.aiapps_debug_swan_core_download_success).showToast();
                     callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;

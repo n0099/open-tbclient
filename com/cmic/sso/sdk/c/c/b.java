@@ -5,13 +5,13 @@ import com.cmic.sso.sdk.e.r;
 /* loaded from: classes7.dex */
 public class b extends c {
     private boolean c;
-    private e niI;
+    private e nja;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str, e eVar, String str2, String str3) {
         super(str, eVar, str2, str3);
         this.c = false;
-        this.niI = eVar;
+        this.nja = eVar;
     }
 
     public void b(com.cmic.sso.sdk.a aVar) {
@@ -20,17 +20,17 @@ public class b extends c {
             String aA = r.aA(true, "1".equals(aVar.b("operatortype", "")));
             aVar.a("ipv4List", a);
             aVar.a("ipv6List", aA);
-            e.a dNi = this.niI.dNi();
+            e.a dNr = this.nja.dNr();
             if (!aVar.b("isCloseIpv4", false)) {
-                dNi.a(a);
+                dNr.a(a);
             }
             if (!aVar.b("isCloseIpv6", false)) {
-                dNi.b(aA);
+                dNr.b(aA);
             }
-            dNi.v(dNi.Uf(aVar.b("appkey")));
-            this.niI.a(dNi);
-            this.niI.a(true);
-            this.a = this.niI.b().toString();
+            dNr.v(dNr.Uf(aVar.b("appkey")));
+            this.nja.a(dNr);
+            this.nja.a(true);
+            this.a = this.nja.b().toString();
             this.c = true;
         }
     }

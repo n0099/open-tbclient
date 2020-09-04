@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int leK = 0;
+    private int leR = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public int btM() {
-        return this.leK;
+    public int btN() {
+        return this.leR;
     }
 
-    public void Om(String str) {
+    public void On(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -25,7 +25,7 @@ public class b {
                 this.errorMsg = jSONObject.optString("error_msg", "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.leK = optJSONObject.optInt("msg_count");
+                    this.leR = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -9,10 +9,10 @@ import com.baidu.live.view.web.a.k;
 /* loaded from: classes7.dex */
 public class g {
     private BaseActivity baseActivity;
-    private SchemeCallback bvq;
-    private f bvr;
-    private AlaLastLiveroomInfo bvs;
-    private h bvt;
+    private SchemeCallback bvt;
+    private f bvu;
+    private AlaLastLiveroomInfo bvv;
+    private h bvw;
     private Activity context;
     private boolean isHost = false;
     private long liveId;
@@ -20,10 +20,10 @@ public class g {
     private String userName;
 
     public a[] QV() {
-        r0[0].a(this.bvt);
+        r0[0].a(this.bvw);
         com.baidu.live.view.web.a.d dVar = new com.baidu.live.view.web.a.d();
         dVar.setHost(this.isHost);
-        dVar.b(this.bvs);
+        dVar.b(this.bvv);
         com.baidu.live.view.web.a.h hVar = new com.baidu.live.view.web.a.h(this.context);
         hVar.setHost(this.isHost);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i();
@@ -31,9 +31,9 @@ public class g {
         iVar.setUserId(this.userId);
         iVar.setUserName(this.userName);
         iVar.setLiveId(this.liveId);
-        com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.bvq);
+        com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.bvt);
         gVar.b(this.baseActivity);
-        a[] aVarArr = {new j(this.context, this.bvq), dVar, hVar, new com.baidu.live.view.web.a.f(this.bvq), iVar, new com.baidu.live.view.web.a.e(this.bvq), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bvr), new com.baidu.live.view.web.a.b(this.bvq), new k(this.bvq), gVar};
+        a[] aVarArr = {new j(this.context, this.bvt), dVar, hVar, new com.baidu.live.view.web.a.f(this.bvt), iVar, new com.baidu.live.view.web.a.e(this.bvt), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bvu), new com.baidu.live.view.web.a.b(this.bvt), new k(this.bvt), gVar};
         return aVarArr;
     }
 
@@ -48,12 +48,12 @@ public class g {
     }
 
     public g a(SchemeCallback schemeCallback) {
-        this.bvq = schemeCallback;
+        this.bvt = schemeCallback;
         return this;
     }
 
     public g a(f fVar) {
-        this.bvr = fVar;
+        this.bvu = fVar;
         return this;
     }
 
@@ -62,18 +62,18 @@ public class g {
         return this;
     }
 
-    public g hw(String str) {
+    public g hx(String str) {
         this.userName = str;
         return this;
     }
 
-    public g cL(boolean z) {
+    public g cM(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public g b(h hVar) {
-        this.bvt = hVar;
+        this.bvw = hVar;
         return this;
     }
 
@@ -83,7 +83,7 @@ public class g {
     }
 
     public g a(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bvs = alaLastLiveroomInfo;
+        this.bvv = alaLastLiveroomInfo;
         return this;
     }
 }

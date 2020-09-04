@@ -71,7 +71,7 @@ public class i {
         return i4 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3), Integer.valueOf(i2)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i2)).toString();
     }
 
-    public static boolean hl(String str) {
+    public static boolean hm(String str) {
         if (str == null) {
             return false;
         }

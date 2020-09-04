@@ -17,12 +17,12 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes17.dex */
 public class a extends d {
-    private long mzh;
+    private long mzz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.mzh = 88200L;
+        this.mzz = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -56,8 +56,8 @@ public class a extends d {
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.mzh = (this.sampleRate * 16) / 8;
-            fileInputStream = new FileInputStream(this.mzm);
+            this.mzz = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.mzE);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -75,10 +75,10 @@ public class a extends d {
             fileInputStream = null;
         }
         try {
-            MediaCodec dCC = dCC();
-            dCC.start();
-            ByteBuffer[] inputBuffers = dCC.getInputBuffers();
-            ByteBuffer[] outputBuffers = dCC.getOutputBuffers();
+            MediaCodec dCL = dCL();
+            dCL.start();
+            ByteBuffer[] inputBuffers = dCL.getInputBuffers();
+            ByteBuffer[] outputBuffers = dCL.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             long j3 = 0;
             long j4 = 0;
@@ -90,7 +90,7 @@ public class a extends d {
             byte[] bArr2 = new byte[4096];
             boolean z6 = false;
             while (!z4) {
-                if (z5 || (dequeueInputBuffer = dCC.dequeueInputBuffer(10000L)) < 0) {
+                if (z5 || (dequeueInputBuffer = dCL.dequeueInputBuffer(10000L)) < 0) {
                     i = i4;
                     bArr = bArr2;
                     z = z6;
@@ -110,7 +110,7 @@ public class a extends d {
                         z3 = i3 == -1 ? true : z6;
                     }
                     if (z3) {
-                        dCC.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                        dCL.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
@@ -121,20 +121,20 @@ public class a extends d {
                     } else {
                         byteBuffer.put(bArr3, 0, i3);
                         int i7 = i4 + i3;
-                        dCC.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
+                        dCL.queueInputBuffer(dequeueInputBuffer, 0, i3, j4, 0);
                         i = i7;
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.mzh);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.mzz);
                         z2 = z5;
                     }
                 }
-                int dequeueOutputBuffer = dCC.dequeueOutputBuffer(bufferInfo, 10000L);
+                int dequeueOutputBuffer = dCL.dequeueOutputBuffer(bufferInfo, 10000L);
                 if (dequeueOutputBuffer >= 0) {
                     if ((bufferInfo.flags & 2) != 0) {
                         BdLog.i("audio encoder: codec config buffer");
-                        dCC.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        dCL.releaseOutputBuffer(dequeueOutputBuffer, false);
                         i5 = i2;
                         bArr2 = bArr;
                         j4 = j;
@@ -157,7 +157,7 @@ public class a extends d {
                                 byteBuffer2.get(bArr4, 7, i8);
                                 fileOutputStream.write(bArr4, 0, bArr4.length);
                                 BdLog.i(bArr4.length + " bytes written.");
-                                dCC.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                dCL.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 if ((bufferInfo.flags & 4) == 0) {
                                     j4 = j;
                                     z4 = true;
@@ -181,7 +181,7 @@ public class a extends d {
                             }
                         }
                         j2 = j3;
-                        dCC.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        dCL.releaseOutputBuffer(dequeueOutputBuffer, false);
                         if ((bufferInfo.flags & 4) == 0) {
                         }
                     }
@@ -189,12 +189,12 @@ public class a extends d {
                     bArr2 = bArr;
                     j4 = j;
                     z5 = z2;
-                    byteBufferArr = dCC.getOutputBuffers();
+                    byteBufferArr = dCL.getOutputBuffers();
                     i5 = i2;
                     i4 = i;
                     z6 = z;
                 } else if (dequeueOutputBuffer == -2) {
-                    BdLog.i("format change : " + dCC.getOutputFormat());
+                    BdLog.i("format change : " + dCL.getOutputFormat());
                     i5 = i2;
                     bArr2 = bArr;
                     j4 = j;
@@ -267,7 +267,7 @@ public class a extends d {
     }
 
     @TargetApi(16)
-    private MediaCodec dCC() throws IOException {
+    private MediaCodec dCL() throws IOException {
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString("mime", "audio/mp4a-latm");

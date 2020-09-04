@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaPersonCenterFansActivityConfig extends IntentConfig {
     public static final String ACTIVITY_TYPE = "activity_type";
     public static final String USER_ID = "user_id";

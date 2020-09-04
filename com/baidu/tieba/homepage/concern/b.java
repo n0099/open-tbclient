@@ -24,7 +24,7 @@ public class b {
                 aqVar.ai("obj_type", 8);
             } else if (bce.bgA()) {
                 aqVar.ai("obj_type", 9);
-            } else if (bce.getType() == bw.eaS) {
+            } else if (bce.getType() == bw.eaW) {
                 aqVar.ai("obj_type", 1);
             } else if (bce.bdk()) {
                 aqVar.ai("obj_type", 2);
@@ -34,7 +34,7 @@ public class b {
             aqVar.u("fid", absThreadDataSupport.bce().getFid());
             aqVar.ai("obj_source", 1);
             if (absThreadDataSupport instanceof com.baidu.tieba.card.data.c) {
-                aqVar.ai("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).cco() ? 2 : 1);
+                aqVar.ai("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).ccp() ? 2 : 1);
             }
             if (absThreadDataSupport.bce().beE() != null) {
                 aqVar.dD("uid", absThreadDataSupport.bce().beE().getUserId());

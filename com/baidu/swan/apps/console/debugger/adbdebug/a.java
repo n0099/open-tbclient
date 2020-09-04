@@ -15,9 +15,9 @@ public class a {
         d.f fVar = new d.f();
         File file2 = new File(adR(), "app.json");
         SwanAppConfigData m = SwanAppConfigData.m(com.baidu.swan.c.d.readFileData(file2), adR());
-        fVar.cuN = adR().getPath() + File.separator;
-        fVar.cuO = m;
-        c.bb("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + fVar.cuN);
+        fVar.cuR = adR().getPath() + File.separator;
+        fVar.cuS = m;
+        c.bb("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + fVar.cuR);
         return fVar;
     }
 

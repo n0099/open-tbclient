@@ -12,9 +12,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes7.dex */
 public class AlaBigGiftExtraInfoView extends LinearLayout {
-    private HeadImageView aAu;
-    private TextView aOP;
-    private TextView aOQ;
+    private HeadImageView aAw;
+    private TextView aOR;
+    private TextView aOS;
 
     public AlaBigGiftExtraInfoView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -23,13 +23,13 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
 
     public void setData(com.baidu.live.gift.a.c cVar) {
         if (cVar.portrait != null) {
-            this.aAu.startLoad(cVar.portrait, 12, false);
+            this.aAw.startLoad(cVar.portrait, 12, false);
         }
         if (!TextUtils.isEmpty(cVar.userName)) {
-            this.aOP.setText(cVar.userName);
+            this.aOR.setText(cVar.userName);
         }
-        if (cVar.aSQ != null) {
-            this.aOQ.setText(getResources().getString(a.i.gift_name_prefix) + cVar.aSQ.DS());
+        if (cVar.aSS != null) {
+            this.aOS.setText(getResources().getString(a.i.gift_name_prefix) + cVar.aSS.DS());
         }
     }
 
@@ -43,11 +43,11 @@ public class AlaBigGiftExtraInfoView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.popup_extra_info_layout, (ViewGroup) this, true);
-        this.aAu = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.aOP = (TextView) findViewById(a.g.tv_sender);
-        this.aOQ = (TextView) findViewById(a.g.tv_tip);
-        this.aAu.setIsRound(true);
-        this.aAu.setAutoChangeStyle(false);
-        this.aAu.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aAw = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.aOR = (TextView) findViewById(a.g.tv_sender);
+        this.aOS = (TextView) findViewById(a.g.tv_tip);
+        this.aAw.setIsRound(true);
+        this.aAw.setAutoChangeStyle(false);
+        this.aAw.setDefaultBgResource(a.f.sdk_default_avatar);
     }
 }

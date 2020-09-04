@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     private static int BASE_ERROR_NO = -100000000;
     public static final int ONLINE_SUCC = BASE_ERROR_NO - 1000;

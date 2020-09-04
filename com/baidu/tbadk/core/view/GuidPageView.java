@@ -6,7 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GuidPageView extends ImageView {
     public GuidPageView(Context context) {
         super(context);

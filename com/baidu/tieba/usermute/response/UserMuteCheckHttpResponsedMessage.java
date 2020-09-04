@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UserMuteCheck.DataRes;
 import tbclient.UserMuteCheck.UserMuteCheckResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UserMuteCheckHttpResponsedMessage extends HttpResponsedMessage {
     private DataRes mResult;
 

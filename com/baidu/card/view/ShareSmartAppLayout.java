@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes15.dex */
 public class ShareSmartAppLayout extends LinearLayout implements o<AbsThreadDataSupport> {
-    private AbsThreadDataSupport aeW;
-    private aa<AbsThreadDataSupport> agI;
-    private boolean ajr;
-    public AppletsCellView akF;
+    private AbsThreadDataSupport aeY;
+    private aa<AbsThreadDataSupport> agK;
+    private boolean ajt;
+    public AppletsCellView akH;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,8 +25,8 @@ public class ShareSmartAppLayout extends LinearLayout implements o<AbsThreadData
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajr = true;
-        this.aeW = null;
+        this.ajt = true;
+        this.aeY = null;
         initUI();
     }
 
@@ -34,11 +34,11 @@ public class ShareSmartAppLayout extends LinearLayout implements o<AbsThreadData
         LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.akF = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+        this.akH = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.ajr = z;
+        this.ajt = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,20 +50,20 @@ public class ShareSmartAppLayout extends LinearLayout implements o<AbsThreadData
             return;
         }
         setVisibility(0);
-        this.aeW = absThreadDataSupport;
+        this.aeY = absThreadDataSupport;
         bw bce = absThreadDataSupport.bce();
-        this.akF.setData(bce.bft());
-        this.akF.setForumId(String.valueOf(bce.getFid()));
-        AppletsCellView appletsCellView = this.akF;
-        AppletsCellView appletsCellView2 = this.akF;
+        this.akH.setData(bce.bft());
+        this.akH.setForumId(String.valueOf(bce.getFid()));
+        AppletsCellView appletsCellView = this.akH;
+        AppletsCellView appletsCellView2 = this.akH;
         appletsCellView.setFrom("frs_card");
     }
 
     public aa<AbsThreadDataSupport> getSubClickListener() {
-        return this.agI;
+        return this.agK;
     }
 
     public void setSubClickListener(aa<AbsThreadDataSupport> aaVar) {
-        this.agI = aaVar;
+        this.agK = aaVar;
     }
 }

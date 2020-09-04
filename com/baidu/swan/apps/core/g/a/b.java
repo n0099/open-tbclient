@@ -9,7 +9,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private List<d> cjH;
+    private List<d> cjL;
     private final Object mLock;
     private final int mMaxSize;
 
@@ -20,21 +20,21 @@ public class b {
         }
         this.mMaxSize = i;
         this.mLock = new Object();
-        this.cjH = new LinkedList();
+        this.cjL = new LinkedList();
     }
 
     public void a(d dVar) {
         if (dVar != null) {
             synchronized (this.mLock) {
-                if (!this.cjH.contains(dVar)) {
-                    this.cjH.add(dVar);
+                if (!this.cjL.contains(dVar)) {
+                    this.cjL.add(dVar);
                 }
                 resize();
             }
         }
     }
 
-    public d lv(String str) {
+    public d lw(String str) {
         d dVar;
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
@@ -49,14 +49,14 @@ public class b {
                 }
                 return aig();
             }
-            int size = this.cjH.size();
+            int size = this.cjL.size();
             int i = size - 1;
             while (true) {
                 if (i < 0) {
                     dVar = null;
                     break;
                 }
-                dVar = this.cjH.get(i);
+                dVar = this.cjL.get(i);
                 if (!TextUtils.equals(dVar.aih(), str)) {
                     i--;
                 } else if (DEBUG) {
@@ -64,8 +64,8 @@ public class b {
                 }
             }
             if (dVar != null && i != size - 1) {
-                this.cjH.remove(i);
-                this.cjH.add(dVar);
+                this.cjL.remove(i);
+                this.cjL.add(dVar);
             }
             if (DEBUG) {
                 if (dVar == null) {
@@ -92,7 +92,7 @@ public class b {
         }
         synchronized (this.mLock) {
             ArrayList arrayList = new ArrayList();
-            for (d dVar2 : this.cjH) {
+            for (d dVar2 : this.cjL) {
                 if (z || !collection.contains(dVar2)) {
                     arrayList.add(dVar2);
                 }
@@ -102,7 +102,7 @@ public class b {
     }
 
     private d aig() {
-        for (d dVar : this.cjH) {
+        for (d dVar : this.cjL) {
             if (dVar.isDefault()) {
                 return dVar;
             }
@@ -115,7 +115,7 @@ public class b {
 
     private void resize() {
         boolean z;
-        int size = this.cjH.size();
+        int size = this.cjL.size();
         if (size > this.mMaxSize) {
             if (DEBUG) {
                 Log.i("MasterPool", "resize, current - " + size + ", target - " + this.mMaxSize);
@@ -124,7 +124,7 @@ public class b {
             int i = 0;
             boolean z2 = false;
             while (i < size) {
-                d dVar = this.cjH.get(i);
+                d dVar = this.cjL.get(i);
                 if (dVar.isDefault() && !z2) {
                     z = true;
                 } else {
@@ -144,7 +144,7 @@ public class b {
     private void f(Collection<d> collection) {
         if (collection.size() > 0) {
             long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-            this.cjH.removeAll(collection);
+            this.cjL.removeAll(collection);
             if (DEBUG) {
                 Log.i("MasterPool", "remove no use master in pool, size - " + collection.size());
             }

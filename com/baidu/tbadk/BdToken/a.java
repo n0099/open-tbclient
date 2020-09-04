@@ -8,16 +8,16 @@ import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static final a aXO() {
-        return C0531a.dNo;
+        return C0531a.dNs;
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static class C0531a {
-        private static final a dNo = new a();
+        private static final a dNs = new a();
     }
 
     public synchronized long a(b bVar) {
@@ -96,10 +96,10 @@ public class a {
         b bVar = new b();
         bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
         bVar.mw(cursor.getInt(cursor.getColumnIndex("missionid")));
-        bVar.xI(cursor.getString(cursor.getColumnIndex("activitysource")));
+        bVar.xJ(cursor.getString(cursor.getColumnIndex("activitysource")));
         bVar.mx(cursor.getInt(cursor.getColumnIndex("calltype")));
         bVar.my(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-        bVar.xJ(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+        bVar.xK(cursor.getString(cursor.getColumnIndex("browsetimepage")));
         bVar.cs(cursor.getLong(cursor.getColumnIndex("browsetime")));
         bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
         bVar.mz(cursor.getInt(cursor.getColumnIndex("forumnum")));
@@ -108,8 +108,8 @@ public class a {
         bVar.cu(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
         bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
         bVar.setFid(cursor.getLong(cursor.getColumnIndex("fid")));
-        bVar.xK(cursor.getString(cursor.getColumnIndex("threadtext")));
-        bVar.xL(cursor.getString(cursor.getColumnIndex("threadimg")));
+        bVar.xL(cursor.getString(cursor.getColumnIndex("threadtext")));
+        bVar.xM(cursor.getString(cursor.getColumnIndex("threadimg")));
         bVar.cv(cursor.getInt(cursor.getColumnIndex("threadforum")));
         bVar.mB(cursor.getInt(cursor.getColumnIndex("totalLimit")));
         bVar.mC(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));

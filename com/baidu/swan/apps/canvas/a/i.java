@@ -35,8 +35,8 @@ public class i extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = d.caT;
-        com.baidu.swan.apps.model.a.a.a aVar = d.caX;
+        String str = d.caX;
+        com.baidu.swan.apps.model.a.a.a aVar = d.cbb;
         if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "some params invalid");
             unitedSchemeEntity.result = gB(202);

@@ -127,7 +127,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.aVG().flowSetValue(this, s.xo(str));
+                e.aVG().flowSetValue(this, s.xp(str));
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -162,7 +162,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                e.aVG().flowSetValueWithDuration(this, s.xo(str));
+                e.aVG().flowSetValueWithDuration(this, s.xp(str));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -273,7 +273,7 @@ public class Flow implements Parcelable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hi(boolean z) {
+    public void hj(boolean z) {
         this.mIsSampled = z;
     }
 

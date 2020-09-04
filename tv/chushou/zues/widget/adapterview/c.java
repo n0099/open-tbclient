@@ -3,5 +3,5 @@ package tv.chushou.zues.widget.adapterview;
 public interface c {
     void OG(int i);
 
-    boolean emq();
+    boolean emz();
 }

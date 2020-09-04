@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class b {
     String address;
-    float hre;
+    float hrk;
     private List<Integer> data = new ArrayList();
-    boolean hrf = false;
-    boolean hrg = false;
+    boolean hrl = false;
+    boolean hrm = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.hre = 0.0f;
+            this.hrk = 0.0f;
         } else if (size == 1) {
-            this.hre = this.data.get(0).intValue();
+            this.hrk = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.hre = ((i * f3) / size) + f;
-            if (this.hre < 0.05d) {
-                if (!this.hrf) {
-                    com.baidu.tieba.dnsproxy.d.cdB().ao("ip_weight_lower", this.address, String.valueOf(this.hre));
-                    this.hrf = true;
+            this.hrk = ((i * f3) / size) + f;
+            if (this.hrk < 0.05d) {
+                if (!this.hrl) {
+                    com.baidu.tieba.dnsproxy.d.cdC().ao("ip_weight_lower", this.address, String.valueOf(this.hrk));
+                    this.hrl = true;
                 }
-            } else if (this.hrf && this.hre > 0.5d && !this.hrg) {
-                com.baidu.tieba.dnsproxy.d.cdB().ao("ip_weight_lower_recover", this.address, String.valueOf(this.hre));
-                this.hrg = true;
+            } else if (this.hrl && this.hrk > 0.5d && !this.hrm) {
+                com.baidu.tieba.dnsproxy.d.cdC().ao("ip_weight_lower_recover", this.address, String.valueOf(this.hrk));
+                this.hrm = true;
             }
         }
     }

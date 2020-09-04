@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class OfficalBarChatActivityConfig extends IntentConfig {
     public static boolean IS_SUPPORT_OFFICIAL_CHAT = false;
     public static final String USER_TYPE = "user_type";

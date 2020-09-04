@@ -117,7 +117,7 @@ public class b extends g {
     /* loaded from: classes8.dex */
     public class d {
         LinearLayout button;
-        b cOL;
+        b cOP;
         TextView subText;
         TextView text;
 
@@ -126,7 +126,7 @@ public class b extends g {
                 this.text = (TextView) view.findViewById(a.f.hv_btn_text);
                 this.subText = (TextView) view.findViewById(a.f.hv_btn_subtext);
                 this.button = (LinearLayout) view;
-                this.cOL = bVar;
+                this.cOP = bVar;
             }
         }
 
@@ -148,9 +148,9 @@ public class b extends g {
                 this.button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.cOL.dismiss();
-                        if (aVar.cOK != null) {
-                            aVar.cOK.onItemClick(view);
+                        d.this.cOP.dismiss();
+                        if (aVar.cOO != null) {
+                            aVar.cOO.onItemClick(view);
                         }
                     }
                 });
@@ -166,8 +166,8 @@ public class b extends g {
         public C0431b(Context context) {
             super(context);
             this.list = new ArrayList();
-            fD(false);
-            fz(false);
+            fE(false);
+            fA(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
@@ -192,7 +192,7 @@ public class b extends g {
 
     /* loaded from: classes8.dex */
     public static class a {
-        public c cOK;
+        public c cOO;
         public CharSequence mSubText;
         public int mSubTextColorId = -1;
         public CharSequence mText;
@@ -202,7 +202,7 @@ public class b extends g {
             this.mTextColorId = -1;
             this.mText = charSequence;
             this.mTextColorId = i;
-            this.cOK = cVar;
+            this.cOO = cVar;
         }
     }
 }

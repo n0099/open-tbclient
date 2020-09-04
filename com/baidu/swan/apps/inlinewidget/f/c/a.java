@@ -12,15 +12,15 @@ public interface a extends d {
     public interface InterfaceC0409a {
         void aog();
 
-        void gv(String str);
+        void gw(String str);
 
         void hU(int i);
 
-        void mW(String str);
-
         void mX(String str);
 
-        void mY(@NonNull String str);
+        void mY(String str);
+
+        void mZ(@NonNull String str);
 
         void onEnded();
 
@@ -47,7 +47,7 @@ public interface a extends d {
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void ex(boolean z);
+    void ey(boolean z);
 
     Context getContext();
 
@@ -67,7 +67,7 @@ public interface a extends d {
 
     void l(int i, int i2, int i3, int i4);
 
-    void nd(String str);
+    void ne(String str);
 
     void pause();
 

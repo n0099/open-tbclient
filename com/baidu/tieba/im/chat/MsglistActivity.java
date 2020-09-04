@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.m;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
     protected abstract boolean a(d dVar);
 
@@ -14,11 +14,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void cBO() {
-        cBp();
+    public void cBP() {
+        cBq();
     }
 
-    public void cBp() {
+    public void cBq() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,14 +31,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        if (this.jgA != null) {
-            this.jgA.setImageUploadUIProgressCallback(this.jgF);
+        if (this.jgG != null) {
+            this.jgG.setImageUploadUIProgressCallback(this.jgL);
         }
-        bKY();
+        bKZ();
         if (a((d) this)) {
             loadDraft();
-            cBn();
-            j.jgy = m.bvq();
+            cBo();
+            j.jgE = m.bvr();
         }
     }
 
@@ -46,8 +46,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.jgA != null) {
-            this.jgA.onDestroy();
+        if (this.jgG != null) {
+            this.jgG.onDestroy();
         }
         setIntent(intent);
         if (!at(null)) {
@@ -56,7 +56,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bKY();
+        bKZ();
         if (a((d) this)) {
             loadDraft();
         }
@@ -66,8 +66,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jgz != null) {
-            this.jgz.onChangeSkinType(i);
+        if (this.jgF != null) {
+            this.jgF.onChangeSkinType(i);
         }
     }
 
@@ -75,37 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jgz != null) {
-            this.jgz.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cBk();
+        if (this.jgF != null) {
+            this.jgF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            cBl();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cBk() {
+    public void cBl() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.jgz.showReceiver();
+            this.jgF.showReceiver();
         } else {
-            this.jgz.closeReceiver();
+            this.jgF.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.jgA.loadDraft();
+        return this.jgG.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cBo();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cBn() {
+        cBp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cBo() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cBp() {
     }
 }

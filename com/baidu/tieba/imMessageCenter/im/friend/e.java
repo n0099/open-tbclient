@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes16.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage jCJ;
-    private long jCK;
-    private long jfV;
+    private RequestCommitInviteMessage jCP;
+    private long jCQ;
+    private long jgb;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.jfV = intent.getLongExtra("gid", -1L);
-            this.jCK = intent.getLongExtra("groupid", -1L);
+            this.jgb = intent.getLongExtra("gid", -1L);
+            this.jCQ = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.jfV = bundle.getLong("gid", -1L);
-            this.jCK = bundle.getLong("groupid", -1L);
+            this.jgb = bundle.getLong("gid", -1L);
+            this.jCQ = bundle.getLong("groupid", -1L);
         }
     }
 
     public void ax(Bundle bundle) {
-        bundle.putLong("gid", this.jfV);
-        bundle.putLong("groupid", this.jCK);
+        bundle.putLong("gid", this.jgb);
+        bundle.putLong("groupid", this.jCQ);
     }
 
-    public void Lk(String str) {
-        this.jCJ = c(this.jfV, this.jCK, str);
-        super.sendMessage(this.jCJ);
+    public void Ll(String str) {
+        this.jCP = c(this.jgb, this.jCQ, str);
+        super.sendMessage(this.jCP);
     }
 
     private RequestCommitInviteMessage c(long j, long j2, String str) {

@@ -3,5 +3,5 @@ package com.baidu.swan.apps.core.container;
 public interface c {
     boolean afu();
 
-    boolean dM(boolean z);
+    boolean dN(boolean z);
 }

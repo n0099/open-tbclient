@@ -80,7 +80,7 @@ public class r extends aa {
         for (int i = 0; i < jSONArray.length(); i++) {
             UbcFlowEvent aG = aG(jSONArray.optJSONObject(i));
             if (aG != null) {
-                aG.pn("FE");
+                aG.po("FE");
                 arrayList.add(aG);
             }
         }
@@ -110,7 +110,7 @@ public class r extends aa {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.cXO = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.cXS = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {

@@ -18,12 +18,12 @@ public class e extends com.baidu.swan.pms.c.d.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d.b
     public void a(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, com.baidu.swan.pms.model.f> map2, @NonNull b.a aVar, @Nullable com.baidu.swan.pms.utils.a aVar2) {
-        int wB;
+        int wC;
         super.a(map, map2, aVar, aVar2);
         if (aVar instanceof b) {
             b bVar = (b) aVar;
-            if (bVar.aNs() != null && bVar.aUs() == null && (wB = com.baidu.swan.pms.database.a.aTt().wB(bVar.getBundleId())) >= 0) {
-                bVar.ay(a.ax(com.baidu.swan.pms.database.a.aTt().ac(bVar.getBundleId(), wB)));
+            if (bVar.aNs() != null && bVar.aUs() == null && (wC = com.baidu.swan.pms.database.a.aTt().wC(bVar.getBundleId())) >= 0) {
+                bVar.ay(a.ax(com.baidu.swan.pms.database.a.aTt().ac(bVar.getBundleId(), wC)));
             }
         }
     }
@@ -31,7 +31,7 @@ public class e extends com.baidu.swan.pms.c.d.b {
     /* loaded from: classes14.dex */
     public static class b extends b.a {
         @Nullable
-        private List<a> dGs;
+        private List<a> dGw;
         @Nullable
         private String[] mPaths;
 
@@ -50,26 +50,26 @@ public class e extends com.baidu.swan.pms.c.d.b {
 
         @Nullable
         public List<a> aUs() {
-            return this.dGs;
+            return this.dGw;
         }
 
         public void ay(@Nullable List<a> list) {
-            this.dGs = list;
+            this.dGw = list;
         }
     }
 
     /* loaded from: classes14.dex */
     public static class a {
-        private final String dGr;
+        private final String dGv;
         private String mType;
         private long mVersion = 0;
 
         public a(String str) {
-            this.dGr = str;
+            this.dGv = str;
         }
 
         public String aUr() {
-            return this.dGr;
+            return this.dGv;
         }
 
         public String getType() {
@@ -96,8 +96,8 @@ public class e extends com.baidu.swan.pms.c.d.b {
             }
             for (com.baidu.swan.pms.model.g gVar : list) {
                 if (gVar != null) {
-                    a aVar = new a(gVar.dFj);
-                    aVar.setType(gVar.dFo ? "independent" : "normal");
+                    a aVar = new a(gVar.dFn);
+                    aVar.setType(gVar.dFs ? "independent" : "normal");
                     aVar.cn(gVar.versionCode);
                     arrayList.add(aVar);
                 }

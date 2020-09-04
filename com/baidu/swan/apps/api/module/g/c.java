@@ -23,12 +23,12 @@ public class c extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jF(String str) {
+    public com.baidu.swan.apps.api.c.b jG(String str) {
         if (DEBUG) {
             Log.d("Api-RedirectTo", "handle: " + str);
         }
         final String uuid = UUID.randomUUID().toString();
-        j.pk(uuid);
+        j.pl(uuid);
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-RedirectTo", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -52,13 +52,13 @@ public class c extends com.baidu.swan.apps.api.a.d {
         }
         final com.baidu.swan.apps.model.b bP = com.baidu.swan.apps.model.b.bP(bA, arY.arF());
         if (!ak.a(arY.arD(), bP, false)) {
-            String str2 = "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDC;
+            String str2 = "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDG;
             com.baidu.swan.apps.console.c.e("Api-RedirectTo", str2);
             return new com.baidu.swan.apps.api.c.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && bP != null && !TextUtils.isEmpty(bP.cDC) && e.azI() != null) {
-            e.azI().ce(optString, bP.cDC);
+        if (!TextUtils.isEmpty(optString) && bP != null && !TextUtils.isEmpty(bP.cDG) && e.azI() != null) {
+            e.azI().ce(optString, bP.cDG);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {
@@ -88,7 +88,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                         throw new RuntimeException("swan activity is null");
                     }
                     final b.a F = com.baidu.swan.apps.core.slave.b.F(arI);
-                    final String aaU = F.cmK.aaU();
+                    final String aaU = F.cmO.aaU();
                     if (com.baidu.swan.apps.api.a.d.DEBUG) {
                         Log.d("Api-RedirectTo", "webview id: " + aaU);
                     }
@@ -103,8 +103,8 @@ public class c extends com.baidu.swan.apps.api.a.d {
                     arY.showLoadingView();
                     g.a(azI, bP, aaU, new g.a() { // from class: com.baidu.swan.apps.api.module.g.c.1.1
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                        public void iT(String str3) {
-                            j.pj(uuid);
+                        public void iU(String str3) {
+                            j.pk(uuid);
                             com.baidu.swan.apps.console.c.i("Api-RedirectTo", "check pages success");
                             arY.Ya();
                             com.baidu.swan.apps.scheme.actions.k.a.a(c.this, azI, aaU, bP.mPage, null, optString3);
@@ -142,7 +142,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady start.");
                 }
                 j.a(aVar, str);
-                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.cmK, bVar, str);
+                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.cmO, bVar, str);
                 c.a(fVar, bVar, str, false);
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                     Log.d("Api-RedirectTo", "tryToExecutePageRoute onReady end.");
@@ -155,13 +155,13 @@ public class c extends com.baidu.swan.apps.api.a.d {
     }
 
     public static void a(com.baidu.swan.apps.core.d.f fVar, com.baidu.swan.apps.model.b bVar, String str, boolean z) {
-        fVar.ln("redirectTo").al(0, 0).a("normal", bVar).gZ(z ? 0 : fVar.ahp() - 2).ahx();
+        fVar.lo("redirectTo").al(0, 0).a("normal", bVar).gZ(z ? 0 : fVar.ahp() - 2).ahx();
         int i = 2;
         if (z) {
             i = 8;
         }
         i.bT("route", str).f(new UbcFlowEvent("na_push_page_end"));
         j.T(i, str);
-        j.pl(str);
+        j.pm(str);
     }
 }

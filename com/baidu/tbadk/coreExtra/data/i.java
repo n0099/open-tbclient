@@ -1,13 +1,13 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.tieba.tbadkCore.util.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class i {
     private String authToken;
-    private f.a eAc;
+    private f.a eAg;
     private int type;
 
-    public static i AS(String str) {
+    public static i AT(String str) {
         return new i(0, str);
     }
 
@@ -37,14 +37,14 @@ public class i {
     }
 
     public f.a bmE() {
-        return this.eAc;
+        return this.eAg;
     }
 
     public void a(f.a aVar) {
-        this.eAc = aVar;
+        this.eAg = aVar;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class c {
         public boolean isSuccess;
 
@@ -53,7 +53,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends c {
         public String authSid;
 
@@ -63,7 +63,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends c {
         public String callbackKey;
 

@@ -20,23 +20,23 @@ import com.baidu.tbadk.core.view.YoungsterFrsDialogView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static void a(TbPageContext<?> tbPageContext, AntiData antiData, int i) {
         if (antiData != null && antiData.isSexyForum()) {
-            if (b.bze()) {
+            if (b.bzf()) {
                 c(tbPageContext, i);
-            } else if (CW(antiData.getTeenModeInterval())) {
+            } else if (CX(antiData.getTeenModeInterval())) {
                 d(tbPageContext, i);
             }
         }
     }
 
-    private static boolean CW(String str) {
+    private static boolean CX(String str) {
         if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_youngster_frs_dialog_no_tip_again", false) || !TbadkCoreApplication.isLogin()) {
             return false;
         }
-        return System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bik().getLong("key_youngster_frs_dialog_show_time", 0L) >= k(CX(str));
+        return System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bik().getLong("key_youngster_frs_dialog_show_time", 0L) >= k(CY(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -66,7 +66,7 @@ public class a {
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds95));
         aVar.aX(youngsterFrsDialogView);
         aVar.nw(5);
-        aVar.m39if(false);
+        aVar.ig(false);
         aVar.b(tbPageContext).bhg();
         CustomMessageListener customMessageListener = new CustomMessageListener(2921484) { // from class: com.baidu.tbadk.youngster.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
@@ -82,7 +82,7 @@ public class a {
                 switch (i2) {
                     case 3:
                         aVar.dismiss();
-                        new BdTopToast(tbPageContext.getPageActivity(), 2000).wS(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                        new BdTopToast(tbPageContext.getPageActivity(), 2000).wU(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                         return;
                     default:
                         return;
@@ -113,7 +113,7 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bhe());
-                new BdTopToast(tbPageContext.getPageActivity(), 2000).wS(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                new BdTopToast(tbPageContext.getPageActivity(), 2000).wU(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                 aVar.dismiss();
             }
         });
@@ -123,7 +123,7 @@ public class a {
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds65));
         aVar.aX(youngsterFrsDialogView);
         aVar.nw(5);
-        aVar.m39if(false);
+        aVar.ig(false);
         aVar.b(tbPageContext).bhg();
         com.baidu.tbadk.core.sharedPref.b.bik().putLong("key_youngster_frs_dialog_show_time", System.currentTimeMillis());
         int i2 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_youngster_frs_showed_times", 0) + 1;
@@ -144,7 +144,7 @@ public class a {
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    private static int[] CX(String str) {
+    private static int[] CY(String str) {
         int[] iArr = {0, 0, 0};
         if (!StringUtils.isNull(str)) {
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

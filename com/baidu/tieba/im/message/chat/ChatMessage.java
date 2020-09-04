@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class ChatMessage extends TbSocketMessage implements com.baidu.adp.framework.client.socket.a, q {
     private long bornTime;
     private transient MsgCacheData cacheData;

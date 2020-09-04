@@ -6,11 +6,11 @@ final class t implements ValueAnimator.AnimatorUpdateListener {
     private final /* synthetic */ int a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
-    private final /* synthetic */ InstallActivity nCr;
+    private final /* synthetic */ InstallActivity nCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(InstallActivity installActivity, int i, int i2, int i3) {
-        this.nCr = installActivity;
+        this.nCJ = installActivity;
         this.a = i;
         this.b = i2;
         this.c = i3;
@@ -20,7 +20,7 @@ final class t implements ValueAnimator.AnimatorUpdateListener {
     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
         float animatedFraction2 = valueAnimator.getAnimatedFraction();
-        this.nCr.getWindow().setLayout((int) ((this.a * animatedFraction) + (this.b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.b)));
-        this.nCr.getWindow().getDecorView().refreshDrawableState();
+        this.nCJ.getWindow().setLayout((int) ((this.a * animatedFraction) + (this.b * animatedFraction2)), (int) ((animatedFraction * this.c) + (animatedFraction2 * this.b)));
+        this.nCJ.getWindow().getDecorView().refreshDrawableState();
     }
 }

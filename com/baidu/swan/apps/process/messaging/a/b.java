@@ -39,7 +39,7 @@ public class b {
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
             if (next != null && next.axT()) {
-                a(next.cJz, bundle, cls, null);
+                a(next.cJD, bundle, cls, null);
             }
         }
     }

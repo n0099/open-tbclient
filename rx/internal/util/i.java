@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes5.dex */
 public final class i implements k {
-    private volatile boolean oDO;
-    private List<k> oIT;
+    private volatile boolean oEg;
+    private List<k> oJl;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.oIT = new LinkedList(Arrays.asList(kVarArr));
+        this.oJl = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.oIT = new LinkedList();
-        this.oIT.add(kVar);
+        this.oJl = new LinkedList();
+        this.oJl.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.oDO;
+        return this.oEg;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.oDO) {
+            if (!this.oEg) {
                 synchronized (this) {
-                    if (!this.oDO) {
-                        List list = this.oIT;
+                    if (!this.oEg) {
+                        List list = this.oJl;
                         if (list == null) {
                             list = new LinkedList();
-                            this.oIT = list;
+                            this.oJl = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.oDO) {
+        if (!this.oEg) {
             synchronized (this) {
-                List<k> list = this.oIT;
-                if (!this.oDO && list != null) {
+                List<k> list = this.oJl;
+                if (!this.oEg && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.oDO) {
+        if (!this.oEg) {
             synchronized (this) {
-                if (!this.oDO) {
-                    this.oDO = true;
-                    List<k> list = this.oIT;
-                    this.oIT = null;
+                if (!this.oEg) {
+                    this.oEg = true;
+                    List<k> list = this.oJl;
+                    this.oJl = null;
                     v(list);
                 }
             }

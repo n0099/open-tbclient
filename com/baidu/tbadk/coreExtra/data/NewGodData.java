@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NewGodData extends com.baidu.tbadk.core.data.m implements Serializable {
     private int mStatus = 0;
     private String mFieldId = "";

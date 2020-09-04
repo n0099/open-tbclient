@@ -2,7 +2,7 @@ package com.baidu.adp.widget.ListView;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class z extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId WI = BdUniqueId.gen();
     private int position = 0;

@@ -8,13 +8,13 @@ import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     public a UX = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onPreLoad();
     }
@@ -175,14 +175,14 @@ public class e {
         return new b(textView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     class b extends af.a {
         public b(View view) {
             super(view);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c {
         public af.a UZ;
         public Object data;

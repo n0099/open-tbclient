@@ -7,53 +7,53 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Download dnw;
-    private JSONObject dnx;
-    private C0487c dny = new C0487c();
-    private com.baidu.swan.gamecenter.appmanager.b.b dnz;
+    private Download dnA;
+    private JSONObject dnB;
+    private C0487c dnC = new C0487c();
+    private com.baidu.swan.gamecenter.appmanager.b.b dnD;
 
     public c(Download download, JSONObject jSONObject) {
-        this.dnw = download;
-        this.dnx = jSONObject;
+        this.dnA = download;
+        this.dnB = jSONObject;
     }
 
     public void b(com.baidu.swan.gamecenter.appmanager.b.b bVar) {
-        this.dnz = bVar;
-        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new b(this.dnw, this.dnx, this.dny));
+        this.dnD = bVar;
+        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new b(this.dnA, this.dnB, this.dnC));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.gamecenter.appmanager.c.b bVar) {
-        if (this.dnz != null) {
-            this.dnz.a(bVar);
+        if (this.dnD != null) {
+            this.dnD.a(bVar);
         }
         if (bVar != null && !bVar.aKC()) {
-            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dnw.getKeyByUser(), "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dnx));
+            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dnA.getKeyByUser(), "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dnB));
         }
-        if (this.dny != null) {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().e(this.dnw.getKeyByUser(), this.dny);
-            this.dny = null;
+        if (this.dnC != null) {
+            com.baidu.swan.gamecenter.appmanager.a.aKb().e(this.dnA.getKeyByUser(), this.dnC);
+            this.dnC = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class b implements Runnable {
-        private JSONObject dna;
-        private com.baidu.swan.gamecenter.appmanager.b.a dnu;
-        private Download dnw;
+        private Download dnA;
+        private JSONObject dne;
+        private com.baidu.swan.gamecenter.appmanager.b.a dny;
 
         private b(@NonNull Download download, JSONObject jSONObject, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
-            this.dnw = download;
-            this.dna = jSONObject;
-            this.dnu = aVar;
+            this.dnA = download;
+            this.dne = jSONObject;
+            this.dny = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().bS(this.dna);
-            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dnw.getKeyByUser(), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dna));
-            com.baidu.swan.gamecenter.appmanager.a.aKb().a(this.dnw.getUrl(), this.dnu);
+            com.baidu.swan.gamecenter.appmanager.a.aKb().bS(this.dne);
+            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dnA.getKeyByUser(), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dne));
+            com.baidu.swan.gamecenter.appmanager.a.aKb().a(this.dnA.getUrl(), this.dny);
         }
     }
 
@@ -96,7 +96,7 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().ug(this.mFilePath);
+            com.baidu.swan.gamecenter.appmanager.a.aKb().uh(this.mFilePath);
             com.baidu.swan.gamecenter.appmanager.a.aKb().aKf();
         }
     }

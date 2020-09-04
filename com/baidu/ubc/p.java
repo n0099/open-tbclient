@@ -7,12 +7,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes18.dex */
 public class p {
-    private long ZY;
-    private int dJI;
-    private JSONObject dJJ;
-    private String dJK;
-    private boolean dJL = false;
-    private JSONArray dJN;
+    private long aaa;
+    private int dJM;
+    private JSONObject dJN;
+    private String dJO;
+    private boolean dJP = false;
+    private JSONArray dJR;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,15 +25,15 @@ public class p {
 
     public p(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.dJI = i;
+        this.dJM = i;
         this.mContent = str2;
         this.mOption = i2;
     }
 
     public p(String str, int i, JSONObject jSONObject, int i2) {
         this.mId = str;
-        this.dJI = i;
-        this.dJJ = jSONObject;
+        this.dJM = i;
+        this.dJN = jSONObject;
         this.mOption = i2;
     }
 
@@ -42,7 +42,7 @@ public class p {
     }
 
     public int aVR() {
-        return this.dJI;
+        return this.dJM;
     }
 
     public String getContent() {
@@ -50,11 +50,11 @@ public class p {
     }
 
     public JSONObject aVT() {
-        return this.dJJ;
+        return this.dJN;
     }
 
     public long aVY() {
-        return this.ZY;
+        return this.aaa;
     }
 
     public long getEndTime() {
@@ -70,7 +70,7 @@ public class p {
     }
 
     public String aVS() {
-        return this.dJK;
+        return this.dJO;
     }
 
     public void setId(String str) {
@@ -78,7 +78,7 @@ public class p {
     }
 
     public void mk(int i) {
-        this.dJI = i;
+        this.dJM = i;
     }
 
     public void setContent(String str) {
@@ -86,19 +86,19 @@ public class p {
     }
 
     public void cq(long j) {
-        this.ZY = j;
+        this.aaa = j;
     }
 
     public void setEndTime(long j) {
         this.mEndTime = j;
     }
 
-    public void xl(String str) {
+    public void xm(String str) {
         this.mState = str;
     }
 
-    public void xm(String str) {
-        this.dJK = str;
+    public void xn(String str) {
+        this.dJO = str;
     }
 
     public void setCategory(String str) {
@@ -109,24 +109,24 @@ public class p {
         return this.mCategory;
     }
 
-    public void hh(boolean z) {
-        this.dJL = z;
+    public void hi(boolean z) {
+        this.dJP = z;
     }
 
     public boolean aVO() {
-        return this.dJL;
+        return this.dJP;
     }
 
     public void aVV() {
-        if (g.dLN().xb(this.mId)) {
-            this.dJK = UBC.getUBCContext().avl();
+        if (g.dLW().xc(this.mId)) {
+            this.dJO = UBC.getUBCContext().avl();
         }
     }
 
-    public void xn(String str) {
+    public void xo(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.dJN = new JSONArray(str);
+                this.dJR = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -134,6 +134,6 @@ public class p {
     }
 
     public JSONArray aWa() {
-        return this.dJN;
+        return this.dJR;
     }
 }

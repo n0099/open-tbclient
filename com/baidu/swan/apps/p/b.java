@@ -13,24 +13,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b {
-    private String bLF;
-    private boolean csH;
-    private boolean csI;
-    private JSONObject csJ;
+    private String bLJ;
+    private boolean csL;
+    private boolean csM;
+    private JSONObject csN;
 
     public String getImageUrl() {
-        return this.bLF;
+        return this.bLJ;
     }
 
     public b anw() {
-        this.csH = false;
-        this.csI = false;
-        this.bLF = null;
-        this.csJ = anz();
-        if (this.csJ != null) {
-            this.csH = any();
-            if (!this.csH) {
-                this.csI = anx();
+        this.csL = false;
+        this.csM = false;
+        this.bLJ = null;
+        this.csN = anz();
+        if (this.csN != null) {
+            this.csL = any();
+            if (!this.csL) {
+                this.csM = anx();
             }
         }
         return this;
@@ -38,16 +38,16 @@ public class b {
 
     private boolean anx() {
         if (d.azE().XP() == 0) {
-            return s(this.csJ, "bbasp_guide_");
+            return s(this.csN, "bbasp_guide_");
         }
         if (d.azE().XP() == 1) {
-            return s(this.csJ, "bbaspg_guide_");
+            return s(this.csN, "bbaspg_guide_");
         }
         return false;
     }
 
     private boolean any() {
-        JSONArray optJSONArray = this.csJ.optJSONArray("custom_guide_list");
+        JSONArray optJSONArray = this.csN.optJSONArray("custom_guide_list");
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return false;
         }
@@ -95,7 +95,7 @@ public class b {
                             p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.p.b.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    h.aDf().putString("swan_guide_toast", b.this.csJ.toString());
+                                    h.aDf().putString("swan_guide_toast", b.this.csN.toString());
                                 }
                             }, "swanCloseGuideRunnable");
                         } catch (JSONException e) {
@@ -121,7 +121,7 @@ public class b {
         if (i >= optJSONArray.length()) {
             i = 0;
         }
-        this.bLF = optJSONArray.optString(i);
+        this.bLJ = optJSONArray.optString(i);
         return i;
     }
 
@@ -137,14 +137,14 @@ public class b {
     }
 
     public boolean isShow() {
-        return this.csI || this.csH;
+        return this.csM || this.csL;
     }
 
     public String anA() {
-        if (this.csH) {
+        if (this.csL) {
             return "special";
         }
-        if (this.csI) {
+        if (this.csM) {
             return "normal";
         }
         return null;

@@ -5,59 +5,59 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.ColorRes;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends TBSpecificationButtonConfig {
-    private boolean ewQ;
+    private boolean ewU;
 
     public b() {
-        this.ewB = R.color.cp_link_tip_a;
-        this.ewQ = true;
+        this.ewF = R.color.cp_link_tip_a;
+        this.ewU = true;
     }
 
     public void pb(@ColorRes int i) {
-        this.ewB = i;
-        this.ewQ = true;
-        this.ewN = true;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewF = i;
+        this.ewU = true;
+        this.ewR = true;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
     public void pc(@ColorRes int i) {
-        this.ewB = i;
-        this.ewD = R.color.cp_btn_a;
-        this.ewQ = false;
-        this.ewN = true;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewF = i;
+        this.ewH = R.color.cp_btn_a;
+        this.ewU = false;
+        this.ewR = true;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
     public void blo() {
-        this.ewB = R.color.cp_cont_a;
-        this.ewD = R.color.cp_btn_j;
-        this.ewQ = false;
-        this.ewN = true;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewF = R.color.cp_cont_a;
+        this.ewH = R.color.cp_btn_j;
+        this.ewU = false;
+        this.ewR = true;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
     public void pd(@ColorRes int i) {
-        this.ewB = i;
-        this.ewD = R.color.cp_btn_c;
-        this.ewQ = false;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewF = i;
+        this.ewH = R.color.cp_btn_c;
+        this.ewU = false;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
     public void bb(@ColorRes int i, @ColorRes int i2) {
-        this.ewD = i;
-        this.ewB = i2;
-        this.ewQ = false;
-        if (this.ewP != null) {
-            this.ewP.bll();
+        this.ewH = i;
+        this.ewF = i2;
+        this.ewU = false;
+        if (this.ewT != null) {
+            this.ewT.bll();
         }
     }
 
@@ -69,10 +69,10 @@ public class b extends TBSpecificationButtonConfig {
 
     private Drawable ac(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.ewQ) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.ewN ? ap.getColor(this.aiB, this.ewB) : this.ewB, 0.08f));
+        if (this.ewU) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.ewR ? ap.getColor(this.aiD, this.ewF) : this.ewF, 0.08f));
         } else {
-            gradientDrawable.setColor(ap.getColor(this.aiB, this.ewD));
+            gradientDrawable.setColor(ap.getColor(this.aiD, this.ewH));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

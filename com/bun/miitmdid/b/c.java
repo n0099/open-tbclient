@@ -13,10 +13,10 @@ public class c {
 
     private Map<String, String> a() {
         if (this.a.isEmpty()) {
-            this.a.put("av", sysParamters.dNd().b());
-            this.a.put("sv", sysParamters.dNd().c());
-            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dNd().d());
-            this.a.put("mf", sysParamters.dNd().e());
+            this.a.put("av", sysParamters.dNm().b());
+            this.a.put("sv", sysParamters.dNm().c());
+            this.a.put(IXAdRequestInfo.TEST_MODE, sysParamters.dNm().d());
+            this.a.put("mf", sysParamters.dNm().e());
             this.a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -28,14 +28,14 @@ public class c {
             String a = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
             b gi = b.gi(com.bun.miitmdid.utils.b.a());
             gi.w(a());
-            gi.gj("support", String.valueOf(z ? 1 : 0));
+            gi.gk("support", String.valueOf(z ? 1 : 0));
             gi.aN(a);
             gi.Ud("http://sdk.api.bjshcw.com/stat");
             gi.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).dMX();
+            }).dNg();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

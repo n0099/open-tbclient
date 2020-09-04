@@ -13,7 +13,7 @@ import tv.chushou.zues.utils.h;
 public class a {
     private final List<e> a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0898a nUV;
+    private InterfaceC0898a nVn;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -25,9 +25,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.nUV = (InterfaceC0898a) context;
+            this.nVn = (InterfaceC0898a) context;
         } catch (Exception e) {
-            this.nUV = null;
+            this.nVn = null;
         }
     }
 
@@ -63,8 +63,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.nUV != null) {
-            this.nUV.a(this.a.size());
+        if (this.nVn != null) {
+            this.nVn.a(this.a.size());
         }
     }
 
@@ -90,13 +90,13 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.nUV != null) {
-                    a.this.nUV.a(a.this.a.size());
+                if (a.this.nVn != null) {
+                    a.this.nVn.a(a.this.a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dYr().q() && this.a.size() > 0 && this.nUV != null) {
-            this.nUV.D();
+        if (com.kascend.chushou.d.h.dYA().q() && this.a.size() > 0 && this.nVn != null) {
+            this.nVn.D();
         }
     }
 
@@ -106,10 +106,10 @@ public class a {
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.eao();
+            return eVar.eax();
         }
         if (i == 1) {
-            return eVar.ean();
+            return eVar.eaw();
         }
         return null;
     }

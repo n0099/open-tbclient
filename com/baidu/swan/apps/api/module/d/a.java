@@ -19,7 +19,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b iY(String str) {
+    public com.baidu.swan.apps.api.c.b iZ(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-Image", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -45,11 +45,11 @@ public class a extends d {
             c.e("Api-Image", "src is null");
             return new com.baidu.swan.apps.api.c.b(202, "src is null");
         }
-        PathType rJ = com.baidu.swan.apps.storage.b.rJ(str2);
+        PathType rK = com.baidu.swan.apps.storage.b.rK(str2);
         String str3 = null;
-        if (rJ == PathType.BD_FILE) {
+        if (rK == PathType.BD_FILE) {
             str3 = com.baidu.swan.apps.storage.b.cn(str2, azI.id);
-        } else if (rJ == PathType.RELATIVE) {
+        } else if (rK == PathType.RELATIVE) {
             str3 = com.baidu.swan.apps.storage.b.a(str2, azI, azI.getVersion());
         }
         if (TextUtils.isEmpty(str3)) {
@@ -64,15 +64,15 @@ public class a extends d {
         p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.api.module.d.a.1
             @Override // java.lang.Runnable
             public void run() {
-                File sA = t.sA(file.getName());
-                if (!t.a(file, sA, i2)) {
+                File sB = t.sB(file.getName());
+                if (!t.a(file, sB, i2)) {
                     c.e("Api-Image", "compress image failed");
                     a.this.a(str, new com.baidu.swan.apps.api.c.b(1001, "compress image failed"));
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cq(sA.getAbsolutePath(), azI.id));
+                    jSONObject.put("tempFilePath", com.baidu.swan.apps.storage.b.cq(sB.getAbsolutePath(), azI.id));
                 } catch (JSONException e) {
                     c.e("Api-Image", e.toString());
                 }

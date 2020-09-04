@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class h extends b<com.baidu.tieba.e.e> {
-    private View hio;
-    private View hip;
-    private TextView hir;
-    private TextView his;
-    private TextView hit;
-    private TextView hiu;
+    private View his;
+    private View hit;
     private TextView hiv;
+    private TextView hiw;
+    private TextView hix;
+    private TextView hiy;
+    private TextView hiz;
     private String mForumId;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -26,17 +26,17 @@ public class h extends b<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.hir = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
-        this.his = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
-        this.hit = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
-        this.hiu = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
-        this.hiv = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
-        this.his.setOnClickListener(this);
-        this.hit.setOnClickListener(this);
-        this.hiu.setOnClickListener(this);
-        this.hiv.setOnClickListener(this);
-        this.hio = view.findViewById(R.id.divider_line_1);
-        this.hip = view.findViewById(R.id.divider_line_2);
+        this.hiv = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
+        this.hiw = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
+        this.hix = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
+        this.hiy = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
+        this.hiz = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
+        this.hiw.setOnClickListener(this);
+        this.hix.setOnClickListener(this);
+        this.hiy.setOnClickListener(this);
+        this.hiz.setOnClickListener(this);
+        this.his = view.findViewById(R.id.divider_line_1);
+        this.hit = view.findViewById(R.id.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -46,13 +46,13 @@ public class h extends b<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.color.cp_bg_line_d);
-        ap.setBackgroundResource(this.hio, R.color.cp_bg_line_e);
-        ap.setBackgroundResource(this.hip, R.color.cp_bg_line_e);
-        ap.setViewTextColor(this.hir, R.color.cp_cont_f, 1);
-        ap.setViewTextColor(this.his, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hit, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hiu, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.hiv, R.color.cp_cont_b, 1);
+        ap.setBackgroundResource(this.his, R.color.cp_bg_line_e);
+        ap.setBackgroundResource(this.hit, R.color.cp_bg_line_e);
+        ap.setViewTextColor(this.hiv, R.color.cp_cont_f, 1);
+        ap.setViewTextColor(this.hiw, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hix, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hiy, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.hiz, R.color.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -63,40 +63,40 @@ public class h extends b<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.cds() != null) {
-            if (!TextUtils.isEmpty(eVar.cds().title)) {
-                this.hir.setText(eVar.cds().title);
+        if (eVar != null && eVar.cdt() != null) {
+            if (!TextUtils.isEmpty(eVar.cdt().title)) {
+                this.hiv.setText(eVar.cdt().title);
             }
-            this.his.setVisibility(8);
-            this.hit.setVisibility(8);
-            this.hiu.setVisibility(8);
-            this.hiv.setVisibility(8);
-            if (eVar.cds().sub_nodes.size() >= 1) {
-                this.his.setVisibility(0);
-                this.his.setTag(eVar.cds().sub_nodes.get(0).url);
-                this.his.setText(eVar.cds().sub_nodes.get(0).title);
+            this.hiw.setVisibility(8);
+            this.hix.setVisibility(8);
+            this.hiy.setVisibility(8);
+            this.hiz.setVisibility(8);
+            if (eVar.cdt().sub_nodes.size() >= 1) {
+                this.hiw.setVisibility(0);
+                this.hiw.setTag(eVar.cdt().sub_nodes.get(0).url);
+                this.hiw.setText(eVar.cdt().sub_nodes.get(0).title);
             }
-            if (eVar.cds().sub_nodes.size() >= 2) {
-                this.hit.setVisibility(0);
-                this.hit.setTag(eVar.cds().sub_nodes.get(1).url);
-                this.hit.setText(eVar.cds().sub_nodes.get(1).title);
+            if (eVar.cdt().sub_nodes.size() >= 2) {
+                this.hix.setVisibility(0);
+                this.hix.setTag(eVar.cdt().sub_nodes.get(1).url);
+                this.hix.setText(eVar.cdt().sub_nodes.get(1).title);
             }
-            if (eVar.cds().sub_nodes.size() >= 3) {
-                this.hiu.setVisibility(0);
-                this.hiu.setTag(eVar.cds().sub_nodes.get(2).url);
-                this.hiu.setText(eVar.cds().sub_nodes.get(2).title);
+            if (eVar.cdt().sub_nodes.size() >= 3) {
+                this.hiy.setVisibility(0);
+                this.hiy.setTag(eVar.cdt().sub_nodes.get(2).url);
+                this.hiy.setText(eVar.cdt().sub_nodes.get(2).title);
             }
-            if (eVar.cds().sub_nodes.size() >= 4) {
-                this.hiv.setVisibility(0);
-                this.hiv.setTag(eVar.cds().sub_nodes.get(3).url);
-                this.hiv.setText(eVar.cds().sub_nodes.get(3).title);
+            if (eVar.cdt().sub_nodes.size() >= 4) {
+                this.hiz.setVisibility(0);
+                this.hiz.setTag(eVar.cdt().sub_nodes.get(3).url);
+                this.hiz.setText(eVar.cdt().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.his || view == this.hit || view == this.hiu || view == this.hiv) {
+        if (view == this.hiw || view == this.hix || view == this.hiy || view == this.hiz) {
             TiebaStatic.log(new aq("c13047").ai("obj_locate", 8).dD("fid", this.mForumId));
             be.bju().a((TbPageContext) com.baidu.adp.base.i.I(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }

@@ -17,19 +17,19 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final f cqi;
-    private i cqj = null;
-    private i cqk = null;
-    private com.baidu.swan.apps.am.a cql = null;
-    private boolean cqm = false;
-    private boolean cqn = false;
-    private final Collection<com.baidu.swan.apps.ap.e.b<e>> cqo = new HashSet();
-    private final Collection<com.baidu.swan.apps.ap.e.b<e>> cqp = new HashSet();
-    private d.b cqq = null;
+    private final f cqm;
+    private i cqn = null;
+    private i cqo = null;
+    private com.baidu.swan.apps.am.a cqp = null;
+    private boolean cqq = false;
+    private boolean cqr = false;
+    private final Collection<com.baidu.swan.apps.ap.e.b<e>> cqs = new HashSet();
+    private final Collection<com.baidu.swan.apps.ap.e.b<e>> cqt = new HashSet();
+    private d.b cqu = null;
     private final String mLibName;
 
     public e(@NonNull f fVar, String str) {
-        this.cqi = fVar;
+        this.cqm = fVar;
         this.mLibName = str;
     }
 
@@ -55,14 +55,14 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
                     }
                     if (b != null) {
                         JSONObject jSONObject = new JSONObject();
-                        boolean z = alH != null && next == alH.dFp;
+                        boolean z = alH != null && next == alH.dFt;
                         long j = (alH == null || !z) ? 0L : alH.versionCode;
                         String str = (alH == null || !z) ? "0" : alH.versionName;
                         if (TextUtils.isEmpty(str)) {
                             str = "0";
                         }
                         jSONObject.put("type", "so");
-                        jSONObject.put("bundle_id", b.dFj);
+                        jSONObject.put("bundle_id", b.dFn);
                         jSONObject.put("version_code", j);
                         jSONObject.put(SharedPrefConfig.VERSION_NAME, str);
                         if (DEBUG) {
@@ -80,30 +80,30 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     public boolean a(f fVar) {
-        return fVar != null && fVar == this.cqi;
+        return fVar != null && fVar == this.cqm;
     }
 
     public d.b alG() {
-        return this.cqq;
+        return this.cqu;
     }
 
     public synchronized e j(com.baidu.swan.apps.ap.e.b<e> bVar) {
-        this.cqo.add(bVar);
+        this.cqs.add(bVar);
         return this;
     }
 
     public synchronized e k(com.baidu.swan.apps.ap.e.b<e> bVar) {
-        this.cqp.add(bVar);
+        this.cqt.add(bVar);
         return this;
     }
 
     public synchronized e l(com.baidu.swan.apps.ap.e.b<e> bVar) {
-        this.cqo.remove(bVar);
+        this.cqs.remove(bVar);
         return this;
     }
 
     public synchronized e m(com.baidu.swan.apps.ap.e.b<e> bVar) {
-        this.cqp.remove(bVar);
+        this.cqt.remove(bVar);
         return this;
     }
 
@@ -112,40 +112,40 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     public i alH() {
-        if (this.cqj == null && !TextUtils.isEmpty(this.mLibName)) {
-            this.cqj = com.baidu.swan.pms.database.a.aTt().wy(this.mLibName);
+        if (this.cqn == null && !TextUtils.isEmpty(this.mLibName)) {
+            this.cqn = com.baidu.swan.pms.database.a.aTt().wz(this.mLibName);
         }
-        return this.cqj;
+        return this.cqn;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(f fVar, i iVar) {
         if (a(fVar)) {
-            this.cqk = iVar;
+            this.cqo = iVar;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i alI() {
-        return this.cqk;
+        return this.cqo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean alJ() {
-        return (this.cqk == null || this.cqk == this.cqj) ? false : true;
+        return (this.cqo == null || this.cqo == this.cqn) ? false : true;
     }
 
     public synchronized void alK() {
         if (DEBUG) {
-            Log.i("SoUpdating", "install: " + aly() + " finished=" + this.cqn + " installing=" + this.cqm);
+            Log.i("SoUpdating", "install: " + aly() + " finished=" + this.cqr + " installing=" + this.cqq);
         }
-        if (!this.cqn && !this.cqm) {
-            this.cqm = true;
+        if (!this.cqr && !this.cqq) {
+            this.cqq = true;
             if (DEBUG) {
                 Log.i("SoUpdating", "install: " + aly());
             }
-            c.cpW.a(aly(), new kotlin.jvm.a.b<com.baidu.swan.apps.am.a, l>() { // from class: com.baidu.swan.apps.env.b.e.1
+            c.cqa.a(aly(), new kotlin.jvm.a.b<com.baidu.swan.apps.am.a, l>() { // from class: com.baidu.swan.apps.env.b.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.a.b
                 /* renamed from: c */
@@ -154,7 +154,7 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
                         Log.i("SoUpdating", "install: " + e.this.aly() + " onCallback");
                     }
                     e.this.b(aVar);
-                    e.this.cqm = false;
+                    e.this.cqq = false;
                     return null;
                 }
             });
@@ -165,17 +165,17 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     public synchronized e b(com.baidu.swan.apps.am.a aVar) {
         e eVar;
         if (DEBUG) {
-            Log.i("SoUpdating", "finish: " + aly() + " finished=" + this.cqn + " error=" + aVar);
+            Log.i("SoUpdating", "finish: " + aly() + " finished=" + this.cqr + " error=" + aVar);
         }
-        if (this.cqn) {
+        if (this.cqr) {
             eVar = this;
         } else {
-            this.cqn = true;
-            this.cql = aVar;
-            if (this.cql == null) {
-                c.cpW.k(aly(), System.currentTimeMillis());
+            this.cqr = true;
+            this.cqp = aVar;
+            if (this.cqp == null) {
+                c.cqa.k(aly(), System.currentTimeMillis());
             }
-            c.cpW.ml(aly());
+            c.cqa.mm(aly());
             alO();
             clearCallback();
             eVar = this;
@@ -184,29 +184,29 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     private synchronized void clearCallback() {
-        this.cqo.clear();
-        this.cqp.clear();
+        this.cqs.clear();
+        this.cqt.clear();
     }
 
     public boolean alL() {
-        return this.cqn;
+        return this.cqr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean alM() {
-        return alL() && (this.cql == null || c.cpW.mm(aly()));
+        return alL() && (this.cqp == null || c.cqa.mn(aly()));
     }
 
     public boolean alN() {
-        return !alL() && this.cqm;
+        return !alL() && this.cqq;
     }
 
     private synchronized void alO() {
         if (DEBUG) {
-            Log.i("SoUpdating", "notifyFinish: " + aly() + " mCallbacks=" + this.cqo.size());
+            Log.i("SoUpdating", "notifyFinish: " + aly() + " mCallbacks=" + this.cqs.size());
         }
-        this.cqn = true;
-        for (com.baidu.swan.apps.ap.e.b<e> bVar : this.cqo) {
+        this.cqr = true;
+        for (com.baidu.swan.apps.ap.e.b<e> bVar : this.cqs) {
             if (bVar != null) {
                 bVar.I(this);
             }
@@ -214,9 +214,9 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     public synchronized void a(d.b bVar) {
-        if (!this.cqn && bVar != null && 0 != bVar.cqg) {
-            this.cqq = bVar;
-            for (com.baidu.swan.apps.ap.e.b<e> bVar2 : this.cqp) {
+        if (!this.cqr && bVar != null && 0 != bVar.cqk) {
+            this.cqu = bVar;
+            for (com.baidu.swan.apps.ap.e.b<e> bVar2 : this.cqt) {
                 if (bVar2 != null) {
                     bVar2.I(this);
                 }

@@ -1,7 +1,7 @@
 package com.baidu.helios.bridge;
 /* loaded from: classes11.dex */
 public class b {
-    private a avk;
+    private a avm;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -9,10 +9,10 @@ public class b {
     }
 
     public b(a aVar) {
-        this.avk = aVar;
+        this.avm = aVar;
     }
 
     public com.baidu.helios.bridge.a zI() {
-        return this.avk.zI();
+        return this.avm.zI();
     }
 }

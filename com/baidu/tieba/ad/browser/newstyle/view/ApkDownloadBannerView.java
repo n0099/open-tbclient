@@ -15,10 +15,10 @@ import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes15.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private BannerDownloadProgressBar foD;
-    private BannerDownloadStateBar foE;
-    private BannerDownloadStateBar foF;
-    private int foG;
+    private BannerDownloadProgressBar foH;
+    private BannerDownloadStateBar foI;
+    private BannerDownloadStateBar foJ;
+    private int foK;
     private int mMax;
     private View mRootView;
 
@@ -33,7 +33,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mMax = 100;
-        this.foG = 1;
+        this.foK = 1;
         dL(context);
         setDownloadStateBarPosition(1);
     }
@@ -44,26 +44,26 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.foD = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.foE = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.foF = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.foD.setTextColor(Color.parseColor("#999999"));
+        this.foH = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.foI = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.foJ = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.foH.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.foG = i;
-        switch (this.foG) {
+        this.foK = i;
+        switch (this.foK) {
             case 0:
-                this.foE.setVisibility(0);
-                this.foF.setVisibility(8);
+                this.foI.setVisibility(0);
+                this.foJ.setVisibility(8);
                 return;
             case 1:
-                this.foE.setVisibility(8);
-                this.foF.setVisibility(0);
+                this.foI.setVisibility(8);
+                this.foJ.setVisibility(0);
                 return;
             default:
-                this.foE.setVisibility(0);
-                this.foF.setVisibility(8);
+                this.foI.setVisibility(0);
+                this.foJ.setVisibility(8);
                 return;
         }
     }
@@ -71,7 +71,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.foE.getVisibility() == 0 ? this.foE : this.foF;
+        return this.foI.getVisibility() == 0 ? this.foI : this.foJ;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -86,7 +86,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void fy(int i) {
-        this.foD.setProgress(i);
+        this.foH.setProgress(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -94,12 +94,12 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         switch (downloadStatus) {
             case STATUS_NONE:
                 fy(0);
-                this.foD.setText("");
+                this.foH.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
                 fy(this.mMax);
-                this.foD.setText("");
+                this.foH.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
@@ -107,7 +107,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
                 break;
             default:
                 fy(0);
-                this.foD.setText("");
+                this.foH.setText("");
                 break;
         }
         a(downloadStatus);

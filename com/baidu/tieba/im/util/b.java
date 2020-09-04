@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class b {
-    private RequestGroupLocModel jzx;
-    private a jzy;
+    private RequestGroupLocModel jzD;
+    private a jzE;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -26,39 +26,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.jzx.setLat(String.valueOf(address.getLatitude()));
-                        b.this.jzx.setLng(String.valueOf(address.getLongitude()));
-                        b.this.jzx.setGroupId(0L);
-                        b.this.jzx.sendMessage();
+                        b.this.jzD.setLat(String.valueOf(address.getLatitude()));
+                        b.this.jzD.setLng(String.valueOf(address.getLongitude()));
+                        b.this.jzD.setGroupId(0L);
+                        b.this.jzD.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.jzy.cCX();
+                    b.this.jzE.cCY();
                     return;
                 case 4:
                 case 5:
-                    b.this.jzy.cCW();
+                    b.this.jzE.cCX();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c jzz = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c jzF = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_QUERY_GROUPLOC) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.jzy.cCW();
+                b.this.jzE.cCX();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.jzy.cCW();
+                b.this.jzE.cCX();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.jzy.cCW();
+                    b.this.jzE.cCX();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -68,9 +68,9 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.jzy.cCW();
+                    b.this.jzE.cCX();
                 } else {
-                    b.this.jzy.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.jzE.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
@@ -80,23 +80,23 @@ public class b {
     public interface a {
         void a(String str, List<String> list, double d, double d2);
 
-        void cCW();
-
         void cCX();
+
+        void cCY();
     }
 
     public b(a aVar) {
-        this.jzx = null;
-        this.jzy = null;
-        this.jzx = new RequestGroupLocModel();
-        this.jzy = aVar;
-        this.jzz.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.jzz);
+        this.jzD = null;
+        this.jzE = null;
+        this.jzD = new RequestGroupLocModel();
+        this.jzE = aVar;
+        this.jzF.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.jzF);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.jzx.setUniqueId(bdUniqueId);
+        this.jzD.setUniqueId(bdUniqueId);
     }
 
     public void startLoad() {
@@ -104,7 +104,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.jzx.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.jzz);
+        this.jzD.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.jzF);
     }
 }

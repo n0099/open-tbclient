@@ -17,7 +17,7 @@ public class a extends ActivityDelegation {
     public interface InterfaceC0464a {
         void aGt();
 
-        void iT(String str);
+        void iU(String str);
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -44,12 +44,12 @@ public class a extends ActivityDelegation {
     public void aGr() {
         com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0464a() { // from class: com.baidu.swan.bdprivate.b.a.2
             @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0464a
-            public void iT(String str) {
+            public void iU(String str) {
                 if (TextUtils.isEmpty(str)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "addressId == null");
                     a.this.finish();
                 }
-                a.this.sW(str);
+                a.this.sX(str);
             }
 
             @Override // com.baidu.swan.bdprivate.b.a.InterfaceC0464a
@@ -61,7 +61,7 @@ public class a extends ActivityDelegation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sW(String str) {
+    public void sX(String str) {
         com.baidu.swan.a.c.a.aSW().getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aGs())).addUrlParam("addr_id", str).cookieManager(com.baidu.swan.apps.t.a.apj().aau()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback

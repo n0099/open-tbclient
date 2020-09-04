@@ -22,12 +22,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends aa {
-    public static final Set<String> bWN = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> cEx;
+    public static final Set<String> bWR = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> cEB;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.cEx = new ConcurrentHashMap<>();
+        this.cEB = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -35,22 +35,22 @@ public class a extends aa {
         return false;
     }
 
-    public final long oK(String str) {
+    public final long oL(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.cEx.get(str).longValue();
+            j = this.cEB.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void oL(String str) {
-        if (this.cEx != null && !TextUtils.isEmpty(str)) {
-            this.cEx.remove(str);
+    public final void oM(String str) {
+        if (this.cEB != null && !TextUtils.isEmpty(str)) {
+            this.cEB.remove(str);
         }
     }
 
@@ -62,7 +62,7 @@ public class a extends aa {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !bWN.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !bWR.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (TextUtils.isEmpty(optString)) {
                     optString = "";
@@ -86,7 +86,7 @@ public class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject jC(String str) {
+    public JSONObject jD(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {

@@ -5,22 +5,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bj extends u {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String className;
-    public int dZU;
-    private ArrayList<bi> dZV;
+    public int dZY;
+    private ArrayList<bi> dZZ;
     public String title;
 
     public bj() {
         mQ(9);
-        this.dZV = new ArrayList<>();
+        this.dZZ = new ArrayList<>();
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dXF;
+        return dXJ;
     }
 
     @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -45,12 +45,12 @@ public class bj extends u {
                     arrayList.add(biVar);
                 }
             }
-            this.dZV.clear();
-            this.dZV.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
+            this.dZZ.clear();
+            this.dZZ.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
         }
     }
 
     public ArrayList<bi> bdK() {
-        return this.dZV;
+        return this.dZZ;
     }
 }

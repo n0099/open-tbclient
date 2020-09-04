@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     public static d bs(View view) {
         if (view == null) {

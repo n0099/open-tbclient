@@ -21,16 +21,16 @@ import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes16.dex */
 public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
-    private aa<l> aeT;
-    private v akI;
-    private BdUniqueId ePv;
-    private NEGFeedBackView.a flJ;
+    private aa<l> aeV;
+    private v akK;
+    private BdUniqueId ePz;
+    private NEGFeedBackView.a flN;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aeT = new aa<l>() { // from class: com.baidu.tieba.homepage.video.a.f.1
+        this.aeV = new aa<l>() { // from class: com.baidu.tieba.homepage.video.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
@@ -50,7 +50,7 @@ public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
     public al<l> b(ViewGroup viewGroup) {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.ePv);
+        eVar.setPageUniqueId(this.ePz);
         eVar.bl(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.homepage.video.a.f.2
             @Override // com.baidu.card.e.a
@@ -69,10 +69,10 @@ public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
         });
         eVar.b(this.mPageContext);
         aVar.a(eVar);
-        aj a = aVar.a(false, viewGroup, this.akI);
+        aj a = aVar.a(false, viewGroup, this.akK);
         a.setSourceForPb(19);
         al<l> alVar = new al<>(a);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         a(new ab() { // from class: com.baidu.tieba.homepage.video.a.f.3
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -80,8 +80,8 @@ public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
                     al alVar2 = (al) view.getTag();
                     l lVar = (l) qVar;
                     lVar.objType = 1;
-                    if (f.this.aeT != null) {
-                        f.this.aeT.a(alVar2.getView(), lVar);
+                    if (f.this.aeV != null) {
+                        f.this.aeV.a(alVar2.getView(), lVar);
                     }
                     com.baidu.tieba.homepage.video.c.a.a(lVar, view.getContext(), 19, false, com.baidu.card.f.a((v) viewGroup2, view, i));
                     alVar2.tR().b(new a.C0095a(1));
@@ -95,24 +95,24 @@ public class f extends com.baidu.adp.widget.ListView.a<l, al<l>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, l lVar, al<l> alVar) {
-        if (lVar == null || alVar == null || alVar.getView() == null || lVar.dUS == null) {
+        if (lVar == null || alVar == null || alVar.getView() == null || lVar.dUW == null) {
             return null;
         }
         lVar.vy(lVar.position + 1);
         alVar.tR().setPosition(i);
-        alVar.a(lVar.dUS.bcp(), (FollowUserButton.a) null);
-        alVar.a(true, Align.ALIGN_RIGHT_TOP, this.flJ);
+        alVar.a(lVar.dUW.bcp(), (FollowUserButton.a) null);
+        alVar.a(true, Align.ALIGN_RIGHT_TOP, this.flN);
         alVar.b((al<l>) lVar);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        alVar.tR().a(this.aeT);
+        alVar.tR().a(this.aeV);
         return alVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ePv = bdUniqueId;
+        this.ePz = bdUniqueId;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.flJ = aVar;
+        this.flN = aVar;
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends d {
-    private volatile HashMap<String, Long> mhQ;
+    private volatile HashMap<String, Long> mig;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.tbadkCore.util.c.1
@@ -17,7 +17,7 @@ public class c extends d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory() != null) {
-                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().dxH();
+                    TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory().dxM();
                 }
             }
         });
@@ -25,14 +25,14 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.mhQ = new HashMap<>();
+        this.mig = new HashMap<>();
     }
 
     public long QV(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.mhQ.get(str) != null ? this.mhQ.get(str).longValue() : 0L;
+                longValue = this.mig.get(str) != null ? this.mig.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -42,10 +42,10 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.d
-    public void dxH() {
+    public void dxM() {
         synchronized (this) {
-            this.mhR.clear();
-            this.mhQ.clear();
+            this.mih.clear();
+            this.mig.clear();
         }
     }
 }

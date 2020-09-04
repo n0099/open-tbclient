@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class CommonEmptyView extends RelativeLayout {
-    public TextView cKW;
+    public TextView cLa;
     public FrameLayout mBottomLayout;
     public ImageView mIcon;
     public TextView mLinkText;
@@ -45,7 +45,7 @@ public class CommonEmptyView extends RelativeLayout {
         this.mLinkText = (TextView) findViewById(a.f.emptyview_link);
         this.mRefreshTextBtn = (TextView) findViewById(a.f.emptyview_btn);
         this.mBottomLayout = (FrameLayout) findViewById(a.f.emptyview_bottom_layout);
-        this.cKW = (TextView) findViewById(a.f.emptyview_problem_feedback);
+        this.cLa = (TextView) findViewById(a.f.emptyview_problem_feedback);
         setPageResources();
     }
 

@@ -16,11 +16,11 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private boolean ipf;
-    private Message ipg;
-    private MvcNetMessage iph;
+    private boolean ipl;
+    private Message ipm;
+    private MvcNetMessage ipn;
     private ResponsedMessage mResponsedMessage;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
@@ -58,11 +58,11 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.bEd = frsRequestData;
+        this.bEg = frsRequestData;
     }
 
-    public FrsRequestData cse() {
-        return (FrsRequestData) this.bEd;
+    public FrsRequestData csf() {
+        return (FrsRequestData) this.bEg;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -72,37 +72,37 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public boolean loadData() {
-        this.ipf = super.loadData();
-        return this.ipf;
+        this.ipl = super.loadData();
+        return this.ipl;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
         this.mResponsedMessage = mvcHttpResponsedMessage;
-        this.ipg = mvcHttpMessage;
-        this.iph = mvcNetMessage;
+        this.ipm = mvcHttpMessage;
+        this.ipn = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
         this.mResponsedMessage = mvcSocketResponsedMessage;
-        this.ipg = mvcSocketMessage;
-        this.iph = mvcNetMessage;
+        this.ipm = mvcSocketMessage;
+        this.ipn = mvcNetMessage;
     }
 
-    public boolean csf() {
-        return this.ipf;
+    public boolean csg() {
+        return this.ipl;
     }
 
     public ResponsedMessage getResponsedMessage() {
         return this.mResponsedMessage;
     }
 
-    public Message csg() {
-        return this.ipg;
+    public Message csh() {
+        return this.ipm;
     }
 
-    public MvcNetMessage csh() {
-        return this.iph;
+    public MvcNetMessage csi() {
+        return this.ipn;
     }
 }

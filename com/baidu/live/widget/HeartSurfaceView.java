@@ -25,21 +25,21 @@ import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
 public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
     private static final String TAG = HeartSurfaceView.class.getSimpleName();
-    private SurfaceHolder bvA;
-    private c[] bvB;
-    private volatile boolean bvC;
-    private volatile boolean bvD;
-    private Bitmap bvE;
-    private Bitmap bvF;
-    private PointF bvG;
-    private PointF bvH;
-    private PointF bvI;
+    private SurfaceHolder bvD;
+    private c[] bvE;
+    private volatile boolean bvF;
+    private volatile boolean bvG;
+    private Bitmap bvH;
+    private Bitmap bvI;
     private PointF bvJ;
-    private volatile int bvK;
-    private ArrayList<Bitmap> bvL;
-    private boolean bvM;
-    private b bvN;
-    private ExecutorService bvO;
+    private PointF bvK;
+    private PointF bvL;
+    private PointF bvM;
+    private volatile int bvN;
+    private ArrayList<Bitmap> bvO;
+    private boolean bvP;
+    private b bvQ;
+    private ExecutorService bvR;
     private Bitmap mBitmap;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
     private Paint mPaint;
@@ -63,8 +63,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     static /* synthetic */ int g(HeartSurfaceView heartSurfaceView) {
-        int i = heartSurfaceView.bvK;
-        heartSurfaceView.bvK = i - 1;
+        int i = heartSurfaceView.bvN;
+        heartSurfaceView.bvN = i - 1;
         return i;
     }
 
@@ -78,19 +78,19 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     public HeartSurfaceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bvC = false;
-        this.bvD = false;
+        this.bvF = false;
+        this.bvG = false;
         this.mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.live.widget.HeartSurfaceView.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (HeartSurfaceView.this.bvG == null || HeartSurfaceView.this.mViewWidth != HeartSurfaceView.this.getWidth() || HeartSurfaceView.this.mViewHeight != HeartSurfaceView.this.getHeight()) {
+                if (HeartSurfaceView.this.bvJ == null || HeartSurfaceView.this.mViewWidth != HeartSurfaceView.this.getWidth() || HeartSurfaceView.this.mViewHeight != HeartSurfaceView.this.getHeight()) {
                     HeartSurfaceView.this.mViewWidth = HeartSurfaceView.this.getWidth();
                     HeartSurfaceView.this.mViewHeight = HeartSurfaceView.this.getHeight();
                     float dimensionPixelSize = HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_start_x);
-                    HeartSurfaceView.this.bvG = new PointF(dimensionPixelSize, HeartSurfaceView.this.mViewHeight - HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_bottom));
-                    HeartSurfaceView.this.bvH = new PointF(dimensionPixelSize, HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_top));
-                    HeartSurfaceView.this.bvI = new PointF(0.0f, HeartSurfaceView.this.mViewHeight * 0.5f);
-                    HeartSurfaceView.this.bvJ = new PointF(HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_right) + HeartSurfaceView.this.mViewWidth, HeartSurfaceView.this.mViewHeight * 0.5f);
+                    HeartSurfaceView.this.bvJ = new PointF(dimensionPixelSize, HeartSurfaceView.this.mViewHeight - HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_bottom));
+                    HeartSurfaceView.this.bvK = new PointF(dimensionPixelSize, HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_top));
+                    HeartSurfaceView.this.bvL = new PointF(0.0f, HeartSurfaceView.this.mViewHeight * 0.5f);
+                    HeartSurfaceView.this.bvM = new PointF(HeartSurfaceView.this.getResources().getDimensionPixelSize(a.C0203a.liveshow_heart_padding_right) + HeartSurfaceView.this.mViewWidth, HeartSurfaceView.this.mViewHeight * 0.5f);
                 }
             }
         };
@@ -98,35 +98,35 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     private void initial() {
-        this.bvA = getHolder();
-        this.bvA.addCallback(this);
+        this.bvD = getHolder();
+        this.bvD.addCallback(this);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.bvB = new c[30];
-        this.bvE = drawableToBitmap(getResources().getDrawable(a.b.liveshow_heart_blue));
-        this.bvF = drawableToBitmap(getResources().getDrawable(a.b.liveshow_heart_red));
+        this.bvE = new c[30];
+        this.bvH = drawableToBitmap(getResources().getDrawable(a.b.liveshow_heart_blue));
+        this.bvI = drawableToBitmap(getResources().getDrawable(a.b.liveshow_heart_red));
         this.mRandom = new Random();
-        this.bvC = true;
-        this.bvD = false;
-        this.bvL = new ArrayList<>();
-        this.bvL.add(fB(a.b.liveshow_video_heart_like1));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like2));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like3));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like4));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like5));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like6));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like7));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like8));
-        this.bvL.add(fB(a.b.liveshow_video_heart_like9));
+        this.bvF = true;
+        this.bvG = false;
+        this.bvO = new ArrayList<>();
+        this.bvO.add(fB(a.b.liveshow_video_heart_like1));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like2));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like3));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like4));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like5));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like6));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like7));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like8));
+        this.bvO.add(fB(a.b.liveshow_video_heart_like9));
     }
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-        this.bvC = true;
-        if (this.bvO == null) {
-            this.bvO = Executors.newFixedThreadPool(5);
+        this.bvF = true;
+        if (this.bvR == null) {
+            this.bvR = Executors.newFixedThreadPool(5);
         }
         QX();
         QW();
@@ -135,14 +135,14 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         c[] cVarArr;
-        if (this.bvB != null) {
-            for (c cVar : this.bvB) {
+        if (this.bvE != null) {
+            for (c cVar : this.bvE) {
                 if (cVar != null && cVar.QZ()) {
-                    cVar.cM(false);
+                    cVar.cN(false);
                 }
             }
         }
-        this.bvD = true;
+        this.bvG = true;
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -151,13 +151,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.bvD = false;
+        this.bvG = false;
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         if (i != 0) {
-            this.bvD = false;
+            this.bvG = false;
         }
         super.onVisibilityChanged(view, i);
         setVisibility(i);
@@ -165,7 +165,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     @Override // android.view.SurfaceView, android.view.View
     protected void onDetachedFromWindow() {
-        this.bvC = false;
+        this.bvF = false;
         super.onDetachedFromWindow();
         getViewTreeObserver().removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         release();
@@ -175,9 +175,9 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         Runnable runnable = new Runnable() { // from class: com.baidu.live.widget.HeartSurfaceView.2
             @Override // java.lang.Runnable
             public void run() {
-                while (HeartSurfaceView.this.bvC) {
+                while (HeartSurfaceView.this.bvF) {
                     SystemClock.sleep(10L);
-                    while (HeartSurfaceView.this.bvC && HeartSurfaceView.this.bvK > 0) {
+                    while (HeartSurfaceView.this.bvF && HeartSurfaceView.this.bvN > 0) {
                         if (HeartSurfaceView.this.QY()) {
                             HeartSurfaceView.g(HeartSurfaceView.this);
                         }
@@ -186,8 +186,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
             }
         };
-        if (this.bvO != null) {
-            this.bvO.execute(runnable);
+        if (this.bvR != null) {
+            this.bvR.execute(runnable);
         }
     }
 
@@ -195,12 +195,12 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         Runnable runnable = new Runnable() { // from class: com.baidu.live.widget.HeartSurfaceView.3
             @Override // java.lang.Runnable
             public void run() {
-                while (HeartSurfaceView.this.bvC) {
+                while (HeartSurfaceView.this.bvF) {
                     try {
-                        while (HeartSurfaceView.this.bvC && !HeartSurfaceView.this.bvD) {
+                        while (HeartSurfaceView.this.bvF && !HeartSurfaceView.this.bvG) {
                             SystemClock.sleep(300L);
                         }
-                        if (HeartSurfaceView.this.bvC) {
+                        if (HeartSurfaceView.this.bvF) {
                             long currentTimeMillis = System.currentTimeMillis();
                             HeartSurfaceView.this.draw();
                             long currentTimeMillis2 = System.currentTimeMillis();
@@ -221,53 +221,53 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
             }
         };
-        if (this.bvO != null) {
-            this.bvO.execute(runnable);
+        if (this.bvR != null) {
+            this.bvR.execute(runnable);
         }
     }
 
     public void addHeart(int i) {
-        if (this.bvK < 120) {
-            this.bvK += i;
+        if (this.bvN < 120) {
+            this.bvN += i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean QY() {
         PointF pointF;
-        if (!this.bvD || this.bvI == null || this.bvJ == null || this.bvG == null || this.bvH == null) {
+        if (!this.bvG || this.bvL == null || this.bvM == null || this.bvJ == null || this.bvK == null) {
             return false;
         }
         float nextFloat = this.mRandom.nextFloat();
         if (nextFloat == 0.0f) {
             nextFloat = 1.0f;
         }
-        float f2 = ((this.bvJ.x / 2.0f) * nextFloat) + (this.bvJ.x / 4.0f);
+        float f2 = ((this.bvM.x / 2.0f) * nextFloat) + (this.bvM.x / 4.0f);
         if (this.mRandom.nextBoolean()) {
-            pointF = new PointF(f2, ((nextFloat * 0.6f) + 0.7f) * this.bvI.y);
+            pointF = new PointF(f2, ((nextFloat * 0.6f) + 0.7f) * this.bvL.y);
         } else {
-            pointF = new PointF(f2, ((nextFloat * 0.6f) + 0.7f) * this.bvJ.y);
+            pointF = new PointF(f2, ((nextFloat * 0.6f) + 0.7f) * this.bvM.y);
         }
-        Bitmap bitmap = this.bvL.get(this.mRandom.nextInt(this.bvL.size()));
-        float width = bitmap.getWidth() + ((this.bvH.x + bitmap.getWidth()) * this.mRandom.nextFloat());
-        if (this.bvM) {
+        Bitmap bitmap = this.bvO.get(this.mRandom.nextInt(this.bvO.size()));
+        float width = bitmap.getWidth() + ((this.bvK.x + bitmap.getWidth()) * this.mRandom.nextFloat());
+        if (this.bvP) {
             if (this.mBitmap != null && this.mRandom.nextFloat() <= 0.1f) {
                 bitmap = this.mBitmap;
             }
-            width = bitmap.getWidth() + ((this.bvH.x + (bitmap.getWidth() / 2)) * this.mRandom.nextFloat());
-            this.bvM = false;
+            width = bitmap.getWidth() + ((this.bvK.x + (bitmap.getWidth() / 2)) * this.mRandom.nextFloat());
+            this.bvP = false;
         }
-        return a(bitmap, this.bvG, new PointF(width, this.bvH.y + ((this.mViewHeight / 6) * this.mRandom.nextFloat())), pointF);
+        return a(bitmap, this.bvJ, new PointF(width, this.bvK.y + ((this.mViewHeight / 6) * this.mRandom.nextFloat())), pointF);
     }
 
     private boolean a(Bitmap bitmap, PointF pointF, PointF pointF2, PointF pointF3) {
-        for (int i = 0; i < this.bvB.length; i++) {
-            if (this.bvB[i] == null) {
-                this.bvB[i] = new c(bitmap, pointF, pointF2, pointF3);
-                this.bvB[i].bvN = this.bvN;
+        for (int i = 0; i < this.bvE.length; i++) {
+            if (this.bvE[i] == null) {
+                this.bvE[i] = new c(bitmap, pointF, pointF2, pointF3);
+                this.bvE[i].bvQ = this.bvQ;
                 return true;
-            } else if (!this.bvB[i].QZ()) {
-                this.bvB[i].b(bitmap, pointF, pointF2, pointF3);
+            } else if (!this.bvE[i].QZ()) {
+                this.bvE[i].b(bitmap, pointF, pointF2, pointF3);
                 return true;
             }
         }
@@ -278,28 +278,28 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public void draw() {
         Canvas lockCanvas;
         c[] cVarArr;
-        if (this.bvG != null && this.bvD && (lockCanvas = this.bvA.lockCanvas()) != null) {
+        if (this.bvJ != null && this.bvG && (lockCanvas = this.bvD.lockCanvas()) != null) {
             try {
                 try {
                     lockCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
                     long currentTimeMillis = System.currentTimeMillis();
-                    for (c cVar : this.bvB) {
-                        if (this.bvC && this.bvD) {
+                    for (c cVar : this.bvE) {
+                        if (this.bvF && this.bvG) {
                             if (cVar != null && cVar.QZ()) {
                                 cVar.aE(currentTimeMillis);
                                 this.mPaint.setAlpha(cVar.alpha);
-                                lockCanvas.drawBitmap(cVar.bitmap, (Rect) null, cVar.bvQ, this.mPaint);
+                                lockCanvas.drawBitmap(cVar.bitmap, (Rect) null, cVar.bvT, this.mPaint);
                             }
                         }
                     }
                     try {
-                        this.bvA.unlockCanvasAndPost(lockCanvas);
+                        this.bvD.unlockCanvasAndPost(lockCanvas);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } catch (Throwable th) {
                     try {
-                        this.bvA.unlockCanvasAndPost(lockCanvas);
+                        this.bvD.unlockCanvasAndPost(lockCanvas);
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
@@ -308,7 +308,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             } catch (Exception e4) {
                 e4.printStackTrace();
                 try {
-                    this.bvA.unlockCanvasAndPost(lockCanvas);
+                    this.bvD.unlockCanvasAndPost(lockCanvas);
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
@@ -320,12 +320,12 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     /* loaded from: classes7.dex */
     public static class c {
         public Bitmap bitmap;
-        private PointF bvG;
-        public b bvN;
-        public RectF bvQ;
-        private f bvR;
-        private g bvS;
-        private a bvT;
+        private PointF bvJ;
+        public b bvQ;
+        public RectF bvT;
+        private f bvU;
+        private g bvV;
+        private a bvW;
         private int mHeight;
         private volatile boolean mIsAlive;
         private int mWidth;
@@ -336,11 +336,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.bitmap = bitmap;
             this.mHeight = this.bitmap.getHeight();
             this.mWidth = this.bitmap.getWidth();
-            this.bvG = pointF;
-            this.bvQ = new RectF(pointF.x, pointF.y, pointF.x + this.mWidth, pointF.y + this.mHeight);
-            this.bvQ.offset((-this.mWidth) / 2, (-this.mHeight) / 2);
-            this.bvT = new a(600);
-            this.bvT.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.1
+            this.bvJ = pointF;
+            this.bvT = new RectF(pointF.x, pointF.y, pointF.x + this.mWidth, pointF.y + this.mHeight);
+            this.bvT.offset((-this.mWidth) / 2, (-this.mHeight) / 2);
+            this.bvW = new a(600);
+            this.bvW.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.1
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void onUpdate(Object obj) {
                     c.this.alpha = ((Integer) obj).intValue();
@@ -352,38 +352,38 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void onOver() {
-                    c.this.cM(false);
+                    c.this.cN(false);
                 }
             });
-            this.bvR = new f(pointF, pointF2, pointF3, FeatureCodes.FACE);
-            this.bvR.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.2
+            this.bvU = new f(pointF, pointF2, pointF3, FeatureCodes.FACE);
+            this.bvU.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.2
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void onUpdate(Object obj) {
                     PointF pointF4 = (PointF) obj;
-                    c.this.bvQ.set(pointF4.x, pointF4.y, pointF4.x + (c.this.mWidth * c.this.mScale), pointF4.y + (c.this.mHeight * c.this.mScale));
-                    c.this.bvQ.offset(((-c.this.mWidth) * c.this.mScale) / 2.0f, ((-c.this.mHeight) * c.this.mScale) / 2.0f);
+                    c.this.bvT.set(pointF4.x, pointF4.y, pointF4.x + (c.this.mWidth * c.this.mScale), pointF4.y + (c.this.mHeight * c.this.mScale));
+                    c.this.bvT.offset(((-c.this.mWidth) * c.this.mScale) / 2.0f, ((-c.this.mHeight) * c.this.mScale) / 2.0f);
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void Ra() {
-                    c.this.bvT.start();
+                    c.this.bvW.start();
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void onOver() {
-                    if (c.this.bvN != null) {
-                        c.this.bvN.Q((int) c.this.bvQ.left, (int) c.this.bvQ.top);
+                    if (c.this.bvQ != null) {
+                        c.this.bvQ.Q((int) c.this.bvT.left, (int) c.this.bvT.top);
                     }
                 }
             });
-            this.bvR.start();
-            this.bvS = new g(240, 0.75f);
-            this.bvS.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.3
+            this.bvU.start();
+            this.bvV = new g(240, 0.75f);
+            this.bvV.a(new d() { // from class: com.baidu.live.widget.HeartSurfaceView.c.3
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
                 public void onUpdate(Object obj) {
                     c.this.mScale = ((Float) obj).floatValue();
-                    c.this.bvQ.set(c.this.bvG.x, c.this.bvG.y, c.this.bvG.x + (c.this.mWidth * c.this.mScale), c.this.bvG.y + (c.this.mHeight * c.this.mScale));
-                    c.this.bvQ.offset(((-c.this.mWidth) * c.this.mScale) / 2.0f, ((-c.this.mHeight) * c.this.mScale) / 2.0f);
+                    c.this.bvT.set(c.this.bvJ.x, c.this.bvJ.y, c.this.bvJ.x + (c.this.mWidth * c.this.mScale), c.this.bvJ.y + (c.this.mHeight * c.this.mScale));
+                    c.this.bvT.offset(((-c.this.mWidth) * c.this.mScale) / 2.0f, ((-c.this.mHeight) * c.this.mScale) / 2.0f);
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
@@ -394,8 +394,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 public void onOver() {
                 }
             });
-            this.bvS.start();
-            cM(true);
+            this.bvV.start();
+            cN(true);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -405,32 +405,32 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.mWidth = this.bitmap.getWidth();
             this.alpha = 255;
             this.mScale = 0.0f;
-            this.bvG = pointF;
-            this.bvQ.set(pointF.x, pointF.y, pointF.x + this.mWidth, pointF.y + this.mHeight);
-            this.bvQ.offset((-this.mWidth) / 2, (-this.mHeight) / 2);
-            this.bvR.a(pointF, pointF2, pointF3, TbConfig.HEAD_IMG_SIZE);
-            this.bvR.start();
-            this.bvS.start();
-            cM(true);
+            this.bvJ = pointF;
+            this.bvT.set(pointF.x, pointF.y, pointF.x + this.mWidth, pointF.y + this.mHeight);
+            this.bvT.offset((-this.mWidth) / 2, (-this.mHeight) / 2);
+            this.bvU.a(pointF, pointF2, pointF3, TbConfig.HEAD_IMG_SIZE);
+            this.bvU.start();
+            this.bvV.start();
+            cN(true);
         }
 
         public boolean QZ() {
             return this.mIsAlive;
         }
 
-        public synchronized void cM(boolean z) {
+        public synchronized void cN(boolean z) {
             this.mIsAlive = z;
         }
 
         public void aE(long j) {
-            if (this.bvS.QZ()) {
-                this.bvS.aE(j);
+            if (this.bvV.QZ()) {
+                this.bvV.aE(j);
             }
-            if (this.bvR.QZ()) {
-                this.bvR.aE(j);
+            if (this.bvU.QZ()) {
+                this.bvU.aE(j);
             }
-            if (this.bvT.QZ()) {
-                this.bvT.aE(j);
+            if (this.bvW.QZ()) {
+                this.bvW.aE(j);
             }
         }
     }
@@ -438,58 +438,58 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static abstract class e {
-        private int bvV;
-        private volatile boolean bvW;
-        private d bvX;
-        private volatile boolean bvY = false;
+        private int bvY;
+        private volatile boolean bvZ;
+        private d bwa;
+        private volatile boolean bwb = false;
         private long mStartTime;
 
         protected abstract Object getValue(float f);
 
         public e(int i) {
-            this.bvV = i;
+            this.bvY = i;
         }
 
         public void fD(int i) {
-            this.bvV = i;
+            this.bvY = i;
         }
 
         public boolean QZ() {
-            return this.bvY;
+            return this.bwb;
         }
 
         public void start() {
             this.mStartTime = System.currentTimeMillis();
-            this.bvW = true;
-            this.bvY = true;
+            this.bvZ = true;
+            this.bwb = true;
         }
 
         public void a(d dVar) {
-            this.bvX = dVar;
+            this.bwa = dVar;
         }
 
         public void aE(long j) {
-            float f = ((float) (j - this.mStartTime)) / this.bvV;
+            float f = ((float) (j - this.mStartTime)) / this.bvY;
             float f2 = f >= 0.0f ? f : 0.0f;
             if (f2 >= 1.0f) {
-                this.bvY = false;
-                if (this.bvX != null) {
-                    this.bvX.onUpdate(getValue(f2));
-                    this.bvX.onOver();
+                this.bwb = false;
+                if (this.bwa != null) {
+                    this.bwa.onUpdate(getValue(f2));
+                    this.bwa.onOver();
                     return;
                 }
                 return;
             }
             if (f2 < 0.5d) {
-                this.bvW = true;
-            } else if (this.bvW) {
-                if (this.bvX != null) {
-                    this.bvX.Ra();
+                this.bvZ = true;
+            } else if (this.bvZ) {
+                if (this.bwa != null) {
+                    this.bwa.Ra();
                 }
-                this.bvW = false;
+                this.bvZ = false;
             }
-            if (this.bvX != null) {
-                this.bvX.onUpdate(getValue(f2));
+            if (this.bwa != null) {
+                this.bwa.onUpdate(getValue(f2));
             }
         }
     }
@@ -516,24 +516,24 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static class g extends e {
-        private float bwc;
-        private float bwd;
-        private float bwe;
+        private float bwf;
+        private float bwg;
+        private float bwh;
 
         public g(int i, float f) {
             super(i);
-            this.bwc = 0.3f;
-            this.bwd = 1.0f;
-            this.bwe = f;
+            this.bwf = 0.3f;
+            this.bwg = 1.0f;
+            this.bwh = f;
         }
 
         @Override // com.baidu.live.widget.HeartSurfaceView.e
         protected Object getValue(float f) {
             float f2 = 1.0f;
-            if (f < this.bwe) {
-                f2 = (((this.bwd - this.bwc) / this.bwe) * f) + this.bwc;
+            if (f < this.bwh) {
+                f2 = (((this.bwg - this.bwf) / this.bwh) * f) + this.bwf;
             } else {
-                float f3 = (((-this.bwd) / this.bwe) * f) + (2.0f * this.bwd);
+                float f3 = (((-this.bwg) / this.bwh) * f) + (2.0f * this.bwg);
                 if (f3 > 1.0f) {
                     f2 = f3;
                 }
@@ -545,39 +545,39 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static class f extends e {
-        private static float bwb = 0.0f;
-        private PointF bvG;
-        private PointF bvH;
-        private PointF bvZ;
-        private PointF bwa;
+        private static float bwe = 0.0f;
+        private PointF bvJ;
+        private PointF bvK;
+        private PointF bwc;
+        private PointF bwd;
 
         public f(PointF pointF, PointF pointF2, PointF pointF3, int i) {
             super(i);
-            this.bvG = pointF;
-            this.bvH = pointF2;
-            this.bvZ = pointF3;
-            this.bwa = A(bwb);
+            this.bvJ = pointF;
+            this.bvK = pointF2;
+            this.bwc = pointF3;
+            this.bwd = A(bwe);
         }
 
         public void a(PointF pointF, PointF pointF2, PointF pointF3, int i) {
             fD(i);
-            this.bvG = pointF;
-            this.bvH = pointF2;
-            this.bvZ = pointF3;
+            this.bvJ = pointF;
+            this.bvK = pointF2;
+            this.bwc = pointF3;
         }
 
         @Override // com.baidu.live.widget.HeartSurfaceView.e
         protected Object getValue(float f) {
-            if (f < bwb) {
+            if (f < bwe) {
                 return A(f);
             }
-            return a((f - bwb) / (1.0f - bwb), this.bwa, this.bvZ, this.bvH);
+            return a((f - bwe) / (1.0f - bwe), this.bwd, this.bwc, this.bvK);
         }
 
         public PointF A(float f) {
             PointF pointF = new PointF();
-            pointF.x = this.bvG.x;
-            pointF.y = (1.0f - f) * this.bvG.y;
+            pointF.x = this.bvJ.x;
+            pointF.y = (1.0f - f) * this.bvJ.y;
             return pointF;
         }
 
@@ -593,11 +593,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     public b getAnimateEndListener() {
-        return this.bvN;
+        return this.bvQ;
     }
 
     public void setAnimateEndListener(b bVar) {
-        this.bvN = bVar;
+        this.bvQ = bVar;
     }
 
     public void setUserPortrait(Bitmap bitmap) {
@@ -605,7 +605,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     public void setClickBySelf(boolean z) {
-        this.bvM = z;
+        this.bvP = z;
     }
 
     private Bitmap fB(int i) {
@@ -617,22 +617,22 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     public void setUpResNormalMode() {
-        this.bvL = new ArrayList<>();
-        this.bvL.add(fC(a.b.liveshow_video_heart_like1));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like2));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like3));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like4));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like5));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like6));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like7));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like8));
-        this.bvL.add(fC(a.b.liveshow_video_heart_like9));
+        this.bvO = new ArrayList<>();
+        this.bvO.add(fC(a.b.liveshow_video_heart_like1));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like2));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like3));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like4));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like5));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like6));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like7));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like8));
+        this.bvO.add(fC(a.b.liveshow_video_heart_like9));
     }
 
     public void release() {
-        if (this.bvO != null) {
-            this.bvO.shutdown();
-            this.bvO = null;
+        if (this.bvR != null) {
+            this.bvR.shutdown();
+            this.bvR = null;
         }
     }
 

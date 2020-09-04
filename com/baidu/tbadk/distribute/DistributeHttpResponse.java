@@ -3,7 +3,7 @@ package com.baidu.tbadk.distribute;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.LogTogether.LogTogetherResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DistributeHttpResponse extends HttpResponsedMessage {
     public DistributeHttpResponse(int i) {
         super(i);

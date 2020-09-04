@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class a extends ShareItem {
     public void de(JSONObject jSONObject) throws JSONException {
-        this.eEI = true;
+        this.eEM = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.eEJ = optJSONObject.optString("source2");
-            this.eEL = optJSONObject.optString("source3");
+            this.eEN = optJSONObject.optString("source2");
+            this.eEP = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.eEK = 2;
-            this.eEP = optJSONObject2.optJSONArray("cmd_pannel");
-            this.eEQ = optJSONObject2.optJSONObject("info");
-            if (this.eEQ != null) {
-                this.eEN = this.eEQ.optString("key");
-                this.eEO = this.eEQ.optString("content");
+            this.eEO = 2;
+            this.eET = optJSONObject2.optJSONArray("cmd_pannel");
+            this.eEU = optJSONObject2.optJSONObject("info");
+            if (this.eEU != null) {
+                this.eER = this.eEU.optString("key");
+                this.eES = this.eEU.optString("content");
                 return;
             }
             return;
         }
-        this.eEK = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.eEO = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bDe() {
-        return this.eEP;
-    }
-
-    public String bDf() {
-        return this.eEN;
+    public JSONArray bDf() {
+        return this.eET;
     }
 
     public String bDg() {
-        return this.eEO;
+        return this.eER;
+    }
+
+    public String bDh() {
+        return this.eES;
     }
 
     public String getMediaType() {

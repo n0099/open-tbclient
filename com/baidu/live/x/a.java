@@ -33,7 +33,7 @@ public interface a {
 
     void a(InterfaceC0202a interfaceC0202a);
 
-    void cn(boolean z);
+    void co(boolean z);
 
     void eI(int i);
 

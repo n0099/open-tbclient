@@ -10,7 +10,7 @@ import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.live.adp.framework.MessageConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static void init() {
         k kVar = new k(0) { // from class: com.baidu.tbadk.core.frameworkData.c.1
@@ -18,8 +18,8 @@ public class c {
             @Override // com.baidu.adp.framework.b.f
             /* renamed from: d */
             public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.d.c.bqz().isAPIAvailableNow(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.d.c.bqz().getLongConnectionFailedErrno());
+                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.d.c.bqA().isAPIAvailableNow(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.d.c.bqA().getLongConnectionFailedErrno());
                     return null;
                 }
                 return socketMessage;
@@ -33,7 +33,7 @@ public class c {
             /* renamed from: e */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.d.c.bqz().onAPISuccessed(socketResponsedMessage.getCmd());
+                    com.baidu.tbadk.coreExtra.d.c.bqA().onAPISuccessed(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -43,7 +43,7 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.d.c.bqz().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
+                    com.baidu.tbadk.coreExtra.d.c.bqA().onAPIFailed(((Integer) customResponsedMessage.getData()).intValue());
                 }
             }
         };

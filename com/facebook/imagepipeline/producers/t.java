@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes8.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> nyj;
-    private final ak nyq;
-    private long nyr = 0;
-    private int nys;
+    private final k<com.facebook.imagepipeline.g.e> nyB;
+    private final ak nyI;
+    private long nyJ = 0;
+    private int nyK;
     @Nullable
-    private com.facebook.imagepipeline.common.a nyt;
+    private com.facebook.imagepipeline.common.a nyL;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.nyj = kVar;
-        this.nyq = akVar;
+        this.nyB = kVar;
+        this.nyI = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> dVA() {
-        return this.nyj;
+    public k<com.facebook.imagepipeline.g.e> dVJ() {
+        return this.nyB;
     }
 
-    public ak dVB() {
-        return this.nyq;
+    public ak dVK() {
+        return this.nyI;
     }
 
     public String getId() {
-        return this.nyq.getId();
+        return this.nyI.getId();
     }
 
-    public am dVp() {
-        return this.nyq.dVp();
+    public am dVy() {
+        return this.nyI.dVy();
     }
 
     public Uri getUri() {
-        return this.nyq.dVo().dWg();
+        return this.nyI.dVx().dWp();
     }
 
-    public long dVC() {
-        return this.nyr;
+    public long dVL() {
+        return this.nyJ;
     }
 
-    public void gv(long j) {
-        this.nyr = j;
+    public void gx(long j) {
+        this.nyJ = j;
     }
 
-    public int dVD() {
-        return this.nys;
+    public int dVM() {
+        return this.nyK;
     }
 
     public void Mn(int i) {
-        this.nys = i;
+        this.nyK = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dVE() {
-        return this.nyt;
+    public com.facebook.imagepipeline.common.a dVN() {
+        return this.nyL;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.nyt = aVar;
+        this.nyL = aVar;
     }
 
-    public Map<String, String> dVF() {
-        return this.nyq.dVo().dVF();
+    public Map<String, String> dVO() {
+        return this.nyI.dVx().dVO();
     }
 }

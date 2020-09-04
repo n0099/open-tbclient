@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.pb.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static f a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null) {

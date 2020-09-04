@@ -30,97 +30,97 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.hottopic.view.c;
 /* loaded from: classes15.dex */
 public class HotTopicView extends FrameLayout {
-    AbsListView.OnScrollListener cNn;
-    private BdTypeListView fCP;
-    private PbListView fDW;
-    private g fMN;
-    private CustomMessageListener faw;
-    private CustomMessageListener fax;
-    private int hVF;
-    f.c iMW;
-    private c.a iXs;
-    private c iXt;
-    private com.baidu.tieba.hottopic.adapter.e jcr;
-    private com.baidu.tieba.hottopic.controller.d jcs;
-    private com.baidu.tieba.hottopic.data.e jct;
-    private int jcu;
-    private View jcv;
-    private int jcw;
-    private int jcx;
-    private a jcy;
+    AbsListView.OnScrollListener cNr;
+    private BdTypeListView fCT;
+    private PbListView fEa;
+    private g fMR;
+    private CustomMessageListener faA;
+    private CustomMessageListener faB;
+    private int hVL;
+    f.c iNc;
+    private c.a iXy;
+    private c iXz;
+    private int jcA;
+    private View jcB;
+    private int jcC;
+    private int jcD;
+    private a jcE;
+    private com.baidu.tieba.hottopic.adapter.e jcx;
+    private com.baidu.tieba.hottopic.controller.d jcy;
+    private com.baidu.tieba.hottopic.data.e jcz;
     private com.baidu.tbadk.core.view.g mPullView;
     private h mRefreshView;
     private TbPageContext<HotTopicActivity> pageContext;
 
     public HotTopicView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hVF = 0;
-        this.iMW = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.hVL = 0;
+        this.iNc = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.jcs.cxp();
+                    HotTopicView.this.jcy.cxq();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czF();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czG();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.jcs.pW(true);
-                HotTopicView.this.fCP.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.jcy.pY(true);
+                HotTopicView.this.fCT.completePullRefreshPostDelayed(0L);
             }
         };
-        this.cNn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
+        this.cNr = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.jcs.czR();
-                    s.cbX().bDV();
+                    HotTopicView.this.jcy.czS();
+                    s.cbY().bDW();
                 }
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.jcs.onScroll(i2, i3);
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.jcy.onScroll(i2, i3);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
         };
-        this.fax = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
+        this.faB = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum++;
                             eU.setIsLiked(true);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
             }
         };
-        this.faw = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
+        this.faA = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum--;
                             eU.setIsLiked(false);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
@@ -131,73 +131,73 @@ public class HotTopicView extends FrameLayout {
 
     public HotTopicView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hVF = 0;
-        this.iMW = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.hVL = 0;
+        this.iNc = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.jcs.cxp();
+                    HotTopicView.this.jcy.cxq();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czF();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czG();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.jcs.pW(true);
-                HotTopicView.this.fCP.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.jcy.pY(true);
+                HotTopicView.this.fCT.completePullRefreshPostDelayed(0L);
             }
         };
-        this.cNn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
+        this.cNr = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.jcs.czR();
-                    s.cbX().bDV();
+                    HotTopicView.this.jcy.czS();
+                    s.cbY().bDW();
                 }
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.jcs.onScroll(i2, i3);
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.jcy.onScroll(i2, i3);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
         };
-        this.fax = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
+        this.faB = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum++;
                             eU.setIsLiked(true);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
             }
         };
-        this.faw = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
+        this.faA = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum--;
                             eU.setIsLiked(false);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
@@ -208,73 +208,73 @@ public class HotTopicView extends FrameLayout {
 
     public HotTopicView(Context context) {
         super(context);
-        this.hVF = 0;
-        this.iMW = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.hVL = 0;
+        this.iNc = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.jcs.cxp();
+                    HotTopicView.this.jcy.cxq();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czF();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czG();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.jcs.pW(true);
-                HotTopicView.this.fCP.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.jcy.pY(true);
+                HotTopicView.this.fCT.completePullRefreshPostDelayed(0L);
             }
         };
-        this.cNn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
+        this.cNr = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.jcs.czR();
-                    s.cbX().bDV();
+                    HotTopicView.this.jcy.czS();
+                    s.cbY().bDW();
                 }
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.jcs.onScroll(i2, i3);
-                if (HotTopicView.this.iXs != null) {
-                    HotTopicView.this.iXs.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.jcy.onScroll(i2, i3);
+                if (HotTopicView.this.iXy != null) {
+                    HotTopicView.this.iXy.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
         };
-        this.fax = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
+        this.faB = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum++;
                             eU.setIsLiked(true);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
             }
         };
-        this.faw = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
+        this.faA = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.hottopic.view.HotTopicView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.jct != null && HotTopicView.this.jct.cAd() != null && HotTopicView.this.jct.cAd().iZU != null) {
+                if (customResponsedMessage != null && HotTopicView.this.jcz != null && HotTopicView.this.jcz.cAe() != null && HotTopicView.this.jcz.cAe().jaa != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData eU = HotTopicView.this.eU(((Long) data).longValue());
                         if (eU != null) {
                             eU.followNum--;
                             eU.setIsLiked(false);
-                            HotTopicView.this.jct.cAd().iZW = true;
-                            HotTopicView.this.jcr.a(HotTopicView.this.jct);
+                            HotTopicView.this.jcz.cAe().jac = true;
+                            HotTopicView.this.jcx.a(HotTopicView.this.jcz);
                         }
                     }
                 }
@@ -289,59 +289,59 @@ public class HotTopicView extends FrameLayout {
             this.pageContext = (TbPageContext) I;
         }
         if (this.pageContext != null) {
-            this.fCP = new BdTypeListView(context);
-            this.fCP.setVerticalScrollBarEnabled(false);
-            this.fCP.setDividerHeight(0);
-            this.fCP.setSelector(17170445);
+            this.fCT = new BdTypeListView(context);
+            this.fCT.setVerticalScrollBarEnabled(false);
+            this.fCT.setDividerHeight(0);
+            this.fCT.setSelector(17170445);
             this.mPullView = new com.baidu.tbadk.core.view.g(this.pageContext);
-            this.mPullView.setListPullRefreshListener(this.iMW);
-            this.fCP.setPullRefresh(this.mPullView);
+            this.mPullView.setListPullRefreshListener(this.iNc);
+            this.fCT.setPullRefresh(this.mPullView);
             View view = new View(context);
             view.setLayoutParams(new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.ds88)));
-            this.fCP.addFooterView(view);
-            this.fCP.setOnScrollListener(this.cNn);
-            this.fCP.setOnSrollToBottomListener(this.pageContext.getOrignalPage());
-            this.fCP.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.5
+            this.fCT.addFooterView(view);
+            this.fCT.setOnScrollListener(this.cNr);
+            this.fCT.setOnSrollToBottomListener(this.pageContext.getOrignalPage());
+            this.fCT.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.5
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    if (view2 == HotTopicView.this.fCP && HotTopicView.this.jcs != null) {
-                        HotTopicView.this.jcs.onTouch(motionEvent);
+                    if (view2 == HotTopicView.this.fCT && HotTopicView.this.jcy != null) {
+                        HotTopicView.this.jcy.onTouch(motionEvent);
                         return false;
                     }
                     return false;
                 }
             });
-            this.jcr = new com.baidu.tieba.hottopic.adapter.e(this.pageContext.getOrignalPage(), this.fCP);
-            addView(this.fCP);
-            ((FrameLayout.LayoutParams) this.fCP.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
-            this.jcs = new com.baidu.tieba.hottopic.controller.d(this.pageContext, this.fCP);
-            this.pageContext.registerListener(this.fax);
-            this.pageContext.registerListener(this.faw);
-            cAA();
-            this.fDW = new PbListView(context);
-            this.fDW.createView();
-            this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-            this.fDW.setLineGone();
-            this.fDW.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.fDW.setNoMoreTextColorId(R.color.cp_cont_e);
+            this.jcx = new com.baidu.tieba.hottopic.adapter.e(this.pageContext.getOrignalPage(), this.fCT);
+            addView(this.fCT);
+            ((FrameLayout.LayoutParams) this.fCT.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
+            this.jcy = new com.baidu.tieba.hottopic.controller.d(this.pageContext, this.fCT);
+            this.pageContext.registerListener(this.faB);
+            this.pageContext.registerListener(this.faA);
+            cAB();
+            this.fEa = new PbListView(context);
+            this.fEa.createView();
+            this.fEa.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+            this.fEa.setLineGone();
+            this.fEa.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.fEa.setNoMoreTextColorId(R.color.cp_cont_e);
         }
     }
 
-    private void cAA() {
-        this.jcv = new View(getContext());
-        this.jcv.setId(R.id.view_header);
-        this.jcv.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
-        this.fCP.addHeaderView(this.jcv, 0);
+    private void cAB() {
+        this.jcB = new View(getContext());
+        this.jcB.setId(R.id.view_header);
+        this.jcB.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
+        this.fCT.addHeaderView(this.jcB, 0);
     }
 
     public BdTypeListView getListView() {
-        return this.fCP;
+        return this.fCT;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelateForumItemData eU(long j) {
-        if (this.jct != null && this.jct.cAd() != null && this.jct.cAd().iZU != null) {
-            for (q qVar : this.jct.cAd().iZU) {
+        if (this.jcz != null && this.jcz.cAe() != null && this.jcz.cAe().jaa != null) {
+            for (q qVar : this.jcz.cAe().jaa) {
                 if (qVar != null && (qVar instanceof RelateForumItemData) && ((RelateForumItemData) qVar).forumId == j) {
                     return (RelateForumItemData) qVar;
                 }
@@ -351,71 +351,71 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void d(com.baidu.tieba.hottopic.data.e eVar) {
-        if (this.jcr != null) {
+        if (this.jcx != null) {
             if (eVar == null) {
                 eVar = new com.baidu.tieba.hottopic.data.e();
             }
-            this.jct = eVar;
-            this.jcr.setFromCDN(eVar.cgE());
-            this.jcr.a(eVar);
-            this.fCP.setVisibility(0);
-            if (!y.isEmpty(eVar.cAf())) {
-                ap.setBackgroundColor(this.fCP, R.color.cp_bg_line_c);
+            this.jcz = eVar;
+            this.jcx.setFromCDN(eVar.cgF());
+            this.jcx.a(eVar);
+            this.fCT.setVisibility(0);
+            if (!y.isEmpty(eVar.cAg())) {
+                ap.setBackgroundColor(this.fCT, R.color.cp_bg_line_c);
             }
         }
     }
 
-    public void pV(boolean z) {
-        if (this.fCP != null) {
-            this.jcs.pW(true);
+    public void pX(boolean z) {
+        if (this.fCT != null) {
+            this.jcy.pY(true);
             if (z) {
-                this.fCP.completePullRefresh();
+                this.fCT.completePullRefresh();
             } else {
-                this.fCP.completePullRefreshPostDelayed(0L);
+                this.fCT.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
-    public void gS(boolean z) {
-        if (!cgv()) {
-            if (this.fMN == null) {
-                this.fMN = new g(getContext());
-                this.fMN.setTopMargin(getLoadingViewTopMargin());
-                this.fMN.bsZ();
-                this.fMN.onChangeSkinType();
+    public void gT(boolean z) {
+        if (!cgw()) {
+            if (this.fMR == null) {
+                this.fMR = new g(getContext());
+                this.fMR.setTopMargin(getLoadingViewTopMargin());
+                this.fMR.bta();
+                this.fMR.onChangeSkinType();
             }
-            this.fMN.attachView(this, z);
-            this.fCP.setVisibility(8);
+            this.fMR.attachView(this, z);
+            this.fCT.setVisibility(8);
         }
     }
 
     public void hideLoadingView() {
-        if (this.fMN != null) {
-            this.fMN.dettachView(this);
-            this.fMN = null;
+        if (this.fMR != null) {
+            this.fMR.dettachView(this);
+            this.fMR = null;
         }
-        if (!cAE() && this.iXt != null && this.iXt.cAx() != null) {
-            this.fCP.smoothScrollBy((int) (-this.iXt.cAx().getY()), 1);
+        if (!cAF() && this.iXz != null && this.iXz.cAy() != null) {
+            this.fCT.smoothScrollBy((int) (-this.iXz.cAy().getY()), 1);
         }
     }
 
-    public boolean cgv() {
-        if (this.fMN != null) {
-            return this.fMN.isViewAttached();
+    public boolean cgw() {
+        if (this.fMR != null) {
+            return this.fMR.isViewAttached();
         }
         return false;
     }
 
     public void aK(String str, boolean z) {
-        if (!cgw()) {
+        if (!cgx()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.isNetworkAvailableForImmediately()) {
-                            HotTopicView.this.bFW();
-                            HotTopicView.this.gS(true);
-                            ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czF();
+                            HotTopicView.this.bFX();
+                            HotTopicView.this.gT(true);
+                            ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).czG();
                         }
                     }
                 });
@@ -423,18 +423,18 @@ public class HotTopicView extends FrameLayout {
             this.mRefreshView.setLayoutMargin(getTopMargin());
             this.mRefreshView.attachView(this, z);
             this.mRefreshView.showRefreshButton();
-            this.fCP.setVisibility(8);
+            this.fCT.setVisibility(8);
         }
     }
 
-    public void bFW() {
+    public void bFX() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean cgw() {
+    public boolean cgx() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -445,20 +445,20 @@ public class HotTopicView extends FrameLayout {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.fMN != null) {
-            this.fMN.onChangeSkinType();
+        if (this.fMR != null) {
+            this.fMR.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.fDW != null) {
-            this.fDW.setTextColor(ap.getColor(R.color.cp_cont_d));
-            this.fDW.changeSkin(i);
+        if (this.fEa != null) {
+            this.fEa.setTextColor(ap.getColor(R.color.cp_cont_d));
+            this.fEa.changeSkin(i);
         }
-        if (this.jcr != null) {
-            this.jcr.notifyDataSetChanged();
+        if (this.jcx != null) {
+            this.jcx.notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.fCP, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.fCT, R.color.cp_bg_line_c);
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
     }
 
@@ -472,149 +472,149 @@ public class HotTopicView extends FrameLayout {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }
-        if (this.jcs != null) {
-            this.jcs.destroy();
+        if (this.jcy != null) {
+            this.jcy.destroy();
         }
-        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.jcy);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.jcE);
     }
 
     public void resume() {
-        if (this.jcs != null) {
-            this.jcs.pX(false);
+        if (this.jcy != null) {
+            this.jcy.pZ(false);
         }
     }
 
     public void pause() {
-        if (this.jcs != null) {
-            this.jcs.pX(true);
+        if (this.jcy != null) {
+            this.jcy.pZ(true);
         }
     }
 
     public void setScrollCallback(c.a aVar) {
-        this.iXs = aVar;
+        this.iXy = aVar;
     }
 
     public void Ax(int i) {
-        ViewGroup.LayoutParams layoutParams = this.jcv.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.jcB.getLayoutParams();
         layoutParams.height = i;
-        this.jcv.setLayoutParams(layoutParams);
-        cAB();
-    }
-
-    public void bGR() {
-        if (this.fCP != null && this.fDW != null) {
-            this.fCP.setNextPage(this.fDW);
-            this.fDW.setTextSize(R.dimen.tbfontsize33);
-            this.fDW.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-            this.fDW.startLoadData();
-        }
+        this.jcB.setLayoutParams(layoutParams);
+        cAC();
     }
 
     public void bGS() {
-        if (this.fCP != null && this.fDW != null) {
-            if (this.hVF > 0) {
-                this.fDW.showEmptyView(this.hVF);
-            }
-            this.fCP.setNextPage(this.fDW);
-            this.fDW.endLoadData();
-            this.fDW.setText(getContext().getResources().getString(R.string.list_no_more));
+        if (this.fCT != null && this.fEa != null) {
+            this.fCT.setNextPage(this.fEa);
+            this.fEa.setTextSize(R.dimen.tbfontsize33);
+            this.fEa.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+            this.fEa.startLoadData();
         }
     }
 
     public void bGT() {
-        if (this.fCP != null && this.fDW != null) {
-            this.fCP.setNextPage(null);
-            this.fDW.hideEmptyView();
+        if (this.fCT != null && this.fEa != null) {
+            if (this.hVL > 0) {
+                this.fEa.showEmptyView(this.hVL);
+            }
+            this.fCT.setNextPage(this.fEa);
+            this.fEa.endLoadData();
+            this.fEa.setText(getContext().getResources().getString(R.string.list_no_more));
+        }
+    }
+
+    public void bGU() {
+        if (this.fCT != null && this.fEa != null) {
+            this.fCT.setNextPage(null);
+            this.fEa.hideEmptyView();
         }
     }
 
     public void Ay(int i) {
-        if (this.fCP != null) {
-            this.fCP.smoothScrollBy(i, 1);
-            cAB();
+        if (this.fCT != null) {
+            this.fCT.smoothScrollBy(i, 1);
+            cAC();
         }
     }
 
     public void setMainView(c cVar) {
-        this.iXt = cVar;
+        this.iXz = cVar;
     }
 
     public void at(float f) {
-        if (this.fCP != null && this.jct != null && this.jct.cAd() != null) {
-            this.fCP.setSelection(0);
-            this.jcy = new a((int) f);
-            com.baidu.adp.lib.f.e.mS().post(this.jcy);
+        if (this.fCT != null && this.jcz != null && this.jcz.cAe() != null) {
+            this.fCT.setSelection(0);
+            this.jcE = new a((int) f);
+            com.baidu.adp.lib.f.e.mS().post(this.jcE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a implements Runnable {
-        int jcA;
+        int jcG;
 
         public a(int i) {
-            this.jcA = i;
+            this.jcG = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HotTopicView.this.fCP.smoothScrollBy(Math.abs(this.jcA), 1);
-            HotTopicView.this.cAB();
+            HotTopicView.this.fCT.smoothScrollBy(Math.abs(this.jcG), 1);
+            HotTopicView.this.cAC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAB() {
-        if (cgw()) {
+    public void cAC() {
+        if (cgx()) {
             this.mRefreshView.setLayoutMargin(getTopMargin());
         }
-        if (cgv()) {
-            this.fMN.setTopMargin(getLoadingViewTopMargin());
+        if (cgw()) {
+            this.fMR.setTopMargin(getLoadingViewTopMargin());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i) {
-        if (this.iXt != null) {
+        if (this.iXz != null) {
             if (absListView != null && absListView.getChildCount() > 0 && absListView.getChildAt(0) != null && i == 0) {
-                this.jcu = Math.abs(absListView.getChildAt(0).getTop());
-                if (this.jcu > this.jcx && this.jcw <= 1) {
-                    cAC();
-                } else if (this.jcu < this.jcx) {
+                this.jcA = Math.abs(absListView.getChildAt(0).getTop());
+                if (this.jcA > this.jcD && this.jcC <= 1) {
                     cAD();
+                } else if (this.jcA < this.jcD) {
+                    cAE();
                 }
-                this.jcx = this.jcu;
+                this.jcD = this.jcA;
             }
-            this.jcw = i;
+            this.jcC = i;
         }
-    }
-
-    private void cAC() {
-        this.iXt.a(this.fCP, Math.min(this.jcu, this.iXt.cAv()));
     }
 
     private void cAD() {
-        if (!cAE()) {
-            this.iXt.a(this.fCP, Math.min(this.jcu, this.iXt.cAv()));
+        this.iXz.a(this.fCT, Math.min(this.jcA, this.iXz.cAw()));
+    }
+
+    private void cAE() {
+        if (!cAF()) {
+            this.iXz.a(this.fCT, Math.min(this.jcA, this.iXz.cAw()));
         }
     }
 
-    private boolean cAE() {
-        return this.iXt.cAx() != null && this.iXt.cAx().getY() == 0.0f;
+    private boolean cAF() {
+        return this.iXz.cAy() != null && this.iXz.cAy().getY() == 0.0f;
     }
 
     private int getTopMargin() {
-        if (this.iXt == null || this.iXt.cAx() == null) {
+        if (this.iXz == null || this.iXz.cAy() == null) {
             return 0;
         }
-        return (int) Math.abs(this.iXt.cAy() + this.iXt.cAx().getY());
+        return (int) Math.abs(this.iXz.cAz() + this.iXz.cAy().getY());
     }
 
     private int getLoadingViewTopMargin() {
-        if (this.iXt == null || this.iXt.cAx() == null) {
+        if (this.iXz == null || this.iXz.cAy() == null) {
             return 0;
         }
-        int height = getHeight() - this.iXt.cAy();
-        return ((height - l.getDimens(getContext(), R.dimen.tbds304)) / 2) + this.iXt.cAy();
+        int height = getHeight() - this.iXz.cAz();
+        return ((height - l.getDimens(getContext(), R.dimen.tbds304)) / 2) + this.iXz.cAz();
     }
 }

@@ -7,25 +7,25 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
 /* loaded from: classes7.dex */
 public class a {
-    private long gwF;
-    private TextView gwG;
+    private long gwJ;
+    private TextView gwK;
     private TbPageContext mContext;
     private View mView;
 
     public void eg(long j) {
-        if (j > this.gwF) {
-            this.gwF = j;
-            bQN();
+        if (j > this.gwJ) {
+            this.gwJ = j;
+            bQO();
         }
     }
 
-    public void bQM() {
-        this.gwF = 0L;
-        bQN();
+    public void bQN() {
+        this.gwJ = 0L;
+        bQO();
     }
 
-    private void bQN() {
-        this.gwG.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.gwF)));
+    private void bQO() {
+        this.gwK.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.gwJ)));
     }
 
     public View getView() {

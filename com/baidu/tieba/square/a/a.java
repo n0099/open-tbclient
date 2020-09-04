@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private InterfaceC0801a lXM = null;
-    private int lXN = 0;
+    private InterfaceC0801a lYb = null;
+    private int lYc = 0;
     private Context mContext;
     private List<String> mDataList;
 
@@ -45,18 +45,18 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.lXQ.setText(str);
-        if (this.lXN == i) {
-            bVar.lXR.setVisibility(0);
-            ap.setBackgroundColor(bVar.lXR, R.color.cp_link_tip_e);
+        bVar.lYf.setText(str);
+        if (this.lYc == i) {
+            bVar.lYg.setVisibility(0);
+            ap.setBackgroundColor(bVar.lYg, R.color.cp_link_tip_e);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            ap.setViewTextColor(bVar.lXQ, (int) R.color.cp_cont_b);
+            ap.setViewTextColor(bVar.lYf, (int) R.color.cp_cont_b);
         } else {
-            bVar.lXR.setVisibility(8);
+            bVar.lYg.setVisibility(8);
             ap.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            ap.setViewTextColor(bVar.lXQ, (int) R.color.cp_cont_j);
+            ap.setViewTextColor(bVar.lYf, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(duR())) {
+        if ("推荐".equals(duW())) {
             aq aqVar = new aq("c13641");
             aqVar.u("uid", TbadkApplication.getCurrentAccountId());
             aqVar.ai("obj_locate", 3);
@@ -66,8 +66,8 @@ public class a extends RecyclerView.Adapter<b> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.Hy(i);
-                if (a.this.lXM != null) {
-                    a.this.lXM.a(bVar.itemView, i, str);
+                if (a.this.lYb != null) {
+                    a.this.lYb.a(bVar.itemView, i, str);
                 }
                 aq aqVar2 = new aq("c13649");
                 aqVar2.dD("resource_id", str);
@@ -85,22 +85,22 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0801a interfaceC0801a) {
-        this.lXM = interfaceC0801a;
+        this.lYb = interfaceC0801a;
     }
 
     public void p(int i, List<String> list) {
-        this.lXN = i;
+        this.lYc = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
     public void Hy(int i) {
-        this.lXN = i;
+        this.lYc = i;
         notifyDataSetChanged();
     }
 
-    public String duR() {
-        return Hz(this.lXN);
+    public String duW() {
+        return Hz(this.lYc);
     }
 
     public String Hz(int i) {
@@ -113,13 +113,13 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes16.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView lXQ;
-        private View lXR;
+        private TextView lYf;
+        private View lYg;
 
         public b(@NonNull View view) {
             super(view);
-            this.lXQ = (TextView) view.findViewById(R.id.tv_class_name);
-            this.lXR = view.findViewById(R.id.tv_line);
+            this.lYf = (TextView) view.findViewById(R.id.tv_class_name);
+            this.lYg = view.findViewById(R.id.tv_line);
         }
     }
 }

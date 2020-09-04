@@ -6,15 +6,15 @@ import android.view.View;
 public class d {
     public static void a(View view, final Runnable runnable) {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.d.1
-            private int dej = 5;
-            private long[] cgG = new long[this.dej];
+            private int den = 5;
+            private long[] cgK = new long[this.den];
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                System.arraycopy(this.cgG, 1, this.cgG, 0, this.cgG.length - 1);
-                this.cgG[this.cgG.length - 1] = SystemClock.uptimeMillis();
-                if (this.cgG[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.cgG = new long[this.dej];
+                System.arraycopy(this.cgK, 1, this.cgK, 0, this.cgK.length - 1);
+                this.cgK[this.cgK.length - 1] = SystemClock.uptimeMillis();
+                if (this.cgK[0] >= SystemClock.uptimeMillis() - 1000) {
+                    this.cgK = new long[this.den];
                     runnable.run();
                 }
             }

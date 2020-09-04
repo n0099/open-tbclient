@@ -12,28 +12,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 /* loaded from: classes3.dex */
 public final class j extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory nDA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.j.1
+    public static final TypeAdapterFactory nDS = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dXI() == Date.class) {
+            if (aVar.dXR() == Date.class) {
                 return new j();
             }
             return null;
         }
     };
-    private final DateFormat nEc = new SimpleDateFormat("MMM d, yyyy");
+    private final DateFormat nEu = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     /* renamed from: d */
     public synchronized Date read(com.google.gson.stream.a aVar) throws IOException {
         Date date;
-        if (aVar.dXp() == JsonToken.NULL) {
-            aVar.dXu();
+        if (aVar.dXy() == JsonToken.NULL) {
+            aVar.dXD();
             date = null;
         } else {
             try {
-                date = new Date(this.nEc.parse(aVar.dXt()).getTime());
+                date = new Date(this.nEu.parse(aVar.dXC()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -45,6 +45,6 @@ public final class j extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.UT(date == null ? null : this.nEc.format((java.util.Date) date));
+        bVar.UT(date == null ? null : this.nEu.format((java.util.Date) date));
     }
 }

@@ -10,7 +10,7 @@ import protobuf.GroupInfo;
 import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     private ConfigVersion configVersion;
     private List<GroupUpdateMessage> groupInfos;

@@ -25,7 +25,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b iW(String str) {
+    public com.baidu.swan.apps.api.c.b iX(String str) {
         Uri fromFile;
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
@@ -46,7 +46,7 @@ public class a extends d {
         JSONObject jSONObject = (JSONObject) aX.second;
         String optString = jSONObject.optString("filePath");
         String cn2 = com.baidu.swan.apps.storage.b.cn(optString, e.azK());
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.rJ(optString) != PathType.BD_FILE || TextUtils.isEmpty(cn2)) {
+        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.rK(optString) != PathType.BD_FILE || TextUtils.isEmpty(cn2)) {
             c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.c.b(202, "a valid filePath is required");
         }
@@ -75,7 +75,7 @@ public class a extends d {
         }
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.STREAM", fromFile);
-        intent.setType(iX(cn2));
+        intent.setType(iY(cn2));
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.api.module.c.a.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
@@ -90,7 +90,7 @@ public class a extends d {
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private String iX(String str) {
+    private String iY(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf > 0) {
             String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));

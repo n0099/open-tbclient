@@ -11,15 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
-    private BdUniqueId ahK;
-    private ArrayList<com.baidu.tieba.ala.livecard.a.d> giQ = new ArrayList<>();
+    private BdUniqueId ahM;
+    private ArrayList<com.baidu.tieba.ala.livecard.a.d> giU = new ArrayList<>();
     private List<bw> mDataList = new ArrayList();
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.ahK = bdUniqueId;
+        this.ahM = bdUniqueId;
     }
 
     public void setForumName(String str) {
@@ -31,31 +31,31 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         if (list != null && !list.isEmpty()) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            int size = this.giQ.size();
+            int size = this.giU.size();
             int size2 = this.mDataList.size();
             if (size > size2) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = size2; i < size; i++) {
-                    arrayList.add(this.giQ.get(i));
+                    arrayList.add(this.giU.get(i));
                 }
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
                     com.baidu.tieba.ala.livecard.a.d dVar2 = (com.baidu.tieba.ala.livecard.a.d) arrayList.get(i2);
                     if (dVar2.getRootView() != null && dVar2.getRootView().getParent() != null) {
                         ((ViewGroup) dVar2.getRootView().getParent()).removeView(dVar2.getRootView());
                     }
-                    this.giQ.remove(dVar2);
+                    this.giU.remove(dVar2);
                 }
                 arrayList.clear();
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    com.baidu.tieba.ala.livecard.a.d bLN = bLN();
-                    bLN.p(this.mPageContext.getUniqueId());
-                    bLN.a(cVar);
-                    this.giQ.add(bLN);
-                    dVar = bLN;
+                    com.baidu.tieba.ala.livecard.a.d bLO = bLO();
+                    bLO.p(this.mPageContext.getUniqueId());
+                    bLO.a(cVar);
+                    this.giU.add(bLO);
+                    dVar = bLO;
                 } else {
-                    dVar = this.giQ.get(i3);
+                    dVar = this.giU.get(i3);
                 }
                 if (this.mDataList.get(i3) != null && dVar != null) {
                     dVar.k(this.mDataList.get(i3), this.mForumName);
@@ -65,13 +65,13 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         }
     }
 
-    private com.baidu.tieba.ala.livecard.a.d bLN() {
-        return new com.baidu.tieba.ala.livecard.a.d(this.mPageContext, this.ahK);
+    private com.baidu.tieba.ala.livecard.a.d bLO() {
+        return new com.baidu.tieba.ala.livecard.a.d(this.mPageContext, this.ahM);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return y.getCount(this.giQ);
+        return y.getCount(this.giU);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -81,15 +81,15 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.giQ.get(i).getRootView());
+        viewGroup.removeView(this.giU.get(i).getRootView());
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.giQ == null) {
+        if (this.giU == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        com.baidu.tieba.ala.livecard.a.d dVar = (com.baidu.tieba.ala.livecard.a.d) y.getItem(this.giQ, i);
+        com.baidu.tieba.ala.livecard.a.d dVar = (com.baidu.tieba.ala.livecard.a.d) y.getItem(this.giU, i);
         if (dVar == null) {
             return super.instantiateItem(viewGroup, i);
         }

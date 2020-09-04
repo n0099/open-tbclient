@@ -19,7 +19,7 @@ public class a {
     public int borderWidth;
     @V8JavascriptField
     public String color;
-    private InterfaceC0508a dyb;
+    private InterfaceC0508a dyf;
     @V8JavascriptField
     public String fontWeight;
     @V8JavascriptField
@@ -77,13 +77,13 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.dyb != null) {
-            this.dyb.aQF();
+        if (this.dyf != null) {
+            this.dyf.aQF();
         }
     }
 
     public void a(InterfaceC0508a interfaceC0508a) {
-        this.dyb = interfaceC0508a;
+        this.dyf = interfaceC0508a;
     }
 
     public static int ll(@ColorInt int i) {

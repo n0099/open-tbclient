@@ -9,16 +9,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends h<C0445a> {
-    protected final boolean cVP;
-    private final String cVQ;
+    protected final boolean cVT;
+    private final String cVU;
     protected final Activity mActivity;
     protected final String mScope;
 
     public a(Activity activity, boolean z, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.cVP = z;
-        this.cVQ = str2;
+        this.cVT = z;
+        this.cVU = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -36,12 +36,12 @@ public class a extends h<C0445a> {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.cVP));
+            jSONObject3.put("permit", Boolean.toString(this.cVT));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
-            if (!TextUtils.isEmpty(this.cVQ)) {
-                jSONObject.put("provider_appkey", this.cVQ);
+            if (!TextUtils.isEmpty(this.cVU)) {
+                jSONObject.put("provider_appkey", this.cVU);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class a extends h<C0445a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0445a(this.cVP, str, jSONObject2);
+        return new C0445a(this.cVT, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -88,18 +88,18 @@ public class a extends h<C0445a> {
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0445a {
-        public final JSONObject cVR;
-        public final boolean cVg;
+        public final JSONObject cVV;
+        public final boolean cVk;
         public final String code;
 
         private C0445a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.cVg = z;
-            this.cVR = jSONObject;
+            this.cVk = z;
+            this.cVV = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.cVg), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.cVk), this.code);
         }
     }
 }

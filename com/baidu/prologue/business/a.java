@@ -26,7 +26,7 @@ public class a {
         a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.rt(), currentTimeMillis).Wd().Wc().a(new m() { // from class: com.baidu.prologue.business.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: ia */
+            /* renamed from: ib */
             public void onResponse(String str) {
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, BasicPushStatus.SUCCESS_CODE, IMTrack.DbBuilder.ACTION_UPDATE);
                 try {
@@ -38,7 +38,7 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                g.bKk.e("Afd", "update接口 " + th.getMessage());
+                g.bKo.e("Afd", "update接口 " + th.getMessage());
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, th.getMessage(), IMTrack.DbBuilder.ACTION_UPDATE);
             }
         });
@@ -47,11 +47,11 @@ public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar, final c cVar) {
         final long currentTimeMillis = System.currentTimeMillis();
         Request.a a = a(aVar, "query", aVar.rt(), currentTimeMillis);
-        a.dn(true);
+        a.m32do(true);
         a.Wd().Wc().a(new m() { // from class: com.baidu.prologue.business.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
-            /* renamed from: ia */
+            /* renamed from: ib */
             public void onResponse(String str) {
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, BasicPushStatus.SUCCESS_CODE, "query");
                 try {
@@ -69,7 +69,7 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                g.bKk.e("Afd", "query接口 " + th.getMessage());
+                g.bKo.e("Afd", "query接口 " + th.getMessage());
                 cVar.m(th);
                 a.a(com.baidu.prologue.a.b.a.this, currentTimeMillis, th.getMessage(), "query");
             }
@@ -100,15 +100,15 @@ public class a {
             if (Vx != null && Vx.size() > 0) {
                 for (com.baidu.prologue.business.data.e eVar : Vx) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("k", eVar.bKI);
-                    if (!TextUtils.isEmpty(eVar.bKI)) {
+                    jSONObject3.put("k", eVar.bKM);
+                    if (!TextUtils.isEmpty(eVar.bKM)) {
                         int f = com.baidu.prologue.business.data.d.f(eVar);
                         Log.e("Afd", "onAdSuccess: " + f);
                         if (f == 0) {
-                            arrayList.add(eVar.bKI);
+                            arrayList.add(eVar.bKM);
                         }
                     }
-                    jSONObject3.put("r", String.valueOf(eVar.bKR));
+                    jSONObject3.put("r", String.valueOf(eVar.bKV));
                     jSONArray2.put(jSONObject3);
                 }
             }

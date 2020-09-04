@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean ajd;
-    private a mGX;
-    private boolean mGY;
+    private boolean ajf;
+    private a mHp;
+    private boolean mHq;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void aN(boolean z) {
-        if (this.mGY) {
+        if (this.mHq) {
             if (z) {
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
                 bVar.blo();
@@ -63,7 +63,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar4 = new com.baidu.tbadk.core.view.commonBtn.b();
             bVar4.pb(R.color.cp_link_tip_a);
-            if (this.ajd) {
+            if (this.ajf) {
                 bVar4.oX(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                 bVar4.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             }
@@ -93,8 +93,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bk(View view) {
-        if (this.mGX != null) {
-            this.mGX.bZ(view);
+        if (this.mHp != null) {
+            this.mHp.bZ(view);
         }
     }
 
@@ -108,14 +108,14 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setOnClickEvent(a aVar) {
-        this.mGX = aVar;
+        this.mHp = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ajd = z;
+        this.ajf = z;
     }
 
     public void setGodRecommendStyle(boolean z) {
-        this.mGY = z;
+        this.mHq = z;
     }
 }

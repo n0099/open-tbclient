@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public final class Request {
-    protected final Map<String, String> bMt;
-    private final e bMu;
-    private final RequestError bMv;
-    protected boolean bMw;
-    protected boolean bMx;
+    protected boolean bMA;
+    protected boolean bMB;
+    protected final Map<String, String> bMx;
+    private final e bMy;
+    private final RequestError bMz;
     private final Context context;
     private final Handler handler;
     protected final Map<String, String> headers;
@@ -25,17 +25,17 @@ public final class Request {
     protected final URL url;
 
     private Request(a aVar) {
-        this.bMv = aVar.bMv;
+        this.bMz = aVar.bMz;
         this.context = aVar.context;
         this.handler = new Handler(this.context.getMainLooper());
         this.url = aVar.url;
         this.method = aVar.method;
         this.headers = aVar.headers;
-        this.bMt = aVar.bMt;
-        this.bMw = aVar.bMw;
+        this.bMx = aVar.bMx;
+        this.bMA = aVar.bMA;
         this.tag = aVar.tag != null ? aVar.tag : this;
-        this.bMu = c.aT(this.context);
-        this.bMx = aVar.bMD;
+        this.bMy = c.aT(this.context);
+        this.bMB = aVar.bMH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,7 +54,7 @@ public final class Request {
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
                 } catch (IOException e) {
-                    com.baidu.prologue.a.c.g.bKk.e("Request", "failed to read is", e);
+                    com.baidu.prologue.a.c.g.bKo.e("Request", "failed to read is", e);
                 }
             }
             return byteArrayOutputStream.toByteArray();
@@ -69,15 +69,15 @@ public final class Request {
     }
 
     public void a(final m mVar) {
-        if (this.bMv != null) {
+        if (this.bMz != null) {
             e(new Runnable() { // from class: com.baidu.prologue.service.network.Request.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    mVar.n(Request.this.bMv);
+                    mVar.n(Request.this.bMz);
                 }
             });
         } else {
-            this.bMu.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
+            this.bMy.a(this, new l() { // from class: com.baidu.prologue.service.network.Request.2
                 @Override // com.baidu.prologue.service.network.l
                 public void a(long j, InputStream inputStream) {
                     final String str = new String(Request.h(inputStream));
@@ -103,16 +103,16 @@ public final class Request {
     }
 
     public void a(l lVar) {
-        this.bMu.a(this, lVar);
+        this.bMy.a(this, lVar);
     }
 
     /* loaded from: classes9.dex */
     public static class a {
-        private final String bMC;
-        private boolean bMD;
-        private Map<String, String> bMt;
-        private RequestError bMv;
-        private boolean bMw;
+        private boolean bMA;
+        private final String bMG;
+        private boolean bMH;
+        private Map<String, String> bMx;
+        private RequestError bMz;
         private final Context context;
         private Map<String, String> headers;
         private String method;
@@ -121,7 +121,7 @@ public final class Request {
 
         public a(Context context, String str) {
             this.context = context.getApplicationContext();
-            this.bMC = str;
+            this.bMG = str;
         }
 
         public Request Wc() {
@@ -130,11 +130,11 @@ public final class Request {
             }
             if ("GET".equals(this.method)) {
                 try {
-                    this.url = new URL(b.d(this.url.toString(), this.bMt));
+                    this.url = new URL(b.d(this.url.toString(), this.bMx));
                 } catch (MalformedURLException e) {
-                    this.bMv = new RequestError("Failed to create url", e);
+                    this.bMz = new RequestError("Failed to create url", e);
                 } catch (URISyntaxException e2) {
-                    this.bMv = new RequestError("Failed to add parameters to url", e2);
+                    this.bMz = new RequestError("Failed to add parameters to url", e2);
                 }
             }
             return new Request(this);
@@ -142,12 +142,12 @@ public final class Request {
 
         public a Wd() {
             if (this.url != null) {
-                this.bMv = new RequestError("Method called twice");
+                this.bMz = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bMC);
+                this.url = new URL(this.bMG);
             } catch (MalformedURLException e) {
-                this.bMv = new RequestError(e);
+                this.bMz = new RequestError(e);
             }
             this.method = "GET";
             return this;
@@ -155,12 +155,12 @@ public final class Request {
 
         public a We() {
             if (this.url != null) {
-                this.bMv = new RequestError("Method called twice");
+                this.bMz = new RequestError("Method called twice");
             }
             try {
-                this.url = new URL(this.bMC);
+                this.url = new URL(this.bMG);
             } catch (MalformedURLException e) {
-                this.bMv = new RequestError(e);
+                this.bMz = new RequestError(e);
             }
             this.method = "POST";
             return this;
@@ -175,15 +175,16 @@ public final class Request {
         }
 
         public a aR(String str, String str2) {
-            if (this.bMt == null) {
-                this.bMt = new HashMap();
+            if (this.bMx == null) {
+                this.bMx = new HashMap();
             }
-            this.bMt.put(str, str2);
+            this.bMx.put(str, str2);
             return this;
         }
 
-        public a dn(boolean z) {
-            this.bMD = z;
+        /* renamed from: do  reason: not valid java name */
+        public a m32do(boolean z) {
+            this.bMH = z;
             return this;
         }
     }

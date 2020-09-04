@@ -6,19 +6,19 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
-    private boolean eIP = false;
-    private int eIQ = 0;
+    private boolean eIT = false;
+    private int eIU = 0;
 
-    public void Bz(String str) {
+    public void BA(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.eIP = false;
-        this.eIQ = 0;
+        this.eIT = false;
+        this.eIU = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -49,7 +49,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.eIP = true;
+                                this.eIT = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,19 +80,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.eIP && i4 > 0) {
-                    this.eIQ = i3 / i4;
+                if (this.eIT && i4 > 0) {
+                    this.eIU = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.eIP;
+        return this.eIT;
     }
 
-    public int bqC() {
-        return this.eIQ;
+    public int bqD() {
+        return this.eIU;
     }
 
     private int getTimeout() {

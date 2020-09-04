@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory nDA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory nDS = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -24,23 +24,23 @@ public final class a<E> extends TypeAdapter<Object> {
         }
     };
     private final Class<E> componentType;
-    private final TypeAdapter<E> nDB;
+    private final TypeAdapter<E> nDT;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.nDB = new m(gson, typeAdapter, cls);
+        this.nDT = new m(gson, typeAdapter, cls);
         this.componentType = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dXp() == JsonToken.NULL) {
-            aVar.dXu();
+        if (aVar.dXy() == JsonToken.NULL) {
+            aVar.dXD();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dXn();
+        aVar.dXw();
         while (aVar.hasNext()) {
-            arrayList.add(this.nDB.read(aVar));
+            arrayList.add(this.nDT.read(aVar));
         }
         aVar.endArray();
         int size = arrayList.size();
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dXE();
+            bVar.dXN();
             return;
         }
-        bVar.dXA();
+        bVar.dXJ();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.nDB.write(bVar, Array.get(obj, i));
+            this.nDT.write(bVar, Array.get(obj, i));
         }
-        bVar.dXB();
+        bVar.dXK();
     }
 }

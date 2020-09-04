@@ -12,21 +12,21 @@ import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes7.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView bbw;
-    private LoadingView fQV;
-    private TbListCommonPullView gPZ;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a gQa;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a gQb;
-    private boolean gQc = false;
-    private TbListCommonPullView.ListPullRefreshListener gQd = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView bby;
+    private LoadingView fQZ;
+    private TbListCommonPullView gQd;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a gQe;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a gQf;
+    private boolean gQg = false;
+    private TbListCommonPullView.ListPullRefreshListener gQh = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.gQb != null) {
-                a.this.gQb.refreshData();
+            if (a.this.gQf != null) {
+                a.this.gQf.refreshData();
             }
         }
     };
-    private a.InterfaceC0651a gQe = new a.InterfaceC0651a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0651a gQi = new a.InterfaceC0651a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;
@@ -38,13 +38,13 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.bbw = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.gPZ = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.gPZ.changeSkin(0);
-        this.gPZ.setSkinType(0);
-        this.gPZ.setListPullRefreshListener(this.gQd);
-        this.bbw.setPullRefresh(this.gPZ);
-        this.gQa = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bbw);
+        this.bby = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.gQd = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.gQd.changeSkin(0);
+        this.gQd.setSkinType(0);
+        this.gQd.setListPullRefreshListener(this.gQh);
+        this.bby.setPullRefresh(this.gQd);
+        this.gQe = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bby);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gQb != null) {
-            this.gQb.onDestroy();
+        if (this.gQf != null) {
+            this.gQf.onDestroy();
         }
-        if (this.gQa != null) {
-            this.gQa.onDestroy();
-            this.gQa = null;
+        if (this.gQe != null) {
+            this.gQe.onDestroy();
+            this.gQe = null;
         }
-        if (this.fQV != null) {
-            this.fQV.release();
-            this.fQV = null;
+        if (this.fQZ != null) {
+            this.fQZ.release();
+            this.fQZ = null;
         }
-        if (this.gPZ != null) {
-            this.gPZ = null;
+        if (this.gQd != null) {
+            this.gQd = null;
         }
     }
 

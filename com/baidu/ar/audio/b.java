@@ -11,7 +11,7 @@ public class b {
     private c in;
 
     /* renamed from: io  reason: collision with root package name */
-    private HandlerThread f960io;
+    private HandlerThread f959io;
     private Handler ip;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,9 +67,9 @@ public class b {
     }
 
     private void ch() {
-        this.f960io = new HandlerThread("AudioHandlerThread");
-        this.f960io.start();
-        this.ip = new a(this.f960io.getLooper());
+        this.f959io = new HandlerThread("AudioHandlerThread");
+        this.f959io.start();
+        this.ip = new a(this.f959io.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -101,9 +101,9 @@ public class b {
             this.ip.removeCallbacksAndMessages(null);
             this.ip = null;
         }
-        if (this.f960io != null) {
-            this.f960io.quit();
-            this.f960io = null;
+        if (this.f959io != null) {
+            this.f959io.quit();
+            this.f959io = null;
         }
     }
 
@@ -145,7 +145,7 @@ public class b {
     }
 
     public boolean isRunning() {
-        return this.f960io != null && this.f960io.isAlive();
+        return this.f959io != null && this.f959io.isAlive();
     }
 
     public void setVolumeListener(VolumeListener volumeListener) {

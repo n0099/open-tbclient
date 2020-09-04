@@ -23,12 +23,12 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class e extends BaseAdapter {
     private static final int MAX_SIZE = TbadkCoreApplication.getInst().getListItemRule().getMaxCache();
-    private TbPageContext<?> efn;
-    private int gQW = -1;
+    private TbPageContext<?> efr;
+    private int gRa = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
     }
 
     public void setData(List<b.a> list) {
@@ -59,13 +59,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.efn.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.efr.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.lxV = (TextView) view.findViewById(R.id.title_text);
-            aVar.lxW = (TextView) view.findViewById(R.id.content_text);
-            aVar.lxX = (TextView) view.findViewById(R.id.label_text);
-            aVar.gRI = (TextView) view.findViewById(R.id.user_name);
-            aVar.lxY = (TextView) view.findViewById(R.id.time_text);
+            aVar.lyg = (TextView) view.findViewById(R.id.title_text);
+            aVar.lyh = (TextView) view.findViewById(R.id.content_text);
+            aVar.lyi = (TextView) view.findViewById(R.id.label_text);
+            aVar.gRM = (TextView) view.findViewById(R.id.user_name);
+            aVar.lyj = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -75,54 +75,54 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.lxV.setText(Html.fromHtml(at.getHighLightString(aVar3.title, str)));
-            aVar2.lxW.setText(Html.fromHtml(at.getHighLightString(aVar3.content, str)));
-            aVar2.gRI.setText(aVar3.name_show);
-            aVar2.lxY.setText(at.getFormatTime(aVar3.time));
-            aVar2.lxX.setVisibility(0);
+            aVar2.lyg.setText(Html.fromHtml(at.getHighLightString(aVar3.title, str)));
+            aVar2.lyh.setText(Html.fromHtml(at.getHighLightString(aVar3.content, str)));
+            aVar2.gRM.setText(aVar3.name_show);
+            aVar2.lyj.setText(at.getFormatTime(aVar3.time));
+            aVar2.lyi.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.lxX.setText(R.string.floor_text);
-            } else if (aVar3.lxu == 1) {
-                aVar2.lxX.setText(R.string.reply_post);
+                aVar2.lyi.setText(R.string.floor_text);
+            } else if (aVar3.lxF == 1) {
+                aVar2.lyi.setText(R.string.reply_post);
             } else {
-                aVar2.lxX.setVisibility(8);
+                aVar2.lyi.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (e.this.efn != null) {
+                    if (e.this.efr != null) {
                         e.this.a(aVar3);
                         if (aVar3.is_floor == 1) {
-                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.efn.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
+                            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.efr.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
-                            e.this.efn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
+                            e.this.efr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
                             return;
                         }
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.efn.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.efr.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
                         createNormalCfg.setStartFrom(8);
                         createNormalCfg.setSortType(0);
-                        e.this.efn.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+                        e.this.efr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     }
                 }
             });
             ap.setBackgroundColor(view, R.color.cp_bg_line_d);
-            com.baidu.tbadk.r.a.a(this.efn, view);
+            com.baidu.tbadk.r.a.a(this.efr, view);
         }
         return view;
     }
 
     public void setTabType(int i) {
-        this.gQW = i;
+        this.gRa = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         aq dD = new aq("c12405").dD("fname", aVar.fname).dD("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.gQW > 0) {
-            dD.ai("tab_id", this.gQW);
+        if (this.gRa > 0) {
+            dD.ai("tab_id", this.gRa);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.lxu == 1) {
+            if (aVar.is_floor == 1 || aVar.lxF == 1) {
                 dD.u("pid", aVar.pid);
             } else {
                 dD.u("tid", aVar.tid);
@@ -133,11 +133,11 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes18.dex */
     private static class a {
-        TextView gRI;
-        TextView lxV;
-        TextView lxW;
-        TextView lxX;
-        TextView lxY;
+        TextView gRM;
+        TextView lyg;
+        TextView lyh;
+        TextView lyi;
+        TextView lyj;
 
         private a() {
         }

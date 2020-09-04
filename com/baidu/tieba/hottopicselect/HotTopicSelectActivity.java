@@ -39,59 +39,59 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class HotTopicSelectActivity extends SuspendedActivity implements com.baidu.tbadk.suspended.a, HotTopicSelectModel.a {
-    private TextView ikv;
-    private HotTopicSelectModel jdO;
-    private View jdQ;
-    private BdListView jdR;
-    private ExpandableListView jdS;
-    private e jdT;
-    private b jdU;
-    private ViewGroup jdV;
-    private EditText jdW;
-    private ImageView jdX;
-    private TextView jdY;
-    private Intent jdZ;
+    private TextView ikB;
+    private HotTopicSelectModel jdU;
+    private View jdW;
+    private BdListView jdX;
+    private ExpandableListView jdY;
+    private e jdZ;
+    private b jea;
+    private ViewGroup jeb;
+    private EditText jec;
+    private ImageView jed;
+    private TextView jee;
+    private Intent jef;
     private NoDataView mNoDataView;
-    private final List<d> jdP = new ArrayList();
+    private final List<d> jdV = new ArrayList();
     final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == HotTopicSelectActivity.this.jdX) {
-                HotTopicSelectActivity.this.cAL();
-            } else if (view == HotTopicSelectActivity.this.ikv) {
-                HotTopicSelectActivity.this.JQ("");
+            if (view == HotTopicSelectActivity.this.jed) {
+                HotTopicSelectActivity.this.cAM();
+            } else if (view == HotTopicSelectActivity.this.ikB) {
+                HotTopicSelectActivity.this.JR("");
             }
         }
     };
     final AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            d dVar = (d) y.getItem(HotTopicSelectActivity.this.jdU.getList(), i);
+            d dVar = (d) y.getItem(HotTopicSelectActivity.this.jea.getList(), i);
             if (dVar != null) {
                 String topicName = dVar.getTopicName();
-                HotTopicSelectActivity.this.JQ(topicName);
+                HotTopicSelectActivity.this.JR(topicName);
                 HotTopicSelectActivity.this.aT(topicName, 3);
             }
         }
     };
-    final ExpandableListView.OnGroupClickListener jea = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
+    final ExpandableListView.OnGroupClickListener jeg = new ExpandableListView.OnGroupClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.3
         @Override // android.widget.ExpandableListView.OnGroupClickListener
         public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long j) {
-            if (HotTopicSelectActivity.this.jdS != null) {
-                HotTopicSelectActivity.this.jdS.expandGroup(i);
+            if (HotTopicSelectActivity.this.jdY != null) {
+                HotTopicSelectActivity.this.jdY.expandGroup(i);
                 return true;
             }
             return true;
         }
     };
-    final ExpandableListView.OnChildClickListener jeb = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
+    final ExpandableListView.OnChildClickListener jeh = new ExpandableListView.OnChildClickListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.4
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long j) {
             d child;
-            if (HotTopicSelectActivity.this.jdT != null && (child = HotTopicSelectActivity.this.jdT.getChild(i, i2)) != null) {
+            if (HotTopicSelectActivity.this.jdZ != null && (child = HotTopicSelectActivity.this.jdZ.getChild(i, i2)) != null) {
                 String topicName = child.getTopicName();
-                HotTopicSelectActivity.this.JQ(topicName);
-                c group = HotTopicSelectActivity.this.jdT.getGroup(i);
+                HotTopicSelectActivity.this.JR(topicName);
+                c group = HotTopicSelectActivity.this.jdZ.getGroup(i);
                 if (group != null) {
                     HotTopicSelectActivity.this.aT(topicName, group.getType() == 0 ? 1 : 2);
                     return false;
@@ -106,37 +106,37 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jdO = new HotTopicSelectModel(getPageContext(), this);
-        this.jdO.Y(getIntent());
-        this.jdO.cAV();
+        this.jdU = new HotTopicSelectModel(getPageContext(), this);
+        this.jdU.Y(getIntent());
+        this.jdU.cAW();
         initUI();
         getWindow().setSoftInputMode(1);
         showLoadingView();
-        this.jdO.cAR();
+        this.jdU.cAS();
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
         LayoutInflater.from(this).inflate(R.layout.hot_navigation_view_layout, (ViewGroup) navigationBar.getContentLayout(), true);
-        this.dCB.setVisibility(8);
+        this.dCF.setVisibility(8);
         LayoutInflater.from(this).inflate(R.layout.hot_select_main, (ViewGroup) linearLayout, true);
         return this;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean buK() {
+    public boolean buL() {
         ListView listView;
         View childAt;
-        if (this.jdR.getVisibility() == 0) {
-            listView = this.jdR;
+        if (this.jdX.getVisibility() == 0) {
+            listView = this.jdX;
         } else {
-            listView = this.jdS;
+            listView = this.jdY;
         }
         return listView != null && listView.getFirstVisiblePosition() == 0 && (childAt = listView.getChildAt(0)) != null && childAt.getTop() == 0;
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public boolean buL() {
+    public boolean buM() {
         return true;
     }
 
@@ -145,44 +145,44 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     @Override // com.baidu.tbadk.suspended.a
-    public Intent buM() {
-        return this.jdZ;
+    public Intent buN() {
+        return this.jef;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void buQ() {
+    protected void buR() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        this.jdQ.setVisibility(8);
-        showLoadingView(this.jdV, true, getResources().getDimensionPixelSize(R.dimen.ds320));
+        this.jdW.setVisibility(8);
+        showLoadingView(this.jeb, true, getResources().getDimensionPixelSize(R.dimen.ds320));
     }
 
     private void initUI() {
-        this.jdV = (ViewGroup) findViewById(R.id.frame_main_view);
-        this.ikv = (TextView) findViewById(R.id.btn_confirm);
-        this.jdY = (TextView) findViewById(R.id.topic_text);
-        this.jdX = (ImageView) findViewById(R.id.clear_right_img);
-        this.jdQ = findViewById(R.id.home_search_list);
-        this.jdR = (BdListView) findViewById(R.id.home_lv_search_suggest);
+        this.jeb = (ViewGroup) findViewById(R.id.frame_main_view);
+        this.ikB = (TextView) findViewById(R.id.btn_confirm);
+        this.jee = (TextView) findViewById(R.id.topic_text);
+        this.jed = (ImageView) findViewById(R.id.clear_right_img);
+        this.jdW = findViewById(R.id.home_search_list);
+        this.jdX = (BdListView) findViewById(R.id.home_lv_search_suggest);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds420)), null, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.jdV.addView(this.mNoDataView, layoutParams);
+        this.jeb.addView(this.mNoDataView, layoutParams);
         this.mNoDataView.setVisibility(8);
-        this.jdU = new b(getPageContext());
-        this.jdR.setAdapter((ListAdapter) this.jdU);
-        this.jdS = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-        this.jdT = new e(getPageContext());
-        this.jdS.setAdapter(this.jdT);
-        this.jdR.setOnItemClickListener(this.mOnItemClickListener);
-        this.jdS.setOnGroupClickListener(this.jea);
-        this.jdS.setOnChildClickListener(this.jeb);
-        this.ikv.setOnClickListener(this.mOnClickListener);
-        this.jdX.setOnClickListener(this.mOnClickListener);
-        mX(false);
-        cAN();
+        this.jea = new b(getPageContext());
+        this.jdX.setAdapter((ListAdapter) this.jea);
+        this.jdY = (ExpandableListView) findViewById(R.id.home_no_search_listview);
+        this.jdZ = new e(getPageContext());
+        this.jdY.setAdapter(this.jdZ);
+        this.jdX.setOnItemClickListener(this.mOnItemClickListener);
+        this.jdY.setOnGroupClickListener(this.jeg);
+        this.jdY.setOnChildClickListener(this.jeh);
+        this.ikB.setOnClickListener(this.mOnClickListener);
+        this.jed.setOnClickListener(this.mOnClickListener);
+        mZ(false);
+        cAO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -194,40 +194,40 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ckH() {
-        String ckH = this.jdO != null ? this.jdO.ckH() : "";
-        return ckH != null ? ckH : "";
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cAL() {
-        this.jdO.JV("");
-        this.jdW.setText("");
+    public String ckI() {
+        String ckI = this.jdU != null ? this.jdU.ckI() : "";
+        return ckI != null ? ckI : "";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cAM() {
-        this.jdS.setVisibility(0);
-        this.jdR.setVisibility(8);
-        this.jdU.clearList();
-        if (this.jdT != null && !y.isEmpty(this.jdT.getList())) {
-            this.jdQ.setVisibility(0);
+        this.jdU.JW("");
+        this.jec.setText("");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cAN() {
+        this.jdY.setVisibility(0);
+        this.jdX.setVisibility(8);
+        this.jea.clearList();
+        if (this.jdZ != null && !y.isEmpty(this.jdZ.getList())) {
+            this.jdW.setVisibility(0);
             return;
         }
         showLoadingView();
-        this.jdO.getCacheData();
+        this.jdU.getCacheData();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
-        JQ("");
+        JR("");
         super.onBackPressed();
     }
 
-    private void cAN() {
-        this.jdW = (EditText) findViewById(R.id.search_root);
-        this.jdW.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
-        this.jdW.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
+    private void cAO() {
+        this.jec = (EditText) findViewById(R.id.search_root);
+        this.jec.setCompoundDrawablePadding(l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
+        this.jec.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -235,20 +235,20 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
                 }
             }
         });
-        this.jdW.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
+        this.jec.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.6
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6) {
                     l.showSoftKeyPad(HotTopicSelectActivity.this.getPageContext().getPageActivity(), textView);
-                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.ckH())) {
-                        HotTopicSelectActivity.this.JQ(HotTopicSelectActivity.this.ckH());
+                    if (!TextUtils.isEmpty(HotTopicSelectActivity.this.ckI())) {
+                        HotTopicSelectActivity.this.JR(HotTopicSelectActivity.this.ckI());
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.jdW.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
+        this.jec.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectActivity.7
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -261,59 +261,59 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    HotTopicSelectActivity.this.cAM();
+                    HotTopicSelectActivity.this.cAN();
                 } else {
                     HotTopicSelectActivity.this.mNoDataView.setVisibility(8);
-                    HotTopicSelectActivity.this.jdQ.setVisibility(8);
+                    HotTopicSelectActivity.this.jdW.setVisibility(8);
                     HotTopicSelectActivity.this.showLoadingView();
-                    HotTopicSelectActivity.this.jdO.JU(obj);
+                    HotTopicSelectActivity.this.jdU.JV(obj);
                 }
-                HotTopicSelectActivity.this.mX(!StringUtils.isNull(editable.toString()));
-                HotTopicSelectActivity.this.cAO();
+                HotTopicSelectActivity.this.mZ(!StringUtils.isNull(editable.toString()));
+                HotTopicSelectActivity.this.cAP();
             }
         });
-        this.jdW.requestFocus();
+        this.jec.requestFocus();
     }
 
-    public void mX(boolean z) {
-        this.jdX.setVisibility(z ? 0 : 8);
+    public void mZ(boolean z) {
+        this.jed.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAO() {
-        if (this.jdW != null && this.jdY != null) {
-            if (TextUtils.isEmpty(this.jdW.getText())) {
-                ap.setViewTextColor(this.jdY, R.color.cp_cont_d, 1);
+    public void cAP() {
+        if (this.jec != null && this.jee != null) {
+            if (TextUtils.isEmpty(this.jec.getText())) {
+                ap.setViewTextColor(this.jee, R.color.cp_cont_d, 1);
             } else {
-                ap.setViewTextColor(this.jdY, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(this.jee, R.color.cp_cont_b, 1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JQ(String str) {
-        if (this.jdW != null && this.jdW.hasFocus()) {
-            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.jdW);
+    public void JR(String str) {
+        if (this.jec != null && this.jec.hasFocus()) {
+            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.jec);
         }
         if (TextUtils.isEmpty(str)) {
             setResult(0, new Intent());
         } else {
-            this.jdZ = new Intent();
-            this.jdZ.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
+            this.jef = new Intent();
+            this.jef.putExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING, str + HotSelectActivityConfig.HOT_TOPIC_SING);
         }
         finish();
     }
 
-    private d JR(String str) {
+    private d JS(String str) {
         d dVar = new d();
         dVar.setTopicName(str);
         return dVar;
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void JS(String str) {
-        hideLoadingView(this.jdV);
-        this.jdQ.setVisibility(8);
+    public void JT(String str) {
+        hideLoadingView(this.jeb);
+        this.jdW.setVisibility(8);
         if (!j.isNetWorkAvailable()) {
             this.mNoDataView.setTextOption(NoDataViewFactory.d.oK(R.string.neterror));
             this.mNoDataView.setVisibility(0);
@@ -326,57 +326,57 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
 
     private void a(c cVar, boolean z) {
         if (cVar != null && !y.isEmpty(cVar.getList())) {
-            if (TextUtils.isEmpty(cVar.cAP())) {
+            if (TextUtils.isEmpty(cVar.cAQ())) {
                 cVar.setTitle(getString(z ? R.string.group_topic_default : R.string.group_topic_hot));
             }
-            this.jdT.b(cVar);
+            this.jdZ.b(cVar);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar, c cVar2) {
-        this.jdQ.setVisibility(0);
-        this.jdS.setVisibility(0);
-        this.jdR.setVisibility(8);
-        hideLoadingView(this.jdV);
-        this.jdT.clearList();
+        this.jdW.setVisibility(0);
+        this.jdY.setVisibility(0);
+        this.jdX.setVisibility(8);
+        hideLoadingView(this.jeb);
+        this.jdZ.clearList();
         a(cVar, true);
         a(cVar2, false);
-        this.jdT.notifyDataSetChanged();
-        int count = this.jdS.getCount();
+        this.jdZ.notifyDataSetChanged();
+        int count = this.jdY.getCount();
         for (int i = 0; i < count; i++) {
-            this.jdS.expandGroup(i);
+            this.jdY.expandGroup(i);
         }
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
-    public void JT(String str) {
-        this.jdQ.setVisibility(0);
-        this.jdS.setVisibility(8);
-        this.jdR.setVisibility(0);
-        hideLoadingView(this.jdV);
-        String ckH = ckH();
-        d JR = JR(ckH);
-        this.jdP.clear();
-        this.jdP.add(JR);
-        this.jdU.j(ckH, this.jdP);
+    public void JU(String str) {
+        this.jdW.setVisibility(0);
+        this.jdY.setVisibility(8);
+        this.jdX.setVisibility(0);
+        hideLoadingView(this.jeb);
+        String ckI = ckI();
+        d JS = JS(ckI);
+        this.jdV.clear();
+        this.jdV.add(JS);
+        this.jea.j(ckI, this.jdV);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.a
     public void a(c cVar) {
-        this.jdQ.setVisibility(0);
-        this.jdS.setVisibility(8);
-        this.jdR.setVisibility(0);
-        hideLoadingView(this.jdV);
-        this.jdP.clear();
-        String ckH = ckH();
-        this.jdP.add(JR(ckH));
+        this.jdW.setVisibility(0);
+        this.jdY.setVisibility(8);
+        this.jdX.setVisibility(0);
+        hideLoadingView(this.jeb);
+        this.jdV.clear();
+        String ckI = ckI();
+        this.jdV.add(JS(ckI));
         if (cVar == null || cVar.getList() == null) {
-            this.jdU.j(ckH, this.jdP);
+            this.jea.j(ckI, this.jdV);
             return;
         }
-        this.jdP.addAll(cVar.getList());
-        this.jdU.j(ckH, this.jdP);
+        this.jdV.addAll(cVar.getList());
+        this.jea.j(ckI, this.jdV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -397,19 +397,19 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.jdU != null) {
-            this.jdU.notifyDataSetChanged();
+        if (this.jea != null) {
+            this.jea.notifyDataSetChanged();
         }
-        if (this.jdT != null) {
-            this.jdT.notifyDataSetChanged();
+        if (this.jdZ != null) {
+            this.jdZ.notifyDataSetChanged();
         }
-        if (this.jdW != null) {
-            this.jdW.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+        if (this.jec != null) {
+            this.jec.setHintTextColor(ap.getColor(R.color.cp_cont_d));
         }
-        ap.setViewTextColor(this.ikv, R.color.cp_link_tip_a, 1);
-        ap.setViewTextColor(this.jdW, R.color.cp_cont_b, 2);
-        ap.setImageResource(this.jdX, R.drawable.del_search_btn);
-        cAO();
+        ap.setViewTextColor(this.ikB, R.color.cp_link_tip_a, 1);
+        ap.setViewTextColor(this.jec, R.color.cp_cont_b, 2);
+        ap.setImageResource(this.jed, R.drawable.del_search_btn);
+        cAP();
         if (this.mSkinType == 2) {
             StatusBarUtil.from(getPageContext().getPageActivity()).setTransparentStatusbar(true).setLightStatusBar(true).process();
         }
@@ -418,9 +418,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.jdO.onDestroy();
+        this.jdU.onDestroy();
         this.mNoDataView.bkq();
-        hideLoadingView(this.jdV);
+        hideLoadingView(this.jeb);
         super.onDestroy();
     }
 }

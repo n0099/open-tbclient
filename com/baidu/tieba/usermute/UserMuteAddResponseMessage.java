@@ -3,7 +3,7 @@ package com.baidu.tieba.usermute;
 import com.baidu.adp.lib.f.b;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UserMuteAddResponseMessage extends JsonHttpResponsedMessage {
     private String errorNo;
     private String muteMsg;

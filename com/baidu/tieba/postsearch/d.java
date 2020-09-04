@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class d {
-    public String hQD;
-    private String lxF;
-    public ArrayList<String> lxO;
-    private PostSearchActivity lxn;
-    public int lxG = 0;
-    public int lxH = 0;
-    public int lxI = 1;
-    public int lxJ = 1;
-    public int lxK = 1;
-    public boolean lxL = false;
-    public boolean lxM = false;
-    public boolean lxN = false;
-    private int lxP = 0;
-    private final HttpMessageListener lxQ = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
+    public String hQJ;
+    private String lxQ;
+    public ArrayList<String> lxZ;
+    private PostSearchActivity lxy;
+    public int lxR = 0;
+    public int lxS = 0;
+    public int lxT = 1;
+    public int lxU = 1;
+    public int lxV = 1;
+    public boolean lxW = false;
+    public boolean lxX = false;
+    public boolean lxY = false;
+    private int lya = 0;
+    private final HttpMessageListener lyb = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,123 +41,123 @@ public class d {
                 boolean z = d.this.FQ(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.lxn.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.lxy.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.FP(intValue);
-                    d.this.dlI();
                     d.this.dlL();
+                    d.this.dlO();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.lxn.getResources().getString(R.string.neterror);
+                    errorString = d.this.lxy.getResources().getString(R.string.neterror);
                 }
-                d.this.lxn.showToast(errorString);
-                d.this.lxn.a(intValue, null, z);
+                d.this.lxy.showToast(errorString);
+                d.this.lxy.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener lxR = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener lyc = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.lxO = (ArrayList) data;
-                d.this.lxn.dlu();
+                d.this.lxZ = (ArrayList) data;
+                d.this.lxy.dlx();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.lxn = postSearchActivity;
-        this.lxn.registerListener(this.lxR);
-        this.lxn.registerListener(this.lxQ);
+        this.lxy = postSearchActivity;
+        this.lxy.registerListener(this.lyc);
+        this.lxy.registerListener(this.lyb);
     }
 
     public boolean bz(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.hQD)) {
-            dlK();
+        if (!str.equals(this.hQJ)) {
+            dlN();
         }
         switch (i) {
             case 1:
-                return ON(str);
-            case 2:
                 return OO(str);
-            case 3:
+            case 2:
                 return OP(str);
+            case 3:
+                return OQ(str);
             default:
                 return false;
         }
     }
 
-    public boolean ON(String str) {
-        if (this.lxL) {
-            return false;
-        }
-        this.hQD = str;
-        this.lxP = 1;
-        this.lxn.sendMessage(FO(this.lxP));
-        this.lxL = true;
-        return true;
-    }
-
     public boolean OO(String str) {
-        if (this.lxM) {
+        if (this.lxW) {
             return false;
         }
-        this.hQD = str;
-        this.lxP = 2;
-        this.lxn.sendMessage(FO(this.lxP));
-        this.lxM = true;
+        this.hQJ = str;
+        this.lya = 1;
+        this.lxy.sendMessage(FO(this.lya));
+        this.lxW = true;
         return true;
     }
 
     public boolean OP(String str) {
-        if (this.lxN) {
+        if (this.lxX) {
             return false;
         }
-        this.hQD = str;
-        this.lxP = 3;
-        this.lxn.sendMessage(FO(this.lxP));
-        this.lxN = true;
+        this.hQJ = str;
+        this.lya = 2;
+        this.lxy.sendMessage(FO(this.lya));
+        this.lxX = true;
         return true;
     }
 
-    public void dlH() {
-        this.lxn.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
-    }
-
-    public void dlI() {
-        if (!StringUtils.isNull(this.hQD) && !this.hQD.equals(this.lxF)) {
-            this.lxn.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.hQD));
-            this.lxF = this.hQD;
+    public boolean OQ(String str) {
+        if (this.lxY) {
+            return false;
         }
-    }
-
-    public void dlJ() {
-        if (this.lxO != null) {
-            this.lxO.clear();
-        }
-        this.lxn.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.hQJ = str;
+        this.lya = 3;
+        this.lxy.sendMessage(FO(this.lya));
+        this.lxY = true;
+        return true;
     }
 
     public void dlK() {
-        this.lxI = 1;
-        this.lxJ = 1;
-        this.lxK = 1;
+        this.lxy.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    }
+
+    public void dlL() {
+        if (!StringUtils.isNull(this.hQJ) && !this.hQJ.equals(this.lxQ)) {
+            this.lxy.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.hQJ));
+            this.lxQ = this.hQJ;
+        }
+    }
+
+    public void dlM() {
+        if (this.lxZ != null) {
+            this.lxZ.clear();
+        }
+        this.lxy.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+    }
+
+    public void dlN() {
+        this.lxT = 1;
+        this.lxU = 1;
+        this.lxV = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dlL() {
-        if (this.lxO == null) {
-            this.lxO = new ArrayList<>();
+    public void dlO() {
+        if (this.lxZ == null) {
+            this.lxZ = new ArrayList<>();
         }
-        this.lxO.remove(this.hQD);
-        this.lxO.add(0, this.hQD);
-        eV(this.lxO);
+        this.lxZ.remove(this.hQJ);
+        this.lxZ.add(0, this.hQJ);
+        eV(this.lxZ);
     }
 
     private void eV(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage FO(int i) {
         HttpMessage httpMessage = new HttpMessage(1003016);
-        httpMessage.addParam("word", this.hQD);
+        httpMessage.addParam("word", this.hQJ);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.lxn.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.lxP));
+        httpMessage.addParam("kw", this.lxy.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.lya));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.lxI);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lxT);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.lxJ);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lxU);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.lxK);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.lxV);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void FP(int i) {
         switch (i) {
             case 1:
-                this.lxI++;
+                this.lxT++;
                 return;
             case 2:
-                this.lxJ++;
+                this.lxU++;
                 return;
             case 3:
-                this.lxK++;
+                this.lxV++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int FQ(int i) {
         switch (i) {
             case 1:
-                return this.lxI;
+                return this.lxT;
             case 2:
-                return this.lxJ;
+                return this.lxU;
             case 3:
-                return this.lxK;
+                return this.lxV;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void FR(int i) {
         switch (i) {
             case 1:
-                this.lxL = false;
+                this.lxW = false;
                 return;
             case 2:
-                this.lxM = false;
+                this.lxX = false;
                 return;
             case 3:
-                this.lxN = false;
+                this.lxY = false;
                 return;
             default:
                 return;

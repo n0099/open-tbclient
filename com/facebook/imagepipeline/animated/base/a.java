@@ -10,9 +10,9 @@ public interface a {
 
     void c(int i, Canvas canvas);
 
-    int dRw();
+    int dRF();
 
-    int dRx();
+    int dRG();
 
     int getFrameCount();
 

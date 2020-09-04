@@ -16,57 +16,57 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
-    private BdTypeListView fCP;
-    public i lko;
-    public j lxl;
-    private c lxm;
-    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private ArrayList<q> fwa = new ArrayList<>();
+    private BdTypeListView fCT;
+    public i lkz;
+    public j lxw;
+    private c lxx;
+    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private ArrayList<q> fwe = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.fCP = bdTypeListView;
+        this.fCT = bdTypeListView;
         x(tbPageContext);
     }
 
     private void x(TbPageContext<?> tbPageContext) {
-        this.lko = new i(tbPageContext);
-        this.lxl = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.lmK);
-        this.lxm = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.lxl.a(this.lxm);
-        this.bbu.add(this.lko);
-        this.bbu.add(this.lxl);
-        this.fCP.addAdapters(this.bbu);
+        this.lkz = new i(tbPageContext);
+        this.lxw = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.lmV);
+        this.lxx = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.lxw.a(this.lxx);
+        this.bbw.add(this.lkz);
+        this.bbw.add(this.lxw);
+        this.fCT.addAdapters(this.bbw);
     }
 
     public void aa(ArrayList<q> arrayList) {
-        if (arrayList != null && this.fCP != null) {
-            this.fwa.clear();
-            this.fwa.addAll(arrayList);
-            this.fCP.setData(this.fwa);
+        if (arrayList != null && this.fCT != null) {
+            this.fwe.clear();
+            this.fwe.addAll(arrayList);
+            this.fCT.setData(this.fwe);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.fCP.getAdapter() instanceof f) {
-            this.fCP.getAdapter().notifyDataSetChanged();
+        if (this.fCT.getAdapter() instanceof f) {
+            this.fCT.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.fCP != null) {
-            this.fCP.startPullRefresh();
+        if (this.fCT != null) {
+            this.fCT.startPullRefresh();
         }
     }
 
-    public boolean OL(String str) {
+    public boolean OM(String str) {
         boolean z;
         if (at.isEmpty(str)) {
             return false;
         }
-        if (this.fCP == null || this.fwa == null) {
+        if (this.fCT == null || this.fwe == null) {
             return false;
         }
-        Iterator<q> it = this.fwa.iterator();
+        Iterator<q> it = this.fwe.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.fwa = PersonPostModel.mergeDynamicThreadByTime(this.fwa);
-            this.fCP.setData(this.fwa);
+            this.fwe = PersonPostModel.mergeDynamicThreadByTime(this.fwe);
+            this.fCT.setData(this.fwe);
             notifyDataSetChanged();
             return z;
         }

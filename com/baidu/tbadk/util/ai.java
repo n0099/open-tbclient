@@ -20,11 +20,11 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ai {
     private static BaseWebView mBaseWebView;
 
-    public static void bvQ() {
+    public static void bvR() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -36,14 +36,14 @@ public class ai {
 
     @Deprecated
     public static String getUserAgent() {
-        bvQ();
+        bvR();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String bvR() {
+    public static String bvS() {
         if (Build.VERSION.SDK_INT >= 17) {
             return WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()) + " tieba/" + TbConfig.getVersion();
         }
@@ -128,7 +128,7 @@ public class ai {
         return bundle;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
         public String PTOKEN;
@@ -197,7 +197,7 @@ public class ai {
         return str;
     }
 
-    public static boolean CM(String str) {
+    public static boolean CN(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

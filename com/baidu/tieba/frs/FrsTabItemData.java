@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import java.io.Serializable;
 import tbclient.FrsTabInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FrsTabItemData implements Serializable {
     public int isGeneralTab;
     public boolean isSelected;

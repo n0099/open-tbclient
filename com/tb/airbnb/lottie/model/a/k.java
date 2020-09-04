@@ -4,18 +4,18 @@ import android.support.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class k {
     @Nullable
-    public final a oja;
+    public final a ojs;
     @Nullable
-    public final a ojb;
+    public final a ojt;
     @Nullable
-    public final b ojc;
+    public final b oju;
     @Nullable
-    public final b ojd;
+    public final b ojv;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.oja = aVar;
-        this.ojb = aVar2;
-        this.ojc = bVar;
-        this.ojd = bVar2;
+        this.ojs = aVar;
+        this.ojt = aVar2;
+        this.oju = bVar;
+        this.ojv = bVar2;
     }
 }

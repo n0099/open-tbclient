@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ConsumptionRecordsActivityConfig extends IntentConfig {
     public static final String JUMP_FRAGMENT_TYPE = "jump_fragment_type";
     public static final int TYPE_EXPENDITURE = 1;

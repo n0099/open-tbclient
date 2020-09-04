@@ -36,10 +36,10 @@ public class h {
         }
         switch (c) {
             case 0:
-                ly(str2);
+                lz(str2);
                 return;
             case 1:
-                lz(str2);
+                lA(str2);
                 return;
             case 2:
                 M(str2, z);
@@ -49,14 +49,14 @@ public class h {
         }
     }
 
-    private static void ly(String str) {
+    private static void lz(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void lz(String str) {
+    private static void lA(String str) {
         com.baidu.swan.apps.console.c.bb("SwanAppPkgUpdateManager", "send update failed msg");
         c("updateFailed", str, null);
     }

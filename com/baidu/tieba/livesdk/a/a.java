@@ -4,31 +4,31 @@ import android.app.Application;
 import com.baidu.h.a.a.c;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tieba.sdk.b.a {
-    private com.baidu.h.a.a.a bxs;
-    private c jTZ = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
+    private com.baidu.h.a.a.a bxv;
+    private c jUf = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.h.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.dpk().dpl();
+            com.baidu.tieba.sdk.a.dpn().dpo();
         }
     };
 
     public a(Application application) {
-        this.bxs = com.baidu.h.b.a.aF(application).Rj();
-        this.bxs.a(this.jTZ);
+        this.bxv = com.baidu.h.b.a.aF(application).Rj();
+        this.bxv.a(this.jUf);
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public com.baidu.tieba.sdk.c.a cNO() {
+    public com.baidu.tieba.sdk.c.a cNP() {
         com.baidu.h.a.a.b Rb;
-        if (this.bxs.isLogin() && (Rb = this.bxs.Rb()) != null) {
+        if (this.bxv.isLogin() && (Rb = this.bxv.Rb()) != null) {
             return a(Rb);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public void cNP() {
-        this.bxs.login();
+    public void cNQ() {
+        this.bxv.login();
     }
 
     private com.baidu.tieba.sdk.c.a a(com.baidu.h.a.a.b bVar) {

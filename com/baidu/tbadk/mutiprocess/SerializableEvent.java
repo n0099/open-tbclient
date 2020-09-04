@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess;
 import android.os.Process;
 import com.baidu.adp.BdUniqueId;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class SerializableEvent implements a, Serializable {
     private int mPid;
     private int mTag;

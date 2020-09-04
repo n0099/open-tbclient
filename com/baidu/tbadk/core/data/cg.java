@@ -4,13 +4,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import org.json.JSONObject;
 import tbclient.FrsPage.YuleActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class cg {
-    private int aMZ;
+    private int aNb;
     private String activity_all_icon;
     private String activity_half_icon;
     private String activity_url;
-    private long dWS;
+    private long dWW;
 
     public String getActivityUrl() {
         return this.activity_url;
@@ -26,8 +26,8 @@ public class cg {
 
     public void a(YuleActivity yuleActivity) {
         if (yuleActivity != null) {
-            this.dWS = yuleActivity.activity_id.longValue();
-            this.aMZ = yuleActivity.activity_type.intValue();
+            this.dWW = yuleActivity.activity_id.longValue();
+            this.aNb = yuleActivity.activity_type.intValue();
             this.activity_url = yuleActivity.activity_url;
             this.activity_all_icon = yuleActivity.activity_all_icon;
             this.activity_half_icon = yuleActivity.activity_half_icon;
@@ -37,8 +37,8 @@ public class cg {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dWS = jSONObject.optLong("activity_id");
-                this.aMZ = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.dWW = jSONObject.optLong("activity_id");
+                this.aNb = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
                 this.activity_all_icon = jSONObject.optString("activity_all_icon");
                 this.activity_half_icon = jSONObject.optString("activity_half_icon");

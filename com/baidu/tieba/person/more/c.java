@@ -13,9 +13,9 @@ import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class c {
-    private BdTypeListView fCP;
-    private aa<h> iiY;
-    private a lek;
+    private BdTypeListView fCT;
+    private aa<h> ije;
+    private a les;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
 
@@ -25,12 +25,12 @@ public class c {
 
     public void ak(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.fCP = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.lek = new a(this.mPageContext, this.fCP, this.iiY);
-        buO();
+        this.fCT = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.les = new a(this.mPageContext, this.fCT, this.ije);
+        buP();
     }
 
-    private void buO() {
+    private void buP() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<q> list) {
-        this.fCP.setData(list);
+        this.fCT.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.lek.notifyDataSetChanged();
-        ap.setBackgroundColor(this.fCP, R.color.cp_bg_line_d);
+        this.les.notifyDataSetChanged();
+        ap.setBackgroundColor(this.fCT, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(aa<h> aaVar) {
-        this.iiY = aaVar;
+        this.ije = aaVar;
     }
 }

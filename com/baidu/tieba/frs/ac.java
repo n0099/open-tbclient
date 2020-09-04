@@ -18,46 +18,46 @@ import com.baidu.tieba.share.ImplicitShareMessage;
 /* loaded from: classes16.dex */
 public class ac {
     private TbPageContext context;
-    private TextView dTK;
-    private TextView dTL;
-    private TextView dTM;
-    private TextView dTN;
     private TextView dTO;
     private TextView dTP;
-    private com.baidu.tieba.pb.pb.main.bd dTS;
-    private Bitmap dTT;
-    private View.OnClickListener eFC = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ac.1
+    private TextView dTQ;
+    private TextView dTR;
+    private TextView dTS;
+    private TextView dTT;
+    private com.baidu.tieba.pb.pb.main.bd dTW;
+    private Bitmap dTX;
+    private View.OnClickListener eFG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ac.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Bitmap bbF = ac.this.bbF();
-            if (view.getId() == ac.this.dTK.getId()) {
+            if (view.getId() == ac.this.dTO.getId()) {
                 ac.this.t(bbF);
-            } else if (view.getId() == ac.this.dTL.getId()) {
-                ac.this.d(bbF, 3);
-            } else if (view.getId() == ac.this.dTM.getId()) {
-                ac.this.d(bbF, 2);
-            } else if (view.getId() == ac.this.dTN.getId()) {
-                ac.this.d(bbF, 4);
-            } else if (view.getId() == ac.this.dTO.getId()) {
-                ac.this.d(bbF, 8);
             } else if (view.getId() == ac.this.dTP.getId()) {
+                ac.this.d(bbF, 3);
+            } else if (view.getId() == ac.this.dTQ.getId()) {
+                ac.this.d(bbF, 2);
+            } else if (view.getId() == ac.this.dTR.getId()) {
+                ac.this.d(bbF, 4);
+            } else if (view.getId() == ac.this.dTS.getId()) {
+                ac.this.d(bbF, 8);
+            } else if (view.getId() == ac.this.dTT.getId()) {
                 ac.this.d(bbF, 6);
             }
         }
     };
     private String forumName;
     private int from;
-    private b hWX;
-    private View hWY;
-    private String hWZ;
-    private a hXa;
+    private b hXd;
+    private View hXe;
+    private String hXf;
+    private a hXg;
     private PermissionJudgePolicy mPermissionJudgement;
 
     /* loaded from: classes16.dex */
     public interface a {
-        void cnK();
-
         void cnL();
+
+        void cnM();
     }
 
     /* loaded from: classes16.dex */
@@ -71,31 +71,31 @@ public class ac {
 
     public void a(View view, View view2, a aVar) {
         if (view != null) {
-            this.dTK = (TextView) view.findViewById(R.id.frs_private_share_download);
-            a(this.dTK, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_frs_private_share_download40_svg));
-            this.dTK.setOnClickListener(this.eFC);
-            this.dTL = (TextView) view.findViewById(R.id.frs_private_share_wechat);
-            a(this.dTL, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg));
-            this.dTL.setOnClickListener(this.eFC);
-            this.dTM = (TextView) view.findViewById(R.id.frs_private_share_moment);
-            a(this.dTM, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg));
-            this.dTM.setOnClickListener(this.eFC);
-            this.dTN = (TextView) view.findViewById(R.id.frs_private_share_qzone);
-            a(this.dTN, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qqzone40_svg));
-            this.dTN.setOnClickListener(this.eFC);
-            this.dTO = (TextView) view.findViewById(R.id.frs_private_share_qq);
-            a(this.dTO, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg));
-            this.dTO.setOnClickListener(this.eFC);
-            this.dTP = (TextView) view.findViewById(R.id.frs_private_share_weibo);
-            a(this.dTP, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_weibo40_svg));
-            this.dTP.setOnClickListener(this.eFC);
-            this.hWY = view2;
-            this.hXa = aVar;
+            this.dTO = (TextView) view.findViewById(R.id.frs_private_share_download);
+            a(this.dTO, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_frs_private_share_download40_svg));
+            this.dTO.setOnClickListener(this.eFG);
+            this.dTP = (TextView) view.findViewById(R.id.frs_private_share_wechat);
+            a(this.dTP, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg));
+            this.dTP.setOnClickListener(this.eFG);
+            this.dTQ = (TextView) view.findViewById(R.id.frs_private_share_moment);
+            a(this.dTQ, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_circle40_svg));
+            this.dTQ.setOnClickListener(this.eFG);
+            this.dTR = (TextView) view.findViewById(R.id.frs_private_share_qzone);
+            a(this.dTR, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qqzone40_svg));
+            this.dTR.setOnClickListener(this.eFG);
+            this.dTS = (TextView) view.findViewById(R.id.frs_private_share_qq);
+            a(this.dTS, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_qq40_svg));
+            this.dTS.setOnClickListener(this.eFG);
+            this.dTT = (TextView) view.findViewById(R.id.frs_private_share_weibo);
+            a(this.dTT, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_weibo40_svg));
+            this.dTT.setOnClickListener(this.eFG);
+            this.hXe = view2;
+            this.hXg = aVar;
         }
     }
 
     public void setData(String str, String str2) {
-        this.hWZ = str;
+        this.hXf = str;
         this.forumName = str2;
     }
 
@@ -127,17 +127,17 @@ public class ac {
     /* JADX INFO: Access modifiers changed from: private */
     public void t(Bitmap bitmap) {
         if (!bbG()) {
-            if (this.hWX != null) {
-                this.hWX.xn(1);
+            if (this.hXd != null) {
+                this.hXd.xn(1);
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13724");
             aqVar.ai("obj_type", 1);
             aqVar.ai("obj_source", this.from);
             TiebaStatic.log(aqVar);
-            if (this.dTS == null) {
-                this.dTS = new com.baidu.tieba.pb.pb.main.bd(this.context);
+            if (this.dTW == null) {
+                this.dTW = new com.baidu.tieba.pb.pb.main.bd(this.context);
             }
-            this.dTS.j(this.hWZ, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            this.dTW.j(this.hXf, BitmapHelper.Bitmap2Bytes(bitmap, 100));
         }
     }
 
@@ -165,8 +165,8 @@ public class ac {
             } else if (i == 6) {
                 i2 = 6;
             }
-            if (this.hWX != null) {
-                this.hWX.xn(i2);
+            if (this.hXd != null) {
+                this.hXd.xn(i2);
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c13724");
             if (i == 3) {
@@ -203,8 +203,8 @@ public class ac {
     /* JADX INFO: Access modifiers changed from: private */
     public ShareItem e(Bitmap bitmap, int i) {
         ShareItem shareItem = new ShareItem();
-        shareItem.eEF = false;
-        shareItem.eEE = false;
+        shareItem.eEJ = false;
+        shareItem.eEI = false;
         shareItem.shareType = 1;
         if (i == 6) {
             shareItem.title = this.context.getString(R.string.come_on_look_forum) + "[" + this.forumName + this.context.getString(R.string.core_bar) + "]" + UgcConstant.AT_RULE_TAG + this.context.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + com.baidu.adp.lib.util.k.getUrlEncode(this.forumName) + "&fr=frsshare";
@@ -213,26 +213,26 @@ public class ac {
         }
         shareItem.content = "";
         shareItem.w(bitmap);
-        shareItem.bpz();
+        shareItem.bpA();
         return shareItem;
     }
 
     public Bitmap bbF() {
-        if (this.dTT == null) {
-            if (this.hXa != null) {
-                this.hXa.cnL();
+        if (this.dTX == null) {
+            if (this.hXg != null) {
+                this.hXg.cnM();
             }
-            this.hWY.buildDrawingCache();
-            this.dTT = this.hWY.getDrawingCache();
-            if (this.hXa != null) {
-                this.hXa.cnK();
+            this.hXe.buildDrawingCache();
+            this.dTX = this.hXe.getDrawingCache();
+            if (this.hXg != null) {
+                this.hXg.cnL();
             }
         }
-        return this.dTT;
+        return this.dTX;
     }
 
     public void a(b bVar) {
-        this.hWX = bVar;
+        this.hXd = bVar;
     }
 
     public void setFrom(int i) {

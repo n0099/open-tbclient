@@ -13,11 +13,11 @@ public interface b {
 
     void fy(int i);
 
-    void hr(String str);
-
     void hs(String str);
 
     void ht(String str);
 
-    boolean hu(String str);
+    void hu(String str);
+
+    boolean hv(String str);
 }

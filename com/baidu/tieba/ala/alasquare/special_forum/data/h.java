@@ -4,10 +4,10 @@ import com.baidu.tbadk.core.data.AlaUserInfoData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class h {
-    public a fKn;
-    public boolean fKo;
-    public boolean fKp;
-    public AlaUserInfoData fKq;
-    public i fKr;
+    public a fKr;
+    public boolean fKs;
+    public boolean fKt;
+    public AlaUserInfoData fKu;
+    public i fKv;
     public List<SpecialLiveTabInfo> tabInfoList;
 }

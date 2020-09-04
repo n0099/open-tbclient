@@ -3,9 +3,9 @@ package com.baidu.tbadk.widget.extend.a;
 import android.util.SparseArray;
 import android.view.View;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private SparseArray<WeakReference<View>> fak;
+    private SparseArray<WeakReference<View>> fao;
     private View itemView;
     private int mLayoutId;
 
@@ -15,7 +15,7 @@ public class c {
 
     public c(View view, int i) {
         this.itemView = view;
-        this.fak = new SparseArray<>();
+        this.fao = new SparseArray<>();
         this.mLayoutId = i;
     }
 
@@ -29,11 +29,11 @@ public class c {
     }
 
     public <T extends View> T qW(int i) {
-        WeakReference<View> weakReference = this.fak.get(i);
+        WeakReference<View> weakReference = this.fao.get(i);
         if (weakReference == null) {
             T t = (T) this.itemView.findViewById(i);
             if (t != null) {
-                this.fak.put(i, new WeakReference<>(t));
+                this.fao.put(i, new WeakReference<>(t));
                 return t;
             }
             return t;

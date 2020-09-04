@@ -22,103 +22,103 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
 public final class f implements e.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static AtomicLong cxf = new AtomicLong(0);
-    private static volatile f cxg;
-    private d cxh = new a();
+    private static AtomicLong cxj = new AtomicLong(0);
+    private static volatile f cxk;
+    private d cxl = new a();
 
     private f() {
     }
 
     public static f arY() {
-        if (cxg == null) {
+        if (cxk == null) {
             synchronized (f.class) {
-                if (cxg == null) {
-                    cxg = new f();
+                if (cxk == null) {
+                    cxk = new f();
                 }
             }
         }
-        return cxg;
+        return cxk;
     }
 
     boolean arZ() {
-        return (this.cxh == null || (this.cxh instanceof a)) ? false : true;
+        return (this.cxl == null || (this.cxl instanceof a)) ? false : true;
     }
 
     public boolean asa() {
-        return arZ() && this.cxh.arI() != null;
+        return arZ() && this.cxl.arI() != null;
     }
 
     public void cc(Context context) {
-        this.cxh.cc(context);
+        this.cxl.cc(context);
     }
 
     public void cd(Context context) {
-        this.cxh.cd(context);
+        this.cxl.cd(context);
     }
 
     public void aay() {
-        this.cxh.aay();
+        this.cxl.aay();
     }
 
     public void aaz() {
-        this.cxh.aaz();
+        this.cxl.aaz();
     }
 
     public void exit() {
-        this.cxh.exit();
+        this.cxl.exit();
     }
 
     public void ary() {
-        this.cxh.ary();
+        this.cxl.ary();
     }
 
     public void arz() {
-        this.cxh.arz();
+        this.cxl.arz();
     }
 
     public static synchronized void release() {
         synchronized (f.class) {
-            if (cxg != null) {
-                if (cxg.cxh != null) {
-                    cxg.cxh.doRelease();
+            if (cxk != null) {
+                if (cxk.cxl != null) {
+                    cxk.cxl.doRelease();
                 }
-                cxg = null;
+                cxk = null;
             }
         }
     }
 
     @Nullable
     public com.baidu.swan.apps.runtime.e agn() {
-        return this.cxh.agn();
+        return this.cxl.agn();
     }
 
     public void a(com.baidu.swan.apps.u.c.b bVar, com.baidu.swan.apps.r.b bVar2) {
-        this.cxh.a(bVar, bVar2);
+        this.cxl.a(bVar, bVar2);
     }
 
     public void b(com.baidu.swan.apps.u.c.b bVar, com.baidu.swan.apps.r.b bVar2) {
-        this.cxh.b(bVar, bVar2);
+        this.cxl.b(bVar, bVar2);
     }
 
     @DebugTrace
     public com.baidu.swan.apps.adaptation.b.a arB() {
-        return this.cxh.arB();
+        return this.cxl.arB();
     }
 
     public FullScreenFloatView H(Activity activity) {
-        return this.cxh.H(activity);
+        return this.cxl.H(activity);
     }
 
     public SwanAppPropertyWindow I(Activity activity) {
-        return this.cxh.I(activity);
+        return this.cxl.I(activity);
     }
 
     public boolean arC() {
-        return this.cxh.arC();
+        return this.cxl.arC();
     }
 
     public void w(Intent intent) {
-        this.cxh.w(intent);
+        this.cxl.w(intent);
     }
 
     public void ZN() {
@@ -146,7 +146,7 @@ public final class f implements e.b {
             ih(swanAppActivity.XP());
         }
         if (arZ()) {
-            this.cxh.i(swanAppActivity);
+            this.cxl.i(swanAppActivity);
         }
     }
 
@@ -154,10 +154,10 @@ public final class f implements e.b {
         if (!arZ()) {
             switch (i) {
                 case 0:
-                    this.cxh = new c();
+                    this.cxl = new c();
                     return;
                 case 1:
-                    this.cxh = new com.baidu.swan.games.p.a();
+                    this.cxl = new com.baidu.swan.games.p.a();
                     return;
                 default:
                     return;
@@ -166,41 +166,41 @@ public final class f implements e.b {
     }
 
     public SwanCoreVersion arA() {
-        return this.cxh.arA();
+        return this.cxl.arA();
     }
 
     public SwanAppConfigData arD() {
-        return this.cxh.arD();
+        return this.cxl.arD();
     }
 
     @NonNull
-    public com.baidu.swan.apps.runtime.config.c nW(String str) {
-        return this.cxh.nW(str);
+    public com.baidu.swan.apps.runtime.config.c nX(String str) {
+        return this.cxl.nX(str);
     }
 
-    public com.baidu.swan.apps.runtime.config.c nX(String str) {
-        return this.cxh.nX(str);
+    public com.baidu.swan.apps.runtime.config.c nY(String str) {
+        return this.cxl.nY(str);
     }
 
     @NonNull
     public com.baidu.swan.apps.runtime.config.c a(String str, SwanAppConfigData swanAppConfigData, String str2) {
-        return this.cxh.a(str, swanAppConfigData, str2);
+        return this.cxl.a(str, swanAppConfigData, str2);
     }
 
     public com.baidu.swan.apps.storage.b.c arE() {
-        return this.cxh.arE();
+        return this.cxl.arE();
     }
 
     public String arF() {
-        return this.cxh.arF();
+        return this.cxl.arF();
     }
 
     public String arG() {
-        return this.cxh.arG();
+        return this.cxl.arG();
     }
 
     public String arH() {
-        return this.cxh.arH();
+        return this.cxl.arH();
     }
 
     @Nullable
@@ -214,39 +214,39 @@ public final class f implements e.b {
     }
 
     public SwanAppActivity arI() {
-        return this.cxh.arI();
+        return this.cxl.arI();
     }
 
     public com.baidu.swan.games.view.d asb() {
-        return this.cxh.ahL();
+        return this.cxl.ahL();
     }
 
     public com.baidu.swan.games.view.d asc() {
-        return this.cxh.ahM();
+        return this.cxl.ahM();
     }
 
-    public com.baidu.swan.apps.adaptation.b.e lT(String str) {
-        return this.cxh.lT(str);
+    public com.baidu.swan.apps.adaptation.b.e lU(String str) {
+        return this.cxl.lU(str);
     }
 
-    public AbsoluteLayout nY(String str) {
-        return this.cxh.nY(str);
+    public AbsoluteLayout nZ(String str) {
+        return this.cxl.nZ(str);
     }
 
     public void a(com.baidu.swan.apps.event.a.d dVar, boolean z) {
-        this.cxh.a(dVar, z);
+        this.cxl.a(dVar, z);
     }
 
     public void b(com.baidu.swan.apps.event.a.a aVar) {
-        this.cxh.b(aVar);
+        this.cxl.b(aVar);
     }
 
     public void a(String str, com.baidu.swan.apps.event.a.a aVar) {
-        this.cxh.a(str, aVar);
+        this.cxl.a(str, aVar);
     }
 
     public com.baidu.swan.apps.core.d.e ahn() {
-        return this.cxh.ahn();
+        return this.cxl.ahn();
     }
 
     public String asd() {
@@ -254,51 +254,51 @@ public final class f implements e.b {
     }
 
     public String agW() {
-        return this.cxh.agW();
+        return this.cxl.agW();
     }
 
     public com.baidu.swan.apps.adaptation.b.d arJ() {
-        return this.cxh.arJ();
+        return this.cxl.arJ();
     }
 
     @NonNull
     public Pair<Integer, Integer> arK() {
-        return this.cxh.arK();
+        return this.cxl.arK();
     }
 
     @NonNull
     public Pair<Integer, Integer> arL() {
-        return this.cxh.arL();
+        return this.cxl.arL();
     }
 
     @Override // com.baidu.swan.apps.v.e.b
     public void ig(int i) {
-        this.cxh.ig(i);
+        this.cxl.ig(i);
     }
 
     public void showLoadingView() {
-        this.cxh.showLoadingView();
+        this.cxl.showLoadingView();
     }
 
     public void Ya() {
-        this.cxh.Ya();
+        this.cxl.Ya();
     }
 
     public long ase() {
-        return cxf.get();
+        return cxj.get();
     }
 
     public void asf() {
-        long incrementAndGet = cxf.incrementAndGet();
+        long incrementAndGet = cxj.incrementAndGet();
         if (DEBUG) {
             Log.i("SwanAppController", "incrementBgThreadAliveCount: " + incrementAndGet);
         }
     }
 
     public void asg() {
-        long decrementAndGet = cxf.decrementAndGet();
+        long decrementAndGet = cxj.decrementAndGet();
         if (decrementAndGet <= 0) {
-            cxg.cxh.arx();
+            cxk.cxl.arx();
         }
         if (DEBUG) {
             Log.i("SwanAppController", "decrementBgThreadAliveCount: " + decrementAndGet);
@@ -318,11 +318,11 @@ public final class f implements e.b {
 
         @Override // com.baidu.swan.apps.v.d
         public boolean arO() {
-            return this.cwQ;
+            return this.cwU;
         }
     }
 
     public com.baidu.swan.games.q.a arM() {
-        return this.cxh.arM();
+        return this.cxl.arM();
     }
 }

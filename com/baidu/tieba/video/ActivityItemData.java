@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ActivityItemData implements Parcelable, Serializable {
     public static final Parcelable.Creator<ActivityItemData> CREATOR = new Parcelable.Creator<ActivityItemData>() { // from class: com.baidu.tieba.video.ActivityItemData.1
         /* JADX DEBUG: Method merged with bridge method */

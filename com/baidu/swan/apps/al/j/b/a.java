@@ -15,15 +15,15 @@ import com.baidu.swan.apps.runtime.d;
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long cZn;
-    private b cZo;
-    private final c.a cZp;
+    private long cZr;
+    private b cZs;
+    private final c.a cZt;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.al.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0342a {
-        public static final a cZr = new a();
+        public static final a cZv = new a();
     }
 
     static {
@@ -32,12 +32,12 @@ public class a {
     }
 
     private a() {
-        this.cZn = 0L;
-        this.cZp = new c.a() { // from class: com.baidu.swan.apps.al.j.b.a.1
+        this.cZr = 0L;
+        this.cZt = new c.a() { // from class: com.baidu.swan.apps.al.j.b.a.1
             @Override // com.baidu.swan.apps.ab.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.cZo != null) {
-                    a.this.cZo.bM(a.this.cZn);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.cZs != null) {
+                    a.this.cZs.bM(a.this.cZr);
                 }
             }
         };
@@ -46,27 +46,27 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.cZo = new b(vibrator);
+            this.cZs = new b(vibrator);
         }
     }
 
     public static a aDO() {
-        return C0342a.cZr;
+        return C0342a.cZv;
     }
 
     void bM(long j) {
-        this.cZn = j;
-        if (this.cZo == null) {
+        this.cZr = j;
+        if (this.cZs == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (checkVibratePermission()) {
-            this.cZo.bM(this.cZn);
+            this.cZs.bM(this.cZr);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
             SwanAppActivity azC = d.azE().azC();
             if (azC != null) {
-                azC.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.cZp);
+                azC.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.cZt);
             }
         }
     }

@@ -27,41 +27,41 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b implements com.baidu.swan.apps.aa.a.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String[] cFL = {"duershow"};
-    private com.baidu.swan.apps.runtime.e bWU;
-    private String bXF;
-    private com.baidu.l.a cFK = new com.baidu.l.a();
-    private CallbackHandler crH;
-    private UnitedSchemeEntity cxt;
+    private static String[] cFP = {"duershow"};
+    private com.baidu.swan.apps.runtime.e bWY;
+    private String bXJ;
+    private com.baidu.l.a cFO = new com.baidu.l.a();
+    private CallbackHandler crL;
+    private UnitedSchemeEntity cxx;
     private String mAppKey;
     private String mResult;
     private int mStatusCode;
     private String mVersion;
 
     public b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, String str2, String str3) {
-        this.bWU = eVar;
-        this.cxt = unitedSchemeEntity;
-        this.crH = callbackHandler;
+        this.bWY = eVar;
+        this.cxx = unitedSchemeEntity;
+        this.crL = callbackHandler;
         this.mVersion = str;
         this.mAppKey = str2;
-        this.bXF = str3;
+        this.bXJ = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean oR(final String str) {
-        if (this.bWU.azV().isLogin(this.bWU.getActivity())) {
-            oS(str);
+    public boolean oS(final String str) {
+        if (this.bWY.azV().isLogin(this.bWY.getActivity())) {
+            oT(str);
         } else {
-            this.bWU.azV().a(this.bWU.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.b.1
+            this.bWY.azV().a(this.bWY.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.b.1
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        b.this.oS(str);
+                        b.this.oT(str);
                         return;
                     }
                     b.this.mStatusCode = 5;
                     b.this.mResult = null;
-                    b.this.oU(null);
+                    b.this.oV(null);
                 }
             });
         }
@@ -69,8 +69,8 @@ public class b implements com.baidu.swan.apps.aa.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oS(String str) {
-        this.cFK.a(this.bWU.getActivity(), str, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.2
+    public void oT(String str) {
+        this.cFO.a(this.bWY.getActivity(), str, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.2
             @Override // com.baidu.l.a.a
             public void onPayResult(int i, String str2) {
                 b.this.mStatusCode = i;
@@ -80,7 +80,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 }
                 b.this.e(i, "baiduqianbao", str2);
                 if (i != 0 || !TextUtils.equals(b.this.mVersion, "2.0")) {
-                    b.this.oU(null);
+                    b.this.oV(null);
                 } else {
                     com.baidu.swan.apps.t.a.app().a(b.this.mAppKey, b.this);
                 }
@@ -89,11 +89,11 @@ public class b implements com.baidu.swan.apps.aa.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean oT(String str) {
+    public boolean oU(String str) {
         if (DEBUG) {
             Log.d("SwanAppPaymentManager", "start UnitedSchemeWalletDispatcher ACTION_REQUEST_ALI_PAYMENT orderInfo: " + str);
         }
-        this.cFK.b(this.bWU.getActivity(), str, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.3
+        this.cFO.b(this.bWY.getActivity(), str, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.3
             @Override // com.baidu.l.a.a
             public void onPayResult(int i, String str2) {
                 b.this.mStatusCode = i;
@@ -103,7 +103,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 }
                 b.this.e(i, "alipay", str2);
                 if (i != 0 || !TextUtils.equals(b.this.mVersion, "2.0")) {
-                    b.this.oU(null);
+                    b.this.oV(null);
                 } else {
                     com.baidu.swan.apps.t.a.app().a(b.this.mAppKey, b.this);
                 }
@@ -116,7 +116,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
         final String[] strArr;
         Object opt;
         if (TextUtils.isEmpty(str)) {
-            this.cxt.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.cxx.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = jSONObject.optString("__plugin__");
@@ -124,12 +124,12 @@ public class b implements com.baidu.swan.apps.aa.a.a {
         if (!TextUtils.isEmpty(optString) && (opt = jSONObject.opt(BdStatsConstant.StatsType.ERROR)) != null) {
             String optString2 = jSONObject.optString("slaveId");
             com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(jSONObject.optString("componentId"));
-            aVar.caU = optString2;
-            aVar.cIi = opt;
+            aVar.caY = optString2;
+            aVar.cIm = opt;
             aVar.isSuccess = false;
-            aVar.cIj = null;
+            aVar.cIn = null;
             aVar.awG();
-            this.cxt.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.cxx.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("bannedChannels");
@@ -141,25 +141,25 @@ public class b implements com.baidu.swan.apps.aa.a.a {
         } else {
             strArr = null;
         }
-        if (this.bWU.azC() == null) {
+        if (this.bWY.azC() == null) {
             this.mStatusCode = 5;
             this.mResult = null;
-            oU(null);
+            oV(null);
             if (DEBUG) {
                 throw new RuntimeException("swanApp getActivity returns null");
             }
-        } else if (this.bWU.azV().isLogin(this.bWU.getActivity())) {
-            if (this.bWU.aAb()) {
+        } else if (this.bWY.azV().isLogin(this.bWY.getActivity())) {
+            if (this.bWY.aAb()) {
                 b(str, strArr, jSONObject, true, true);
             } else {
                 a(str, strArr, jSONObject, true, true);
             }
         } else {
-            this.bWU.azV().a(this.bWU.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.b.4
+            this.bWY.azV().a(this.bWY.getActivity(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.aa.b.4
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i2) {
                     if (i2 == 0) {
-                        if (b.this.bWU.aAb()) {
+                        if (b.this.bWY.aAb()) {
                             b.this.b(str, strArr, jSONObject, true, false);
                             return;
                         } else {
@@ -169,7 +169,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                     }
                     b.this.mStatusCode = 5;
                     b.this.mResult = null;
-                    b.this.oU(null);
+                    b.this.oV(null);
                     h.a("nuomi", false, false);
                 }
             });
@@ -193,8 +193,8 @@ public class b implements com.baidu.swan.apps.aa.a.a {
 
             @Override // com.baidu.swan.games.b.a.InterfaceC0490a
             public void onFail(String str2) {
-                if (!TextUtils.isEmpty(b.this.bXF)) {
-                    b.this.crH.handleSchemeDispatchCallback(b.this.bXF, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, b.this.bWU.azC().getString(a.h.swan_game_anti_addiction) + str2).toString());
+                if (!TextUtils.isEmpty(b.this.bXJ)) {
+                    b.this.crL.handleSchemeDispatchCallback(b.this.bXJ, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, b.this.bWY.azC().getString(a.h.swan_game_anti_addiction) + str2).toString());
                 }
             }
         });
@@ -226,10 +226,10 @@ public class b implements com.baidu.swan.apps.aa.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void avr() {
-        if (this.bWU != null) {
-            com.baidu.swan.apps.res.widget.b.d.k(this.bWU.azC(), a.h.swanapp_payment_illegal).showToast();
-            if (!TextUtils.isEmpty(this.bXF)) {
-                this.crH.handleSchemeDispatchCallback(this.bXF, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.bWU.azC().getString(a.h.swanapp_payment_illegal)).toString());
+        if (this.bWY != null) {
+            com.baidu.swan.apps.res.widget.b.d.k(this.bWY.azC(), a.h.swanapp_payment_illegal).showToast();
+            if (!TextUtils.isEmpty(this.bXJ)) {
+                this.crL.handleSchemeDispatchCallback(this.bXJ, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.bWY.azC().getString(a.h.swanapp_payment_illegal)).toString());
             }
         }
     }
@@ -238,7 +238,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
     public void a(JSONObject jSONObject, String[] strArr, final JSONObject jSONObject2) {
         boolean z;
         try {
-            if (com.baidu.swan.apps.d.a.f.bTS.abA()) {
+            if (com.baidu.swan.apps.d.a.f.bTW.abA()) {
                 jSONObject.put("openBduss", com.baidu.swan.apps.t.a.aoO().bm(com.baidu.swan.apps.t.a.aoJ()));
                 jSONObject.put("clientId", com.baidu.swan.apps.t.a.apw().ZV());
             } else {
@@ -247,7 +247,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
             jSONObject.put("cuid", com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ()));
             String optString = jSONObject.optString("bizInfo");
             JSONObject jSONObject3 = TextUtils.isEmpty(optString) ? new JSONObject() : new JSONObject(optString);
-            jSONObject3.put("swanFrom", this.bWU.azM().aqN());
+            jSONObject3.put("swanFrom", this.bWY.azM().aqN());
             jSONObject3.put("cuid", com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ()));
             jSONObject3.put("appId", com.baidu.swan.apps.runtime.d.azE().getAppId());
             jSONObject.put("bizInfo", bb(jSONObject3).toString());
@@ -263,7 +263,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
             }
         }
         com.baidu.swan.apps.v.f.arY().ary();
-        String[] strArr2 = cFL;
+        String[] strArr2 = cFP;
         int length = strArr2.length;
         int i = 0;
         while (true) {
@@ -287,20 +287,20 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 }
             });
         } else {
-            this.cFK.a(this.bWU.azC(), jSONObject, strArr, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.8
+            this.cFO.a(this.bWY.azC(), jSONObject, strArr, new com.baidu.l.a.a() { // from class: com.baidu.swan.apps.aa.b.8
                 @Override // com.baidu.l.a.a
                 public void onPayResult(int i2, String str) {
                     b.this.a(i2, str, jSONObject2);
                 }
             });
         }
-        UnitedSchemeUtility.callCallback(this.crH, this.cxt, UnitedSchemeUtility.wrapCallbackParams(0));
-        if (this.bWU.azz() != null) {
-            String valueOf = String.valueOf(this.bWU.azM().getAppFrameType());
-            String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.bWU.azM().aqP()).get("_baiduboxapp"));
+        UnitedSchemeUtility.callCallback(this.crL, this.cxx, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (this.bWY.azz() != null) {
+            String valueOf = String.valueOf(this.bWY.azM().getAppFrameType());
+            String valueOf2 = String.valueOf(UnitedSchemeUtility.getParams(this.bWY.azM().aqP()).get("_baiduboxapp"));
             Bundle bundle = new Bundle();
             bundle.putString("frameType", valueOf);
-            bundle.putString("appId", this.bWU.azM().getAppId());
+            bundle.putString("appId", this.bWY.azM().getAppId());
             try {
                 bundle.putString("params", URLEncoder.encode(valueOf2, "UTF-8"));
             } catch (UnsupportedEncodingException e2) {
@@ -308,7 +308,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                     throw new RuntimeException("This method requires UTF-8 encoding support", e2);
                 }
             }
-            this.bWU.azz().d(7, bundle);
+            this.bWY.azz().d(7, bundle);
         }
     }
 
@@ -318,49 +318,49 @@ public class b implements com.baidu.swan.apps.aa.a.a {
         e(i, "nuomi", str);
         this.mStatusCode = i;
         this.mResult = str;
-        oU(null);
+        oV(null);
         if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("__plugin__"))) {
             String optString = jSONObject.optString("slaveId");
             String optString2 = jSONObject.optString("componentId");
             Object opt = jSONObject.opt(BdStatsConstant.StatsType.ERROR);
             com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(optString2);
-            aVar.caU = optString;
-            aVar.cIi = opt;
+            aVar.caY = optString;
+            aVar.cIm = opt;
             aVar.isSuccess = i == 0;
-            aVar.cIj = str;
+            aVar.cIn = str;
             aVar.awG();
             com.baidu.swan.apps.ac.g.b.awK();
         }
         if (this.mStatusCode == 0) {
-            com.baidu.swan.apps.ae.c.cJW.ayp();
+            com.baidu.swan.apps.ae.c.cKa.ayp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean avs() {
         com.baidu.swan.apps.console.c.i("SwanAppPaymentManager", "start UnitedSchemeWalletDispatcher ACTION_REQUEST_WECHAT_PAYMENT");
-        if (a.avq().a(this.bWU, this.crH, this.cxt)) {
+        if (a.avq().a(this.bWY, this.crL, this.cxx)) {
             this.mStatusCode = 0;
             this.mResult = null;
             if (TextUtils.equals(this.mVersion, "2.0")) {
                 com.baidu.swan.apps.t.a.app().a(this.mAppKey, this);
             } else {
-                oU(null);
+                oV(null);
             }
             h.a("wechatH5Action", (String) null, (ArrayList<String>) null);
             return true;
         }
-        this.crH.handleSchemeDispatchCallback(this.bXF, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+        this.crL.handleSchemeDispatchCallback(this.bXJ, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i, String str, String str2) {
-        h.a(i == 0, str, str2, this.bWU.azM().getAppFrameType());
+        h.a(i == 0, str, str2, this.bWY.azM().getAppFrameType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oU(String str) {
+    public void oV(String str) {
         com.baidu.swan.apps.console.c.i("SwanAppPaymentManager", "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.mResult);
         try {
             if (TextUtils.equals(this.mVersion, "2.0")) {
@@ -369,13 +369,13 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 if (!TextUtils.isEmpty(this.mResult)) {
                     jSONObject.put("payResult", Base64.encodeToString(this.mResult.getBytes("UTF-8"), 2));
                 }
-                this.crH.handleSchemeDispatchCallback(this.bXF, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, iD(this.mStatusCode)).toString());
+                this.crL.handleSchemeDispatchCallback(this.bXJ, UnitedSchemeUtility.wrapCallbackParams(jSONObject, this.mStatusCode, iD(this.mStatusCode)).toString());
                 return;
             }
-            this.crH.handleSchemeDispatchCallback(this.bXF, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.mResult, this.mStatusCode, iD(this.mStatusCode)).toString());
+            this.crL.handleSchemeDispatchCallback(this.bXJ, UnitedSchemeUtility.wrapCallbackParamsWithBase64(this.mResult, this.mStatusCode, iD(this.mStatusCode)).toString());
         } catch (UnsupportedEncodingException | JSONException e) {
             e.printStackTrace();
-            this.crH.handleSchemeDispatchCallback(this.bXF, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, iD(this.mStatusCode)).toString());
+            this.crL.handleSchemeDispatchCallback(this.bXJ, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, this.mStatusCode, iD(this.mStatusCode)).toString());
         }
     }
 
@@ -397,11 +397,11 @@ public class b implements com.baidu.swan.apps.aa.a.a {
         if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
             str = jSONObject.optJSONObject("data").optString("payid");
         }
-        oU(str);
-        if (com.baidu.swan.apps.t.a.aoO().bj(this.bWU)) {
-            com.baidu.swan.apps.ae.c.cJW.ayp();
+        oV(str);
+        if (com.baidu.swan.apps.t.a.aoO().bj(this.bWY)) {
+            com.baidu.swan.apps.ae.c.cKa.ayp();
         } else {
-            com.baidu.swan.apps.ae.c.cJW.ayq();
+            com.baidu.swan.apps.ae.c.cKa.ayq();
         }
     }
 
@@ -409,12 +409,12 @@ public class b implements com.baidu.swan.apps.aa.a.a {
     public void onFail(String str) {
         com.baidu.swan.apps.console.c.e("SwanAppPaymentManager", "request payId failed");
         com.baidu.swan.apps.console.c.e("SwanAppPaymentManager", str);
-        oU(null);
+        oV(null);
     }
 
     private JSONObject bb(JSONObject jSONObject) {
-        if (this.bWU.aAb() && jSONObject != null) {
-            b.a azM = this.bWU.azM();
+        if (this.bWY.aAb() && jSONObject != null) {
+            b.a azM = this.bWY.azM();
             if (azM.arf() != null) {
                 JSONObject arf = azM.arf();
                 String optString = arf.optString("log_id");
@@ -436,10 +436,10 @@ public class b implements com.baidu.swan.apps.aa.a.a {
 
     public boolean bS(final String str, final String str2) {
         if (TextUtils.isEmpty(str2) && (str.equals("mapp_request_duxiaoman") || str.equals("mapp_request_alipayment"))) {
-            this.cxt.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            this.cxx.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        this.bWU.azU().b(this.bWU.azC(), str, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.9
+        this.bWY.azU().b(this.bWY.azC(), str, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
@@ -455,7 +455,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                         }
                         str3 = String.valueOf(jSONObject);
                     }
-                    b.this.crH.handleSchemeDispatchCallback(b.this.bXF, UnitedSchemeUtility.wrapCallbackParamsWithBase64(str3, 1001, "authorize denied").toString());
+                    b.this.crL.handleSchemeDispatchCallback(b.this.bXJ, UnitedSchemeUtility.wrapCallbackParamsWithBase64(str3, 1001, "authorize denied").toString());
                     return;
                 }
                 String str4 = str;
@@ -482,10 +482,10 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 }
                 switch (c) {
                     case 0:
-                        b.this.oR(str2);
+                        b.this.oS(str2);
                         return;
                     case 1:
-                        b.this.oT(str2);
+                        b.this.oU(str2);
                         return;
                     case 2:
                         b.this.avs();
@@ -495,7 +495,7 @@ public class b implements com.baidu.swan.apps.aa.a.a {
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(this.crH, this.cxt, UnitedSchemeUtility.wrapCallbackParams(0));
+        UnitedSchemeUtility.callCallback(this.crL, this.cxx, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 }

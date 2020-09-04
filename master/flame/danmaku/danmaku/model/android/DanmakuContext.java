@@ -10,36 +10,36 @@ import master.flame.danmaku.danmaku.model.android.b;
 import master.flame.danmaku.danmaku.model.j;
 /* loaded from: classes6.dex */
 public class DanmakuContext {
-    public master.flame.danmaku.danmaku.model.a oxD;
-    private List<WeakReference<a>> oxI;
-    private b oxL;
-    private boolean oxM;
-    private boolean oxN;
-    public Typeface oxt = null;
-    public int oxo = master.flame.danmaku.danmaku.model.c.MAX;
-    public float oxp = 1.0f;
-    public int heQ = 0;
-    public boolean oxu = true;
-    public boolean oxv = true;
-    public boolean oxw = true;
-    public boolean oxx = true;
-    public boolean oxy = true;
-    List<Integer> ouE = new ArrayList();
-    public int oxz = -1;
-    public float oxA = 1.0f;
-    public int oxB = 15;
-    public BorderType oxC = BorderType.SHADOW;
-    public int oxE = 3;
-    List<Integer> oxF = new ArrayList();
-    List<Integer> oxG = new ArrayList();
-    List<String> oxH = new ArrayList();
-    private boolean oxJ = false;
-    private boolean owt = false;
-    private boolean oxK = false;
-    private final master.flame.danmaku.danmaku.model.b oxO = new master.flame.danmaku.danmaku.model.android.a();
-    public final j oxP = new j();
-    public final master.flame.danmaku.a.b oxQ = new master.flame.danmaku.a.b();
-    public final c oxR = c.eim();
+    public master.flame.danmaku.danmaku.model.a oxV;
+    private List<WeakReference<a>> oya;
+    private b oyd;
+    private boolean oye;
+    private boolean oyf;
+    public Typeface oxL = null;
+    public int oxG = master.flame.danmaku.danmaku.model.c.MAX;
+    public float oxH = 1.0f;
+    public int heU = 0;
+    public boolean oxM = true;
+    public boolean oxN = true;
+    public boolean oxO = true;
+    public boolean oxP = true;
+    public boolean oxQ = true;
+    List<Integer> ouW = new ArrayList();
+    public int oxR = -1;
+    public float oxS = 1.0f;
+    public int oxT = 15;
+    public BorderType oxU = BorderType.SHADOW;
+    public int oxW = 3;
+    List<Integer> oxX = new ArrayList();
+    List<Integer> oxY = new ArrayList();
+    List<String> oxZ = new ArrayList();
+    private boolean oyb = false;
+    private boolean owL = false;
+    private boolean oyc = false;
+    private final master.flame.danmaku.danmaku.model.b oyg = new master.flame.danmaku.danmaku.model.android.a();
+    public final j oyh = new j();
+    public final master.flame.danmaku.a.b oyi = new master.flame.danmaku.a.b();
+    public final c oyj = c.eiv();
 
     /* loaded from: classes6.dex */
     public enum BorderType {
@@ -53,7 +53,7 @@ public class DanmakuContext {
         boolean a(DanmakuContext danmakuContext, DanmakuConfigTag danmakuConfigTag, Object... objArr);
     }
 
-    public static DanmakuContext eif() {
+    public static DanmakuContext eio() {
         return new DanmakuContext();
     }
 
@@ -86,88 +86,88 @@ public class DanmakuContext {
         }
     }
 
-    public master.flame.danmaku.danmaku.model.b eig() {
-        return this.oxO;
+    public master.flame.danmaku.danmaku.model.b eip() {
+        return this.oyg;
     }
 
     private <T> void a(String str, T t, boolean z) {
-        this.oxQ.bd(str, z).setData(t);
+        this.oyi.bd(str, z).setData(t);
     }
 
     public DanmakuContext c(int i, float... fArr) {
-        this.oxO.b(i, fArr);
+        this.oyg.b(i, fArr);
         a(DanmakuConfigTag.DANMAKU_STYLE, Integer.valueOf(i), fArr);
         return this;
     }
 
-    public DanmakuContext yT(boolean z) {
-        if (this.owt != z) {
-            this.owt = z;
-            this.oxP.ehM();
+    public DanmakuContext yV(boolean z) {
+        if (this.owL != z) {
+            this.owL = z;
+            this.oyh.ehV();
             a(DanmakuConfigTag.DUPLICATE_MERGING_ENABLED, Boolean.valueOf(z));
         }
         return this;
     }
 
-    public boolean eih() {
-        return this.owt;
+    public boolean eiq() {
+        return this.owL;
     }
 
-    public boolean eii() {
-        return this.oxK;
+    public boolean eir() {
+        return this.oyc;
     }
 
     public DanmakuContext E(Map<Integer, Boolean> map) {
-        this.oxN = map != null;
+        this.oyf = map != null;
         if (map == null) {
-            this.oxQ.bf("1019_Filter", false);
+            this.oyi.bf("1019_Filter", false);
         } else {
             a("1019_Filter", map, false);
         }
-        this.oxP.ehM();
+        this.oyh.ehV();
         a(DanmakuConfigTag.OVERLAPPING_ENABLE, map);
         return this;
     }
 
-    public boolean eij() {
-        return this.oxM;
+    public boolean eis() {
+        return this.oye;
     }
 
-    public boolean eik() {
-        return this.oxN;
+    public boolean eit() {
+        return this.oyf;
     }
 
     public DanmakuContext a(b bVar, b.a aVar) {
-        this.oxL = bVar;
-        if (this.oxL != null) {
-            this.oxL.a(aVar);
-            this.oxO.a(this.oxL);
+        this.oyd = bVar;
+        if (this.oyd != null) {
+            this.oyd.a(aVar);
+            this.oyg.a(this.oyd);
         }
         return this;
     }
 
     public void a(a aVar) {
-        if (aVar == null || this.oxI == null) {
-            this.oxI = Collections.synchronizedList(new ArrayList());
+        if (aVar == null || this.oya == null) {
+            this.oya = Collections.synchronizedList(new ArrayList());
         }
-        for (WeakReference<a> weakReference : this.oxI) {
+        for (WeakReference<a> weakReference : this.oya) {
             if (aVar.equals(weakReference.get())) {
                 return;
             }
         }
-        this.oxI.add(new WeakReference<>(aVar));
+        this.oya.add(new WeakReference<>(aVar));
     }
 
-    public void eil() {
-        if (this.oxI != null) {
-            this.oxI.clear();
-            this.oxI = null;
+    public void eiu() {
+        if (this.oya != null) {
+            this.oya.clear();
+            this.oya = null;
         }
     }
 
     private void a(DanmakuConfigTag danmakuConfigTag, Object... objArr) {
-        if (this.oxI != null) {
-            for (WeakReference<a> weakReference : this.oxI) {
+        if (this.oya != null) {
+            for (WeakReference<a> weakReference : this.oya) {
                 a aVar = weakReference.get();
                 if (aVar != null) {
                     aVar.a(this, danmakuConfigTag, objArr);

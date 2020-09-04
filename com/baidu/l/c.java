@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c bEw;
+    private static volatile c bEA;
 
     public static synchronized c TO() {
         c cVar;
         synchronized (c.class) {
-            if (bEw == null) {
+            if (bEA == null) {
                 synchronized (c.class) {
-                    if (bEw == null) {
-                        bEw = new c();
+                    if (bEA == null) {
+                        bEA = new c();
                     }
                 }
             }
-            cVar = bEw;
+            cVar = bEA;
         }
         return cVar;
     }

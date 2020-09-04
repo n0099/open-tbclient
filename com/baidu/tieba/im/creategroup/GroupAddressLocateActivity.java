@@ -16,22 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateActivity> implements AdapterView.OnItemClickListener, BdSwitchView.a, b.a {
-    private boolean jlf = false;
-    private boolean jlr = false;
-    private String jls = null;
-    private String jlt = null;
-    private String[] jlu = null;
-    private String jlv = "";
-    private int jdt = -1;
-    private n jlw = null;
-    a.b jlx = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.1
+    private boolean jll = false;
+    private boolean jlx = false;
+    private String jly = null;
+    private String jlz = null;
+    private String[] jlA = null;
+    private String jlB = "";
+    private int jdz = -1;
+    private n jlC = null;
+    a.b jlD = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             aVar.dismiss();
-            GroupAddressLocateActivity.this.cDF();
+            GroupAddressLocateActivity.this.cDG();
         }
     };
-    a.b jly = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.2
+    a.b jlE = new a.b() { // from class: com.baidu.tieba.im.creategroup.GroupAddressLocateActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             GroupAddressLocateActivity.this.setResult(0);
@@ -46,22 +46,22 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.jls = intent.getStringExtra(GroupAddressLocateActivityConfig.INTENT_DATA_OLD_ADDRESS);
-            this.jlt = intent.getStringExtra(GroupAddressLocateActivityConfig.INTENT_DATA_OLD_BUSINESS);
-            this.jlf = intent.getBooleanExtra(GroupAddressLocateActivityConfig.INTENT_DATA_IS_HIDDEN_ADDRESS, false);
-            this.jlr = this.jlf;
+            this.jly = intent.getStringExtra(GroupAddressLocateActivityConfig.INTENT_DATA_OLD_ADDRESS);
+            this.jlz = intent.getStringExtra(GroupAddressLocateActivityConfig.INTENT_DATA_OLD_BUSINESS);
+            this.jll = intent.getBooleanExtra(GroupAddressLocateActivityConfig.INTENT_DATA_IS_HIDDEN_ADDRESS, false);
+            this.jlx = this.jll;
         }
-        this.jlw = new n(this, this.jls, this.jlt, this.jlf);
-        this.jlw.b(this.jly);
-        this.jlw.c(this.jlx);
+        this.jlC = new n(this, this.jly, this.jlz, this.jll);
+        this.jlC.b(this.jlE);
+        this.jlC.c(this.jlD);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jlw != null) {
-            this.jlw.cDr();
+        if (this.jlC != null) {
+            this.jlC.cDs();
         }
     }
 
@@ -69,12 +69,12 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jlw.onResume();
+        this.jlC.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && cDE()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && cDF()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -83,24 +83,24 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.jlw.cDC()) {
-            cDF();
-        } else if (view == this.jlw.getBackButton()) {
-            if (!cDE()) {
+        if (view == this.jlC.cDD()) {
+            cDG();
+        } else if (view == this.jlC.getBackButton()) {
+            if (!cDF()) {
                 finish();
             }
-        } else if (view == this.jlw.cDL()) {
-            this.jlw.cDD();
-            this.jlw.cDH();
-            this.jdt = -1;
-        } else if (view == this.jlw.cDM()) {
-            switch (this.jlw.cCA()) {
+        } else if (view == this.jlC.cDM()) {
+            this.jlC.cDE();
+            this.jlC.cDI();
+            this.jdz = -1;
+        } else if (view == this.jlC.cDN()) {
+            switch (this.jlC.cCB()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), RequestResponseCode.REQUEST_SETTING_LOCATION_SOURCE);
                     return;
                 case 2:
-                    this.jlw.cDI();
-                    this.jlw.cDq();
+                    this.jlC.cDJ();
+                    this.jlC.cDr();
                     return;
                 case 3:
                 default:
@@ -114,8 +114,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.jlw.cDI();
-            this.jlw.cDq();
+            this.jlC.cDJ();
+            this.jlC.cDr();
         }
     }
 
@@ -123,90 +123,90 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 25044) {
-            this.jlw.cDq();
+            this.jlC.cDr();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.jlf = true;
+            this.jll = true;
         } else {
-            this.jlf = false;
+            this.jll = false;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.jlw.cDD();
-        this.jlw.cDG();
-        this.jdt = i;
+        this.jlC.cDE();
+        this.jlC.cDH();
+        this.jdz = i;
     }
 
     public int getSelectedPosition() {
-        return this.jdt;
+        return this.jdz;
     }
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.jlw.Kh(String.valueOf(d));
-        this.jlw.Kg(String.valueOf(d2));
-        this.jlv = str;
+        this.jlC.Ki(String.valueOf(d));
+        this.jlC.Kh(String.valueOf(d2));
+        this.jlB = str;
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str2 : list) {
                 arrayList.add(str2);
             }
-            arrayList.remove(this.jlt);
-            this.jlu = new String[arrayList.size()];
+            arrayList.remove(this.jlz);
+            this.jlA = new String[arrayList.size()];
             for (int i = 0; i < arrayList.size(); i++) {
-                this.jlu[i] = (String) arrayList.get(i);
+                this.jlA[i] = (String) arrayList.get(i);
             }
-            this.jlw.J(this.jlu);
-        } else if (this.jlv.equals(this.jls)) {
-            this.jlw.J(new String[0]);
+            this.jlC.J(this.jlA);
+        } else if (this.jlB.equals(this.jly)) {
+            this.jlC.J(new String[0]);
         } else {
-            this.jlw.J(new String[]{this.jlv});
+            this.jlC.J(new String[]{this.jlB});
         }
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void cCW() {
-        this.jlw.cDJ();
+    public void cCX() {
+        this.jlC.cDK();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void cCX() {
-        this.jlw.cCC();
+    public void cCY() {
+        this.jlC.cCD();
     }
 
-    private boolean cDE() {
-        if (this.jlf != this.jlr || this.jdt > -1) {
-            this.jlw.Nv();
+    private boolean cDF() {
+        if (this.jll != this.jlx || this.jdz > -1) {
+            this.jlC.Nv();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDF() {
+    public void cDG() {
         Intent intent = new Intent();
-        if (this.jlu == null) {
-            if (this.jdt > -1) {
+        if (this.jlA == null) {
+            if (this.jdz > -1) {
                 intent.putExtra("ResultDataSelectedBusiness", "");
-                intent.putExtra("ResultDataAddress", this.jlv);
+                intent.putExtra("ResultDataAddress", this.jlB);
             } else {
-                intent.putExtra("ResultDataSelectedBusiness", this.jlt);
-                intent.putExtra("ResultDataAddress", this.jls);
+                intent.putExtra("ResultDataSelectedBusiness", this.jlz);
+                intent.putExtra("ResultDataAddress", this.jly);
             }
-        } else if (this.jdt > -1 && this.jdt < this.jlu.length) {
-            intent.putExtra("ResultDataSelectedBusiness", this.jlu[this.jdt]);
-            intent.putExtra("ResultDataAddress", this.jlv);
+        } else if (this.jdz > -1 && this.jdz < this.jlA.length) {
+            intent.putExtra("ResultDataSelectedBusiness", this.jlA[this.jdz]);
+            intent.putExtra("ResultDataAddress", this.jlB);
         } else {
-            intent.putExtra("ResultDataSelectedBusiness", this.jlt);
-            intent.putExtra("ResultDataAddress", this.jls);
+            intent.putExtra("ResultDataSelectedBusiness", this.jlz);
+            intent.putExtra("ResultDataAddress", this.jly);
         }
-        intent.putExtra("ResultDataIsHiddenAddress", this.jlf);
+        intent.putExtra("ResultDataIsHiddenAddress", this.jll);
         setResult(-1, intent);
         finish();
     }
@@ -215,6 +215,6 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jlw.onChangeSkinType(i);
+        this.jlC.onChangeSkinType(i);
     }
 }

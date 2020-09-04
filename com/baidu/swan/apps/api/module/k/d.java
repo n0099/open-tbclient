@@ -13,7 +13,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jV(String str) {
+    public com.baidu.swan.apps.api.c.b jW(String str) {
         if (DEBUG) {
             Log.d("Api-Compass", "start listen compass");
         }

@@ -29,7 +29,7 @@ class d extends f {
         }
         this.d = bArr2;
         a();
-        this.acO.a(z, str, bArr);
+        this.acQ.a(z, str, bArr);
     }
 
     @Override // com.baidu.b.c.a.f
@@ -39,7 +39,7 @@ class d extends f {
             for (int i5 = 0; i5 < this.c; i5++) {
                 this.e[i5] = (byte) (bArr[i5 + i] ^ this.a[i5]);
             }
-            this.acO.a(this.e, 0, bArr2, i3);
+            this.acQ.a(this.e, 0, bArr2, i3);
             System.arraycopy(bArr2, i3, this.a, 0, this.c);
             i += this.c;
             i3 += this.c;
@@ -60,7 +60,7 @@ class d extends f {
         int i4 = i + i2;
         byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.c) ? null : (byte[]) bArr.clone();
         while (i < i4) {
-            this.acO.b(bArr, i, this.e, 0);
+            this.acQ.b(bArr, i, this.e, 0);
             for (int i5 = 0; i5 < this.c; i5++) {
                 bArr2[i5 + i3] = (byte) (this.e[i5] ^ this.a[i5]);
             }

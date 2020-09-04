@@ -7,10 +7,10 @@ import com.baidu.mcn.McnVideoAdView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private McnVideoAdView bzY;
-    private McnVideoAdView.a bzZ = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
+    private McnVideoAdView bAb;
+    private McnVideoAdView.a bAc = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void a(a aVar) {
             if (aVar != null) {
@@ -18,7 +18,7 @@ public class c {
                 aqVar.dD("tid", aVar.tid);
                 aqVar.dD("fid", aVar.fid);
                 aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.ai("obj_locate", aVar.bzU);
+                aqVar.ai("obj_locate", aVar.bzX);
                 TiebaStatic.log(aqVar);
             }
         }
@@ -30,15 +30,15 @@ public class c {
                 aqVar.dD("tid", aVar.tid);
                 aqVar.dD("fid", aVar.fid);
                 aqVar.u("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.ai("obj_locate", aVar.bzU);
+                aqVar.ai("obj_locate", aVar.bzX);
                 TiebaStatic.log(aqVar);
             }
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void c(a aVar) {
-            if (aVar != null && !StringUtils.isNull(aVar.bzT)) {
-                b.SM().hH(aVar.bzT);
+            if (aVar != null && !StringUtils.isNull(aVar.bzW)) {
+                b.SM().hI(aVar.bzW);
             }
         }
     };
@@ -46,43 +46,43 @@ public class c {
 
     public c(Context context) {
         this.mContext = context;
-        this.bzY = new McnVideoAdView(context);
-        this.bzY.setIMcnStatListener(this.bzZ);
+        this.bAb = new McnVideoAdView(context);
+        this.bAb.setIMcnStatListener(this.bAc);
     }
 
     public void a(a aVar, ViewGroup viewGroup) {
-        if (this.bzY != null) {
-            this.bzY.a(aVar, viewGroup);
+        if (this.bAb != null) {
+            this.bAb.a(aVar, viewGroup);
         }
     }
 
     public void dismiss() {
-        if (this.bzY != null) {
-            this.bzY.dismiss();
+        if (this.bAb != null) {
+            this.bAb.dismiss();
         }
     }
 
     public void reset() {
-        if (this.bzY != null) {
-            this.bzY.reset();
+        if (this.bAb != null) {
+            this.bAb.reset();
         }
     }
 
     public void b(a aVar, ViewGroup viewGroup) {
-        if (this.bzY != null) {
-            this.bzY.b(aVar, viewGroup);
+        if (this.bAb != null) {
+            this.bAb.b(aVar, viewGroup);
         }
     }
 
     public void SN() {
-        if (this.bzY != null) {
-            this.bzY.SN();
+        if (this.bAb != null) {
+            this.bAb.SN();
         }
     }
 
     public boolean isShowing() {
-        if (this.bzY != null) {
-            return this.bzY.isShowing();
+        if (this.bAb != null) {
+            return this.bAb.isShowing();
         }
         return false;
     }

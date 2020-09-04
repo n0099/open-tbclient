@@ -28,7 +28,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UserData extends MetaData {
     private static final int USER_PICS_MAX_COUNT = 9;
     private static final long serialVersionUID = -1871115639893992930L;
@@ -274,17 +274,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             m mVar = new m();
-            mVar.BF(getPortraitH());
-            mVar.BG(getPortrait());
-            mVar.ja(true);
+            mVar.BG(getPortraitH());
+            mVar.BH(getPortrait());
+            mVar.jc(true);
             this.mPhotoAlbum.add(mVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         m mVar2 = new m();
-                        mVar2.BF(userPics.big);
-                        mVar2.BG(userPics.small);
-                        mVar2.ja(false);
+                        mVar2.BG(userPics.big);
+                        mVar2.BH(userPics.small);
+                        mVar2.jc(false);
                         this.mPhotoAlbum.add(mVar2);
                     }
                 }
@@ -486,9 +486,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 m mVar = new m();
-                mVar.BF(getPortraitH());
-                mVar.BG(getPortrait());
-                mVar.ja(true);
+                mVar.BG(getPortraitH());
+                mVar.BH(getPortrait());
+                mVar.jc(true);
                 this.mPhotoAlbum.add(mVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -497,9 +497,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             m mVar2 = new m();
-                            mVar2.BF(jSONObject2.optString("big"));
-                            mVar2.BG(jSONObject2.optString("small"));
-                            mVar2.ja(false);
+                            mVar2.BG(jSONObject2.optString("big"));
+                            mVar2.BH(jSONObject2.optString("small"));
+                            mVar2.jc(false);
                             this.mPhotoAlbum.add(mVar2);
                         }
                     }
@@ -760,7 +760,7 @@ public class UserData extends MetaData {
         return this.liveId;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class Permission extends OrmObject implements Serializable {
         private static final int TRUE = 1;
         private static final long serialVersionUID = -661968182172681650L;

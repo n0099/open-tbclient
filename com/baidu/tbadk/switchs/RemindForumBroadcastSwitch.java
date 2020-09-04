@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RemindForumBroadcastSwitch extends a {
     public static final String KEY = "forum_mask_stat";
     public static final int TYPE_OFF = 0;

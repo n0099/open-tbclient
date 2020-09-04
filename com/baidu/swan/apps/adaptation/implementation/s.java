@@ -24,9 +24,9 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class s implements aj {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bSG = 0;
-    private static int bSH = 1;
-    private static int bSI = 2;
+    private static int bSK = 0;
+    private static int bSL = 1;
+    private static int bSM = 2;
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(@NonNull String str, @NonNull Set<String> set, @NonNull final a.InterfaceC0417a interfaceC0417a) {
@@ -93,7 +93,7 @@ public class s implements aj {
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(@NonNull String str, com.baidu.swan.apps.n.b bVar) {
-        String gs = gs(bSG);
+        String gs = gs(bSK);
         ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.aSW().postFormRequest().url(gs)).cookieManager(com.baidu.swan.apps.t.a.apj().aau())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
     }
 
@@ -121,7 +121,7 @@ public class s implements aj {
                 e.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.a(gs(bSI), jSONObject.toString(), new a(bVar));
+        SwanAppNetworkUtils.a(gs(bSM), jSONObject.toString(), new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
@@ -134,7 +134,7 @@ public class s implements aj {
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(String str, com.baidu.swan.apps.aa.a.a aVar) {
-        a(gs(bSH), str, aVar);
+        a(gs(bSL), str, aVar);
     }
 
     private String gs(int i) {
@@ -143,11 +143,11 @@ public class s implements aj {
         String str;
         String str2;
         String str3 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        if (i == bSG) {
+        if (i == bSK) {
             sb = new StringBuilder(ZP());
             str = "rasign=" + com.baidu.swan.apps.i.b.adu().aN(seconds);
             str2 = "delta=smartapp_formid";
-        } else if (i == bSI) {
+        } else if (i == bSM) {
             sb = new StringBuilder(ZQ());
             str = "rasign=" + com.baidu.swan.apps.i.b.adu().aN(seconds);
             str2 = "delta=smartapp_formid";
@@ -171,10 +171,10 @@ public class s implements aj {
     /* loaded from: classes8.dex */
     public static class a extends ResponseCallback<JSONObject> {
         @Nullable
-        private final com.baidu.swan.apps.ae.a bSL;
+        private final com.baidu.swan.apps.ae.a bSP;
 
         a(@Nullable com.baidu.swan.apps.ae.a aVar) {
-            this.bSL = aVar;
+            this.bSP = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -197,11 +197,11 @@ public class s implements aj {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i) {
-            if (this.bSL != null) {
+            if (this.bSP != null) {
                 if (jSONObject == null) {
-                    this.bSL.onFail("request fail");
+                    this.bSP.onFail("request fail");
                 } else {
-                    this.bSL.al(jSONObject);
+                    this.bSP.al(jSONObject);
                 }
             }
         }
@@ -211,8 +211,8 @@ public class s implements aj {
             if (s.DEBUG) {
                 Log.e("SwanAppPushIdImpl", "SimpleResponseCallback", exc);
             }
-            if (this.bSL != null) {
-                this.bSL.onFail(exc.toString());
+            if (this.bSP != null) {
+                this.bSP.onFail(exc.toString());
             }
         }
     }

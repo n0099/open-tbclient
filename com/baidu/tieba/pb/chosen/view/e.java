@@ -16,62 +16,62 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes17.dex */
 public class e {
     private Context context;
-    private View kwe;
-    private TextView kwf;
-    private ImageView kwg;
-    private TextView kwh;
-    private TextView kwi;
-    private a kwj;
-    public boolean kwk;
-    private Animation kwm;
-    private long kwl = 0;
-    private boolean kwn = false;
+    private View kwl;
+    private TextView kwm;
+    private ImageView kwn;
+    private TextView kwo;
+    private TextView kwp;
+    private a kwq;
+    public boolean kwr;
+    private Animation kwt;
+    private long kws = 0;
+    private boolean kwu = false;
 
     /* loaded from: classes17.dex */
     public interface a {
-        void sw(boolean z);
+        void sy(boolean z);
 
         void u(long j, String str);
     }
 
     public e(Context context) {
         this.context = context;
-        this.kwe = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.kwf = (TextView) this.kwe.findViewById(R.id.chosen_post_info_copyright);
-        this.kwg = (ImageView) this.kwe.findViewById(R.id.chosen_post_info_praise_icon);
-        this.kwh = (TextView) this.kwe.findViewById(R.id.chosen_post_info_praise_num);
-        this.kwi = (TextView) this.kwe.findViewById(R.id.chosen_post_info_original_post);
+        this.kwl = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.kwm = (TextView) this.kwl.findViewById(R.id.chosen_post_info_copyright);
+        this.kwn = (ImageView) this.kwl.findViewById(R.id.chosen_post_info_praise_icon);
+        this.kwo = (TextView) this.kwl.findViewById(R.id.chosen_post_info_praise_num);
+        this.kwp = (TextView) this.kwl.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View cVf() {
-        return this.kwe;
+    public View cVg() {
+        return this.kwl;
     }
 
     public void a(a aVar) {
-        this.kwj = aVar;
+        this.kwq = aVar;
     }
 
     public void DO(int i) {
-        if (this.kwf != null) {
-            this.kwf.setText(i);
+        if (this.kwm != null) {
+            this.kwm.setText(i);
         }
     }
 
     public void P(View.OnClickListener onClickListener) {
-        if (this.kwi != null) {
-            this.kwi.setOnClickListener(onClickListener);
+        if (this.kwp != null) {
+            this.kwp.setOnClickListener(onClickListener);
         }
     }
 
     public void fH(long j) {
         if (j >= 0) {
-            this.kwl = j;
-            if (this.kwh != null) {
-                this.kwh.setVisibility(0);
-                this.kwh.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
+            this.kws = j;
+            if (this.kwo != null) {
+                this.kwo.setVisibility(0);
+                this.kwo.setText(this.context.getString(R.string.chosen_pb_praise_num, at.numFormatOver10000(j)));
             }
-            if (this.kwh != null && this.kwh.getVisibility() == 8) {
-                this.kwh.setVisibility(0);
+            if (this.kwo != null && this.kwo.getVisibility() == 8) {
+                this.kwo.setVisibility(0);
             }
         }
     }
@@ -80,15 +80,15 @@ public class e {
         if (excellentPbThreadInfo != null) {
             DO(R.string.chosen_pb_copyright);
             fH(excellentPbThreadInfo.zan.zansum.longValue());
-            sA(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.kwg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            sC(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            this.kwn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.kwn && bg.checkUpIsLogin(e.this.context)) {
-                        e.this.kwn = true;
-                        e.this.kwg.startAnimation(e.this.cVh());
-                        if (e.this.kwj != null) {
-                            e.this.kwj.sw(e.this.kwk);
+                    if (!e.this.kwu && bg.checkUpIsLogin(e.this.context)) {
+                        e.this.kwu = true;
+                        e.this.kwn.startAnimation(e.this.cVi());
+                        if (e.this.kwq != null) {
+                            e.this.kwq.sy(e.this.kwr);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             P(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.kwj != null) {
-                        e.this.kwj.u(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.kwq != null) {
+                        e.this.kwq.u(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void cVg() {
-        this.kwn = false;
+    public void cVh() {
+        this.kwu = false;
     }
 
-    public void sz(boolean z) {
-        sA(z);
+    public void sB(boolean z) {
+        sC(z);
         if (z) {
-            this.kwl++;
+            this.kws++;
         } else {
-            this.kwl--;
+            this.kws--;
         }
-        fH(this.kwl);
+        fH(this.kws);
     }
 
-    private void sA(boolean z) {
-        this.kwk = z;
+    private void sC(boolean z) {
+        this.kwr = z;
         if (z) {
-            ap.setImageResource(this.kwg, R.drawable.btn_zambia_big_s);
+            ap.setImageResource(this.kwn, R.drawable.btn_zambia_big_s);
         } else {
-            ap.setImageResource(this.kwg, R.drawable.btn_zambia_big_n);
+            ap.setImageResource(this.kwn, R.drawable.btn_zambia_big_n);
         }
-        this.kwg.setVisibility(0);
+        this.kwn.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation cVh() {
-        if (this.kwm == null) {
-            this.kwm = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation cVi() {
+        if (this.kwt == null) {
+            this.kwt = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.kwm;
+        return this.kwt;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VCacheSwitch extends a {
     public static final String CACHE_SWITCH = "android_video_cache_open";
     public static final int DEFAULT_TYPE = 1;

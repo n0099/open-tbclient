@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView izs;
-    private ShareFromPBMsgData jAs;
-    private TextView jcM;
+    private HeadImageView izy;
+    private ShareFromPBMsgData jAy;
+    private TextView jcS;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.izs = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.jcM = (TextView) findViewById(R.id.chat_group_desc);
+        this.izy = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.jcS = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.jcM.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.jcS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.jcM.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.jcS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.jAs = shareFromPBMsgData;
+        this.jAy = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.jAs.getTitle());
-        this.izs.setPlaceHolder(1);
-        this.izs.setAutoChangeStyle(false);
-        this.izs.startLoad(this.jAs.getImageUrl(), 10, false);
-        this.jcM.setText(this.jAs.getContent());
+        this.title.setText(this.jAy.getTitle());
+        this.izy.setPlaceHolder(1);
+        this.izy.setAutoChangeStyle(false);
+        this.izy.startLoad(this.jAy.getImageUrl(), 10, false);
+        this.jcS.setText(this.jAy.getContent());
     }
 }

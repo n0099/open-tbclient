@@ -23,59 +23,59 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes16.dex */
 public class TopicFragment extends BaseFragment implements f.c, aq, a {
-    private boolean iGq = false;
-    private TopicModel iUB;
-    private TopicListView iUC;
+    private boolean iGw = false;
+    private TopicModel iUH;
+    private TopicListView iUI;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iUB.setPresenter(this);
-        this.iUB.setUniqueId(getUniqueId());
-        this.iUC.setPresenter(this);
-        this.iUC.setListPullRefreshListener(this);
-        this.iUC.setPageUniqueId(getUniqueId());
+        this.iUH.setPresenter(this);
+        this.iUH.setUniqueId(getUniqueId());
+        this.iUI.setPresenter(this);
+        this.iUI.setListPullRefreshListener(this);
+        this.iUI.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iUC.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iUC.getParent()).removeView(this.iUC);
+        if (this.iUI.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iUI.getParent()).removeView(this.iUI);
         }
-        if (this.iGq) {
-            this.iUC.bMg();
-            this.iGq = false;
+        if (this.iGw) {
+            this.iUI.bMh();
+            this.iGw = false;
         }
-        return this.iUC;
+        return this.iUI;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.iUC.setViewForeground();
+            this.iUI.setViewForeground();
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.iUC.gS(false);
-        this.iUB.czi();
+        this.iUI.gT(false);
+        this.iUH.czj();
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void OA() {
-        this.iUC.reload();
-    }
-
-    @Override // com.baidu.tieba.frs.aq
-    public void bFY() {
+        this.iUI.reload();
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void bFZ() {
+    }
+
+    @Override // com.baidu.tieba.frs.aq
+    public void bGa() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -93,35 +93,35 @@ public class TopicFragment extends BaseFragment implements f.c, aq, a {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.iUC.onChangeSkinType();
+        this.iUI.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.iUB.czi();
+        this.iUH.czj();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.iUC.bFW();
-            this.iUC.gS(false);
-            this.iUB.czi();
+            this.iUI.bFX();
+            this.iUI.gT(false);
+            this.iUH.czj();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void o(int i, List<q> list) {
-        this.iUC.hideLoadingView();
-        this.iUC.bGd();
+        this.iUI.hideLoadingView();
+        this.iUI.bGe();
         if (i != 0 || y.isEmpty(list)) {
-            this.iUC.nK(false);
+            this.iUI.nM(false);
             return;
         }
-        this.iUC.bFW();
-        this.iUC.bLs();
-        this.iUC.setData(list);
-        this.iUC.bGS();
+        this.iUI.bFX();
+        this.iUI.bLt();
+        this.iUI.setData(list);
+        this.iUI.bGT();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -146,8 +146,8 @@ public class TopicFragment extends BaseFragment implements f.c, aq, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.iUC.destroy();
-        this.iUB.onDestroy();
-        this.iGq = true;
+        this.iUI.destroy();
+        this.iUH.onDestroy();
+        this.iGw = true;
     }
 }

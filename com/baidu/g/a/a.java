@@ -7,12 +7,12 @@ import com.baidu.g.a.b.c;
 import com.baidu.g.a.b.d;
 /* loaded from: classes20.dex */
 public class a {
-    private static boolean atf;
-    private static boolean atg;
+    private static boolean ath;
+    private static boolean ati;
 
     public static void init(Context context) {
-        atf = h.oc().loadLibrary("criusbase", 2);
-        atg = h.oc().loadLibrary("crius", 2);
+        ath = h.oc().loadLibrary("criusbase", 2);
+        ati = h.oc().loadLibrary("crius", 2);
     }
 
     public static void a(b bVar) {

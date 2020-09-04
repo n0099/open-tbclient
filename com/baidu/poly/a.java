@@ -8,13 +8,13 @@ import com.baidu.poly.widget.PolyActivity;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private long bEA;
+    private long bEE;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0259a {
         private Context context;
-        private int bEB = 1;
+        private int bEF = 1;
         private boolean debug = false;
 
         public a TS() {
@@ -26,13 +26,13 @@ public class a {
             return this;
         }
 
-        public C0259a dg(boolean z) {
+        public C0259a dh(boolean z) {
             this.debug = z;
             return this;
         }
 
         public C0259a fN(int i) {
-            this.bEB = i;
+            this.bEF = i;
             return this;
         }
     }
@@ -61,11 +61,11 @@ public class a {
         }
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.bEA < 1000) {
+            if (currentTimeMillis - this.bEE < 1000) {
                 d.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.bEA = currentTimeMillis;
+            this.bEE = currentTimeMillis;
             d.info("cashier pay");
             com.baidu.poly.a.h.a.a(Long.valueOf(currentTimeMillis));
             com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("0"));
@@ -76,13 +76,13 @@ public class a {
     }
 
     private a(C0259a c0259a) {
-        this.bEA = 0L;
+        this.bEE = 0L;
         if (c0259a != null) {
             if (c0259a.context != null) {
-                com.baidu.poly.a.b.a.b(c0259a.bEB);
+                com.baidu.poly.a.b.a.b(c0259a.bEF);
                 com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.aN(c0259a.context.getApplicationContext()));
                 g.b(c0259a.context.getApplicationContext());
-                d.bGI = c0259a.debug;
+                d.bGM = c0259a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

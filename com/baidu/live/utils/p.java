@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public class p {
-    private static String bqB = "";
+    private static String bqE = "";
 
     public static String EZ() {
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -23,7 +23,7 @@ public class p {
     }
 
     public static String Pp() {
-        if (TextUtils.isEmpty(bqB)) {
+        if (TextUtils.isEmpty(bqE)) {
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
                 return "ala_subapp_shoubai_android_consume";
             }
@@ -38,14 +38,14 @@ public class p {
             }
             return "";
         }
-        return bqB;
+        return bqE;
     }
 
-    public static void ho(String str) {
-        bqB = str;
+    public static void hp(String str) {
+        bqE = str;
     }
 
     public static String Pq() {
-        return bqB;
+        return bqE;
     }
 }

@@ -128,6 +128,129 @@ public class h {
         }
     }
 
+    public boolean cg(String str) {
+        boolean z;
+        boolean z2;
+        StringBuilder sb = new StringBuilder();
+        if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
+            return false;
+        }
+        boolean loadLibrary = loadLibrary(str, sb);
+        if (loadLibrary) {
+            return loadLibrary;
+        }
+        BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "2", "exception", sb.toString());
+        StringBuilder sb2 = new StringBuilder();
+        if (!a(str, sb2)) {
+            z = loadLibrary;
+            z2 = true;
+        } else {
+            boolean loadSoLibrary = loadSoLibrary(getNewLibFile(str), sb2);
+            if (loadSoLibrary) {
+                z2 = false;
+                z = loadSoLibrary;
+            } else {
+                new File(getNewLibFile(str)).delete();
+                z2 = true;
+                z = loadSoLibrary;
+            }
+        }
+        BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "3", "exception", sb2.toString(), "copyfile", Boolean.valueOf(z2));
+        if (z2) {
+            StringBuilder sb3 = new StringBuilder();
+            boolean loadFromApk = loadFromApk(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, str, sb3);
+            BdStatisticsManager.getInstance().error("so", 0L, (String) null, "try", "4", "exception", sb3.toString());
+            return loadFromApk;
+        }
+        return z;
+    }
+
+    private boolean a(String str, StringBuilder sb) {
+        String libFile = getLibFile(str);
+        File file = new File(getNewLibFile(str));
+        if (!file.exists()) {
+            sb.append("false_file_null");
+            return false;
+        }
+        File file2 = new File(libFile);
+        if (!file2.exists()) {
+            sb.append("true_lib_null");
+            return true;
+        }
+        String fileMd5 = getFileMd5(file);
+        if (fileMd5 != null && fileMd5.equals(getFileMd5(file2))) {
+            sb.append("true_md5_equals");
+            return true;
+        }
+        sb.append("false_md5_not_equals");
+        file.delete();
+        return false;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [241=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0061 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0, types: [long] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    private String getFileMd5(File file) {
+        FileInputStream fileInputStream;
+        if (file != null && file.exists()) {
+            ?? length = file.length();
+            try {
+                if (length > 0) {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            String md5 = s.toMd5(fileInputStream);
+                            if (!StringUtils.isNull(md5)) {
+                                md5 = md5.toLowerCase();
+                            }
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                    return md5;
+                                } catch (IOException e) {
+                                    BdLog.d(e.getMessage());
+                                    return md5;
+                                }
+                            }
+                            return md5;
+                        } catch (Exception e2) {
+                            e = e2;
+                            BdLog.d(e.getMessage());
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    BdLog.d(e3.getMessage());
+                                }
+                            }
+                            return null;
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        length = 0;
+                        if (length != 0) {
+                            try {
+                                length.close();
+                            } catch (IOException e5) {
+                                BdLog.d(e5.getMessage());
+                            }
+                        }
+                        throw th;
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        return null;
+    }
+
     private boolean loadLibrary(String str, StringBuilder sb) {
         boolean loadSoLibrary = loadSoLibrary(getLibFile(str), sb);
         if (!loadSoLibrary) {
@@ -171,7 +294,7 @@ public class h {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.g + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=5, 282=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [370=5, 383=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public boolean loadFromApk(String str, String str2, StringBuilder sb) {
         ZipInputStream zipInputStream;

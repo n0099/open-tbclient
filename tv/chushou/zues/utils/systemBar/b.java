@@ -26,17 +26,17 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.f;
 /* loaded from: classes6.dex */
 public class b {
-    public static final int oNk = b.C1008b.status_color_dark;
-    public static final int oNl = b.C1008b.status_color_lignt;
-    private static boolean oNm = false;
-    private static int oNn = 50;
+    public static final int oNC = b.C1008b.status_color_dark;
+    public static final int oND = b.C1008b.status_color_lignt;
+    private static boolean oNE = false;
+    private static int oNF = 50;
 
     public static int ax(Activity activity) {
         int aD = aD(activity);
         if (aD > 0) {
-            a(activity, ContextCompat.getColor(activity, oNl), 0);
+            a(activity, ContextCompat.getColor(activity, oND), 0);
         } else {
-            a(activity, ContextCompat.getColor(activity, oNk), 0);
+            a(activity, ContextCompat.getColor(activity, oNC), 0);
         }
         return aD;
     }
@@ -91,13 +91,13 @@ public class b {
     }
 
     public static int getStatusBarHeight(Context context) {
-        if (!oNm) {
-            oNn = bn(context, "status_bar_height");
-            if (oNn > 0) {
-                oNm = true;
+        if (!oNE) {
+            oNF = bn(context, "status_bar_height");
+            if (oNF > 0) {
+                oNE = true;
             }
         }
-        return oNn;
+        return oNF;
     }
 
     public static int hd(Context context) {

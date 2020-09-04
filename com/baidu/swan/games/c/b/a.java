@@ -7,5 +7,5 @@ public abstract class a {
     @NonNull
     public abstract File afR();
 
-    public abstract void lc(@NonNull String str);
+    public abstract void ld(@NonNull String str);
 }

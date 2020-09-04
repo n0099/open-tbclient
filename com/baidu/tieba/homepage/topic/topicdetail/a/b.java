@@ -7,37 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbu;
-    private v hyl;
-    private c iTd;
-    private a iTe;
-    private com.baidu.tieba.homepage.topic.topictab.a.b iTf;
+    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private v hyr;
+    private c iTj;
+    private a iTk;
+    private com.baidu.tieba.homepage.topic.topictab.a.b iTl;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.hyl = vVar;
+        this.hyr = vVar;
         Jv();
-        this.hyl.addAdapters(this.bbu);
+        this.hyr.addAdapters(this.bbw);
     }
 
     private void Jv() {
-        this.bbu = new ArrayList();
-        this.iTd = new c(this.mPageContext);
-        this.iTe = new a(this.mPageContext);
-        this.iTf = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.bbu.add(this.iTd);
-        this.bbu.add(this.iTe);
-        this.bbu.add(this.iTf);
+        this.bbw = new ArrayList();
+        this.iTj = new c(this.mPageContext);
+        this.iTk = new a(this.mPageContext);
+        this.iTl = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
+        this.bbw.add(this.iTj);
+        this.bbw.add(this.iTk);
+        this.bbw.add(this.iTl);
     }
 
     public void notifyDataSetChanged() {
-        if (this.hyl != null) {
-            this.hyl.getListAdapter().notifyDataSetChanged();
+        if (this.hyr != null) {
+            this.hyr.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.hyl.setData(list);
+        this.hyr.setData(list);
     }
 }

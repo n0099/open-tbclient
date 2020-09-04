@@ -7,63 +7,63 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class e {
-    private b fOu = null;
-    private b fOv = null;
-    private Set<j> fOw = new HashSet();
-    private Set<j> fOx = null;
-    private boolean fOy = false;
     private Context mContext;
+    private b fOy = null;
+    private b fOz = null;
+    private Set<j> fOA = new HashSet();
+    private Set<j> fOB = null;
+    private boolean fOC = false;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bHG();
+        void bHH();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        bHE();
+        bHF();
     }
 
-    private void bHE() {
-        this.fOv = new b("so");
-        this.fOw.add(this.fOv);
-        this.fOu = new b("source");
-        this.fOw.add(this.fOu);
+    private void bHF() {
+        this.fOz = new b("so");
+        this.fOA.add(this.fOz);
+        this.fOy = new b("source");
+        this.fOA.add(this.fOy);
     }
 
-    public boolean bHF() {
-        if (this.fOx == null) {
-            this.fOx = new HashSet();
-            for (j jVar : this.fOw) {
+    public boolean bHG() {
+        if (this.fOB == null) {
+            this.fOB = new HashSet();
+            for (j jVar : this.fOA) {
                 if (!jVar.isReady()) {
-                    this.fOx.add(jVar);
+                    this.fOB.add(jVar);
                 }
             }
-            if (this.fOx.size() > 0) {
-                this.fOy = true;
+            if (this.fOB.size() > 0) {
+                this.fOC = true;
             } else {
-                this.fOy = false;
+                this.fOC = false;
             }
         }
-        return this.fOy;
+        return this.fOC;
     }
 
     public void a(final a aVar) {
-        if (!bHF()) {
-            aVar.bHG();
+        if (!bHG()) {
+            aVar.bHH();
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (j jVar : this.fOx) {
+        for (j jVar : this.fOB) {
             jVar.load();
-            arrayList.add(jVar.bHv());
+            arrayList.add(jVar.bHw());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.a.a((g[]) arrayList.toArray(new g[0]))).p(new Runnable() { // from class: com.baidu.tieba.ala.a.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bHG();
+                aVar.bHH();
             }
         }).q(new Runnable() { // from class: com.baidu.tieba.ala.a.e.2
             @Override // java.lang.Runnable

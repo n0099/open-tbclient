@@ -17,18 +17,18 @@ import kotlin.l;
 @SuppressLint({"SwanCommentErr"})
 /* loaded from: classes8.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
-    private kotlin.jvm.a.a<l> duH;
-    private TextView duI;
-    private ObjectAnimator duJ;
-    private ObjectAnimator duK;
-    private Runnable duL;
+    private kotlin.jvm.a.a<l> duL;
+    private TextView duM;
+    private ObjectAnimator duN;
+    private ObjectAnimator duO;
+    private Runnable duP;
 
     public final kotlin.jvm.a.a<l> getTipsAnimationFinishCallback() {
-        return this.duH;
+        return this.duL;
     }
 
     public final void setTipsAnimationFinishCallback(kotlin.jvm.a.a<l> aVar) {
-        this.duH = aVar;
+        this.duL = aVar;
     }
 
     @h
@@ -47,7 +47,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public SwanLoadingTipsView(Context context) {
         super(context);
         q.m(context, "context");
-        this.duL = new c();
+        this.duP = new c();
         init(context);
     }
 
@@ -56,47 +56,47 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         super(context, attributeSet);
         q.m(context, "context");
         q.m(attributeSet, "attrs");
-        this.duL = new c();
+        this.duP = new c();
         init(context);
     }
 
     private final void init(Context context) {
         View.inflate(context, a.g.aiapps_games_loading_tips_view, this);
-        this.duI = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
+        this.duM = (TextView) findViewById(a.f.aiapps_games_loading_tips_message);
     }
 
-    public final void vB(String str) {
+    public final void vC(String str) {
         String str2 = str;
         if (!(str2 == null || str2.length() == 0)) {
-            TextView textView = this.duI;
+            TextView textView = this.duM;
             if (textView != null) {
                 textView.setText(str);
             }
             setVisibility(8);
-            if (this.duJ != null) {
-                ObjectAnimator objectAnimator = this.duJ;
+            if (this.duN != null) {
+                ObjectAnimator objectAnimator = this.duN;
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.duJ;
+                ObjectAnimator objectAnimator2 = this.duN;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
-            this.duJ = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
-            ObjectAnimator objectAnimator3 = this.duJ;
+            this.duN = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 1.0f);
+            ObjectAnimator objectAnimator3 = this.duN;
             if (objectAnimator3 != null) {
                 objectAnimator3.setDuration(500L);
             }
-            ObjectAnimator objectAnimator4 = this.duJ;
+            ObjectAnimator objectAnimator4 = this.duN;
             if (objectAnimator4 != null) {
                 objectAnimator4.setStartDelay(1000L);
             }
-            ObjectAnimator objectAnimator5 = this.duJ;
+            ObjectAnimator objectAnimator5 = this.duN;
             if (objectAnimator5 != null) {
                 objectAnimator5.addListener(new a());
             }
-            ObjectAnimator objectAnimator6 = this.duJ;
+            ObjectAnimator objectAnimator6 = this.duN;
             if (objectAnimator6 != null) {
                 objectAnimator6.start();
             }
@@ -120,7 +120,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            ak.c(SwanLoadingTipsView.this.duL, 2000L);
+            ak.c(SwanLoadingTipsView.this.duP, 2000L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -131,26 +131,26 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void aOz() {
-        if (this.duK != null) {
-            ObjectAnimator objectAnimator = this.duK;
+        if (this.duO != null) {
+            ObjectAnimator objectAnimator = this.duO;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.duK;
+            ObjectAnimator objectAnimator2 = this.duO;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
         }
-        this.duK = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
-        ObjectAnimator objectAnimator3 = this.duK;
+        this.duO = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f);
+        ObjectAnimator objectAnimator3 = this.duO;
         if (objectAnimator3 != null) {
             objectAnimator3.setDuration(500L);
         }
-        ObjectAnimator objectAnimator4 = this.duK;
+        ObjectAnimator objectAnimator4 = this.duO;
         if (objectAnimator4 != null) {
             objectAnimator4.addListener(new b());
         }
-        ObjectAnimator objectAnimator5 = this.duK;
+        ObjectAnimator objectAnimator5 = this.duO;
         if (objectAnimator5 != null) {
             objectAnimator5.start();
         }
@@ -186,31 +186,31 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     }
 
     public final void doDestroy() {
-        this.duH = null;
-        if (this.duL != null) {
-            ak.l(this.duL);
+        this.duL = null;
+        if (this.duP != null) {
+            ak.l(this.duP);
         }
-        if (this.duJ != null) {
-            ObjectAnimator objectAnimator = this.duJ;
+        if (this.duN != null) {
+            ObjectAnimator objectAnimator = this.duN;
             if (objectAnimator != null) {
                 objectAnimator.removeAllListeners();
             }
-            ObjectAnimator objectAnimator2 = this.duJ;
+            ObjectAnimator objectAnimator2 = this.duN;
             if (objectAnimator2 != null) {
                 objectAnimator2.cancel();
             }
-            this.duJ = null;
+            this.duN = null;
         }
-        if (this.duK != null) {
-            ObjectAnimator objectAnimator3 = this.duK;
+        if (this.duO != null) {
+            ObjectAnimator objectAnimator3 = this.duO;
             if (objectAnimator3 != null) {
                 objectAnimator3.removeAllListeners();
             }
-            ObjectAnimator objectAnimator4 = this.duK;
+            ObjectAnimator objectAnimator4 = this.duO;
             if (objectAnimator4 != null) {
                 objectAnimator4.cancel();
             }
-            this.duK = null;
+            this.duO = null;
         }
     }
 }

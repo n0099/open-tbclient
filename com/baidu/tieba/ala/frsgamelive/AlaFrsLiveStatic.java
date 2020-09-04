@@ -61,7 +61,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(anVar.getForumName());
                         aVar.setForumGameLabel(anVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.lm(false);
+                        aVar.lo(false);
                         anVar.b(aVar);
                     }
                 }
@@ -81,7 +81,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(amVar.getForumName());
                         aVar.setForumGameLabel(amVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.lm(true);
+                        aVar.lo(true);
                         if (amVar.xx(9)) {
                             amVar.b(aVar);
                         }
@@ -103,7 +103,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(anVar.getForumName());
                         aVar.setForumGameLabel(anVar.getForumGameLabel());
                         aVar.setFromType(2);
-                        aVar.lm(false);
+                        aVar.lo(false);
                         anVar.b(aVar);
                     }
                 }
@@ -121,7 +121,7 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().type = 3;
                         aVar.setForumId(anVar.getForumId());
                         aVar.setForumName(anVar.getForumName());
-                        aVar.ln(false);
+                        aVar.lp(false);
                         anVar.b(aVar);
                     }
                 }
@@ -140,7 +140,7 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().textResId = R.string.ala_video;
                         aVar.setForumId(amVar.getForumId());
                         aVar.setForumName(amVar.getForumName());
-                        aVar.ln(true);
+                        aVar.lp(true);
                         if (amVar.xx(8)) {
                             amVar.b(aVar);
                         }

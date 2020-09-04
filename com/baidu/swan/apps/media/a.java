@@ -7,9 +7,9 @@ public interface a {
 
     Object ast();
 
-    void eH(boolean z);
-
     void eI(boolean z);
+
+    void eJ(boolean z);
 
     String getSlaveId();
 

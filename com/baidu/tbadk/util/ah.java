@@ -5,9 +5,9 @@ import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ah {
-    private static boolean eVK = false;
+    private static boolean eVO = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
@@ -22,12 +22,12 @@ public class ah {
 
     public static void b(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            eVK = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+            eVO = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 
-    public static boolean bvO() {
-        return eVK;
+    public static boolean bvP() {
+        return eVO;
     }
 
     public static boolean qL(int i) {
@@ -60,7 +60,7 @@ public class ah {
         return qL(i);
     }
 
-    public static boolean bvP() {
+    public static boolean bvQ() {
         if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

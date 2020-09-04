@@ -24,10 +24,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
-    private CoverFlowView<j> aih;
-    private c aii;
-    private d<j> aij;
-    private d<j> aik;
+    private CoverFlowView<j> aij;
+    private c aik;
+    private d<j> ail;
+    private d<j> aim;
     private List<j> mData;
 
     public AutoBannerLayout(Context context) {
@@ -40,15 +40,15 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
 
     public AutoBannerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aih = null;
+        this.aij = null;
         this.mData = null;
-        this.aik = new d<j>() { // from class: com.baidu.card.view.AutoBannerLayout.2
+        this.aim = new d<j>() { // from class: com.baidu.card.view.AutoBannerLayout.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i2, String str) {
-                AutoBannerLayout.this.di(str);
+                AutoBannerLayout.this.dj(str);
                 int count = y.getCount(AutoBannerLayout.this.mData);
-                if (i2 >= 0 && i2 <= count && AutoBannerLayout.this.aij != null) {
-                    AutoBannerLayout.this.aij.e(i2, str);
+                if (i2 >= 0 && i2 <= count && AutoBannerLayout.this.ail != null) {
+                    AutoBannerLayout.this.ail.e(i2, str);
                 }
             }
 
@@ -56,8 +56,8 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i2, j jVar) {
                 int count = y.getCount(AutoBannerLayout.this.mData);
-                if (i2 >= 0 && i2 <= count && AutoBannerLayout.this.aij != null) {
-                    AutoBannerLayout.this.aij.a(i2, jVar);
+                if (i2 >= 0 && i2 <= count && AutoBannerLayout.this.ail != null) {
+                    AutoBannerLayout.this.ail.a(i2, jVar);
                 }
             }
         };
@@ -65,7 +65,7 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
     }
 
     private void initUI() {
-        this.aih = new CoverFlowView<>(getContext());
+        this.aij = new CoverFlowView<>(getContext());
         b bVar = new b() { // from class: com.baidu.card.view.AutoBannerLayout.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e tZ() {
@@ -97,21 +97,21 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
                 return cVar;
             }
         };
-        this.aih.setPageMargin(l.getDimens(getContext(), R.dimen.tbds42));
-        this.aih.setIndicatorNoOffet(false);
-        this.aih.setDisableParentEvent(false);
-        this.aih.setCoverFlowFactory(bVar);
-        this.aih.setIndicatorVisible(0);
-        this.aih.setIsAutoPlayDragging(false);
-        this.aih.setCallback(this.aik);
-        addView(this.aih);
+        this.aij.setPageMargin(l.getDimens(getContext(), R.dimen.tbds42));
+        this.aij.setIndicatorNoOffet(false);
+        this.aij.setDisableParentEvent(false);
+        this.aij.setCoverFlowFactory(bVar);
+        this.aij.setIndicatorVisible(0);
+        this.aij.setIsAutoPlayDragging(false);
+        this.aij.setCallback(this.aim);
+        addView(this.aij);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.aih;
+        return this.aij;
     }
 
-    public void di(String str) {
+    public void dj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 be.bju().b((TbPageContext) i.I(getContext()), new String[]{str});
@@ -122,50 +122,50 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
     }
 
     public void tY() {
-        if (this.aih != null) {
-            this.aih.tY();
+        if (this.aij != null) {
+            this.aij.tY();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.aih != null) {
-            this.aih.setIndicatorVisible(i);
+        if (this.aij != null) {
+            this.aij.setIndicatorVisible(i);
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.aih != null) {
-            this.aih.setMarqueenTime(j);
+        if (this.aij != null) {
+            this.aij.setMarqueenTime(j);
         }
     }
 
     public void setPageMargin(int i) {
-        if (this.aih != null) {
-            this.aih.setPageMargin(i);
+        if (this.aij != null) {
+            this.aij.setPageMargin(i);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aii != null) {
-            this.aii.a(this, i == 0, null);
+        if (this.aik != null) {
+            this.aik.a(this, i == 0, null);
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
-        this.aii = cVar;
+        this.aik = cVar;
     }
 
     public void setOnCoverViewCallback(d<j> dVar) {
-        this.aij = dVar;
+        this.ail = dVar;
     }
 
     public void setBannerHeight(int i) {
-        if (this.aih != null) {
+        if (this.aij != null) {
             e eVar = new e();
             eVar.setHeight(i);
-            this.aih.a(eVar);
+            this.aij.a(eVar);
         }
     }
 
@@ -176,7 +176,7 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
         }
         setVisibility(0);
         this.mData = list;
-        this.aih.setData(this.mData);
+        this.aij.setData(this.mData);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -192,8 +192,8 @@ public class AutoBannerLayout extends RelativeLayout implements o<k>, p {
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.aih != null) {
-            this.aih.onChangeSkinType();
+        if (this.aij != null) {
+            this.aij.onChangeSkinType();
         }
     }
 }

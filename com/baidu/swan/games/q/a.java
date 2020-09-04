@@ -10,7 +10,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes8.dex */
 public final class a {
-    private final ArrayList<Integer> duN = new ArrayList<>();
+    private final ArrayList<Integer> duR = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -29,7 +29,7 @@ public final class a {
                         j jVar = XX != null ? (j) XX.q(j.class) : null;
                         com.baidu.swan.menu.h ahN = jVar != null ? jVar.ahN() : null;
                         if (ahN != null && jVar != null) {
-                            jVar.eb(true);
+                            jVar.ec(true);
                         }
                         return a(ahN, str2);
                     }
@@ -40,13 +40,13 @@ public final class a {
     }
 
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
-        Integer vC = b.vC(str);
-        if (vC != null) {
-            if (!this.duN.contains(vC)) {
-                this.duN.add(vC);
+        Integer vD = b.vD(str);
+        if (vD != null) {
+            if (!this.duR.contains(vD)) {
+                this.duR.add(vD);
             }
             if (hVar != null) {
-                hVar.lA(vC.intValue());
+                hVar.lA(vD.intValue());
             }
             return true;
         }
@@ -54,8 +54,8 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.duN.isEmpty()) {
-            Iterator<Integer> it = this.duN.iterator();
+        if (!this.duR.isEmpty()) {
+            Iterator<Integer> it = this.duR.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {

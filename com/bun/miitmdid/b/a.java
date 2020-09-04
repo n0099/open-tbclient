@@ -8,7 +8,7 @@ public class a {
 
     public static String a() {
         if (TextUtils.isEmpty(a)) {
-            a = "miitmdid(sdkv_" + sysParamters.dNd().c() + ")";
+            a = "miitmdid(sdkv_" + sysParamters.dNm().c() + ")";
             return a;
         }
         return a;

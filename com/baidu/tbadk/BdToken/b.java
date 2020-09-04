@@ -11,29 +11,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.MissionInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private int dNT;
-    private int dNU;
-    private long dNV;
-    private String dNW;
     private int dNX;
-    private long dNY;
-    private String dNZ;
+    private int dNY;
+    private long dNZ;
     private String dOa;
-    private String dOb;
-    private String dOc;
-    private long dOd;
-    private int dOe;
-    private long dOf;
-    private int[] dOg;
+    private int dOb;
+    private long dOc;
+    private String dOd;
+    private String dOe;
+    private String dOf;
+    private String dOg;
     private long dOh;
-    private volatile int dOi;
-    private volatile int dOj;
-    private boolean dOk;
-    private int dOl;
-    public boolean dOm;
-    private final ArrayList<h> dOn;
+    private int dOi;
+    private long dOj;
+    private int[] dOk;
+    private long dOl;
+    private volatile int dOm;
+    private volatile int dOn;
+    private boolean dOo;
+    private int dOp;
+    public boolean dOq;
+    private final ArrayList<h> dOr;
     private long mFid;
     private String mSource;
     private volatile int mTag;
@@ -42,80 +42,80 @@ public class b {
     private String mToken;
     private int yO;
     public static String ACTIVITY_ID = "activityid";
-    public static String dNp = "missionid";
-    public static String dNq = "activitysource";
+    public static String dNt = "missionid";
+    public static String dNu = "activitysource";
     public static String SOURCE = "source";
-    public static String dNr = "tab";
-    public static String dNs = "calltype";
-    public static String dNt = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String dNu = "browsetimepage";
-    public static String dNv = "browsetime";
-    public static String dNw = "threadnum";
-    public static String dNx = "forumnum";
-    public static String dNy = "cleartype";
-    public static String dNz = "cleartime";
+    public static String dNv = "tab";
+    public static String dNw = "calltype";
+    public static String dNx = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String dNy = "browsetimepage";
+    public static String dNz = "browsetime";
+    public static String dNA = "threadnum";
+    public static String dNB = "forumnum";
+    public static String dNC = "cleartype";
+    public static String dND = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String dNA = "threadtext";
-    public static String dNB = "threadimg";
-    public static String dNC = "threadforum";
-    public static String dND = "total_limit";
-    public static int dNE = -1;
-    public static int dNF = 1;
-    public static int dNG = 2;
-    public static int dNH = 3;
-    public static int dNI = 4;
-    public static int dNJ = 5;
-    public static int dNK = 6;
-    public static int dNL = 7;
-    public static int dNM = 8;
-    public static int dNN = 9;
-    public static int dNO = -1;
-    public static int dNP = 0;
-    public static int dNQ = 1;
-    public static int dNR = 2;
-    public static int dNS = 3;
+    public static String dNE = "threadtext";
+    public static String dNF = "threadimg";
+    public static String dNG = "threadforum";
+    public static String dNH = "total_limit";
+    public static int dNI = -1;
+    public static int dNJ = 1;
+    public static int dNK = 2;
+    public static int dNL = 3;
+    public static int dNM = 4;
+    public static int dNN = 5;
+    public static int dNO = 6;
+    public static int dNP = 7;
+    public static int dNQ = 8;
+    public static int dNR = 9;
+    public static int dNS = -1;
+    public static int dNT = 0;
+    public static int dNU = 1;
+    public static int dNV = 2;
+    public static int dNW = 3;
 
     public void reset() {
-        this.dOn.clear();
-        this.dOi = 0;
-        this.dOj = 0;
+        this.dOr.clear();
+        this.dOm = 0;
+        this.dOn = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.dOn.contains(hVar)) {
-                this.dOn.add(hVar);
+            if (!this.dOr.contains(hVar)) {
+                this.dOr.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.dOn.contains(hVar)) {
-                this.dOn.add(hVar);
+            if (!this.dOr.contains(hVar)) {
+                this.dOr.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.dOn.contains(hVar)) {
-                this.dOn.add(hVar);
+            if (!this.dOr.contains(hVar)) {
+                this.dOr.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.dOn.contains(hVar)) {
-                this.dOn.add(hVar);
+            if (!this.dOr.contains(hVar)) {
+                this.dOr.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dOn.contains(hVar)) {
-            this.dOn.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dOr.contains(hVar)) {
+            this.dOr.add(hVar);
         }
     }
 
     public ArrayList<h> aXR() {
-        return this.dOn;
+        return this.dOr;
     }
 
     public int aXS() {
         int i;
-        int size = this.dOn.size();
+        int size = this.dOr.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) y.getItem(this.dOn, i2);
+            h hVar = (h) y.getItem(this.dOr, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -144,18 +144,18 @@ public class b {
     }
 
     public void aXT() {
-        int size = this.dOn.size();
+        int size = this.dOr.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) y.getItem(this.dOn, i);
+            h hVar = (h) y.getItem(this.dOr, i);
             if (hVar != null) {
-                hVar.hv(true);
+                hVar.hw(true);
             }
         }
     }
 
     public boolean cr(long j) {
-        for (int i = 0; i < this.dOn.size(); i++) {
-            h hVar = (h) y.getItem(this.dOn, i);
+        for (int i = 0; i < this.dOr.size(); i++) {
+            h hVar = (h) y.getItem(this.dOr, i);
             if (hVar != null) {
                 long b = b(hVar);
                 if (b > 0 && b == j && hVar.ij()) {
@@ -178,7 +178,7 @@ public class b {
                 if (i == 7) {
                     if (optLong > 0) {
                         k kVar = new k(this, optLong);
-                        kVar.hv(optBoolean);
+                        kVar.hw(optBoolean);
                         kVar.cw(optLong2);
                         kVar.mC(optInt);
                         a(kVar);
@@ -186,7 +186,7 @@ public class b {
                 } else if (i == 1) {
                     if (optLong > 0) {
                         m mVar = new m(this, optLong);
-                        mVar.hv(optBoolean);
+                        mVar.hw(optBoolean);
                         mVar.cw(optLong2);
                         mVar.mC(optInt);
                         a(mVar);
@@ -194,20 +194,20 @@ public class b {
                 } else if (i == 2) {
                     if (optLong > 0) {
                         j jVar = new j(this, optLong);
-                        jVar.hv(optBoolean);
+                        jVar.hw(optBoolean);
                         jVar.cw(optLong2);
                         jVar.mC(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
-                    iVar.hv(optBoolean);
+                    iVar.hw(optBoolean);
                     iVar.cw(optLong2);
                     iVar.mC(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
-                    lVar.hv(optBoolean);
+                    lVar.hw(optBoolean);
                     lVar.cw(optLong2);
                     lVar.mC(optInt);
                     a(lVar);
@@ -220,7 +220,7 @@ public class b {
 
     public String aXU() {
         try {
-            ArrayList<h> arrayList = this.dOn;
+            ArrayList<h> arrayList = this.dOr;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
                 h hVar = (h) y.getItem(arrayList, i);
@@ -239,26 +239,26 @@ public class b {
     }
 
     public b() {
-        this.dOe = dNO;
-        this.dOi = 0;
-        this.dOj = 0;
-        this.dOk = false;
-        this.dOl = 1;
+        this.dOi = dNS;
+        this.dOm = 0;
+        this.dOn = 0;
+        this.dOo = false;
+        this.dOp = 1;
         this.mTag = 0;
-        this.dOm = false;
-        this.dOn = new ArrayList<>();
+        this.dOq = false;
+        this.dOr = new ArrayList<>();
     }
 
     public b(String str) {
-        this.dOe = dNO;
-        this.dOi = 0;
-        this.dOj = 0;
-        this.dOk = false;
-        this.dOl = 1;
+        this.dOi = dNS;
+        this.dOm = 0;
+        this.dOn = 0;
+        this.dOo = false;
+        this.dOp = 1;
         this.mTag = 0;
-        this.dOm = false;
-        this.dOn = new ArrayList<>();
-        xG(str);
+        this.dOq = false;
+        this.dOr = new ArrayList<>();
+        xH(str);
     }
 
     public void a(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
@@ -272,36 +272,36 @@ public class b {
         }
     }
 
-    public boolean xG(String str) {
+    public boolean xH(String str) {
         if (at.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.dNT = jSONObject.optInt(ACTIVITY_ID);
-                this.dNU = jSONObject.optInt(dNp);
-                this.dNZ = jSONObject.optString(dNq);
+                this.dNX = jSONObject.optInt(ACTIVITY_ID);
+                this.dNY = jSONObject.optInt(dNt);
+                this.dOd = jSONObject.optString(dNu);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.dOa = jSONObject.optString(dNr);
-                this.yO = jSONObject.optInt(dNs);
-                this.mTaskType = jSONObject.optInt(dNt);
-                this.dNW = jSONObject.optString(dNu);
-                this.dOg = xH(this.dNW);
-                this.dNV = jSONObject.optLong(dNv);
-                this.mThreadNum = jSONObject.optInt(dNw);
-                this.dNX = jSONObject.optInt(dNx);
-                this.dOe = jSONObject.optInt(dNy);
-                this.dOf = jSONObject.optLong(dNz);
-                this.dOh = aYa();
-                this.dNY = jSONObject.optLong(TID);
+                this.dOe = jSONObject.optString(dNv);
+                this.yO = jSONObject.optInt(dNw);
+                this.mTaskType = jSONObject.optInt(dNx);
+                this.dOa = jSONObject.optString(dNy);
+                this.dOk = xI(this.dOa);
+                this.dNZ = jSONObject.optLong(dNz);
+                this.mThreadNum = jSONObject.optInt(dNA);
+                this.dOb = jSONObject.optInt(dNB);
+                this.dOi = jSONObject.optInt(dNC);
+                this.dOj = jSONObject.optLong(dND);
+                this.dOl = aYa();
+                this.dOc = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.dOb = jSONObject.optString(dNA);
-                this.dOc = jSONObject.optString(dNB);
-                this.dOd = jSONObject.optLong(dNC);
-                int optInt = jSONObject.optInt(dND);
+                this.dOf = jSONObject.optString(dNE);
+                this.dOg = jSONObject.optString(dNF);
+                this.dOh = jSONObject.optLong(dNG);
+                int optInt = jSONObject.optInt(dNH);
                 if (optInt > 0) {
-                    this.dOl = optInt;
+                    this.dOp = optInt;
                 }
                 return true;
             }
@@ -313,50 +313,50 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.dOe = dNO;
-        this.dOi = 0;
-        this.dOj = 0;
-        this.dOk = false;
-        this.dOl = 1;
+        this.dOi = dNS;
+        this.dOm = 0;
+        this.dOn = 0;
+        this.dOo = false;
+        this.dOp = 1;
         this.mTag = 0;
-        this.dOm = false;
-        this.dOn = new ArrayList<>();
+        this.dOq = false;
+        this.dOr = new ArrayList<>();
         if (missionInfo != null) {
-            this.dNT = missionInfo.activityid.intValue();
-            this.dNU = missionInfo.missionid.intValue();
+            this.dNX = missionInfo.activityid.intValue();
+            this.dNY = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.dOe = missionInfo.cleartype.intValue();
-            this.dOf = missionInfo.cleartime.intValue();
-            this.dOh = aYa();
-            this.dNW = missionInfo.browsetimepage;
-            this.dOg = xH(this.dNW);
+            this.dOi = missionInfo.cleartype.intValue();
+            this.dOj = missionInfo.cleartime.intValue();
+            this.dOl = aYa();
+            this.dOa = missionInfo.browsetimepage;
+            this.dOk = xI(this.dOa);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.dNV = missionInfo.browsetime.intValue();
+                this.dNZ = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.dOl = missionInfo.total_limit.intValue();
+                this.dOp = missionInfo.total_limit.intValue();
             }
         }
     }
 
     public boolean aXV() {
-        return this.dNT > 0 && this.dNU > 0 && this.mTaskType > 0 && this.dNV > 0;
+        return this.dNX > 0 && this.dNY > 0 && this.mTaskType > 0 && this.dNZ > 0;
     }
 
     public synchronized int aXW() {
         int i;
-        i = this.dOj + 1;
-        this.dOj = i;
+        i = this.dOn + 1;
+        this.dOn = i;
         return i;
     }
 
     public synchronized int aXX() {
         int i;
-        i = this.dOi + 1;
-        this.dOi = i;
+        i = this.dOm + 1;
+        this.dOm = i;
         return i;
     }
 
@@ -367,12 +367,12 @@ public class b {
         return i;
     }
 
-    private int[] xH(String str) {
+    private int[] xI(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{dNE};
+            return new int[]{dNI};
         }
         if (this.mTaskType == 7) {
-            return new int[]{dNF, dNM, dNN};
+            return new int[]{dNJ, dNQ, dNR};
         }
         if (str == null) {
             return null;
@@ -393,23 +393,23 @@ public class b {
     }
 
     public long aYa() {
-        if (this.dOe == dNO) {
+        if (this.dOi == dNS) {
             return 0L;
         }
-        if (this.dOe == dNP) {
-            return (System.currentTimeMillis() / 1000) + this.dOf;
+        if (this.dOi == dNT) {
+            return (System.currentTimeMillis() / 1000) + this.dOj;
         }
-        if (this.dOe == dNQ) {
-            long aYb = (aYb() / 1000) + this.dOf;
+        if (this.dOi == dNU) {
+            long aYb = (aYb() / 1000) + this.dOj;
             if (System.currentTimeMillis() > aYb) {
                 return aYb + 86400;
             }
             return aYb;
-        } else if (this.dOe == dNR) {
-            return m((int) this.dOf, mv(4)) / 1000;
+        } else if (this.dOi == dNV) {
+            return m((int) this.dOj, mv(4)) / 1000;
         } else {
-            if (this.dOe == dNS) {
-                return this.dOf / 1000;
+            if (this.dOi == dNW) {
+                return this.dOj / 1000;
             }
             return 0L;
         }
@@ -474,31 +474,31 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.dNT;
+        return this.dNX;
     }
 
     public void setActivityId(int i) {
-        this.dNT = i;
+        this.dNX = i;
     }
 
     public int aYc() {
-        return this.dNU;
+        return this.dNY;
     }
 
     public void mw(int i) {
-        this.dNU = i;
+        this.dNY = i;
     }
 
     public String aYd() {
-        return this.dNZ;
+        return this.dOd;
     }
 
-    public void xI(String str) {
-        this.dNZ = str;
+    public void xJ(String str) {
+        this.dOd = str;
     }
 
     public String aYe() {
-        return this.dOa;
+        return this.dOe;
     }
 
     public String getSource() {
@@ -522,24 +522,24 @@ public class b {
     }
 
     public String aYg() {
-        return this.dNW;
+        return this.dOa;
     }
 
-    public void xJ(String str) {
-        this.dNW = str;
-        this.dOg = xH(str);
+    public void xK(String str) {
+        this.dOa = str;
+        this.dOk = xI(str);
     }
 
     public int[] aYh() {
-        return this.dOg;
+        return this.dOk;
     }
 
     public long aYi() {
-        return this.dNV;
+        return this.dNZ;
     }
 
     public void cs(long j) {
-        this.dNV = j;
+        this.dNZ = j;
     }
 
     public int getThreadNum() {
@@ -551,43 +551,43 @@ public class b {
     }
 
     public int aYj() {
-        return this.dNX;
+        return this.dOb;
     }
 
     public void mz(int i) {
-        this.dNX = i;
+        this.dOb = i;
     }
 
     public int aYk() {
-        return this.dOe;
+        return this.dOi;
     }
 
     public void mA(int i) {
-        this.dOe = i;
+        this.dOi = i;
     }
 
     public long aYl() {
-        return this.dOf;
+        return this.dOj;
     }
 
     public void ct(long j) {
-        this.dOf = j;
+        this.dOj = j;
     }
 
     public long aYm() {
-        return this.dOh;
+        return this.dOl;
     }
 
     public void cu(long j) {
-        this.dOh = j;
+        this.dOl = j;
     }
 
     public long getTid() {
-        return this.dNY;
+        return this.dOc;
     }
 
     public void setTid(long j) {
-        this.dNY = j;
+        this.dOc = j;
     }
 
     public long getFid() {
@@ -599,35 +599,35 @@ public class b {
     }
 
     public String aYn() {
-        return this.dOb;
-    }
-
-    public void xK(String str) {
-        this.dOb = str;
-    }
-
-    public String aYo() {
-        return this.dOc;
+        return this.dOf;
     }
 
     public void xL(String str) {
-        this.dOc = str;
+        this.dOf = str;
+    }
+
+    public String aYo() {
+        return this.dOg;
+    }
+
+    public void xM(String str) {
+        this.dOg = str;
     }
 
     public long aYp() {
-        return this.dOd;
+        return this.dOh;
     }
 
     public void cv(long j) {
-        this.dOd = j;
+        this.dOh = j;
     }
 
     public int aYq() {
-        return this.dOl;
+        return this.dOp;
     }
 
     public void mB(int i) {
-        this.dOl = i;
+        this.dOp = i;
     }
 
     public void mC(int i) {
@@ -639,11 +639,11 @@ public class b {
     }
 
     public boolean aYr() {
-        return this.dOk;
+        return this.dOo;
     }
 
-    public void hu(boolean z) {
-        this.dOk = z;
+    public void hv(boolean z) {
+        this.dOo = z;
     }
 
     public String getToken() {

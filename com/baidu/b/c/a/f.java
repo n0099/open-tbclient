@@ -1,13 +1,13 @@
 package com.baidu.b.c.a;
 /* loaded from: classes20.dex */
 abstract class f {
-    final b acO;
+    final b acQ;
     final int c;
     byte[] d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.acO = bVar;
+        this.acQ = bVar;
         this.c = bVar.a();
     }
 

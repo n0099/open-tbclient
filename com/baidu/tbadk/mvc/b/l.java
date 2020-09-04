@@ -1,5 +1,5 @@
 package com.baidu.tbadk.mvc.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface l extends i {
-    Object ju(boolean z);
+    Object jw(boolean z);
 }

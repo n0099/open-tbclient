@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext fYF;
-    private d fYG;
+    private TbPageContext fYJ;
+    private d fYK;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fYF = tbPageContext;
+        this.fYJ = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.fYG = new d(this.fYF);
-        ((ViewGroup) getView()).addView(this.fYG.getView());
+        this.fYK = new d(this.fYJ);
+        ((ViewGroup) getView()).addView(this.fYK.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fYG != null) {
-            this.fYG.onChangeSkinType(tbPageContext, i);
+        if (this.fYK != null) {
+            this.fYK.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dUS != null && this.fYG != null) {
-            this.fYG.a(cVar.dUS);
+        if (cVar != null && cVar.dUW != null && this.fYK != null) {
+            this.fYK.a(cVar.dUW);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.e eVar) {
-        if (this.fYG != null) {
-            this.fYG.d(eVar);
+        if (this.fYK != null) {
+            this.fYK.d(eVar);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public f fYH;
+        public f fYL;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.fYH = fVar;
+            this.fYL = fVar;
         }
     }
 }

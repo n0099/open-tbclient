@@ -10,26 +10,26 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.f.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b hXK;
-    private boolean ilN;
+    private com.baidu.tieba.f.b hXQ;
+    private boolean ilT;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean eVB = false;
-    private a.InterfaceC0674a hrz = new a.InterfaceC0674a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private boolean eVF = false;
+    private a.InterfaceC0674a hrF = new a.InterfaceC0674a() { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.tieba.f.a.InterfaceC0674a
         public void H(int i, int i2) {
             if (al(i2)) {
-                b.this.oz(true);
+                b.this.oB(true);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0674a
         public void I(int i, int i2) {
             if (al(i2)) {
-                b.this.oz(false);
+                b.this.oB(false);
             }
         }
 
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.ilN = z;
-        if (this.ilN) {
-            this.hXK = new com.baidu.tieba.f.b(context);
-            this.hXK.a(this.hrz);
+        this.ilT = z;
+        if (this.ilT) {
+            this.hXQ = new com.baidu.tieba.f.b(context);
+            this.hXQ.a(this.hrF);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.ilN = false;
+                    this.ilT = false;
                     break;
                 } else {
-                    this.ilN = true;
+                    this.ilT = true;
                     break;
                 }
         }
-        if (this.ilN && this.hXK != null) {
-            this.hXK.onTouchEvent(motionEvent);
+        if (this.ilT && this.hXQ != null) {
+            this.hXQ.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,10 +90,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oz(boolean z) {
-        this.eVB = z;
-        if (this.ilN) {
-            H(!this.eVB, true);
+    public void oB(boolean z) {
+        this.eVF = z;
+        if (this.ilT) {
+            H(!this.eVF, true);
         }
     }
 

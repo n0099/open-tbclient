@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.QueryUserInfos.DataRes;
 import protobuf.QueryUserInfos.QueryUserInfosResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseQueryUserInfoMessage extends SocketResponsedMessage {
     private DataRes resData;
 

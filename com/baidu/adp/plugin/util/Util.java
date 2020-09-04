@@ -223,12 +223,12 @@ public final class Util {
         }
     }
 
-    public static File cQ(String str) {
-        PluginSetting cv = PluginPackageManager.pO().cv(str);
-        if (cv == null || cv.apkPath == null || cv.apkPath.length() <= ".apk".length()) {
+    public static File cR(String str) {
+        PluginSetting cw = PluginPackageManager.pO().cw(str);
+        if (cw == null || cw.apkPath == null || cw.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(cv.apkPath.substring(0, cv.apkPath.length() - ".apk".length()));
+        return new File(cw.apkPath.substring(0, cw.apkPath.length() - ".apk".length()));
     }
 
     public static File qA() {
@@ -354,7 +354,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String cR(String str) {
+    public static String cS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

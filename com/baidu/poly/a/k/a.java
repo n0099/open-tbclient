@@ -5,9 +5,9 @@ public interface a {
     /* renamed from: com.baidu.poly.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0270a {
-        public long bGr;
-        public long bGs;
-        public String bGt;
+        public long bGv;
+        public long bGw;
+        public String bGx;
         public String message;
         public int statusCode = 2;
     }

@@ -13,8 +13,8 @@ import com.baidu.live.y.b;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private ViewGroup fZu;
-    private b gzE;
+    private ViewGroup fZy;
+    private b gzI;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
@@ -29,13 +29,13 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void a(ViewGroup viewGroup, LinearLayout.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.w.a.Nk().beH.CI() && (viewGroup instanceof PendantParentView)) {
-            if (this.gzE == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.gzE = (b) runTask.getData();
+        if (com.baidu.live.w.a.Nk().beJ.CI() && (viewGroup instanceof PendantParentView)) {
+            if (this.gzI == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.gzI = (b) runTask.getData();
             }
-            if (this.gzE != null) {
-                this.gzE.setOtherParams(JY());
-                this.gzE.ND();
+            if (this.gzI != null) {
+                this.gzI.setOtherParams(JY());
+                this.gzI.ND();
             }
             a((PendantParentView) viewGroup, layoutParams);
         }
@@ -44,67 +44,67 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     private void a(PendantParentView pendantParentView, LinearLayout.LayoutParams layoutParams) {
         PendantChildView NC;
         if (pendantParentView != null) {
-            this.fZu = pendantParentView;
-            if (this.gzE != null && (NC = this.gzE.NC()) != null && pendantParentView.indexOfChild(NC) < 0) {
+            this.fZy = pendantParentView;
+            if (this.gzI != null && (NC = this.gzI.NC()) != null && pendantParentView.indexOfChild(NC) < 0) {
                 if (layoutParams == null) {
-                    layoutParams = bRQ();
+                    layoutParams = bRR();
                 }
                 pendantParentView.a(NC, layoutParams);
             }
         }
     }
 
-    private LinearLayout.LayoutParams bRQ() {
+    private LinearLayout.LayoutParams bRR() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void BB() {
         super.BB();
-        if (this.gzE != null) {
-            PendantChildView NC = this.gzE.NC();
+        if (this.gzI != null) {
+            PendantChildView NC = this.gzI.NC();
             if (NC != null && NC.getParent() != null) {
                 ((ViewGroup) NC.getParent()).removeView(NC);
             }
-            this.gzE.NE();
+            this.gzI.NE();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.gzE != null) {
-            PendantChildView NC = this.gzE.NC();
+        if (this.gzI != null) {
+            PendantChildView NC = this.gzI.NC();
             if (NC != null && NC.getParent() != null) {
                 ((ViewGroup) NC.getParent()).removeView(NC);
             }
-            this.gzE.onDestroy();
+            this.gzI.onDestroy();
         }
     }
 
     public void I(JSONObject jSONObject) {
-        if (this.gzE != null) {
-            this.gzE.N(jSONObject);
+        if (this.gzI != null) {
+            this.gzI.N(jSONObject);
         }
     }
 
     public void v(r rVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            bRR();
+            bRS();
         }
-        if (this.gzE != null && this.gzE.NC() != null && rVar != null) {
-            this.gzE.j(rVar);
+        if (this.gzI != null && this.gzI.NC() != null && rVar != null) {
+            this.gzI.j(rVar);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.gzE != null) {
-            this.gzE.setCanVisible(z);
+        if (this.gzI != null) {
+            this.gzI.setCanVisible(z);
         }
     }
 
-    public void bRR() {
-        if (this.gzE != null && this.gzE.NC() != null) {
-            this.gzE.NC().setVisibility(8);
+    public void bRS() {
+        if (this.gzI != null && this.gzI.NC() != null) {
+            this.gzI.NC().setVisibility(8);
         }
     }
 

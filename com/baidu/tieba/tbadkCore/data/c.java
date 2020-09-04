@@ -5,20 +5,20 @@ import java.util.List;
 import tbclient.ActHot;
 import tbclient.ActPost;
 import tbclient.LinkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private String meh;
-    private ArrayList<a> mei = new ArrayList<>();
-    private ArrayList<b> mej = new ArrayList<>();
+    private String mex;
+    private ArrayList<a> mey = new ArrayList<>();
+    private ArrayList<b> mez = new ArrayList<>();
 
     public void a(ActPost actPost) {
         if (actPost != null) {
-            this.meh = actPost.list_head;
+            this.mex = actPost.list_head;
             for (ActHot actHot : actPost.act_hot) {
                 if (actHot != null) {
                     a aVar = new a();
                     aVar.a(actHot);
-                    this.mei.add(aVar);
+                    this.mey.add(aVar);
                 }
             }
             List<LinkInfo> list = actPost.link_info;
@@ -26,7 +26,7 @@ public class c {
                 if (list != null) {
                     b bVar = new b();
                     bVar.a(linkInfo);
-                    this.mej.add(bVar);
+                    this.mez.add(bVar);
                 }
             }
         }

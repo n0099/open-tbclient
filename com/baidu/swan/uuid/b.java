@@ -9,39 +9,39 @@ import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
 /* loaded from: classes3.dex */
 public class b {
-    private static b dKH;
-    private final a<String> dKI = new a<>();
-    private String dKJ;
+    private static b dKL;
+    private final a<String> dKM = new a<>();
+    private String dKN;
 
     private b(Context context) {
-        this.dKI.a(new c(context));
-        this.dKI.a(new e(context));
-        this.dKI.a(new d(context));
-        this.dKI.a(new g(context));
-        this.dKI.a(new com.baidu.swan.uuid.a.a(context));
-        this.dKI.a(new f(context));
+        this.dKM.a(new c(context));
+        this.dKM.a(new e(context));
+        this.dKM.a(new d(context));
+        this.dKM.a(new g(context));
+        this.dKM.a(new com.baidu.swan.uuid.a.a(context));
+        this.dKM.a(new f(context));
     }
 
     public static b dJ(Context context) {
-        if (dKH == null) {
+        if (dKL == null) {
             synchronized (b.class) {
-                if (dKH == null) {
-                    dKH = new b(context);
+                if (dKL == null) {
+                    dKL = new b(context);
                 }
             }
         }
-        return dKH;
+        return dKL;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.dKJ)) {
+        if (TextUtils.isEmpty(this.dKN)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.dKJ)) {
-                    this.dKJ = this.dKI.aWz();
-                    this.dKI.al(this.dKJ);
+                if (TextUtils.isEmpty(this.dKN)) {
+                    this.dKN = this.dKM.aWz();
+                    this.dKM.al(this.dKN);
                 }
             }
         }
-        return this.dKJ;
+        return this.dKN;
     }
 }

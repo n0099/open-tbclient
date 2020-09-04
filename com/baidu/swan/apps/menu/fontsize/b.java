@@ -25,7 +25,7 @@ public class b {
         if (arD == null) {
             return false;
         }
-        return TextUtils.equals("none", arD.cQU.cRP);
+        return TextUtils.equals("none", arD.cQY.cRT);
     }
 
     public static int aue() {
@@ -51,6 +51,6 @@ public class b {
     }
 
     public static boolean auf() {
-        return ag.sF("3.200.101");
+        return ag.sG("3.200.101");
     }
 }

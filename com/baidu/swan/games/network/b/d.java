@@ -8,28 +8,28 @@ import okhttp3.HttpUrl;
 /* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d dva;
-    private HashMap<String, com.baidu.swan.games.network.a> dvb = new HashMap<>();
+    private static volatile d dve;
+    private HashMap<String, com.baidu.swan.games.network.a> dvf = new HashMap<>();
 
     private d() {
     }
 
     public static d aOE() {
-        if (dva == null) {
+        if (dve == null) {
             synchronized (d.class) {
-                if (dva == null) {
-                    dva = new d();
+                if (dve == null) {
+                    dve = new d();
                 }
             }
         }
-        return dva;
+        return dve;
     }
 
     public void a(com.baidu.swan.games.f.b bVar, a.b bVar2) {
-        if (bVar != null && bVar2 != null && bVar2.due != null && bVar2.due.dvX != null) {
+        if (bVar != null && bVar2 != null && bVar2.dui != null && bVar2.dui.dwb != null) {
             release();
             if (com.baidu.swan.apps.t.a.aoM().getSwitch("swan_game_resource_preload", 0) == 1) {
-                bVar2.due.dvX.b(bVar);
+                bVar2.dui.dwb.b(bVar);
             }
         }
     }
@@ -38,7 +38,7 @@ public class d {
         if (aVar != null) {
             String Y = Y(str, aVar.requestType);
             if (!TextUtils.isEmpty(Y)) {
-                this.dvb.put(Y, aVar);
+                this.dvf.put(Y, aVar);
                 if (DEBUG) {
                     Log.d("SwanGamePreloadManager", "addRequestTask url:" + str);
                 }
@@ -53,7 +53,7 @@ public class d {
                 String optString = cVar.optString("url");
                 String Y = Y(optString, i);
                 if (!TextUtils.isEmpty(Y)) {
-                    aVar = this.dvb.remove(Y);
+                    aVar = this.dvf.remove(Y);
                     if (aVar != null) {
                         a(bVar, "preload used, url = " + optString);
                     }
@@ -67,7 +67,7 @@ public class d {
     }
 
     public synchronized void release() {
-        this.dvb.clear();
+        this.dvf.clear();
     }
 
     private String Y(String str, int i) {

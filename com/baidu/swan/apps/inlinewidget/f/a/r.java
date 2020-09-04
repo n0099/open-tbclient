@@ -7,8 +7,8 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
-    private int cul = 1;
-    private int cum = 3;
+    private int cup = 1;
+    private int cuq = 3;
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
@@ -31,19 +31,19 @@ public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
             JSONObject jSONObject = new JSONObject((String) obj);
             String optString = jSONObject.optString("firstPlayStatus");
             if (!TextUtils.isEmpty(optString)) {
-                aVar.nd(optString);
+                aVar.ne(optString);
             }
-            this.cul = jSONObject.optInt("min-cache", this.cul);
-            this.cum = jSONObject.optInt("max-cache", this.cum);
-            if (this.cul <= this.cum) {
+            this.cup = jSONObject.optInt("min-cache", this.cup);
+            this.cuq = jSONObject.optInt("max-cache", this.cuq);
+            if (this.cup <= this.cuq) {
                 if (jSONObject.has("min-cache")) {
-                    aVar.hV(this.cul);
+                    aVar.hV(this.cup);
                 }
                 if (jSONObject.has("max-cache")) {
-                    aVar.hW(this.cum);
+                    aVar.hW(this.cuq);
                 }
             } else if (DEBUG) {
-                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.cul + " > maxCache " + this.cum);
+                Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.cup + " > maxCache " + this.cuq);
             }
         } catch (Exception e) {
         }

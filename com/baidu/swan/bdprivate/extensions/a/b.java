@@ -52,8 +52,8 @@ public class b extends com.baidu.swan.apps.network.a {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
                 return false;
             }
-            final String jA = com.baidu.swan.apps.api.module.network.c.jA(eVar.id);
-            JSONObject jC = jC(jA);
+            final String jB = com.baidu.swan.apps.api.module.network.c.jB(eVar.id);
+            JSONObject jD = jD(jB);
             eVar.azU().a(context, "mapp_i_face_verify", com.baidu.swan.apps.setting.oauth.c.bC(optParamsAsJo), new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
@@ -62,7 +62,7 @@ public class b extends com.baidu.swan.apps.network.a {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     } else {
-                        b.f(jA, new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1.1
+                        b.f(jB, new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.bdprivate.extensions.a.b.1.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.swan.apps.ap.e.b
                             /* renamed from: onCallback */
@@ -73,7 +73,7 @@ public class b extends com.baidu.swan.apps.network.a {
                     }
                 }
             });
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jC, 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jD, 0));
             return true;
         }
     }
@@ -97,11 +97,11 @@ public class b extends com.baidu.swan.apps.network.a {
     }
 
     public static void f(String str, com.baidu.swan.apps.ap.e.b<String> bVar) {
-        Request tf = tf(str);
-        if (tf == null) {
+        Request tg = tg(str);
+        if (tg == null) {
             bVar.I(null);
         } else {
-            a(tf, bVar);
+            a(tg, bVar);
         }
     }
 
@@ -119,26 +119,26 @@ public class b extends com.baidu.swan.apps.network.a {
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                com.baidu.swan.apps.ap.e.b.this.I(b.te(exc == null ? "" : exc.getMessage()));
+                com.baidu.swan.apps.ap.e.b.this.I(b.tf(exc == null ? "" : exc.getMessage()));
             }
         });
         aVar.tag = request.tag();
-        aVar.dEO = true;
-        aVar.dEP = true;
-        aVar.dEQ = true;
+        aVar.dES = true;
+        aVar.dET = true;
+        aVar.dEU = true;
         com.baidu.swan.a.c.a.aSW().b(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Response response, com.baidu.swan.apps.ap.e.b<String> bVar) {
         if (response == null) {
-            bVar.I(te("response is null"));
+            bVar.I(tf("response is null"));
         } else if (!response.isSuccessful()) {
-            bVar.I(te("response code is error"));
+            bVar.I(tf("response code is error"));
         } else {
             ResponseBody body = response.body();
             if (body == null) {
-                bVar.I(te("body is null"));
+                bVar.I(tf("body is null"));
                 return;
             }
             String str = null;
@@ -153,18 +153,18 @@ public class b extends com.baidu.swan.apps.network.a {
                 Log.d("FaceVerifyAction", "response body : " + str);
             }
             if (TextUtils.isEmpty(str)) {
-                bVar.I(te("body is null"));
+                bVar.I(tf("body is null"));
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) != 0) {
-                    bVar.I(te(jSONObject.optString(BaseJsonData.TAG_ERRMSG)));
+                    bVar.I(tf(jSONObject.optString(BaseJsonData.TAG_ERRMSG)));
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
-                    bVar.I(te("server data is null"));
+                    bVar.I(tf("server data is null"));
                 } else {
                     bVar.I(String.valueOf(optJSONObject.optInt("real_name")));
                 }
@@ -172,13 +172,13 @@ public class b extends com.baidu.swan.apps.network.a {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
-                bVar.I(te("body format error"));
+                bVar.I(tf("body format error"));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String te(String str) {
+    public static String tf(String str) {
         com.baidu.swan.apps.console.c.i("FaceVerifyAction", str);
         return UnitedSchemeUtility.wrapCallbackParams(1001, str).toString();
     }
@@ -216,13 +216,13 @@ public class b extends com.baidu.swan.apps.network.a {
     }
 
     @Nullable
-    private static Request tf(@Nullable String str) {
+    private static Request tg(@Nullable String str) {
         HttpUrl parse = HttpUrl.parse("https://mbd.baidu.com");
         if (parse == null) {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/realnamecheck");
-        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.adu().ccj.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.swan.apps.i.b.adu().ccn.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();

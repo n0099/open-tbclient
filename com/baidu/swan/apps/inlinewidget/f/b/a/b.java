@@ -6,6 +6,6 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void ew(boolean z) {
+    public void ex(boolean z) {
     }
 }

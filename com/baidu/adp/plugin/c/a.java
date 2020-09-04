@@ -64,7 +64,7 @@ public class a {
                     return false;
                 }
                 String aC = c.qq().aC(message.getCmd());
-                if (TextUtils.isEmpty(aC) || c.qq().cK(aC)) {
+                if (TextUtils.isEmpty(aC) || c.qq().cL(aC)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(aC)) {

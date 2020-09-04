@@ -1,5 +1,5 @@
 package com.baidu.tbadk.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a<T> {
     void am(T t);
 

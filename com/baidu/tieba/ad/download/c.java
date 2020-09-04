@@ -1,41 +1,33 @@
 package com.baidu.tieba.ad.download;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 /* loaded from: classes15.dex */
 public class c {
-    private final String foS;
-    private final String mExtra;
-    private final String mPage;
+    private final String DEFAULT_PAGE = "DOWNLOAD_PAGE";
+    private final String foW = "DOWNLOAD_BUTTON";
 
-    public c(@NonNull String str, @NonNull String str2, String str3) {
-        this.mPage = str;
-        this.foS = str2;
-        this.mExtra = str3;
+    public void g(int i, @Nullable String str, String str2) {
+        c("DOWNLOAD_PAGE", i, str, str2);
     }
 
-    public void at(int i, @Nullable String str) {
-        l("", i, str);
-    }
-
-    public void l(String str, int i, @Nullable String str2) {
+    public void c(String str, int i, @Nullable String str2, String str3) {
         com.baidu.tieba.recapp.report.c cVar = new com.baidu.tieba.recapp.report.c();
         cVar.Gl(i);
         if (TextUtils.isEmpty(str)) {
-            str = this.mPage;
+            str = "DOWNLOAD_PAGE";
         }
         cVar.PJ(str);
-        cVar.PK(this.foS);
+        cVar.PK("DOWNLOAD_BUTTON");
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
             cVar.setDownloadStaticsData(downloadStaticsData);
         }
-        if (!TextUtils.isEmpty(this.mExtra)) {
-            cVar.PB(this.mExtra);
+        if (!TextUtils.isEmpty(str3)) {
+            cVar.setExtInfo(str3);
         }
-        com.baidu.tieba.recapp.report.d.doi().a(cVar);
+        com.baidu.tieba.recapp.report.d.dol().a(cVar);
     }
 }

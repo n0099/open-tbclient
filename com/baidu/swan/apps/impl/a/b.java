@@ -10,7 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final byte[] csQ = {31, -117};
+    private static final byte[] csU = {31, -117};
 
     public static String md5(byte[] bArr) {
         try {
@@ -56,10 +56,10 @@ public class b {
             r0 = r1
             goto La
         L15:
-            byte[] r0 = com.baidu.swan.apps.impl.a.b.csQ
+            byte[] r0 = com.baidu.swan.apps.impl.a.b.csU
             r0 = r0[r2]
             r14[r2] = r0
-            byte[] r0 = com.baidu.swan.apps.impl.a.b.csQ
+            byte[] r0 = com.baidu.swan.apps.impl.a.b.csU
             r0 = r0[r3]
             r14[r3] = r0
             java.io.ByteArrayInputStream r3 = new java.io.ByteArrayInputStream     // Catch: java.lang.Exception -> L80
@@ -162,7 +162,7 @@ public class b {
             org.json.JSONObject r10 = new org.json.JSONObject     // Catch: java.lang.Throwable -> L48
             java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L48
             r10.<init>(r0)     // Catch: java.lang.Throwable -> L48
-            java.lang.String r0 = com.baidu.swan.apps.impl.a.a.a.ctd     // Catch: java.lang.Throwable -> L48
+            java.lang.String r0 = com.baidu.swan.apps.impl.a.a.a.cth     // Catch: java.lang.Throwable -> L48
             java.lang.String r0 = r10.getString(r0)     // Catch: java.lang.Throwable -> L48
             boolean r10 = com.baidu.swan.apps.impl.a.b.DEBUG     // Catch: java.lang.Throwable -> L48
             if (r10 == 0) goto Lc6
@@ -175,7 +175,7 @@ public class b {
             byte[] r0 = android.util.Base64.decode(r0, r11)     // Catch: java.lang.Throwable -> L48
             byte[] r10 = r10.doFinal(r0)     // Catch: java.lang.Throwable -> L48
             java.io.File r0 = new java.io.File     // Catch: java.lang.Throwable -> L48
-            java.lang.String r11 = com.baidu.swan.apps.impl.a.a.a.ctd     // Catch: java.lang.Throwable -> L48
+            java.lang.String r11 = com.baidu.swan.apps.impl.a.a.a.cth     // Catch: java.lang.Throwable -> L48
             r0.<init>(r15, r11)     // Catch: java.lang.Throwable -> L48
             java.io.FileOutputStream r11 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L48
             r11.<init>(r0)     // Catch: java.lang.Throwable -> L48

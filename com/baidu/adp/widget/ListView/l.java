@@ -1,7 +1,7 @@
 package com.baidu.adp.widget.ListView;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class l {
     private float VZ = 8.0f;
     private float Wa = 15.0f;

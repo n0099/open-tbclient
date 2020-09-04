@@ -23,11 +23,11 @@ public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
             Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
         }
         if (hybridUbcFlow != null) {
-            final UbcFlowEvent pd = hybridUbcFlow.pd("naStart");
-            final UbcFlowEvent pd2 = hybridUbcFlow.pd("na_first_meaningful_paint");
-            if (pd == null || pd2 == null) {
+            final UbcFlowEvent pe = hybridUbcFlow.pe("naStart");
+            final UbcFlowEvent pe2 = hybridUbcFlow.pe("na_first_meaningful_paint");
+            if (pe == null || pe2 == null) {
                 if (DEBUG) {
-                    if (pd == null) {
+                    if (pe == null) {
                         Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
                     } else {
                         Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
@@ -40,15 +40,15 @@ public class c implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
                 @Override // com.baidu.swan.apps.network.c.c.a
                 public boolean a(d dVar) {
                     if (dVar != null) {
-                        return c.this.a(dVar, pd, pd2);
+                        return c.this.a(dVar, pe, pe2);
                     }
                     return false;
                 }
             });
             b.avi().b(hybridUbcFlow);
             if (DEBUG) {
-                Log.d("MaUpdateReporter", "na_start ts - " + pd.avW());
-                Log.d("MaUpdateReporter", "fmp_end ts - " + pd2.avW());
+                Log.d("MaUpdateReporter", "na_start ts - " + pe.avW());
+                Log.d("MaUpdateReporter", "fmp_end ts - " + pe2.avW());
             }
         }
     }

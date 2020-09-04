@@ -7,37 +7,37 @@ import com.baidu.swan.games.t.a.a;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a dxg;
-    private com.baidu.swan.games.t.a.a dxh;
+    private static volatile a dxk;
+    private com.baidu.swan.games.t.a.a dxl;
 
     private a() {
     }
 
     public static a aPA() {
-        if (dxg == null) {
+        if (dxk == null) {
             synchronized (a.class) {
-                if (dxg == null) {
-                    dxg = new a();
+                if (dxk == null) {
+                    dxk = new a();
                 }
             }
         }
-        return dxg;
+        return dxk;
     }
 
     public void c(com.baidu.swan.games.t.a.a aVar) {
-        this.dxh = aVar;
+        this.dxl = aVar;
     }
 
-    public boolean vW(String str) {
+    public boolean vX(String str) {
         String Z = Z(str, 1);
         if (TextUtils.isEmpty(Z)) {
             return false;
         }
-        if (this.dxh != null && this.dxh.dvT != null && this.dxh.dvT.dwb != null && this.dxh.dvT.dwb.containsKey(Z)) {
+        if (this.dxl != null && this.dxl.dvX != null && this.dxl.dvX.dwf != null && this.dxl.dvX.dwf.containsKey(Z)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.dxh.dvT.dwb.get(Z).booleanValue();
+            return this.dxl.dvX.dwf.get(Z).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
@@ -59,20 +59,20 @@ public class a {
     }
 
     public void V(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.dxh != null && this.dxh.dvT != null && this.dxh.dvT.dwb != null) {
+        if (!TextUtils.isEmpty(str) && this.dxl != null && this.dxl.dvX != null && this.dxl.dvX.dwf != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.dxh.dvT.dwb.put(str, Boolean.valueOf(z));
+            this.dxl.dvX.dwf.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String ql(String str) {
+    public String qm(String str) {
         String Z = Z(str, 1);
-        if (TextUtils.isEmpty(Z) || this.dxh == null || this.dxh.dvU == null || this.dxh.dvU.dwc == null) {
+        if (TextUtils.isEmpty(Z) || this.dxl == null || this.dxl.dvY == null || this.dxl.dvY.dwg == null) {
             return null;
         }
-        return this.dxh.dvU.dwc.get(Z);
+        return this.dxl.dvY.dwg.get(Z);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
@@ -83,22 +83,22 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.dxh == null || this.dxh.dvT == null || this.dxh.dvT.dwa == null) {
+        if (this.dxl == null || this.dxl.dvX == null || this.dxl.dvX.dwe == null) {
             return null;
         }
-        for (a.C0507a c0507a : this.dxh.dvT.dwa) {
-            if (TextUtils.equals(c0507a.name, str) || TextUtils.equals(c0507a.dvY, str)) {
+        for (a.C0507a c0507a : this.dxl.dvX.dwe) {
+            if (TextUtils.equals(c0507a.name, str) || TextUtils.equals(c0507a.dwc, str)) {
                 switch (i) {
                     case 0:
                         return c0507a.name;
                     case 1:
-                        return c0507a.dvY;
+                        return c0507a.dwc;
                     case 2:
                         return c0507a.path;
                     case 3:
-                        return c0507a.dvZ;
+                        return c0507a.dwd;
                     default:
-                        return c0507a.dvY;
+                        return c0507a.dwc;
                 }
             }
             while (r2.hasNext()) {

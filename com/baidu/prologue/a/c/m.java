@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 /* loaded from: classes9.dex */
 public class m {
-    private static final DisplayMetrics bKo = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
-    private static final float bKp = bKo.density;
+    private static final DisplayMetrics bKs = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
+    private static final float bKt = bKs.density;
     private static DisplayMetrics sDisplayMetrics;
 
     public static float getDensity(Context context) {

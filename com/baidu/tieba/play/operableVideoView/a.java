@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.play.o;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, TbCyberVideoView.a {
     void FK(int i);
 
@@ -14,13 +14,13 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletion
 
     void b(o oVar);
 
-    void bKB();
+    void bKC();
 
-    boolean dfn();
+    boolean dfo();
 
-    View djM();
+    View djP();
 
-    boolean dkx();
+    boolean dkA();
 
     int getCurrentPosition();
 
@@ -28,7 +28,7 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletion
 
     boolean isPlaying();
 
-    boolean pN(boolean z);
+    boolean pP(boolean z);
 
     void setAfterClickListener(View.OnClickListener onClickListener);
 

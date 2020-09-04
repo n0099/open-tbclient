@@ -16,23 +16,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public abstract class d {
-    private static String dkS = "ug_";
-    private static String dkT = "ug_business";
-    private static String dkU = "ctkey";
-    private static String dkV = "CTK";
-    private static String dkW = "eqid";
-    private static String dkX = "sid_eid";
-    private static String dkY = "exps";
-    private String diB;
-    private String dkZ;
-    private String dla;
-    public b dle;
-    private String dlf;
+    private static String dkW = "ug_";
+    private static String dkX = "ug_business";
+    private static String dkY = "ctkey";
+    private static String dkZ = "CTK";
+    private static String dla = "eqid";
+    private static String dlb = "sid_eid";
+    private static String dlc = "exps";
+    private String diF;
+    private String dld;
+    private String dle;
+    public b dli;
+    private String dlj;
     protected Context mContext;
-    private String dkR = "https://mobads.baidu.com/cpro/ui/mads.php";
-    private String dlb = "1";
-    private String dlc = "2";
-    private String dld = "8.800201";
+    private String dkV = "https://mobads.baidu.com/cpro/ui/mads.php";
+    private String dlf = "1";
+    private String dlg = "2";
+    private String dlh = "8.800201";
 
     protected abstract String aJi();
 
@@ -40,21 +40,21 @@ public abstract class d {
 
     public d(Context context, b bVar) {
         this.mContext = context;
-        this.dle = bVar;
-        if (this.dle != null) {
-            this.diB = this.dle.aJf();
-            this.dkZ = this.dle.getAppSid();
-            this.dla = this.dle.aJg();
+        this.dli = bVar;
+        if (this.dli != null) {
+            this.diF = this.dli.aJf();
+            this.dld = this.dli.getAppSid();
+            this.dle = this.dli.aJg();
         }
         if (!ak.aFn()) {
-            this.dlf = com.baidu.swan.game.ad.d.e.aJo();
+            this.dlj = com.baidu.swan.game.ad.d.e.aJo();
         }
     }
 
     public String aJk() {
         HashMap<String, String> aJl = aJl();
         aJl.putAll(aJj());
-        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dkR, aJl);
+        return com.baidu.swan.game.ad.d.c.getRequestAdUrl(this.dkV, aJl);
     }
 
     protected String auQ() {
@@ -71,14 +71,14 @@ public abstract class d {
             hashMap.put(IXAdRequestInfo.QUERY_WIDTH, String.valueOf(Math.round(ah.getDisplayWidth(this.mContext) / ah.getDensity(this.mContext))));
             hashMap.put(IXAdRequestInfo.QUERY_HEIGHT, String.valueOf(Math.round(ah.getDisplayHeight(this.mContext) / ah.getDensity(this.mContext))));
             hashMap.put("net", "" + aGT());
-            hashMap.put("n", this.dlb);
-            hashMap.put("pk", this.dla);
-            hashMap.put("appid", this.dkZ);
+            hashMap.put("n", this.dlf);
+            hashMap.put("pk", this.dle);
+            hashMap.put("appid", this.dld);
             hashMap.put("sw", "" + ah.getDisplayWidth(this.mContext));
             hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, "" + ah.getDisplayHeight(this.mContext));
             hashMap.put(IXAdRequestInfo.SN, "" + getSn());
             hashMap.put("os", "android");
-            hashMap.put("apid", "" + this.diB);
+            hashMap.put("apid", "" + this.diF);
             hashMap.put("chid", "0");
             String aFm = ak.aFm();
             if (aFm.equals("0")) {
@@ -96,37 +96,37 @@ public abstract class d {
                 str = "";
             }
             hashMap.put(ETAG.KEY_BAIDU_ID, str);
-            hashMap.put(IXAdRequestInfo.P_VER, this.dld);
-            hashMap.put("rpt", this.dlc);
+            hashMap.put(IXAdRequestInfo.P_VER, this.dlh);
+            hashMap.put("rpt", this.dlg);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
             com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
             String aJi = aJi();
-            hashMap.put(dkY, aJi);
+            hashMap.put(dlc, aJi);
             if (azJ != null && (azM = azJ.azM()) != null) {
                 hashMap.put("scene", azM.aqN());
                 JSONObject aqw = azM.aqw();
                 if (aqw != null) {
-                    hashMap.put("eqid", aqw.optString(dkW, ""));
+                    hashMap.put("eqid", aqw.optString(dla, ""));
                 }
                 JSONObject arf = azM.arf();
                 if (arf != null) {
-                    if (arf.has(dkT) && (jSONObject = arf.getJSONObject(dkT)) != null) {
+                    if (arf.has(dkX) && (jSONObject = arf.getJSONObject(dkX)) != null) {
                         Iterator<String> keys = jSONObject.keys();
                         while (keys != null && keys.hasNext()) {
                             String next = keys.next();
                             if (!TextUtils.isEmpty(next)) {
                                 String optString = jSONObject.optString(next, "none");
-                                if (dkV.equals(next)) {
-                                    hashMap.put(dkU, optString);
-                                    this.dlf = optString;
+                                if (dkZ.equals(next)) {
+                                    hashMap.put(dkY, optString);
+                                    this.dlj = optString;
                                 } else {
-                                    hashMap.put(dkS + next, optString);
+                                    hashMap.put(dkW + next, optString);
                                 }
                             }
                         }
                     }
-                    if (arf.has(dkX) && (optJSONArray = arf.optJSONArray(dkX)) != null && optJSONArray.length() > 0) {
+                    if (arf.has(dlb) && (optJSONArray = arf.optJSONArray(dlb)) != null && optJSONArray.length() > 0) {
                         StringBuilder sb = new StringBuilder();
                         if (!TextUtils.isEmpty(aJi)) {
                             sb.append(aJi + Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -141,13 +141,13 @@ public abstract class d {
                             }
                         }
                         if (sb.length() > 0) {
-                            hashMap.put(dkY, sb.toString());
+                            hashMap.put(dlc, sb.toString());
                         }
                     }
                 }
             }
-            if (!hashMap.containsKey(dkV) && !TextUtils.isEmpty(this.dlf)) {
-                hashMap.put(dkV, this.dlf);
+            if (!hashMap.containsKey(dkZ) && !TextUtils.isEmpty(this.dlj)) {
+                hashMap.put(dkZ, this.dlj);
             }
             hashMap.put("con_name", com.baidu.swan.apps.t.a.apw().getHostName());
             return hashMap;
@@ -184,6 +184,6 @@ public abstract class d {
     }
 
     public String aJm() {
-        return this.dlf;
+        return this.dlj;
     }
 }

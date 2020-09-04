@@ -2,18 +2,18 @@ package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.tbadk.data.UserData;
 import tbclient.GetUserInfo.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private UserData eNS;
+    private UserData eNW;
 
-    public UserData bsO() {
-        return this.eNS;
+    public UserData bsP() {
+        return this.eNW;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.eNS = new UserData();
-            this.eNS.parserProtobuf(dataRes.user);
+            this.eNW = new UserData();
+            this.eNW.parserProtobuf(dataRes.user);
         }
     }
 }

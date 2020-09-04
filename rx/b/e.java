@@ -3,7 +3,7 @@ package rx.b;
 import rx.j;
 /* loaded from: classes5.dex */
 public class e<T> extends j<T> {
-    private final rx.e<T> oJo;
+    private final rx.e<T> oJG;
 
     public e(j<? super T> jVar) {
         this(jVar, true);
@@ -11,21 +11,21 @@ public class e<T> extends j<T> {
 
     public e(j<? super T> jVar, boolean z) {
         super(jVar, z);
-        this.oJo = new d(jVar);
+        this.oJG = new d(jVar);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.oJo.onCompleted();
+        this.oJG.onCompleted();
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.oJo.onError(th);
+        this.oJG.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.oJo.onNext(t);
+        this.oJG.onNext(t);
     }
 }

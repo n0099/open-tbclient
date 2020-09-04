@@ -36,7 +36,7 @@ public class b extends com.baidu.swan.games.network.a {
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        if (this.duO != null) {
+        if (this.duS != null) {
             final String aOA = aOA();
             if (!TextUtils.isEmpty(aOA)) {
                 if (e.azI() == null) {
@@ -44,9 +44,9 @@ public class b extends com.baidu.swan.games.network.a {
                     return;
                 }
                 final com.baidu.swan.games.network.b azX = e.azI().azX();
-                String optString = this.duO.optString("filePath");
+                String optString = this.duS.optString("filePath");
                 if (!TextUtils.isEmpty(optString)) {
-                    if (com.baidu.swan.c.d.xv(optString)) {
+                    if (com.baidu.swan.c.d.xw(optString)) {
                         i(aOA, -1, "downloadFile:filePath is invalid");
                         return;
                     }
@@ -57,16 +57,16 @@ public class b extends com.baidu.swan.games.network.a {
                     }
                 }
                 final com.baidu.swan.apps.storage.b.c arE = f.arY().arE();
-                final boolean rC = arE.rC(optString);
-                if (rC && arE.aDb().bK(0L)) {
+                final boolean rD = arE.rD(optString);
+                if (rD && arE.aDb().bK(0L)) {
                     i(aOA, -1, "downloadFile:fail exceed max size in usr");
                     return;
                 }
                 HashMap hashMap = new HashMap();
                 Request.Builder builder = new Request.Builder();
-                a(builder, this.duO.uS(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
+                a(builder, this.duS.uT(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
                 builder.url(aOA).tag(this.mTaskId).build();
-                String xu = com.baidu.swan.c.d.xu(aOA);
+                String xv = com.baidu.swan.c.d.xv(aOA);
                 this.mTime = 0L;
                 d dVar = new d();
                 dVar.a(new a.InterfaceC0418a() { // from class: com.baidu.swan.games.network.a.b.1
@@ -95,7 +95,7 @@ public class b extends com.baidu.swan.games.network.a {
                                     jSEvent.data = aVar;
                                     b.this.dispatchEvent(jSEvent);
                                 }
-                                if (rC && arE.aDb().bK(j)) {
+                                if (rD && arE.aDb().bK(j)) {
                                     b.this.i(aOA, -1, "downloadFile:fail exceed max file size");
                                     azX.cancelTag(b.this.mTaskId);
                                 }
@@ -104,7 +104,7 @@ public class b extends com.baidu.swan.games.network.a {
                         }
                     }
                 });
-                a(builder.build(), optString, xu, azX, dVar);
+                a(builder.build(), optString, xv, azX, dVar);
             }
         }
     }
@@ -113,7 +113,7 @@ public class b extends com.baidu.swan.games.network.a {
     public void a(Request request, final String str, final String str2, com.baidu.swan.games.network.b bVar, d dVar) {
         final String httpUrl = request.url().toString();
         final com.baidu.swan.apps.storage.b.c arE = f.arY().arE();
-        final boolean rC = arE.rC(str);
+        final boolean rD = arE.rD(str);
         h.T(httpUrl, 1);
         bVar.a(request, Collections.singletonList(dVar), new Callback() { // from class: com.baidu.swan.games.network.a.b.2
             @Override // okhttp3.Callback
@@ -126,7 +126,7 @@ public class b extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
-                String vD;
+                String vE;
                 String str3;
                 try {
                     JSEvent jSEvent = new JSEvent("headersReceived");
@@ -138,16 +138,16 @@ public class b extends com.baidu.swan.games.network.a {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    vD = g.a(response, str2);
+                    vE = g.a(response, str2);
                 } else {
-                    vD = b.this.vD(str);
+                    vE = b.this.vE(str);
                 }
-                if (!TextUtils.isEmpty(vD)) {
+                if (!TextUtils.isEmpty(vE)) {
                     if (b.DEBUG) {
-                        Log.d("DownloadTask", "the real file path is " + vD);
+                        Log.d("DownloadTask", "the real file path is " + vE);
                     }
                     if (TextUtils.isEmpty(str)) {
-                        str3 = arE.rU(vD);
+                        str3 = arE.rV(vE);
                     } else {
                         str3 = str;
                     }
@@ -165,16 +165,16 @@ public class b extends com.baidu.swan.games.network.a {
                         cVar.filePath = str3;
                     }
                     InputStream byteStream = response.body().byteStream();
-                    File file = new File(vD);
+                    File file = new File(vE);
                     if (file.exists()) {
                         long length = file.length();
                         file.delete();
-                        if (rC) {
+                        if (rD) {
                             arE.aDb().bJ(-length);
                         }
                     }
                     if (b.this.streamToFile(byteStream, file)) {
-                        if (rC) {
+                        if (rD) {
                             arE.aDb().bJ(file.length());
                         }
                         b.this.onSuccess(cVar);
@@ -195,18 +195,18 @@ public class b extends com.baidu.swan.games.network.a {
     }
 
     @Nullable
-    protected String vD(@NonNull String str) {
-        String rT = f.arY().arE().rT(str);
-        if (rT == null) {
+    protected String vE(@NonNull String str) {
+        String rU = f.arY().arE().rU(str);
+        if (rU == null) {
             return null;
         }
-        boolean endsWith = rT.endsWith(File.separator);
-        File parentFile = new File(rT).getParentFile();
+        boolean endsWith = rU.endsWith(File.separator);
+        File parentFile = new File(rU).getParentFile();
         boolean z = parentFile != null && parentFile.exists();
         if (endsWith || !z) {
             return null;
         }
-        return rT;
+        return rU;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x004a */

@@ -57,63 +57,63 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(int i, com.baidu.tieba.hottopic.a.b bVar, final com.baidu.tieba.hottopic.data.c cVar) {
         if (bVar != null && cVar != null) {
-            bVar.jau.setVisibility(8);
-            if (cVar.czX() == 1) {
-                bVar.jar.setText("");
-                ap.setBackgroundResource(bVar.jar, R.drawable.icon_grade_shaitu1);
-                bVar.jau.setVisibility(0);
-                bVar.jav.setText(eK(StringUtils.isNull(cVar.czU()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.czU(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
-                bVar.jan.setVisibility(0);
-                ap.setBackgroundResource(bVar.jay, R.drawable.hot_topic_ranklist_bg);
-                bVar.jay.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
+            bVar.jaA.setVisibility(8);
+            if (cVar.czY() == 1) {
+                bVar.jax.setText("");
+                ap.setBackgroundResource(bVar.jax, R.drawable.icon_grade_shaitu1);
+                bVar.jaA.setVisibility(0);
+                bVar.jaB.setText(eL(StringUtils.isNull(cVar.czV()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_list) : cVar.czV(), StringUtils.isNull(cVar.getTips()) ? this.mContext.getResources().getString(R.string.hot_topic_update_time) : cVar.getTips()));
+                bVar.jat.setVisibility(0);
+                ap.setBackgroundResource(bVar.jaE, R.drawable.hot_topic_ranklist_bg);
+                bVar.jaE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.this.mPageContext != null) {
-                            String czV = cVar.czV();
-                            if (!StringUtils.isNull(czV)) {
-                                be.bju().b(d.this.mPageContext, new String[]{czV});
+                            String czW = cVar.czW();
+                            if (!StringUtils.isNull(czW)) {
+                                be.bju().b(d.this.mPageContext, new String[]{czW});
                             }
                         }
                         TiebaStatic.log("c10820");
                     }
                 });
-            } else if (cVar.czX() == 2) {
-                bVar.jar.setText("");
-                bVar.jan.setVisibility(8);
-                ap.setBackgroundResource(bVar.jar, R.drawable.icon_grade_shaitu2);
-            } else if (cVar.czX() == 3) {
-                bVar.jar.setText("");
-                bVar.jan.setVisibility(8);
-                ap.setBackgroundResource(bVar.jar, R.drawable.icon_grade_shaitu3);
+            } else if (cVar.czY() == 2) {
+                bVar.jax.setText("");
+                bVar.jat.setVisibility(8);
+                ap.setBackgroundResource(bVar.jax, R.drawable.icon_grade_shaitu2);
+            } else if (cVar.czY() == 3) {
+                bVar.jax.setText("");
+                bVar.jat.setVisibility(8);
+                ap.setBackgroundResource(bVar.jax, R.drawable.icon_grade_shaitu3);
             } else {
-                String str = "" + cVar.czX();
-                if (cVar.czX() < 10) {
+                String str = "" + cVar.czY();
+                if (cVar.czY() < 10) {
                     str = "0" + str;
                 }
-                bVar.jar.setText(str);
-                bVar.jan.setVisibility(8);
-                bVar.jar.setBackgroundDrawable(null);
+                bVar.jax.setText(str);
+                bVar.jat.setVisibility(8);
+                bVar.jax.setBackgroundDrawable(null);
             }
             if (cVar.getTag() == 1) {
-                bVar.jat.setVisibility(0);
-                ap.setBackgroundResource(bVar.jat, R.drawable.icon_topic_ranklist_new);
+                bVar.jaz.setVisibility(0);
+                ap.setBackgroundResource(bVar.jaz, R.drawable.icon_topic_ranklist_new);
             } else if (cVar.getTag() == 2) {
-                bVar.jat.setVisibility(0);
-                ap.setBackgroundResource(bVar.jat, R.drawable.icon_topic_ranklist_hot);
+                bVar.jaz.setVisibility(0);
+                ap.setBackgroundResource(bVar.jaz, R.drawable.icon_topic_ranklist_hot);
             } else if (cVar.getTag() == 3) {
-                bVar.jat.setVisibility(0);
-                ap.setBackgroundResource(bVar.jat, R.drawable.icon_topic_ranklist_tuijian);
+                bVar.jaz.setVisibility(0);
+                ap.setBackgroundResource(bVar.jaz, R.drawable.icon_topic_ranklist_tuijian);
             } else {
-                bVar.jat.setVisibility(8);
+                bVar.jaz.setVisibility(8);
             }
-            String numFormat9999W = at.numFormat9999W(cVar.czW());
+            String numFormat9999W = at.numFormat9999W(cVar.czX());
             String str2 = "";
             if (!TextUtils.isEmpty(cVar.getName())) {
                 str2 = UtilHelper.getFixedText(cVar.getName(), 10);
             }
-            bVar.jak.setText(str2);
-            bVar.jas.setText(numFormat9999W);
-            bVar.jax.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
+            bVar.jaq.setText(str2);
+            bVar.jay.setText(numFormat9999W);
+            bVar.jaD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(cVar.getId()), cVar.getName(), "5")));
@@ -126,26 +126,26 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.b bVar) {
         if (bVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (bVar.aiB != this.mSkinType) {
-                bVar.aiB = this.mSkinType;
+            if (bVar.aiD != this.mSkinType) {
+                bVar.aiD = this.mSkinType;
                 ap.setBackgroundColor(bVar.getView(), R.color.cp_bg_line_d);
-                ap.setViewTextColor(bVar.jar, R.color.cp_cont_e, 1);
-                ap.setViewTextColor(bVar.jak, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(bVar.jas, R.color.cp_cont_e, 1);
-                ap.setBackgroundColor(bVar.jan, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(bVar.jao, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(bVar.jax, R.drawable.hot_topic_ranklist_bg);
-                ap.setViewTextColor(bVar.jaw, R.color.cp_link_tip_a, 1);
-                ap.setViewTextColor(bVar.jav, R.color.cp_cont_d, 1);
+                ap.setViewTextColor(bVar.jax, R.color.cp_cont_e, 1);
+                ap.setViewTextColor(bVar.jaq, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(bVar.jay, R.color.cp_cont_e, 1);
+                ap.setBackgroundColor(bVar.jat, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(bVar.jau, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(bVar.jaD, R.drawable.hot_topic_ranklist_bg);
+                ap.setViewTextColor(bVar.jaC, R.color.cp_link_tip_a, 1);
+                ap.setViewTextColor(bVar.jaB, R.color.cp_cont_d, 1);
             }
         }
     }
 
-    public void JN(String str) {
+    public void JO(String str) {
         this.type = str;
     }
 
-    private SpannableString eK(String str, String str2) {
+    private SpannableString eL(String str, String str2) {
         int length = !StringUtils.isNull(str) ? str.length() : 0;
         int length2 = !StringUtils.isNull(str2) ? str2.length() : 0;
         SpannableString spannableString = new SpannableString("" + str + str2);

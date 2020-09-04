@@ -1,8 +1,8 @@
 package com.baidu.tbadk.ala;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(int i, AlaLivePlayerData alaLivePlayerData);
 

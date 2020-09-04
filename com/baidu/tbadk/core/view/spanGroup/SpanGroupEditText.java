@@ -16,21 +16,21 @@ import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.core.view.spanGroup.a;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SpanGroupEditText extends AppCompatEditText {
-    private EDIT_TEXT_TYPE exC;
-    private View.OnKeyListener exD;
+    private EDIT_TEXT_TYPE exG;
+    private View.OnKeyListener exH;
     private long mForumId;
     private SpanGroupManager mSpanGroupManager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum EDIT_TEXT_TYPE {
         TYPE_COMMODITY,
         TYPE_DEFAULT
     }
 
     public EDIT_TEXT_TYPE getType() {
-        return this.exC;
+        return this.exG;
     }
 
     public SpanGroupEditText(Context context) {
@@ -43,13 +43,13 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.exC = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.exG = EDIT_TEXT_TYPE.TYPE_DEFAULT;
         this.mForumId = 0L;
         this.mSpanGroupManager = new SpanGroupManager(this, context instanceof h ? ((h) context).getUniqueId() : null);
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
-        this.exC = edit_text_type;
+        this.exG = edit_text_type;
     }
 
     @Override // android.widget.EditText, android.widget.TextView
@@ -68,12 +68,12 @@ public class SpanGroupEditText extends AppCompatEditText {
                 if (i2 < list.size()) {
                     com.baidu.tieba.i.a aVar = list.get(i2);
                     String str = list2.get(i2);
-                    if (!this.mSpanGroupManager.AI(aVar.cvB())) {
+                    if (!this.mSpanGroupManager.AJ(aVar.cvC())) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                         tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                         t a2 = t.a(tbLinkSpanGroup, aVar);
-                        a2.dXw = str;
-                        tbLinkSpanGroup.AJ(a2.mContent);
+                        a2.dXA = str;
+                        tbLinkSpanGroup.AK(a2.mContent);
                         tbLinkSpanGroup.build();
                         this.mSpanGroupManager.a(tbLinkSpanGroup);
                     }
@@ -134,10 +134,10 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.exD = onKeyListener;
+        this.exH = onKeyListener;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private class a extends InputConnectionWrapper {
         public a(InputConnection inputConnection, boolean z) {
             super(inputConnection, z);
@@ -145,7 +145,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.exD == null || !SpanGroupEditText.this.exD.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.exH == null || !SpanGroupEditText.this.exH.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;

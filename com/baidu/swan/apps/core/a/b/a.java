@@ -7,41 +7,41 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static a cgd;
-    private boolean cge = false;
-    private boolean cgf = false;
+    private static a cgh;
+    private boolean cgi = false;
+    private boolean cgj = false;
     private boolean mIsCanceled = false;
-    private boolean cgg = false;
-    private boolean cgh = false;
-    private int cgi = 3000;
-    private HashMap<String, Long> cgj = new HashMap<>();
     private boolean cgk = false;
+    private boolean cgl = false;
+    private int cgm = 3000;
+    private HashMap<String, Long> cgn = new HashMap<>();
+    private boolean cgo = false;
 
     public static a afH() {
-        if (cgd == null) {
+        if (cgh == null) {
             synchronized (a.class) {
-                if (cgd == null) {
-                    cgd = new a();
+                if (cgh == null) {
+                    cgh = new a();
                 }
             }
         }
-        return cgd;
+        return cgh;
     }
 
     private a() {
     }
 
-    public boolean kZ(String str) {
+    public boolean la(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.cgj == null || !this.cgj.containsKey(str) || currentTimeMillis - this.cgj.get(str).longValue() > 18000000) {
+        if (this.cgn == null || !this.cgn.containsKey(str) || currentTimeMillis - this.cgn.get(str).longValue() > 18000000) {
             if (DEBUG) {
-                if (this.cgj == null || !this.cgj.containsKey(str)) {
+                if (this.cgn == null || !this.cgn.containsKey(str)) {
                     Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 } else {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.cgj.get(str) + " ，id = " + str);
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.cgn.get(str) + " ，id = " + str);
                 }
             }
             return false;
@@ -53,6 +53,6 @@ public final class a {
     }
 
     public boolean afI() {
-        return this.cgf;
+        return this.cgj;
     }
 }

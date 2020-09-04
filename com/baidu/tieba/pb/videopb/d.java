@@ -7,119 +7,119 @@ import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
 /* loaded from: classes16.dex */
 public class d {
-    private boolean ajr;
-    private com.baidu.tieba.pb.data.f kAg;
-    private com.baidu.tieba.pb.data.f kWm;
-    private Rect kWo;
-    private boolean kWp;
-    private p<bw> kWn = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> kWq = new LinkedList<>();
-    private p<bw> kWr = new p<>();
-    private p<bw> kWs = new p<>();
-    private p<Boolean> kWt = new p<>();
-    private p<Boolean> kWu = new p<>();
-    private p<Boolean> kWv = new p<>();
-    private p<Boolean> kWw = new p<>();
-    private p<Integer> kWx = new p<>();
+    private boolean ajt;
+    private com.baidu.tieba.pb.data.f kAn;
+    private com.baidu.tieba.pb.data.f kWt;
+    private Rect kWv;
+    private boolean kWw;
+    private p<bw> kWu = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> kWx = new LinkedList<>();
+    private p<bw> kWy = new p<>();
+    private p<bw> kWz = new p<>();
+    private p<Boolean> kWA = new p<>();
+    private p<Boolean> kWB = new p<>();
+    private p<Boolean> kWC = new p<>();
+    private p<Boolean> kWD = new p<>();
+    private p<Integer> kWE = new p<>();
 
     public void L(com.baidu.tieba.pb.data.f fVar) {
-        this.kWm = fVar;
+        this.kWt = fVar;
         setData(fVar);
-        this.kWr.setValue(null);
-        this.kWn.setValue(fVar.cVl());
-    }
-
-    public com.baidu.tieba.pb.data.f dep() {
-        return this.kWm;
+        this.kWy.setValue(null);
+        this.kWu.setValue(fVar.cVm());
     }
 
     public com.baidu.tieba.pb.data.f deq() {
-        return this.kAg;
+        return this.kWt;
+    }
+
+    public com.baidu.tieba.pb.data.f der() {
+        return this.kAn;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.kAg = fVar;
+        this.kAn = fVar;
         if (fVar != null) {
-            this.kWn.setValue(fVar.cVl());
-            if (!y.isEmpty(fVar.cVN())) {
-                aP(fVar.cVN().get(0));
+            this.kWu.setValue(fVar.cVm());
+            if (!y.isEmpty(fVar.cVO())) {
+                aP(fVar.cVO().get(0));
             }
         }
     }
 
-    public p<bw> der() {
-        return this.kWn;
-    }
-
-    public boolean isFromCDN() {
-        return this.ajr;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.ajr = z;
-    }
-
-    public void i(Rect rect) {
-        this.kWo = rect;
-    }
-
-    public Rect des() {
-        return this.kWo;
-    }
-
-    public void uf(boolean z) {
-        this.kWp = z;
-    }
-
-    public boolean det() {
-        return this.kWp;
-    }
-
-    public LinkedList<com.baidu.tieba.pb.data.f> deu() {
-        return this.kWq;
-    }
-
-    public void aO(bw bwVar) {
-        this.kWr.setValue(bwVar);
-    }
-
-    public void aP(bw bwVar) {
-        this.kWs.setValue(bwVar);
-    }
-
-    public p<bw> dev() {
-        return this.kWr;
-    }
-
-    public p<bw> dew() {
-        return this.kWs;
-    }
-
-    public p<Boolean> dex() {
-        return this.kWt;
-    }
-
-    public void ug(boolean z) {
-        this.kWt.setValue(Boolean.valueOf(z));
-    }
-
-    public p<Boolean> dey() {
+    public p<bw> des() {
         return this.kWu;
     }
 
+    public boolean isFromCDN() {
+        return this.ajt;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.ajt = z;
+    }
+
+    public void i(Rect rect) {
+        this.kWv = rect;
+    }
+
+    public Rect det() {
+        return this.kWv;
+    }
+
     public void uh(boolean z) {
-        this.kWu.postValue(Boolean.valueOf(z));
+        this.kWw = z;
     }
 
-    public void setIsLoading(boolean z) {
-        this.kWw.setValue(Boolean.valueOf(z));
-    }
-
-    public p<Boolean> dez() {
+    public boolean deu() {
         return this.kWw;
     }
 
-    public p<Integer> deA() {
+    public LinkedList<com.baidu.tieba.pb.data.f> dev() {
         return this.kWx;
+    }
+
+    public void aO(bw bwVar) {
+        this.kWy.setValue(bwVar);
+    }
+
+    public void aP(bw bwVar) {
+        this.kWz.setValue(bwVar);
+    }
+
+    public p<bw> dew() {
+        return this.kWy;
+    }
+
+    public p<bw> dex() {
+        return this.kWz;
+    }
+
+    public p<Boolean> dey() {
+        return this.kWA;
+    }
+
+    public void ui(boolean z) {
+        this.kWA.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> dez() {
+        return this.kWB;
+    }
+
+    public void uj(boolean z) {
+        this.kWB.postValue(Boolean.valueOf(z));
+    }
+
+    public void setIsLoading(boolean z) {
+        this.kWD.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> deA() {
+        return this.kWD;
+    }
+
+    public p<Integer> deB() {
+        return this.kWE;
     }
 }

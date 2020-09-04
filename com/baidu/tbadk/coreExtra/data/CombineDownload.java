@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CombineDownload implements Serializable {
     private static final int SHOW_COMBINE_DOWNLOAD = 1;
     private static final long serialVersionUID = -8311384562580282599L;

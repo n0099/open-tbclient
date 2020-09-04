@@ -11,8 +11,8 @@ import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> dqA;
-    private Map<String, Integer> dqB;
+    private Map<String, Object> dqE;
+    private Map<String, Integer> dqF;
 
     public static c e(JsObject jsObject) {
         if (jsObject == null) {
@@ -65,25 +65,25 @@ public class c {
     }
 
     private Map<String, Object> aMA() {
-        if (this.dqA == null) {
-            this.dqA = new TreeMap();
+        if (this.dqE == null) {
+            this.dqE = new TreeMap();
         }
-        return this.dqA;
+        return this.dqE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Map<String, Integer> aMB() {
-        if (this.dqB == null) {
-            this.dqB = new TreeMap();
+        if (this.dqF == null) {
+            this.dqF = new TreeMap();
         }
-        return this.dqB;
+        return this.dqF;
     }
 
     public Set<String> keySet() {
         return aMA().keySet();
     }
 
-    public int uK(String str) {
+    public int uL(String str) {
         Integer num = aMB().get(str);
         if (num == null) {
             num = 12;
@@ -91,7 +91,7 @@ public class c {
         return num.intValue();
     }
 
-    public boolean uL(String str) {
+    public boolean uM(String str) {
         return aMB().containsKey(str);
     }
 
@@ -149,47 +149,47 @@ public class c {
         return d2 != null ? d2.doubleValue() : d;
     }
 
-    public String[] uM(String str) throws JSTypeMismatchException {
+    public String[] uN(String str) throws JSTypeMismatchException {
         d Z = a.Z(aMA().get(str));
         if (Z == null) {
             throw a.a(this, str, 6);
         }
-        return Z.dqC.toStringArray(Z.index);
+        return Z.dqG.toStringArray(Z.index);
     }
 
-    public String[] uN(String str) {
+    public String[] uO(String str) {
         return f(str, null);
     }
 
     public String[] f(String str, String[] strArr) {
         d Z = a.Z(aMA().get(str));
-        return Z != null ? Z.dqC.toStringArray(Z.index) : strArr;
+        return Z != null ? Z.dqG.toStringArray(Z.index) : strArr;
     }
 
-    public JsObject[] uO(String str) throws JSTypeMismatchException {
+    public JsObject[] uP(String str) throws JSTypeMismatchException {
         d Z = a.Z(aMA().get(str));
         if (Z == null) {
             throw a.a(this, str, 6);
         }
-        return Z.dqC.toObjectArray(Z.index);
+        return Z.dqG.toObjectArray(Z.index);
     }
 
-    public JsObject[] uP(String str) {
+    public JsObject[] uQ(String str) {
         return a(str, (JsObject[]) null);
     }
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
         d Z = a.Z(aMA().get(str));
-        return Z != null ? Z.dqC.toObjectArray(Z.index) : jsObjectArr;
+        return Z != null ? Z.dqG.toObjectArray(Z.index) : jsObjectArr;
     }
 
-    public double[] uQ(String str) {
+    public double[] uR(String str) {
         return a(str, (double[]) null);
     }
 
     public double[] a(String str, double[] dArr) {
         d Z = a.Z(aMA().get(str));
-        return Z != null ? Z.dqC.toDoubleArray(Z.index) : dArr;
+        return Z != null ? Z.dqG.toDoubleArray(Z.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {
@@ -213,7 +213,7 @@ public class c {
         return String.valueOf(aMA().get(str));
     }
 
-    public JsFunction uR(String str) {
+    public JsFunction uS(String str) {
         return a(str, (JsFunction) null);
     }
 
@@ -222,7 +222,7 @@ public class c {
         return aa != null ? aa : jsFunction;
     }
 
-    public c uS(String str) {
+    public c uT(String str) {
         return a(str, (c) null);
     }
 

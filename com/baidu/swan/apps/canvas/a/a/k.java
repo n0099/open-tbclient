@@ -17,9 +17,9 @@ import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class k extends a {
-    private String bZv;
-    private Uri bZw;
-    private String bZx;
+    private Uri bZA;
+    private String bZB;
+    private String bZz;
     private Bitmap mBitmap;
     private Rect mDstRect;
     private int mDx;
@@ -32,8 +32,8 @@ public class k extends a {
         try {
             int length = jSONArray.length();
             if (length > 0) {
-                this.bZx = this.bZv;
-                this.bZv = jSONArray.optString(0);
+                this.bZB = this.bZz;
+                this.bZz = jSONArray.optString(0);
             }
             if (length > 2) {
                 this.mDx = a(jSONArray, 1);
@@ -59,12 +59,12 @@ public class k extends a {
             }
             com.baidu.swan.apps.runtime.e agn = com.baidu.swan.apps.v.f.arY().agn();
             if (agn != null) {
-                String b = b(this.bZv, agn);
+                String b = b(this.bZz, agn);
                 if (!TextUtils.isEmpty(b)) {
                     this.mBitmap = BitmapFactory.decodeFile(b);
-                } else if (!TextUtils.isEmpty(this.bZv)) {
-                    if (this.bZw == null || !TextUtils.equals(this.bZv, this.bZx)) {
-                        this.bZw = Uri.parse(this.bZv);
+                } else if (!TextUtils.isEmpty(this.bZz)) {
+                    if (this.bZA == null || !TextUtils.equals(this.bZz, this.bZB)) {
+                        this.bZA = Uri.parse(this.bZz);
                     }
                 }
             }
@@ -101,16 +101,16 @@ public class k extends a {
         if (this.mBitmap != null) {
             return true;
         }
-        if (this.bZw == null || bVar == null) {
+        if (this.bZA == null || bVar == null) {
             return false;
         }
-        CanvasView canvasView = bVar.bZg;
+        CanvasView canvasView = bVar.bZk;
         if (canvasView == null) {
             return false;
         }
-        this.mBitmap = canvasView.kt(this.bZv);
+        this.mBitmap = canvasView.ku(this.bZz);
         if (this.mBitmap == null) {
-            this.mBitmap = com.baidu.swan.apps.ap.s.b(this.bZw, bVar.bZg.getContext());
+            this.mBitmap = com.baidu.swan.apps.ap.s.b(this.bZA, bVar.bZk.getContext());
             return this.mBitmap != null;
         }
         return true;
@@ -118,18 +118,18 @@ public class k extends a {
 
     @UiThread
     private void b(final b bVar) {
-        if (this.mLoadStatus == 0 && bVar.bZg != null && bVar.bZg.getContext() != null && !TextUtils.isEmpty(this.bZv)) {
+        if (this.mLoadStatus == 0 && bVar.bZk != null && bVar.bZk.getContext() != null && !TextUtils.isEmpty(this.bZz)) {
             this.mLoadStatus = 1;
-            Context context = bVar.bZg.getContext();
-            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dPp().e(ImageRequestBuilder.ab(Uri.parse(this.bZv)).dWr(), context);
+            Context context = bVar.bZk.getContext();
+            final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> e = com.facebook.drawee.a.a.c.dPy().e(ImageRequestBuilder.ab(Uri.parse(this.bZz)).dWA(), context);
             e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.canvas.a.a.k.1
                 @Override // com.facebook.imagepipeline.e.b
                 public void h(@Nullable Bitmap bitmap) {
                     if (e.isFinished() && bitmap != null) {
                         k.this.mBitmap = Bitmap.createBitmap(bitmap);
                         e.ahA();
-                        if (bVar.bZg != null) {
-                            bVar.bZg.postInvalidate();
+                        if (bVar.bZk != null) {
+                            bVar.bZk.postInvalidate();
                         }
                     }
                     k.this.mLoadStatus = 2;
@@ -143,7 +143,7 @@ public class k extends a {
                     }
                     k.this.mLoadStatus = 3;
                 }
-            }, com.facebook.common.b.i.dOv());
+            }, com.facebook.common.b.i.dOE());
         }
     }
 
@@ -173,8 +173,8 @@ public class k extends a {
     }
 
     public void w(HashMap<String, Bitmap> hashMap) {
-        if (hashMap != null && !TextUtils.isEmpty(this.bZv) && this.mBitmap != null && !hashMap.containsKey(this.bZv)) {
-            hashMap.put(this.bZv, this.mBitmap);
+        if (hashMap != null && !TextUtils.isEmpty(this.bZz) && this.mBitmap != null && !hashMap.containsKey(this.bZz)) {
+            hashMap.put(this.bZz, this.mBitmap);
         }
     }
 }

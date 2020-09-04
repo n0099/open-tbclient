@@ -10,8 +10,8 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> cPN = new HashMap();
-    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> cPO = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> cPR = new HashMap();
+    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> cPS = new ArrayList();
 
     public b a(final com.baidu.swan.apps.ap.e.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -21,7 +21,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
                 /* renamed from: onCallback */
                 public void I(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.cPN.put(str, bVar);
+                        b.this.cPR.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -36,7 +36,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: onCallback */
                 public void I(String str) {
-                    b.this.cPN.remove(str);
+                    b.this.cPR.remove(str);
                 }
             }, strArr);
         }
@@ -45,7 +45,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
 
     public b a(com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.cPO.add(cVar);
+            this.cPS.add(cVar);
         }
         return this;
     }
@@ -58,7 +58,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (h(aVar) && (bVar = this.cPN.get(aVar.id)) != null) {
+        if (h(aVar) && (bVar = this.cPR.get(aVar.id)) != null) {
             bVar.I(aVar);
         }
     }
@@ -67,7 +67,7 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.cPO) {
+        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.cPS) {
             if (cVar != null && !cVar.J(aVar).booleanValue()) {
                 return false;
             }

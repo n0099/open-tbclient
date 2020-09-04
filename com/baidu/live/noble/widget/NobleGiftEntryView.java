@@ -18,11 +18,11 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes7.dex */
 public class NobleGiftEntryView extends LinearLayout {
-    private TextView aAw;
-    private TbImageView bcK;
-    private View bgq;
-    private TextView bgr;
-    private TextView bgt;
+    private TextView aAy;
+    private TbImageView bcM;
+    private View bgt;
+    private TextView bgu;
+    private TextView bgv;
 
     public NobleGiftEntryView(Context context) {
         super(context);
@@ -41,16 +41,16 @@ public class NobleGiftEntryView extends LinearLayout {
 
     public void setData(NobleUserInfo.a aVar) {
         if (aVar == null) {
-            this.bgq.setVisibility(8);
-            this.bgt.setVisibility(0);
+            this.bgt.setVisibility(8);
+            this.bgv.setVisibility(0);
             return;
         }
-        this.bgq.setVisibility(0);
-        this.bgt.setVisibility(8);
+        this.bgt.setVisibility(0);
+        this.bgv.setVisibility(8);
         if (!TextUtils.isEmpty(aVar.iconUrl)) {
-            this.bcK.startLoad(aVar.iconUrl, 10, false, false);
+            this.bcM.startLoad(aVar.iconUrl, 10, false, false);
         }
-        this.aAw.setTextColor(getResources().getColor(a.d.sdk_noble_gift_entry_tip));
+        this.aAy.setTextColor(getResources().getColor(a.d.sdk_noble_gift_entry_tip));
         switch (aVar.typeId) {
             case 1:
                 b(aVar);
@@ -79,44 +79,44 @@ public class NobleGiftEntryView extends LinearLayout {
         setGravity(16);
         setOrientation(0);
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0, getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0);
-        this.bgq = findViewById(a.g.layout_info);
-        this.bcK = (TbImageView) findViewById(a.g.iv_icon);
-        this.aAw = (TextView) findViewById(a.g.tv_content);
-        this.bgr = (TextView) findViewById(a.g.tv_action);
-        this.bgt = (TextView) findViewById(a.g.tv_error);
-        this.bcK.setDefaultBgResource(a.d.sdk_transparent);
-        this.bcK.setDefaultErrorResource(a.f.sdk_shape_transparent);
+        this.bgt = findViewById(a.g.layout_info);
+        this.bcM = (TbImageView) findViewById(a.g.iv_icon);
+        this.aAy = (TextView) findViewById(a.g.tv_content);
+        this.bgu = (TextView) findViewById(a.g.tv_action);
+        this.bgv = (TextView) findViewById(a.g.tv_error);
+        this.bcM.setDefaultBgResource(a.d.sdk_transparent);
+        this.bcM.setDefaultErrorResource(a.f.sdk_shape_transparent);
     }
 
     private void b(NobleUserInfo.a aVar) {
-        this.aAw.setTextColor(-2130706433);
-        String str = aVar.price + "元/" + aVar.bfS + "天";
-        SpannableString spannableString = new SpannableString(String.format(getResources().getString(a.i.sdk_noble_giftentry_content_nonactivated), str, aVar.bfT));
+        this.aAy.setTextColor(-2130706433);
+        String str = aVar.price + "元/" + aVar.bfU + "天";
+        SpannableString spannableString = new SpannableString(String.format(getResources().getString(a.i.sdk_noble_giftentry_content_nonactivated), str, aVar.bfV));
         spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(a.d.sdk_noble_gift_entry_tip)), 3, str.length() + 3, 33);
-        this.aAw.setText(spannableString);
-        this.bgr.setText("立即开通");
+        this.aAy.setText(spannableString);
+        this.bgu.setText("立即开通");
     }
 
     private void c(NobleUserInfo.a aVar) {
-        this.aAw.setText(getResources().getString(a.i.sdk_noble_giftentry_content_protection));
-        this.bgr.setText("续费优惠");
+        this.aAy.setText(getResources().getString(a.i.sdk_noble_giftentry_content_protection));
+        this.bgu.setText("续费优惠");
     }
 
     private void d(NobleUserInfo.a aVar) {
-        String format = String.format(getResources().getString(a.i.sdk_noble_giftentry_content_activated), aVar.bfS);
-        int indexOf = format.indexOf(aVar.bfS);
+        String format = String.format(getResources().getString(a.i.sdk_noble_giftentry_content_activated), aVar.bfU);
+        int indexOf = format.indexOf(aVar.bfU);
         SpannableString spannableString = new SpannableString(format);
-        spannableString.setSpan(new AbsoluteSizeSpan(getResources().getDimensionPixelSize(a.e.sdk_fontsize26)), indexOf, aVar.bfS.length() + indexOf, 33);
-        this.aAw.setText(spannableString);
-        this.bgr.setText("查看详情");
+        spannableString.setSpan(new AbsoluteSizeSpan(getResources().getDimensionPixelSize(a.e.sdk_fontsize26)), indexOf, aVar.bfU.length() + indexOf, 33);
+        this.aAy.setText(spannableString);
+        this.bgu.setText("查看详情");
     }
 
     private void e(NobleUserInfo.a aVar) {
-        String format = String.format(getResources().getString(a.i.sdk_noble_giftentry_content_recharge), aVar.bfS);
-        int indexOf = format.indexOf(aVar.bfS);
+        String format = String.format(getResources().getString(a.i.sdk_noble_giftentry_content_recharge), aVar.bfU);
+        int indexOf = format.indexOf(aVar.bfU);
         SpannableString spannableString = new SpannableString(format);
-        spannableString.setSpan(new AbsoluteSizeSpan(getResources().getDimensionPixelSize(a.e.sdk_fontsize26)), indexOf, aVar.bfS.length() + indexOf, 33);
-        this.aAw.setText(spannableString);
-        this.bgr.setText("立即续费");
+        spannableString.setSpan(new AbsoluteSizeSpan(getResources().getDimensionPixelSize(a.e.sdk_fontsize26)), indexOf, aVar.bfU.length() + indexOf, 33);
+        this.aAy.setText(spannableString);
+        this.bgu.setText("立即续费");
     }
 }

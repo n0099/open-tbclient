@@ -142,15 +142,15 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a xD = com.baidu.o.d.a.aXK().xD(optString);
-            if (xD != null) {
+            com.baidu.o.a xE = com.baidu.o.d.a.aXK().xE(optString);
+            if (xE != null) {
                 c.e(TAG, "AudioRTC is already created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.putOpt(TiebaInitialize.LogFields.ERROR_CODE, "2005");
                     jSONObject2.putOpt("errMsg", "err duplicate start");
-                    xD.e("onError", jSONObject2);
+                    xE.e("onError", jSONObject2);
                     return false;
                 } catch (JSONException e) {
                     if (DEBUG) {
@@ -245,14 +245,14 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a xD = com.baidu.o.d.a.aXK().xD(optString);
-            if (xD == null) {
+            com.baidu.o.a xE = com.baidu.o.d.a.aXK().xE(optString);
+            if (xE == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            xD.stop();
-            com.baidu.o.d.a.aXK().xC(optString);
+            xE.stop();
+            com.baidu.o.d.a.aXK().xD(optString);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -281,13 +281,13 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a xD = com.baidu.o.d.a.aXK().xD(optString);
-            if (xD == null) {
+            com.baidu.o.a xE = com.baidu.o.d.a.aXK().xE(optString);
+            if (xE == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            xD.mute();
+            xE.mute();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
@@ -316,13 +316,13 @@ public class a extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.o.a xD = com.baidu.o.d.a.aXK().xD(optString);
-            if (xD == null) {
+            com.baidu.o.a xE = com.baidu.o.d.a.aXK().xE(optString);
+            if (xE == null) {
                 c.e(TAG, "AudioRTC is not created");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            xD.unMute();
+            xE.unMute();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

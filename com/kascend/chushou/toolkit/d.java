@@ -9,8 +9,8 @@ public class d {
     private long e;
     private long f;
     private int g;
-    private final tv.chushou.zues.c nWY;
-    private final a nWZ;
+    private final tv.chushou.zues.c nXq;
+    private final a nXr;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -20,11 +20,11 @@ public class d {
     public d(long j, a aVar, tv.chushou.zues.c cVar) {
         this.a = j;
         this.e = j;
-        this.nWZ = aVar;
+        this.nXr = aVar;
         if (cVar == null) {
-            this.nWY = new tv.chushou.zues.c(Looper.getMainLooper());
+            this.nXq = new tv.chushou.zues.c(Looper.getMainLooper());
         } else {
-            this.nWY = cVar;
+            this.nXq = cVar;
         }
         this.d = new Runnable() { // from class: com.kascend.chushou.toolkit.d.1
             @Override // java.lang.Runnable
@@ -37,13 +37,13 @@ public class d {
 
     public void a() {
         this.f = SystemClock.uptimeMillis();
-        this.nWY.e(this.d, this.e);
+        this.nXq.e(this.d, this.e);
         this.g = 1;
     }
 
     public void b() {
         if (this.g != 3) {
-            this.nWY.L(this.d);
+            this.nXq.L(this.d);
             this.e -= SystemClock.uptimeMillis() - this.f;
             this.f = 0L;
             this.g = 2;
@@ -58,16 +58,16 @@ public class d {
     }
 
     public void d() {
-        this.nWY.L(this.d);
+        this.nXq.L(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.nWY.L(this.d);
+        this.nXq.L(this.d);
         this.e = this.a;
         this.g = 3;
-        if (this.nWZ != null) {
-            this.nWZ.a();
+        if (this.nXr != null) {
+            this.nXr.a();
         }
     }
 }

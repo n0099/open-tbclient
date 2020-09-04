@@ -4,32 +4,32 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.af;
 /* loaded from: classes20.dex */
 public class h extends af.a implements com.baidu.tieba.play.e {
-    private com.baidu.tieba.lego.card.view.e<?> inD;
-    private com.baidu.tieba.recapp.h lCL;
+    private com.baidu.tieba.lego.card.view.e<?> inJ;
+    private com.baidu.tieba.recapp.h lCW;
 
     public h(com.baidu.tieba.lego.card.view.e<?> eVar) {
         super((View) eVar);
-        this.inD = eVar;
+        this.inJ = eVar;
     }
 
     public void a(com.baidu.tieba.recapp.h hVar) {
-        this.lCL = hVar;
+        this.lCW = hVar;
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        if (this.lCL == null) {
+        if (this.lCW == null) {
             return false;
         }
-        return this.lCL.isPlayStarted();
+        return this.lCW.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        if (this.lCL == null) {
+        if (this.lCW == null) {
             return false;
         }
-        return this.lCL.isPlaying();
+        return this.lCW.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
@@ -39,42 +39,42 @@ public class h extends af.a implements com.baidu.tieba.play.e {
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.lCL != null) {
-            this.lCL.startPlay();
+        if (this.lCW != null) {
+            this.lCW.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.lCL != null) {
-            this.lCL.stopPlay();
+        if (this.lCW != null) {
+            this.lCW.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.lCL == null) {
+        if (this.lCW == null) {
             return null;
         }
-        return this.lCL.getVideoContainer();
+        return this.lCW.getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        return this.lCL == null ? "" : this.lCL.getPlayUrl();
+        return this.lCW == null ? "" : this.lCW.getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.lCL == null) {
+        if (this.lCW == null) {
             return 0;
         }
-        return (int) this.lCL.getCurrentPosition();
+        return (int) this.lCW.getCurrentPosition();
     }
 
     public void release() {
-        if (this.lCL != null) {
-            this.lCL.release();
+        if (this.lCW != null) {
+            this.lCW.release();
         }
     }
 }

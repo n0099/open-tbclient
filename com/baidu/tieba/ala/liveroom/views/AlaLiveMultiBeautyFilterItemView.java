@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes7.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView fBL;
-    private TextView fBM;
+    private HeadImageView fBP;
+    private TextView fBQ;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -21,28 +21,28 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.h.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.fBL = (HeadImageView) inflate.findViewById(a.g.item_icon);
-        this.fBL.setIsRound(true);
-        this.fBL.setAutoChangeStyle(false);
-        this.fBL.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fBM = (TextView) inflate.findViewById(a.g.item_text);
+        this.fBP = (HeadImageView) inflate.findViewById(a.g.item_icon);
+        this.fBP.setIsRound(true);
+        this.fBP.setAutoChangeStyle(false);
+        this.fBP.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fBQ = (TextView) inflate.findViewById(a.g.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.fBL.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
-        this.fBM.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
+        this.fBP.setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha0));
+        this.fBQ.setTextColor(getResources().getColor(a.d.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.fBM.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
-        this.fBL.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
+        this.fBQ.setTextColor(getResources().getColor(a.d.sdk_cp_other_b));
+        this.fBP.setBackgroundDrawable(getResources().getDrawable(a.f.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.fBL.setImageDrawable(getResources().getDrawable(i));
+        this.fBP.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.fBM.setText(str);
+        this.fBQ.setText(str);
     }
 }

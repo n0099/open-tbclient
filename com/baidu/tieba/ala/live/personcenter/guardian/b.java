@@ -17,41 +17,41 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> efX;
-    private AlaGuardianListActivity gis;
-    private View.OnClickListener git = null;
-    private View.OnClickListener fRl = null;
+    private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> egb;
+    private AlaGuardianListActivity giw;
+    private View.OnClickListener gix = null;
+    private View.OnClickListener fRp = null;
 
     public b(AlaGuardianListActivity alaGuardianListActivity) {
-        this.efX = null;
-        this.gis = null;
-        this.gis = alaGuardianListActivity;
-        this.efX = new ArrayList<>();
+        this.egb = null;
+        this.giw = null;
+        this.giw = alaGuardianListActivity;
+        this.egb = new ArrayList<>();
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fRl = onClickListener;
+        this.fRp = onClickListener;
     }
 
     public void c(c cVar) {
-        this.efX.clear();
-        this.efX.addAll(cVar.bLK());
+        this.egb.clear();
+        this.egb.addAll(cVar.bLL());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.efX == null) {
+        if (this.egb == null) {
             return 0;
         }
-        return this.efX.size();
+        return this.egb.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.efX == null || i >= this.efX.size()) {
+        if (this.egb == null || i >= this.egb.size()) {
             return null;
         }
-        return this.efX.get(i);
+        return this.egb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,91 +63,91 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.gis.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.giw.getPageContext().getPageActivity()).inflate(a.h.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.ty(i);
-        this.gis.getLayoutMode().onModeChanged(view);
+        this.giw.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes7.dex */
     class a {
-        TextView deG;
-        ViewGroup fRE;
-        HeadImageView fRH;
-        TextView fRI;
-        ImageView giu;
-        TextView giv;
-        LinearLayout giw;
+        TextView deK;
+        ViewGroup fRI;
+        HeadImageView fRL;
+        TextView fRM;
+        LinearLayout giA;
+        ImageView giy;
+        TextView giz;
         TextView mName;
 
         public a(View view) {
-            this.giu = (ImageView) view.findViewById(a.g.imgGradeRound);
-            this.giv = (TextView) view.findViewById(a.g.tvGradeNum);
-            this.fRE = (ViewGroup) view.findViewById(a.g.item_view);
-            this.fRE.setOnClickListener(b.this.git);
-            this.fRH = (HeadImageView) view.findViewById(a.g.photo);
-            this.fRH.setRadius(BdUtilHelper.getDimens(b.this.gis.getPageContext().getPageActivity(), a.e.sdk_ds90));
-            this.fRH.setAutoChangeStyle(true);
-            this.fRH.setClickable(false);
-            this.giw = (LinearLayout) view.findViewById(a.g.info);
+            this.giy = (ImageView) view.findViewById(a.g.imgGradeRound);
+            this.giz = (TextView) view.findViewById(a.g.tvGradeNum);
+            this.fRI = (ViewGroup) view.findViewById(a.g.item_view);
+            this.fRI.setOnClickListener(b.this.gix);
+            this.fRL = (HeadImageView) view.findViewById(a.g.photo);
+            this.fRL.setRadius(BdUtilHelper.getDimens(b.this.giw.getPageContext().getPageActivity(), a.e.sdk_ds90));
+            this.fRL.setAutoChangeStyle(true);
+            this.fRL.setClickable(false);
+            this.giA = (LinearLayout) view.findViewById(a.g.info);
             this.mName = (TextView) view.findViewById(a.g.ala_name);
-            this.fRI = (TextView) view.findViewById(a.g.ala_intro);
-            this.deG = (TextView) view.findViewById(a.g.attention_btn);
-            this.deG.setOnClickListener(b.this.fRl);
+            this.fRM = (TextView) view.findViewById(a.g.ala_intro);
+            this.deK = (TextView) view.findViewById(a.g.attention_btn);
+            this.deK.setOnClickListener(b.this.fRp);
         }
 
         public void ty(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) b.this.getItem(i);
             if (aVar != null) {
-                this.fRE.setTag(Integer.valueOf(i));
-                this.deG.setTag(Integer.valueOf(i));
+                this.fRI.setTag(Integer.valueOf(i));
+                this.deK.setTag(Integer.valueOf(i));
                 ta(i);
-                k.a(this.fRH, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                k.a(this.fRL, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.fRI.setText(b.this.gis.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.gil));
-                kW(aVar.followStatus != 0);
+                this.fRM.setText(b.this.giw.getResources().getString(a.i.sdk_prc_guardian_list_item_charm, aVar.gip));
+                kY(aVar.followStatus != 0);
             }
         }
 
-        private void kW(boolean z) {
-            if (this.deG != null) {
-                this.deG.setVisibility(8);
+        private void kY(boolean z) {
+            if (this.deK != null) {
+                this.deK.setVisibility(8);
             }
         }
 
         public void ta(int i) {
-            this.giu.setVisibility(8);
-            this.giv.setVisibility(8);
+            this.giy.setVisibility(8);
+            this.giz.setVisibility(8);
             if (i == 0) {
-                this.giu.setVisibility(0);
-                SkinManager.setImageResource(this.giu, a.f.sdk_prc_icon_grade_round_no1);
+                this.giy.setVisibility(0);
+                SkinManager.setImageResource(this.giy, a.f.sdk_prc_icon_grade_round_no1);
             } else if (i == 1) {
-                this.giu.setVisibility(0);
-                SkinManager.setImageResource(this.giu, a.f.sdk_prc_icon_grade_round_no2);
+                this.giy.setVisibility(0);
+                SkinManager.setImageResource(this.giy, a.f.sdk_prc_icon_grade_round_no2);
             } else if (i == 2) {
-                this.giu.setVisibility(0);
-                SkinManager.setImageResource(this.giu, a.f.sdk_prc_icon_grade_round_no3);
+                this.giy.setVisibility(0);
+                SkinManager.setImageResource(this.giy, a.f.sdk_prc_icon_grade_round_no3);
             } else {
-                this.giv.setVisibility(0);
-                this.giv.setText(String.valueOf(i + 1));
+                this.giz.setVisibility(0);
+                this.giz.setText(String.valueOf(i + 1));
             }
         }
     }
 
     public void at(String str, boolean z) {
-        if (this.efX != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.efX.iterator();
+        if (this.egb != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.guardian.a> it = this.egb.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.gig)) {
+                if (str.equals(next.gik)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

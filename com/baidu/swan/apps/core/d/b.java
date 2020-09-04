@@ -34,11 +34,11 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class b extends c implements AdapterView.OnItemClickListener {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String chf = "pref_close_scope_alert_showed";
-    private BaseAdapter chg;
-    private FrameLayout chh;
+    public static String chj = "pref_close_scope_alert_showed";
+    private BaseAdapter chk;
+    private FrameLayout chl;
     private final List<com.baidu.swan.apps.setting.oauth.e> mList = new ArrayList();
-    private boolean chi = false;
+    private boolean chm = false;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -60,10 +60,10 @@ public class b extends c implements AdapterView.OnItemClickListener {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_setting_fragment, viewGroup, false);
         ai(inflate);
-        this.chh = (FrameLayout) inflate.findViewById(a.f.container);
-        this.chg = agp();
+        this.chl = (FrameLayout) inflate.findViewById(a.f.container);
+        this.chk = agp();
         ListView listView = (ListView) inflate.findViewById(a.f.ai_apps_setting_list);
-        listView.setAdapter((ListAdapter) this.chg);
+        listView.setAdapter((ListAdapter) this.chk);
         listView.setOnItemClickListener(this);
         return enableSliding(immersionEnabled() ? initImmersion(inflate) : inflate, this);
     }
@@ -74,8 +74,8 @@ public class b extends c implements AdapterView.OnItemClickListener {
         al(view);
         gV(-1);
         gW(ViewCompat.MEASURED_STATE_MASK);
-        lg(getString(a.h.common_menu_authority_management));
-        dV(true);
+        lh(getString(a.h.common_menu_authority_management));
+        dW(true);
         setRightZoneVisibility(false);
     }
 
@@ -105,10 +105,10 @@ public class b extends c implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (!this.chi) {
+        if (!this.chm) {
             com.baidu.swan.apps.setting.oauth.e eVar = this.mList.get(i);
-            this.chi = true;
-            if (!eVar.aBE() || agn().azU().getBoolean(chf, false)) {
+            this.chm = true;
+            if (!eVar.aBE() || agn().azU().getBoolean(chj, false)) {
                 com.baidu.swan.apps.setting.oauth.c.c("onItemClick : " + eVar, false);
                 b(eVar);
                 return;
@@ -121,16 +121,16 @@ public class b extends c implements AdapterView.OnItemClickListener {
     private void a(@NonNull C0384b c0384b) {
         FragmentActivity aUT = aUT();
         if (aUT == null) {
-            this.chi = false;
+            this.chm = false;
             return;
         }
         ContentValues contentValues = new ContentValues();
         contentValues.put("result", Integer.valueOf(!c0384b.aBE() ? 1 : -1));
         if (aUT.getContentResolver().update(SwanAppSubscribeMsgProvider.CONTENT_URI, contentValues, "_id=?", new String[]{c0384b.id}) > 0) {
-            c0384b.cVk = c0384b.aBE() ? -1 : 1;
-            this.chg.notifyDataSetChanged();
+            c0384b.cVo = c0384b.aBE() ? -1 : 1;
+            this.chk.notifyDataSetChanged();
         }
-        this.chi = false;
+        this.chm = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -147,11 +147,11 @@ public class b extends c implements AdapterView.OnItemClickListener {
                         int i2 = query.getInt(query.getColumnIndex("result"));
                         C0384b c0384b = new C0384b(String.valueOf(i));
                         c0384b.name = string;
-                        c0384b.cVk = i2 == -1 ? -1 : 1;
+                        c0384b.cVo = i2 == -1 ? -1 : 1;
                         this.mList.add(c0384b);
                     }
                     ago();
-                    this.chg.notifyDataSetChanged();
+                    this.chk.notifyDataSetChanged();
                 }
                 com.baidu.swan.c.d.closeSafely(query);
             }
@@ -162,26 +162,26 @@ public class b extends c implements AdapterView.OnItemClickListener {
         new g.a(aUT()).he(a.h.aiapps_setting_scope_close_alert_title).hd(a.h.aiapps_setting_scope_close_alert_msg).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_setting_scope_close_alert_btn_pos, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.b.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.this.agn().azU().putBoolean(b.chf, true);
+                b.this.agn().azU().putBoolean(b.chj, true);
                 b.this.b(eVar);
             }
         }).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.b.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.this.chi = false;
+                b.this.chm = false;
             }
-        }).fA(true).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.d.b.1
+        }).fB(true).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.d.b.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                b.this.chi = false;
+                b.this.chm = false;
             }
         }).azp();
     }
 
     private void initData() {
-        com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(aUT(), this.chh);
+        com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(aUT(), this.chl);
         this.mList.clear();
-        this.chg.notifyDataSetChanged();
+        this.chk.notifyDataSetChanged();
         com.baidu.swan.apps.network.c.b.a.s(new com.baidu.swan.apps.ap.e.b<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.core.d.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
@@ -189,7 +189,7 @@ public class b extends c implements AdapterView.OnItemClickListener {
             public void I(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 FragmentActivity aUT = b.this.aUT();
                 if (aUT != null && !aUT.isFinishing() && !aUT.isDestroyed()) {
-                    com.baidu.swan.apps.res.widget.loadingview.a.dismissLoadingView(b.this.chh);
+                    com.baidu.swan.apps.res.widget.loadingview.a.dismissLoadingView(b.this.chl);
                     if (map == null) {
                         b.this.D(aUT);
                         return;
@@ -201,7 +201,7 @@ public class b extends c implements AdapterView.OnItemClickListener {
                         }
                     }
                     b.this.ago();
-                    b.this.chg.notifyDataSetChanged();
+                    b.this.chk.notifyDataSetChanged();
                     b.this.D(aUT);
                 }
             }
@@ -267,19 +267,19 @@ public class b extends c implements AdapterView.OnItemClickListener {
                 if (view == null || !(view.getTag() instanceof a)) {
                     view = View.inflate(b.this.getContext(), a.g.aiapps_setting_item, null);
                     a aVar = new a();
-                    aVar.chl = (CheckBox) view.findViewById(a.f.checkbox);
+                    aVar.chp = (CheckBox) view.findViewById(a.f.checkbox);
                     aVar.title = (TextView) view.findViewById(a.f.title);
                     view.setTag(aVar);
                 }
                 a aVar2 = (a) view.getTag();
                 com.baidu.swan.apps.setting.oauth.e item = getItem(i);
-                String str = TextUtils.isEmpty(item.cVh) ? item.name : item.cVh;
+                String str = TextUtils.isEmpty(item.cVl) ? item.name : item.cVl;
                 TextView textView = aVar2.title;
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
                 textView.setText(str);
-                aVar2.chl.setChecked(item.aBE());
+                aVar2.chp.setChecked(item.aBE());
                 return view;
             }
         };
@@ -296,17 +296,17 @@ public class b extends c implements AdapterView.OnItemClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.setting.oauth.e eVar, boolean z) {
-        eVar.cVk = z ? 1 : -1;
-        this.chg.notifyDataSetChanged();
+        eVar.cVo = z ? 1 : -1;
+        this.chk.notifyDataSetChanged();
     }
 
     private void b(final com.baidu.swan.apps.setting.oauth.e eVar, boolean z) {
         com.baidu.swan.apps.runtime.e agn = agn();
         if (agn == null) {
-            this.chi = false;
+            this.chm = false;
             return;
         }
-        com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(aUT(), this.chh);
+        com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(aUT(), this.chl);
         agn.azU().a(aUT(), eVar.id, false, z, true, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.core.d.b.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
@@ -314,13 +314,13 @@ public class b extends c implements AdapterView.OnItemClickListener {
             public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 FragmentActivity aUT = b.this.aUT();
                 if (aUT != null) {
-                    com.baidu.swan.apps.res.widget.loadingview.a.dismissLoadingView(b.this.chh);
+                    com.baidu.swan.apps.res.widget.loadingview.a.dismissLoadingView(b.this.chl);
                     if (hVar != null && hVar.isOk()) {
-                        b.this.a(eVar, hVar.mData.cVg);
+                        b.this.a(eVar, hVar.mData.cVk);
                     } else {
                         com.baidu.swan.apps.res.widget.b.d.k(aUT, a.h.aiapps_setting_scope_auth_failed).showToast();
                     }
-                    b.this.chi = false;
+                    b.this.chm = false;
                 }
             }
         });
@@ -328,7 +328,7 @@ public class b extends c implements AdapterView.OnItemClickListener {
 
     /* loaded from: classes8.dex */
     class a {
-        CheckBox chl;
+        CheckBox chp;
         TextView title;
 
         a() {

@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.relationship;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetContactListResponsedMessage extends CustomResponsedMessage<String> {
     private List<a> contacts;
 

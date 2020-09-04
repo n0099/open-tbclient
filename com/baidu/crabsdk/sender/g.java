@@ -34,7 +34,7 @@ public final class g {
             if (!CrabSDK.NDK_VERSION.equals("-1")) {
                 jSONObject.put("ndkVN", CrabSDK.NDK_VERSION);
             }
-            com.baidu.crabsdk.c.a.ds("agent is " + jSONObject.toString());
+            com.baidu.crabsdk.c.a.dt("agent is " + jSONObject.toString());
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public final class g {
     public static Map<String, Object> a(Context context, Throwable th, boolean z) {
         Map<String, Object> ab = ab(context);
         if (com.baidu.crabsdk.a.q) {
-            com.baidu.crabsdk.c.a.ds("SEND_PRIVACYINFORMATION true");
+            com.baidu.crabsdk.c.a.dt("SEND_PRIVACYINFORMATION true");
             ab = a(ab, context, z);
         }
         try {
@@ -99,10 +99,10 @@ public final class g {
             map.put("errorType", th.getClass().getName());
             String g = com.baidu.crabsdk.c.c.g(th);
             map.put("errorLine", g);
-            com.baidu.crabsdk.c.a.ds("errorLine: " + g);
+            com.baidu.crabsdk.c.a.dt("errorLine: " + g);
             String h = com.baidu.crabsdk.c.c.h(th);
             map.put("errorOriLine", h);
-            com.baidu.crabsdk.c.a.ds("errorOriLine: " + h);
+            com.baidu.crabsdk.c.a.dt("errorOriLine: " + h);
             map.put("errorTrace", Log.getStackTraceString(th));
         }
         return map;
@@ -194,7 +194,7 @@ public final class g {
         jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.b.p.uR());
         jSONObject.put("appLabel", com.baidu.crabsdk.b.p.uS());
         jSONObject.put("appVN", com.baidu.crabsdk.b.p.L());
-        jSONObject.put("soLibs", i.dJ(context.getApplicationInfo().nativeLibraryDir));
+        jSONObject.put("soLibs", i.dK(context.getApplicationInfo().nativeLibraryDir));
         jSONObject.put("procName", CrabSDK.CURRENT_PNAME);
         if (com.baidu.crabsdk.a.L) {
             jSONObject.put(FilterImageAction.ACTION_NAME, 2);

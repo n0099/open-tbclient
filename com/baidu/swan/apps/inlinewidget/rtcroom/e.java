@@ -7,26 +7,26 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class e {
-    private static volatile e ctO;
-    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> ctP = new HashMap();
+    private static volatile e ctS;
+    private Map<String, com.baidu.swan.apps.inlinewidget.rtcroom.c.b> ctT = new HashMap();
 
     private e() {
     }
 
     public static e anU() {
-        if (ctO == null) {
+        if (ctS == null) {
             synchronized (e.class) {
-                if (ctO == null) {
-                    ctO = new e();
+                if (ctS == null) {
+                    ctS = new e();
                 }
             }
         }
-        return ctO;
+        return ctS;
     }
 
-    public synchronized void mP(String str) {
+    public synchronized void mQ(String str) {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-        Iterator it = new ArrayList(this.ctP.values()).iterator();
+        Iterator it = new ArrayList(this.ctT.values()).iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar = (com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next();
             if (TextUtils.equals(bVar.getSlaveId(), str)) {
@@ -36,18 +36,18 @@ public class e {
     }
 
     public static void release() {
-        if (ctO != null) {
-            ctO.onRelease();
+        if (ctS != null) {
+            ctS.onRelease();
         }
-        ctO = null;
+        ctS = null;
     }
 
     private synchronized void onRelease() {
         com.baidu.swan.apps.console.c.i("RtcRoomWidgetManager", "release");
-        Iterator it = new ArrayList(this.ctP.values()).iterator();
+        Iterator it = new ArrayList(this.ctT.values()).iterator();
         while (it.hasNext()) {
             ((com.baidu.swan.apps.inlinewidget.rtcroom.c.b) it.next()).onRelease();
         }
-        this.ctP.clear();
+        this.ctT.clear();
     }
 }

@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes20.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> aJf = new ArrayList();
-    ValidateActivity jzJ;
+    List<ValidateItemData> aJh = new ArrayList();
+    ValidateActivity jzP;
 
     public a(ValidateActivity validateActivity) {
-        this.jzJ = validateActivity;
+        this.jzP = validateActivity;
     }
 
     public void destroy() {
-        this.jzJ = null;
+        this.jzP = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.aJf.addAll(list);
+            this.aJh.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aJf == null) {
+        if (this.aJh == null) {
             return 0;
         }
-        return this.aJf.size();
+        return this.aJh.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.jzJ) : bVar;
-        bVar2.e(this.aJf.get(i));
+        b bVar2 = bVar == null ? new b(this.jzP) : bVar;
+        bVar2.e(this.aJh.get(i));
         return bVar2.getConvertView();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aJf.get(i);
+        return this.aJh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.aJf;
+        return this.aJh;
     }
 }

@@ -33,7 +33,7 @@ public interface c {
 
     void dz(int i);
 
-    void gw(String str);
+    void gx(String str);
 
     void release();
 }

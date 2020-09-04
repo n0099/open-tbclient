@@ -30,7 +30,7 @@ public class a implements g {
     }
 
     @Override // com.baidu.tieba.sdk.b.g
-    public void LN(String str) {
+    public void LO(String str) {
         openScheme(str);
     }
 }

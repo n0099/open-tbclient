@@ -46,7 +46,7 @@ import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
 import com.baidu.tieba.wallet.WalletStaticInit;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LaunchStatic {
     static {
         initRegisterIntent();
@@ -55,10 +55,10 @@ public class LaunchStatic {
         bbL();
         SyncSwitch.initSyncSwitch();
         com.baidu.tieba.tbadkCore.location.a.init();
-        com.baidu.tieba.im.widget.b.cID();
+        com.baidu.tieba.im.widget.b.cIE();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.cGZ();
-        com.baidu.tieba.im.db.i.cEg();
+        ImMemoryCacheRegister.cHa();
+        com.baidu.tieba.im.db.i.cEh();
         com.baidu.tbadk.browser.d.init();
         i.init();
         WalletStaticInit.init();
@@ -98,7 +98,7 @@ public class LaunchStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.bsP().registerTask();
+        com.baidu.tbadk.getUserInfo.b.bsQ().registerTask();
         com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.bH("c/s/getClientConfig", 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);

@@ -10,8 +10,8 @@ import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
 public class c extends HandlerThread {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CountDownLatch cvf;
-    private File cvg;
+    private CountDownLatch cvj;
+    private File cvk;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -26,8 +26,8 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.cvg = file;
-        this.cvf = countDownLatch;
+        this.cvk = file;
+        this.cvj = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,7 +37,7 @@ public class c extends HandlerThread {
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.cvg + aVar.path);
+                    File file = new File(c.this.cvk + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -52,8 +52,8 @@ public class c extends HandlerThread {
                         }
                     }
                 } else if (message.what == 200) {
-                    if (c.this.cvf != null) {
-                        c.this.cvf.countDown();
+                    if (c.this.cvj != null) {
+                        c.this.cvj.countDown();
                     }
                     c.this.quit();
                 }

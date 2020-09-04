@@ -17,9 +17,9 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes3.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dfn = "cookieMap";
-    public static String dfo = "ptokenDomains";
-    public static String dfp = "bdussDomains";
+    public static String dfr = "cookieMap";
+    public static String dfs = "ptokenDomains";
+    public static String dft = "bdussDomains";
 
     public static void dh(Context context) {
         di(context);

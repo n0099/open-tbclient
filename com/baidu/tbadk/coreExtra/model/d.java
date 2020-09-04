@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.model;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     private int[] blackCmds;
     private int connConf;

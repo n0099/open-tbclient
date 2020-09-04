@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
 /* loaded from: classes7.dex */
 public class b {
-    private TextView gIm;
+    private TextView gIq;
     private TbPageContext mContext;
     private View mView;
 
@@ -24,8 +24,8 @@ public class b {
 
     private void a(TbPageContext tbPageContext, AlaLiveUserInfoData alaLiveUserInfoData, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.guide_rename_view_layout, (ViewGroup) null);
-        this.gIm = (TextView) this.mView.findViewById(a.g.guide_rename_txt);
-        this.gIm.setText(b(alaLiveUserInfoData));
+        this.gIq = (TextView) this.mView.findViewById(a.g.guide_rename_txt);
+        this.gIq.setText(b(alaLiveUserInfoData));
         this.mView.setOnClickListener(onClickListener);
     }
 

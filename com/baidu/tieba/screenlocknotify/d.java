@@ -9,10 +9,10 @@ public class d {
     public String groupId;
     public String groupName;
     public boolean isAcceptNotify;
-    public String lMn = "";
-    public long lMo;
+    public String lMA = "";
+    public long lMB;
     public long lastTime;
-    public boolean llX;
+    public boolean lmi;
     public long msgId;
     public int msgType;
     public String nameShow;

@@ -26,8 +26,8 @@ import com.baidu.tieba.ala.liveroom.challenge.panel.d;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class e extends g {
-    private String ber;
-    private BdAlertDialog grK;
+    private String beu;
+    private BdAlertDialog grO;
     private ViewGroup mContentLayout;
     private BdListView mListView;
     private TbPageContext mPageContext;
@@ -44,15 +44,15 @@ public class e extends g {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int bPP() {
+    protected int bPQ() {
         return this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds456) * 2;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected void hide() {
         super.hide();
-        if (this.grK != null) {
-            this.grK.dismiss();
+        if (this.grO != null) {
+            this.grO.dismiss();
         }
         if (this.mListView != null && (this.mListView.getWrappedAdapter() instanceof d)) {
             this.mListView.setSelection(0);
@@ -65,16 +65,16 @@ public class e extends g {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected boolean onBackKeyDown() {
-        if (this.gsa != null) {
-            this.gsa.bQd();
+        if (this.gse != null) {
+            this.gse.bQe();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void FT(String str) {
-        this.ber = str;
+    public void FU(String str) {
+        this.beu = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,13 +91,13 @@ public class e extends g {
             } else {
                 dVar = (d) this.mListView.getAdapter2().getWrappedAdapter();
             }
-            if (dVar.bPT() == null) {
+            if (dVar.bPU() == null) {
                 dVar.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.1
                     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.d.a
                     public void e(com.baidu.live.challenge.d dVar2) {
                         if (dVar2 != null && !TextUtils.isEmpty(String.valueOf(dVar2.userId))) {
-                            if (e.this.gsa != null) {
-                                e.this.gsa.removeView();
+                            if (e.this.gse != null) {
+                                e.this.gse.removeView();
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(dVar2.userId))));
                         }
@@ -105,7 +105,7 @@ public class e extends g {
 
                     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.d.a
                     public void f(com.baidu.live.challenge.d dVar2) {
-                        if (e.this.gsa != null && dVar2 != null) {
+                        if (e.this.gse != null && dVar2 != null) {
                             e.this.g(dVar2);
                         }
                     }
@@ -122,14 +122,14 @@ public class e extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bPW() {
+    public void bPX() {
         if (this.mListView != null && (this.mListView.getWrappedAdapter() instanceof BaseAdapter)) {
             ((BaseAdapter) this.mListView.getWrappedAdapter()).notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aR(int i, String str) {
+    public void aQ(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             BdUtilHelper.showToast(this.mContext, str);
         }
@@ -157,8 +157,8 @@ public class e extends g {
                 commonEmptyView.setRefreshButton(a.i.ala_click_retry, new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.gsa != null) {
-                            e.this.gsa.fJ(e.this.ber);
+                        if (e.this.gse != null) {
+                            e.this.gse.fK(e.this.beu);
                         }
                     }
                 });
@@ -175,8 +175,8 @@ public class e extends g {
         this.mRootView.findViewById(a.g.iv_challenge_latest_back).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.gsa != null) {
-                    e.this.gsa.bQd();
+                if (e.this.gse != null) {
+                    e.this.gse.bQe();
                 }
             }
         });
@@ -185,40 +185,40 @@ public class e extends g {
     /* JADX INFO: Access modifiers changed from: private */
     public void g(final com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            this.grK = new BdAlertDialog((Activity) this.mContext);
-            this.grK.setAutoNight(false);
-            this.grK.setCancelable(false);
-            this.grK.setCanceledOnTouchOutside(false);
-            this.grK.setContentViewSize(1);
-            BdAlertDialog bdAlertDialog = this.grK;
+            this.grO = new BdAlertDialog((Activity) this.mContext);
+            this.grO.setAutoNight(false);
+            this.grO.setCancelable(false);
+            this.grO.setCanceledOnTouchOutside(false);
+            this.grO.setContentViewSize(1);
+            BdAlertDialog bdAlertDialog = this.grO;
             String string = this.mContext.getString(a.i.ala_challenge_invite_alert_msg);
             Object[] objArr = new Object[1];
             objArr[0] = !TextUtils.isEmpty(dVar.userName) ? dVar.userName : "对方主播";
             bdAlertDialog.setMessage(String.format(string, objArr));
-            this.grK.setPositiveButton(a.i.ala_challenge_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.4
+            this.grO.setPositiveButton(a.i.ala_challenge_confirm, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.4
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
                     e.this.a(dVar, false);
-                    if (e.this.gsa != null) {
-                        e.this.gsa.W(dVar.userId);
+                    if (e.this.gse != null) {
+                        e.this.gse.W(dVar.userId);
                     }
                 }
             });
-            this.grK.setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.5
+            this.grO.setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.5
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
                 }
             });
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.grK.setPositiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_blue_button_txt_selector));
-                this.grK.setNagetiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
+                this.grO.setPositiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_blue_button_txt_selector));
+                this.grO.setNagetiveButtonTextColor(this.mContext.getResources().getColorStateList(a.f.sdk_dialog_gray_button_txt_selector));
             } else {
-                this.grK.setPositiveButtonTextColor(this.mContext.getResources().getColor(a.d.ala_challenge_latest_primary));
-                this.grK.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
+                this.grO.setPositiveButtonTextColor(this.mContext.getResources().getColor(a.d.ala_challenge_latest_primary));
+                this.grO.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.grK.create(this.mPageContext).show();
+            this.grO.create(this.mPageContext).show();
         }
     }
 }

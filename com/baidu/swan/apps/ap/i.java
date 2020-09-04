@@ -15,10 +15,10 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static List<String> daR = new ArrayList();
-    private static List<String> daS = new ArrayList();
-    private static final Object daT = new Object();
-    private static int daU = 0;
+    private static List<String> daV = new ArrayList();
+    private static List<String> daW = new ArrayList();
+    private static final Object daX = new Object();
+    private static int daY = 0;
 
     public static boolean aEA() {
         SwanCoreVersion akn = com.baidu.swan.apps.core.turbo.d.ajS().akn();
@@ -36,34 +36,34 @@ public class i {
     }
 
     public static boolean aEB() {
-        return !ag.sF("3.120.2");
+        return !ag.sG("3.120.2");
     }
 
     public static boolean aEC() {
-        return ag.sF("3.200.100");
+        return ag.sG("3.200.100");
     }
 
     public static String A(int i, boolean z) {
         List<String> list;
         String str = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-        if (daU == 1) {
+        if (daY == 1) {
             if (DEBUG) {
                 Log.d("SwanAppCompat", "type support default");
             }
             return SchemeCollecter.getSchemesDes(str, i);
         }
         if (aED()) {
-            synchronized (daT) {
+            synchronized (daX) {
                 if (z) {
-                    list = daR;
+                    list = daV;
                 } else {
-                    list = daS;
+                    list = daW;
                 }
                 if (list != null && list.size() > 0) {
                     if (DEBUG) {
                         Log.d("SwanAppCompat", "support ab js native descriptions");
                     }
-                    daU = 2;
+                    daY = 2;
                     return list.get(i);
                 }
             }
@@ -71,12 +71,12 @@ public class i {
         if (DEBUG) {
             Log.d("SwanAppCompat", "use default descriptions");
         }
-        daU = 1;
+        daY = 1;
         return SchemeCollecter.getSchemesDes(str, i);
     }
 
     private static boolean aED() {
-        if (daU != 2) {
+        if (daY != 2) {
             return com.baidu.swan.apps.t.a.aoM().YS() && !com.baidu.swan.apps.storage.c.h.aDf().getBoolean("swan_app_js_native_ab_update_key", false);
         } else if (DEBUG) {
             Log.d("SwanAppCompat", "has used ab description");
@@ -90,14 +90,14 @@ public class i {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start prepare ab description");
         }
-        ga(true);
-        ga(false);
+        gb(true);
+        gb(false);
         if (DEBUG) {
             Log.d("SwanAppCompat", "end prepare ab description");
         }
     }
 
-    private static void ga(boolean z) {
+    private static void gb(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start prepare ab description :" + (z ? V8Engine.TYPE_V8 : "webview"));
         }
@@ -125,19 +125,19 @@ public class i {
 
     private static boolean aEF() {
         String str = com.baidu.swan.apps.r.d.aoz().getPath() + File.separator + "js_native" + File.separator;
-        return com.baidu.swan.c.d.xs(new StringBuilder().append(str).append("swan_js_native_v8_ab.txt").toString()) && com.baidu.swan.c.d.xs(new StringBuilder().append(str).append("swan_js_native_webview_ab.txt").toString());
+        return com.baidu.swan.c.d.xt(new StringBuilder().append(str).append("swan_js_native_v8_ab.txt").toString()) && com.baidu.swan.c.d.xt(new StringBuilder().append(str).append("swan_js_native_webview_ab.txt").toString());
     }
 
     private static void k(boolean z, String str) {
         String str2 = z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
         String str3 = z ? "swan/v8_ab" : "swan/webview_ab";
-        List<JSONObject> sv = sv(str2);
-        List<JSONObject> sv2 = sv(str3);
-        if (sv != null && sv2 != null) {
+        List<JSONObject> sw = sw(str2);
+        List<JSONObject> sw2 = sw(str3);
+        if (sw != null && sw2 != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < sv2.size(); i++) {
+            for (int i = 0; i < sw2.size(); i++) {
                 try {
-                    JSONArray jSONArray = sv2.get(i).getJSONArray("descriptions");
+                    JSONArray jSONArray = sw2.get(i).getJSONArray("descriptions");
                     if (jSONArray != null) {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             arrayList.add(jSONArray.getJSONObject(i2));
@@ -151,10 +151,10 @@ public class i {
                     return;
                 }
             }
-            if (arrayList.size() != 0 && g(sv, arrayList)) {
+            if (arrayList.size() != 0 && g(sw, arrayList)) {
                 File file = new File(str);
                 ArrayList arrayList2 = new ArrayList();
-                for (JSONObject jSONObject : sv) {
+                for (JSONObject jSONObject : sw) {
                     if (jSONObject != null) {
                         arrayList2.add(jSONObject.toString());
                     }
@@ -171,12 +171,12 @@ public class i {
 
     private static void h(List<String> list, boolean z) {
         if (list != null) {
-            synchronized (daT) {
-                if (daU == 0) {
+            synchronized (daX) {
+                if (daY == 0) {
                     if (z) {
-                        daR = list;
+                        daV = list;
                     } else {
-                        daS = list;
+                        daW = list;
                     }
                     if (DEBUG) {
                         Log.d("SwanAppCompat", "has update descriptions, list :" + list.toString() + " type :" + (z ? V8Engine.TYPE_V8 : "webview"));
@@ -227,7 +227,7 @@ public class i {
     }
 
     @Nullable
-    private static List<JSONObject> sv(String str) {
+    private static List<JSONObject> sw(String str) {
         String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
         ArrayList arrayList = new ArrayList();
         try {
@@ -248,10 +248,10 @@ public class i {
         if (DEBUG) {
             Log.d("SwanAppCompat", "start release descriptions");
         }
-        synchronized (daT) {
-            daU = 0;
-            daR = new ArrayList();
-            daS = new ArrayList();
+        synchronized (daX) {
+            daY = 0;
+            daV = new ArrayList();
+            daW = new ArrayList();
         }
     }
 

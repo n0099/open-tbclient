@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 /* loaded from: classes20.dex */
 public final class r {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Void egl() {
+    public static final Void egu() {
         throw new UnsupportedOperationException("Not supported for local property reference.");
     }
 }

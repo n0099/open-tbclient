@@ -52,7 +52,7 @@ public class a {
             bwVar.bfC();
             if (!TextUtils.isEmpty(bwVar.bfO())) {
                 ak akVar = new ak();
-                akVar.zb(bwVar.bfO());
+                akVar.zc(bwVar.bfO());
                 linkedList.add(akVar);
             } else {
                 linkedList.add(bVar);

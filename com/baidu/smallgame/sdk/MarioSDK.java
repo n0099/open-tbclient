@@ -125,8 +125,8 @@ public class MarioSDK {
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.bPt != null) {
-            aVar2.setRenderer(aVar.bPt);
+        if (aVar.bPx != null) {
+            aVar2.setRenderer(aVar.bPx);
         }
         if (aVar.Xv() != null) {
             for (DebugConsole debugConsole : aVar.Xv()) {
@@ -138,8 +138,8 @@ public class MarioSDK {
 
     /* loaded from: classes20.dex */
     public static class a {
-        private List<DebugConsole> bPT = new ArrayList();
-        private GLSurfaceView.Renderer bPt;
+        private List<DebugConsole> bPX = new ArrayList();
+        private GLSurfaceView.Renderer bPx;
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private int mRenderMode;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.bPt = renderer;
+            this.bPx = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.bPT.add(debugConsole);
+                this.bPX.add(debugConsole);
             }
         }
 
         public List<DebugConsole> Xv() {
-            return this.bPT;
+            return this.bPX;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

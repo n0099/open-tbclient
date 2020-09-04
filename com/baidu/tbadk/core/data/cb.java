@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import org.json.JSONObject;
 import tbclient.FrsPage.TopNews;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class cb extends PostData {
-    public static final BdUniqueId eeL = BdUniqueId.gen();
-    private String dZp;
+    public static final BdUniqueId eeP = BdUniqueId.gen();
+    private String dZt;
     private int position = 0;
     private String summary;
 
     public String bgU() {
-        return this.dZp;
+        return this.dZt;
     }
 
     public String getSummary() {
@@ -22,7 +22,7 @@ public class cb extends PostData {
 
     public void a(TopNews topNews) {
         if (topNews != null) {
-            this.dZp = topNews.news_link;
+            this.dZt = topNews.news_link;
             this.summary = topNews.summary;
         }
     }
@@ -30,7 +30,7 @@ public class cb extends PostData {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dZp = jSONObject.optString("news_link");
+                this.dZt = jSONObject.optString("news_link");
                 this.summary = jSONObject.optString("summary");
                 this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
@@ -41,6 +41,6 @@ public class cb extends PostData {
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eeL;
+        return eeP;
     }
 }

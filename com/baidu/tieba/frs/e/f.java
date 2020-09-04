@@ -11,11 +11,11 @@ import com.baidu.tieba.frs.e.b;
 /* loaded from: classes16.dex */
 public class f {
     private com.baidu.tbadk.n.a.a Wr;
-    private g ish;
-    private b isq;
+    private g isn;
+    private b isw;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a isr = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
+    private b.a isx = new b.a() { // from class: com.baidu.tieba.frs.e.f.1
         @Override // com.baidu.tieba.frs.e.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
@@ -23,15 +23,15 @@ public class f {
                     if (f.this.Wr == null) {
                         f.this.Wr = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.Wr.buu();
+                    f.this.Wr.buv();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
                 if (f.this.Wr != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.Wr.buv();
+                    f.this.Wr.buw();
                 }
             } else if (i == 0) {
-                f.this.csM();
+                f.this.csN();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.ish = new g(context);
-        this.isq = c.a(this.ish, intent);
-        this.isq.a(this.isr);
+        this.isn = new g(context);
+        this.isw = c.a(this.isn, intent);
+        this.isw.a(this.isx);
     }
 
-    public void csK() {
+    public void csL() {
         if (this.mParent != null) {
+            csN();
+            this.mParent.addView(this.isn.mRootView);
             csM();
-            this.mParent.addView(this.ish.mRootView);
-            csL();
-            this.isq.csA();
+            this.isw.csB();
         }
     }
 
-    public void clg() {
+    public void clh() {
         if (this.mParent != null) {
             hide();
         }
@@ -68,12 +68,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
-        if (this.isq.getState() == 1) {
+        if (this.isw.getState() == 1) {
             com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.isq.csB();
+        this.isw.csC();
     }
 
     public static boolean W(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void csL() {
+    private void csM() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,10 +101,10 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csM() {
-        ViewParent parent = this.ish.mRootView.getParent();
+    public void csN() {
+        ViewParent parent = this.isn.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.ish.mRootView);
+            ((ViewGroup) parent).removeView(this.isn.mRootView);
         }
         com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
     }

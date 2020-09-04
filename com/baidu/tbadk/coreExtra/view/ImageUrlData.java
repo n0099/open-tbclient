@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     private static final long serialVersionUID = 2037469186418617574L;

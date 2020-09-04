@@ -2,7 +2,7 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.mvc.b.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ReadCacheMessage<T> extends CustomMessage<T> {
     private boolean isNeedUid;
     private e requestData;

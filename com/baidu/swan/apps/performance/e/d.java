@@ -4,44 +4,44 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class d {
-    private static volatile d cHF;
-    private HashMap<String, e> cHG;
-    private HashMap<String, e> cHH;
-    private HashMap<String, e> cHI;
+    private static volatile d cHJ;
+    private HashMap<String, e> cHK;
+    private HashMap<String, e> cHL;
+    private HashMap<String, e> cHM;
 
     private d() {
         awB();
     }
 
     public static d awA() {
-        if (cHF == null) {
+        if (cHJ == null) {
             synchronized (d.class) {
-                if (cHF == null) {
-                    cHF = new d();
+                if (cHJ == null) {
+                    cHJ = new d();
                 }
             }
         }
-        return cHF;
+        return cHJ;
     }
 
     public static synchronized void releaseInstance() {
         synchronized (d.class) {
-            if (cHF != null) {
-                cHF.release();
-                cHF = null;
+            if (cHJ != null) {
+                cHJ.release();
+                cHJ = null;
             }
         }
     }
 
     private void release() {
-        if (this.cHG != null) {
-            this.cHG.clear();
+        if (this.cHK != null) {
+            this.cHK.clear();
         }
-        if (this.cHH != null) {
-            this.cHH.clear();
+        if (this.cHL != null) {
+            this.cHL.clear();
         }
-        if (this.cHI != null) {
-            this.cHI.clear();
+        if (this.cHM != null) {
+            this.cHM.clear();
         }
     }
 
@@ -105,14 +105,14 @@ public final class d {
     }
 
     private void awB() {
-        if (this.cHG == null) {
-            this.cHG = new HashMap<>();
+        if (this.cHK == null) {
+            this.cHK = new HashMap<>();
         }
-        if (this.cHH == null) {
-            this.cHH = new HashMap<>();
+        if (this.cHL == null) {
+            this.cHL = new HashMap<>();
         }
-        if (this.cHI == null) {
-            this.cHI = new HashMap<>();
+        if (this.cHM == null) {
+            this.cHM = new HashMap<>();
         }
     }
 
@@ -142,26 +142,26 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cHG.get(str);
+                    eVar = this.cHK.get(str);
                     if (eVar == null) {
                         eVar = new b();
-                        this.cHG.put(str, eVar);
+                        this.cHK.put(str, eVar);
                         break;
                     }
                     break;
                 case 1:
-                    eVar = this.cHH.get(str);
+                    eVar = this.cHL.get(str);
                     if (eVar == null) {
                         eVar = new a();
-                        this.cHH.put(str, eVar);
+                        this.cHL.put(str, eVar);
                         break;
                     }
                     break;
                 case 2:
-                    eVar = this.cHI.get(str);
+                    eVar = this.cHM.get(str);
                     if (eVar == null) {
                         eVar = new c();
-                        this.cHI.put(str, eVar);
+                        this.cHM.put(str, eVar);
                         break;
                     }
                     break;
@@ -198,13 +198,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    eVar = this.cHG.remove(str);
+                    eVar = this.cHK.remove(str);
                     break;
                 case 1:
-                    eVar = this.cHH.remove(str);
+                    eVar = this.cHL.remove(str);
                     break;
                 case 2:
-                    eVar = this.cHI.remove(str);
+                    eVar = this.cHM.remove(str);
                     break;
             }
             if (eVar != null) {
@@ -239,13 +239,13 @@ public final class d {
             }
             switch (c) {
                 case 0:
-                    com.baidu.swan.apps.am.e.dae.W(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dai.W(Long.valueOf(j));
                     return;
                 case 1:
-                    com.baidu.swan.apps.am.e.daf.W(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.daj.W(Long.valueOf(j));
                     return;
                 case 2:
-                    com.baidu.swan.apps.am.e.dag.W(Long.valueOf(j));
+                    com.baidu.swan.apps.am.e.dak.W(Long.valueOf(j));
                     return;
                 default:
                     return;

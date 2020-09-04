@@ -9,38 +9,38 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
-    private a buA;
-    private boolean buy;
-    private boolean buz;
+    private boolean buB;
+    private boolean buC;
+    private a buD;
 
     public DispatchedPvlLayout(Context context) {
         super(context);
-        this.buy = false;
-        this.buz = false;
+        this.buB = false;
+        this.buC = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.buy = false;
-        this.buz = false;
+        this.buB = false;
+        this.buC = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.buy = false;
-        this.buz = false;
+        this.buB = false;
+        this.buC = false;
     }
 
     @Override // com.baidu.live.view.PriorityVerticalLinearLayout, android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if ((!this.buy || !b.a(view, this.buA)) && layoutParams != null) {
+        if ((!this.buB || !b.a(view, this.buD)) && layoutParams != null) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.buz || !this.buy || !b.b(view, this.buA)) {
+        if (this.buC || !this.buB || !b.b(view, this.buD)) {
             super.removeView(view);
         }
     }
@@ -48,25 +48,25 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.buy && this.buA != null) {
-            this.buA.QP();
+        if (this.buB && this.buD != null) {
+            this.buD.QP();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.buz && this.buy) {
-            if (this.buA == null || !this.buA.ab(view)) {
+        if (!this.buC && this.buB) {
+            if (this.buD == null || !this.buD.ab(view)) {
                 return super.indexOfChild(view);
             }
-            return this.buA.indexOfChild(view);
+            return this.buD.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.buy != z) {
-            this.buy = z;
+        if (this.buB != z) {
+            this.buB = z;
             if (z) {
                 QO();
             }
@@ -74,29 +74,29 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     }
 
     private void QO() {
-        if (this.buy && getChildCount() > 0 && this.buA != null) {
+        if (this.buB && getChildCount() > 0 && this.buD != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.buA.ab(childAt)) {
+                if (this.buD.ab(childAt)) {
                     linkedList.add(childAt);
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.buz = true;
+                this.buC = true;
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.buA.onViewAdded(view);
+                    this.buD.onViewAdded(view);
                 }
-                this.buz = false;
+                this.buC = false;
             }
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.buA = aVar;
+        this.buD = aVar;
         QO();
     }
 }

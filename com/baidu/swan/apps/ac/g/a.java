@@ -66,7 +66,7 @@ public class a {
         String str3 = "";
         e azI = e.azI();
         if (azI != null) {
-            str3 = com.baidu.swan.apps.f.a.kn(azI.getAppKey());
+            str3 = com.baidu.swan.apps.f.a.ko(azI.getAppKey());
         }
         String[] strArr = {str3, str, String.valueOf(j), str2};
         Arrays.sort(strArr);

@@ -245,8 +245,8 @@ public class ImagePickerPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     ImagePickerPlugin.notifyFlutter(0, "保存成功！", "");
                 }
             });
-            oVar.jK(false);
-            oVar.jL(true);
+            oVar.jM(false);
+            oVar.jN(true);
             oVar.execute(new String[0]);
         }
     }

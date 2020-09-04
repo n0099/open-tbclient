@@ -56,41 +56,41 @@ import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes15.dex */
 public class HotTopicDetailView extends RelativeLayout implements a.b {
-    private static int klg = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
+    private static int kln = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
     private String Np;
-    private int bRl;
-    private ValueAnimator esF;
-    private g fMN;
-    private int hVe;
-    private int hVf;
-    private AppBarLayout.OnOffsetChangedListener hWf;
-    private TbTabLayout hwR;
-    private ImageView iTP;
-    private boolean iuE;
-    private PullRefreshFrameLayout.d iuM;
-    private PullRefreshFrameLayout.c iuN;
-    private Runnable iuO;
-    private int jbD;
-    private ClickableSpan jbI;
-    private ClickableSpan jbJ;
-    private c jbV;
-    private a.InterfaceC0751a klh;
-    private View kli;
-    private boolean klj;
-    private ViewGroup klk;
-    private PullRefreshFrameLayout kll;
-    private HotTopicDetailHeadView klm;
-    private TextView kln;
-    private View klo;
-    private AppBarLayout klp;
-    private View klq;
-    private HotTopicDetailPkLayout klr;
-    private HotTopicDetailSpecialLayout kls;
-    private CustomViewPager klt;
-    private HotTopicDetailPagerAdapter klu;
+    private int bRp;
+    private ValueAnimator esJ;
+    private g fMR;
+    private int hVk;
+    private int hVl;
+    private AppBarLayout.OnOffsetChangedListener hWl;
+    private TbTabLayout hwX;
+    private ImageView iTV;
+    private boolean iuK;
+    private PullRefreshFrameLayout.d iuS;
+    private PullRefreshFrameLayout.c iuT;
+    private Runnable iuU;
+    private int jbJ;
+    private ClickableSpan jbO;
+    private ClickableSpan jbP;
+    private c jcb;
+    private CustomViewPager klA;
+    private HotTopicDetailPagerAdapter klB;
+    private View klC;
+    private RecyclerView.OnScrollListener klD;
+    private e klE;
+    private a.InterfaceC0751a klo;
+    private View klp;
+    private boolean klq;
+    private ViewGroup klr;
+    private PullRefreshFrameLayout kls;
+    private HotTopicDetailHeadView klt;
+    private TextView klu;
     private View klv;
-    private RecyclerView.OnScrollListener klw;
-    private e klx;
+    private AppBarLayout klw;
+    private View klx;
+    private HotTopicDetailPkLayout kly;
+    private HotTopicDetailSpecialLayout klz;
     private NavigationBar mNavigationBar;
     private TbPageContext<?> mPageContext;
     private h mRefreshView;
@@ -99,26 +99,26 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     public HotTopicDetailView(TbPageContext<?> tbPageContext, a.InterfaceC0751a interfaceC0751a, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.bRl = UtilHelper.getStatusBarHeight();
-        this.klj = false;
+        this.bRp = UtilHelper.getStatusBarHeight();
+        this.klq = false;
         this.Np = "";
-        this.klw = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.1
+        this.klD = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.1
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-                HotTopicDetailView.this.cSx();
+                HotTopicDetailView.this.cSy();
             }
         };
-        this.iuE = false;
-        this.hWf = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.5
+        this.iuK = false;
+        this.hWl = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.5
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
-                if (HotTopicDetailView.this.kll != null) {
-                    HotTopicDetailView.this.kll.setInterceptScrollDown(i == 0);
+                if (HotTopicDetailView.this.kls != null) {
+                    HotTopicDetailView.this.kls.setInterceptScrollDown(i == 0);
                 }
                 HotTopicDetailView.this.Dw(i);
             }
         };
-        this.iuM = new PullRefreshFrameLayout.d() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6
+        this.iuS = new PullRefreshFrameLayout.d() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
             public void t(double d) {
                 HotTopicDetailView.this.x(d);
@@ -126,53 +126,53 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
 
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
             public void c(final int i, double d) {
-                HotTopicDetailView.this.esF = ValueAnimator.ofFloat(0.0f, 1.0f);
-                HotTopicDetailView.this.esF.setDuration(150L);
-                final int height = HotTopicDetailView.this.klm.getHeight();
-                HotTopicDetailView.this.esF.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6.1
+                HotTopicDetailView.this.esJ = ValueAnimator.ofFloat(0.0f, 1.0f);
+                HotTopicDetailView.this.esJ.setDuration(150L);
+                final int height = HotTopicDetailView.this.klt.getHeight();
+                HotTopicDetailView.this.esJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         HotTopicDetailView.this.setHeight((int) (height - (valueAnimator.getAnimatedFraction() * i)));
                     }
                 });
-                HotTopicDetailView.this.esF.start();
+                HotTopicDetailView.this.esJ.start();
             }
 
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
             public void bkE() {
-                final int i = HotTopicDetailView.this.hVf - HotTopicDetailView.this.hVe;
+                final int i = HotTopicDetailView.this.hVl - HotTopicDetailView.this.hVk;
                 if (i > 0) {
-                    HotTopicDetailView.this.esF = ValueAnimator.ofFloat(0.0f, 1.0f);
-                    HotTopicDetailView.this.esF.setDuration(300L);
-                    final int i2 = HotTopicDetailView.this.hVf;
-                    HotTopicDetailView.this.esF.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6.2
+                    HotTopicDetailView.this.esJ = ValueAnimator.ofFloat(0.0f, 1.0f);
+                    HotTopicDetailView.this.esJ.setDuration(300L);
+                    final int i2 = HotTopicDetailView.this.hVl;
+                    HotTopicDetailView.this.esJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.6.2
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            if (HotTopicDetailView.this.klm != null && i2 > 0) {
+                            if (HotTopicDetailView.this.klt != null && i2 > 0) {
                                 HotTopicDetailView.this.setHeight((int) (i2 - (floatValue * i)));
                             }
                         }
                     });
-                    HotTopicDetailView.this.esF.start();
+                    HotTopicDetailView.this.esJ.start();
                 }
             }
         };
-        this.iuO = new Runnable() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.8
+        this.iuU = new Runnable() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.8
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicDetailView.this.iuE) {
-                    HotTopicDetailView.this.ctJ();
+                if (HotTopicDetailView.this.iuK) {
+                    HotTopicDetailView.this.ctK();
                 }
             }
         };
-        this.iuN = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.9
+        this.iuT = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.9
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.c
             public void bkD() {
-                HotTopicDetailView.this.ctI();
+                HotTopicDetailView.this.ctJ();
             }
         };
-        this.jbI = new ClickableSpan() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.10
+        this.jbO = new ClickableSpan() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.10
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -183,14 +183,14 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
                 String str = HotTopicDetailView.this.getResources().getString(R.string.hot_topic_coll) + "  ";
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(HotTopicDetailView.this.jbJ, spannableString.length() - str.length(), spannableString.length(), 33);
-                HotTopicDetailView.this.kln.setText(spannableString);
-                HotTopicDetailView.this.kln.setHeight(HotTopicDetailView.this.jbD * HotTopicDetailView.this.kln.getLineHeight());
-                int lineCount = HotTopicDetailView.this.kln.getLineCount() * HotTopicDetailView.this.kln.getLineHeight();
-                if (lineCount > HotTopicDetailView.this.jbD * HotTopicDetailView.this.kln.getLineHeight()) {
-                    HotTopicDetailView.this.kln.scrollTo(0, lineCount - (HotTopicDetailView.this.jbD * HotTopicDetailView.this.kln.getLineHeight()));
+                spannableString.setSpan(HotTopicDetailView.this.jbP, spannableString.length() - str.length(), spannableString.length(), 33);
+                HotTopicDetailView.this.klu.setText(spannableString);
+                HotTopicDetailView.this.klu.setHeight(HotTopicDetailView.this.jbJ * HotTopicDetailView.this.klu.getLineHeight());
+                int lineCount = HotTopicDetailView.this.klu.getLineCount() * HotTopicDetailView.this.klu.getLineHeight();
+                if (lineCount > HotTopicDetailView.this.jbJ * HotTopicDetailView.this.klu.getLineHeight()) {
+                    HotTopicDetailView.this.klu.scrollTo(0, lineCount - (HotTopicDetailView.this.jbJ * HotTopicDetailView.this.klu.getLineHeight()));
                 }
-                HotTopicDetailView.this.kln.requestLayout();
+                HotTopicDetailView.this.klu.requestLayout();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -198,11 +198,11 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
                 textPaint.setColor(HotTopicDetailView.this.getResources().getColor(R.color.cp_link_tip_c));
             }
         };
-        this.jbJ = new ClickableSpan() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.2
+        this.jbP = new ClickableSpan() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.2
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
-                HotTopicDetailView.this.kln.setText(HotTopicDetailView.this.Np);
-                HotTopicDetailView.this.cAs();
+                HotTopicDetailView.this.klu.setText(HotTopicDetailView.this.Np);
+                HotTopicDetailView.this.cAt();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -211,19 +211,19 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
             }
         };
         this.mPageContext = tbPageContext;
-        this.klh = interfaceC0751a;
+        this.klo = interfaceC0751a;
         init(bundle);
         onChangeSkinType();
     }
 
     private void init(Bundle bundle) {
         LayoutInflater.from(getContext()).inflate(R.layout.activity_hot_topic_detail_layout, (ViewGroup) this, true);
-        this.kli = findViewById(R.id.topBgView);
-        this.kli.setAlpha(0.0f);
+        this.klp = findViewById(R.id.topBgView);
+        this.klp.setAlpha(0.0f);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.viewNavigationBar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.getCenterText().setAlpha(0.0f);
-        this.iTP = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.3
+        this.iTV = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!j.isNetWorkAvailable()) {
@@ -231,60 +231,60 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                if (ShareSwitch.isOn() || bg.checkUpIsLogin(HotTopicDetailView.this.iTP.getContext())) {
-                    HotTopicDetailView.this.klh.e(HotTopicDetailView.this.klx);
+                if (ShareSwitch.isOn() || bg.checkUpIsLogin(HotTopicDetailView.this.iTV.getContext())) {
+                    HotTopicDetailView.this.klo.e(HotTopicDetailView.this.klE);
                 }
             }
         });
-        this.iTP.setVisibility(4);
+        this.iTV.setVisibility(4);
         View findViewById = findViewById(R.id.statusBarViewHolder);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
-        layoutParams.height = this.bRl;
+        layoutParams.height = this.bRp;
         findViewById.setLayoutParams(layoutParams);
-        this.klk = (ViewGroup) findViewById(R.id.contentRootLayout);
-        this.kll = (PullRefreshFrameLayout) findViewById(R.id.contentLayout);
-        this.kll.setOnTouchCallback(this.iuM);
-        this.kll.setOnPullRefreshListener(this.iuN);
-        this.kll.setFromFrs();
-        this.kll.bkB();
-        this.klm = (HotTopicDetailHeadView) findViewById(R.id.hotTopicDetailHeadView);
-        this.hVe = l.getDimens(getContext(), R.dimen.tbds600);
-        this.hVf = this.hVe;
-        this.klq = findViewById(R.id.headerContainerLayout);
+        this.klr = (ViewGroup) findViewById(R.id.contentRootLayout);
+        this.kls = (PullRefreshFrameLayout) findViewById(R.id.contentLayout);
+        this.kls.setOnTouchCallback(this.iuS);
+        this.kls.setOnPullRefreshListener(this.iuT);
+        this.kls.setFromFrs();
+        this.kls.bkB();
+        this.klt = (HotTopicDetailHeadView) findViewById(R.id.hotTopicDetailHeadView);
+        this.hVk = l.getDimens(getContext(), R.dimen.tbds600);
+        this.hVl = this.hVk;
+        this.klx = findViewById(R.id.headerContainerLayout);
         this.mNavigationBar.post(new Runnable() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.4
             @Override // java.lang.Runnable
             public void run() {
-                HotTopicDetailView.this.klq.setMinimumHeight(HotTopicDetailView.this.mNavigationBar.getHeight() + HotTopicDetailView.this.bRl);
+                HotTopicDetailView.this.klx.setMinimumHeight(HotTopicDetailView.this.mNavigationBar.getHeight() + HotTopicDetailView.this.bRp);
             }
         });
-        this.kln = (TextView) findViewById(R.id.hotTopicInfoAbstract);
-        this.klr = (HotTopicDetailPkLayout) findViewById(R.id.hotTopicDetailPkView);
-        this.kls = (HotTopicDetailSpecialLayout) findViewById(R.id.hotTopicDetailSpecialLayout);
-        this.kls.x(this.mPageContext);
-        this.klo = findViewById(R.id.contentContainer);
-        this.klp = (AppBarLayout) findViewById(R.id.appBarLayout);
-        this.klp.addOnOffsetChangedListener(this.hWf);
-        this.klt = (CustomViewPager) findViewById(R.id.hotTopicViewPager);
-        this.klu = new HotTopicDetailPagerAdapter(getContext());
-        this.klu.setScrollListener(this.klw);
-        this.klt.setAdapter(this.klu);
-        this.hwR = (TbTabLayout) findViewById(R.id.tabLayout);
-        this.hwR.setSelectedTabTextBlod(true);
-        this.hwR.setTabTextSize(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds46));
-        this.hwR.setSelectedTabIndicatorColor(ap.getColor(R.color.cp_link_tip_a));
-        this.hwR.setupWithViewPager(this.klt);
-        this.klv = findViewById(R.id.dividerShadow);
-        this.jbV = new c((OvalActionButton) findViewById(R.id.topic_post_forum_button), this.mPageContext);
+        this.klu = (TextView) findViewById(R.id.hotTopicInfoAbstract);
+        this.kly = (HotTopicDetailPkLayout) findViewById(R.id.hotTopicDetailPkView);
+        this.klz = (HotTopicDetailSpecialLayout) findViewById(R.id.hotTopicDetailSpecialLayout);
+        this.klz.x(this.mPageContext);
+        this.klv = findViewById(R.id.contentContainer);
+        this.klw = (AppBarLayout) findViewById(R.id.appBarLayout);
+        this.klw.addOnOffsetChangedListener(this.hWl);
+        this.klA = (CustomViewPager) findViewById(R.id.hotTopicViewPager);
+        this.klB = new HotTopicDetailPagerAdapter(getContext());
+        this.klB.setScrollListener(this.klD);
+        this.klA.setAdapter(this.klB);
+        this.hwX = (TbTabLayout) findViewById(R.id.tabLayout);
+        this.hwX.setSelectedTabTextBlod(true);
+        this.hwX.setTabTextSize(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds46));
+        this.hwX.setSelectedTabIndicatorColor(ap.getColor(R.color.cp_link_tip_a));
+        this.hwX.setupWithViewPager(this.klA);
+        this.klC = findViewById(R.id.dividerShadow);
+        this.jcb = new c((OvalActionButton) findViewById(R.id.topic_post_forum_button), this.mPageContext);
     }
 
     protected void x(double d) {
-        if (this.klm != null) {
-            int i = (int) (this.hVe + (PullRefreshFrameLayout.esm * d));
-            ViewGroup.LayoutParams layoutParams = this.klm.getLayoutParams();
+        if (this.klt != null) {
+            int i = (int) (this.hVk + (PullRefreshFrameLayout.esq * d));
+            ViewGroup.LayoutParams layoutParams = this.klt.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.hVf = layoutParams.height;
-                this.klm.setLayoutParams(layoutParams);
+                this.hVl = layoutParams.height;
+                this.klt.setLayoutParams(layoutParams);
             }
         }
     }
@@ -292,218 +292,218 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     /* JADX INFO: Access modifiers changed from: private */
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.klm != null && (layoutParams = this.klm.getLayoutParams()) != null) {
+        if (this.klt != null && (layoutParams = this.klt.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.hVf = i;
-            this.klm.setLayoutParams(layoutParams);
+            this.hVl = i;
+            this.klt.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Dw(int i) {
-        int i2 = klg + i;
+        int i2 = kln + i;
         if (i2 < 0) {
             i2 = 0;
         }
-        float f = 1.0f - ((i2 * 1.0f) / klg);
-        this.kli.setAlpha(f);
+        float f = 1.0f - ((i2 * 1.0f) / kln);
+        this.klp.setAlpha(f);
         this.mNavigationBar.getCenterText().setAlpha(f);
-        cSx();
+        cSy();
         if (f > 0.1d) {
             ar.setStatusBarDarkIcon(this.mPageContext.getPageActivity().getWindow(), true);
         } else {
             ar.setStatusBarDarkIcon(this.mPageContext.getPageActivity().getWindow(), false);
         }
-        if ((f > 0.3d && this.mSkinType == 0) || this.klx == null) {
+        if ((f > 0.3d && this.mSkinType == 0) || this.klE == null) {
             SvgManager.bjq().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bjq().a(this.iTP, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bjq().a(this.iTV, R.drawable.icon_pure_topbar_share44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             return;
         }
         SvgManager.bjq().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.bjq().a(this.iTP, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bjq().a(this.iTV, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSx() {
-        if (this.bRl + this.mNavigationBar.getHeight() >= this.klo.getY()) {
-            ap.setBackgroundColor(this.hwR, R.color.cp_bg_line_h);
+    public void cSy() {
+        if (this.bRp + this.mNavigationBar.getHeight() >= this.klv.getY()) {
+            ap.setBackgroundColor(this.hwX, R.color.cp_bg_line_h);
             if (this.mSkinType == 0) {
-                this.klv.setVisibility(0);
+                this.klC.setVisibility(0);
                 return;
             }
             return;
         }
-        ap.setBackgroundColor(this.hwR, R.color.transparent);
-        this.klv.setVisibility(8);
+        ap.setBackgroundColor(this.hwX, R.color.transparent);
+        this.klC.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctJ() {
-        this.iuE = false;
-        if (this.kll != null) {
-            this.kll.bkA();
+    public void ctK() {
+        this.iuK = false;
+        if (this.kls != null) {
+            this.kls.bkA();
         }
-    }
-
-    @Override // com.baidu.tieba.newdetail.a.b
-    public void cSq() {
-        if (this.fMN == null) {
-            this.fMN = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
-        }
-        this.fMN.attachView(this.klk, false);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void cSr() {
-        if (this.fMN != null) {
-            this.fMN.dettachView(this.klk);
+        if (this.fMR == null) {
+            this.fMR = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+        }
+        this.fMR.attachView(this.klr, false);
+    }
+
+    @Override // com.baidu.tieba.newdetail.a.b
+    public void cSs() {
+        if (this.fMR != null) {
+            this.fMR.dettachView(this.klr);
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void bGd() {
-        if (this.iuE) {
-            ctJ();
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iuO);
+    public void bGe() {
+        if (this.iuK) {
+            ctK();
+            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iuU);
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void si(boolean z) {
+    public void sk(boolean z) {
         if (this.mRefreshView == null || !this.mRefreshView.isViewAttached()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.HotTopicDetailView.7
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && HotTopicDetailView.this.klh != null) {
-                            HotTopicDetailView.this.klh.Dn(1);
+                        if (j.isNetworkAvailableForImmediately() && HotTopicDetailView.this.klo != null) {
+                            HotTopicDetailView.this.klo.Dn(1);
                         }
                     }
                 });
             }
             this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds360));
-            this.mRefreshView.attachView(this.klk, false);
+            this.mRefreshView.attachView(this.klr, false);
             this.mRefreshView.showRefreshButton();
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cSs() {
+    public void cSt() {
         if (this.mRefreshView != null) {
-            this.mRefreshView.dettachView(this.klk);
+            this.mRefreshView.dettachView(this.klr);
             this.mRefreshView = null;
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void Dq(int i) {
-        this.klu.Dq(i);
+        this.klB.Dq(i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void Dr(int i) {
-        this.klu.Dr(i);
+        this.klB.Dr(i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void C(boolean z, int i) {
-        this.klu.C(z, i);
+        this.klB.C(z, i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void Ds(int i) {
-        this.klu.Ds(i);
+        this.klB.Ds(i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void f(@NonNull e eVar) {
-        this.klx = eVar;
-        if (this.klx.czY() != null) {
-            this.jbV.setTopicId(this.klx.czY().eoj);
-            this.jbV.BZ(this.klx.czY().eab);
+        this.klE = eVar;
+        if (this.klE.czZ() != null) {
+            this.jcb.setTopicId(this.klE.czZ().eon);
+            this.jcb.Ca(this.klE.czZ().eaf);
         }
         h(eVar);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void a(d dVar, boolean z, int i) {
-        if (this.klx != null) {
-            this.klu.c(this.klx.cAe());
+        if (this.klE != null) {
+            this.klB.c(this.klE.cAf());
         }
-        this.klu.a(dVar, z, i);
+        this.klB.a(dVar, z, i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public e cSt() {
-        return this.klx;
+    public e cSu() {
+        return this.klE;
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public d Dt(int i) {
-        return this.klu.Dt(i);
+        return this.klB.Dt(i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public int cSu() {
-        return this.klu.cSu();
+    public int cSv() {
+        return this.klB.cSv();
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
-    public void cSv() {
-        this.klu.cSv();
+    public void cSw() {
+        this.klB.cSw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctI() {
-        com.baidu.adp.lib.f.e.mS().postDelayed(this.iuO, 5000L);
-        this.iuE = true;
-        this.klh.Dn(cSu());
+    public void ctJ() {
+        com.baidu.adp.lib.f.e.mS().postDelayed(this.iuU, 5000L);
+        this.iuK = true;
+        this.klo.Dn(cSv());
     }
 
-    private void buO() {
-        if (!this.klj) {
-            this.klj = true;
-            this.iTP.setVisibility(0);
+    private void buP() {
+        if (!this.klq) {
+            this.klq = true;
+            this.iTV.setVisibility(0);
             SvgManager.bjq().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.icon_pure_topbar_return44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bjq().a(this.iTP, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bjq().a(this.iTV, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ap.setNavbarTitleColor(this.mNavigationBar.getCenterText(), R.color.cp_cont_b, R.color.s_navbar_title_color);
-            if (this.klh instanceof Activity) {
-                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) this.klh);
+            if (this.klo instanceof Activity) {
+                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) this.klo);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAs() {
+    public void cAt() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) this.Np);
         String string = getResources().getString(R.string.hot_topic_detail);
-        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.kln.getLayout().getLineEnd(1) - string.length()) - ("...  ".length() / 2));
+        SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.klu.getLayout().getLineEnd(1) - string.length()) - ("...  ".length() / 2));
         spannableStringBuilder2.append((CharSequence) "...  ");
         int length = spannableStringBuilder2.length();
         spannableStringBuilder2.append((CharSequence) string);
         SpannableString spannableString = new SpannableString(spannableStringBuilder2);
-        spannableString.setSpan(this.jbI, length - 1, spannableString.length(), 33);
-        this.kln.setText(spannableString);
-        this.kln.setHeight(this.kln.getLineHeight() * 2);
-        this.kln.scrollTo(0, 0);
-        this.kln.requestLayout();
+        spannableString.setSpan(this.jbO, length - 1, spannableString.length(), 33);
+        this.klu.setText(spannableString);
+        this.klu.setHeight(this.klu.getLineHeight() * 2);
+        this.klu.scrollTo(0, 0);
+        this.klu.requestLayout();
     }
 
     private void h(@NonNull e eVar) {
-        buO();
-        this.klm.setTopicInfo(eVar.czY());
-        a(eVar.czY());
+        buP();
+        this.klt.setTopicInfo(eVar.czZ());
+        a(eVar.czZ());
         g(eVar);
-        List<q> cAg = eVar.cAg();
-        if (y.isEmpty(cAg)) {
-            this.kls.setVisibility(8);
+        List<q> cAh = eVar.cAh();
+        if (y.isEmpty(cAh)) {
+            this.klz.setVisibility(8);
         } else {
-            this.kls.setData(cAg);
-            this.kls.setVisibility(0);
+            this.klz.setData(cAh);
+            this.klz.setVisibility(0);
         }
-        if (eVar.czY() != null) {
-            String str = eVar.czY().eab;
+        if (eVar.czZ() != null) {
+            String str = eVar.czZ().eaf;
             if (ae.getTextLengthWithEmoji(str) > 15) {
                 str = ae.subStringWithEmoji(str, 15) + StringHelper.STRING_MORE;
             }
@@ -512,10 +512,10 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     }
 
     private void a(f fVar) {
-        if (StringUtils.isNull(fVar.iZm)) {
-            this.kln.setVisibility(8);
+        if (StringUtils.isNull(fVar.iZs)) {
+            this.klu.setVisibility(8);
         } else {
-            this.kln.setText(fVar.iZm);
+            this.klu.setText(fVar.iZs);
         }
     }
 
@@ -523,27 +523,27 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            this.klm.onChangeSkinType(skinType);
-            ap.setViewTextColor(this.kln, R.color.cp_cont_b, 1);
-            ap.setBackgroundColor(this.klq, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.kli, R.color.cp_bg_line_h);
+            this.klt.onChangeSkinType(skinType);
+            ap.setViewTextColor(this.klu, R.color.cp_cont_b, 1);
+            ap.setBackgroundColor(this.klx, R.color.cp_bg_line_d);
+            ap.setBackgroundColor(this.klp, R.color.cp_bg_line_h);
             ap.setNavbarTitleColor(this.mNavigationBar.getCenterText(), R.color.cp_cont_b, R.color.s_navbar_title_color);
-            this.klr.onChangeSkinType(skinType);
-            this.hwR.setTabTextColors(ap.getColor(R.color.cp_cont_j), ap.getColor(R.color.cp_cont_b));
-            this.kls.onChangeSkinType(skinType);
-            this.klu.onChangeSkinType(skinType);
+            this.kly.onChangeSkinType(skinType);
+            this.hwX.setTabTextColors(ap.getColor(R.color.cp_cont_j), ap.getColor(R.color.cp_cont_b));
+            this.klz.onChangeSkinType(skinType);
+            this.klB.onChangeSkinType(skinType);
             this.mSkinType = skinType;
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void d(long j, long j2, int i) {
-        this.klr.d(j, j2, i);
+        this.kly.d(j, j2, i);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void F(long j, long j2) {
-        this.klm.G(j, j2);
+        this.klt.G(j, j2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -554,56 +554,56 @@ public class HotTopicDetailView extends RelativeLayout implements a.b {
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void resume() {
-        if (this.klu != null) {
-            this.klu.resume();
+        if (this.klB != null) {
+            this.klB.resume();
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void pause() {
-        if (this.klu != null) {
-            this.klu.pause();
+        if (this.klB != null) {
+            this.klB.pause();
         }
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void destroy() {
-        cSr();
         cSs();
-        if (this.klu != null) {
-            this.klu.destroy();
+        cSt();
+        if (this.klB != null) {
+            this.klB.destroy();
         }
-        if (this.iuE) {
-            ctJ();
+        if (this.iuK) {
+            ctK();
         }
-        if (this.esF != null) {
-            this.esF.cancel();
-            this.esF.removeAllListeners();
-            this.esF.removeAllUpdateListeners();
-            this.esF = null;
+        if (this.esJ != null) {
+            this.esJ.cancel();
+            this.esJ.removeAllListeners();
+            this.esJ.removeAllUpdateListeners();
+            this.esJ = null;
         }
-        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iuO);
+        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iuU);
     }
 
     @Override // com.baidu.tieba.newdetail.a.b
     public void g(e eVar) {
         com.baidu.tieba.hottopic.data.a aVar = null;
-        if (eVar.cAa() != null) {
-            aVar = eVar.cAa();
-            aVar.iYN = 3;
-        } else if (eVar.cAb() != null) {
+        if (eVar.cAb() != null) {
             aVar = eVar.cAb();
-            aVar.iYN = 2;
+            aVar.iYT = 3;
         } else if (eVar.cAc() != null) {
             aVar = eVar.cAc();
-            aVar.iYN = 1;
+            aVar.iYT = 2;
+        } else if (eVar.cAd() != null) {
+            aVar = eVar.cAd();
+            aVar.iYT = 1;
         }
-        this.klm.setBlessInfo(aVar);
-        if (eVar.czZ() == null) {
-            this.klr.setVisibility(8);
+        this.klt.setBlessInfo(aVar);
+        if (eVar.cAa() == null) {
+            this.kly.setVisibility(8);
             return;
         }
-        this.klr.setVisibility(0);
-        this.klr.a(eVar.czZ());
+        this.kly.setVisibility(0);
+        this.kly.a(eVar.cAa());
     }
 }

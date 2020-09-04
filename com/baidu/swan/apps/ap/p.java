@@ -10,11 +10,11 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 /* loaded from: classes8.dex */
 public final class p {
-    private static volatile b daY;
-    private static volatile b daZ;
-    private static volatile b dba;
+    private static volatile b dbc;
+    private static volatile b dbd;
+    private static volatile b dbe;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final rx.functions.b dbb = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.ap.p.1
+    private static final rx.functions.b dbf = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.ap.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -51,53 +51,53 @@ public final class p {
     }
 
     public static a aEM() {
-        if (daY == null) {
+        if (dbc == null) {
             synchronized (p.class) {
-                if (daY == null) {
-                    daY = new b(PublishSubject.eli());
-                    daY.ejL().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
+                if (dbc == null) {
+                    dbc = new b(PublishSubject.elr());
+                    dbc.ejU().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bX(pair).e(Schedulers.io()).e(p.dbb).ejO();
+                            return rx.h.bX(pair).e(Schedulers.io()).e(p.dbf).ejX();
                         }
-                    }).ejN().ejC();
+                    }).ejW().ejL();
                 }
             }
         }
-        return daY;
+        return dbc;
     }
 
     public static a aEN() {
-        if (daZ == null) {
+        if (dbd == null) {
             synchronized (p.class) {
-                if (daZ == null) {
-                    daZ = new b(PublishSubject.eli());
-                    daZ.ejL().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
+                if (dbd == null) {
+                    dbd = new b(PublishSubject.elr());
+                    dbd.ejU().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bX(pair).e(Schedulers.computation()).e(p.dbb).ejO();
+                            return rx.h.bX(pair).e(Schedulers.computation()).e(p.dbf).ejX();
                         }
-                    }).ejN().ejC();
+                    }).ejW().ejL();
                 }
             }
         }
-        return daZ;
+        return dbd;
     }
 
     public static a aEO() {
-        if (dba == null) {
+        if (dbe == null) {
             synchronized (p.class) {
-                if (dba == null) {
-                    dba = new b(PublishSubject.eli());
-                    dba.ejL().c(Schedulers.io()).b(dbb).ejN().ejC();
+                if (dbe == null) {
+                    dbe = new b(PublishSubject.elr());
+                    dbe.ejU().c(Schedulers.io()).b(dbf).ejW().ejL();
                 }
             }
         }
-        return dba;
+        return dbe;
     }
 
     public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
@@ -128,7 +128,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).ejC();
+        }).ejL();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -147,7 +147,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).ejC();
+        }).ejL();
     }
 
     public static String getStandardThreadName(String str) {
@@ -198,6 +198,6 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task fail", th);
                 }
             }
-        }).ejC();
+        }).ejL();
     }
 }

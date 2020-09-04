@@ -19,14 +19,14 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private int eOH;
-    private a ePd;
-    private e ePe;
-    public boolean ePf;
+    private int eOL;
+    private a ePh;
+    private e ePi;
+    public boolean ePj;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -36,7 +36,7 @@ public class f {
     private String groupId = "1";
     private aa mNetwork = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onImageDataSentInBackground(String str, Object obj, long j, long j2);
     }
@@ -46,7 +46,7 @@ public class f {
     }
 
     public void qq(int i) {
-        this.eOH = i;
+        this.eOL = i;
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
@@ -57,7 +57,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.ePd = aVar;
+        this.ePh = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -90,7 +90,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.ePf;
+                        uploadedPicInfo.isBJH = this.ePj;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -132,10 +132,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.ePe == null) {
-            this.ePe = new e();
+        if (this.ePi == null) {
+            this.ePi = new e();
         }
-        return f(this.ePe.c(imageFileInfo, z), z, z2);
+        return f(this.ePi.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -343,7 +343,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.ePf) {
+                                            if (this.ePj) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -366,8 +366,8 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("saveOrigin", "0");
                                             }
-                                            if (this.eOH != 0) {
-                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.eOH));
+                                            if (this.eOL != 0) {
+                                                this.mNetwork.addPostData("pic_water_type", String.valueOf(this.eOL));
                                             }
                                             if (z2) {
                                                 int imageWaterType = k.bbM().getImageWaterType();
@@ -400,8 +400,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.ePd != null) {
-                                                        this.ePd.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.ePh != null) {
+                                                        this.ePh.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

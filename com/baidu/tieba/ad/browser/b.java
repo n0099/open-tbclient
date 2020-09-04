@@ -15,10 +15,10 @@ import com.baidu.adp.lib.f.g;
 /* loaded from: classes15.dex */
 class b extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
-    private AdTbWebViewActivity fof;
+    private AdTbWebViewActivity foj;
 
     public b(AdTbWebViewActivity adTbWebViewActivity) {
-        this.fof = adTbWebViewActivity;
+        this.foj = adTbWebViewActivity;
     }
 
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
@@ -33,38 +33,38 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.fof.getPageContext().getPageActivity());
+        FrameLayout frameLayout = new FrameLayout(this.foj.getPageContext().getPageActivity());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }
 
     public void openFileChooser(ValueCallback<Uri> valueCallback) {
-        this.fof.setUploadMessage(valueCallback);
+        this.foj.setUploadMessage(valueCallback);
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        this.fof.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+        this.foj.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
     }
 
     public void openFileChooser(ValueCallback valueCallback, String str) {
-        this.fof.setUploadMessage(valueCallback);
+        this.foj.setUploadMessage(valueCallback);
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("*/*");
-        this.fof.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
+        this.foj.startActivityForResult(Intent.createChooser(intent, "File Browser"), 1);
     }
 
     public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
-        this.fof.setUploadMessage(valueCallback);
+        this.foj.setUploadMessage(valueCallback);
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        this.fof.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+        this.foj.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fof == null || !g.a(this.fof.getPageContext())) {
+        if (this.foj == null || !g.a(this.foj.getPageContext())) {
             return true;
         }
         return super.onJsAlert(webView, str, str2, jsResult);
@@ -72,7 +72,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fof == null || !g.a(this.fof.getPageContext())) {
+        if (this.foj == null || !g.a(this.foj.getPageContext())) {
             return true;
         }
         return super.onJsBeforeUnload(webView, str, str2, jsResult);
@@ -80,7 +80,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.fof == null || !g.a(this.fof.getPageContext())) {
+        if (this.foj == null || !g.a(this.foj.getPageContext())) {
             return true;
         }
         return super.onJsConfirm(webView, str, str2, jsResult);
@@ -88,7 +88,7 @@ class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.fof != null && g.a(this.fof.getPageContext())) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.foj != null && g.a(this.foj.getPageContext())) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

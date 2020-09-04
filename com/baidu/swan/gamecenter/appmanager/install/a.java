@@ -17,7 +17,7 @@ import java.util.List;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean uq(String str) {
+    public static boolean ur(String str) {
         return ad(str, false);
     }
 
@@ -153,7 +153,7 @@ public class a {
         return true;
     }
 
-    public static void gw(boolean z) {
+    public static void gx(boolean z) {
         h.aDf().edit().putBoolean("install_guide_switch_key", z).apply();
     }
 
@@ -177,7 +177,7 @@ public class a {
         return h.aDf().getLong("install_continue_guide_time_key", 0L);
     }
 
-    public static boolean ur(String str) {
+    public static boolean us(String str) {
         return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aKw() : aKy()) / 86400000) > 0;
     }
 
@@ -185,8 +185,8 @@ public class a {
         return (Build.VERSION.SDK_INT < 26 || AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) ? "continue" : "authorize";
     }
 
-    public static boolean us(String str) {
-        return aKu() && ur(str) && aKz() < aKB();
+    public static boolean ut(String str) {
+        return aKu() && us(str) && aKz() < aKB();
     }
 
     public static int aKz() {

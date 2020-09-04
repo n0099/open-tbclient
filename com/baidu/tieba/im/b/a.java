@@ -14,23 +14,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes20.dex */
 public class a {
-    private static a jzi = new a();
-    private HashSet<String> jzj = new HashSet<>();
-    private StringBuilder jzk = new StringBuilder();
+    private static a jzo = new a();
+    private HashSet<String> jzp = new HashSet<>();
+    private StringBuilder jzq = new StringBuilder();
 
     private a() {
     }
 
-    public static a cIm() {
-        return jzi;
+    public static a cIn() {
+        return jzo;
     }
 
-    public void cIn() {
+    public void cIo() {
         String str;
         String str2 = null;
-        if (this.jzj != null) {
+        if (this.jzp != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.jzj.iterator();
+            Iterator<String> it = this.jzp.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -41,44 +41,44 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.jzk != null && this.jzk.length() > 0) {
-                        this.jzk.deleteCharAt(this.jzk.length() - 1);
-                        str2 = this.jzk.toString();
+                    if (this.jzq != null && this.jzq.length() > 0) {
+                        this.jzq.deleteCharAt(this.jzq.length() - 1);
+                        str2 = this.jzq.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.jzk != null) {
-            this.jzk.deleteCharAt(this.jzk.length() - 1);
-            str2 = this.jzk.toString();
+        if (this.jzq != null) {
+            this.jzq.deleteCharAt(this.jzq.length() - 1);
+            str2 = this.jzq.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cIo() {
-        if (this.jzk != null && this.jzk.length() > 0) {
-            this.jzk.delete(0, this.jzk.length());
+    public void cIp() {
+        if (this.jzq != null && this.jzq.length() > 0) {
+            this.jzq.delete(0, this.jzq.length());
         }
-        if (this.jzj != null) {
-            this.jzj.clear();
+        if (this.jzp != null) {
+            this.jzp.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d Lf;
+        d Lg;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Lf = e.Lf(chatMessage.getContent())) != null && !TextUtils.isEmpty(Lf.taskId) && this.jzj.add(Lf.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Lf.jlT, "task_id", Lf.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Lg = e.Lg(chatMessage.getContent())) != null && !TextUtils.isEmpty(Lg.taskId) && this.jzp.add(Lg.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Lg.jlZ, "task_id", Lg.taskId);
             }
         }
     }
 
-    public void La(String str) {
+    public void Lb(String str) {
         if (str != null && str.length() > 0) {
-            this.jzk.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.jzq.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 }

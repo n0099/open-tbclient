@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PersonBarActivityConfig extends IntentConfig {
     public static final String BAR_ID = "bar_id";
     public static final String BAR_NAME = "bar_name";

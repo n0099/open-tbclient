@@ -24,7 +24,7 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f778a, this.b);
+            jo joVar = new jo(jsVar, this.f777a, this.b);
             if (this.a != 0) {
                 joVar.b(this.a);
             }

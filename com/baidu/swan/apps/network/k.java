@@ -9,8 +9,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes8.dex */
 public final class k {
-    public static final a cES = new a(null);
-    private volatile Set<String> cER;
+    public static final a cEW = new a(null);
+    private volatile Set<String> cEV;
 
     @kotlin.h
     /* loaded from: classes8.dex */
@@ -25,25 +25,25 @@ public final class k {
 
     public final synchronized void a(WebSocketTask webSocketTask) {
         q.m(webSocketTask, "task");
-        if (this.cER == null) {
-            this.cER = new LinkedHashSet();
+        if (this.cEV == null) {
+            this.cEV = new LinkedHashSet();
         }
-        Set<String> set = this.cER;
+        Set<String> set = this.cEV;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void oM(String str) {
+    public final synchronized void oN(String str) {
         q.m(str, "taskId");
-        Set<String> set = this.cER;
+        Set<String> set = this.cEV;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.cER;
+        Set<String> set = this.cEV;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -53,7 +53,7 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.cER;
+        Set<String> set2 = this.cEV;
         if (set2 != null) {
             set2.clear();
         }
@@ -62,7 +62,7 @@ public final class k {
     public final synchronized boolean auV() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.cER;
+            Set<String> set = this.cEV;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

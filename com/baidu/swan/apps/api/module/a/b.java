@@ -43,7 +43,7 @@ public class b extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b iR(String str) {
+    public com.baidu.swan.apps.api.c.b iS(String str) {
         if (DEBUG) {
             Log.d("Api-Login", "start login");
         }
@@ -53,18 +53,18 @@ public class b extends d {
             com.baidu.swan.games.v.c.e(abH, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty swanApp");
         }
-        JSONObject iP = iP(str);
-        if (iP == null) {
+        JSONObject iQ = iQ(str);
+        if (iQ == null) {
             com.baidu.swan.games.v.c.e(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
             a(azJ, 1, 201, "empty joParams");
             return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
         }
-        String optString = iP.optString("cb");
+        String optString = iQ.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.games.v.c.e(abH, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             a(azJ, 1, 201, "empty cb");
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
-        } else if (!iP.optBoolean("force", true) && !azJ.azV().isLogin(getContext())) {
+        } else if (!iQ.optBoolean("force", true) && !azJ.azV().isLogin(getContext())) {
             abH.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             com.baidu.swan.games.v.c.e(abH, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
             a(azJ, 43, 10004, "user not logged in");
@@ -74,7 +74,7 @@ public class b extends d {
             if (!(context instanceof Activity) && (context = azJ.azC()) == null) {
                 return new com.baidu.swan.apps.api.c.b(1001, "the context is not an activity");
             }
-            a(azJ, (Activity) context, iP, abH, optString);
+            a(azJ, (Activity) context, iQ, abH, optString);
             return new com.baidu.swan.apps.api.c.b(0);
         }
     }
@@ -115,7 +115,7 @@ public class b extends d {
         if (azC == null) {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, "the activity is null").toString());
         } else {
-            com.baidu.swan.apps.setting.b.a.a(azC, "snsapi_userinfo", com.baidu.swan.apps.ac.g.b.pB(str), false, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.api.module.a.b.2
+            com.baidu.swan.apps.setting.b.a.a(azC, "snsapi_userinfo", com.baidu.swan.apps.ac.g.b.pC(str), false, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.api.module.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
@@ -148,26 +148,26 @@ public class b extends d {
 
     /* loaded from: classes8.dex */
     public static class a {
-        public final boolean bVb;
-        public final long bVc;
+        public final boolean bVf;
+        public final long bVg;
 
         public a(@NonNull JSONObject jSONObject) {
-            this.bVb = jSONObject.has("timeout");
-            this.bVc = jSONObject.optLong("timeout", 0L);
-            if (this.bVc < 0) {
+            this.bVf = jSONObject.has("timeout");
+            this.bVg = jSONObject.optLong("timeout", 0L);
+            if (this.bVg < 0) {
                 c.w("Api-Login", "timeout is a minus：" + toString());
             }
         }
 
         public String toString() {
-            return "LoginTimeoutConfig{enableTimeout=" + this.bVb + ", timeoutMills=" + this.bVc + '}';
+            return "LoginTimeoutConfig{enableTimeout=" + this.bVf + ", timeoutMills=" + this.bVg + '}';
         }
     }
 
     public static void a(e eVar, int i, int i2, String str) {
         int XP;
         if (eVar != null && (XP = eVar.XP()) == 0) {
-            com.baidu.swan.apps.statistic.a.d rv = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().bO(5L).bP(i)).a(eVar.XZ()).ru(com.baidu.swan.apps.statistic.h.jv(XP)).rv(e.azK());
+            com.baidu.swan.apps.statistic.a.d rw = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().bO(5L).bP(i)).a(eVar.XZ()).rv(com.baidu.swan.apps.statistic.h.jv(XP)).rw(e.azK());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(TiebaInitialize.LogFields.ERROR_CODE, i2);
@@ -177,8 +177,8 @@ public class b extends d {
                     e.printStackTrace();
                 }
             }
-            rv.bN(jSONObject);
-            com.baidu.swan.apps.statistic.h.b(rv);
+            rw.bN(jSONObject);
+            com.baidu.swan.apps.statistic.h.b(rw);
         }
     }
 }

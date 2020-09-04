@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class w extends com.baidu.adp.widget.ListView.a<x, a> {
     private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.k.g>> WD;
     private int WE;
@@ -63,7 +63,7 @@ public class w extends com.baidu.adp.widget.ListView.a<x, a> {
         return view;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a extends af.a {
         public com.baidu.tbadk.k.g WG;
 

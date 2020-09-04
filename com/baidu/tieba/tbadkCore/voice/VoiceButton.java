@@ -9,18 +9,18 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.lib.voice.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    f miE;
-    private boolean miF;
+    f miT;
+    private boolean miU;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.miF = false;
+        this.miU = false;
     }
 
     public void setRecorderView(f fVar) {
-        this.miE = fVar;
+        this.miT = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.a(fVar);
@@ -34,10 +34,10 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.sp()) {
                 return false;
             }
-            this.miF = recorderManager.a(this.miE, -1);
+            this.miU = recorderManager.a(this.miT, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.miF && recorderManager != null) {
+            if (this.miU && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);

@@ -6,19 +6,19 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
-    private static final b eha = new a();
-    private static final b ehb = new c();
-    private static final boolean ehc;
+    private static final b ehe = new a();
+    private static final b ehf = new c();
+    private static final boolean ehg;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void Z(String str, String str2, String str3);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static final class a implements b {
         private a() {
         }
@@ -32,7 +32,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static final class c implements b {
         private c() {
         }
@@ -50,15 +50,15 @@ public class e {
     }
 
     public static void Z(String str, String str2, String str3) {
-        if (ehc) {
-            eha.Z(str, str2, str3);
+        if (ehg) {
+            ehe.Z(str, str2, str3);
         }
-        ehb.Z(str, str2, str3);
+        ehf.Z(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (ehc) {
-            eha.Z(null, null, str);
+        if (ehg) {
+            ehe.Z(null, null, str);
         }
     }
 
@@ -67,6 +67,6 @@ public class e {
     }
 
     static {
-        ehc = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        ehg = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

@@ -7,34 +7,34 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    private View erM;
-    private View erN;
-    float erO;
-    private Rect erP;
-    private boolean erQ;
-    private a erR;
-    private boolean erS;
+    private View erQ;
+    private View erR;
+    float erS;
+    private Rect erT;
+    private boolean erU;
+    private a erV;
+    private boolean erW;
     float startY;
     int touchSlop;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void E(MotionEvent motionEvent);
     }
 
     public void setDispathEventAction(a aVar) {
-        this.erR = aVar;
+        this.erV = aVar;
     }
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.startY = 0.0f;
         this.touchSlop = 0;
-        this.erO = 0.0f;
-        this.erQ = false;
-        this.erS = false;
+        this.erS = 0.0f;
+        this.erU = false;
+        this.erW = false;
         this.touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
@@ -45,35 +45,35 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.erR != null) {
-            this.erR.E(motionEvent);
+        if (this.erV != null) {
+            this.erV.E(motionEvent);
         }
-        if (this.erM != null) {
+        if (this.erQ != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.startY = motionEvent.getRawY();
-                    this.erO = 0.0f;
+                    this.erS = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.erQ = true;
+                        this.erU = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.erQ = false;
+                        this.erU = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.erQ && Math.abs(this.startY - motionEvent.getRawY()) < this.touchSlop && this.erO < this.touchSlop && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.erU && Math.abs(this.startY - motionEvent.getRawY()) < this.touchSlop && this.erS < this.touchSlop && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
-                        if (this.erM.isClickable()) {
-                            this.erM.performClick();
+                        if (this.erQ.isClickable()) {
+                            this.erQ.performClick();
                         }
                         return true;
                     }
                     break;
                 case 2:
-                    this.erO = this.erO > Math.abs(this.startY - motionEvent.getRawY()) ? this.erO : Math.abs(this.startY - motionEvent.getRawY());
-                    if (this.erQ && this.erO < this.touchSlop) {
+                    this.erS = this.erS > Math.abs(this.startY - motionEvent.getRawY()) ? this.erS : Math.abs(this.startY - motionEvent.getRawY());
+                    if (this.erU && this.erS < this.touchSlop) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -86,50 +86,50 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.erS) {
+        if (this.erW) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.erS = z;
+        this.erW = z;
     }
 
     public void setTopOrderView(View view) {
-        this.erM = view;
+        this.erQ = view;
     }
 
     private boolean bku() {
-        if (this.erM == null) {
+        if (this.erQ == null) {
             return false;
         }
-        if (this.erP == null) {
+        if (this.erT == null) {
             return true;
         }
-        return this.erP.width() <= 0 || this.erP.height() <= 0;
+        return this.erT.width() <= 0 || this.erT.height() <= 0;
     }
 
     private Rect getTopViewRect() {
         if (bku()) {
             int[] iArr = {0, 0};
-            if (this.erM != null) {
-                this.erM.getLocationOnScreen(iArr);
-                this.erP = new Rect(iArr[0], iArr[1], iArr[0] + this.erM.getWidth(), iArr[1] + this.erM.getHeight());
+            if (this.erQ != null) {
+                this.erQ.getLocationOnScreen(iArr);
+                this.erT = new Rect(iArr[0], iArr[1], iArr[0] + this.erQ.getWidth(), iArr[1] + this.erQ.getHeight());
             }
         }
-        return this.erP;
+        return this.erT;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        if (this.erN != null) {
-            this.erN.setEnabled(z);
-            this.erN.setClickable(z);
-            this.erN.setLongClickable(z);
+        if (this.erR != null) {
+            this.erR.setEnabled(z);
+            this.erR.setClickable(z);
+            this.erR.setLongClickable(z);
         }
     }
 
     public void setBottomOrderView(View view) {
-        this.erN = view;
+        this.erR = view;
     }
 }

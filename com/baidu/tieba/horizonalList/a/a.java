@@ -2,11 +2,11 @@ package com.baidu.tieba.horizonalList.a;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.horizonalList.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static abstract class AbstractC0702a {
         protected View view;
 
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends AbstractC0702a {
         public b(View view) {
             super(view);

@@ -13,10 +13,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class IPCServiceManager {
-    private static volatile IPCServiceManagerAidl bMI;
-    private static final a bMJ = new a();
-    private static IPCServiceManagerAidlImpl bMK;
-    static ContentProviderClient bML;
+    private static volatile IPCServiceManagerAidl bMM;
+    private static final a bMN = new a();
+    private static IPCServiceManagerAidlImpl bMO;
+    static ContentProviderClient bMP;
 
     public static IBinder E(final String str, boolean z) {
         if (z) {
@@ -47,10 +47,10 @@ public class IPCServiceManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static IPCServiceManagerAidl Wn() {
-        IPCServiceManagerAidl iPCServiceManagerAidl = bMI;
+        IPCServiceManagerAidl iPCServiceManagerAidl = bMM;
         if (iPCServiceManagerAidl == null) {
-            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(bMJ);
-            bMI = asInterface;
+            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(bMN);
+            bMM = asInterface;
             return asInterface;
         }
         return iPCServiceManagerAidl;
@@ -68,16 +68,16 @@ public class IPCServiceManager {
     }
 
     private static IPCServiceManagerAidlImpl Wo() {
-        if (bMK == null) {
-            bMK = new IPCServiceManagerAidlImpl();
+        if (bMO == null) {
+            bMO = new IPCServiceManagerAidlImpl();
         }
-        return bMK;
+        return bMO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public static class a extends f {
-        private static final Uri bMM = Uri.parse("content://" + ServerProvider.Wz() + "/ipc_manager/method/get_service_handler");
+        private static final Uri bMQ = Uri.parse("content://" + ServerProvider.Wz() + "/ipc_manager/method/get_service_handler");
 
         private a() {
         }
@@ -91,7 +91,7 @@ public class IPCServiceManager {
                 a = b(contentResolver, jSONObject);
             }
             if (jSONObject.length() != 0) {
-                g.iq(jSONObject.toString());
+                g.ir(jSONObject.toString());
             }
             if (a == null) {
                 return null;
@@ -119,7 +119,7 @@ public class IPCServiceManager {
                     bundle = b(acquireUnstableContentProviderClient, jSONObject);
                 }
                 if (bundle != null) {
-                    IPCServiceManager.bML = acquireUnstableContentProviderClient;
+                    IPCServiceManager.bMP = acquireUnstableContentProviderClient;
                     break;
                 }
                 try {
@@ -134,9 +134,9 @@ public class IPCServiceManager {
         private Bundle b(ContentResolver contentResolver, JSONObject jSONObject) {
             Bundle bundle = null;
             for (int i = 0; i < 2; i++) {
-                bundle = a(contentResolver, bMM, jSONObject);
+                bundle = a(contentResolver, bMQ, jSONObject);
                 if (bundle == null) {
-                    bundle = b(contentResolver, bMM, jSONObject);
+                    bundle = b(contentResolver, bMQ, jSONObject);
                 }
                 if (bundle != null) {
                     break;
@@ -167,7 +167,7 @@ public class IPCServiceManager {
 
         private Bundle b(ContentProviderClient contentProviderClient, JSONObject jSONObject) {
             try {
-                return contentProviderClient.query(bMM, null, null, null, null).getExtras();
+                return contentProviderClient.query(bMQ, null, null, null, null).getExtras();
             } catch (Exception e) {
                 try {
                     jSONObject.put("useProviderClientQuery", g.l(e));

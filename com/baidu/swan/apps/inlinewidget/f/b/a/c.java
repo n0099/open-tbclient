@@ -1,35 +1,35 @@
 package com.baidu.swan.apps.inlinewidget.f.b.a;
 /* loaded from: classes8.dex */
 public class c extends b {
-    private final com.baidu.swan.apps.inlinewidget.f.b.a cux = new com.baidu.swan.apps.inlinewidget.f.b.a();
-    private final String cuy;
+    private final com.baidu.swan.apps.inlinewidget.f.b.a cuB = new com.baidu.swan.apps.inlinewidget.f.b.a();
+    private final String cuC;
 
     public c(String str) {
-        this.cuy = str;
+        this.cuC = str;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
     public void aoo() {
-        if (this.cux.na("video_will_play")) {
-            this.cux.mZ("video_play_cancel");
+        if (this.cuB.nb("video_will_play")) {
+            this.cuB.na("video_play_cancel");
         }
         aoh();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void ew(boolean z) {
-        if (this.cux.isFinished()) {
-            this.cux.aoi();
+    public void ex(boolean z) {
+        if (this.cuB.isFinished()) {
+            this.cuB.aoi();
             com.baidu.swan.apps.inlinewidget.f.b.b.aol();
             return;
         }
-        this.cux.bx("fmpArrived", z ? "1" : "0");
+        this.cuB.bx("fmpArrived", z ? "1" : "0");
     }
 
     private void aoh() {
-        this.cux.aoh();
-        if (this.cux.nb("fmpArrived")) {
-            this.cux.aoi();
+        this.cuB.aoh();
+        if (this.cuB.nc("fmpArrived")) {
+            this.cuB.aoi();
             com.baidu.swan.apps.inlinewidget.f.b.b.aol();
         }
     }

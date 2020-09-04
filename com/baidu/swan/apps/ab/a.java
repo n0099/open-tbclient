@@ -15,7 +15,7 @@ public class a {
         if (context == null || !(context instanceof Activity)) {
             bVar.N(2, "context should be activity ref");
         } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.iF("permission has already granted");
+            bVar.iG("permission has already granted");
         } else {
             a(context, strArr, i, bVar);
         }
@@ -31,7 +31,7 @@ public class a {
         if (arrayList.size() > 0) {
             a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
         } else {
-            bVar.iF("permission has already granted");
+            bVar.iG("permission has already granted");
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
                         return;
                     }
                 }
-                bVar.iF("permission granted successful");
+                bVar.iG("permission granted successful");
             }
         });
     }

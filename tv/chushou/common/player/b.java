@@ -5,21 +5,21 @@ public interface b {
 
     void Nc(int i);
 
-    void dYS();
+    void dZb();
 
-    void dYT();
+    void dZc();
 
-    void dYU();
+    void dZd();
 
-    void dYV();
+    void dZe();
 
-    void dYW();
+    void dZf();
 
-    void dYX();
+    void dZg();
 
-    void dYY();
+    void dZh();
 
-    void dYZ();
+    void dZi();
 
     void onPlayerStart();
 }

@@ -8,43 +8,43 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes9.dex */
 public class c {
+    public static final boolean nlP;
+    public static final boolean nlQ;
+    public static final boolean nlR;
     @Nullable
-    public static b nlA;
-    private static boolean nlB;
-    private static final byte[] nlC;
-    private static final byte[] nlD;
-    private static final byte[] nlE;
-    private static final byte[] nlF;
-    private static final byte[] nlG;
-    public static final boolean nlx;
-    public static final boolean nly;
-    public static final boolean nlz;
+    public static b nlS;
+    private static boolean nlT;
+    private static final byte[] nlU;
+    private static final byte[] nlV;
+    private static final byte[] nlW;
+    private static final byte[] nlX;
+    private static final byte[] nlY;
 
     static {
-        nlx = Build.VERSION.SDK_INT <= 17;
-        nly = Build.VERSION.SDK_INT >= 14;
-        nlz = dOV();
-        nlA = null;
-        nlB = false;
-        nlC = Uw("RIFF");
-        nlD = Uw("WEBP");
-        nlE = Uw("VP8 ");
-        nlF = Uw("VP8L");
-        nlG = Uw("VP8X");
+        nlP = Build.VERSION.SDK_INT <= 17;
+        nlQ = Build.VERSION.SDK_INT >= 14;
+        nlR = dPe();
+        nlS = null;
+        nlT = false;
+        nlU = Uw("RIFF");
+        nlV = Uw("WEBP");
+        nlW = Uw("VP8 ");
+        nlX = Uw("VP8L");
+        nlY = Uw("VP8X");
     }
 
     @Nullable
-    public static b dOU() {
+    public static b dPd() {
         b bVar;
-        if (nlB) {
-            return nlA;
+        if (nlT) {
+            return nlS;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        nlB = true;
+        nlT = true;
         return bVar;
     }
 
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean dOV() {
+    private static boolean dPe() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean k(byte[] bArr, int i) {
-        return b(bArr, i + 12, nlG) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, nlY) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean l(byte[] bArr, int i) {
-        return b(bArr, i + 12, nlE);
+        return b(bArr, i + 12, nlW);
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, nlF);
+        return b(bArr, i + 12, nlX);
     }
 
     public static boolean u(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, nlG);
+        return i2 >= 21 && b(bArr, i + 12, nlY);
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, nlG) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, nlY) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean v(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, nlC) && b(bArr, i + 8, nlD);
+        return i2 >= 20 && b(bArr, i, nlU) && b(bArr, i + 8, nlV);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

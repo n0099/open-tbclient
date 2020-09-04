@@ -5,22 +5,22 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
-    public static void bvs() {
+    public static void bvt() {
         if (!com.baidu.adp.lib.util.l.isMainThread()) {
             com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tbadk.util.n.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    n.bvt();
+                    n.bvu();
                 }
             });
         } else {
-            bvt();
+            bvu();
         }
     }
 
-    public static void bvt() {
+    public static void bvu() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
     }
 }

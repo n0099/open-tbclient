@@ -1,5 +1,5 @@
 package com.baidu.tbadk.download;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface c {
     void onFileDownloadFailed(DownloadData downloadData, int i, String str);
 

@@ -14,7 +14,7 @@ public class a extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b mH(String str) {
+    public com.baidu.swan.apps.api.c.b mI(String str) {
         if (DEBUG) {
             Log.d("Api-GameCenterApi", "postGameCenterMessage: " + str);
         }
@@ -33,7 +33,7 @@ public class a extends d {
         return a(jSONObject, new C0419a(optString));
     }
 
-    public com.baidu.swan.apps.api.c.b mI(String str) {
+    public com.baidu.swan.apps.api.c.b mJ(String str) {
         if (DEBUG) {
             Log.d("Api-GameCenterApi", "postGameCenterMessageSync: " + str);
         }
@@ -66,15 +66,15 @@ public class a extends d {
     /* renamed from: com.baidu.swan.apps.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public class C0419a implements com.baidu.swan.apps.o.b {
-        private String bSt;
+        private String bSx;
 
         private C0419a(String str) {
-            this.bSt = str;
+            this.bSx = str;
         }
 
         @Override // com.baidu.swan.apps.o.b
         public void al(@Nullable JSONObject jSONObject) {
-            a.this.a(this.bSt, jSONObject == null ? new com.baidu.swan.apps.api.c.b(0) : new com.baidu.swan.apps.api.c.b(0, jSONObject));
+            a.this.a(this.bSx, jSONObject == null ? new com.baidu.swan.apps.api.c.b(0) : new com.baidu.swan.apps.api.c.b(0, jSONObject));
         }
 
         @Override // com.baidu.swan.apps.o.b
@@ -82,7 +82,7 @@ public class a extends d {
             if (d.DEBUG && i == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.a(this.bSt, str == null ? new com.baidu.swan.apps.api.c.b(i) : new com.baidu.swan.apps.api.c.b(i, str));
+            a.this.a(this.bSx, str == null ? new com.baidu.swan.apps.api.c.b(i) : new com.baidu.swan.apps.api.c.b(i, str));
         }
     }
 

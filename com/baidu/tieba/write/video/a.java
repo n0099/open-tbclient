@@ -12,28 +12,28 @@ import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> mRn;
+    private List<VideoTitleData> mRF;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0836a {
-        public View efZ;
+        public View egd;
         public TextView title;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (y.isEmpty(this.mRn)) {
+        if (y.isEmpty(this.mRF)) {
             return 0;
         }
-        return this.mRn.size();
+        return this.mRF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: JG */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) y.getItem(this.mRn, i);
+        return (VideoTitleData) y.getItem(this.mRF, i);
     }
 
     @Override // android.widget.Adapter
@@ -48,9 +48,9 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_activity_title_item, (ViewGroup) null);
             C0836a c0836a2 = new C0836a();
             c0836a2.title = (TextView) view.findViewById(R.id.title);
-            c0836a2.efZ = view.findViewById(R.id.divider_line);
+            c0836a2.egd = view.findViewById(R.id.divider_line);
             ap.setViewTextColor(c0836a2.title, R.color.cp_cont_b);
-            ap.setBackgroundColor(c0836a2.efZ, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(c0836a2.egd, R.color.cp_bg_line_c);
             view.setTag(c0836a2);
             c0836a = c0836a2;
         } else {
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
     }
 
     public void fA(List<VideoTitleData> list) {
-        this.mRn = list;
+        this.mRF = list;
         notifyDataSetChanged();
     }
 }

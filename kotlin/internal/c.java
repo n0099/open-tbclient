@@ -7,14 +7,14 @@ import kotlin.text.l;
 @h
 /* loaded from: classes20.dex */
 public final class c {
-    public static final b osp;
+    public static final b osH;
 
     static {
         b bVar;
         Object newInstance;
         Object newInstance2;
-        int egg = egg();
-        if (egg >= 65544) {
+        int egp = egp();
+        if (egp >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.b.a").newInstance();
                 q.l(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -47,9 +47,9 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance;
-            osp = bVar;
+            osH = bVar;
         }
-        if (egg >= 65543) {
+        if (egp >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
                 q.l(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -76,7 +76,7 @@ public final class c {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                 }
                 bVar = (b) newInstance2;
-                osp = bVar;
+                osH = bVar;
             } catch (ClassCastException e8) {
                 ClassLoader classLoader4 = newInstance2.getClass().getClassLoader();
                 Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader4 + ", base type classloader: " + b.class.getClassLoader()).initCause(e8);
@@ -85,10 +85,10 @@ public final class c {
             }
         }
         bVar = new b();
-        osp = bVar;
+        osH = bVar;
     }
 
-    private static final int egg() {
+    private static final int egp() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {

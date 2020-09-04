@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b {
-    private a axg;
+    private a axi;
     private Map<String, com.baidu.helios.ids.a> b = new HashMap();
 
     /* loaded from: classes6.dex */
@@ -15,7 +15,7 @@ public class b {
     }
 
     public b(a aVar) {
-        this.axg = aVar;
+        this.axi = aVar;
         for (com.baidu.helios.ids.a aVar2 : aVar.Ap()) {
             this.b.put(aVar2.getName(), aVar2);
         }
@@ -25,7 +25,7 @@ public class b {
         return new ArrayList(this.b.values());
     }
 
-    public com.baidu.helios.ids.a fw(String str) {
+    public com.baidu.helios.ids.a fx(String str) {
         return this.b.get(str);
     }
 }

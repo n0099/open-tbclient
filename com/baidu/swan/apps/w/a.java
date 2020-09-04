@@ -269,16 +269,16 @@ public class a extends aa {
             bVar.onError(202);
             return true;
         }
-        if (TextUtils.isEmpty(cVar.caU)) {
+        if (TextUtils.isEmpty(cVar.caY)) {
             String aFl = ak.aFl();
             if (!TextUtils.isEmpty(aFl)) {
-                cVar.caU = aFl;
+                cVar.caY = aFl;
             }
             c.w("map", "webView id is empty, use current webView");
         }
-        if (ak.nY(cVar.caU) == null) {
+        if (ak.nZ(cVar.caY) == null) {
             bVar.onError(202);
-            c.e("map", "can not find weiView by id " + cVar.caU);
+            c.e("map", "can not find weiView by id " + cVar.caY);
             return true;
         }
         return false;

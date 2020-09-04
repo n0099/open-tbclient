@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.live.tbadk.img.effect.ResizeImageAction;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d extends b {
     private int maxHeight;
     private int maxWidth;
@@ -37,7 +37,7 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.bsW().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.bsX().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 

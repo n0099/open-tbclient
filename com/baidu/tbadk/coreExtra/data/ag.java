@@ -3,12 +3,12 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ag {
-    private VcodeExtra eAY;
+    private VcodeExtra eBc;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String eAX = null;
+    private String eBb = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -19,11 +19,11 @@ public class ag {
     }
 
     public String bmY() {
-        return this.eAX;
+        return this.eBb;
     }
 
     public VcodeExtra bmZ() {
-        return this.eAY;
+        return this.eBc;
     }
 
     public void parserJson(String str) {
@@ -44,14 +44,14 @@ public class ag {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.eAX = jSONObject.optString("vcode_type");
+                this.eBb = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.eAY = new VcodeExtra();
-                this.eAY.textImg = jSONObject2.optString("textimg");
-                this.eAY.slideImg = jSONObject2.optString("slideimg");
-                this.eAY.endPoint = jSONObject2.optString("endpoint");
-                this.eAY.successImg = jSONObject2.optString("successimg");
-                this.eAY.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.eBc = new VcodeExtra();
+                this.eBc.textImg = jSONObject2.optString("textimg");
+                this.eBc.slideImg = jSONObject2.optString("slideimg");
+                this.eBc.endPoint = jSONObject2.optString("endpoint");
+                this.eBc.successImg = jSONObject2.optString("successimg");
+                this.eBc.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

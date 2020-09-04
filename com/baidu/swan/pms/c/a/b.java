@@ -7,7 +7,7 @@ public abstract class b {
 
     public abstract f aTO();
 
-    public abstract void ha(boolean z);
+    public abstract void hb(boolean z);
 
     public String toString() {
         return "task=" + aTO();

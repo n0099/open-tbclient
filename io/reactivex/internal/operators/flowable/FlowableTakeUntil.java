@@ -8,14 +8,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTakeUntil<T, U> extends a<T, T> {
-    final org.b.b<? extends U> onb;
+    final org.b.b<? extends U> onu;
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
         TakeUntilMainSubscriber takeUntilMainSubscriber = new TakeUntilMainSubscriber(cVar);
         cVar.onSubscribe(takeUntilMainSubscriber);
-        this.onb.subscribe(takeUntilMainSubscriber.other);
-        this.omB.a((j) takeUntilMainSubscriber);
+        this.onu.subscribe(takeUntilMainSubscriber.other);
+        this.omT.a((j) takeUntilMainSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

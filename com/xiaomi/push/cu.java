@@ -7,10 +7,10 @@ public class cu {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f181a;
+    private long f180a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f182a;
+    private String f181a;
     private long b;
     private long c;
 
@@ -20,11 +20,11 @@ public class cu {
 
     public cu(int i, long j, long j2, Exception exc) {
         this.a = i;
-        this.f181a = j;
+        this.f180a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f182a = exc.getClass().getSimpleName();
+            this.f181a = exc.getClass().getSimpleName();
         }
     }
 
@@ -33,22 +33,22 @@ public class cu {
     }
 
     public cu a(JSONObject jSONObject) {
-        this.f181a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.f180a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
         this.c = jSONObject.getLong("size");
         this.b = jSONObject.getLong("ts");
         this.a = jSONObject.getInt("wt");
-        this.f182a = jSONObject.optString("expt");
+        this.f181a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public JSONObject m205a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f181a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f180a);
         jSONObject.put("size", this.c);
         jSONObject.put("ts", this.b);
         jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f182a);
+        jSONObject.put("expt", this.f181a);
         return jSONObject;
     }
 }

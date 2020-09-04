@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaPersonCenterActivityConfig extends IntentConfig {
     public static final String IS_SELF = "is_self";
     public static final String KEY_SEX = "key_sex";

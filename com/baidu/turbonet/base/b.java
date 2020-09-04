@@ -10,9 +10,9 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int mZq = 0;
+    private int mZI = 0;
     private int mCount = 0;
-    private boolean mZr = false;
+    private boolean mZJ = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.mZq != 0) {
+        if (!$assertionsDisabled && this.mZI != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJP() {
-        this.mZq++;
+    public void dJY() {
+        this.mZI++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJQ() {
-        this.mZq--;
-        if (!$assertionsDisabled && this.mZq < 0) {
+    public void dJZ() {
+        this.mZI--;
+        if (!$assertionsDisabled && this.mZI < 0) {
             throw new AssertionError();
         }
-        if (this.mZq <= 0 && this.mZr) {
-            this.mZr = false;
+        if (this.mZI <= 0 && this.mZJ) {
+            this.mZJ = false;
             compact();
         }
     }
@@ -76,41 +76,41 @@ public class b<E> implements Iterable<E> {
     /* loaded from: classes10.dex */
     private class a implements c<E> {
         private int mIndex;
-        private int mZs;
-        private boolean mZt;
+        private int mZK;
+        private boolean mZL;
 
         private a() {
             this.mIndex = 0;
-            this.mZt = false;
-            b.this.dJP();
-            this.mZs = b.this.capacity();
+            this.mZL = false;
+            b.this.dJY();
+            this.mZK = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mZs && b.this.JZ(i) == null) {
+            while (i < this.mZK && b.this.JZ(i) == null) {
                 i++;
             }
-            if (i < this.mZs) {
+            if (i < this.mZK) {
                 return true;
             }
-            dJR();
+            dKa();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mZs && b.this.JZ(this.mIndex) == null) {
+            while (this.mIndex < this.mZK && b.this.JZ(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.mZs) {
+            if (this.mIndex < this.mZK) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 return (E) bVar.JZ(i);
             }
-            dJR();
+            dKa();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void dJR() {
-            if (!this.mZt) {
-                this.mZt = true;
-                b.this.dJQ();
+        private void dKa() {
+            if (!this.mZL) {
+                this.mZL = true;
+                b.this.dJZ();
             }
         }
     }

@@ -51,7 +51,7 @@ public class i extends IntentConfig {
         getIntent().putExtra("noble_enabled", z);
     }
 
-    public void fF(String str) {
+    public void fG(String str) {
         getIntent().putExtra("bg_info", str);
     }
 }

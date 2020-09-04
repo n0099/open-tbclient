@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes7.dex */
 public class g {
-    public static final int bqt = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
+    public static final int bqw = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
 
     public static int ay(Context context) {
         int aD = aD(context);
@@ -26,7 +26,7 @@ public class g {
     }
 
     public static int aA(Context context) {
-        return aD(context) + bqt;
+        return aD(context) + bqw;
     }
 
     public static int aB(Context context) {

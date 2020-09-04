@@ -4,8 +4,8 @@ import android.text.TextUtils;
 /* loaded from: classes14.dex */
 public class g extends e {
     public String appId;
-    public int dFn;
-    public boolean dFo;
+    public int dFr;
+    public boolean dFs;
     public String pkgName;
 
     @Override // com.baidu.swan.pms.model.e

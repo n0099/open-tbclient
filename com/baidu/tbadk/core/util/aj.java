@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aj extends Thread {
-    private String eks;
-    private boolean ekt;
+    private String ekw;
+    private boolean ekx;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -17,19 +17,19 @@ public class aj extends Thread {
     public aj(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.eks = null;
+        this.ekw = null;
         this.mObjTp = null;
-        this.ekt = false;
+        this.ekx = false;
         this.mType = str;
-        this.ekt = z;
+        this.ekx = z;
     }
 
     public aj(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.eks = null;
+        this.ekw = null;
         this.mObjTp = null;
-        this.ekt = false;
+        this.ekx = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -39,7 +39,7 @@ public class aj extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.ekt) {
+            if (this.ekx) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -49,8 +49,8 @@ public class aj extends Thread {
             if (this.mParam != null) {
                 aaVar.addPostData("st_param", this.mParam);
             }
-            if (this.eks != null) {
-                aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.eks);
+            if (this.ekw != null) {
+                aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.ekw);
             }
             if (this.mObjTp != null) {
                 aaVar.addPostData("obj_tp", this.mObjTp);

@@ -8,26 +8,26 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.SkinManager;
 /* loaded from: classes7.dex */
 public class a {
-    private FrameLayout aht;
-    private TextView cjk;
+    private FrameLayout ahv;
+    private TextView cjo;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.aht = (FrameLayout) tbPageContext.getPageActivity().getLayoutInflater().inflate(a.h.sdk_prc_person_forbiddenlist_header, (ViewGroup) null);
-        this.cjk = (TextView) this.aht.findViewById(a.g.text_user_name);
+        this.ahv = (FrameLayout) tbPageContext.getPageActivity().getLayoutInflater().inflate(a.h.sdk_prc_person_forbiddenlist_header, (ViewGroup) null);
+        this.cjo = (TextView) this.ahv.findViewById(a.g.text_user_name);
     }
 
     public void tx(int i) {
-        this.cjk.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
+        this.cjo.setText(this.mPageContext.getResources().getString(a.i.sdk_prc_person_forbiddenlist_header, Integer.valueOf(i)));
     }
 
     public void onChangeSkinType(int i) {
-        SkinManager.setViewTextColor(this.cjk, a.d.sdk_cp_cont_d);
-        SkinManager.setBackgroundColor(this.aht, a.d.sdk_cp_bg_line_e);
+        SkinManager.setViewTextColor(this.cjo, a.d.sdk_cp_cont_d);
+        SkinManager.setBackgroundColor(this.ahv, a.d.sdk_cp_bg_line_e);
     }
 
     public FrameLayout aQn() {
-        return this.aht;
+        return this.ahv;
     }
 }

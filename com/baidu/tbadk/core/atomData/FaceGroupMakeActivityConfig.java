@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FaceGroupMakeActivityConfig extends IntentConfig {
     public static final String TYPE_MAKE_FOR_BAIZHU = "isCreateForBazhu";
 

@@ -16,24 +16,24 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class d implements a.b {
-    private final Map<String, Deque<Message>> cJL = new HashMap();
+    private final Map<String, Deque<Message>> cJP = new HashMap();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void axv() {
-        for (String str : this.cJL.keySet()) {
-            pN(str);
+        for (String str : this.cJP.keySet()) {
+            pO(str);
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void pN(String str) {
-        Deque<Message> deque = this.cJL.get(str);
+    public void pO(String str) {
+        Deque<Message> deque = this.cJP.get(str);
         com.baidu.swan.apps.process.messaging.a.log("flushMsg:: appid=" + str + " msgQueue=" + deque);
         if (deque != null && !deque.isEmpty()) {
-            List<c> pT = e.ayg().pT(str);
-            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + pT.size());
-            if (!pT.isEmpty()) {
-                for (c cVar : pT) {
+            List<c> pU = e.ayg().pU(str);
+            com.baidu.swan.apps.process.messaging.a.log("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + pU.size());
+            if (!pU.isEmpty()) {
+                for (c cVar : pU) {
                     cVar.i(deque);
                 }
                 deque.clear();
@@ -43,7 +43,7 @@ public class d implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void clear(String str) {
-        this.cJL.remove(str);
+        this.cJP.remove(str);
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -59,7 +59,7 @@ public class d implements a.b {
             while (it.hasNext()) {
                 c next = it.next();
                 boolean a = a(next, axz);
-                if (axy.contains(next.cJz) || a) {
+                if (axy.contains(next.cJD) || a) {
                     next.L(axw);
                     if (a) {
                         axz.remove(next.getAppId());
@@ -72,7 +72,7 @@ public class d implements a.b {
         Iterator<c> it2 = e.ayg().ayi().iterator();
         while (it2.hasNext()) {
             c next2 = it2.next();
-            if (next2 != null && next2.axT() && (axy.contains(next2.cJz) || a(next2, axz))) {
+            if (next2 != null && next2.axT() && (axy.contains(next2.cJD) || a(next2, axz))) {
                 next2.L(axw);
             }
         }
@@ -98,10 +98,10 @@ public class d implements a.b {
 
     private void a(String str, @NonNull Message message) {
         if (!TextUtils.isEmpty(str)) {
-            Deque<Message> deque = this.cJL.get(str);
+            Deque<Message> deque = this.cJP.get(str);
             if (deque == null) {
                 deque = new ArrayDeque<>();
-                this.cJL.put(str, deque);
+                this.cJP.put(str, deque);
             }
             deque.offer(message);
         }

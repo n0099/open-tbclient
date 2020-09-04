@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes20.dex */
 class s implements Runnable {
-    final /* synthetic */ IOAdEvent bCQ;
-    final /* synthetic */ r bDI;
+    final /* synthetic */ IOAdEvent bCT;
+    final /* synthetic */ r bDL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, IOAdEvent iOAdEvent) {
-        this.bDI = rVar;
-        this.bCQ = iOAdEvent;
+        this.bDL = rVar;
+        this.bCT = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -27,39 +27,39 @@ class s implements Runnable {
         SplashAdListener splashAdListener5;
         SplashAdListener splashAdListener6;
         SplashAdListener splashAdListener7;
-        if (IXAdEvent.AD_LOADED.equals(this.bCQ.getType())) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().i(this.bCQ);
-            HashMap hashMap = (HashMap) this.bCQ.getData();
+        if (IXAdEvent.AD_LOADED.equals(this.bCT.getType())) {
+            XAdSDKFoundationFacade.getInstance().getAdLogger().i(this.bCT);
+            HashMap hashMap = (HashMap) this.bCT.getData();
             if (hashMap != null) {
-                splashAdListener7 = this.bDI.bDH.bDq;
+                splashAdListener7 = this.bDL.bDK.bDt;
                 splashAdListener7.onAdLoaded(hashMap);
             }
-        } else if (IXAdEvent.AD_STARTED.equals(this.bCQ.getType())) {
-            splashAdListener6 = this.bDI.bDH.bDq;
+        } else if (IXAdEvent.AD_STARTED.equals(this.bCT.getType())) {
+            splashAdListener6 = this.bDL.bDK.bDt;
             splashAdListener6.onAdPresent();
-        } else if ("AdUserClick".equals(this.bCQ.getType())) {
-            splashAdListener5 = this.bDI.bDH.bDq;
+        } else if ("AdUserClick".equals(this.bCT.getType())) {
+            splashAdListener5 = this.bDL.bDK.bDt;
             splashAdListener5.onAdClick();
-        } else if (IXAdEvent.AD_STOPPED.equals(this.bCQ.getType())) {
-            aVar2 = this.bDI.bDH.a;
+        } else if (IXAdEvent.AD_STOPPED.equals(this.bCT.getType())) {
+            aVar2 = this.bDL.bDK.a;
             aVar2.removeAllListeners();
-            splashAdListener4 = this.bDI.bDH.bDq;
+            splashAdListener4 = this.bDL.bDK.bDt;
             splashAdListener4.onAdDismissed();
-        } else if (IXAdEvent.AD_ERROR.equals(this.bCQ.getType())) {
-            aVar = this.bDI.bDH.a;
+        } else if (IXAdEvent.AD_ERROR.equals(this.bCT.getType())) {
+            aVar = this.bDL.bDK.a;
             aVar.removeAllListeners();
-            splashAdListener3 = this.bDI.bDH.bDq;
-            splashAdListener3.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.bCQ.getData()));
-        } else if ("AdTypeReady".equals(this.bCQ.getType())) {
+            splashAdListener3 = this.bDL.bDK.bDt;
+            splashAdListener3.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.bCT.getData()));
+        } else if ("AdTypeReady".equals(this.bCT.getType())) {
             try {
-                Map<String, Object> data = this.bCQ.getData();
+                Map<String, Object> data = this.bCT.getData();
                 if (data != null && data.containsKey(com.baidu.mobads.a.a.s)) {
                     RsplashType rsplashType = (RsplashType) data.get(com.baidu.mobads.a.a.s);
                     if (rsplashType != RsplashType.VIDEO) {
-                        splashAdListener2 = this.bDI.bDH.bDq;
+                        splashAdListener2 = this.bDL.bDK.bDt;
                         splashAdListener2.onAdTypeReady(rsplashType, 0);
                     } else {
-                        splashAdListener = this.bDI.bDH.bDq;
+                        splashAdListener = this.bDL.bDK.bDt;
                         splashAdListener.onAdTypeReady(rsplashType, ((Integer) data.get(com.baidu.mobads.a.a.t)).intValue());
                     }
                 }

@@ -16,15 +16,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class PolyActivity extends Activity implements m.l {
-    private static com.baidu.poly.d.a.c bGN;
-    private static a.b bGO;
-    private static PolyActivity bGP;
+    private static com.baidu.poly.d.a.c bGR;
+    private static a.b bGS;
+    private static PolyActivity bGT;
     private static boolean o;
-    private m bGQ;
-    private Bundle bGR;
+    private m bGU;
+    private Bundle bGV;
 
     private void Ut() {
-        this.bGR = getIntent().getBundleExtra("pay_arguements");
+        this.bGV = getIntent().getBundleExtra("pay_arguements");
     }
 
     private String Uu() {
@@ -37,13 +37,13 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     private static void Y() {
-        if (bGP != null) {
-            if (bGO != null) {
+        if (bGT != null) {
+            if (bGS != null) {
                 String a = com.baidu.poly.util.b.a(2, null, "repeat_pay_cancel");
-                bGO.onResult(2, a);
+                bGS.onResult(2, a);
                 d.b(2, a);
             }
-            bGP.finish();
+            bGT.finish();
         }
     }
 
@@ -51,8 +51,8 @@ public class PolyActivity extends Activity implements m.l {
         if (o) {
             Y();
         }
-        bGN = cVar;
-        bGO = bVar;
+        bGR = cVar;
+        bGS = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -67,8 +67,8 @@ public class PolyActivity extends Activity implements m.l {
             return new Bundle();
         }
         d.nd = bundle.getString("bduss");
-        d.bFO = bundle.getString("tpOrderId");
-        d.bFR = bundle.getString("nativeAppId");
+        d.bFS = bundle.getString("tpOrderId");
+        d.bFV = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.7.5");
@@ -86,12 +86,12 @@ public class PolyActivity extends Activity implements m.l {
     }
 
     private void clear() {
-        this.bGQ = null;
-        bGN = null;
-        this.bGR = null;
-        bGO = null;
+        this.bGU = null;
+        bGR = null;
+        this.bGV = null;
+        bGS = null;
         o = false;
-        bGP = null;
+        bGT = null;
     }
 
     @Override // android.app.Activity
@@ -107,10 +107,10 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.Um().a((Context) this, intent.getExtras(), this.bGQ, true);
+                com.baidu.poly.a.j.a.Um().a((Context) this, intent.getExtras(), this.bGU, true);
                 return;
             }
-            m mVar = this.bGQ;
+            m mVar = this.bGU;
             if (mVar != null) {
                 mVar.a(3, "pay canceled , back from H5. ");
             }
@@ -119,7 +119,7 @@ public class PolyActivity extends Activity implements m.l {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        m mVar = this.bGQ;
+        m mVar = this.bGU;
         if (mVar == null) {
             super.onBackPressed();
             return;
@@ -138,7 +138,7 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         o = true;
-        bGP = this;
+        bGT = this;
         d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
@@ -170,19 +170,19 @@ public class PolyActivity extends Activity implements m.l {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.bGQ == null && !isFinishing() && this.bGR != null) {
-            this.bGQ = new m(this);
-            setContentView(this.bGQ);
-            this.bGQ.setResultListener(bGO);
-            this.bGQ.setCloseListener(this);
-            this.bGQ.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, bGN)));
-            String string = this.bGR.getString("chosenChannel");
-            if (TextUtils.equals(this.bGR.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
-                this.bGQ.c(c(this.bGR), string);
+        if (z && this.bGU == null && !isFinishing() && this.bGV != null) {
+            this.bGU = new m(this);
+            setContentView(this.bGU);
+            this.bGU.setResultListener(bGS);
+            this.bGU.setCloseListener(this);
+            this.bGU.setWalletList(new com.baidu.poly.a.j.c(new com.baidu.poly.a.j.b(this, bGR)));
+            String string = this.bGV.getString("chosenChannel");
+            if (TextUtils.equals(this.bGV.getString("panelType"), "NONE") && !TextUtils.isEmpty(string)) {
+                this.bGU.c(c(this.bGV), string);
                 return;
             }
-            this.bGQ.a(c(this.bGR));
-            this.bGQ.UE();
+            this.bGU.a(c(this.bGV));
+            this.bGU.UE();
         }
     }
 

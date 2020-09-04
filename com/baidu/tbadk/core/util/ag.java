@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ag {
     public static void a(com.baidu.adp.widget.ListView.t tVar, BdUniqueId bdUniqueId) {
         a(tVar, bdUniqueId, 13);

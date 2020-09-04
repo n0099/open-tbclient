@@ -5,64 +5,64 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes17.dex */
 public class h implements q {
-    public static final BdUniqueId jps = BdUniqueId.gen();
-    private Object ahT;
-    private NoDataViewFactory.ImgType jpt;
-    private String jpu;
-    private String jpv;
-    private String jpw;
-    private int jpx;
+    public static final BdUniqueId jpy = BdUniqueId.gen();
+    private Object ahV;
+    private String jpA;
+    private String jpB;
+    private String jpC;
+    private int jpD;
+    private NoDataViewFactory.ImgType jpz;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jps;
-    }
-
-    public String cEY() {
-        return this.jpu;
-    }
-
-    public void KG(String str) {
-        this.jpu = str;
+        return jpy;
     }
 
     public String cEZ() {
-        return this.jpv;
+        return this.jpA;
     }
 
     public void KH(String str) {
-        this.jpv = str;
+        this.jpA = str;
     }
 
     public String cFa() {
-        return this.jpw;
+        return this.jpB;
     }
 
     public void KI(String str) {
-        this.jpw = str;
+        this.jpB = str;
     }
 
-    public int cFb() {
-        return this.jpx;
+    public String cFb() {
+        return this.jpC;
+    }
+
+    public void KJ(String str) {
+        this.jpC = str;
+    }
+
+    public int cFc() {
+        return this.jpD;
     }
 
     public void Bh(int i) {
-        this.jpx = i;
+        this.jpD = i;
     }
 
     public Object tX() {
-        return this.ahT;
+        return this.ahV;
     }
 
     public void setExtraData(Object obj) {
-        this.ahT = obj;
+        this.ahV = obj;
     }
 
-    public NoDataViewFactory.ImgType cFc() {
-        return this.jpt;
+    public NoDataViewFactory.ImgType cFd() {
+        return this.jpz;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.jpt = imgType;
+        this.jpz = imgType;
     }
 }

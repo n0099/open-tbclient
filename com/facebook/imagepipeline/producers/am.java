@@ -19,5 +19,5 @@ public interface am {
 
     void b(String str, String str2, @Nullable Map<String, String> map);
 
-    void gn(String str, String str2);
+    void go(String str, String str2);
 }

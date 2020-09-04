@@ -7,6 +7,6 @@ public class d implements com.baidu.swan.apps.ap.e.b<HybridUbcFlow> {
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: a */
     public void I(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.pa("1641").a(HybridUbcFlow.SubmitStrategy.VIDEO_NA).r("from", "swan");
+        hybridUbcFlow.pb("1641").a(HybridUbcFlow.SubmitStrategy.VIDEO_NA).r("from", "swan");
     }
 }

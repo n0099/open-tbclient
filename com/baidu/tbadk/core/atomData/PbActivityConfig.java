@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
     public static final String BIG_PIC_NAME = "big_pic_type";
@@ -362,10 +362,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bwVar.getFid());
             String beI = bwVar.beI();
-            if (bwVar.edP != null) {
+            if (bwVar.edT != null) {
                 setFromForumId(valueOf);
-                valueOf = bwVar.edP.id;
-                beI = bwVar.edP.ori_fname;
+                valueOf = bwVar.edT.id;
+                beI = bwVar.edT.ori_fname;
             }
             setThreadData(bwVar);
             setForumId(String.valueOf(valueOf));

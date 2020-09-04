@@ -14,14 +14,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label ohq;
-    private final String ohr;
-    private final String ohs;
-    public final boolean oht;
-    private final Field ohu;
-    private final Method ohv;
-    private ProtoAdapter<?> ohw;
-    private ProtoAdapter<?> ohx;
+    public final WireField.Label ohI;
+    private final String ohJ;
+    private final String ohK;
+    public final boolean ohL;
+    private final Field ohM;
+    private final Method ohN;
+    private ProtoAdapter<?> ohO;
+    private ProtoAdapter<?> ohP;
     public final int tag;
 
     private static Field i(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.ohq = wireField.ecN();
+        this.ohI = wireField.ecW();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.ohr = wireField.ecL();
-        this.ohs = wireField.ecM();
-        this.oht = wireField.ecO();
+        this.ohJ = wireField.ecU();
+        this.ohK = wireField.ecV();
+        this.ohL = wireField.ecX();
         this.messageField = field;
-        this.ohu = i(cls, this.name);
-        this.ohv = a(cls, this.name, field.getType());
+        this.ohM = i(cls, this.name);
+        this.ohN = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ecB() {
-        return !this.ohr.isEmpty();
+    public boolean ecK() {
+        return !this.ohJ.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> ecC() {
-        ProtoAdapter<?> protoAdapter = this.ohw;
+    public ProtoAdapter<?> ecL() {
+        ProtoAdapter<?> protoAdapter = this.ohO;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.ohs);
-        this.ohw = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.ohK);
+        this.ohO = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> ecD() {
-        ProtoAdapter<?> protoAdapter = this.ohx;
+    ProtoAdapter<?> ecM() {
+        ProtoAdapter<?> protoAdapter = this.ohP;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.ohr);
-        this.ohx = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.ohJ);
+        this.ohP = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (ecB()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(ecD(), ecC());
+            if (ecK()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(ecM(), ecL());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = ecC().withLabel(this.ohq);
+            ProtoAdapter<?> withLabel = ecL().withLabel(this.ohI);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b, Object obj) {
-        if (this.ohq.isRepeated()) {
+        if (this.ohI.isRepeated()) {
             ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.ohr.isEmpty()) {
+        } else if (!this.ohJ.isEmpty()) {
             ((Map) a((a<M, B>) b)).putAll((Map) obj);
         } else {
             b(b, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b, Object obj) {
         try {
-            if (this.ohq.isOneOf()) {
-                this.ohv.invoke(b, obj);
+            if (this.ohI.isOneOf()) {
+                this.ohN.invoke(b, obj);
             } else {
-                this.ohu.set(b, obj);
+                this.ohM.set(b, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b) {
         try {
-            return this.ohu.get(b);
+            return this.ohM.get(b);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

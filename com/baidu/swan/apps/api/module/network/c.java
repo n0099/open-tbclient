@@ -16,13 +16,13 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> bWY = i.N("localhost", "127.0.0.1");
+    protected static final Set<String> bXc = i.N("localhost", "127.0.0.1");
 
-    public static String jA(String str) {
+    public static String jB(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl jB(String str) {
+    public static HttpUrl jC(String str) {
         HttpUrl parse = HttpUrl.parse(str);
         if (d.azE().azC() == null) {
             if (a(parse)) {
@@ -42,7 +42,7 @@ public class c {
             aAM = false;
         }
         if (httpUrl != null) {
-            return (!aAM || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bWY.contains(httpUrl.host().toLowerCase());
+            return (!aAM || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bXc.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject jC(String str) {
+    public static JSONObject jD(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {

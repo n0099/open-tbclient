@@ -25,12 +25,12 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String dwH = "";
+    private static String dwL = "";
     private static String mUrl = "";
-    private com.baidu.swan.games.binding.model.c duO;
+    private com.baidu.swan.games.binding.model.c duS;
 
     public a(JsObject jsObject) {
-        this.duO = com.baidu.swan.games.binding.model.c.e(jsObject);
+        this.duS = com.baidu.swan.games.binding.model.c.e(jsObject);
     }
 
     public void age() {
@@ -46,7 +46,7 @@ public class a {
             }
             SwanAppActivity arI = f.arY().arI();
             if (arI == null) {
-                vJ("shareVideo: swanAppActivity is null");
+                vK("shareVideo: swanAppActivity is null");
             } else {
                 azV.a(arI, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.u.b.a.1
                     @Override // com.baidu.swan.apps.a.a
@@ -62,7 +62,7 @@ public class a {
                                 if (a.DEBUG) {
                                     Log.d("ShareVideoApi", "login fail");
                                 }
-                                a.this.vJ("shareVideo: fail, no login in");
+                                a.this.vK("shareVideo: fail, no login in");
                                 return;
                         }
                     }
@@ -79,42 +79,42 @@ public class a {
                 if (a.DEBUG) {
                     Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", cVar2, str));
                 }
-                a.this.vJ(str);
+                a.this.vK(str);
             }
         });
     }
 
     private c aPi() {
         c cVar = null;
-        if (this.duO == null) {
+        if (this.duS == null) {
             aPj();
         } else if (com.baidu.swan.apps.runtime.e.azI() == null) {
-            vJ("shareVideo: fail, swanApp is null");
+            vK("shareVideo: fail, swanApp is null");
         } else {
-            String optString = this.duO.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+            String optString = this.duS.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
             if (TextUtils.isEmpty(optString)) {
-                vJ("shareVideo: videoPath is invalid");
+                vK("shareVideo: videoPath is invalid");
             } else {
-                String uZ = n.uZ(optString);
-                if (TextUtils.isEmpty(uZ)) {
-                    vJ("shareVideo: videoPath is invalid");
+                String va = n.va(optString);
+                if (TextUtils.isEmpty(va)) {
+                    vK("shareVideo: videoPath is invalid");
                 } else {
                     cVar = new c();
-                    cVar.videoPath = uZ;
-                    cVar.title = this.duO.optString("title");
-                    cVar.query = this.duO.optString("query");
+                    cVar.videoPath = va;
+                    cVar.title = this.duS.optString("title");
+                    cVar.query = this.duS.optString("query");
                     d dVar = new d();
-                    dVar.dwM = this.duO.optLong("clipMaxDuration", 30L);
-                    dVar.dwN = this.duO.optLong("clipMinDuration", 3L);
-                    dVar.dwO = this.duO.optString("topicSource");
-                    dVar.dwP = this.duO.optString("publishTitle", com.baidu.swan.apps.t.a.aoJ().getResources().getString(a.h.swangame_publish_video));
-                    dVar.dwQ = this.duO.optString("publishURL", "/searchbox?action=ugc&cmd=177");
-                    dVar.sourceType = this.duO.optInt("sourceType", 1);
-                    dVar.sourceFrom = this.duO.optString("sourceFrom", "tiny");
-                    dVar.dwS = this.duO.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                    dVar.dwR = this.duO.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                    dVar.dwT = this.duO.optString("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
-                    dVar.publishType = this.duO.optString(UgcConstant.PUBLISH_TYPE, "9");
+                    dVar.dwQ = this.duS.optLong("clipMaxDuration", 30L);
+                    dVar.dwR = this.duS.optLong("clipMinDuration", 3L);
+                    dVar.dwS = this.duS.optString("topicSource");
+                    dVar.dwT = this.duS.optString("publishTitle", com.baidu.swan.apps.t.a.aoJ().getResources().getString(a.h.swangame_publish_video));
+                    dVar.dwU = this.duS.optString("publishURL", "/searchbox?action=ugc&cmd=177");
+                    dVar.sourceType = this.duS.optInt("sourceType", 1);
+                    dVar.sourceFrom = this.duS.optString("sourceFrom", "tiny");
+                    dVar.dwW = this.duS.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                    dVar.dwV = this.duS.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                    dVar.dwX = this.duS.optString("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
+                    dVar.publishType = this.duS.optString(UgcConstant.PUBLISH_TYPE, "9");
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.azK());
@@ -129,10 +129,10 @@ public class a {
                         }
                     }
                     dVar.swan = jSONObject.toString();
-                    if (!TextUtils.isEmpty(dwH)) {
+                    if (!TextUtils.isEmpty(dwL)) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("id", dwH);
+                            jSONObject2.put("id", dwL);
                             if (com.baidu.swan.apps.runtime.e.azI() != null && com.baidu.swan.apps.runtime.e.azI().XZ() != null) {
                                 jSONObject2.put("name", com.baidu.swan.apps.runtime.e.azI().XZ().akO());
                             }
@@ -158,7 +158,7 @@ public class a {
                     } else {
                         dVar.showToast = 0;
                     }
-                    cVar.dwL = dVar;
+                    cVar.dwP = dVar;
                 }
             }
         }
@@ -166,11 +166,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vJ(String str) {
-        if (this.duO != null) {
+    public void vK(String str) {
+        if (this.duS != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
             bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-            com.baidu.swan.games.utils.b.a(this.duO, false, bVar);
+            com.baidu.swan.games.utils.b.a(this.duS, false, bVar);
             aPj();
         }
     }
@@ -209,7 +209,7 @@ public class a {
                 try {
                     JSONObject jSONObject2 = (JSONObject) new JSONObject(response.body().string()).opt("data");
                     if (jSONObject2 != null) {
-                        String unused = a.dwH = jSONObject2.optString("community_id");
+                        String unused = a.dwL = jSONObject2.optString("community_id");
                         String unused2 = a.mUrl = jSONObject2.optString("url");
                     } else {
                         a.aPl();
@@ -226,7 +226,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void aPl() {
-        dwH = "";
+        dwL = "";
         mUrl = "";
     }
 }

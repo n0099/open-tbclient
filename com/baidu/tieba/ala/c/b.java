@@ -11,16 +11,16 @@ import com.baidu.tieba.ala.f.c;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class b {
-    private long bew;
-    private boolean dMJ;
-    private com.baidu.live.o.b fSL;
-    private com.baidu.tieba.ala.f.c fSP;
-    private com.baidu.tieba.ala.view.b fSQ;
-    private long fuJ;
+    private long bey;
+    private boolean dMN;
+    private com.baidu.live.o.b fSP;
+    private com.baidu.tieba.ala.f.c fST;
+    private com.baidu.tieba.ala.view.b fSU;
+    private long fuN;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private long mUserId;
-    private final b.a fSM = new b.a() { // from class: com.baidu.tieba.ala.c.b.1
+    private final b.a fSQ = new b.a() { // from class: com.baidu.tieba.ala.c.b.1
         @Override // com.baidu.live.o.b.a
         public void Mf() {
             BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
@@ -35,57 +35,57 @@ public class b {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.fSQ.cam() != null && b.this.mUserId > 0) {
-                b.this.fSL.az(String.valueOf(b.this.mUserId), b.this.fSQ.cam().bIJ());
+            if (b.this.fSU.can() != null && b.this.mUserId > 0) {
+                b.this.fSP.az(String.valueOf(b.this.mUserId), b.this.fSU.can().bIK());
             }
         }
     };
-    private final c.a fSR = new c.a() { // from class: com.baidu.tieba.ala.c.b.3
+    private final c.a fSV = new c.a() { // from class: com.baidu.tieba.ala.c.b.3
         @Override // com.baidu.tieba.ala.f.c.a
         public void bd(List<com.baidu.tieba.ala.data.b> list) {
             if (ListUtils.isEmpty(list)) {
-                list = b.this.fSP.bXU();
+                list = b.this.fST.bXV();
             }
             if (!ListUtils.isEmpty(list)) {
-                b.this.fSQ.setData(list);
+                b.this.fSU.setData(list);
             }
         }
 
         @Override // com.baidu.tieba.ala.f.c.a
         public void onFail(int i, String str) {
-            List<com.baidu.tieba.ala.data.b> bXU = b.this.fSP.bXU();
-            if (!ListUtils.isEmpty(bXU)) {
-                b.this.fSQ.setData(bXU);
+            List<com.baidu.tieba.ala.data.b> bXV = b.this.fST.bXV();
+            if (!ListUtils.isEmpty(bXV)) {
+                b.this.fSU.setData(bXV);
             }
         }
     };
 
     public b(TbPageContext tbPageContext, long j, long j2, long j3, boolean z, boolean z2) {
         this.mTbPageContext = tbPageContext;
-        this.bew = j;
-        this.fuJ = j2;
+        this.bey = j;
+        this.fuN = j2;
         this.mUserId = j3;
         this.mIsHost = z;
-        this.dMJ = z2;
-        this.fSP = new com.baidu.tieba.ala.f.c(this.mTbPageContext, this.fSR);
-        this.fSP.b(this.bew, this.fuJ, this.mUserId, this.mIsHost, this.dMJ);
-        this.fSQ = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
-        this.fSQ.b(this.bew, this.fuJ, this.mUserId, this.mIsHost, this.dMJ);
-        this.fSP.bXT();
-        this.fSL = new com.baidu.live.o.b(this.mTbPageContext);
-        this.fSL.a(this.fSM);
+        this.dMN = z2;
+        this.fST = new com.baidu.tieba.ala.f.c(this.mTbPageContext, this.fSV);
+        this.fST.b(this.bey, this.fuN, this.mUserId, this.mIsHost, this.dMN);
+        this.fSU = new com.baidu.tieba.ala.view.b(this.mTbPageContext, this.mOnClickListener);
+        this.fSU.b(this.bey, this.fuN, this.mUserId, this.mIsHost, this.dMN);
+        this.fST.bXU();
+        this.fSP = new com.baidu.live.o.b(this.mTbPageContext);
+        this.fSP.a(this.fSQ);
     }
 
     public View getView() {
-        return this.fSQ.getView();
+        return this.fSU.getView();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     public void onDestroy() {
+        this.fST.onDestroy();
         this.fSP.onDestroy();
-        this.fSL.onDestroy();
-        this.fSQ.onDestroy();
+        this.fSU.onDestroy();
     }
 }

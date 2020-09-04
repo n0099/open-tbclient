@@ -9,7 +9,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String a(String str, String str2, String str3, Integer num) {
         if (StringUtils.isNull(str)) {

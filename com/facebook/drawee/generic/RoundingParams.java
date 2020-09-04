@@ -6,14 +6,14 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class RoundingParams {
-    private RoundingMethod npV = RoundingMethod.BITMAP_ONLY;
-    private boolean npW = false;
-    private float[] npX = null;
-    private int noQ = 0;
+    private RoundingMethod nqn = RoundingMethod.BITMAP_ONLY;
+    private boolean nqo = false;
+    private float[] nqp = null;
+    private int npi = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
     private float mPadding = 0.0f;
-    private boolean noK = false;
+    private boolean npc = false;
 
     /* loaded from: classes4.dex */
     public enum RoundingMethod {
@@ -21,65 +21,65 @@ public class RoundingParams {
         BITMAP_ONLY
     }
 
-    public RoundingParams xZ(boolean z) {
-        this.npW = z;
+    public RoundingParams yb(boolean z) {
+        this.nqo = z;
         return this;
     }
 
-    public boolean dQO() {
-        return this.npW;
+    public boolean dQX() {
+        return this.nqo;
     }
 
     public RoundingParams aO(float f) {
-        Arrays.fill(dQS(), f);
+        Arrays.fill(dRb(), f);
         return this;
     }
 
     public RoundingParams h(float f, float f2, float f3, float f4) {
-        float[] dQS = dQS();
-        dQS[1] = f;
-        dQS[0] = f;
-        dQS[3] = f2;
-        dQS[2] = f2;
-        dQS[5] = f3;
-        dQS[4] = f3;
-        dQS[7] = f4;
-        dQS[6] = f4;
+        float[] dRb = dRb();
+        dRb[1] = f;
+        dRb[0] = f;
+        dRb[3] = f2;
+        dRb[2] = f2;
+        dRb[5] = f3;
+        dRb[4] = f3;
+        dRb[7] = f4;
+        dRb[6] = f4;
         return this;
     }
 
-    public float[] dQP() {
-        return this.npX;
+    public float[] dQY() {
+        return this.nqp;
     }
 
     public RoundingParams a(RoundingMethod roundingMethod) {
-        this.npV = roundingMethod;
+        this.nqn = roundingMethod;
         return this;
     }
 
-    public RoundingMethod dQQ() {
-        return this.npV;
+    public RoundingMethod dQZ() {
+        return this.nqn;
     }
 
     public RoundingParams Lq(@ColorInt int i) {
-        this.noQ = i;
-        this.npV = RoundingMethod.OVERLAY_COLOR;
+        this.npi = i;
+        this.nqn = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
-    public int dQR() {
-        return this.noQ;
+    public int dRa() {
+        return this.npi;
     }
 
-    private float[] dQS() {
-        if (this.npX == null) {
-            this.npX = new float[8];
+    private float[] dRb() {
+        if (this.nqp == null) {
+            this.nqp = new float[8];
         }
-        return this.npX;
+        return this.nqp;
     }
 
-    public static RoundingParams dQT() {
-        return new RoundingParams().xZ(true);
+    public static RoundingParams dRc() {
+        return new RoundingParams().yb(true);
     }
 
     public static RoundingParams i(float f, float f2, float f3, float f4) {
@@ -122,8 +122,8 @@ public class RoundingParams {
         return this.mPadding;
     }
 
-    public boolean dQU() {
-        return this.noK;
+    public boolean dRd() {
+        return this.npc;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -134,13 +134,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.npW == roundingParams.npW && this.noQ == roundingParams.noQ && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.npV == roundingParams.npV && this.noK == roundingParams.noK) {
-            return Arrays.equals(this.npX, roundingParams.npX);
+        if (this.nqo == roundingParams.nqo && this.npi == roundingParams.npi && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.mPadding, this.mPadding) == 0 && this.nqn == roundingParams.nqn && this.npc == roundingParams.npc) {
+            return Arrays.equals(this.nqp, roundingParams.nqp);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.npX != null ? Arrays.hashCode(this.npX) : 0) + (((this.npW ? 1 : 0) + ((this.npV != null ? this.npV.hashCode() : 0) * 31)) * 31)) * 31) + this.noQ) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.noK ? 1 : 0);
+        return (((this.mPadding != 0.0f ? Float.floatToIntBits(this.mPadding) : 0) + (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.nqp != null ? Arrays.hashCode(this.nqp) : 0) + (((this.nqo ? 1 : 0) + ((this.nqn != null ? this.nqn.hashCode() : 0) * 31)) * 31)) * 31) + this.npi) * 31)) * 31) + this.mBorderColor) * 31)) * 31) + (this.npc ? 1 : 0);
     }
 }

@@ -18,11 +18,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes11.dex */
 public class c {
-    public com.heytap.openid.a nGI = null;
+    public com.heytap.openid.a nHa = null;
     public String b = null;
     public String c = null;
     public final Object d = new Object();
-    public ServiceConnection nhH = new a();
+    public ServiceConnection nhZ = new a();
 
     /* loaded from: classes11.dex */
     public class a implements ServiceConnection {
@@ -31,7 +31,7 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.nGI = a.AbstractBinderC0879a.a(iBinder);
+            c.this.nHa = a.AbstractBinderC0879a.a(iBinder);
             synchronized (c.this.d) {
                 c.this.d.notify();
             }
@@ -39,14 +39,14 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.nGI = null;
+            c.this.nHa = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class b {
-        public static final c nGJ = new c(null);
+        public static final c nHb = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -55,11 +55,11 @@ public class c {
     public synchronized String a(Context context, String str) {
         String str2;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.nGI == null) {
+            if (this.nHa == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (context.bindService(intent, this.nhH, 1)) {
+                if (context.bindService(intent, this.nhZ, 1)) {
                     synchronized (this.d) {
                         try {
                             this.d.wait(IMConnection.RETRY_DELAY_TIMES);
@@ -68,7 +68,7 @@ public class c {
                         }
                     }
                 }
-                if (this.nGI == null) {
+                if (this.nHa == null) {
                     str2 = "";
                 } else {
                     try {
@@ -140,7 +140,7 @@ public class c {
             }
             this.c = str2;
         }
-        String a2 = ((a.AbstractBinderC0879a.C0880a) this.nGI).a(this.b, this.c, str);
+        String a2 = ((a.AbstractBinderC0879a.C0880a) this.nHa).a(this.b, this.c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

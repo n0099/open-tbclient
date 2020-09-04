@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MarkData implements Serializable {
     private static final long serialVersionUID = 2647743141824773827L;
     private long cartoonId;

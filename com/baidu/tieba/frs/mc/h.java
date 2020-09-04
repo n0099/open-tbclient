@@ -20,39 +20,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes16.dex */
 public class h extends j {
-    private String imL;
-    private final CustomMessageListener imT;
-    private bw ips;
-    private boolean ipt;
-    private PraiseModel ipu;
+    private String imR;
+    private final CustomMessageListener imZ;
+    private PraiseModel ipA;
+    private bw ipy;
+    private boolean ipz;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
-        this.imT = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
+        this.imZ = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bw)) {
                     bw bwVar = (bw) customResponsedMessage.getData();
-                    h.this.imL = bwVar.getId();
-                    if (!TextUtils.isEmpty(h.this.imL) && bwVar.bep() != null) {
+                    h.this.imR = bwVar.getId();
+                    if (!TextUtils.isEmpty(h.this.imR) && bwVar.bep() != null) {
                         h.this.yi(bwVar.bep().getIsLike());
                     }
                 }
             }
         };
-        this.iom.registerListener(this.imT);
-        this.ipu = csl();
+        this.ios.registerListener(this.imZ);
+        this.ipA = csm();
     }
 
-    public final PraiseModel csl() {
-        if (this.ipu == null) {
-            this.ipu = new PraiseModel(this.iom.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+    public final PraiseModel csm() {
+        if (this.ipA == null) {
+            this.ipA = new PraiseModel(this.ios.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void DL(String str) {
+                public void DM(String str) {
                     int i = 1;
-                    if (h.this.ipt) {
-                        if (h.this.ips != null && h.this.ips.bep().getIsLike() == 1) {
+                    if (h.this.ipz) {
+                        if (h.this.ipy != null && h.this.ipy.bep().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.yi(i);
@@ -62,23 +62,23 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.iom != null && h.this.iom.getPageContext() != null && h.this.ipt && !TextUtils.isEmpty(str)) {
-                        if (AntiHelper.bz(i, str)) {
-                            AntiHelper.bb(h.this.iom.getPageContext().getPageActivity(), str);
+                    if (h.this.ios != null && h.this.ios.getPageContext() != null && h.this.ipz && !TextUtils.isEmpty(str)) {
+                        if (AntiHelper.by(i, str)) {
+                            AntiHelper.bb(h.this.ios.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.iom.showToast(str);
+                            h.this.ios.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.ipu;
+        return this.ipA;
     }
 
     public void yi(int i) {
         ArrayList<q> threadList;
-        FrsViewData cmw = this.iom.cmw();
-        if (cmw != null && this.hSP != null && (threadList = cmw.getThreadList()) != null) {
+        FrsViewData cmx = this.ios.cmx();
+        if (cmx != null && this.hSV != null && (threadList = cmx.getThreadList()) != null) {
             Iterator<q> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -86,20 +86,20 @@ public class h extends j {
                 }
                 q next = it.next();
                 if (next instanceof bv) {
-                    bw bwVar = ((bv) next).dUS;
-                    if (bwVar == this.ips) {
+                    bw bwVar = ((bv) next).dUW;
+                    if (bwVar == this.ipy) {
                         c(bwVar, i);
-                        this.ips = null;
+                        this.ipy = null;
                         break;
-                    } else if (bwVar.getId() != null && bwVar.getId().equals(this.imL)) {
+                    } else if (bwVar.getId() != null && bwVar.getId().equals(this.imR)) {
                         c(bwVar, i);
-                        this.imL = null;
+                        this.imR = null;
                         break;
                     }
                 }
             }
-            this.hSP.cnr().b(threadList, cmw);
-            this.hSP.cnr().notifyDataSetChanged();
+            this.hSV.cns().b(threadList, cmx);
+            this.hSV.cns().notifyDataSetChanged();
         }
     }
 
@@ -143,7 +143,7 @@ public class h extends j {
         }
     }
 
-    public void oZ(boolean z) {
-        this.ipt = z;
+    public void pb(boolean z) {
+        this.ipz = z;
     }
 }

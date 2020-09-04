@@ -659,10 +659,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public class a extends WebBackForwardListClient {
-        private WebView aeD;
+        private WebView aeF;
 
         protected a(WebView webView) {
-            this.aeD = webView;
+            this.aeF = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -699,10 +699,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public class c implements DownloadListener {
-        private WebView aeD;
+        private WebView aeF;
 
         public c(WebView webView) {
-            this.aeD = webView;
+            this.aeF = webView;
         }
 
         @Override // android.webkit.DownloadListener

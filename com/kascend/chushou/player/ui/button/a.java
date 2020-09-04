@@ -16,7 +16,7 @@ public class a {
         return this;
     }
 
-    public a yy(boolean z) {
+    public a yA(boolean z) {
         this.c = z;
         return this;
     }

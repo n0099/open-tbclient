@@ -11,29 +11,29 @@ import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 /* loaded from: classes9.dex */
 public class c {
-    private static c bQB;
+    private static c bQF;
     private static Context mAppContext;
-    private boolean bQC;
-    private Runnable bQD = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
+    private boolean bQG;
+    private Runnable bQH = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
             c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-            c.this.mEditText.postDelayed(c.this.bQD, 60L);
+            c.this.mEditText.postDelayed(c.this.bQH, 60L);
         }
     };
-    private a.InterfaceC0327a bQE;
+    private a.InterfaceC0327a bQI;
     private EditText mEditText;
 
     public static c bb(Context context) {
         mAppContext = context;
-        if (bQB == null) {
+        if (bQF == null) {
             synchronized (c.class) {
-                if (bQB == null) {
-                    bQB = new c();
+                if (bQF == null) {
+                    bQF = new c();
                 }
             }
         }
-        return bQB;
+        return bQF;
     }
 
     public AdapterView.OnItemClickListener a(final EmotionType emotionType, final int i) {
@@ -45,14 +45,14 @@ public class c {
                     BDEmotionBagLayout.a aVar = (BDEmotionBagLayout.a) adapter;
                     if (c.this.mEditText != null) {
                         if (i2 == aVar.getCount() - 1) {
-                            if (c.this.bQC) {
-                                c.this.mEditText.removeCallbacks(c.this.bQD);
-                                c.this.bQC = false;
+                            if (c.this.bQG) {
+                                c.this.mEditText.removeCallbacks(c.this.bQH);
+                                c.this.bQG = false;
                                 return;
                             }
                             c.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
-                            if (c.this.bQE != null) {
-                                c.this.bQE.a(emotionType, i, "", "[delete]");
+                            if (c.this.bQI != null) {
+                                c.this.bQI.a(emotionType, i, "", "[delete]");
                                 return;
                             }
                             return;
@@ -61,8 +61,8 @@ public class c {
                         if (!TextUtils.isEmpty(item)) {
                             c.this.mEditText.getEditableText().insert(c.this.mEditText.getSelectionStart(), a.XD().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.mEditText));
                         }
-                        if (c.this.bQE != null) {
-                            c.this.bQE.a(emotionType, i, b.aY(c.mAppContext).b(emotionType, item), item);
+                        if (c.this.bQI != null) {
+                            c.this.bQI.a(emotionType, i, b.aY(c.mAppContext).b(emotionType, item), item);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class c {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof BDEmotionBagLayout.a) && i == ((BDEmotionBagLayout.a) adapter).getCount() - 1) {
-                    c.this.bQC = true;
+                    c.this.bQG = true;
                     if (c.this.mEditText != null) {
-                        c.this.mEditText.post(c.this.bQD);
+                        c.this.mEditText.post(c.this.bQH);
                         return false;
                     }
                     return false;
@@ -103,7 +103,7 @@ public class c {
 
     public void XG() {
         if (this.mEditText != null) {
-            this.mEditText.removeCallbacks(this.bQD);
+            this.mEditText.removeCallbacks(this.bQH);
         }
     }
 }

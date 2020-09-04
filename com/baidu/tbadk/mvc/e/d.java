@@ -9,7 +9,7 @@ import com.baidu.tbadk.mvc.b.d;
 import com.baidu.tbadk.mvc.b.f;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
     public d(int i, String str, Class<T> cls) {
         super(i, str, cls);
@@ -24,7 +24,7 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) btL();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) btM();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
                 l<byte[]> dv = com.baidu.tbadk.core.c.a.bhb().dv(this.tableName, str);
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String btq = ((f) dVar5).btq();
-                    if (btq != null) {
-                        dw.setForever(dVar5.getCacheKey(), btq);
+                    String btr = ((f) dVar5).btr();
+                    if (btr != null) {
+                        dw.setForever(dVar5.getCacheKey(), btr);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

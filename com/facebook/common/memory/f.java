@@ -8,86 +8,86 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class f extends InputStream {
     private final byte[] mByteArray;
     private final InputStream mInputStream;
-    private final com.facebook.common.references.c<byte[]> nkS;
-    private int nkT = 0;
-    private int nkU = 0;
+    private final com.facebook.common.references.c<byte[]> nlk;
+    private int nll = 0;
+    private int nlm = 0;
     private boolean mClosed = false;
 
     public f(InputStream inputStream, byte[] bArr, com.facebook.common.references.c<byte[]> cVar) {
         this.mInputStream = (InputStream) com.facebook.common.internal.g.checkNotNull(inputStream);
         this.mByteArray = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
-        this.nkS = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.nlk = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        com.facebook.common.internal.g.checkState(this.nkU <= this.nkT);
-        dOE();
-        if (!dOD()) {
+        com.facebook.common.internal.g.checkState(this.nlm <= this.nll);
+        dON();
+        if (!dOM()) {
             return -1;
         }
         byte[] bArr = this.mByteArray;
-        int i = this.nkU;
-        this.nkU = i + 1;
+        int i = this.nlm;
+        this.nlm = i + 1;
         return bArr[i] & 255;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        com.facebook.common.internal.g.checkState(this.nkU <= this.nkT);
-        dOE();
-        if (!dOD()) {
+        com.facebook.common.internal.g.checkState(this.nlm <= this.nll);
+        dON();
+        if (!dOM()) {
             return -1;
         }
-        int min = Math.min(this.nkT - this.nkU, i2);
-        System.arraycopy(this.mByteArray, this.nkU, bArr, i, min);
-        this.nkU += min;
+        int min = Math.min(this.nll - this.nlm, i2);
+        System.arraycopy(this.mByteArray, this.nlm, bArr, i, min);
+        this.nlm += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        com.facebook.common.internal.g.checkState(this.nkU <= this.nkT);
-        dOE();
-        return (this.nkT - this.nkU) + this.mInputStream.available();
+        com.facebook.common.internal.g.checkState(this.nlm <= this.nll);
+        dON();
+        return (this.nll - this.nlm) + this.mInputStream.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.mClosed) {
             this.mClosed = true;
-            this.nkS.release(this.mByteArray);
+            this.nlk.release(this.mByteArray);
             super.close();
         }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        com.facebook.common.internal.g.checkState(this.nkU <= this.nkT);
-        dOE();
-        int i = this.nkT - this.nkU;
+        com.facebook.common.internal.g.checkState(this.nlm <= this.nll);
+        dON();
+        int i = this.nll - this.nlm;
         if (i >= j) {
-            this.nkU = (int) (this.nkU + j);
+            this.nlm = (int) (this.nlm + j);
             return j;
         }
-        this.nkU = this.nkT;
+        this.nlm = this.nll;
         return i + this.mInputStream.skip(j - i);
     }
 
-    private boolean dOD() throws IOException {
-        if (this.nkU < this.nkT) {
+    private boolean dOM() throws IOException {
+        if (this.nlm < this.nll) {
             return true;
         }
         int read = this.mInputStream.read(this.mByteArray);
         if (read <= 0) {
             return false;
         }
-        this.nkT = read;
-        this.nkU = 0;
+        this.nll = read;
+        this.nlm = 0;
         return true;
     }
 
-    private void dOE() throws IOException {
+    private void dON() throws IOException {
         if (this.mClosed) {
             throw new IOException("stream already closed");
         }

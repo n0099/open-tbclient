@@ -4,12 +4,12 @@ import android.content.Context;
 import android.database.ContentObserver;
 import android.os.Handler;
 import android.provider.Settings;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k extends ContentObserver {
-    private a lsv;
+    private a lsG;
     private Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onChange(boolean z);
     }
@@ -28,8 +28,8 @@ public class k extends ContentObserver {
         if (this.mContext != null) {
             try {
                 int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.lsv != null) {
-                    this.lsv.onChange(i == 1);
+                if (this.lsG != null) {
+                    this.lsG.onChange(i == 1);
                 }
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
@@ -38,7 +38,7 @@ public class k extends ContentObserver {
     }
 
     public void a(a aVar) {
-        this.lsv = aVar;
+        this.lsG = aVar;
         Ok();
     }
 }

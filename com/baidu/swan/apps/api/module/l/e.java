@@ -18,14 +18,14 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static JSONObject bYc;
+    private static JSONObject bYg;
 
     public static synchronized void acy() {
         synchronized (e.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
             }
-            bYc = null;
+            bYg = null;
         }
     }
 
@@ -36,11 +36,11 @@ public class e {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
             if (com.baidu.swan.apps.t.a.aoM().YP()) {
-                if (bYc == null && context != null) {
+                if (bYg == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
                     }
-                    bYc = bC(context);
+                    bYg = bC(context);
                 }
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "end pre cache system info");
@@ -54,16 +54,16 @@ public class e {
     public static synchronized JSONObject bB(Context context) {
         JSONObject jSONObject;
         synchronized (e.class) {
-            if (bYc == null && context != null) {
+            if (bYg == null && context != null) {
                 if (DEBUG) {
                     Log.d("SystemInfoCacheHelper", "need create system info");
                 }
-                bYc = bC(context);
+                bYg = bC(context);
             }
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "return cache system info");
             }
-            jSONObject = bYc;
+            jSONObject = bYg;
         }
         return jSONObject;
     }

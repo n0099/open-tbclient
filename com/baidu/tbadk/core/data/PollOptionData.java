@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PollOption;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PollOptionData extends m implements Serializable {
     private int id;
     private long num;

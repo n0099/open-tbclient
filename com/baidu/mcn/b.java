@@ -5,46 +5,46 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static String bzV = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> bzW;
+    private static String bzY = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> bzZ;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        public static b bzX = new b();
+        public static b bAa = new b();
     }
 
     public static b SM() {
-        return a.bzX;
+        return a.bAa;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void hH(String str) {
+    public void hI(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bzW = this.mPreference.getStringSet(bzV, null);
-            if (this.bzW == null) {
-                this.bzW = new HashSet();
+            this.bzZ = this.mPreference.getStringSet(bzY, null);
+            if (this.bzZ == null) {
+                this.bzZ = new HashSet();
             }
-            this.bzW.add(str);
-            this.mPreference.edit().putStringSet(bzV, this.bzW).commit();
+            this.bzZ.add(str);
+            this.mPreference.edit().putStringSet(bzY, this.bzZ).commit();
         }
     }
 
-    public boolean hI(String str) {
+    public boolean hJ(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.bzW == null) {
-            this.bzW = this.mPreference.getStringSet(bzV, null);
+        if (this.bzZ == null) {
+            this.bzZ = this.mPreference.getStringSet(bzY, null);
         }
-        if (this.bzW != null) {
-            return this.bzW.contains(str);
+        if (this.bzZ != null) {
+            return this.bzZ.contains(str);
         }
         return false;
     }

@@ -15,34 +15,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class c {
-    private BubbleLayout aQA;
-    private PopupWindow aQB;
-    private AdapterView.OnItemClickListener aQC;
-    private ListView aQD;
-    private b aQE;
+    private BubbleLayout aQC;
+    private PopupWindow aQD;
+    private AdapterView.OnItemClickListener aQE;
+    private ListView aQF;
+    private b aQG;
     private TbPageContext mPageContext;
     private int mType;
 
     public c(TbPageContext<AlaGiftTabActivity> tbPageContext, int i, AdapterView.OnItemClickListener onItemClickListener) {
         this.mPageContext = tbPageContext;
         this.mType = i;
-        this.aQC = onItemClickListener;
+        this.aQE = onItemClickListener;
     }
 
     public void a(View view, List<g> list, boolean z, PopupWindow.OnDismissListener onDismissListener) {
         Resources resources = this.mPageContext.getPageActivity().getResources();
-        if (this.aQA == null) {
-            this.aQA = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_num_list, null);
-            this.aQD = (ListView) this.aQA.findViewById(a.g.gift_num_list);
-            this.aQD.setOnItemClickListener(this.aQC);
+        if (this.aQC == null) {
+            this.aQC = (BubbleLayout) View.inflate(this.mPageContext.getPageActivity(), a.h.ala_gift_num_list, null);
+            this.aQF = (ListView) this.aQC.findViewById(a.g.gift_num_list);
+            this.aQF.setOnItemClickListener(this.aQE);
             F(list);
-            this.aQB = new PopupWindow((View) this.aQA, resources.getDimensionPixelSize(a.e.sdk_ds200), (int) ((this.aQE.getCount() * (resources.getDimensionPixelSize(a.e.sdk_ds64) + resources.getDimensionPixelOffset(a.e.sdk_ds1))) + this.aQA.getArrowHeight() + 1.0f), true);
-            this.aQB.setTouchable(true);
-            this.aQB.setBackgroundDrawable(resources.getDrawable(a.f.sdk_transparent_bg));
-            this.aQB.setOnDismissListener(onDismissListener);
+            this.aQD = new PopupWindow((View) this.aQC, resources.getDimensionPixelSize(a.e.sdk_ds200), (int) ((this.aQG.getCount() * (resources.getDimensionPixelSize(a.e.sdk_ds64) + resources.getDimensionPixelOffset(a.e.sdk_ds1))) + this.aQC.getArrowHeight() + 1.0f), true);
+            this.aQD.setTouchable(true);
+            this.aQD.setBackgroundDrawable(resources.getDrawable(a.f.sdk_transparent_bg));
+            this.aQD.setOnDismissListener(onDismissListener);
         }
-        this.aQA.r(resources.getDimensionPixelSize(a.e.sdk_ds40));
-        ShowUtil.showPopupWindowAsDropDown(this.aQB, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds12));
+        this.aQC.r(resources.getDimensionPixelSize(a.e.sdk_ds40));
+        ShowUtil.showPopupWindowAsDropDown(this.aQD, view, 0, -this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds12));
     }
 
     public void F(List<g> list) {
@@ -57,17 +57,17 @@ public class c {
             }
             list.removeAll(arrayList);
         }
-        this.aQE = new b(this.mPageContext.getPageActivity(), this.mType);
-        this.aQE.E(list);
-        this.aQD.setAdapter((ListAdapter) this.aQE);
+        this.aQG = new b(this.mPageContext.getPageActivity(), this.mType);
+        this.aQG.E(list);
+        this.aQF.setAdapter((ListAdapter) this.aQG);
     }
 
     public void dismiss() {
-        if (this.aQB != null && this.aQB.isShowing()) {
+        if (this.aQD != null && this.aQD.isShowing()) {
             if (this.mPageContext == null) {
-                ShowUtil.dismissPopupWindow(this.aQB);
+                ShowUtil.dismissPopupWindow(this.aQD);
             } else {
-                ShowUtil.dismissPopupWindow(this.aQB, this.mPageContext.getPageActivity());
+                ShowUtil.dismissPopupWindow(this.aQD, this.mPageContext.getPageActivity());
             }
         }
     }

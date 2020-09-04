@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 import tbclient.FrsPage.MemberShowIcon;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aa {
     private String mIcon;
     private String mName;

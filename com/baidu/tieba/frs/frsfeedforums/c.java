@@ -10,12 +10,12 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes16.dex */
 public class c extends k<l, d> {
-    private boolean icQ;
-    protected a ihf;
+    private boolean icW;
+    protected a ihl;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.icQ = z;
+        this.icW = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class c extends k<l, d> {
     /* renamed from: bo */
     public d b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.ihf = new a(this.mPageContext, inflate, 2, this.icQ, this.mPageId);
+        this.ihl = new a(this.mPageContext, inflate, 2, this.icW, this.mPageId);
         return new d(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends k<l, d> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
         if (lVar != null) {
-            this.ihf.f(lVar.getForumId(), lVar.dvR());
+            this.ihl.f(lVar.getForumId(), lVar.dvW());
         }
         return view;
     }

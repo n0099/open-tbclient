@@ -6,12 +6,12 @@ import android.util.Pair;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f extends com.baidu.swan.apps.api.a.d {
-    private String bXF;
-    private com.baidu.swan.apps.ap.e.b<Integer> bXG;
+    private String bXJ;
+    private com.baidu.swan.apps.ap.e.b<Integer> bXK;
 
     public f(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
-        this.bXG = new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.apps.api.module.k.f.1
+        this.bXK = new com.baidu.swan.apps.ap.e.b<Integer>() { // from class: com.baidu.swan.apps.api.module.k.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: b */
@@ -23,7 +23,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
         };
     }
 
-    public com.baidu.swan.apps.api.c.b jX(String str) {
+    public com.baidu.swan.apps.api.c.b jY(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ExitFullScreenApi", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -33,11 +33,11 @@ public class f extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        this.bXF = ((JSONObject) aX.second).optString("cb");
-        if (TextUtils.isEmpty(this.bXF)) {
+        this.bXJ = ((JSONObject) aX.second).optString("cb");
+        if (TextUtils.isEmpty(this.bXJ)) {
             return new com.baidu.swan.apps.api.c.b(201);
         }
-        j.aco().b(this.bXG);
+        j.aco().b(this.bXK);
         j.aco().act();
         return new com.baidu.swan.apps.api.c.b(0);
     }
@@ -46,6 +46,6 @@ public class f extends com.baidu.swan.apps.api.a.d {
     public void acl() {
         j.aco().acu();
         j.aco().acr();
-        a(this.bXF, new com.baidu.swan.apps.api.c.b(0));
+        a(this.bXJ, new com.baidu.swan.apps.api.c.b(0));
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 public interface aq {
     void OA();
 
-    void bFY();
-
     void bFZ();
+
+    void bGa();
 
     void bkF();
 

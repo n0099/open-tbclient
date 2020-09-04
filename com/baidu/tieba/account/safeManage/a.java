@@ -14,15 +14,15 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes16.dex */
 public class a implements View.OnClickListener {
-    private b fnO;
-    private AccountSafeModel fnP;
+    private b fnS;
+    private AccountSafeModel fnT;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.fnP != null) {
-                a.this.fnP.setLoading(false);
+            if (a.this.fnT != null) {
+                a.this.fnT.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.fnP != null) {
-                    a.this.fnP.a(aVar);
+                if (a.this.fnT != null) {
+                    a.this.fnT.a(aVar);
                 }
-                if (a.this.fnO != null && a.this.fnP != null && a.this.fnP.bAN() != null) {
-                    a.this.fnO.a(a.this.fnP.bAN().bAR());
+                if (a.this.fnS != null && a.this.fnT != null && a.this.fnT.bAO() != null) {
+                    a.this.fnS.a(a.this.fnT.bAO().bAS());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.fnO = new b(this.mActivity, this);
-        this.fnP = new AccountSafeModel(this.mActivity);
+        this.fnS = new b(this.mActivity, this);
+        this.fnT = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bAS();
+            bAT();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.fnO.getView();
+        return this.fnS.getView();
     }
 
-    private void bAS() {
-        if (this.fnP != null && !this.fnP.isLoading()) {
-            this.fnP.bAP();
+    private void bAT() {
+        if (this.fnT != null && !this.fnT.isLoading()) {
+            this.fnT.bAQ();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.fnP != null) {
-            this.fnP.cancelLoadData();
+        if (this.fnT != null) {
+            this.fnT.cancelLoadData();
         }
-        if (this.fnO != null) {
-            this.fnO.release();
+        if (this.fnS != null) {
+            this.fnS.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fnO != null) {
-            this.fnO.pT(i);
+        if (this.fnS != null) {
+            this.fnS.pT(i);
         }
     }
 
@@ -100,7 +100,7 @@ public class a implements View.OnClickListener {
                 be.bju().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bc(this.mActivity, this.fnP != null ? this.fnP.Cv() : "");
+            AntiHelper.bc(this.mActivity, this.fnT != null ? this.fnT.Cv() : "");
         }
     }
 }

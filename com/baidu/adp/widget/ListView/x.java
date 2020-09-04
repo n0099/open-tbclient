@@ -1,7 +1,7 @@
 package com.baidu.adp.widget.ListView;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x implements q {
     public static final BdUniqueId WH = BdUniqueId.gen();
 

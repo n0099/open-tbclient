@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GiftSwitch extends a {
     public static final String GIFT_SWITCH_KEY = "offline_gift";
     public static final int TYPE_OFF = 1;

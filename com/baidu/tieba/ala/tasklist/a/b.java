@@ -16,40 +16,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.ala.tasklist.a.a gZp;
+    private com.baidu.tieba.ala.tasklist.a.a gZt;
     private Context mActivity;
-    private int gZq = -1;
-    private ArrayList<ad> efX = new ArrayList<>();
+    private int gZu = -1;
+    private ArrayList<ad> egb = new ArrayList<>();
 
     public b(Context context, com.baidu.tieba.ala.tasklist.a.a aVar) {
         this.mActivity = context;
-        this.gZp = aVar;
+        this.gZt = aVar;
     }
 
     public void setData(ArrayList<ad> arrayList) {
         if (arrayList != null) {
-            this.efX.clear();
-            this.efX.addAll(arrayList);
+            this.egb.clear();
+            this.egb.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.efX == null) {
+        if (this.egb == null) {
             return 0;
         }
-        return this.efX.size();
+        return this.egb.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: va */
     public ad getItem(int i) {
-        if (this.efX == null) {
+        if (this.egb == null) {
             return null;
         }
-        return this.efX.get(i);
+        return this.egb.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,15 +73,15 @@ public class b extends BaseAdapter {
 
     private void a(a aVar, final ad adVar) {
         if (adVar != null) {
-            aVar.gZt.setText(adVar.aHz);
-            aVar.gZu.setText(adVar.aHE);
-            aVar.gZv.setText(this.mActivity.getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(adVar.aHD)));
+            aVar.gZx.setText(adVar.aHB);
+            aVar.gZy.setText(adVar.aHG);
+            aVar.gZz.setText(this.mActivity.getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(adVar.aHF)));
             if (adVar.status == 3) {
-                aVar.gZv.setVisibility(8);
+                aVar.gZz.setVisibility(8);
             } else {
-                aVar.gZv.setVisibility(0);
+                aVar.gZz.setVisibility(0);
             }
-            aVar.gZw.setTag(Integer.valueOf(adVar.aHy));
+            aVar.gZA.setTag(Integer.valueOf(adVar.aHA));
             if (adVar.status == 2) {
                 b(aVar);
             } else if (adVar.status == 3) {
@@ -89,11 +89,11 @@ public class b extends BaseAdapter {
             } else {
                 b(aVar, adVar);
             }
-            aVar.gZw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
+            aVar.gZA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (adVar.status == 2 && b.this.gZp != null) {
-                        b.this.gZp.uY(adVar.aHy);
+                    if (adVar.status == 2 && b.this.gZt != null) {
+                        b.this.gZt.uY(adVar.aHA);
                     }
                 }
             });
@@ -103,13 +103,13 @@ public class b extends BaseAdapter {
     private void b(a aVar, ad adVar) {
         String string;
         if (adVar.CM()) {
-            if (this.gZq < 0) {
-                if (adVar.aHC != null) {
-                    this.gZq = adVar.aHC.aHH;
+            if (this.gZu < 0) {
+                if (adVar.aHE != null) {
+                    this.gZu = adVar.aHE.aHJ;
                 }
                 a(aVar);
                 return;
-            } else if (this.gZq == 0) {
+            } else if (this.gZu == 0) {
                 b(aVar);
                 return;
             } else {
@@ -118,7 +118,7 @@ public class b extends BaseAdapter {
             }
         }
         if (adVar.CN()) {
-            string = this.mActivity.getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(adVar.aHC.aHI));
+            string = this.mActivity.getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(adVar.aHE.aHK));
         } else {
             string = this.mActivity.getString(a.i.ala_task_status_not_over);
         }
@@ -126,32 +126,32 @@ public class b extends BaseAdapter {
     }
 
     private void a(a aVar) {
-        aVar.gZw.setText(StringHelper.formatSecondsTime(this.gZq * 1000));
-        aVar.gZw.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
-        aVar.gZw.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_common_color_10260));
-        b(aVar.gZw, true);
+        aVar.gZA.setText(StringHelper.formatSecondsTime(this.gZu * 1000));
+        aVar.gZA.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
+        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_common_color_10260));
+        b(aVar.gZA, true);
     }
 
     private void a(a aVar, String str) {
-        aVar.gZw.setText(str);
-        aVar.gZw.setBackgroundResource(a.f.sdk_transparent_bg);
-        aVar.gZw.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_d));
-        b(aVar.gZw, false);
+        aVar.gZA.setText(str);
+        aVar.gZA.setBackgroundResource(a.f.sdk_transparent_bg);
+        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_d));
+        b(aVar.gZA, false);
     }
 
     private void b(a aVar) {
-        aVar.gZw.setText(this.mActivity.getString(a.i.ala_task_status_can_get));
+        aVar.gZA.setText(this.mActivity.getString(a.i.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            aVar.gZw.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
+            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            aVar.gZw.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            aVar.gZw.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            aVar.gZw.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
+            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
         }
-        aVar.gZw.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_g));
-        b(aVar.gZw, true);
+        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_g));
+        b(aVar.gZA, true);
     }
 
     public void b(TextView textView, boolean z) {
@@ -171,12 +171,12 @@ public class b extends BaseAdapter {
     }
 
     public void k(Integer num) {
-        this.gZq = num.intValue();
+        this.gZu = num.intValue();
         ad CQ = CQ();
         if (CQ != null) {
-            if (this.gZq == 0) {
+            if (this.gZu == 0) {
                 CQ.status = 2;
-            } else if (this.gZq > 0) {
+            } else if (this.gZu > 0) {
                 CQ.status = 1;
             } else {
                 CQ.status = 3;
@@ -186,8 +186,8 @@ public class b extends BaseAdapter {
     }
 
     public ad CQ() {
-        if (!ListUtils.isEmpty(this.efX)) {
-            Iterator<ad> it = this.efX.iterator();
+        if (!ListUtils.isEmpty(this.egb)) {
+            Iterator<ad> it = this.egb.iterator();
             while (it.hasNext()) {
                 ad next = it.next();
                 if (next.CM()) {
@@ -200,20 +200,20 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes7.dex */
     public static class a {
-        public View efZ;
-        public TextView gZt;
-        public TextView gZu;
-        public TextView gZv;
-        public TextView gZw;
+        public View egd;
+        public TextView gZA;
+        public TextView gZx;
+        public TextView gZy;
+        public TextView gZz;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gZt = (TextView) view.findViewById(a.g.tvTaskTitle);
-            this.gZu = (TextView) view.findViewById(a.g.tvTaskSubTitle);
-            this.gZv = (TextView) view.findViewById(a.g.tvTaskRewardNum);
-            this.gZw = (TextView) view.findViewById(a.g.tvTaskStatus);
-            this.efZ = view.findViewById(a.g.divider);
+            this.gZx = (TextView) view.findViewById(a.g.tvTaskTitle);
+            this.gZy = (TextView) view.findViewById(a.g.tvTaskSubTitle);
+            this.gZz = (TextView) view.findViewById(a.g.tvTaskRewardNum);
+            this.gZA = (TextView) view.findViewById(a.g.tvTaskStatus);
+            this.egd = view.findViewById(a.g.divider);
         }
     }
 }

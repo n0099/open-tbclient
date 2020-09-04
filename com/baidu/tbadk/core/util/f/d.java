@@ -5,22 +5,22 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
-    private static d enS;
-    private int enT = 3;
+    private static d enW;
+    private int enX = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
     public static d bkb() {
-        if (enS == null) {
+        if (enW == null) {
             synchronized (d.class) {
-                if (enS == null) {
-                    enS = new d();
+                if (enW == null) {
+                    enW = new d();
                 }
             }
         }
-        return enS;
+        return enW;
     }
 
     private d() {
@@ -41,7 +41,7 @@ public class d {
     }
 
     public int bkc() {
-        return this.enT;
+        return this.enX;
     }
 
     public int getSize() {
@@ -51,7 +51,7 @@ public class d {
         return this.mSize;
     }
 
-    public void Ax(String str) {
+    public void Ay(String str) {
         e.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -66,10 +66,10 @@ public class d {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.enT = jSONObject.optInt("num", 3);
+            this.enX = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
             this.mSize = jSONObject.optInt("size", 512000);
-            e.log("PreLoadVideoSwitchManager parseJson:   num: " + this.enT + " size: " + this.mSize + " isWifi " + this.isWifi);
+            e.log("PreLoadVideoSwitchManager parseJson:   num: " + this.enX + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

@@ -7,31 +7,31 @@ import com.baidu.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class c {
-    private BdTypeListView fCP;
-    private a leJ;
+    private BdTypeListView fCT;
+    private a leQ;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fCP = bdTypeListView;
-        this.leJ = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.fCT = bdTypeListView;
+        this.leQ = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void setData(List<q> list) {
-        this.fCP.setData(list);
+        this.fCT.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        this.leJ.onChangeSkinType();
+        this.leQ.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.leJ.onChangeSkinType();
-    }
-
-    public void dgz() {
-        this.leJ.dgz();
+        this.leQ.onChangeSkinType();
     }
 
     public void dgA() {
-        this.leJ.dgA();
+        this.leQ.dgA();
+    }
+
+    public void dgB() {
+        this.leQ.dgB();
     }
 }

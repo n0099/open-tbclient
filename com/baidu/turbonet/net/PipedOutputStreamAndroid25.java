@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes10.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 ncM;
+    private PipedInputStreamAndroid25 nde;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.ncM == null) {
+        if (this.nde == null) {
             throw new IOException("Pipe not connected");
         }
-        this.ncM.Kr(i);
+        this.nde.Kr(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.ncM == null) {
+        if (this.nde == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.ncM.t(bArr, i, i2);
+            this.nde.t(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.ncM != null) {
-            synchronized (this.ncM) {
-                this.ncM.notifyAll();
+        if (this.nde != null) {
+            synchronized (this.nde) {
+                this.nde.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.ncM != null) {
-            this.ncM.dKN();
+        if (this.nde != null) {
+            this.nde.dKW();
         }
     }
 }

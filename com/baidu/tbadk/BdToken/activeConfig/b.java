@@ -9,20 +9,20 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private com.baidu.tbadk.h.a<a> dOD;
+    private com.baidu.tbadk.h.a<a> dOH;
     protected BdUniqueId mBdUniqueId;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a dOR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637) { // from class: com.baidu.tbadk.BdToken.activeConfig.b.1
+    private com.baidu.adp.framework.listener.a dOV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637) { // from class: com.baidu.tbadk.BdToken.activeConfig.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             a aVar;
             b.this.isLoading = false;
             if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && b.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    if (b.this.dOD != null) {
-                        b.this.dOD.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (b.this.dOH != null) {
+                        b.this.dOH.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -37,20 +37,20 @@ public class b {
                 if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
                     com.baidu.tbadk.core.sharedPref.b.bik().putLong("pref_key_active_config_info", System.currentTimeMillis());
                 }
-                if (aVar != null && aVar.dQF != null) {
-                    if (b.this.dOD != null) {
-                        b.this.dOD.am(aVar);
+                if (aVar != null && aVar.dQJ != null) {
+                    if (b.this.dOH != null) {
+                        b.this.dOH.am(aVar);
                     }
-                    if (aVar.dQF.is_first_up != 1) {
-                        q.aYY().a(aVar.dQF);
+                    if (aVar.dQJ.is_first_up != 1) {
+                        q.aYY().a(aVar.dQJ);
                     }
                 }
                 if (aVar != null && b.this.aZD()) {
                     com.baidu.tbadk.core.sharedPref.b.bik().putLong("pref_key_last_register_mission", System.currentTimeMillis());
                     n.aYT().c(aVar);
                     com.baidu.tbadk.core.f.a.bih().d(aVar);
-                    if (b.this.dOD != null) {
-                        b.this.dOD.onSuccess(aVar);
+                    if (b.this.dOH != null) {
+                        b.this.dOH.onSuccess(aVar);
                     }
                 }
             }
@@ -60,8 +60,8 @@ public class b {
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
         aZE();
-        this.dOR.setTag(getUniqueId());
-        MessageManager.getInstance().registerListener(this.dOR);
+        this.dOV.setTag(getUniqueId());
+        MessageManager.getInstance().registerListener(this.dOV);
     }
 
     public BdUniqueId getUniqueId() {
@@ -69,7 +69,7 @@ public class b {
     }
 
     public void a(com.baidu.tbadk.h.a<a> aVar) {
-        this.dOD = aVar;
+        this.dOH = aVar;
     }
 
     public boolean aZD() {

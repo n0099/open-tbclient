@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         List list2;
         Messenger messenger;
         synchronized (this.a) {
-            this.a.f55a = new Messenger(iBinder);
+            this.a.f54a = new Messenger(iBinder);
             this.a.c = false;
-            list = this.a.f58a;
+            list = this.a.f57a;
             for (Message message : list) {
                 try {
-                    messenger = this.a.f55a;
+                    messenger = this.a.f54a;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            list2 = this.a.f58a;
+            list2 = this.a.f57a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.a.f55a = null;
+        this.a.f54a = null;
         this.a.c = false;
     }
 }

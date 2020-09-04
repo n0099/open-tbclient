@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
     private View barBgView;
     private int containerWidth;
@@ -76,7 +76,7 @@ public class NavigationBar extends RelativeLayout {
     private View mUnloginView;
     private View topCoverBgView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ControlAlign {
         HORIZONTAL_LEFT,
         HORIZONTAL_CENTER,
@@ -84,7 +84,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_ABSOLUTE_CENTER
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ControlType {
         BACK_BUTTON
     }

@@ -38,11 +38,11 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes16.dex */
 public class b {
-    public BaseVideoPBReplyFragment kXp;
-    public VideoPbFragment kXq;
-    private int kEH = 0;
-    boolean kEI = false;
-    private final TbRichTextView.i fcy = new TbRichTextView.i() { // from class: com.baidu.tieba.pb.videopb.b.b.1
+    public BaseVideoPBReplyFragment kXw;
+    public VideoPbFragment kXx;
+    private int kEO = 0;
+    boolean kEP = false;
+    private final TbRichTextView.i fcC = new TbRichTextView.i() { // from class: com.baidu.tieba.pb.videopb.b.b.1
         /* JADX DEBUG: Multi-variable search result rejected for r6v16, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig$a */
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Removed duplicated region for block: B:30:0x014a A[Catch: Exception -> 0x02e3, TryCatch #0 {Exception -> 0x02e3, blocks: (B:3:0x0003, B:5:0x0045, B:7:0x0072, B:9:0x0084, B:11:0x0090, B:13:0x009a, B:14:0x00a4, B:16:0x00aa, B:18:0x00b0, B:21:0x00c1, B:24:0x00d2, B:25:0x0108, B:28:0x0111, B:30:0x014a, B:32:0x0176, B:33:0x0189, B:35:0x01ca, B:37:0x01d8, B:39:0x01f2, B:40:0x0202, B:42:0x0262, B:44:0x028e, B:45:0x02a1, B:49:0x02ed, B:51:0x02f5, B:53:0x02fd, B:55:0x030d, B:56:0x0326, B:58:0x032e, B:60:0x033c, B:61:0x0341, B:63:0x034b, B:65:0x0355, B:67:0x035f, B:68:0x0363, B:70:0x0369, B:72:0x0373, B:74:0x0389, B:75:0x03a3, B:77:0x03ae, B:78:0x03be, B:80:0x0412, B:82:0x043e, B:83:0x0451), top: B:86:0x0003 }] */
@@ -51,80 +51,80 @@ public class b {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void a(View view, String str, int i, boolean z, boolean z2) {
-            com.baidu.tieba.pb.videopb.fragment.a deM;
+            com.baidu.tieba.pb.videopb.fragment.a deN;
             int i2;
             int i3 = 0;
             try {
                 aq aqVar = new aq("c13398");
-                aqVar.dD("tid", b.this.kXp.cWD().cYB());
-                aqVar.dD("fid", b.this.kXp.cWD().getForumId());
+                aqVar.dD("tid", b.this.kXw.cWE().cYC());
+                aqVar.dD("fid", b.this.kXw.cWE().getForumId());
                 aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
                 aqVar.ai("obj_locate", 3);
                 aqVar.ai("obj_type", z2 ? 1 : 2);
                 TiebaStatic.log(aqVar);
-                TiebaStatic.eventStat(b.this.kXp.getPageContext().getPageActivity(), "pic_pb", "");
-                if (b.this.kXp.cWD().getPbData().cVO()) {
+                TiebaStatic.eventStat(b.this.kXw.getPageContext().getPageActivity(), "pic_pb", "");
+                if (b.this.kXw.cWE().getPbData().cVP()) {
                     ArrayList<String> arrayList = new ArrayList<>();
                     ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                     if (view.getParent() instanceof TbRichTextView) {
                         TbRichTextView tbRichTextView = (TbRichTextView) view.getParent();
-                        if (tbRichTextView.getRichText() != null && tbRichTextView.getRichText().bxx() != null) {
-                            ArrayList<TbRichTextImageInfo> bxx = tbRichTextView.getRichText().bxx();
+                        if (tbRichTextView.getRichText() != null && tbRichTextView.getRichText().bxy() != null) {
+                            ArrayList<TbRichTextImageInfo> bxy = tbRichTextView.getRichText().bxy();
                             int i4 = 0;
                             i2 = -1;
-                            while (i4 < bxx.size()) {
-                                if (bxx.get(i4) != null) {
-                                    arrayList.add(bxx.get(i4).getSrc());
-                                    if (i2 == -1 && str != null && str.equals(bxx.get(i4).getSrc())) {
+                            while (i4 < bxy.size()) {
+                                if (bxy.get(i4) != null) {
+                                    arrayList.add(bxy.get(i4).getSrc());
+                                    if (i2 == -1 && str != null && str.equals(bxy.get(i4).getSrc())) {
                                         i2 = i4;
                                     }
                                     ImageUrlData imageUrlData = new ImageUrlData();
-                                    imageUrlData.imageUrl = bxx.get(i4).getSrc();
-                                    imageUrlData.originalUrl = bxx.get(i4).getSrc();
-                                    imageUrlData.isLongPic = bxx.get(i4).bxX();
-                                    concurrentHashMap.put(bxx.get(i4).getSrc(), imageUrlData);
+                                    imageUrlData.imageUrl = bxy.get(i4).getSrc();
+                                    imageUrlData.originalUrl = bxy.get(i4).getSrc();
+                                    imageUrlData.isLongPic = bxy.get(i4).bxY();
+                                    concurrentHashMap.put(bxy.get(i4).getSrc(), imageUrlData);
                                 }
                                 i4++;
                                 i2 = i2;
                             }
                             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-                            aVar.x(arrayList).mM(i2).hH(false).hI(b.this.kXp.cWD().cYT()).a(concurrentHashMap).hJ(true).hK(false);
-                            if (b.this.kXp.cWD() != null) {
-                                aVar.hL(b.this.kXp.cWD().getHostMode());
-                                aVar.yU(b.this.kXp.cWD().getFromForumId());
-                                if (b.this.kXp.cWD().getPbData() != null) {
-                                    aVar.r(b.this.kXp.cWD().getPbData().cVl());
+                            aVar.x(arrayList).mM(i2).hI(false).hJ(b.this.kXw.cWE().cYU()).a(concurrentHashMap).hK(true).hL(false);
+                            if (b.this.kXw.cWE() != null) {
+                                aVar.hM(b.this.kXw.cWE().getHostMode());
+                                aVar.yV(b.this.kXw.cWE().getFromForumId());
+                                if (b.this.kXw.cWE().getPbData() != null) {
+                                    aVar.r(b.this.kXw.cWE().getPbData().cVm());
                                 }
                             }
-                            ImageViewerConfig dP = aVar.dP(b.this.kXp.getPageContext().getPageActivity());
+                            ImageViewerConfig dP = aVar.dP(b.this.kXw.getPageContext().getPageActivity());
                             dP.getIntent().putExtra("from", "pb");
-                            b.this.kXp.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP));
+                            b.this.kXw.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
                             return;
                         }
                     }
                     i2 = -1;
                     ImageViewerConfig.a aVar2 = new ImageViewerConfig.a();
-                    aVar2.x(arrayList).mM(i2).hH(false).hI(b.this.kXp.cWD().cYT()).a(concurrentHashMap).hJ(true).hK(false);
-                    if (b.this.kXp.cWD() != null) {
+                    aVar2.x(arrayList).mM(i2).hI(false).hJ(b.this.kXw.cWE().cYU()).a(concurrentHashMap).hK(true).hL(false);
+                    if (b.this.kXw.cWE() != null) {
                     }
-                    ImageViewerConfig dP2 = aVar2.dP(b.this.kXp.getPageContext().getPageActivity());
+                    ImageViewerConfig dP2 = aVar2.dP(b.this.kXw.getPageContext().getPageActivity());
                     dP2.getIntent().putExtra("from", "pb");
-                    b.this.kXp.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP2));
+                    b.this.kXw.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP2));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
                     return;
                 }
                 PbActivity.a aVar3 = new PbActivity.a();
                 b.this.a(str, i, aVar3);
-                if (aVar3.kzM) {
+                if (aVar3.kzT) {
                     TbRichText bv = b.this.bv(str, i);
-                    if (bv != null && b.this.kEH >= 0 && b.this.kEH < bv.bxw().size()) {
+                    if (bv != null && b.this.kEO >= 0 && b.this.kEO < bv.bxx().size()) {
                         ArrayList<String> arrayList2 = new ArrayList<>();
-                        String c = g.c(bv.bxw().get(b.this.kEH));
+                        String c = g.c(bv.bxx().get(b.this.kEO));
                         while (true) {
-                            if (i3 >= aVar3.kzL.size()) {
+                            if (i3 >= aVar3.kzS.size()) {
                                 break;
-                            } else if (!aVar3.kzL.get(i3).equals(c)) {
+                            } else if (!aVar3.kzS.get(i3).equals(c)) {
                                 i3++;
                             } else {
                                 aVar3.index = i3;
@@ -132,8 +132,8 @@ public class b {
                                 break;
                             }
                         }
-                        if (bv.getPostId() != 0 && (deM = b.this.kXp.deM()) != null) {
-                            ArrayList<q> dataList = deM.getDataList();
+                        if (bv.getPostId() != 0 && (deN = b.this.kXw.deN()) != null) {
+                            ArrayList<q> dataList = deN.getDataList();
                             if (y.getCount(dataList) > 0) {
                                 Iterator<q> it = dataList.iterator();
                                 while (true) {
@@ -142,7 +142,7 @@ public class b {
                                     }
                                     q next = it.next();
                                     if ((next instanceof PostData) && bv.getPostId() == com.baidu.adp.lib.f.b.toLong(((PostData) next).getId(), 0L)) {
-                                        com.baidu.tieba.pb.c.a.a(b.this.kXp.cWD().getPbData(), (PostData) next, ((PostData) next).locate, 8, 3);
+                                        com.baidu.tieba.pb.c.a.a(b.this.kXw.cWE().getPbData(), (PostData) next, ((PostData) next).locate, 8, 3);
                                         break;
                                     }
                                 }
@@ -151,51 +151,51 @@ public class b {
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
                         if (!y.isEmpty(arrayList2)) {
                             String str2 = arrayList2.get(0);
-                            concurrentHashMap2.put(str2, aVar3.dUO.get(str2));
+                            concurrentHashMap2.put(str2, aVar3.dUS.get(str2));
                         }
                         ImageViewerConfig.a aVar4 = new ImageViewerConfig.a();
-                        aVar4.x(arrayList2).yP(aVar3.forumName).yQ(aVar3.forumId).yR(aVar3.threadId).hH(aVar3.dUM).hJ(true).yS(aVar3.lastId).a(concurrentHashMap2).hK(false).hI(b.this.kXp.cWD().cYT()).yT(aVar3.postId);
-                        if (b.this.kXp.cWD() != null) {
-                            aVar4.hL(b.this.kXp.cWD().getHostMode());
-                            aVar4.yU(b.this.kXp.cWD().getFromForumId());
-                            if (b.this.kXp.cWD().getPbData() != null) {
-                                aVar4.r(b.this.kXp.cWD().getPbData().cVl());
+                        aVar4.x(arrayList2).yQ(aVar3.forumName).yR(aVar3.forumId).yS(aVar3.threadId).hI(aVar3.dUQ).hK(true).yT(aVar3.lastId).a(concurrentHashMap2).hL(false).hJ(b.this.kXw.cWE().cYU()).yU(aVar3.postId);
+                        if (b.this.kXw.cWE() != null) {
+                            aVar4.hM(b.this.kXw.cWE().getHostMode());
+                            aVar4.yV(b.this.kXw.cWE().getFromForumId());
+                            if (b.this.kXw.cWE().getPbData() != null) {
+                                aVar4.r(b.this.kXw.cWE().getPbData().cVm());
                             }
                         }
-                        ImageViewerConfig dP3 = aVar4.dP(b.this.kXp.getPageContext().getPageActivity());
+                        ImageViewerConfig dP3 = aVar4.dP(b.this.kXw.getPageContext().getPageActivity());
                         dP3.getIntent().putExtra("from", "pb");
-                        b.this.kXp.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP3));
+                        b.this.kXw.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP3));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
                         return;
                     }
                     return;
                 }
                 ArrayList arrayList3 = new ArrayList();
-                arrayList3.add(y.getItem(aVar3.kzL, 0));
+                arrayList3.add(y.getItem(aVar3.kzS, 0));
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
                 if (!y.isEmpty(arrayList3)) {
                     String str3 = (String) arrayList3.get(0);
-                    concurrentHashMap3.put(str3, aVar3.dUO.get(str3));
+                    concurrentHashMap3.put(str3, aVar3.dUS.get(str3));
                 }
                 ImageViewerConfig.a aVar5 = new ImageViewerConfig.a();
-                aVar5.x(arrayList3).yP(aVar3.forumName).yQ(aVar3.forumId).yR(aVar3.threadId).hH(aVar3.dUM).hJ(true).yS(aVar3.kzL.get(0)).a(concurrentHashMap3).hI(b.this.kXp.cWD().cYT()).hK(false).yT(aVar3.postId).hM(false);
-                if (b.this.kXp.cWD() != null) {
-                    aVar5.hL(b.this.kXp.cWD().getHostMode());
-                    aVar5.yU(b.this.kXp.cWD().getFromForumId());
-                    if (b.this.kXp.cWD().getPbData() != null) {
-                        aVar5.r(b.this.kXp.cWD().getPbData().cVl());
+                aVar5.x(arrayList3).yQ(aVar3.forumName).yR(aVar3.forumId).yS(aVar3.threadId).hI(aVar3.dUQ).hK(true).yT(aVar3.kzS.get(0)).a(concurrentHashMap3).hJ(b.this.kXw.cWE().cYU()).hL(false).yU(aVar3.postId).hN(false);
+                if (b.this.kXw.cWE() != null) {
+                    aVar5.hM(b.this.kXw.cWE().getHostMode());
+                    aVar5.yV(b.this.kXw.cWE().getFromForumId());
+                    if (b.this.kXw.cWE().getPbData() != null) {
+                        aVar5.r(b.this.kXw.cWE().getPbData().cVm());
                     }
                 }
-                ImageViewerConfig dP4 = aVar5.dP(b.this.kXp.getPageContext().getPageActivity());
+                ImageViewerConfig dP4 = aVar5.dP(b.this.kXw.getPageContext().getPageActivity());
                 dP4.getIntent().putExtra("from", "pb");
-                b.this.kXp.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP4));
+                b.this.kXw.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP4));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     };
-    private c eFf = new c(new c.a() { // from class: com.baidu.tieba.pb.videopb.b.b.2
+    private c eFj = new c(new c.a() { // from class: com.baidu.tieba.pb.videopb.b.b.2
         @Override // com.baidu.tieba.pb.a.c.a
         public boolean onDoubleTap(View view, MotionEvent motionEvent) {
             return true;
@@ -208,12 +208,12 @@ public class b {
 
         @Override // com.baidu.tieba.pb.a.c.a
         public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
-            if (b.this.kXq == null || !b.this.kXq.isAdded()) {
+            if (b.this.kXx == null || !b.this.kXx.isAdded()) {
                 return true;
             }
             if (view != null) {
                 if (view.getId() == R.id.richText) {
-                    if (b.this.kXq != null && b.this.kXq.cM(view)) {
+                    if (b.this.kXx != null && b.this.kXx.cM(view)) {
                         return true;
                     }
                 } else if (view.getId() == R.id.pb_floor_item_layout) {
@@ -232,67 +232,67 @@ public class b {
                     }
                 }
             }
-            if (b.this.kXq != null) {
-                b.this.kXq.deb();
+            if (b.this.kXx != null) {
+                b.this.kXx.dec();
             }
             return true;
         }
     });
 
     public b(BaseVideoPBReplyFragment baseVideoPBReplyFragment) {
-        this.kXp = baseVideoPBReplyFragment;
-        this.kXq = baseVideoPBReplyFragment.cYh();
+        this.kXw = baseVideoPBReplyFragment;
+        this.kXx = baseVideoPBReplyFragment.cYi();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(SparseArray<Object> sparseArray) {
         PostData postData;
-        if (this.kXp.checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.tag_clip_board) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_clip_board)) != null && this.kXp.cWD() != null && this.kXp.cWD().getPbData() != null && postData.dwF() != 1) {
-            String cYB = this.kXp.cWD().cYB();
+        if (this.kXw.checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.tag_clip_board) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.tag_clip_board)) != null && this.kXw.cWE() != null && this.kXw.cWE().getPbData() != null && postData.dwK() != 1) {
+            String cYC = this.kXw.cWE().cYC();
             String id = postData.getId();
-            int cVA = this.kXp.cWD().getPbData() != null ? this.kXp.cWD().getPbData().cVA() : 0;
-            PbActivity.a Nx = Nx(id);
-            if (Nx != null) {
-                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.kXp.getPageContext().getPageActivity()).createSubPbActivityConfig(cYB, id, "pb", true, null, false, null, cVA, postData.ddj(), this.kXp.cWD().getPbData().getAnti(), false, postData.beE() != null ? postData.beE().getIconInfo() : null).addBigImageData(Nx.kzL, Nx.dUO, Nx.dUM, Nx.index);
-                addBigImageData.setKeyPageStartFrom(this.kXp.cWD().cZl());
-                addBigImageData.setFromFrsForumId(this.kXp.cWD().getFromForumId());
-                addBigImageData.setKeyFromForumId(this.kXp.cWD().getForumId());
-                addBigImageData.setBjhData(this.kXp.cWD().cYK());
-                this.kXp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, addBigImageData));
+            int cVB = this.kXw.cWE().getPbData() != null ? this.kXw.cWE().getPbData().cVB() : 0;
+            PbActivity.a Ny = Ny(id);
+            if (Ny != null) {
+                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.kXw.getPageContext().getPageActivity()).createSubPbActivityConfig(cYC, id, "pb", true, null, false, null, cVB, postData.ddk(), this.kXw.cWE().getPbData().getAnti(), false, postData.beE() != null ? postData.beE().getIconInfo() : null).addBigImageData(Ny.kzS, Ny.dUS, Ny.dUQ, Ny.index);
+                addBigImageData.setKeyPageStartFrom(this.kXw.cWE().cZm());
+                addBigImageData.setFromFrsForumId(this.kXw.cWE().getFromForumId());
+                addBigImageData.setKeyFromForumId(this.kXw.cWE().getForumId());
+                addBigImageData.setBjhData(this.kXw.cWE().cYL());
+                this.kXw.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, addBigImageData));
             }
         }
     }
 
-    public PbActivity.a Nx(String str) {
+    public PbActivity.a Ny(String str) {
         String str2;
-        if (this.kXp.cWD() == null || this.kXp.cWD().getPbData() == null || this.kXp.cWD().getPbData().cVn() == null || this.kXp.cWD().getPbData().cVn().size() == 0 || StringUtils.isNull(str)) {
+        if (this.kXw.cWE() == null || this.kXw.cWE().getPbData() == null || this.kXw.cWE().getPbData().cVo() == null || this.kXw.cWE().getPbData().cVo().size() == 0 || StringUtils.isNull(str)) {
             return null;
         }
         PbActivity.a aVar = new PbActivity.a();
         int i = 0;
         while (true) {
-            if (i >= this.kXp.cWD().getPbData().cVn().size()) {
+            if (i >= this.kXw.cWE().getPbData().cVo().size()) {
                 i = 0;
                 break;
-            } else if (str.equals(this.kXp.cWD().getPbData().cVn().get(i).getId())) {
+            } else if (str.equals(this.kXw.cWE().getPbData().cVo().get(i).getId())) {
                 break;
             } else {
                 i++;
             }
         }
-        PostData postData = this.kXp.cWD().getPbData().cVn().get(i);
-        if (postData.dwH() == null || postData.dwH().bxw() == null) {
+        PostData postData = this.kXw.cWE().getPbData().cVo().get(i);
+        if (postData.dwM() == null || postData.dwM().bxx() == null) {
             return null;
         }
-        Iterator<TbRichTextData> it = postData.dwH().bxw().iterator();
+        Iterator<TbRichTextData> it = postData.dwM().bxx().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 8) {
-                if (next.bxC() != null) {
-                    str2 = next.bxC().bxS();
+                if (next.bxD() != null) {
+                    str2 = next.bxD().bxT();
                 }
             }
         }
@@ -305,26 +305,26 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public TbRichText bv(String str, int i) {
         TbRichText tbRichText = null;
-        if (this.kXp.cWD() == null || this.kXp.cWD().getPbData() == null || str == null || i < 0) {
+        if (this.kXw.cWE() == null || this.kXw.cWE().getPbData() == null || str == null || i < 0) {
             return null;
         }
-        f pbData = this.kXp.cWD().getPbData();
-        if (pbData.cVu() != null) {
+        f pbData = this.kXw.cWE().getPbData();
+        if (pbData.cVv() != null) {
             ArrayList<PostData> arrayList = new ArrayList<>();
-            arrayList.add(pbData.cVu());
+            arrayList.add(pbData.cVv());
             tbRichText = c(arrayList, str, i);
         }
         if (tbRichText == null) {
-            ArrayList<PostData> cVn = pbData.cVn();
-            c(pbData, cVn);
-            return c(cVn, str, i);
+            ArrayList<PostData> cVo = pbData.cVo();
+            c(pbData, cVo);
+            return c(cVo, str, i);
         }
         return tbRichText;
     }
 
     private void c(f fVar, ArrayList<PostData> arrayList) {
         List<PostData> list;
-        if (fVar != null && fVar.cVz() != null && fVar.cVz().kyo != null && (list = fVar.cVz().kyo) != null && arrayList != null) {
+        if (fVar != null && fVar.cVA() != null && fVar.cVA().kyv != null && (list = fVar.cVA().kyv) != null && arrayList != null) {
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             if (list.size() > 0 && arrayList.size() > 0) {
@@ -353,28 +353,28 @@ public class b {
     }
 
     private TbRichText c(ArrayList<PostData> arrayList, String str, int i) {
-        ArrayList<TbRichTextData> bxw;
+        ArrayList<TbRichTextData> bxx;
         if (arrayList == null || arrayList.isEmpty()) {
             return null;
         }
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            TbRichText dwH = arrayList.get(i2).dwH();
-            if (dwH != null && (bxw = dwH.bxw()) != null) {
-                int size = bxw.size();
+            TbRichText dwM = arrayList.get(i2).dwM();
+            if (dwM != null && (bxx = dwM.bxx()) != null) {
+                int size = bxx.size();
                 int i3 = -1;
                 int i4 = 0;
                 while (i4 < size) {
-                    if (bxw.get(i4) != null && bxw.get(i4).getType() == 8) {
+                    if (bxx.get(i4) != null && bxx.get(i4).getType() == 8) {
                         i3++;
-                        if (bxw.get(i4).bxC().bxS().equals(str) || bxw.get(i4).bxC().bxT().equals(str)) {
+                        if (bxx.get(i4).bxD().bxT().equals(str) || bxx.get(i4).bxD().bxU().equals(str)) {
                             int equipmentDensity = (int) l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                            int width = bxw.get(i4).bxC().getWidth() * equipmentDensity;
-                            int height = bxw.get(i4).bxC().getHeight() * equipmentDensity;
+                            int width = bxx.get(i4).bxD().getWidth() * equipmentDensity;
+                            int height = bxx.get(i4).bxD().getHeight() * equipmentDensity;
                             if (width < 80 || height < 80 || height * width < 10000) {
                                 return null;
                             }
-                            this.kEH = i4;
-                            return dwH;
+                            this.kEO = i4;
+                            return dwM;
                         } else if (i3 <= i) {
                         }
                     }
@@ -390,22 +390,22 @@ public class b {
     public void a(String str, int i, PbActivity.a aVar) {
         TbRichTextData tbRichTextData;
         if (aVar != null) {
-            f pbData = this.kXp.cWD().getPbData();
+            f pbData = this.kXw.cWE().getPbData();
             TbRichText bv = bv(str, i);
-            if (bv != null && (tbRichTextData = bv.bxw().get(this.kEH)) != null) {
+            if (bv != null && (tbRichTextData = bv.bxx().get(this.kEO)) != null) {
                 aVar.postId = String.valueOf(bv.getPostId());
-                aVar.kzL = new ArrayList<>();
-                aVar.dUO = new ConcurrentHashMap<>();
-                if (!tbRichTextData.bxC().bxQ()) {
-                    aVar.kzM = false;
+                aVar.kzS = new ArrayList<>();
+                aVar.dUS = new ConcurrentHashMap<>();
+                if (!tbRichTextData.bxD().bxR()) {
+                    aVar.kzT = false;
                     String c = g.c(tbRichTextData);
-                    aVar.kzL.add(c);
+                    aVar.kzS.add(c);
                     ImageUrlData imageUrlData = new ImageUrlData();
                     imageUrlData.imageUrl = str;
                     if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
                         imageUrlData.urlType = 38;
                     } else {
-                        imageUrlData.urlType = ((e) android.arch.lifecycle.y.b(this.kXp.cYi()).l(e.class)).isFromCDN() ? 17 : 18;
+                        imageUrlData.urlType = ((e) android.arch.lifecycle.y.b(this.kXw.cYj()).l(e.class)).isFromCDN() ? 17 : 18;
                     }
                     imageUrlData.originalUrl = d(tbRichTextData);
                     imageUrlData.originalUrl = d(tbRichTextData);
@@ -413,45 +413,45 @@ public class b {
                     imageUrlData.mIsShowOrigonButton = f(tbRichTextData);
                     imageUrlData.isLongPic = g(tbRichTextData);
                     imageUrlData.postId = bv.getPostId();
-                    imageUrlData.mIsReserver = this.kXp.cWD().cYT();
-                    imageUrlData.mIsSeeHost = this.kXp.cWD().getHostMode();
-                    aVar.dUO.put(c, imageUrlData);
+                    imageUrlData.mIsReserver = this.kXw.cWE().cYU();
+                    imageUrlData.mIsSeeHost = this.kXw.cWE().getHostMode();
+                    aVar.dUS.put(c, imageUrlData);
                     if (pbData != null) {
                         if (pbData.getForum() != null) {
                             aVar.forumName = pbData.getForum().getName();
                             aVar.forumId = pbData.getForum().getId();
                         }
-                        if (pbData.cVl() != null) {
-                            aVar.threadId = pbData.cVl().getId();
+                        if (pbData.cVm() != null) {
+                            aVar.threadId = pbData.cVm().getId();
                         }
-                        aVar.dUM = pbData.getIsNewUrl() == 1;
+                        aVar.dUQ = pbData.getIsNewUrl() == 1;
                     }
                     imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(aVar.threadId, -1L);
                     return;
                 }
-                aVar.kzM = true;
-                int size = pbData.cVn().size();
-                this.kEI = false;
+                aVar.kzT = true;
+                int size = pbData.cVo().size();
+                this.kEP = false;
                 aVar.index = -1;
-                int a = pbData.cVu() != null ? a(pbData.cVu().dwH(), bv, i, i, aVar.kzL, aVar.dUO) : i;
+                int a = pbData.cVv() != null ? a(pbData.cVv().dwM(), bv, i, i, aVar.kzS, aVar.dUS) : i;
                 for (int i2 = 0; i2 < size; i2++) {
-                    PostData postData = pbData.cVn().get(i2);
-                    if (postData.getId() == null || pbData.cVu() == null || pbData.cVu().getId() == null || !postData.getId().equals(pbData.cVu().getId())) {
-                        a = a(postData.dwH(), bv, a, i, aVar.kzL, aVar.dUO);
+                    PostData postData = pbData.cVo().get(i2);
+                    if (postData.getId() == null || pbData.cVv() == null || pbData.cVv().getId() == null || !postData.getId().equals(pbData.cVv().getId())) {
+                        a = a(postData.dwM(), bv, a, i, aVar.kzS, aVar.dUS);
                     }
                 }
-                if (aVar.kzL.size() > 0) {
-                    aVar.lastId = aVar.kzL.get(aVar.kzL.size() - 1);
+                if (aVar.kzS.size() > 0) {
+                    aVar.lastId = aVar.kzS.get(aVar.kzS.size() - 1);
                 }
                 if (pbData != null) {
                     if (pbData.getForum() != null) {
                         aVar.forumName = pbData.getForum().getName();
                         aVar.forumId = pbData.getForum().getId();
                     }
-                    if (pbData.cVl() != null) {
-                        aVar.threadId = pbData.cVl().getId();
+                    if (pbData.cVm() != null) {
+                        aVar.threadId = pbData.cVm().getId();
                     }
-                    aVar.dUM = pbData.getIsNewUrl() == 1;
+                    aVar.dUQ = pbData.getIsNewUrl() == 1;
                 }
                 aVar.index = a;
             }
@@ -461,18 +461,18 @@ public class b {
     private int a(TbRichText tbRichText, TbRichText tbRichText2, int i, int i2, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
         int i3;
         int i4;
-        TbRichTextImageInfo bxC;
+        TbRichTextImageInfo bxD;
         String str;
         if (tbRichText == tbRichText2) {
-            this.kEI = true;
+            this.kEP = true;
         }
         if (tbRichText != null) {
-            int size = tbRichText.bxw().size();
+            int size = tbRichText.bxx().size();
             int i5 = -1;
             int i6 = 0;
             int i7 = i;
             while (i6 < size) {
-                TbRichTextData tbRichTextData = tbRichText.bxw().get(i6);
+                TbRichTextData tbRichTextData = tbRichText.bxx().get(i6);
                 if (tbRichTextData != null && tbRichTextData.getType() == 20) {
                     i3 = i5;
                     i4 = i7;
@@ -482,9 +482,9 @@ public class b {
                 } else {
                     int i8 = i5 + 1;
                     int equipmentDensity = (int) l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                    int width = tbRichTextData.bxC().getWidth() * equipmentDensity;
-                    int height = equipmentDensity * tbRichTextData.bxC().getHeight();
-                    if ((width < 80 || height < 80 || height * width < 10000) || !tbRichTextData.bxC().bxQ()) {
+                    int width = tbRichTextData.bxD().getWidth() * equipmentDensity;
+                    int height = equipmentDensity * tbRichTextData.bxD().getHeight();
+                    if ((width < 80 || height < 80 || height * width < 10000) || !tbRichTextData.bxD().bxR()) {
                         if (tbRichText == tbRichText2 && i8 <= i2) {
                             i4 = i7 - 1;
                             i3 = i8;
@@ -498,15 +498,15 @@ public class b {
                         String c = g.c(tbRichTextData);
                         if (!TextUtils.isEmpty(c)) {
                             arrayList.add(c);
-                            if (tbRichTextData != null && (bxC = tbRichTextData.bxC()) != null) {
-                                String bxS = bxC.bxS();
+                            if (tbRichTextData != null && (bxD = tbRichTextData.bxD()) != null) {
+                                String bxT = bxD.bxT();
                                 ImageUrlData imageUrlData = new ImageUrlData();
                                 if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
                                     imageUrlData.urlType = 38;
-                                    str = bxC.bxT();
+                                    str = bxD.bxU();
                                 } else {
-                                    imageUrlData.urlType = ((e) android.arch.lifecycle.y.b(this.kXp.cYi()).l(e.class)).isFromCDN() ? 17 : 18;
-                                    str = bxS;
+                                    imageUrlData.urlType = ((e) android.arch.lifecycle.y.b(this.kXw.cYj()).l(e.class)).isFromCDN() ? 17 : 18;
+                                    str = bxT;
                                 }
                                 imageUrlData.imageUrl = str;
                                 imageUrlData.originalUrl = d(tbRichTextData);
@@ -514,15 +514,15 @@ public class b {
                                 imageUrlData.mIsShowOrigonButton = f(tbRichTextData);
                                 imageUrlData.isLongPic = g(tbRichTextData);
                                 imageUrlData.postId = tbRichText.getPostId();
-                                imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.kXp.cWD().cYB(), -1L);
-                                imageUrlData.mIsReserver = this.kXp.cWD().cYT();
-                                imageUrlData.mIsSeeHost = this.kXp.cWD().getHostMode();
+                                imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.kXw.cWE().cYC(), -1L);
+                                imageUrlData.mIsReserver = this.kXw.cWE().cYU();
+                                imageUrlData.mIsSeeHost = this.kXw.cWE().getHostMode();
                                 if (concurrentHashMap != null) {
                                     concurrentHashMap.put(c, imageUrlData);
                                 }
                             }
                         }
-                        if (!this.kEI) {
+                        if (!this.kEP) {
                             i4 = i7 + 1;
                             i3 = i8;
                         }
@@ -540,38 +540,38 @@ public class b {
     }
 
     private String d(TbRichTextData tbRichTextData) {
-        if (tbRichTextData == null || tbRichTextData.bxC() == null) {
+        if (tbRichTextData == null || tbRichTextData.bxD() == null) {
             return null;
         }
-        return tbRichTextData.bxC().bxV();
+        return tbRichTextData.bxD().bxW();
     }
 
     private long e(TbRichTextData tbRichTextData) {
-        if (tbRichTextData == null || tbRichTextData.bxC() == null) {
+        if (tbRichTextData == null || tbRichTextData.bxD() == null) {
             return 0L;
         }
-        return tbRichTextData.bxC().getOriginalSize();
+        return tbRichTextData.bxD().getOriginalSize();
     }
 
     private boolean f(TbRichTextData tbRichTextData) {
-        if (tbRichTextData == null || tbRichTextData.bxC() == null) {
+        if (tbRichTextData == null || tbRichTextData.bxD() == null) {
             return false;
         }
-        return tbRichTextData.bxC().bxW();
+        return tbRichTextData.bxD().bxX();
     }
 
     private boolean g(TbRichTextData tbRichTextData) {
-        if (tbRichTextData == null || tbRichTextData.bxC() == null) {
+        if (tbRichTextData == null || tbRichTextData.bxD() == null) {
             return false;
         }
-        return tbRichTextData.bxC().bxX();
+        return tbRichTextData.bxD().bxY();
     }
 
     public TbRichTextView.i getOnImageClickListener() {
-        return this.fcy;
+        return this.fcC;
     }
 
-    public c deL() {
-        return this.eFf;
+    public c deM() {
+        return this.eFj;
     }
 }

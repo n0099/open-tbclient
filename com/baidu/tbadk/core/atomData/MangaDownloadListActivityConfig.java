@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MangaDownloadListActivityConfig extends IntentConfig {
     public static final String CARTOON_ID = "cartoon_id";
 

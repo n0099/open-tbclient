@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static b ej(Context context) {
         if (context != null) {
@@ -29,7 +29,7 @@ public class c {
         if (ej == null) {
             return null;
         }
-        return ej.btW();
+        return ej.btX();
     }
 
     public static TbPageTag el(Context context) {
@@ -56,11 +56,11 @@ public class c {
     }
 
     public static aq a(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.btW());
+        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.btX());
     }
 
     public static aq b(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.btW());
+        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.btX());
     }
 
     public static aq a(aq aqVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {

@@ -22,20 +22,20 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static a nia = null;
+    private static a nit = null;
     private Context mContext;
     private Handler mHandler;
     private final Object mObject;
-    private c nhZ;
-    private long nib;
-    private String nic;
+    private c nis;
+    private long niu;
+    private String niv;
 
     private a(Context context) {
-        this.nib = 8000L;
+        this.niu = 8000L;
         this.mObject = new Object();
         this.mContext = context.getApplicationContext();
         this.mHandler = new Handler(this.mContext.getMainLooper());
-        this.nhZ = c.gn(this.mContext);
+        this.nis = c.gn(this.mContext);
         t.go(this.mContext);
         k.a(this.mContext);
         j.a(this.mContext);
@@ -45,7 +45,7 @@ public class a {
                 String b = k.b("AID", "");
                 com.cmic.sso.sdk.e.c.b("AuthnHelper", "aid = " + b);
                 if (TextUtils.isEmpty(b)) {
-                    a.this.dNh();
+                    a.this.dNq();
                 }
                 if (com.cmic.sso.sdk.e.b.a(a.this.mContext, true)) {
                     com.cmic.sso.sdk.e.c.b("AuthnHelper", "生成androidkeystore成功");
@@ -57,39 +57,39 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dNh() {
+    public void dNq() {
         String str = "%" + s.a();
         com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
-        k.a dNp = k.dNp();
-        dNp.a("AID", str);
-        dNp.b();
+        k.a dNy = k.dNy();
+        dNy.a("AID", str);
+        dNy.b();
     }
 
     private a(Context context, String str) {
         this(context);
-        this.nic = str;
+        this.niv = str;
     }
 
     public static a gl(Context context) {
-        if (nia == null) {
+        if (nit == null) {
             synchronized (a.class) {
-                if (nia == null) {
-                    nia = new a(context);
+                if (nit == null) {
+                    nit = new a(context);
                 }
             }
         }
-        return nia;
+        return nit;
     }
 
     public static a bf(Context context, String str) {
-        if (nia == null) {
+        if (nit == null) {
             synchronized (a.class) {
-                if (nia == null) {
-                    nia = new a(context, str);
+                if (nit == null) {
+                    nit = new a(context, str);
                 }
             }
         }
-        return nia;
+        return nit;
     }
 
     public void a(final String str, final String str2, final b bVar) {
@@ -142,29 +142,29 @@ public class a {
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public class RunnableC0857a implements Runnable {
-        private com.cmic.sso.sdk.a nim;
+        private com.cmic.sso.sdk.a niE;
 
         RunnableC0857a(com.cmic.sso.sdk.a aVar) {
-            this.nim = aVar;
+            this.niE = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a;
-            if (!t.go(a.this.mContext).a() && this.nim.b("doNetworkSwitch", false)) {
+            if (!t.go(a.this.mContext).a() && this.niE.b("doNetworkSwitch", false)) {
                 a = e.a("102508", "数据网络切换失败");
             } else {
                 a = e.a("200023", "登录超时");
             }
-            a.this.a(a.optString("resultCode", "200023"), a.optString("resultString", "登录超时"), this.nim, a);
+            a.this.a(a.optString("resultCode", "200023"), a.optString("resultString", "登录超时"), this.niE, a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.cmic.sso.sdk.a aVar) {
         final RunnableC0857a runnableC0857a = new RunnableC0857a(aVar);
-        this.mHandler.postDelayed(runnableC0857a, this.nib);
-        this.nhZ.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
+        this.mHandler.postDelayed(runnableC0857a, this.niu);
+        this.nis.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
             @Override // com.cmic.sso.sdk.b.d
             public void b(String str, String str2, com.cmic.sso.sdk.a aVar2, JSONObject jSONObject) {
                 a.this.mHandler.removeCallbacks(runnableC0857a);
@@ -177,28 +177,28 @@ public class a {
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, b bVar) {
         boolean z;
         aVar.a("CLOSE_CERT_VERIFY", q.h());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.nic));
+        aVar.a("use2048PublicKey", "rsa2048".equals(this.niv));
         aVar.a("systemStartTime", SystemClock.elapsedRealtime());
         aVar.a(LogBuilder.KEY_START_TIME, p.a());
         aVar.a("loginMethod", str3);
         aVar.a("appkey", str2);
         aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.nib));
+        aVar.a("timeOut", String.valueOf(this.niu));
         boolean z2 = false;
         if (g.a(this.mContext, "android.permission.READ_PHONE_STATE")) {
             z2 = true;
         }
         com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + z2);
         aVar.a("hsaReadPhoneStatePermission", z2);
-        com.cmic.sso.sdk.a.b.dNf().a(this.mContext, z2);
-        aVar.a("networkClass", com.cmic.sso.sdk.a.b.dNf().a(this.mContext));
-        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.dNf().dNg().i()));
-        String b = j.dNo().b();
-        String xM = j.dNo().xM(z2);
+        com.cmic.sso.sdk.a.b.dNo().a(this.mContext, z2);
+        aVar.a("networkClass", com.cmic.sso.sdk.a.b.dNo().a(this.mContext));
+        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.dNo().dNp().i()));
+        String b = j.dNx().b();
+        String xO = j.dNx().xO(z2);
         String e = j.e();
-        String a = j.dNo().a(false);
+        String a = j.dNx().a(false);
         aVar.a("imsi", b);
-        aVar.a("imei", xM);
+        aVar.a("imei", xO);
         aVar.a("operatortype", a);
         aVar.a("iccid", e);
         aVar.a("logintype", i);
@@ -322,15 +322,15 @@ public class a {
         }
     }
 
-    public void gg(long j) {
-        this.nib = j;
+    public void gi(long j) {
+        this.niu = j;
     }
 
     public JSONObject gm(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.cmic.sso.sdk.a.b.dNf().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
-            String a = j.dNo().a(true);
+            com.cmic.sso.sdk.a.b.dNo().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
+            String a = j.dNx().a(true);
             int a2 = n.a(context, a);
             jSONObject.put("operatortype", a);
             jSONObject.put("networktype", a2 + "");

@@ -82,12 +82,12 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes20.dex */
     public static final class c implements InterfaceC0159b {
-        private final FileChannel ayl;
+        private final FileChannel ayn;
         private final long b;
         private final long c;
 
         public c(FileChannel fileChannel, long j, long j2) {
-            this.ayl = fileChannel;
+            this.ayn = fileChannel;
             this.b = j;
             this.c = j2;
         }
@@ -99,7 +99,7 @@ public class b {
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0159b
         public void a(MessageDigest[] messageDigestArr, long j, int i) {
-            MappedByteBuffer map = this.ayl.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
+            MappedByteBuffer map = this.ayn.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
             for (MessageDigest messageDigest : messageDigestArr) {
                 map.position(0);
                 messageDigest.update(map);
@@ -111,7 +111,7 @@ public class b {
     /* loaded from: classes20.dex */
     public static class d {
         private final ByteBuffer a;
-        private final ByteBuffer aym;
+        private final ByteBuffer ayo;
         private final long b;
         private final long c;
         private final long d;
@@ -121,7 +121,7 @@ public class b {
             this.b = j;
             this.c = j2;
             this.d = j3;
-            this.aym = byteBuffer2;
+            this.ayo = byteBuffer2;
         }
     }
 
@@ -689,7 +689,7 @@ public class b {
                 if (hashMap.isEmpty()) {
                     throw new SecurityException("No content digests found");
                 }
-                a(hashMap, randomAccessFile, fileDescriptor, dVar.b, dVar.c, dVar.d, dVar.aym);
+                a(hashMap, randomAccessFile, fileDescriptor, dVar.b, dVar.c, dVar.d, dVar.ayo);
                 return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
             } catch (IOException e3) {
                 throw new SecurityException("Failed to read list of signers", e3);

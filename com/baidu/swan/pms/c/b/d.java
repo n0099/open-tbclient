@@ -22,15 +22,15 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a ag(com.baidu.swan.pms.c.c.d dVar) {
-        this.dFu.aiw();
+        this.dFy.aiw();
         f fVar = new f();
-        a(dVar.dGc, fVar);
+        a(dVar.dGg, fVar);
         if (fVar.aUK() == 0) {
-            this.dFu.afB();
+            this.dFy.afB();
             return null;
         }
-        this.dFu.a(fVar);
-        com.baidu.swan.pms.c.a.a.a(dVar, this.dFu);
+        this.dFy.a(fVar);
+        com.baidu.swan.pms.c.a.a.a(dVar, this.dFy);
         return null;
     }
 
@@ -39,10 +39,10 @@ public class d extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.d> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
     public boolean ah(com.baidu.swan.pms.c.c.d dVar) {
-        if (dVar == null || dVar.dGc == null) {
+        if (dVar == null || dVar.dGg == null) {
             return false;
         }
-        for (com.baidu.swan.pms.model.g gVar : dVar.dGc) {
+        for (com.baidu.swan.pms.model.g gVar : dVar.dGg) {
             if (!gVar.ajo()) {
                 return false;
             }

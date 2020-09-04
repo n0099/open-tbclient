@@ -2,7 +2,7 @@ package com.baidu.tbadk.k;
 
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b implements d {
     @Override // com.baidu.tbadk.k.d
     public void attachView(View view, View view2, boolean z) {

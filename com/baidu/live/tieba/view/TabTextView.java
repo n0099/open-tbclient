@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class TabTextView extends TextView {
-    private int bob;
-    private int boc;
-    private float bon;
-    private boolean boo;
-    private LinearGradient bop;
-    private boolean boq;
+    private int boe;
+    private int bof;
+    private float boq;
+    private boolean bor;
+    private LinearGradient bos;
+    private boolean bot;
     private float mSelectedTextSize;
 
     public TabTextView(Context context) {
@@ -29,52 +29,52 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.boq = true;
+        this.bot = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_TabTextView);
-        this.bob = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
-        this.boc = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
-        this.bon = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.boe = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
+        this.bof = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
+        this.boq = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
         this.mSelectedTextSize = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.boo = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
+        this.bor = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        cu(false);
+        cv(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        cu(z);
         cv(z);
         cw(z);
+        cx(z);
     }
 
     public void setGradientAttrs(int i, int i2, float f, float f2, boolean z) {
-        this.bob = i;
-        this.boc = i2;
-        this.bon = f;
+        this.boe = i;
+        this.bof = i2;
+        this.boq = f;
         this.mSelectedTextSize = f2;
-        this.boo = z;
+        this.bor = z;
         invalidate();
     }
 
     private boolean On() {
-        return (this.bob == -1 || this.boc == -1) ? false : true;
+        return (this.boe == -1 || this.bof == -1) ? false : true;
     }
 
-    private void cu(boolean z) {
-        if (this.boq) {
+    private void cv(boolean z) {
+        if (this.bot) {
             if (z) {
                 if (this.mSelectedTextSize != -1.0f) {
                     setTextSize(0, this.mSelectedTextSize);
                 }
-            } else if (this.bon != -1.0f) {
-                setTextSize(0, this.bon);
+            } else if (this.boq != -1.0f) {
+                setTextSize(0, this.boq);
             }
         }
     }
 
-    public TabTextView cv(boolean z) {
-        if (this.boo) {
+    public TabTextView cw(boolean z) {
+        if (this.bor) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -84,16 +84,16 @@ public class TabTextView extends TextView {
         return this;
     }
 
-    private void cw(boolean z) {
+    private void cx(boolean z) {
         if (z && On()) {
-            if (this.bop == null) {
+            if (this.bos == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.bop = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.bob, this.boc}, (float[]) null, Shader.TileMode.CLAMP);
+                this.bos = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.boe, this.bof}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.bop);
+            getPaint().setShader(this.bos);
             return;
         }
         getPaint().setShader(null);

@@ -28,19 +28,19 @@ import java.util.List;
 /* loaded from: classes18.dex */
 public class a {
     private BdTypeRecyclerView Wu;
-    private TbPageContext efn;
-    private PbListView fDW;
-    private n loJ;
-    private PersonCenterTabBaseFragment loK;
+    private TbPageContext efr;
+    private PbListView fEa;
+    private n loU;
+    private PersonCenterTabBaseFragment loV;
     private NoDataView mNoDataView;
     private View mRootView;
-    private com.baidu.tbadk.n.b kDe = null;
+    private com.baidu.tbadk.n.b kDl = null;
     private int mSubType = 1010;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
         this.mRootView = view;
-        this.loK = personCenterTabBaseFragment;
+        this.loV = personCenterTabBaseFragment;
         initUI();
     }
 
@@ -60,38 +60,38 @@ public class a {
         this.Wu.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.personPolymeric.tab.view.a.2
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (a.this.kDe == null) {
-                    a.this.kDe = new com.baidu.tbadk.n.b();
-                    a.this.kDe.setSubType(a.this.mSubType);
+                if (a.this.kDl == null) {
+                    a.this.kDl = new com.baidu.tbadk.n.b();
+                    a.this.kDl.setSubType(a.this.mSubType);
                 }
                 if (i == 0) {
-                    a.this.kDe.bue();
+                    a.this.kDl.buf();
                 } else {
-                    a.this.kDe.bud();
+                    a.this.kDl.bue();
                 }
             }
         });
-        this.fDW = new PbListView(this.efn.getPageActivity());
-        this.fDW.createView();
-        this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fDW.setHeight(l.getDimens(this.efn.getPageActivity(), R.dimen.tbds182));
-        this.fDW.setLineGone();
-        this.fDW.setTextSize(R.dimen.tbfontsize33);
-        this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
-        this.fDW.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.loJ = new n(this.efn, this.Wu, this.loK.getUniqueId());
-        this.loJ.setIsHost(this.loK.isHost());
-        this.loJ.Fo(32);
+        this.fEa = new PbListView(this.efr.getPageActivity());
+        this.fEa.createView();
+        this.fEa.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fEa.setHeight(l.getDimens(this.efr.getPageActivity(), R.dimen.tbds182));
+        this.fEa.setLineGone();
+        this.fEa.setTextSize(R.dimen.tbfontsize33);
+        this.fEa.setTextColor(ap.getColor(R.color.cp_cont_j));
+        this.fEa.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.loU = new n(this.efr, this.Wu, this.loV.getUniqueId());
+        this.loU.setIsHost(this.loV.isHost());
+        this.loU.Fo(32);
         int i = 0;
-        if (this.loK.isHost()) {
-            if (this.loK instanceof PersonCenterDynamicTabFragment) {
+        if (this.loV.isHost()) {
+            if (this.loV instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.loK instanceof PersonCenterThreadTabFragment) {
+            } else if (this.loV instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.loJ.Fp(i);
-        this.loJ.setTabType(this.loK.getTabType());
+        this.loU.Fp(i);
+        this.loU.setTabType(this.loV.getTabType());
     }
 
     public void addHeaderView(View view) {
@@ -103,15 +103,15 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.kDe != null) {
-            this.kDe.buf();
+        if (this.kDl != null) {
+            this.kDl.bug();
         }
         this.Wu.setOnSrollToBottomListener(null);
     }
 
     public void eR(List<q> list) {
         if (y.isEmpty(list)) {
-            bGT();
+            bGU();
             if (this.Wu.getHeaderViewsCount() == 0) {
                 Bd(R.string.person_center_listempty_txt);
             }
@@ -119,20 +119,20 @@ public class a {
             this.Wu.removeHeaderView(this.mNoDataView);
         }
         this.Wu.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.loK.getTabType())));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.loV.getTabType())));
     }
 
     private void Bd(int i) {
         String string;
-        if (this.loK.getTabType() == 1) {
-            string = this.loK.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.loV.getTabType() == 1) {
+            string = this.loV.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.loK.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.loV.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.efn.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.dE(null, string), null);
+            this.mNoDataView = NoDataViewFactory.a(this.efr.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.dE(null, string), null);
         }
-        this.mNoDataView.onChangeSkinType(this.efn, TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.efr, TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
         this.Wu.removeHeaderView(this.mNoDataView);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -141,52 +141,52 @@ public class a {
 
     public void onChangeSkinType(int i) {
         ap.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        if (this.loJ != null) {
-            this.loJ.notifyDataSetChanged();
+        if (this.loU != null) {
+            this.loU.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.efn, i);
+            this.mNoDataView.onChangeSkinType(this.efr, i);
         }
-        if (this.fDW != null) {
-            this.fDW.setTextColor(ap.getColor(R.color.cp_cont_j));
-            this.fDW.changeSkin(i);
+        if (this.fEa != null) {
+            this.fEa.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fEa.changeSkin(i);
         }
     }
 
-    public n djk() {
-        return this.loJ;
+    public n djn() {
+        return this.loU;
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void bGR() {
-        this.Wu.setNextPage(this.fDW);
-        this.fDW.showEmptyView(0);
-        this.fDW.startLoadData();
-    }
-
     public void bGS() {
-        this.Wu.setNextPage(this.fDW);
-        this.fDW.showEmptyView(0);
-        this.fDW.endLoadData();
-        this.fDW.setText(this.efn.getString(R.string.list_no_more));
+        this.Wu.setNextPage(this.fEa);
+        this.fEa.showEmptyView(0);
+        this.fEa.startLoadData();
     }
 
     public void bGT() {
+        this.Wu.setNextPage(this.fEa);
+        this.fEa.showEmptyView(0);
+        this.fEa.endLoadData();
+        this.fEa.setText(this.efr.getString(R.string.list_no_more));
+    }
+
+    public void bGU() {
         this.Wu.setNextPage(null);
     }
 
-    public void clz() {
+    public void clA() {
         this.Wu.smoothScrollToPosition(0);
     }
 
     public void Fw(int i) {
-        this.Wu.setNextPage(this.fDW);
-        this.fDW.showEmptyView(0);
-        this.fDW.endLoadData();
-        this.fDW.setText(this.efn.getString(i));
+        this.Wu.setNextPage(this.fEa);
+        this.fEa.showEmptyView(0);
+        this.fEa.endLoadData();
+        this.fEa.setText(this.efr.getString(i));
     }
 
     public void setSubType(int i) {

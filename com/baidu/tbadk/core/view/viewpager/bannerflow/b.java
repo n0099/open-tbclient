@@ -9,7 +9,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tbadk.core.view.viewpager.c;
 import com.baidu.tbadk.widget.TbImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends c<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a> {
     private Context mContext;
 
@@ -22,7 +22,7 @@ public class b extends c<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.viewpager.c
     public View a(ViewGroup viewGroup, a aVar, com.baidu.tbadk.core.view.viewpager.bannerflow.a aVar2) {
-        aVar.eov.startLoad(aVar2.getImageUrl(), 10, false);
+        aVar.eoz.startLoad(aVar2.getImageUrl(), 10, false);
         return null;
     }
 
@@ -35,15 +35,15 @@ public class b extends c<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a> {
         return new a(tbImageView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends BdBaseViewPagerAdapter.a {
-        public TbImageView eov;
+        public TbImageView eoz;
 
         public a(View view) {
             super(view);
             if (view instanceof TbImageView) {
-                this.eov = (TbImageView) view;
-                this.eov.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.eoz = (TbImageView) view;
+                this.eoz.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }

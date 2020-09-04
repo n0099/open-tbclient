@@ -79,9 +79,9 @@ public final class DeviceId {
     }
 
     private g.a b(String str) {
-        e m21do = this.f.m21do(str);
-        if (m21do != null) {
-            return this.e.b(m21do);
+        e dp = this.f.dp(str);
+        if (dp != null) {
+            return this.e.b(dp);
         }
         return null;
     }
@@ -124,12 +124,12 @@ public final class DeviceId {
     }
 
     private g.a e() {
-        e dm;
+        e dn;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (dm = e.dm(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (dn = e.dn(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(dm);
+        return this.e.b(dn);
     }
 
     public static String getCUID(Context context) {

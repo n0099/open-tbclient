@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     public static List<String> S(JSONArray jSONArray) {
         if (jSONArray == null) {

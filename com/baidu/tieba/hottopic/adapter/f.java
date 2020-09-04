@@ -40,24 +40,24 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.c cVar, View view) {
         if (cVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (cVar.aiB != this.mSkinType) {
-                cVar.aiB = this.mSkinType;
+            if (cVar.aiD != this.mSkinType) {
+                cVar.aiD = this.mSkinType;
                 ap.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
-                ap.setBackgroundColor(cVar.jaz, R.color.cp_bg_line_c);
-                ap.setViewTextColor(cVar.jaA, R.color.cp_cont_c, 1);
+                ap.setBackgroundColor(cVar.jaF, R.color.cp_bg_line_c);
+                ap.setViewTextColor(cVar.jaG, R.color.cp_cont_c, 1);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.c cVar, com.baidu.tieba.hottopic.data.g gVar) {
-        if (cVar == null || gVar == null || StringUtils.isNull(gVar.iYV)) {
+        if (cVar == null || gVar == null || StringUtils.isNull(gVar.iZb)) {
             if (cVar != null) {
-                cVar.jaA.setVisibility(8);
+                cVar.jaG.setVisibility(8);
                 return;
             }
             return;
         }
-        cVar.jaA.setVisibility(0);
-        cVar.jaA.setText(gVar.iYV);
+        cVar.jaG.setVisibility(0);
+        cVar.jaG.setText(gVar.iZb);
     }
 }

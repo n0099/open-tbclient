@@ -10,9 +10,9 @@ public class UbcFlowEvent {
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String cGO = "NA";
-    private RecordType cGP = RecordType.KEEP;
-    private boolean cGQ = false;
+    private String cGS = "NA";
+    private RecordType cGT = RecordType.KEEP;
+    private boolean cGU = false;
 
     /* loaded from: classes8.dex */
     public enum RecordType {
@@ -42,31 +42,31 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent pn(String str) {
-        this.cGO = str;
+    public UbcFlowEvent po(String str) {
+        this.cGS = str;
         return this;
     }
 
     public String avX() {
-        return this.cGO;
+        return this.cGS;
     }
 
-    public UbcFlowEvent fb(boolean z) {
-        this.cGQ = z;
+    public UbcFlowEvent fc(boolean z) {
+        this.cGU = z;
         return this;
     }
 
     public boolean avY() {
-        return this.cGQ;
+        return this.cGU;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.cGP = recordType;
+        this.cGT = recordType;
         return this;
     }
 
     public RecordType avZ() {
-        return this.cGP;
+        return this.cGT;
     }
 
     public String toString() {

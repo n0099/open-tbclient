@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class z {
     private String link;
     private int offline;

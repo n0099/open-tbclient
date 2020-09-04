@@ -24,16 +24,16 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.UrlManager;
 /* loaded from: classes7.dex */
 public class b {
-    private com.baidu.live.gift.a.d aVJ;
-    private AlaGiftTabView.a aVK;
-    private a aVL;
-    private int aVM;
-    private CustomMessageListener aVN;
-    private CustomMessageListener aVO;
+    private com.baidu.live.gift.a.d aVL;
+    private AlaGiftTabView.a aVM;
+    private a aVN;
+    private int aVO;
     private CustomMessageListener aVP;
     private CustomMessageListener aVQ;
-    private com.baidu.live.noble.b.a aVR;
-    private NobleUserInfo aVS;
+    private CustomMessageListener aVR;
+    private CustomMessageListener aVS;
+    private com.baidu.live.noble.b.a aVT;
+    private NobleUserInfo aVU;
     private TbPageContext mContext;
     private Handler mHandler;
 
@@ -59,8 +59,8 @@ public class b {
     }
 
     public void a(a aVar, AlaGiftTabView.a aVar2) {
-        this.aVL = aVar;
-        this.aVK = aVar2;
+        this.aVN = aVar;
+        this.aVM = aVar2;
         registerListener();
         this.mHandler = new Handler();
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.panel.b.1
@@ -70,84 +70,84 @@ public class b {
             }
         }, 300L);
         Ho();
-        if (this.aVL != null && this.aVJ != null && this.aVJ.aTi != null) {
-            this.aVL.a(this.aVJ.aTi);
+        if (this.aVN != null && this.aVL != null && this.aVL.aTk != null) {
+            this.aVN.a(this.aVL.aTk);
         }
         Hp();
         Hq();
     }
 
     public boolean Hi() {
-        return this.aVJ != null && this.aVJ.aTj;
+        return this.aVL != null && this.aVL.aTl;
     }
 
     public void Hj() {
-        if (this.aVS != null && !TextUtils.isEmpty(this.aVS.detailUrl)) {
+        if (this.aVU != null && !TextUtils.isEmpty(this.aVU.detailUrl)) {
             NobleDetailInfo nobleDetailInfo = new NobleDetailInfo();
-            nobleDetailInfo.url = this.aVS.detailUrl;
-            if (this.aVS.user != null) {
-                nobleDetailInfo.roleId = this.aVS.user.id;
+            nobleDetailInfo.url = this.aVU.detailUrl;
+            if (this.aVU.user != null) {
+                nobleDetailInfo.roleId = this.aVU.user.id;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913199, nobleDetailInfo));
-            if (this.aVL != null) {
-                this.aVL.onClose();
+            if (this.aVN != null) {
+                this.aVN.onClose();
             }
         }
     }
 
-    public void gK(String str) {
+    public void gL(String str) {
         UrlManager.getInstance().dealOneLink(this.mContext, new String[]{str});
     }
 
     public void release() {
-        this.aVL = null;
+        this.aVN = null;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.aVR != null) {
-            this.aVR.release();
+        if (this.aVT != null) {
+            this.aVT.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.aVN);
-        MessageManager.getInstance().unRegisterListener(this.aVO);
         MessageManager.getInstance().unRegisterListener(this.aVP);
         MessageManager.getInstance().unRegisterListener(this.aVQ);
+        MessageManager.getInstance().unRegisterListener(this.aVR);
+        MessageManager.getInstance().unRegisterListener(this.aVS);
     }
 
     private void k(Intent intent) {
-        this.aVJ = new com.baidu.live.gift.a.d();
+        this.aVL = new com.baidu.live.gift.a.d();
         if (intent != null) {
-            this.aVM = intent.getIntExtra("custom_tab_id", 1);
-            this.aVJ.mUserName = intent.getStringExtra("user_name");
-            this.aVJ.mUserId = intent.getStringExtra("user_id");
-            this.aVJ.mLiveId = intent.getStringExtra("live_Id");
-            this.aVJ.mRoomId = intent.getStringExtra("room_id");
-            this.aVJ.aTc = intent.getStringExtra("feed_id");
-            this.aVJ.aTd = intent.getIntExtra("is_block", 0);
-            this.aVJ.aTe = intent.getStringExtra("scene");
-            this.aVJ.mAppId = intent.getStringExtra("app_id");
-            this.aVJ.aTf = intent.getBooleanExtra("can_graffiti", true);
-            this.aVJ.aRW = intent.getIntExtra("custom_category_id", -1);
-            this.aVJ.aRX = intent.getIntExtra("custom_gift_id", -1);
-            this.aVJ.aPZ = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
-            this.aVJ.aPX = intent.getIntExtra("user_level", -1);
-            this.aVJ.aRs = intent.getBooleanExtra("isJoinGuardClub", false);
-            this.aVJ.isNewUser = intent.getBooleanExtra("is_new_user", false);
-            this.aVJ.aRY = intent.getIntExtra("guard_club_join_amount", 1000);
-            this.aVJ.aSj = intent.getBooleanExtra("is_redpkg_unable", false);
-            this.aVJ.aTh = intent.getIntExtra("page_from", -1);
-            this.aVJ.aQg = intent.getBooleanExtra("throne_enabled", false);
-            this.aVJ.aTj = intent.getBooleanExtra("noble_enabled", false);
+            this.aVO = intent.getIntExtra("custom_tab_id", 1);
+            this.aVL.mUserName = intent.getStringExtra("user_name");
+            this.aVL.mUserId = intent.getStringExtra("user_id");
+            this.aVL.mLiveId = intent.getStringExtra("live_Id");
+            this.aVL.mRoomId = intent.getStringExtra("room_id");
+            this.aVL.aTe = intent.getStringExtra("feed_id");
+            this.aVL.aTf = intent.getIntExtra("is_block", 0);
+            this.aVL.aTg = intent.getStringExtra("scene");
+            this.aVL.mAppId = intent.getStringExtra("app_id");
+            this.aVL.aTh = intent.getBooleanExtra("can_graffiti", true);
+            this.aVL.aRY = intent.getIntExtra("custom_category_id", -1);
+            this.aVL.aRZ = intent.getIntExtra("custom_gift_id", -1);
+            this.aVL.aQb = intent.getBooleanExtra("new_gift_t_dou_strategy", false);
+            this.aVL.aPZ = intent.getIntExtra("user_level", -1);
+            this.aVL.aRu = intent.getBooleanExtra("isJoinGuardClub", false);
+            this.aVL.isNewUser = intent.getBooleanExtra("is_new_user", false);
+            this.aVL.aSa = intent.getIntExtra("guard_club_join_amount", 1000);
+            this.aVL.aSl = intent.getBooleanExtra("is_redpkg_unable", false);
+            this.aVL.aTj = intent.getIntExtra("page_from", -1);
+            this.aVL.aQi = intent.getBooleanExtra("throne_enabled", false);
+            this.aVL.aTl = intent.getBooleanExtra("noble_enabled", false);
             String stringExtra = intent.getStringExtra("bg_info");
             if (!TextUtils.isEmpty(stringExtra)) {
                 AlaLiveGiftUIInfo alaLiveGiftUIInfo = new AlaLiveGiftUIInfo();
                 alaLiveGiftUIInfo.parserJson(stringExtra);
-                this.aVJ.aTi = alaLiveGiftUIInfo;
+                this.aVL.aTk = alaLiveGiftUIInfo;
             }
             String stringExtra2 = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
             if (stringExtra2 == null) {
                 stringExtra2 = "";
             }
-            this.aVJ.mOtherParams = stringExtra2;
+            this.aVL.mOtherParams = stringExtra2;
         }
     }
 
@@ -159,44 +159,20 @@ public class b {
     }
 
     private void Hk() {
-        this.aVN = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
+        this.aVP = new CustomMessageListener(2913097) { // from class: com.baidu.live.gift.panel.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aVL != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    b.this.aVL.onClose();
-                }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.aVN);
-    }
-
-    private void Hl() {
-        this.aVO = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.this.Hp();
-            }
-        };
-        MessageManager.getInstance().registerListener(this.aVO);
-    }
-
-    private void Hm() {
-        this.aVP = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.aVL != null) {
-                    b.this.aVL.onClose();
+                if (b.this.aVN != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    b.this.aVN.onClose();
                 }
             }
         };
         MessageManager.getInstance().registerListener(this.aVP);
     }
 
-    private void Hn() {
-        this.aVQ = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+    private void Hl() {
+        this.aVQ = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.live.gift.panel.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -206,13 +182,37 @@ public class b {
         MessageManager.getInstance().registerListener(this.aVQ);
     }
 
+    private void Hm() {
+        this.aVR = new CustomMessageListener(2913024) { // from class: com.baidu.live.gift.panel.b.4
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (b.this.aVN != null) {
+                    b.this.aVN.onClose();
+                }
+            }
+        };
+        MessageManager.getInstance().registerListener(this.aVR);
+    }
+
+    private void Hn() {
+        this.aVS = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.live.gift.panel.b.5
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                b.this.Hp();
+            }
+        };
+        MessageManager.getInstance().registerListener(this.aVS);
+    }
+
     private void Ho() {
         int i;
         f.a aVar = new f.a() { // from class: com.baidu.live.gift.panel.b.6
             @Override // com.baidu.live.gift.panel.f.a
             public l FC() {
-                if (b.this.aVL != null) {
-                    return b.this.aVL.FC();
+                if (b.this.aVN != null) {
+                    return b.this.aVN.FC();
                 }
                 return null;
             }
@@ -220,14 +220,14 @@ public class b {
         c ep = c.ep(0);
         ep.setPageContext(this.mContext);
         ep.a(aVar);
-        ep.b(this.aVK);
-        ep.a(this.aVJ);
+        ep.b(this.aVM);
+        ep.a(this.aVL);
         c ep2 = c.ep(1);
         ep2.setPageContext(this.mContext);
         ep2.a(aVar);
-        ep2.b(this.aVK);
-        ep2.a(this.aVJ);
-        switch (this.aVM) {
+        ep2.b(this.aVM);
+        ep2.a(this.aVL);
+        switch (this.aVO) {
             case 1:
                 i = 0;
                 break;
@@ -238,8 +238,8 @@ public class b {
                 i = 0;
                 break;
         }
-        if (this.aVL != null) {
-            this.aVL.a(i, ep, ep2);
+        if (this.aVN != null) {
+            this.aVN.a(i, ep, ep2);
         }
     }
 
@@ -255,20 +255,20 @@ public class b {
     private void Hq() {
         CustomResponsedMessage runTask;
         if (Hi()) {
-            if (this.aVR == null && (runTask = MessageManager.getInstance().runTask(2913198, com.baidu.live.noble.b.a.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
-                this.aVR = (com.baidu.live.noble.b.a) runTask.getData();
+            if (this.aVT == null && (runTask = MessageManager.getInstance().runTask(2913198, com.baidu.live.noble.b.a.class, this.mContext.getPageActivity())) != null && runTask.getData() != null) {
+                this.aVT = (com.baidu.live.noble.b.a) runTask.getData();
             }
-            if (this.aVR != null) {
-                this.aVR.a(new a.InterfaceC0181a() { // from class: com.baidu.live.gift.panel.b.7
+            if (this.aVT != null) {
+                this.aVT.a(new a.InterfaceC0181a() { // from class: com.baidu.live.gift.panel.b.7
                     @Override // com.baidu.live.noble.b.a.InterfaceC0181a
                     public void a(NobleUserInfo nobleUserInfo) {
-                        b.this.aVS = nobleUserInfo;
-                        if (b.this.aVL != null) {
-                            b.this.aVL.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
+                        b.this.aVU = nobleUserInfo;
+                        if (b.this.aVN != null) {
+                            b.this.aVN.a(nobleUserInfo != null ? nobleUserInfo.tip : null);
                         }
                     }
                 });
-                this.aVR.LQ();
+                this.aVT.LQ();
             }
         }
     }

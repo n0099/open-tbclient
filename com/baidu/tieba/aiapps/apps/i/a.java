@@ -10,13 +10,13 @@ public class a {
         return com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
     }
 
-    public static void kr(boolean z) {
+    public static void kt(boolean z) {
         Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
         intent.putExtra("key_night_mode", z);
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bDl() {
+    public static void bDm() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
         int i = getNightModeSwitcherState() ? 2 : 1;
         if (defaultNightMode != i) {

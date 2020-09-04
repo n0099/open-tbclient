@@ -9,15 +9,15 @@ public class a {
     /* renamed from: com.baidu.poly.a.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class RunnableC0271a implements Runnable {
-        final /* synthetic */ c bGv;
+        final /* synthetic */ c bGz;
 
         RunnableC0271a(c cVar) {
-            this.bGv = cVar;
+            this.bGz = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.a(this.bGv);
+            a.a(this.bGz);
         }
     }
 

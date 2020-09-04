@@ -13,23 +13,23 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class c extends m implements com.baidu.swan.apps.process.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final HashMap<String, String> cIY;
-    private final HashMap<String, b> cIZ;
+    private final HashMap<String, String> cJc;
+    private final HashMap<String, b> cJd;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        static c cJb = new c(d.azE());
+        static c cJf = new c(d.azE());
     }
 
     private static c axr() {
-        return a.cJb;
+        return a.cJf;
     }
 
     public c(h hVar) {
         super(hVar);
-        this.cIY = new HashMap<>();
-        this.cIZ = new HashMap<>();
+        this.cJc = new HashMap<>();
+        this.cJd = new HashMap<>();
         if (DEBUG) {
             log("SwanIpc");
         }
@@ -60,15 +60,15 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         axr();
     }
 
-    public static synchronized b pH(@NonNull String str) {
-        b pJ;
+    public static synchronized b pI(@NonNull String str) {
+        b pK;
         synchronized (c.class) {
-            pJ = axr().pJ(str);
+            pK = axr().pK(str);
         }
-        return pJ;
+        return pK;
     }
 
-    public static synchronized b pI(@NonNull String str) {
+    public static synchronized b pJ(@NonNull String str) {
         b e;
         synchronized (c.class) {
             e = axr().e(str, (Bundle) null);
@@ -87,7 +87,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     public static synchronized boolean cc(@NonNull String str, @NonNull String str2) {
         boolean a2;
         synchronized (c.class) {
-            a2 = axr().a(pI(str), str2);
+            a2 = axr().a(pJ(str), str2);
         }
         return a2;
     }
@@ -100,7 +100,7 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         return a2;
     }
 
-    private synchronized b pJ(String str) {
+    private synchronized b pK(String str) {
         b M;
         M = M(null);
         a(M, str);
@@ -116,11 +116,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     private synchronized b e(String str, Bundle bundle) {
         b bVar;
-        b bVar2 = TextUtils.isEmpty(str) ? null : this.cIZ.get(str);
+        b bVar2 = TextUtils.isEmpty(str) ? null : this.cJd.get(str);
         if (bVar2 == null || !bVar2.valid()) {
             a(bVar2, new IllegalStateException("invalid session"));
             b bVar3 = new b(this, str);
-            this.cIZ.put(bVar3.axm(), bVar3);
+            this.cJd.put(bVar3.axm(), bVar3);
             bVar = bVar3;
         } else {
             bVar = bVar2;
@@ -131,10 +131,10 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
             if (SwanAppProcessInfo.checkProcessId(i)) {
                 bVar.iG(i);
             } else if (SwanAppProcessInfo.SERVICE.index == i) {
-                bVar.fn(true);
+                bVar.fo(true);
             }
         }
-        bVar.bB(z ? bundle.getLong("ipc_session_timeout") : cIO);
+        bVar.bB(z ? bundle.getLong("ipc_session_timeout") : cIS);
         if (DEBUG) {
             E("session", "id=" + str + " session=" + bundle + " session=" + bVar);
         }
@@ -144,9 +144,9 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c a(b bVar, Exception exc) {
         if (bVar != null) {
-            synchronized (this.cIZ) {
+            synchronized (this.cJd) {
                 bVar.u(exc);
-                this.cIZ.remove(bVar.axm());
+                this.cJd.remove(bVar.axm());
             }
         }
         return this;
@@ -154,11 +154,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String c(@NonNull b bVar) {
-        return pK(bVar.axm());
+        return pL(bVar.axm());
     }
 
-    String pK(@NonNull String str) {
-        return this.cIY.get(str);
+    String pL(@NonNull String str) {
+        return this.cJc.get(str);
     }
 
     private synchronized boolean a(@NonNull b bVar, @NonNull Bundle bundle) {
@@ -173,11 +173,11 @@ public final class c extends m implements com.baidu.swan.apps.process.b.a {
         boolean z;
         if (bVar.valid()) {
             String axm = bVar.axm();
-            String str2 = this.cIY.get(axm);
+            String str2 = this.cJc.get(axm);
             boolean z2 = !TextUtils.isEmpty(str2);
             z = !z2 || TextUtils.equals(str2, str);
             if (z && !z2 && !TextUtils.isEmpty(str)) {
-                this.cIY.put(axm, str);
+                this.cJc.put(axm, str);
             }
         } else {
             z = false;

@@ -18,35 +18,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class VideoTabFragment extends BaseFragment implements aq {
-    private a iWe;
-    private boolean iWf = false;
+    private a iWk;
+    private boolean iWl = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.iWe == null) {
-            this.iWe = new a(getPageContext(), getUniqueId());
+        if (this.iWk == null) {
+            this.iWk = new a(getPageContext(), getUniqueId());
         }
-        this.iWe.init();
+        this.iWk.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iWe == null || this.iWe.getView() == null) {
+        if (this.iWk == null || this.iWk.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.iWe.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iWe.getView().getParent()).removeView(this.iWe.getView());
+        if (this.iWk.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iWk.getView().getParent()).removeView(this.iWk.getView());
         }
-        return this.iWe.getView();
+        return this.iWk.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.iWe != null) {
-            this.iWe.loadData();
+        if (this.iWk != null) {
+            this.iWk.loadData();
         }
     }
 
@@ -54,30 +54,30 @@ public class VideoTabFragment extends BaseFragment implements aq {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.iWf) {
-                this.iWf = true;
+            if (!this.iWl) {
+                this.iWl = true;
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.iWe != null) {
-            this.iWe.setPrimary(isPrimary());
+        if (this.iWk != null) {
+            this.iWk.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void OA() {
-        if (this.iWe != null) {
-            this.iWe.OA();
+        if (this.iWk != null) {
+            this.iWk.OA();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bFY() {
+    public void bFZ() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bFZ() {
+    public void bGa() {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -96,8 +96,8 @@ public class VideoTabFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iWe != null) {
-            this.iWe.bkF();
+        if (this.iWk != null) {
+            this.iWk.bkF();
         }
     }
 
@@ -118,16 +118,16 @@ public class VideoTabFragment extends BaseFragment implements aq {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.iWe != null) {
-            this.iWe.onPause();
+        if (this.iWk != null) {
+            this.iWk.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iWe != null) {
-            this.iWe.onDestroy();
+        if (this.iWk != null) {
+            this.iWk.onDestroy();
         }
     }
 

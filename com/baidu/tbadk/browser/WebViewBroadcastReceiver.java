@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WebViewBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_CLOSE_WEBVIEW = "action_close_webview";
     public static final String BROADCAST_PERMISSION_CLOSE_WEBVIEW = "com.baidu.live.sdk.permission.DETAIL_BROADCAST";

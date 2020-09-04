@@ -20,11 +20,11 @@ import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.api.a.d {
-    public static final int bXd = com.baidu.swan.apps.t.a.aoM().Yz();
+    public static final int bXh = com.baidu.swan.apps.t.a.aoM().Yz();
 
     static {
         if (DEBUG) {
-            Log.d("Api-NavigateTo", "NavigateToAction max count: " + bXd);
+            Log.d("Api-NavigateTo", "NavigateToAction max count: " + bXh);
         }
     }
 
@@ -32,12 +32,12 @@ public class b extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jE(String str) {
+    public com.baidu.swan.apps.api.c.b jF(String str) {
         if (DEBUG) {
             Log.d("Api-NavigateTo", "handle: " + str);
         }
         final String uuid = UUID.randomUUID().toString();
-        j.pk(uuid);
+        j.pl(uuid);
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-NavigateTo", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -61,13 +61,13 @@ public class b extends com.baidu.swan.apps.api.a.d {
         }
         final com.baidu.swan.apps.model.b bP = com.baidu.swan.apps.model.b.bP(bA, arY.arF());
         if (!ak.a(arY.arD(), bP, false)) {
-            String str2 = "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDC;
+            String str2 = "page params error : path=" + bP.mPage + " ; routePath=" + bP.cDG;
             com.baidu.swan.apps.console.c.e("Api-NavigateTo", str2);
             return new com.baidu.swan.apps.api.c.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && bP != null && !TextUtils.isEmpty(bP.cDC) && e.azI() != null) {
-            e.azI().ce(optString, bP.cDC);
+        if (!TextUtils.isEmpty(optString) && bP != null && !TextUtils.isEmpty(bP.cDG) && e.azI() != null) {
+            e.azI().ce(optString, bP.cDG);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {
@@ -97,7 +97,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                         throw new RuntimeException("swan activity is null");
                     }
                     final b.a F = com.baidu.swan.apps.core.slave.b.F(arI);
-                    final String aaU = F.cmK.aaU();
+                    final String aaU = F.cmO.aaU();
                     if (com.baidu.swan.apps.api.a.d.DEBUG) {
                         Log.d("Api-NavigateTo", "slave webView id: " + aaU);
                     }
@@ -112,8 +112,8 @@ public class b extends com.baidu.swan.apps.api.a.d {
                     arY.showLoadingView();
                     g.a(azI, bP, aaU, new g.a() { // from class: com.baidu.swan.apps.api.module.g.b.1.1
                         @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-                        public void iT(String str3) {
-                            j.pj(uuid);
+                        public void iU(String str3) {
+                            j.pk(uuid);
                             com.baidu.swan.apps.console.c.i("Api-NavigateTo", "check pages success");
                             h.j(true, azI.XZ().aqN());
                             arY.Ya();
@@ -153,7 +153,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
                     Log.d("Api-NavigateTo", "tryToExecutePageRoute onReady start.");
                 }
                 j.a(aVar, str);
-                b.this.a(aVar.cmK, bVar, fVar, str);
+                b.this.a(aVar.cmO, bVar, fVar, str);
                 if (com.baidu.swan.apps.api.a.d.DEBUG) {
                     Log.d("Api-NavigateTo", "tryToExecutePageRoute onReady end.");
                 }
@@ -169,12 +169,12 @@ public class b extends com.baidu.swan.apps.api.a.d {
         SwanAppActivity arI = f.arY().arI();
         if (arI != null && !arI.isFinishing()) {
             com.baidu.swan.apps.scheme.actions.k.a.a(cVar, bVar, str);
-            if (fVar.ahp() < bXd) {
-                fVar.ln("navigateTo").al(com.baidu.swan.apps.core.d.f.cig, com.baidu.swan.apps.core.d.f.cii).a("normal", bVar).ahx();
+            if (fVar.ahp() < bXh) {
+                fVar.lo("navigateTo").al(com.baidu.swan.apps.core.d.f.cik, com.baidu.swan.apps.core.d.f.cim).a("normal", bVar).ahx();
                 com.baidu.swan.apps.ap.f.a(fVar, getContext());
                 i.bT("route", str).f(new UbcFlowEvent("na_push_page_end"));
                 j.T(0, str);
-                j.pl(str);
+                j.pm(str);
                 return;
             }
             c.a(fVar, bVar, str, true);

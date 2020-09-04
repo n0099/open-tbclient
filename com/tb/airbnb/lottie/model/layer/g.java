@@ -26,14 +26,14 @@ public class g extends a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final Matrix matrix;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> oii;
-    private final n ojX;
+    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> oiA;
+    private final n okp;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> ojY;
+    private com.tb.airbnb.lottie.a.b.a<Integer, Integer> okq;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> ojZ;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> okr;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> oka;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> oks;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(com.tb.airbnb.lottie.f fVar, Layer layer) {
@@ -54,29 +54,29 @@ public class g extends a {
         this.Go = new HashMap();
         this.lottieDrawable = fVar;
         this.composition = layer.getComposition();
-        this.ojX = layer.edS().edf();
-        this.ojX.b(this);
-        a(this.ojX);
-        k edT = layer.edT();
-        if (edT != null && edT.oja != null) {
-            this.oii = edT.oja.edf();
-            this.oii.b(this);
-            a(this.oii);
+        this.okp = layer.eeb().edo();
+        this.okp.b(this);
+        a(this.okp);
+        k eec = layer.eec();
+        if (eec != null && eec.ojs != null) {
+            this.oiA = eec.ojs.edo();
+            this.oiA.b(this);
+            a(this.oiA);
         }
-        if (edT != null && edT.ojb != null) {
-            this.ojY = edT.ojb.edf();
-            this.ojY.b(this);
-            a(this.ojY);
+        if (eec != null && eec.ojt != null) {
+            this.okq = eec.ojt.edo();
+            this.okq.b(this);
+            a(this.okq);
         }
-        if (edT != null && edT.ojc != null) {
-            this.ojZ = edT.ojc.edf();
-            this.ojZ.b(this);
-            a(this.ojZ);
+        if (eec != null && eec.oju != null) {
+            this.okr = eec.oju.edo();
+            this.okr.b(this);
+            a(this.okr);
         }
-        if (edT != null && edT.ojd != null) {
-            this.oka = edT.ojd.edf();
-            this.oka.b(this);
-            a(this.oka);
+        if (eec != null && eec.ojv != null) {
+            this.oks = eec.ojv.edo();
+            this.oks.b(this);
+            a(this.oks);
         }
     }
 
@@ -86,27 +86,27 @@ public class g extends a {
         if (!this.lottieDrawable.iH()) {
             canvas.setMatrix(matrix);
         }
-        com.tb.airbnb.lottie.model.b value = this.ojX.getValue();
+        com.tb.airbnb.lottie.model.b value = this.okp.getValue();
         com.tb.airbnb.lottie.model.c cVar = this.composition.iA().get(value.fontName);
         if (cVar == null) {
             canvas.restore();
             return;
         }
-        if (this.oii != null) {
-            this.Gm.setColor(this.oii.getValue().intValue());
+        if (this.oiA != null) {
+            this.Gm.setColor(this.oiA.getValue().intValue());
         } else {
             this.Gm.setColor(value.color);
         }
-        if (this.ojY != null) {
-            this.Gn.setColor(this.ojY.getValue().intValue());
+        if (this.okq != null) {
+            this.Gn.setColor(this.okq.getValue().intValue());
         } else {
             this.Gn.setColor(value.strokeColor);
         }
-        int intValue = (this.oix.eda().getValue().intValue() * 255) / 100;
+        int intValue = (this.oiP.edj().getValue().intValue() * 255) / 100;
         this.Gm.setAlpha(intValue);
         this.Gn.setAlpha(intValue);
-        if (this.ojZ != null) {
-            this.Gn.setStrokeWidth(this.ojZ.getValue().floatValue());
+        if (this.okr != null) {
+            this.Gn.setStrokeWidth(this.okr.getValue().floatValue());
         } else {
             this.Gn.setStrokeWidth((float) (value.El * com.tb.airbnb.lottie.d.f.kZ() * com.tb.airbnb.lottie.d.f.b(matrix)));
         }
@@ -131,7 +131,7 @@ public class g extends a {
                     a(dVar, matrix, f, bVar, canvas);
                     float width = ((float) dVar.getWidth()) * f * com.tb.airbnb.lottie.d.f.kZ() * b;
                     float f2 = bVar.tracking / 10.0f;
-                    canvas.translate(((this.oka != null ? this.oka.getValue().floatValue() + f2 : f2) * b) + width, 0.0f);
+                    canvas.translate(((this.oks != null ? this.oks.getValue().floatValue() + f2 : f2) * b) + width, 0.0f);
                 }
                 i = i2 + 1;
             } else {
@@ -145,8 +145,8 @@ public class g extends a {
         Typeface q = this.lottieDrawable.q(cVar.jv(), cVar.jw());
         if (q != null) {
             String str = bVar.text;
-            p ecS = this.lottieDrawable.ecS();
-            String bh = ecS != null ? ecS.bh(str) : str;
+            p edb = this.lottieDrawable.edb();
+            String bh = edb != null ? edb.bh(str) : str;
             this.Gm.setTypeface(q);
             this.Gm.setTextSize((float) (bVar.Eh * com.tb.airbnb.lottie.d.f.kZ()));
             this.Gn.setTypeface(this.Gm.getTypeface());
@@ -156,7 +156,7 @@ public class g extends a {
                 a(charAt, bVar, canvas);
                 this.Gk[0] = charAt;
                 float f = bVar.tracking / 10.0f;
-                canvas.translate(((this.oka != null ? this.oka.getValue().floatValue() + f : f) * b) + this.Gm.measureText(this.Gk, 0, 1), 0.0f);
+                canvas.translate(((this.oks != null ? this.oks.getValue().floatValue() + f : f) * b) + this.Gm.measureText(this.Gk, 0, 1), 0.0f);
             }
         }
     }
@@ -224,14 +224,14 @@ public class g extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((g) t, (com.tb.airbnb.lottie.e.c<g>) cVar);
-        if (t == com.tb.airbnb.lottie.j.BE && this.oii != null) {
-            this.oii.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.BF && this.ojY != null) {
-            this.ojY.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.BO && this.ojZ != null) {
-            this.ojZ.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.BP && this.oka != null) {
-            this.oka.a(cVar);
+        if (t == com.tb.airbnb.lottie.j.BE && this.oiA != null) {
+            this.oiA.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.BF && this.okq != null) {
+            this.okq.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.BO && this.okr != null) {
+            this.okr.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.BP && this.oks != null) {
+            this.oks.a(cVar);
         }
     }
 }

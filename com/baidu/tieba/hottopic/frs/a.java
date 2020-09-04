@@ -11,13 +11,13 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes15.dex */
 public class a extends k<bw, com.baidu.tieba.card.a.a<w>> implements x {
-    private aa<bw> fFR;
+    private aa<bw> fFV;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.fFR = new aa<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.fFV = new aa<bw>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, bw bwVar, Object obj) {
@@ -52,11 +52,11 @@ public class a extends k<bw, com.baidu.tieba.card.a.a<w>> implements x {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bw bwVar, com.baidu.tieba.card.a.a<w> aVar) {
-        if (aVar == null || aVar.ccE() == null) {
+        if (aVar == null || aVar.ccF() == null) {
             return null;
         }
-        aVar.ccE().c(this.fFR);
-        aVar.ccE().a(bwVar);
+        aVar.ccF().c(this.fFV);
+        aVar.ccF().a(bwVar);
         return aVar.getView();
     }
 

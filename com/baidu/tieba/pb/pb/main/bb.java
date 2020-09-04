@@ -4,128 +4,128 @@ import android.text.SpannableStringBuilder;
 import android.widget.EditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bb {
-    private EditText iTZ;
-    private PostWriteCallBackData kFE;
-    private com.baidu.tieba.write.c kMT = new com.baidu.tieba.write.c();
-    private com.baidu.tieba.write.c kMU;
-    private EditText kMV;
+    private EditText iUf;
+    private PostWriteCallBackData kFL;
+    private com.baidu.tieba.write.c kNa = new com.baidu.tieba.write.c();
+    private com.baidu.tieba.write.c kNb;
+    private EditText kNc;
 
     public bb() {
-        this.kMT.Jr(R.color.cp_cont_a);
-        this.kMT.Js(R.color.cp_cont_h_alpha85);
-        this.kMU = new com.baidu.tieba.write.c();
-        this.kMU.Jr(R.color.cp_cont_a);
-        this.kMU.Js(R.color.cp_cont_h_alpha85);
+        this.kNa.Jr(R.color.cp_cont_a);
+        this.kNa.Js(R.color.cp_cont_h_alpha85);
+        this.kNb = new com.baidu.tieba.write.c();
+        this.kNb.Jr(R.color.cp_cont_a);
+        this.kNb.Js(R.color.cp_cont_h_alpha85);
     }
 
-    public void tI(boolean z) {
-        if (this.kMV != null && this.kMV.getText() != null) {
-            int selectionEnd = this.kMV.getSelectionEnd();
-            SpannableStringBuilder c = this.kMT.c(this.kMV.getText());
+    public void tK(boolean z) {
+        if (this.kNc != null && this.kNc.getText() != null) {
+            int selectionEnd = this.kNc.getSelectionEnd();
+            SpannableStringBuilder c = this.kNa.c(this.kNc.getText());
             if (c != null) {
-                this.kMT.wY(true);
-                this.kMV.setText(c);
-                if (z && this.kMT.dFv() >= 0) {
-                    this.kMV.requestFocus();
-                    this.kMV.setSelection(this.kMT.dFv());
+                this.kNa.xa(true);
+                this.kNc.setText(c);
+                if (z && this.kNa.dFE() >= 0) {
+                    this.kNc.requestFocus();
+                    this.kNc.setSelection(this.kNa.dFE());
                 } else {
-                    this.kMV.setSelection(selectionEnd);
+                    this.kNc.setSelection(selectionEnd);
                 }
-                this.kMT.wX(this.kMT.dFv() >= 0);
+                this.kNa.wZ(this.kNa.dFE() >= 0);
             }
         }
     }
 
-    public void tJ(boolean z) {
-        if (this.iTZ != null && this.iTZ.getText() != null) {
-            int selectionEnd = this.iTZ.getSelectionEnd();
-            SpannableStringBuilder c = this.kMU.c(this.iTZ.getText());
+    public void tL(boolean z) {
+        if (this.iUf != null && this.iUf.getText() != null) {
+            int selectionEnd = this.iUf.getSelectionEnd();
+            SpannableStringBuilder c = this.kNb.c(this.iUf.getText());
             if (c != null) {
-                this.kMU.wY(true);
-                this.iTZ.setText(c);
-                if (z && this.kMU.dFv() >= 0) {
-                    this.iTZ.requestFocus();
-                    this.iTZ.setSelection(this.kMU.dFv());
+                this.kNb.xa(true);
+                this.iUf.setText(c);
+                if (z && this.kNb.dFE() >= 0) {
+                    this.iUf.requestFocus();
+                    this.iUf.setSelection(this.kNb.dFE());
                 } else {
-                    this.iTZ.setSelection(selectionEnd);
+                    this.iUf.setSelection(selectionEnd);
                 }
-                this.kMU.wX(this.kMU.dFv() >= 0);
+                this.kNb.wZ(this.kNb.dFE() >= 0);
             }
         }
-    }
-
-    public void dbC() {
-        this.kMU.Sw(null);
-        this.kMU.bf(null);
-        this.kMU.wX(false);
     }
 
     public void dbD() {
-        this.kMT.Sw(null);
-        this.kMT.bf(null);
-        this.kMT.wX(false);
+        this.kNb.Sw(null);
+        this.kNb.bf(null);
+        this.kNb.wZ(false);
+    }
+
+    public void dbE() {
+        this.kNa.Sw(null);
+        this.kNa.bf(null);
+        this.kNa.wZ(false);
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.kMT.bf(postWriteCallBackData.getSensitiveWords());
-            this.kMT.Sw(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kMT.dFu())) {
-                tI(true);
-                this.kFE = postWriteCallBackData;
+            this.kNa.bf(postWriteCallBackData.getSensitiveWords());
+            this.kNa.Sw(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kNa.dFD())) {
+                tK(true);
+                this.kFL = postWriteCallBackData;
             }
         }
     }
 
     public void h(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.kMU.bf(postWriteCallBackData.getSensitiveWords());
-            this.kMU.Sw(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kMU.dFu())) {
-                tJ(true);
+            this.kNb.bf(postWriteCallBackData.getSensitiveWords());
+            this.kNb.Sw(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.y.isEmpty(this.kNb.dFD())) {
+                tL(true);
             }
         }
     }
 
     public void f(EditText editText) {
-        this.kMV = editText;
+        this.kNc = editText;
     }
 
     public void g(EditText editText) {
-        this.iTZ = editText;
+        this.iUf = editText;
     }
 
     public void onDestroy() {
-        this.kMV = null;
-        this.iTZ = null;
+        this.kNc = null;
+        this.iUf = null;
     }
 
     public void onChangeSkinType() {
-        this.kMT.onChangeSkinType();
-        this.kMU.onChangeSkinType();
-        if (this.kMT.dFw()) {
-            tI(false);
+        this.kNa.onChangeSkinType();
+        this.kNb.onChangeSkinType();
+        if (this.kNa.dFF()) {
+            tK(false);
         }
-        if (this.kMU.dFw()) {
-            tJ(false);
+        if (this.kNb.dFF()) {
+            tL(false);
         }
-    }
-
-    public com.baidu.tieba.write.c dbE() {
-        return this.kMT;
     }
 
     public com.baidu.tieba.write.c dbF() {
-        return this.kMU;
+        return this.kNa;
     }
 
-    public EditText dbG() {
-        return this.iTZ;
+    public com.baidu.tieba.write.c dbG() {
+        return this.kNb;
     }
 
-    public PostWriteCallBackData dbH() {
-        return this.kFE;
+    public EditText dbH() {
+        return this.iUf;
+    }
+
+    public PostWriteCallBackData dbI() {
+        return this.kFL;
     }
 }

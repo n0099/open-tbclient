@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.ap;
 /* loaded from: classes8.dex */
 public class ap {
-    private int dbz;
+    private int dbD;
 
     private ap() {
-        this.dbz = 0;
+        this.dbD = 0;
     }
 
     public void ko(int i) {
-        this.dbz = i;
+        this.dbD = i;
     }
 
     public void reset() {
-        this.dbz = 0;
+        this.dbD = 0;
     }
 
     public boolean aFv() {
-        return this.dbz != 0;
+        return this.dbD != 0;
     }
 
     public int aFw() {
@@ -24,11 +24,11 @@ public class ap {
     }
 
     public static ap aFx() {
-        return a.dbA;
+        return a.dbE;
     }
 
     /* loaded from: classes8.dex */
     private static class a {
-        private static final ap dbA = new ap();
+        private static final ap dbE = new ap();
     }
 }

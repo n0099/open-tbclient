@@ -11,49 +11,49 @@ import java.util.List;
 /* loaded from: classes17.dex */
 public class a {
     private Context mContext;
-    private com.baidu.tieba.video.editvideo.data.a mvB;
-    private b mvC;
-    b.a mvD;
+    private com.baidu.tieba.video.editvideo.data.a mvT;
+    private b mvU;
+    b.a mvV;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.mvB = aVar;
+        this.mvT = aVar;
     }
 
-    public String dBw() {
-        return (this.mvB == null || "normal".equalsIgnoreCase(this.mvB.value)) ? "" : this.mvB.value;
+    public String dBF() {
+        return (this.mvT == null || "normal".equalsIgnoreCase(this.mvT.value)) ? "" : this.mvT.value;
     }
 
-    public void fY(String str, String str2) {
-        if ((this.mvC == null || !this.mvC.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.mvC = new b(this.mContext, str, dBz(), str2);
-            if (this.mvD != null) {
-                this.mvC.a(this.mvD);
+    public void fZ(String str, String str2) {
+        if ((this.mvU == null || !this.mvU.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.mvU = new b(this.mContext, str, dBI(), str2);
+            if (this.mvV != null) {
+                this.mvU.a(this.mvV);
             }
-            this.mvC.dBA();
+            this.mvU.dBJ();
         }
     }
 
-    public boolean dBx() {
-        if (this.mvC != null) {
-            return this.mvC.isRunning();
+    public boolean dBG() {
+        if (this.mvU != null) {
+            return this.mvU.isRunning();
         }
         return false;
     }
 
-    public void dBy() {
-        if (this.mvC != null) {
-            this.mvC.dBB();
+    public void dBH() {
+        if (this.mvU != null) {
+            this.mvU.dBK();
         }
     }
 
     public void a(b.a aVar) {
-        this.mvD = aVar;
-        if (this.mvC != null) {
-            this.mvC.a(this.mvD);
+        this.mvV = aVar;
+        if (this.mvU != null) {
+            this.mvU.a(this.mvV);
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dBz() {
-        return com.baidu.tieba.video.c.mtA + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dBI() {
+        return com.baidu.tieba.video.c.mtS + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

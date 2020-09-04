@@ -1,5 +1,5 @@
 package com.baidu.tieba.r;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
     void af(String str, String str2, String str3);
 
@@ -7,9 +7,9 @@ public interface a {
 
     void d(long j, String str, String str2);
 
-    void dN(String str, String str2);
-
     void dO(String str, String str2);
 
     void dP(String str, String str2);
+
+    void dQ(String str, String str2);
 }

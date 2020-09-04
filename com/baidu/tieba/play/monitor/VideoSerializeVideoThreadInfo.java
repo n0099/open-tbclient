@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoSerializeVideoThreadInfo implements Serializable {
     private static final long serialVersionUID = -7659795764367587672L;
     public String ab_tag;
@@ -39,7 +39,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
     public boolean waitConfirm = false;
     public String weight;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoAggregationAuthorData implements Serializable {
         private static final long serialVersionUID = 937744153926100702L;
         public BaijiahaoAuthorData baijiahaoData;
@@ -51,7 +51,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public String userName;
         public String userNickname;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class BaijiahaoAuthorData implements Serializable {
             private static final long serialVersionUID = 7277512143348542714L;
             public String auth_desc;
@@ -63,7 +63,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoAggregationVideoData implements Serializable {
         private static final long serialVersionUID = 7265311334325180130L;
         public String mcnLeadPage;
@@ -82,7 +82,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public String videoWidth;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoCardViewInfo implements Serializable {
         private static final long serialVersionUID = 5722373220077065607L;
         public int cardViewHeight;
@@ -93,7 +93,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
 
     public void copyFromTransmitThreadData(bw bwVar) {
         if (bwVar != null) {
-            OriginalThreadInfo originalThreadInfo = bwVar.edE;
+            OriginalThreadInfo originalThreadInfo = bwVar.edI;
             VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
             if (originalThreadInfo.author != null) {
                 videoAggregationAuthorData.userId = String.valueOf(originalThreadInfo.author.id);
@@ -139,8 +139,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.playCount = originalThreadInfo.videoInfo.play_count.intValue();
             }
             this.video = videoAggregationVideoData;
-            if (bwVar.edP != null) {
-                this.forumId = bwVar.edP.id;
+            if (bwVar.edT != null) {
+                this.forumId = bwVar.edT.id;
             }
             if (originalThreadInfo != null) {
                 this.threadId = originalThreadInfo.threadId;
@@ -174,7 +174,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
                 this.author.userId = (String) map2.get("id");
                 this.author.userName = (String) map2.get("name");
                 this.author.userNickname = (String) map2.get("name_show");
-                this.author.portrait = (String) map2.get("protrait");
+                this.author.portrait = (String) map2.get("portrait");
                 this.author.hasFocus = "1".equals(map2.get("has_concerned"));
                 if (map2.get("god_data") instanceof Map) {
                     int i = b.toInt((String) ((Map) map2.get("god_data")).get("type"), 0);
@@ -289,8 +289,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.video = videoAggregationVideoData;
             this.forumId = String.valueOf(bwVar.getFid());
             this.threadId = bwVar.getId();
-            if (bwVar.edP != null) {
-                this.forumId = bwVar.edP.id;
+            if (bwVar.edT != null) {
+                this.forumId = bwVar.edT.id;
             }
             this.firstPostId = bwVar.beo();
             this.createTime = String.valueOf(bwVar.getCreateTime());

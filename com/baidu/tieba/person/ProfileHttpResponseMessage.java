@@ -31,7 +31,7 @@ import tbclient.TbBookrack;
 import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.UserManChannelInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implements c {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
@@ -246,14 +246,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         l<String> dw;
         super.beforeDispatchInBackGround(i, (int) bArr);
         if (this.ucCardData != null && (dw = com.baidu.tbadk.core.c.a.bhb().dw("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.ldq;
+            List<g.a> list = this.ucCardData.ldx;
             if (y.getCount(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dw.get(aVar.title), 0L)) {
-                        aVar.ldr = true;
+                        aVar.ldy = true;
                     } else {
-                        aVar.ldr = false;
+                        aVar.ldy = false;
                     }
                 }
             }

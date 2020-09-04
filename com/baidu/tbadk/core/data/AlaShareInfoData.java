@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 import tbclient.AlaShareInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AlaShareInfoData extends OrmObject {
     public String content;
     public long record_tid;

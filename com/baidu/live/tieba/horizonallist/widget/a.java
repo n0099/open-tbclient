@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 class a {
-    private static ArrayList<a> bmc = new ArrayList<>(5);
-    public int bmg;
-    public int bmh;
-    int bmi;
+    private static ArrayList<a> bmf = new ArrayList<>(5);
+    public int bmj;
+    public int bmk;
+    int bml;
     public int type;
 
     private void resetState() {
-        this.bmg = 0;
-        this.bmh = 0;
-        this.bmi = 0;
+        this.bmj = 0;
+        this.bmk = 0;
+        this.bml = 0;
         this.type = 0;
     }
 
@@ -22,7 +22,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long NX() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bmg, this.bmh) : ExpandableListView.getPackedPositionForGroup(this.bmg);
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bmj, this.bmk) : ExpandableListView.getPackedPositionForGroup(this.bmj);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,17 +34,17 @@ class a {
     public static a g(int i, int i2, int i3, int i4) {
         a NY = NY();
         NY.type = i;
-        NY.bmg = i2;
-        NY.bmh = i3;
-        NY.bmi = i4;
+        NY.bmj = i2;
+        NY.bmk = i3;
+        NY.bml = i4;
         return NY;
     }
 
     private static a NY() {
         a aVar;
-        synchronized (bmc) {
-            if (bmc.size() > 0) {
-                aVar = bmc.remove(0);
+        synchronized (bmf) {
+            if (bmf.size() > 0) {
+                aVar = bmf.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (bmc) {
-            if (bmc.size() < 5) {
-                bmc.add(this);
+        synchronized (bmf) {
+            if (bmf.size() < 5) {
+                bmf.add(this);
             }
         }
     }

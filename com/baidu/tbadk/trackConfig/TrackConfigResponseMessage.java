@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
     private boolean isOpenTrack;
 

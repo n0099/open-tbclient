@@ -18,17 +18,17 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class q extends l implements i {
-    private static final int[] ehG = {1500, 2000, 3500, 4600, 6000, CoolPraiseGuideLottieView.ANIM_DURATION};
-    private static final int[] ehH = {201, 202, 203};
-    private static final int[] ehI = {501, 502, 503};
-    private final HashMap<String, m> egZ;
-    private final f ehB;
-    private final com.baidu.tbadk.core.hybrid.c ehC;
-    private final c ehD;
-    private final HashMap<String, h> ehE;
-    private int ehF;
+    private static final int[] ehK = {1500, 2000, 3500, 4600, 6000, CoolPraiseGuideLottieView.ANIM_DURATION};
+    private static final int[] ehL = {201, 202, 203};
+    private static final int[] ehM = {501, 502, 503};
+    private final f ehF;
+    private final com.baidu.tbadk.core.hybrid.c ehG;
+    private final c ehH;
+    private final HashMap<String, h> ehI;
+    private int ehJ;
+    private final HashMap<String, m> ehd;
     private String logId;
     private int status;
 
@@ -40,14 +40,14 @@ public class q extends l implements i {
         super(webView, bVar);
         this.logId = String.valueOf(System.currentTimeMillis());
         this.status = -1;
-        this.ehF = -1;
-        this.ehB = fVar;
-        this.ehC = cVar;
-        this.ehC.a(this);
-        this.ehB.a(this);
-        this.ehD = new c(this);
-        this.ehE = new HashMap<>(16);
-        this.egZ = new HashMap<>(8);
+        this.ehJ = -1;
+        this.ehF = fVar;
+        this.ehG = cVar;
+        this.ehG.a(this);
+        this.ehF.a(this);
+        this.ehH = new c(this);
+        this.ehI = new HashMap<>(16);
+        this.ehd = new HashMap<>(8);
         init();
     }
 
@@ -56,8 +56,8 @@ public class q extends l implements i {
             return new a(webView);
         }
         q qVar = new q(webView, bVar);
-        qVar.ehB.a(webViewClient);
-        qVar.ehC.a(webChromeClient);
+        qVar.ehF.a(webViewClient);
+        qVar.ehG.a(webChromeClient);
         return qVar;
     }
 
@@ -68,14 +68,14 @@ public class q extends l implements i {
         WebViewClient webViewClient = bridgeWebView.webViewClient;
         WebChromeClient webChromeClient = bridgeWebView.chromeClient;
         q qVar = new q(bridgeWebView, bVar);
-        qVar.ehB.a(webViewClient);
-        qVar.ehC.a(webChromeClient);
+        qVar.ehF.a(webViewClient);
+        qVar.ehG.a(webChromeClient);
         return qVar;
     }
 
     @Override // com.baidu.tbadk.core.hybrid.l
     public void a(String str, d dVar) {
-        if (this.ehE.put(str, dVar) != null) {
+        if (this.ehI.put(str, dVar) != null) {
             throw new IllegalArgumentException("handler " + str + " exists.");
         }
     }
@@ -87,13 +87,13 @@ public class q extends l implements i {
 
     @Override // com.baidu.tbadk.core.hybrid.i
     public void bhS() {
-        this.ehF++;
-        final int i = this.ehF;
+        this.ehJ++;
+        final int i = this.ehJ;
         HashMap hashMap = new HashMap();
         hashMap.put("platform", "android");
         hashMap.put("version", "1.0");
         hashMap.put("logid", bhX());
-        a(m.a(hashMap, ehG[this.ehF % ehG.length], new k() { // from class: com.baidu.tbadk.core.hybrid.q.1
+        a(m.a(hashMap, ehK[this.ehJ % ehK.length], new k() { // from class: com.baidu.tbadk.core.hybrid.q.1
             @Override // com.baidu.tbadk.core.hybrid.k
             public void a(m mVar, JSONObject jSONObject) {
                 q.this.a(mVar, i);
@@ -102,11 +102,11 @@ public class q extends l implements i {
             @Override // com.baidu.tbadk.core.hybrid.k
             public void onError(int i2, Throwable th) {
                 if (i2 == 1) {
-                    if (i < q.ehI.length) {
+                    if (i < q.ehM.length) {
                         q.this.bhY();
                     }
-                    if (i >= 0 && i < q.ehI.length) {
-                        q.this.dA(String.valueOf(q.ehI[i]), "");
+                    if (i >= 0 && i < q.ehM.length) {
+                        q.this.dA(String.valueOf(q.ehM[i]), "");
                         return;
                     }
                     BdLog.e("pingIndex " + i + " out of bounds.");
@@ -121,20 +121,20 @@ public class q extends l implements i {
     public void a(m mVar, int i) {
         this.status = 0;
         long currentTimeMillis = System.currentTimeMillis();
-        if (i >= 0 && i < ehH.length) {
-            dA(String.valueOf(ehH[i]), String.valueOf(currentTimeMillis - mVar.start));
+        if (i >= 0 && i < ehL.length) {
+            dA(String.valueOf(ehL[i]), String.valueOf(currentTimeMillis - mVar.start));
         } else {
             BdLog.e("pingIndex " + i + " out of bounds.");
         }
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
-    public void zE(String str) {
+    public void zF(String str) {
         if (TextUtils.isEmpty(str)) {
             e.debug("invalid callbackId.");
             return;
         }
-        m remove = this.egZ.remove(str);
+        m remove = this.ehd.remove(str);
         if (remove != null) {
             e.debug("(" + remove.cmd + ", " + remove.method + ", " + str + ") timeout.");
             remove.onError(1, null);
@@ -142,20 +142,20 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void zH(String str) {
-        this.ehF = -1;
+    public void zI(String str) {
+        this.ehJ = -1;
         if (this.status != 2 && this.status != 1) {
             e.debug("current status " + this.status + ", broken because url changed to " + str);
             this.status = 2;
         }
-        if (p.zF(str) && p.zG(str)) {
+        if (p.zG(str) && p.zH(str)) {
             e.debug("current status " + this.status + ", constructing bridge for " + str);
-            if (this.eht != null) {
-                this.eht.bhL();
+            if (this.ehx != null) {
+                this.ehx.bhL();
             }
-            b(this.ehs);
-            if (this.eht != null) {
-                this.eht.bhM();
+            b(this.ehw);
+            if (this.ehx != null) {
+                this.ehx.bhM();
             }
         }
     }
@@ -187,10 +187,10 @@ public class q extends l implements i {
         if (this.status != -1) {
             throw new IllegalStateException("Can't init bridge more than once.");
         }
-        this.ehs.getSettings().setJavaScriptEnabled(true);
-        this.ehs.setWebViewClient(this.ehB);
-        this.ehs.setWebChromeClient(this.ehC);
-        this.ehs.removeJavascriptInterface("searchBoxJavaBridge_");
+        this.ehw.getSettings().setJavaScriptEnabled(true);
+        this.ehw.setWebViewClient(this.ehF);
+        this.ehw.setWebChromeClient(this.ehG);
+        this.ehw.removeJavascriptInterface("searchBoxJavaBridge_");
         this.status = 1;
     }
 
@@ -205,24 +205,24 @@ public class q extends l implements i {
                 return;
             }
         }
-        if (!TextUtils.isEmpty(mVar.ehx)) {
+        if (!TextUtils.isEmpty(mVar.ehB)) {
             if (mVar.type != 3) {
-                this.egZ.put(mVar.ehx, mVar);
+                this.ehd.put(mVar.ehB, mVar);
                 if (mVar.timeout > 0) {
-                    this.ehD.sendMessageDelayed(Message.obtain(this.ehD, 2, mVar.ehx), mVar.timeout);
+                    this.ehH.sendMessageDelayed(Message.obtain(this.ehH, 2, mVar.ehB), mVar.timeout);
                 } else if (mVar.cmd != null || mVar.method != null) {
                     e.debug("ignore timeout check for method call (" + mVar.cmd + ", " + mVar.method + ").");
                 }
             } else {
-                e.debug("ignore timeout check for response method, callbackId " + mVar.ehx);
+                e.debug("ignore timeout check for response method, callbackId " + mVar.ehB);
             }
         }
         try {
             String bhU = mVar.bhU();
             if (Build.VERSION.SDK_INT >= 19) {
-                this.ehs.evaluateJavascript(bhU, null);
+                this.ehw.evaluateJavascript(bhU, null);
             } else {
-                this.ehs.loadUrl(bhU);
+                this.ehw.loadUrl(bhU);
             }
             e.debug(bhU);
         } catch (NullPointerException e) {
@@ -241,7 +241,7 @@ public class q extends l implements i {
         if (this.status != 0) {
             e.aa(bhX(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
         }
-        h hVar = this.ehE.get(str);
+        h hVar = this.ehI.get(str);
         if (hVar == null) {
             hVar = new b(this, str);
             e.aa(bhX(), TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, "cmd " + str + " not found");
@@ -254,8 +254,8 @@ public class q extends l implements i {
             e.debug("invalid callbackId.");
             return;
         }
-        this.ehD.removeMessages(2, str);
-        m remove = this.egZ.remove(str);
+        this.ehH.removeMessages(2, str);
+        m remove = this.ehd.remove(str);
         if (remove != null) {
             remove.cV(jSONObject);
         }
@@ -281,7 +281,7 @@ public class q extends l implements i {
             StringBuilder bhZ = bhZ();
             bhZ.append(new String(bArr));
             webView.loadUrl("javascript:" + bhZ.toString());
-            this.ehD.sendEmptyMessageDelayed(1, 0L);
+            this.ehH.sendEmptyMessageDelayed(1, 0L);
         } catch (Throwable th) {
             dA(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, th.getMessage());
             e.debug(th.toString());
@@ -290,8 +290,8 @@ public class q extends l implements i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bhY() {
-        e.debug("reInject for pingIndex " + this.ehF);
-        b(this.ehs);
+        e.debug("reInject for pingIndex " + this.ehJ);
+        b(this.ehw);
     }
 
     private StringBuilder bhZ() throws JSONException {
@@ -306,17 +306,17 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class c extends Handler {
-        private final WeakReference<i> ehK;
+        private final WeakReference<i> ehO;
 
         public c(i iVar) {
-            this.ehK = new WeakReference<>(iVar);
+            this.ehO = new WeakReference<>(iVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            i iVar = this.ehK.get();
+            i iVar = this.ehO.get();
             if (iVar == null) {
                 e.debug("TimeHandler got null bridge reference.");
                 return;
@@ -326,7 +326,7 @@ public class q extends l implements i {
                     iVar.bhS();
                     return;
                 case 2:
-                    iVar.zE((String) message.obj);
+                    iVar.zF((String) message.obj);
                     return;
                 default:
                     throw new IllegalArgumentException("Invalid message.");
@@ -335,13 +335,13 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class b implements h {
         private final String cmd;
-        private final l egY;
+        private final l ehc;
 
         protected b(l lVar, String str) {
-            this.egY = lVar;
+            this.ehc = lVar;
             this.cmd = str;
         }
 
@@ -355,11 +355,11 @@ public class q extends l implements i {
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
             hashMap.put("errMsg", "cmd " + this.cmd + " not found");
-            this.egY.a(m.m(optString, hashMap));
+            this.ehc.a(m.m(optString, hashMap));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static final class a extends l {
         private a(WebView webView) {
             super(webView, null);

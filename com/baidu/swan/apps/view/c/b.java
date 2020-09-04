@@ -8,7 +8,7 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes8.dex */
 public class b implements com.baidu.swan.menu.a {
-    private FrameLayout cWD = null;
+    private FrameLayout cWH = null;
 
     @Override // com.baidu.swan.menu.a
     public void a(BaseMenuView baseMenuView) {
@@ -23,19 +23,19 @@ public class b implements com.baidu.swan.menu.a {
 
     private void z(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.cWD == null) {
-                this.cWD = new FrameLayout(viewGroup.getContext());
-                this.cWD.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.cWH == null) {
+                this.cWH = new FrameLayout(viewGroup.getContext());
+                this.cWH.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.cWD);
-            viewGroup.addView(this.cWD, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.cWH);
+            viewGroup.addView(this.cWH, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     private void A(ViewGroup viewGroup) {
-        if (viewGroup != null && this.cWD != null) {
-            viewGroup.removeView(this.cWD);
-            this.cWD = null;
+        if (viewGroup != null && this.cWH != null) {
+            viewGroup.removeView(this.cWH);
+            this.cWH = null;
         }
     }
 }

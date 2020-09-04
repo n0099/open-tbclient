@@ -6,25 +6,25 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes20.dex */
 public class a {
-    private static int bPX = 1;
-    private static int bPY = 2;
-    private static int bPZ = 3;
-    private Map<String, String> bQa = new HashMap();
-    private Map<String, String> bQb = new HashMap();
-    private SharedPreferences bQc;
+    private static int bQb = 1;
+    private static int bQc = 2;
+    private static int bQd = 3;
+    private Map<String, String> bQe = new HashMap();
+    private Map<String, String> bQf = new HashMap();
+    private SharedPreferences bQg;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.bQc = sharedPreferences;
+        this.bQg = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == bPX) {
-            this.bQa.put(str, str2);
-        } else if (i == bPY) {
-            this.bQb.put(str, str2);
-        } else if (i == bPZ) {
-            if (this.bQc != null) {
-                this.bQc.edit().putString(str, str2).commit();
+        if (i == bQb) {
+            this.bQe.put(str, str2);
+        } else if (i == bQc) {
+            this.bQf.put(str, str2);
+        } else if (i == bQd) {
+            if (this.bQg != null) {
+                this.bQg.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == bPX) {
-            str2 = this.bQa.get(str);
-        } else if (i == bPY) {
-            str2 = this.bQb.get(str);
-        } else if (i == bPZ) {
-            if (this.bQc != null) {
-                str2 = this.bQc.getString(str, "");
+        if (i == bQb) {
+            str2 = this.bQe.get(str);
+        } else if (i == bQc) {
+            str2 = this.bQf.get(str);
+        } else if (i == bQd) {
+            if (this.bQg != null) {
+                str2 = this.bQg.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.bQa.clear();
+        this.bQe.clear();
     }
 }

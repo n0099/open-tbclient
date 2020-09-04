@@ -9,14 +9,14 @@ import com.baidu.swan.apps.ap.j;
 import com.baidu.swan.apps.v.f;
 /* loaded from: classes8.dex */
 public class c {
-    private static boolean cco = false;
+    private static boolean cct = false;
 
-    public static void dI(boolean z) {
-        cco = z;
+    public static void dJ(boolean z) {
+        cct = z;
     }
 
     public static boolean adJ() {
-        return cco;
+        return cct;
     }
 
     public static void d(String str, Object... objArr) {
@@ -78,7 +78,7 @@ public class c {
     }
 
     private static void u(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && cco) {
+        if (!TextUtils.isEmpty(str3) && cct) {
             StringBuilder sb = new StringBuilder();
             String a = j.a(j.aEI(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();

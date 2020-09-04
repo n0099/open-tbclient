@@ -10,41 +10,41 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public class c implements com.baidu.live.h.b {
-    private String aHi;
-    private String ber;
-    private com.baidu.live.noble.d.b bfA;
-    private com.baidu.live.noble.data.b bfB;
-    private long bfC;
-    private e bfz;
+    private String aHk;
+    private String beu;
+    private e bfB;
+    private com.baidu.live.noble.d.b bfC;
+    private com.baidu.live.noble.data.b bfD;
+    private long bfE;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private TbPageContext mTbPageContext;
     private Handler mHandler = new Handler();
-    private final b.a bfD = new b.a() { // from class: com.baidu.live.noble.b.c.1
+    private final b.a bfF = new b.a() { // from class: com.baidu.live.noble.b.c.1
         @Override // com.baidu.live.noble.d.b.a
         public void LT() {
             c.this.LR();
         }
     };
-    private final e.a bfE = new e.a() { // from class: com.baidu.live.noble.b.c.2
+    private final e.a bfG = new e.a() { // from class: com.baidu.live.noble.b.c.2
         @Override // com.baidu.live.noble.c.e.a
         public void a(com.baidu.live.noble.data.b bVar) {
-            c.this.bfB = bVar;
-            if (c.this.bfA != null) {
-                c.this.bfA.b(bVar);
+            c.this.bfD = bVar;
+            if (c.this.bfC != null) {
+                c.this.bfC.b(bVar);
             }
             if (bVar == null) {
-                c.this.bfC = 5L;
-                c.this.ap(c.this.bfC);
+                c.this.bfE = 5L;
+                c.this.ap(c.this.bfE);
                 return;
             }
-            if (bVar.bfP <= 0) {
-                c.this.bfC = 5L;
+            if (bVar.bfR <= 0) {
+                c.this.bfE = 5L;
             } else {
-                c.this.bfC = bVar.bfP;
+                c.this.bfE = bVar.bfR;
             }
-            c.this.ap(c.this.bfC);
+            c.this.ap(c.this.bfE);
         }
 
         @Override // com.baidu.live.noble.c.e.a
@@ -52,14 +52,14 @@ public class c implements com.baidu.live.h.b {
             if (c.this.mTbPageContext != null) {
                 BdUtilHelper.showToast(c.this.mTbPageContext.getPageActivity(), str);
             }
-            c.this.bfC = 5L;
-            c.this.ap(c.this.bfC);
-            if (c.this.bfA != null && c.this.bfB == null) {
-                c.this.bfA.cf(true);
+            c.this.bfE = 5L;
+            c.this.ap(c.this.bfE);
+            if (c.this.bfC != null && c.this.bfD == null) {
+                c.this.bfC.cf(true);
             }
         }
     };
-    private final Runnable bfF = new Runnable() { // from class: com.baidu.live.noble.b.c.3
+    private final Runnable bfH = new Runnable() { // from class: com.baidu.live.noble.b.c.3
         @Override // java.lang.Runnable
         public void run() {
             c.this.LR();
@@ -70,13 +70,13 @@ public class c implements com.baidu.live.h.b {
     public void a(TbPageContext tbPageContext, String str, String str2, String str3, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.ber = str2;
-        this.aHi = str3;
+        this.beu = str2;
+        this.aHk = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        this.bfz = new e(this.mTbPageContext, this.bfE);
-        this.bfA = new com.baidu.live.noble.d.b(this.mTbPageContext, this.mLiveId, this.ber, this.mIsHost);
-        this.bfA.a(this.bfD);
+        this.bfB = new e(this.mTbPageContext, this.bfG);
+        this.bfC = new com.baidu.live.noble.d.b(this.mTbPageContext, this.mLiveId, this.beu, this.mIsHost);
+        this.bfC.a(this.bfF);
     }
 
     @Override // com.baidu.live.h.b
@@ -95,44 +95,44 @@ public class c implements com.baidu.live.h.b {
 
     @Override // com.baidu.live.h.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.bfA != null) {
-            this.bfA.a(configuration);
+        if (this.bfC != null) {
+            this.bfC.a(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LR() {
-        if (this.bfz != null) {
-            this.bfz.ax(this.ber, this.mLiveId);
+        if (this.bfB != null) {
+            this.bfB.ax(this.beu, this.mLiveId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ap(long j) {
-        if (this.mHandler != null && this.bfF != null) {
-            this.mHandler.removeCallbacks(this.bfF);
-            this.mHandler.postDelayed(this.bfF, 1000 * j);
+        if (this.mHandler != null && this.bfH != null) {
+            this.mHandler.removeCallbacks(this.bfH);
+            this.mHandler.postDelayed(this.bfH, 1000 * j);
         }
     }
 
     private void LS() {
-        if (this.mHandler != null && this.bfF != null) {
-            this.mHandler.removeCallbacks(this.bfF);
+        if (this.mHandler != null && this.bfH != null) {
+            this.mHandler.removeCallbacks(this.bfH);
         }
     }
 
     @Override // com.baidu.live.h.b
     public void onDestroy() {
-        if (this.bfz != null) {
-            this.bfz.onDestroy();
+        if (this.bfB != null) {
+            this.bfB.onDestroy();
         }
         LS();
     }
 
     @Override // com.baidu.live.h.b
     public View getView() {
-        if (this.bfA != null) {
-            return this.bfA.getRootView();
+        if (this.bfC != null) {
+            return this.bfC.getRootView();
         }
         return null;
     }

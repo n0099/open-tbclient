@@ -31,14 +31,14 @@ public class a {
     }
 
     public void a(int i, ShareItem shareItem, boolean z) {
-        Location cdh;
+        Location cdi;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
-                l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
+                l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.share_on_no_network);
                 return;
             }
-            if (z && (cdh = cdh()) != null) {
-                shareItem.location = cdh;
+            if (z && (cdi = cdi()) != null) {
+                shareItem.location = cdi;
             }
             g gVar = new g(this.mContext, null);
             if (i == 3) {
@@ -56,7 +56,7 @@ public class a {
                     return;
                 }
                 a(shareItem, 3);
-                if (shareItem.eEb) {
+                if (shareItem.eEf) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.g(shareItem);
@@ -68,18 +68,18 @@ public class a {
                 }
                 BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bhm();
             } else if (i == 5) {
-                if (!shareItem.eEa) {
+                if (!shareItem.eEe) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.j(shareItem);
             } else if (i == 6) {
                 a(shareItem, 7);
-                if (!shareItem.eEa) {
+                if (!shareItem.eEe) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.k(shareItem);
             } else if (i == 7) {
-                if (!shareItem.eEa) {
+                if (!shareItem.eEe) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.l(shareItem);
@@ -96,25 +96,25 @@ public class a {
 
     private void a(ShareItem shareItem, int i) {
         if (shareItem != null && shareItem.extData != null) {
-            if (shareItem.eEb) {
+            if (shareItem.eEf) {
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("fid", shareItem.extData).ai("obj_type", i));
-            } else if (shareItem.eEc || shareItem.eEf) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("tid", shareItem.extData).ai("obj_type", i).ai("obj_source", shareItem.eEs).ai("obj_param1", shareItem.eEt).dD("fid", shareItem.fid).ai(TiebaInitialize.Params.OBJ_PARAM2, shareItem.eEu));
-            } else if (shareItem.eEd) {
+            } else if (shareItem.eEg || shareItem.eEj) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("tid", shareItem.extData).ai("obj_type", i).ai("obj_source", shareItem.eEw).ai("obj_param1", shareItem.eEx).dD("fid", shareItem.fid).ai(TiebaInitialize.Params.OBJ_PARAM2, shareItem.eEy));
+            } else if (shareItem.eEh) {
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).dD("tid", shareItem.extData).ai("obj_type", i));
-            } else if (shareItem.eEa) {
-                bx(i, shareItem.eEp);
             } else if (shareItem.eEe) {
+                bw(i, shareItem.eEt);
+            } else if (shareItem.eEi) {
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).ai("obj_param1", 7).ai("obj_type", i).dD("fid", shareItem.extData));
-            } else if (shareItem.eEg) {
+            } else if (shareItem.eEk) {
                 aq ai = new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).ai("obj_type", i);
-                ai.ai("obj_source", shareItem.eEs);
+                ai.ai("obj_source", shareItem.eEw);
                 if (!at.isEmpty(shareItem.linkUrl) && shareItem.linkUrl.contains("worldcup")) {
                     ai.ai("obj_param1", 9);
                 }
                 TiebaStatic.log(ai);
-            } else if (shareItem.eEh) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("tid", shareItem.extData).dD("fid", shareItem.fid).ai("obj_type", i).ai("obj_source", shareItem.eEs).ai("obj_param1", shareItem.eEt).ai(TiebaInitialize.Params.OBJ_PARAM2, shareItem.eEu).ai(TiebaInitialize.Params.OBJ_PARAM3, shareItem.eEv).ai("obj_locate", shareItem.eEw));
+            } else if (shareItem.eEl) {
+                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("tid", shareItem.extData).dD("fid", shareItem.fid).ai("obj_type", i).ai("obj_source", shareItem.eEw).ai("obj_param1", shareItem.eEx).ai(TiebaInitialize.Params.OBJ_PARAM2, shareItem.eEy).ai(TiebaInitialize.Params.OBJ_PARAM3, shareItem.eEz).ai("obj_locate", shareItem.eEA));
             }
         }
     }
@@ -125,11 +125,11 @@ public class a {
         return str;
     }
 
-    private void bx(int i, String str) {
+    private void bw(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location cdh() {
+    private Location cdi() {
         if (ae.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();

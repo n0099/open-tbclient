@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteCacheMessage<T> extends CustomMessage<T> {
     private boolean isClear;
 

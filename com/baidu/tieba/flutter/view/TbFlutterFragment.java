@@ -28,6 +28,7 @@ public class TbFlutterFragment extends FlutterFragment {
     private TbFlutterFragmentLifeCircleInterface mLifeCycleListener;
     private long beginTime = 0;
     private long creatTime = 0;
+    private long flutterStartTime = 0;
     private CustomMessageListener skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.flutter.view.TbFlutterFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -67,6 +68,7 @@ public class TbFlutterFragment extends FlutterFragment {
 
     @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
+        this.flutterStartTime = System.currentTimeMillis();
         if (this.loadingView != null) {
             if (z) {
                 this.loadingView.playAnimation();
@@ -75,6 +77,12 @@ public class TbFlutterFragment extends FlutterFragment {
             }
         }
         super.setUserVisibleHint(z);
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onResume() {
+        this.flutterStartTime = System.currentTimeMillis();
+        super.onResume();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -97,6 +105,8 @@ public class TbFlutterFragment extends FlutterFragment {
         }
         map.put("isShowWhenCreate", Boolean.valueOf(isPrimary()));
         map.put("native_view_cost", Long.valueOf(this.creatTime));
+        map.put("native_start_time", Long.valueOf(this.beginTime));
+        map.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
         return map;
     }
 

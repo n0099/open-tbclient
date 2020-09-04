@@ -13,21 +13,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.c {
-    private ImageView esa;
-    private boolean esc;
+    private ImageView ese;
+    private boolean esg;
     private Context mContext;
-    private final int erW = R.drawable.new_pic_emotion_03;
-    private final int erX = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-    private final int erY = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-    private final int erZ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private final int esa = R.drawable.new_pic_emotion_03;
+    private final int esb = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+    private final int esc = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+    private final int esd = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
     private View mEmpty = null;
-    private int esb = this.erW;
+    private int esf = this.esa;
     private int mEmptyBgColorId = 0;
     private String endText = null;
     private LinearLayout mContainer = null;
@@ -39,9 +39,9 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     private boolean mIsMoreViewVisible = true;
     private int mSkinType = -1;
     private int mContainerBackgroundColorResId = 0;
-    public boolean esd = false;
+    public boolean esh = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD
@@ -57,7 +57,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.mContainer = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.esa = (ImageView) this.mRoot.findViewById(R.id.no_data_image);
+        this.ese = (ImageView) this.mRoot.findViewById(R.id.no_data_image);
         if (this.mIsMoreViewVisible) {
             this.mContainer.setVisibility(0);
         } else {
@@ -162,11 +162,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     public void bkw() {
-        this.esc = false;
-        this.esa.setVisibility(8);
+        this.esg = false;
+        this.ese.setVisibility(8);
         hideEmptyView();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
-        layoutParams.height = this.erZ;
+        layoutParams.height = this.esd;
         layoutParams.bottomMargin = 0;
         this.mContainer.setLayoutParams(layoutParams);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
@@ -175,51 +175,51 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void am(String str, int i) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.esc = true;
-        this.esa.setVisibility(0);
-        this.esb = this.erW;
+        this.esg = true;
+        this.ese.setVisibility(0);
+        this.esf = this.esa;
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
         oO(i);
-        this.esd = false;
+        this.esh = false;
     }
 
     public void an(String str, int i) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.esc = true;
-        this.esa.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.esa.getLayoutParams();
+        this.esg = true;
+        this.ese.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ese.getLayoutParams();
         layoutParams.topMargin = i;
-        this.esa.setLayoutParams(layoutParams);
+        this.ese.setLayoutParams(layoutParams);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void r(String str, @DrawableRes int i, int i2) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.esc = true;
-        this.esb = i;
-        this.esa.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.esa.getLayoutParams();
+        this.esg = true;
+        this.esf = i;
+        this.ese.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ese.getLayoutParams();
         layoutParams.topMargin = i2;
-        layoutParams.bottomMargin = this.erX;
-        this.esa.setLayoutParams(layoutParams);
+        layoutParams.bottomMargin = this.esb;
+        this.ese.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams2.height = -2;
-        layoutParams2.bottomMargin = this.erY;
+        layoutParams2.bottomMargin = this.esc;
         this.mContainer.setLayoutParams(layoutParams2);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setText(String str) {
-        ao(str, this.erZ);
+        ao(str, this.esd);
     }
 
     public void ao(String str, int i) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.esc = false;
-        this.esa.setVisibility(8);
+        this.esg = false;
+        this.ese.setVisibility(8);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
         layoutParams.bottomMargin = 0;
@@ -288,8 +288,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         if (this.mEmptyBgColorId != 0) {
             ap.setBackgroundColor(this.mEmpty, this.mEmptyBgColorId, i);
         }
-        if (this.esc) {
-            ap.setImageResource(this.esa, this.esb);
+        if (this.esg) {
+            ap.setImageResource(this.ese, this.esf);
             ap.setViewTextColor(this.mTextView, R.color.cp_cont_d);
         }
     }
@@ -340,7 +340,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     public boolean bkx() {
-        return this.esc;
+        return this.esg;
     }
 
     public void oO(int i) {
@@ -350,9 +350,9 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         }
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.tbds156);
         int i2 = (i == 0 || equipmentHeight < dimension) ? dimension : equipmentHeight;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.esa.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ese.getLayoutParams();
         layoutParams.topMargin = i2;
-        this.esa.setLayoutParams(layoutParams);
+        this.ese.setLayoutParams(layoutParams);
         showEmptyView(dimension);
     }
 

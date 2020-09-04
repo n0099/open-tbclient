@@ -100,7 +100,7 @@ public class i {
         if (azI != null) {
             aVar = azI.XZ();
         }
-        com.baidu.swan.apps.statistic.a.d rv = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().bO(5L).bP(37L)).a(aVar).ru(h.jv(com.baidu.swan.apps.runtime.d.azE().XP())).rv(com.baidu.swan.apps.runtime.e.azK());
+        com.baidu.swan.apps.statistic.a.d rw = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.am.a().bO(5L).bP(37L)).a(aVar).rv(h.jv(com.baidu.swan.apps.runtime.d.azE().XP())).rw(com.baidu.swan.apps.runtime.e.azK());
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
@@ -112,12 +112,12 @@ public class i {
             if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
                 jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
             }
-            rv.bN(jSONObject);
+            rw.bN(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        h.b(rv);
+        h.b(rw);
     }
 }

@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
-    public com.baidu.tieba.recommendlist.data.b lLb;
-    public com.baidu.tieba.recommendlist.data.b lLc;
+    public com.baidu.tieba.recommendlist.data.b lLo;
+    public com.baidu.tieba.recommendlist.data.b lLp;
 
     public AlaRecommendLiveResponseMessage() {
         super(1021193);
@@ -18,15 +18,15 @@ public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("follow");
             if (optJSONObject2 != null) {
-                this.lLb = new com.baidu.tieba.recommendlist.data.b();
-                this.lLb.type = 0;
-                this.lLb.parserJson(optJSONObject2);
+                this.lLo = new com.baidu.tieba.recommendlist.data.b();
+                this.lLo.type = 0;
+                this.lLo.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("recommend");
             if (optJSONObject3 != null) {
-                this.lLc = new com.baidu.tieba.recommendlist.data.b();
-                this.lLc.type = 1;
-                this.lLc.parserJson(optJSONObject3);
+                this.lLp = new com.baidu.tieba.recommendlist.data.b();
+                this.lLp.type = 1;
+                this.lLp.parserJson(optJSONObject3);
             }
         }
     }

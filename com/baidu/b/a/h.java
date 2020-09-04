@@ -4,7 +4,7 @@ import com.baidu.b.a.e;
 import java.lang.reflect.Method;
 /* loaded from: classes20.dex */
 final class h extends g {
-    private a acd;
+    private a acf;
 
     /* loaded from: classes20.dex */
     private static class a {
@@ -56,16 +56,16 @@ final class h extends g {
         this.c = 32;
         this.d = i;
         this.e = i2;
-        this.acd = new a();
+        this.acf = new a();
     }
 
     @Override // com.baidu.b.a.g
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.acd.b();
-            this.acd.a(b, bArr, i, i2);
-            j = this.acd.E(b);
+            Object b = this.acf.b();
+            this.acf.a(b, bArr, i, i2);
+            j = this.acf.E(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

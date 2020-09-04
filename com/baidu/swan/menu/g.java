@@ -387,7 +387,7 @@ public final class g {
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int action0 = 2131696875;
+        public static final int action0 = 2131696876;
         public static final int action_bar = 2131690098;
         public static final int action_bar_activity_content = 2131689477;
         public static final int action_bar_container = 2131690097;
@@ -395,17 +395,17 @@ public final class g {
         public static final int action_bar_spinner = 2131689478;
         public static final int action_bar_subtitle = 2131690065;
         public static final int action_bar_title = 2131690064;
-        public static final int action_container = 2131696872;
+        public static final int action_container = 2131696873;
         public static final int action_context_bar = 2131690099;
-        public static final int action_divider = 2131696885;
-        public static final int action_image = 2131696873;
+        public static final int action_divider = 2131696886;
+        public static final int action_image = 2131696874;
         public static final int action_menu_divider = 2131689480;
         public static final int action_menu_presenter = 2131689481;
         public static final int action_mode_bar = 2131690095;
         public static final int action_mode_bar_stub = 2131690094;
         public static final int action_mode_close_button = 2131690066;
-        public static final int action_text = 2131696874;
-        public static final int actions = 2131696891;
+        public static final int action_text = 2131696875;
+        public static final int actions = 2131696892;
         public static final int activity_chooser_view_content = 2131690067;
         public static final int add = 2131689896;
         public static final int aiapp_menu_body = 2131690614;
@@ -420,9 +420,9 @@ public final class g {
         public static final int blocking = 2131689941;
         public static final int buttonPanel = 2131690073;
         public static final int cancel = 2131690003;
-        public static final int cancel_action = 2131696876;
+        public static final int cancel_action = 2131696877;
         public static final int checkbox = 2131690089;
-        public static final int chronometer = 2131696889;
+        public static final int chronometer = 2131696890;
         public static final int contentPanel = 2131690076;
         public static final int custom = 2131690083;
         public static final int customPanel = 2131690082;
@@ -430,14 +430,14 @@ public final class g {
         public static final int default_activity_button = 2131690070;
         public static final int divider = 2131689533;
         public static final int edit_query = 2131690100;
-        public static final int end_padder = 2131696894;
+        public static final int end_padder = 2131696895;
         public static final int expand_activities_button = 2131690068;
         public static final int expanded_menu = 2131690088;
-        public static final int first_line_menu_item_view = 2131698546;
+        public static final int first_line_menu_item_view = 2131698547;
         public static final int forever = 2131689942;
         public static final int home = 2131689591;
         public static final int icon = 2131690072;
-        public static final int icon_group = 2131696892;
+        public static final int icon_group = 2131696893;
         public static final int image = 2131690069;
         public static final int immersion_custom_statusbar_view = 2131689617;
         public static final int immersion_fragment_root_view = 2131689618;
@@ -449,20 +449,20 @@ public final class g {
         public static final int listMode = 2131689877;
         public static final int list_item = 2131690071;
         public static final int mask = 2131690613;
-        public static final int media_actions = 2131696884;
+        public static final int media_actions = 2131696885;
         public static final int message = 2131690113;
         public static final int multiply = 2131689897;
         public static final int none = 2131689863;
         public static final int normal = 2131689872;
-        public static final int notification_background = 2131696890;
-        public static final int notification_main_column = 2131696887;
-        public static final int notification_main_column_container = 2131696886;
+        public static final int notification_background = 2131696891;
+        public static final int notification_main_column = 2131696888;
+        public static final int notification_main_column_container = 2131696887;
         public static final int parentPanel = 2131690075;
         public static final int progress_circular = 2131689668;
         public static final int progress_horizontal = 2131689669;
         public static final int radio = 2131690091;
-        public static final int right_icon = 2131696893;
-        public static final int right_side = 2131696888;
+        public static final int right_icon = 2131696894;
+        public static final int right_side = 2131696889;
         public static final int screen = 2131689898;
         public static final int scrollIndicatorDown = 2131690081;
         public static final int scrollIndicatorUp = 2131690077;
@@ -477,7 +477,7 @@ public final class g {
         public static final int search_plate = 2131690106;
         public static final int search_src_text = 2131690107;
         public static final int search_voice_btn = 2131690111;
-        public static final int second_line_menu_item_view = 2131698547;
+        public static final int second_line_menu_item_view = 2131698548;
         public static final int select_dialog_listview = 2131690112;
         public static final int shortcut = 2131690090;
         public static final int spacer = 2131690074;
@@ -485,7 +485,7 @@ public final class g {
         public static final int src_atop = 2131689899;
         public static final int src_in = 2131689900;
         public static final int src_over = 2131689901;
-        public static final int status_bar_latest_event_content = 2131696883;
+        public static final int status_bar_latest_event_content = 2131696884;
         public static final int submenuarrow = 2131690092;
         public static final int submit_area = 2131690109;
         public static final int tabMode = 2131689878;
@@ -610,8 +610,8 @@ public final class g {
         public static final int app_name = 2131231836;
         public static final int search_menu_title = 2131230737;
         public static final int status_bar_notification_info_overflow = 2131230738;
-        public static final int swan_app_menu_setting = 2131236688;
-        public static final int swanapp_menu_font_setting = 2131236779;
+        public static final int swan_app_menu_setting = 2131236689;
+        public static final int swanapp_menu_font_setting = 2131236780;
     }
 
     /* renamed from: com.baidu.swan.menu.g$g  reason: collision with other inner class name */

@@ -21,7 +21,7 @@ public class j {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
     }
 
-    public static Date hm(String str) {
+    public static Date hn(String str) {
         try {
             return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
         } catch (ParseException e) {

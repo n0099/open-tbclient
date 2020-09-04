@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static boolean ePh;
+    private static boolean ePl;
 
     static {
-        ePh = false;
-        ePh = b.bik().getInt("key_lcs_log_switch", 0) == 1;
-        if (ePh) {
+        ePl = false;
+        ePl = b.bik().getInt("key_lcs_log_switch", 0) == 1;
+        if (ePl) {
             registerTask();
         }
     }
@@ -31,7 +31,7 @@ public class a {
     }
 
     public static void e(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (ePh) {
+        if (ePl) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i);
             httpMessage.addParam("lcs_status", i2);

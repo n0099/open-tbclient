@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes17.dex */
 public class l {
-    public static final String mCp;
-    private List<DownloadData> mCq;
-    private a mCr;
-    private String mCs;
-    private com.baidu.tbadk.download.c mCt = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
+    public static final String mCI;
+    private List<DownloadData> mCJ;
+    private a mCK;
+    private String mCL;
+    private com.baidu.tbadk.download.c mCM = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.record.l.1
         @Override // com.baidu.tbadk.download.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData.getStatus() == 4) {
@@ -25,8 +25,8 @@ public class l {
                     file.delete();
                 }
                 l.this.w(downloadData);
-                if (l.this.mCr != null && l.this.mCs.equals(downloadData.getUrl())) {
-                    l.this.mCr.dBe();
+                if (l.this.mCK != null && l.this.mCL.equals(downloadData.getUrl())) {
+                    l.this.mCK.dBn();
                 }
             }
         }
@@ -43,11 +43,11 @@ public class l {
 
         @Override // com.baidu.tbadk.download.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.mCp)) {
+            if (downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(l.mCI)) {
                 l.this.w(downloadData);
-                if (l.this.mCr != null && l.this.mCs.equals(downloadData.getUrl())) {
-                    l.this.mvX.put(downloadData.getPath().substring(l.mCp.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                    l.this.mCr.fX(l.this.mCs, downloadData.getPath());
+                if (l.this.mCK != null && l.this.mCL.equals(downloadData.getUrl())) {
+                    l.this.mwp.put(downloadData.getPath().substring(l.mCI.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    l.this.mCK.fY(l.this.mCL, downloadData.getPath());
                 }
             }
         }
@@ -59,24 +59,24 @@ public class l {
                 file.delete();
             }
             l.this.w(downloadData);
-            if (l.this.mCr != null && l.this.mCs.equals(downloadData.getUrl())) {
-                l.this.mCr.RC(str);
+            if (l.this.mCK != null && l.this.mCL.equals(downloadData.getUrl())) {
+                l.this.mCK.RC(str);
             }
         }
     };
-    private HashMap<String, String> mvX;
+    private HashMap<String, String> mwp;
 
     /* loaded from: classes17.dex */
     public interface a {
         void RC(String str);
 
-        void dBe();
+        void dBn();
 
-        void fX(String str, String str2);
+        void fY(String str, String str2);
     }
 
     static {
-        mCp = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+        mCI = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
     public String Sa(String str) {
@@ -84,26 +84,26 @@ public class l {
         if (nameMd5FromUrl == null) {
             return null;
         }
-        if (this.mvX == null) {
-            this.mvX = new HashMap<>();
-            dDS();
+        if (this.mwp == null) {
+            this.mwp = new HashMap<>();
+            dEb();
         }
-        return this.mvX.get(nameMd5FromUrl);
+        return this.mwp.get(nameMd5FromUrl);
     }
 
-    public void dDS() {
-        if (!StringUtils.isNull(mCp)) {
-            if (this.mvX == null) {
-                this.mvX = new HashMap<>();
+    public void dEb() {
+        if (!StringUtils.isNull(mCI)) {
+            if (this.mwp == null) {
+                this.mwp = new HashMap<>();
             } else {
-                this.mvX.clear();
+                this.mwp.clear();
             }
-            File file = new File(mCp);
+            File file = new File(mCI);
             if (file.exists()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
                     if (file2.isFile()) {
-                        this.mvX.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                        this.mwp.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                     }
                 }
             }
@@ -111,40 +111,40 @@ public class l {
     }
 
     public void Sb(String str) {
-        if (TextUtils.isEmpty(str) || StringUtils.isNull(mCp)) {
-            if (this.mCr != null) {
-                this.mCr.RC("");
+        if (TextUtils.isEmpty(str) || StringUtils.isNull(mCI)) {
+            if (this.mCK != null) {
+                this.mCK.RC("");
                 return;
             }
             return;
         }
         String nameMd5FromUrl = av.getNameMd5FromUrl(str);
         if (nameMd5FromUrl != null) {
-            File file = new File(mCp);
+            File file = new File(mCI);
             if (!file.exists()) {
                 file.mkdirs();
             }
             String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-            if (this.mCq == null) {
-                this.mCq = new ArrayList();
+            if (this.mCJ == null) {
+                this.mCJ = new ArrayList();
             }
             if (!Sc(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
-                downloadData.setPath(mCp + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.mCt);
-                this.mCq.add(downloadData);
-                com.baidu.tbadk.download.d.brr().f(downloadData);
+                downloadData.setPath(mCI + "/" + nameMd5FromUrl + str2);
+                downloadData.setCallback(this.mCM);
+                this.mCJ.add(downloadData);
+                com.baidu.tbadk.download.d.brs().f(downloadData);
             }
         }
     }
 
     private boolean Sc(String str) {
-        if (y.isEmpty(this.mCq) || str == null) {
+        if (y.isEmpty(this.mCJ) || str == null) {
             return false;
         }
-        for (DownloadData downloadData : this.mCq) {
+        for (DownloadData downloadData : this.mCJ) {
             if (downloadData != null && str.equals(downloadData.getUrl())) {
                 return true;
             }
@@ -155,32 +155,32 @@ public class l {
     /* JADX INFO: Access modifiers changed from: private */
     public void w(DownloadData downloadData) {
         int i;
-        if (!y.isEmpty(this.mCq) && downloadData != null) {
+        if (!y.isEmpty(this.mCJ) && downloadData != null) {
             int i2 = 0;
             while (true) {
                 i = i2;
-                if (i >= this.mCq.size()) {
+                if (i >= this.mCJ.size()) {
                     i = -1;
                     break;
-                } else if (this.mCq.get(i) != null && this.mCq.get(i).getUrl() != null && this.mCq.get(i).getUrl().equals(downloadData.getUrl())) {
+                } else if (this.mCJ.get(i) != null && this.mCJ.get(i).getUrl() != null && this.mCJ.get(i).getUrl().equals(downloadData.getUrl())) {
                     break;
                 } else {
                     i2 = i + 1;
                 }
             }
-            this.mCq.remove(i);
+            this.mCJ.remove(i);
         }
     }
 
     public void a(a aVar) {
-        this.mCr = aVar;
+        this.mCK = aVar;
     }
 
     public void Sd(String str) {
         if (str == null) {
-            this.mCs = "";
+            this.mCL = "";
         } else {
-            this.mCs = str;
+            this.mCL = str;
         }
     }
 }

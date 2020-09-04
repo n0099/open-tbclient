@@ -10,26 +10,26 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes7.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0177a beU;
-    private HttpMessageListener beW = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
+    private InterfaceC0177a beW;
+    private HttpMessageListener beY = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.beU != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.beW != null) {
                 com.baidu.live.message.a aVar = (com.baidu.live.message.a) httpResponsedMessage.getOrginalMessage();
-                if (aVar.getTag() == a.this.beV) {
+                if (aVar.getTag() == a.this.beX) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        a.this.beU.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.beW.onFailed(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        a.this.beU.onSuccess(aVar.LB());
+                        a.this.beW.onSuccess(aVar.LB());
                     } else {
-                        a.this.beU.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.beW.onFailed(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private BdUniqueId beV = BdUniqueId.gen();
+    private BdUniqueId beX = BdUniqueId.gen();
 
     /* renamed from: com.baidu.live.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
@@ -40,9 +40,9 @@ public class a extends BdBaseModel {
     }
 
     public a() {
-        setUniqueId(this.beV);
+        setUniqueId(this.beX);
         registerTask();
-        registerListener(this.beW);
+        registerListener(this.beY);
     }
 
     private void registerTask() {
@@ -66,13 +66,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0177a interfaceC0177a) {
-        this.beU = interfaceC0177a;
+        this.beW = interfaceC0177a;
     }
 
     public void onDestroy() {
         cancelMessage();
-        if (this.beW != null) {
-            MessageManager.getInstance().unRegisterListener(this.beW);
+        if (this.beY != null) {
+            MessageManager.getInstance().unRegisterListener(this.beY);
         }
     }
 }

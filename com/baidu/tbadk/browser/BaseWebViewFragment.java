@@ -10,13 +10,13 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BaseWebViewFragment extends BaseFragment {
     private String mSource;
     public String mUrl;
     private String mUrlTitle;
 
-    public void yb(String str) {
+    public void yc(String str) {
         this.mUrlTitle = str;
     }
 
@@ -47,7 +47,7 @@ public class BaseWebViewFragment extends BaseFragment {
         return dr(this.mUrl, "nomenu");
     }
 
-    public boolean yc(String str) {
+    public boolean yd(String str) {
         return dr(str, "blank");
     }
 

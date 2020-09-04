@@ -11,11 +11,11 @@ import java.util.HashSet;
 /* loaded from: classes8.dex */
 public class b extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0380a clo;
+    private a.InterfaceC0380a cls;
 
     public b(String str, a.InterfaceC0380a interfaceC0380a) {
         super(str);
-        this.clo = interfaceC0380a;
+        this.cls = interfaceC0380a;
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
@@ -26,9 +26,9 @@ public class b extends f {
     @Override // com.baidu.swan.pms.a.g
     public void afB() {
         super.afB();
-        if (this.ckq != null) {
+        if (this.cku != null) {
             aiI();
-            a.lC(this.mAppId);
+            a.lD(this.mAppId);
         }
     }
 
@@ -38,16 +38,16 @@ public class b extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.clo != null) {
+        if (this.cls != null) {
             if (aVar.errorNo == 1010) {
-                this.clo.afG();
+                this.cls.afG();
             } else {
-                this.clo.gR(0);
+                this.cls.gR(0);
             }
         }
         hi(aVar.errorNo);
         if (a.c(aVar)) {
-            a.lC(this.mAppId);
+            a.lD(this.mAppId);
         }
     }
 
@@ -55,18 +55,18 @@ public class b extends f {
     @Override // com.baidu.swan.apps.core.pms.f
     public void aiz() {
         super.aiz();
-        this.ckr.add(new UbcFlowEvent("na_start_update_db"));
+        this.ckv.add(new UbcFlowEvent("na_start_update_db"));
         com.baidu.swan.apps.am.a aiH = aiH();
-        this.ckr.add(new UbcFlowEvent("na_end_update_db"));
+        this.ckv.add(new UbcFlowEvent("na_end_update_db"));
         if (aiH == null) {
-            a.lC(this.mAppId);
-            if (this.clo != null) {
-                this.clo.afG();
+            a.lD(this.mAppId);
+            if (this.cls != null) {
+                this.cls.afG();
             }
-        } else if (this.clo != null) {
-            this.clo.gR(5);
+        } else if (this.cls != null) {
+            this.cls.gR(5);
         }
-        bm("main_pre_download", this.cks);
+        bm("main_pre_download", this.ckw);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
         e.alr().als().a(hashSet, c.alW().hu(7).alX());
@@ -74,8 +74,8 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.core.pms.f
     protected void o(Throwable th) {
-        if (this.clo != null) {
-            this.clo.gR(0);
+        if (this.cls != null) {
+            this.cls.gR(0);
         }
     }
 

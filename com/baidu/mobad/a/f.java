@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class f {
     private HashMap<String, IXAdProd> a = new HashMap<>();
 
-    public Boolean hN(String str) {
+    public Boolean hO(String str) {
         return Boolean.valueOf(this.a.containsKey(str));
     }
 
@@ -17,7 +17,7 @@ public class f {
         this.a.put(iXAdProd.getId(), iXAdProd);
     }
 
-    public IXAdProd hO(String str) {
+    public IXAdProd hP(String str) {
         return this.a.get(str);
     }
 

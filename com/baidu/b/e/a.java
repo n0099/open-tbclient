@@ -10,12 +10,12 @@ import java.util.ArrayList;
 /* loaded from: classes20.dex */
 public class a {
     private Context a;
-    private C0090a acg;
+    private C0090a aci;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes20.dex */
     public final class C0090a {
-        private C0090a acp;
+        private C0090a acr;
         private File b;
         private String c;
         private boolean e;
@@ -30,7 +30,7 @@ public class a {
         C0090a(String str, C0090a c0090a) {
             this.e = false;
             this.c = str;
-            this.acp = c0090a;
+            this.acr = c0090a;
             this.e = false;
         }
 
@@ -45,7 +45,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.acp == null ? new File(a.this.a(), this.c) : new File(this.acp.b(), this.c);
+                file = this.acr == null ? new File(a.this.a(), this.c) : new File(this.acr.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -59,7 +59,7 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0090a cU(String str) {
+        public C0090a cV(String str) {
             return new C0090a(str, this);
         }
 
@@ -83,7 +83,7 @@ public class a {
         }
 
         public C0090a sK() {
-            return this.acp;
+            return this.acr;
         }
     }
 
@@ -190,9 +190,9 @@ public class a {
     }
 
     public synchronized C0090a sJ() {
-        if (this.acg == null) {
-            this.acg = new C0090a(".cesium", null);
+        if (this.aci == null) {
+            this.aci = new C0090a(".cesium", null);
         }
-        return this.acg;
+        return this.aci;
     }
 }

@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d aBq;
+    private d aBs;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> aBp = new ArrayList();
+    private final List<d> aBr = new ArrayList();
 
     public void setData(List<d> list) {
-        this.aBp.clear();
+        this.aBr.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aBp.addAll(list);
+            this.aBr.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aBp.size();
+        return this.aBr.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.aBp, i);
+        d dVar = (d) ListUtils.getItem(this.aBr, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.aBq != viewGroup) {
-                    if (this.aBq != null) {
-                        this.aBq.enterBackground();
+                if (this.aBs != viewGroup) {
+                    if (this.aBs != null) {
+                        this.aBs.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.aBq = dVar;
+                    this.aBs = dVar;
                 }
             }
         }
@@ -69,8 +69,8 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
     }
 
     public void Bv() {
-        if (this.aBq != null) {
-            this.aBq.enterForeground();
+        if (this.aBs != null) {
+            this.aBs.enterForeground();
         }
     }
 

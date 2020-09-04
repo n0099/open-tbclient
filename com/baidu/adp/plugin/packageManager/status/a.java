@@ -31,12 +31,12 @@ public class a {
         return TU;
     }
 
-    public void cN(String str) {
-        PluginStatus cP = qw().cP(str);
-        if (cP != null) {
-            cP.TR = PluginPackageManager.PluginStatus.NROMAL;
+    public void cO(String str) {
+        PluginStatus cQ = qw().cQ(str);
+        if (cQ != null) {
+            cQ.TR = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, cP));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, cQ));
     }
 
     public void j(String str, String str2, String str3) {
@@ -77,28 +77,28 @@ public class a {
         } else {
             return;
         }
-        PluginStatus cP = cP(str);
-        if (cP == null) {
-            cP = new PluginStatus();
+        PluginStatus cQ = cQ(str);
+        if (cQ == null) {
+            cQ = new PluginStatus();
         }
-        cP.TR = PluginPackageManager.PluginStatus.ERROR;
-        cP.errorMsg = string;
-        cP.TS = string2;
-        cP.errorCode = i;
-        cP.TT = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, cP));
+        cQ.TR = PluginPackageManager.PluginStatus.ERROR;
+        cQ.errorMsg = string;
+        cQ.TS = string2;
+        cQ.errorCode = i;
+        cQ.TT = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, cQ));
     }
 
-    public void cO(String str) {
-        PluginStatus cP = cP(str);
-        if (cP == null) {
-            cP = new PluginStatus();
+    public void cP(String str) {
+        PluginStatus cQ = cQ(str);
+        if (cQ == null) {
+            cQ = new PluginStatus();
         }
-        cP.TR = PluginPackageManager.PluginStatus.ERROR;
-        cP.errorCode = 100;
-        cP.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        cP.TS = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, cP));
+        cQ.TR = PluginPackageManager.PluginStatus.ERROR;
+        cQ.errorCode = 100;
+        cQ.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        cQ.TS = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, cQ));
     }
 
     public List<PluginStatus> qx() {
@@ -115,7 +115,7 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus cP(String str) {
+    public PluginStatus cQ(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;

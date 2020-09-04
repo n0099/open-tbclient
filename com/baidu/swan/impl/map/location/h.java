@@ -10,37 +10,37 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.ap.ah;
 /* loaded from: classes19.dex */
 public class h {
-    private static final int dCf = ah.H(58.0f);
-    private View dCb;
-    private View dCc;
-    private boolean dCd;
-    private a dCe;
+    private static final int dCj = ah.H(58.0f);
+    private View dCf;
+    private View dCg;
+    private boolean dCh;
+    private a dCi;
     private View mListContainer;
 
     /* loaded from: classes19.dex */
     interface a {
-        void gU(boolean z);
-
         void gV(boolean z);
+
+        void gW(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(View view, FrameLayout frameLayout, View view2) {
         this.mListContainer = view;
-        this.dCb = frameLayout;
-        this.dCc = view2;
+        this.dCf = frameLayout;
+        this.dCg = view2;
     }
 
-    public void gW(final boolean z) {
-        if (this.dCe != null) {
-            this.dCe.gV(z);
+    public void gX(final boolean z) {
+        if (this.dCi != null) {
+            this.dCi.gW(z);
         }
-        this.dCd = z;
-        final int i = z ? -dCf : dCf;
+        this.dCh = z;
+        final int i = z ? -dCj : dCj;
         float[] fArr = z ? new float[]{0.0f, i} : new float[]{-i, 0.0f};
         float[] fArr2 = z ? new float[]{0.0f, i * 2} : new float[]{(-i) * 2, 0.0f};
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofFloat(this.dCb, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.dCc, "translationY", fArr2));
+        animatorSet.playTogether(ObjectAnimator.ofFloat(this.dCf, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.dCg, "translationY", fArr2));
         animatorSet.setDuration(200L);
         animatorSet.start();
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.impl.map.location.h.1
@@ -51,8 +51,8 @@ public class h {
                 if (!z) {
                     h.this.lu(i);
                 }
-                if (h.this.dCe != null) {
-                    h.this.dCe.gU(z);
+                if (h.this.dCi != null) {
+                    h.this.dCi.gV(z);
                 }
             }
         });
@@ -69,6 +69,6 @@ public class h {
     }
 
     public boolean isFlipped() {
-        return this.dCd;
+        return this.dCh;
     }
 }

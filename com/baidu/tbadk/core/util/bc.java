@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bc {
     private static final HashMap<String, String> mActivityNames = new HashMap<>();
     private static String mCurrentActivityAllName;

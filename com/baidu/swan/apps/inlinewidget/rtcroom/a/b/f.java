@@ -15,7 +15,7 @@ public class f extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Boolean) {
-            bVar.et(((Boolean) command.obj).booleanValue());
+            bVar.eu(((Boolean) command.obj).booleanValue());
         }
     }
 }

@@ -7,15 +7,15 @@ public interface b extends tv.chushou.basis.d.a {
 
     String akP();
 
-    String ear();
+    String eaA();
 
-    String eas();
+    String eaB();
 
-    Map<String, String> eat();
+    Map<String, String> eaC();
 
-    String eau();
+    String eaD();
 
-    Map<String, String> eav();
+    Map<String, String> eaE();
 
     String getAppKey();
 

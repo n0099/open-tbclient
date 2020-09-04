@@ -3,7 +3,7 @@ package io.reactivex.internal.functions;
 import io.reactivex.c.d;
 /* loaded from: classes7.dex */
 public final class a {
-    static final d<Object, Object> omr = new C0962a();
+    static final d<Object, Object> omJ = new C0962a();
 
     public static <T> T k(T t, String str) {
         if (t == null) {
@@ -30,7 +30,7 @@ public final class a {
         return j > j2 ? 1 : 0;
     }
 
-    public static int bJ(int i, String str) {
+    public static int bI(int i, String str) {
         if (i <= 0) {
             throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }

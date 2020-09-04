@@ -25,34 +25,34 @@ import java.util.List;
 /* loaded from: classes16.dex */
 public class b {
     private BdTypeRecyclerView Wu;
-    private BaseFragmentActivity hwQ;
+    private BaseFragmentActivity hwW;
     private boolean isLoadMore;
-    private NavigationBarShadowView jEc;
-    private boolean jFw;
-    private com.baidu.tbadk.mvc.g.a jGP;
-    private OfficialNotificationFragment jGQ;
-    private OfficialNotificationTextItemAdapter jGR;
+    private NavigationBarShadowView jEi;
+    private boolean jFC;
+    private com.baidu.tbadk.mvc.g.a jGV;
+    private OfficialNotificationFragment jGW;
+    private OfficialNotificationTextItemAdapter jGX;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private ViewGroup mRootView;
     private List<ChatMessage> mData = null;
-    private List<com.baidu.adp.widget.ListView.a> bbu = new ArrayList();
-    private RecyclerView.OnScrollListener jFB = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.1
+    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private RecyclerView.OnScrollListener jFH = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.1
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
             switch (i) {
                 case 0:
                     if (recyclerView.canScrollVertically(-1)) {
-                        b.this.jEc.show();
+                        b.this.jEi.show();
                         return;
                     } else {
-                        b.this.jEc.hide();
+                        b.this.jEi.hide();
                         return;
                     }
                 case 1:
                 case 2:
-                    b.this.jEc.show();
+                    b.this.jEi.show();
                     return;
                 default:
                     return;
@@ -63,34 +63,34 @@ public class b {
     public b(TbPageContext tbPageContext, OfficialNotificationFragment officialNotificationFragment, ViewGroup viewGroup) {
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
-            this.hwQ = (BaseFragmentActivity) this.mPageContext.getPageActivity();
-            this.jGQ = officialNotificationFragment;
-            this.mRootView = (ViewGroup) LayoutInflater.from(this.hwQ).inflate(R.layout.fragment_official_notification, viewGroup, false);
-            this.jEc = (NavigationBarShadowView) this.mRootView.findViewById(R.id.navi_shadow_view_official_notification);
+            this.hwW = (BaseFragmentActivity) this.mPageContext.getPageActivity();
+            this.jGW = officialNotificationFragment;
+            this.mRootView = (ViewGroup) LayoutInflater.from(this.hwW).inflate(R.layout.fragment_official_notification, viewGroup, false);
+            this.jEi = (NavigationBarShadowView) this.mRootView.findViewById(R.id.navi_shadow_view_official_notification);
             this.Wu = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.rv_official_notification);
-            this.Wu.setLayoutManager(new LinearLayoutManager(this.hwQ));
+            this.Wu.setLayoutManager(new LinearLayoutManager(this.hwW));
             this.Wu.setFadingEdgeLength(0);
             this.Wu.setOverScrollMode(2);
-            this.Wu.addOnScrollListener(this.jFB);
-            this.jGR = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_LEFT);
-            this.jGR.setOnClickListener(officialNotificationFragment);
-            this.bbu.add(this.jGR);
-            this.Wu.addAdapters(this.bbu);
-            this.jGP = new com.baidu.tbadk.mvc.g.a(this.hwQ, this.Wu);
-            this.jGP.setHeight(l.getDimens(this.hwQ, R.dimen.tbds182));
-            this.jGP.createView();
-            this.Wu.setNextPage(this.jGP);
+            this.Wu.addOnScrollListener(this.jFH);
+            this.jGX = new OfficialNotificationTextItemAdapter(this.mPageContext, ChatMessage.TYPE_MSG_LEFT);
+            this.jGX.setOnClickListener(officialNotificationFragment);
+            this.bbw.add(this.jGX);
+            this.Wu.addAdapters(this.bbw);
+            this.jGV = new com.baidu.tbadk.mvc.g.a(this.hwW, this.Wu);
+            this.jGV.setHeight(l.getDimens(this.hwW, R.dimen.tbds182));
+            this.jGV.createView();
+            this.Wu.setNextPage(this.jGV);
             this.Wu.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.b.2
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    b.this.jGP.display();
-                    if (!b.this.jGQ.getHasMore() || b.this.isLoadMore) {
-                        b.this.jGP.qy(R.string.no_more_msg);
+                    b.this.jGV.display();
+                    if (!b.this.jGW.getHasMore() || b.this.isLoadMore) {
+                        b.this.jGV.qy(R.string.no_more_msg);
                         return;
                     }
-                    b.this.jGP.qx(R.string.loading);
-                    if (b.this.jGQ != null) {
-                        b.this.jGQ.bKn();
+                    b.this.jGV.qx(R.string.loading);
+                    if (b.this.jGW != null) {
+                        b.this.jGW.bKo();
                         b.this.isLoadMore = true;
                     }
                 }
@@ -104,16 +104,16 @@ public class b {
     }
 
     public void onChangeSkinType() {
-        if (this.jGR != null) {
-            this.jGR.notifyDataSetChanged();
+        if (this.jGX != null) {
+            this.jGX.notifyDataSetChanged();
         }
         ap.setBackgroundColor(this.Wu, R.color.cp_bg_line_d);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
             ap.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
         }
-        if (this.jGP != null) {
-            this.jGP.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        if (this.jGV != null) {
+            this.jGV.b(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -217,13 +217,13 @@ public class b {
             }
             if (arrayList2.isEmpty()) {
                 if (this.mNoDataView == null) {
-                    this.mNoDataView = NoDataViewFactory.a(this.hwQ, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.d.dE(null, this.hwQ.getResources().getString(R.string.official_notification_no_data)), null);
+                    this.mNoDataView = NoDataViewFactory.a(this.hwW, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.d.dE(null, this.hwW.getResources().getString(R.string.official_notification_no_data)), null);
                     this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                     ap.setBackgroundColor(this.mNoDataView, R.color.cp_bg_line_d);
                     this.mRootView.addView(this.mNoDataView);
                 }
-                if (!this.jFw) {
-                    this.jFw = true;
+                if (!this.jFC) {
+                    this.jFC = true;
                     this.Wu.setVisibility(8);
                     this.mNoDataView.setVisibility(0);
                     this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -234,7 +234,7 @@ public class b {
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(8);
             }
-            this.jFw = false;
+            this.jFC = false;
             this.Wu.setData(arrayList2);
             this.Wu.setVisibility(0);
         }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.voice.a;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.core.util.n;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public static a AN(String str) {
+    public static a AO(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;

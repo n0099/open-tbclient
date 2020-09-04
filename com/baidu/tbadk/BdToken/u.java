@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.util.at;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class u {
-    private long dQn;
-    private ArrayList<w> dQo;
+    private long dQr;
+    private ArrayList<w> dQs;
     private long mStartDate;
     private String mUrl;
 
@@ -17,16 +17,16 @@ public class u {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.mStartDate = jSONObject.optLong("start_date", 0L) * 1000;
-                this.dQn = jSONObject.optLong("end_date", 0L) * 1000;
+                this.dQr = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.dQo = new ArrayList<>();
+                this.dQs = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         w wVar = new w();
                         wVar.parseJson(optJSONArray2);
-                        this.dQo.add(wVar);
+                        this.dQs.add(wVar);
                     }
                 }
             } catch (Exception e) {
@@ -40,7 +40,7 @@ public class u {
     }
 
     public long aZv() {
-        return this.dQn;
+        return this.dQr;
     }
 
     public String getUrl() {
@@ -48,6 +48,6 @@ public class u {
     }
 
     public ArrayList<w> aZw() {
-        return this.dQo;
+        return this.dQs;
     }
 }

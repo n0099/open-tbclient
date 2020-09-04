@@ -5,19 +5,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class g {
-    private static d bMP;
+    private static d bMT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void k(Exception exc) {
-        if (bMP != null) {
-            bMP.iq(l(exc).toString());
+        if (bMT != null) {
+            bMT.ir(l(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void iq(String str) {
-        if (bMP != null) {
-            bMP.iq(str);
+    public static void ir(String str) {
+        if (bMT != null) {
+            bMT.ir(str);
         }
     }
 

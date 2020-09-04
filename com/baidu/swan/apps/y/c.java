@@ -32,7 +32,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final boolean cDV = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
+    private static final boolean cDZ = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.swan.apps.core.d.e auv() {
@@ -94,7 +94,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void eW(boolean z) {
+    public static void eX(boolean z) {
         String azK = com.baidu.swan.apps.runtime.e.azK();
         Context arI = com.baidu.swan.apps.v.f.arY().arI();
         if (arI == null) {
@@ -208,7 +208,7 @@ public class c {
             int[] iArr2 = new int[2];
             agu.getLocationOnScreen(iArr2);
             iArr[1] = Math.max(iArr[1], iArr2[1] + agu.getHeight() + 1);
-            if (cDV) {
+            if (cDZ) {
                 if (DEBUG) {
                     Log.d("MonitorUtils", "getCheckRect: hit webview widget process bar calibrate");
                 }

@@ -1,46 +1,46 @@
 package com.baidu.live.liveroom.c;
 /* loaded from: classes7.dex */
 public class d {
-    private static volatile d bdQ;
-    private c bdR;
-    private b bdS;
+    private static volatile d bdS;
+    private c bdT;
+    private b bdU;
 
     private d() {
     }
 
     public static d KX() {
-        if (bdQ == null) {
+        if (bdS == null) {
             synchronized (d.class) {
-                if (bdQ == null) {
-                    bdQ = new d();
+                if (bdS == null) {
+                    bdS = new d();
                 }
             }
         }
-        return bdQ;
+        return bdS;
     }
 
     private b KY() {
-        if (this.bdR != null) {
-            return this.bdR.KW();
+        if (this.bdT != null) {
+            return this.bdT.KW();
         }
         return null;
     }
 
     public boolean KV() {
-        if (this.bdS == null) {
-            this.bdS = KY();
+        if (this.bdU == null) {
+            this.bdU = KY();
         }
-        if (this.bdS == null) {
+        if (this.bdU == null) {
             return false;
         }
-        return this.bdS.KV();
+        return this.bdU.KV();
     }
 
     public b KZ() {
-        if (this.bdS != null) {
-            return this.bdS;
+        if (this.bdU != null) {
+            return this.bdU;
         }
-        this.bdS = KY();
-        return this.bdS;
+        this.bdU = KY();
+        return this.bdU;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoiceMsgData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -129164961034822753L;
     private float during_time;

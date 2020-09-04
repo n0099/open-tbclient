@@ -21,7 +21,7 @@ public class d {
 
     public String cY(String str, String str2) {
         if (isSuccess()) {
-            return a.vU(str);
+            return a.vV(str);
         }
         return a.T(str, str2, aPy());
     }
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d vV(@NonNull String str) {
+    public static d vW(@NonNull String str) {
         return new d(str, null);
     }
 

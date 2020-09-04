@@ -12,9 +12,9 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class an {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a dbw;
+    private static a dbA;
     @Nullable
-    private com.baidu.swan.apps.v.a dbs = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
+    private com.baidu.swan.apps.v.a dbw = new com.baidu.swan.apps.v.a() { // from class: com.baidu.swan.apps.ap.an.1
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(final Activity activity, Bundle bundle) {
             if (b.aEn()) {
@@ -27,8 +27,8 @@ public class an {
                             Intent intent = activity.getIntent();
                             com.baidu.swan.apps.adaptation.a.r aoV = com.baidu.swan.apps.t.a.aoV();
                             ComponentName component = intent.getComponent();
-                            if (an.this.dbt && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aoV != null && component != null && TextUtils.equals(aoV.ZG(), component.getClassName())) {
-                                if (an.this.dbu) {
+                            if (an.this.dbx && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && aoV != null && component != null && TextUtils.equals(aoV.ZG(), component.getClassName())) {
+                                if (an.this.dby) {
                                     if (an.DEBUG) {
                                         Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
                                         return;
@@ -37,17 +37,17 @@ public class an {
                                 }
                                 b aEm = b.aEm();
                                 if (c.aEs() && b.aEo()) {
-                                    c = aEm.b(activity, an.this.dbv, false);
+                                    c = aEm.b(activity, an.this.dbz, false);
                                 } else {
-                                    c = aEm.c(an.this.dbv, false, false);
+                                    c = aEm.c(an.this.dbz, false, false);
                                 }
                                 if (an.DEBUG) {
-                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dbv);
+                                    Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + c + ", taskId=" + an.this.dbz);
                                 }
                                 aEm.aEp();
                             }
                             if (an.DEBUG) {
-                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dbt + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                                Log.d("SwanHomeScreenLaunch", "class=" + activity + ", swanAppForeground=" + an.this.dbx + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
                             }
                         }
                     };
@@ -63,12 +63,12 @@ public class an {
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             super.onActivityStarted(activity);
-            an.this.dbt = an.this.dbt && activity != null && activity.getTaskId() == an.this.dbv;
+            an.this.dbx = an.this.dbx && activity != null && activity.getTaskId() == an.this.dbz;
         }
     };
-    private boolean dbt;
-    private boolean dbu;
-    private int dbv;
+    private boolean dbx;
+    private boolean dby;
+    private int dbz;
     @NonNull
     private final Application mApp;
 
@@ -80,29 +80,29 @@ public class an {
 
     public an(@NonNull Application application) {
         this.mApp = application;
-        dbw = new a() { // from class: com.baidu.swan.apps.ap.an.2
+        dbA = new a() { // from class: com.baidu.swan.apps.ap.an.2
             @Override // com.baidu.swan.apps.ap.an.a
             public void m(boolean z, int i) {
                 if (z) {
-                    an.this.dbt = true;
-                    an.this.dbv = i;
-                } else if (an.this.dbt && i == 1) {
-                    an.this.dbt = false;
+                    an.this.dbx = true;
+                    an.this.dbz = i;
+                } else if (an.this.dbx && i == 1) {
+                    an.this.dbx = false;
                 }
-                an.this.dbu = z;
+                an.this.dby = z;
             }
         };
-        application.registerActivityLifecycleCallbacks(this.dbs);
+        application.registerActivityLifecycleCallbacks(this.dbw);
     }
 
     public void onDestroy() {
-        dbw = null;
-        this.mApp.unregisterActivityLifecycleCallbacks(this.dbs);
+        dbA = null;
+        this.mApp.unregisterActivityLifecycleCallbacks(this.dbw);
     }
 
     public static void l(boolean z, int i) {
-        if (dbw != null) {
-            dbw.m(z, i);
+        if (dbA != null) {
+            dbA.m(z, i);
         }
     }
 }

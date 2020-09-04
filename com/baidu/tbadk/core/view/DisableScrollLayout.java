@@ -4,44 +4,44 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DisableScrollLayout extends FrameLayout {
-    private int cNm;
-    private double epB;
-    private double epC;
-    private boolean epD;
+    private int cNq;
+    private double epF;
+    private double epG;
+    private boolean epH;
 
     public DisableScrollLayout(Context context) {
         super(context);
-        this.epB = 0.0d;
-        this.epC = 0.0d;
-        this.epD = true;
+        this.epF = 0.0d;
+        this.epG = 0.0d;
+        this.epH = true;
     }
 
     public DisableScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.epB = 0.0d;
-        this.epC = 0.0d;
-        this.epD = true;
+        this.epF = 0.0d;
+        this.epG = 0.0d;
+        this.epH = true;
     }
 
     public void setHeaderViewHeight(int i) {
-        this.cNm = i;
+        this.cNq = i;
     }
 
-    public void it(boolean z) {
-        this.epD = z;
+    public void iu(boolean z) {
+        this.epH = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.epB = motionEvent.getX();
-            this.epC = motionEvent.getY();
+            this.epF = motionEvent.getX();
+            this.epG = motionEvent.getY();
         }
-        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.cNm) {
+        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.cNq) {
             double y = motionEvent.getY();
-            if (Math.abs(motionEvent.getX() - this.epB) > Math.abs(y - this.epC) || (y > this.epC && !this.epD)) {
+            if (Math.abs(motionEvent.getX() - this.epF) > Math.abs(y - this.epG) || (y > this.epG && !this.epH)) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);

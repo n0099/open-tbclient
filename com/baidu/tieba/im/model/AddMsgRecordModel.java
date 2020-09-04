@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AddMsgRecordModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
@@ -44,9 +44,9 @@ public class AddMsgRecordModel extends BdBaseModel {
 
     private List<MsgRecord> getMsgRecords() {
         ArrayList arrayList = null;
-        List<ImMessageCenterPojo> cGS = b.cGM().cGS();
-        if (cGS != null && cGS.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : cGS) {
+        List<ImMessageCenterPojo> cGT = b.cGN().cGT();
+        if (cGT != null && cGT.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : cGT) {
                 String taskId = imMessageCenterPojo.getTaskId();
                 if (taskId != null && taskId.length() != 0 && !"0".equals(taskId)) {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;

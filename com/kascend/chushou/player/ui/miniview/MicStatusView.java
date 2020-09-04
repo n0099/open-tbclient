@@ -30,8 +30,8 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private boolean i;
     private String j;
     private int k;
-    private NoClickRecyclerView nVe;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> nVf;
+    private NoClickRecyclerView nVw;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> nVx;
 
     public MicStatusView(Context context) {
         super(context);
@@ -64,9 +64,9 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.b = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.view_mic_status, (ViewGroup) this, true);
         this.a = (TextView) inflate.findViewById(a.f.mic_txt);
-        this.nVe = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
-        this.nVe.setLayoutManager(new b(this.b, 0, false));
-        this.nVf = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
+        this.nVw = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
+        this.nVw.setLayoutManager(new b(this.b, 0, false));
+        this.nVx = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
             @Override // tv.chushou.zues.widget.adapterview.d
             public void C(View view, int i) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.a());
@@ -75,10 +75,10 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
             public void a(a.View$OnLongClickListenerC1014a view$OnLongClickListenerC1014a, FanItem fanItem) {
-                view$OnLongClickListenerC1014a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.oOy, b.a.oOy);
+                view$OnLongClickListenerC1014a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.oOQ, b.a.oOQ);
             }
         };
-        this.nVe.setAdapter(this.nVf);
+        this.nVw.setAdapter(this.nVx);
     }
 
     @Override // android.view.View
@@ -97,7 +97,7 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     public void a() {
         this.d = false;
         setVisibility(8);
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).yy(false).Va(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).yA(false).Va(this.c));
     }
 
     public void a(List<FanItem> list, String str, boolean z, MicStatus micStatus, String str2) {
@@ -109,10 +109,10 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         if (this.a != null) {
             this.a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
-        if (this.nVf != null && !h.isEmpty(list)) {
+        if (this.nVx != null && !h.isEmpty(list)) {
             this.e.clear();
             this.e.addAll(list);
-            this.nVf.notifyDataSetChanged();
+            this.nVx.notifyDataSetChanged();
         }
     }
 

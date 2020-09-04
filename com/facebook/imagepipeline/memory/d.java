@@ -7,58 +7,58 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes8.dex */
 class d<V> {
-    public final int kol;
+    public final int kos;
     public final int mItemSize;
-    final Queue nwY;
-    private final boolean nwZ;
-    private int nxa;
+    final Queue nxq;
+    private final boolean nxr;
+    private int nxs;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.kol = i2;
-        this.nwY = new LinkedList();
-        this.nxa = i3;
-        this.nwZ = z;
+        this.kos = i2;
+        this.nxq = new LinkedList();
+        this.nxs = i3;
+        this.nxr = z;
     }
 
-    public boolean dUJ() {
-        return this.nxa + dUK() > this.kol;
+    public boolean dUS() {
+        return this.nxs + dUT() > this.kos;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int dUK() {
-        return this.nwY.size();
+    public int dUT() {
+        return this.nxq.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.nxa++;
+            this.nxs++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.nwY.poll();
+        return (V) this.nxq.poll();
     }
 
-    public void dUL() {
-        this.nxa++;
+    public void dUU() {
+        this.nxs++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.nwZ) {
-            com.facebook.common.internal.g.checkState(this.nxa > 0);
-            this.nxa--;
+        if (this.nxr) {
+            com.facebook.common.internal.g.checkState(this.nxs > 0);
+            this.nxs--;
             bq(v);
-        } else if (this.nxa > 0) {
-            this.nxa--;
+        } else if (this.nxs > 0) {
+            this.nxs--;
             bq(v);
         } else {
             com.facebook.common.c.a.g("BUCKET", "Tried to release value %s from an empty bucket!", v);
@@ -66,15 +66,15 @@ class d<V> {
     }
 
     void bq(V v) {
-        this.nwY.add(v);
+        this.nxq.add(v);
     }
 
-    public void dUM() {
-        com.facebook.common.internal.g.checkState(this.nxa > 0);
-        this.nxa--;
+    public void dUV() {
+        com.facebook.common.internal.g.checkState(this.nxs > 0);
+        this.nxs--;
     }
 
-    public int dRO() {
-        return this.nxa;
+    public int dRX() {
+        return this.nxs;
     }
 }

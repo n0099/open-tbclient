@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FlutterPersonAttentionEnableSwitch extends a {
     public static final String KEY = "flutter_attention_enable_android_112";
     public static final int TYPE_CLOSE = 0;

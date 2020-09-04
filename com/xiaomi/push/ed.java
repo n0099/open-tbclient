@@ -14,11 +14,11 @@ public abstract class ed extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f233a;
+    protected Context f232a;
 
     public ed(Context context, int i) {
         this.a = i;
-        this.f233a = context;
+        this.f232a = context;
     }
 
     public static void a(Context context, hu huVar) {
@@ -144,7 +144,7 @@ public abstract class ed extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo166a() {
-        return du.a(this.f233a, String.valueOf(mo166a()), this.a);
+        return du.a(this.f232a, String.valueOf(mo166a()), this.a);
     }
 
     protected boolean b() {
@@ -170,6 +170,6 @@ public abstract class ed extends ai.a {
         huVar.a(mo166a);
         huVar.a(System.currentTimeMillis());
         huVar.a(mo166a());
-        a(this.f233a, huVar, a);
+        a(this.f232a, huVar, a);
     }
 }

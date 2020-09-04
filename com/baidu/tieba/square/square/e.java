@@ -7,16 +7,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes17.dex */
 public class e {
-    public String lYi;
-    public String lYj;
-    public String lYk;
+    public String lYx;
+    public String lYy;
+    public String lYz;
     public String logoUrl;
-    public ArrayList<e> maq;
+    public ArrayList<e> maG;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
-        this.lYj = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-        this.lYi = jSONObject.optString("menu_name");
-        this.lYk = jSONObject.optString("menu_id");
+        this.lYy = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+        this.lYx = jSONObject.optString("menu_name");
+        this.lYz = jSONObject.optString("menu_id");
         this.logoUrl = jSONObject.optString("default_logo_url", null);
         this.logoUrl = this.logoUrl != null ? this.logoUrl + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
@@ -27,7 +27,7 @@ public class e {
                 eVar.parserJson(optJSONArray.getJSONObject(i));
                 arrayList.add(eVar);
             }
-            this.maq = arrayList;
+            this.maG = arrayList;
         }
     }
 }

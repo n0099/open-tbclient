@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class StokenEnableSwitch extends a {
     public static final String KEY = "android_stoken_new";
     public static final int OFF_TYPE = 0;

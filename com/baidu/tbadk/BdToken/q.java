@@ -19,58 +19,58 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.be;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class q {
-    private ActiveCenterData dPQ;
-    private boolean dPR;
-    private boolean dPS;
-    private boolean dPT;
-    private final e dPU;
-    private final f dPV;
-    private final h dPW;
-    private final a dPX;
-    private final g dPY;
-    private final c dPZ;
-    private final b dQa;
+    private ActiveCenterData dPU;
+    private boolean dPV;
+    private boolean dPW;
+    private boolean dPX;
+    private final e dPY;
+    private final f dPZ;
+    private final h dQa;
+    private final a dQb;
+    private final g dQc;
+    private final c dQd;
+    private final b dQe;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class i {
-        private static q dQi = new q();
+        private static q dQm = new q();
     }
 
     public static q aYY() {
-        return i.dQi;
+        return i.dQm;
     }
 
     private q() {
-        this.dPR = false;
-        this.dPS = true;
-        this.dPT = false;
-        this.dPU = new e(12);
-        this.dPV = new f(6);
-        this.dPW = new h(10);
-        this.dPX = new a(7);
-        this.dPY = new g(5);
-        this.dPZ = new c(9);
-        this.dQa = new b(13);
+        this.dPV = false;
+        this.dPW = true;
+        this.dPX = false;
+        this.dPY = new e(12);
+        this.dPZ = new f(6);
+        this.dQa = new h(10);
+        this.dQb = new a(7);
+        this.dQc = new g(5);
+        this.dQd = new c(9);
+        this.dQe = new b(13);
         if (com.baidu.tbadk.BdToken.c.aYs().aYy()) {
-            this.dPS = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_delete_mission_home_entrance", true);
+            this.dPW = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_delete_mission_home_entrance", true);
             return;
         }
-        this.dPS = true;
+        this.dPW = true;
         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_delete_mission_home_entrance", true);
     }
 
     public void aYZ() {
-        if (!this.dPT && com.baidu.tbadk.BdToken.c.aYs().aYu()) {
-            this.dPT = true;
+        if (!this.dPX && com.baidu.tbadk.BdToken.c.aYs().aYu()) {
+            this.dPX = true;
         }
     }
 
     public void a(ActiveCenterData activeCenterData) {
         if (activeCenterData != null) {
-            this.dPQ = activeCenterData;
+            this.dPU = activeCenterData;
             Activity currentActivity = com.baidu.adp.base.a.lb().currentActivity();
             if (currentActivity != null && "MainTabActivity".equals(currentActivity.getClass().getSimpleName())) {
                 dN(currentActivity);
@@ -78,26 +78,26 @@ public class q {
         }
     }
 
-    public void hx(boolean z) {
-        this.dPR = z;
+    public void hy(boolean z) {
+        this.dPV = z;
     }
 
-    public void hy(boolean z) {
-        this.dPS = z;
+    public void hz(boolean z) {
+        this.dPW = z;
         com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_delete_mission_home_entrance", z);
     }
 
     public boolean aZa() {
-        return this.dPS;
+        return this.dPW;
     }
 
     public ActiveCenterData aZb() {
-        return this.dPQ;
+        return this.dPU;
     }
 
     public void aZc() {
-        if (this.dPQ != null && this.dPQ.mission != null) {
-            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.dPQ.mission;
+        if (this.dPU != null && this.dPU.mission != null) {
+            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.dPU.mission;
             int i2 = activeCenterMissionData.active_id;
             int i3 = activeCenterMissionData.mission_id;
             JSONObject jSONObject = new JSONObject();
@@ -114,7 +114,7 @@ public class q {
     }
 
     public boolean aZd() {
-        return this.dPQ != null && this.dPQ.is_new_window;
+        return this.dPU != null && this.dPU.is_new_window;
     }
 
     public void dN(Context context) {
@@ -127,7 +127,7 @@ public class q {
     }
 
     private boolean isValid() {
-        return (this.dPQ == null || this.dPQ.mission == null || !aZd() || aZe() || this.dPR) ? false : true;
+        return (this.dPU == null || this.dPU.mission == null || !aZd() || aZe() || this.dPV) ? false : true;
     }
 
     private boolean aZe() {
@@ -147,36 +147,36 @@ public class q {
     }
 
     public e aZg() {
-        return this.dPU;
-    }
-
-    public f aZh() {
-        return this.dPV;
-    }
-
-    public h aZi() {
-        return this.dPW;
-    }
-
-    public a aZj() {
-        return this.dPX;
-    }
-
-    public g aZk() {
         return this.dPY;
     }
 
-    public c aZl() {
+    public f aZh() {
         return this.dPZ;
     }
 
-    public b aZm() {
+    public h aZi() {
         return this.dQa;
     }
 
+    public a aZj() {
+        return this.dQb;
+    }
+
+    public g aZk() {
+        return this.dQc;
+    }
+
+    public c aZl() {
+        return this.dQd;
+    }
+
+    public b aZm() {
+        return this.dQe;
+    }
+
     public void c(TbPageContext<?> tbPageContext) {
-        if (this.dPQ != null) {
-            int curTaskType = this.dPQ.getCurTaskType();
+        if (this.dPU != null) {
+            int curTaskType = this.dPU.getCurTaskType();
             if (curTaskType == 12) {
                 aZg().e(tbPageContext);
                 aZg().aZn();
@@ -197,37 +197,37 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class e extends d {
-        private s dQf;
+        private s dQj;
 
         public e(int i) {
             super(i);
-            this.dQf = new s();
+            this.dQj = new s();
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (this.dQf != null && q.this.dPQ != null) {
-                be.bju().b(tbPageContext, new String[]{q.this.dPQ.mission.final_reward_url});
+            if (this.dQj != null && q.this.dPU != null) {
+                be.bju().b(tbPageContext, new String[]{q.this.dPU.mission.final_reward_url});
             }
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void complete() {
-            if (this.dQf != null && q.this.dPQ != null) {
-                this.dQf.aZr();
+            if (this.dQj != null && q.this.dPU != null) {
+                this.dQj.aZr();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class f extends d {
-        private boolean dQg;
+        private boolean dQk;
 
         public f(int i) {
             super(i);
-            this.dQg = false;
+            this.dQk = false;
         }
 
         public boolean areNotificationsEnabled() {
@@ -251,14 +251,14 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         public void complete() {
-            if (areNotificationsEnabled() && !this.dQg) {
+            if (areNotificationsEnabled() && !this.dQk) {
                 q.this.aZc();
-                this.dQg = true;
+                this.dQk = true;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class h extends d {
         public h(int i) {
             super(i);
@@ -280,7 +280,7 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a extends d {
         public a(int i) {
             super(i);
@@ -288,8 +288,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.dPQ != null && q.this.dPQ.mission != null) {
-                be.bju().b(tbPageContext, new String[]{q.this.dPQ.mission.final_reward_url});
+            if (q.this.dPU != null && q.this.dPU.mission != null) {
+                be.bju().b(tbPageContext, new String[]{q.this.dPU.mission.final_reward_url});
             }
         }
 
@@ -298,7 +298,7 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class g extends d {
         public g(int i) {
             super(i);
@@ -306,8 +306,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.dPQ != null && q.this.dPQ.mission != null) {
-                be.bju().b(tbPageContext, new String[]{q.this.dPQ.mission.final_reward_url});
+            if (q.this.dPU != null && q.this.dPU.mission != null) {
+                be.bju().b(tbPageContext, new String[]{q.this.dPU.mission.final_reward_url});
             }
         }
 
@@ -316,7 +316,7 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class c extends d {
         public c(int i) {
             super(i);
@@ -337,7 +337,7 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class b extends d {
         public b(int i) {
             super(i);
@@ -345,8 +345,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.dPQ != null && q.this.dPQ.mission != null) {
-                be.bju().b(tbPageContext, new String[]{q.this.dPQ.mission.final_reward_url});
+            if (q.this.dPU != null && q.this.dPU.mission != null) {
+                be.bju().b(tbPageContext, new String[]{q.this.dPU.mission.final_reward_url});
             }
         }
 
@@ -355,16 +355,16 @@ public class q {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public abstract class d {
-        private int dQe;
+        private int dQi;
 
         protected abstract void complete();
 
         protected abstract void d(TbPageContext<?> tbPageContext);
 
         public d(int i) {
-            this.dQe = i;
+            this.dQi = i;
         }
 
         public void e(TbPageContext<?> tbPageContext) {
@@ -380,7 +380,7 @@ public class q {
         }
 
         protected boolean aZo() {
-            return (q.this.dPQ == null || q.this.dPQ.mission == null || q.this.dPQ.getCurTaskType() != this.dQe) ? false : true;
+            return (q.this.dPU == null || q.this.dPU.mission == null || q.this.dPU.getCurTaskType() != this.dQi) ? false : true;
         }
     }
 }

@@ -44,13 +44,13 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dln).replaceAll("\\{REQ_HEIGHT\\}", bVar.dlo).replaceAll("\\{WIDTH\\}", bVar.dlp).replaceAll("\\{HEIGHT\\}", bVar.dlq).replaceAll("\\{DOWN_X\\}", bVar.dlr).replaceAll("\\{DOWN_Y\\}", bVar.dls).replaceAll("\\{UP_X\\}", bVar.dlt).replaceAll("\\{UP_Y\\}", bVar.dlu).replaceAll("\\{VIDEO_TIME\\}", bVar.dlv).replaceAll("\\{BEGIN_TIME\\}", bVar.dlw).replaceAll("\\{END_TIME\\}", bVar.dlx).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dly).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dlz).replaceAll("\\{SCENE\\}", bVar.dlA).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dlB).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dlC).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dlr).replaceAll("\\{REQ_HEIGHT\\}", bVar.dls).replaceAll("\\{WIDTH\\}", bVar.dlt).replaceAll("\\{HEIGHT\\}", bVar.dlu).replaceAll("\\{DOWN_X\\}", bVar.dlv).replaceAll("\\{DOWN_Y\\}", bVar.dlw).replaceAll("\\{UP_X\\}", bVar.dlx).replaceAll("\\{UP_Y\\}", bVar.dly).replaceAll("\\{VIDEO_TIME\\}", bVar.dlz).replaceAll("\\{BEGIN_TIME\\}", bVar.dlA).replaceAll("\\{END_TIME\\}", bVar.dlB).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dlC).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dlD).replaceAll("\\{SCENE\\}", bVar.dlE).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dlF).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dlG).replaceAll("\\{CLICK_ID\\}", bVar.mClickId);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.tQ(str);
+        bVar.tR(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
@@ -78,7 +78,7 @@ public class d {
                                 }
                                 a aVar = new a();
                                 aVar.mClickId = optJSONObject.optString("clickid");
-                                aVar.dlm = optJSONObject.optString("dstlink");
+                                aVar.dlq = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -97,7 +97,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cC(aVar.mClickId, aVar.dlm);
+                        a.d.this.cC(aVar.mClickId, aVar.dlq);
                     }
                 }
 

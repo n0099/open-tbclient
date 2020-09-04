@@ -6,18 +6,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TranView extends View {
-    private a eUk;
+    private a eUo;
     private Scroller mScroller;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void buR();
+        void buS();
     }
 
     public void setScrollCallBack(a aVar) {
-        this.eUk = aVar;
+        this.eUo = aVar;
     }
 
     public TranView(Context context) {
@@ -48,8 +48,8 @@ public class TranView extends View {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else if (this.eUk != null) {
-                this.eUk.buR();
+            } else if (this.eUo != null) {
+                this.eUo.buS();
             }
         }
     }

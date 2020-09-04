@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
     public static final String PARAMA_AUTH_ID = "authid";
     public static final String PARAMA_SCENE = "scene";

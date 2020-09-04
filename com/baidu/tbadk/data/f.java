@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.Lbs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     private String lat;
     private String lng;

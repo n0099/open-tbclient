@@ -1,16 +1,16 @@
 package com.baidu.tbadk.util;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class aa {
-    private z eVC;
-    private View.OnTouchListener eVD;
+    private z eVG;
+    private View.OnTouchListener eVH;
 
-    public z bvG() {
-        return this.eVC;
+    public z bvH() {
+        return this.eVG;
     }
 
-    public View.OnTouchListener bvH() {
-        return this.eVD;
+    public View.OnTouchListener bvI() {
+        return this.eVH;
     }
 }

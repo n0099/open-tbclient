@@ -27,128 +27,128 @@ public class a implements View.OnClickListener, b.InterfaceC0754b, b.a, b.Interf
     private BdListView.e Vh = new BdListView.e() { // from class: com.baidu.tieba.newinterest.b.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.ksc.hasMore()) {
-                a.this.ksc.cTU();
-                a.this.bGR();
+            if (a.this.ksj.hasMore()) {
+                a.this.ksj.cTV();
+                a.this.bGS();
             }
         }
     };
-    private PbListView fDW;
-    private final BdRecyclerView hcC;
-    private final InterestedForumFragment ksb;
-    private final com.baidu.tieba.newinterest.c.b ksc;
-    private com.baidu.tieba.newinterest.a.b ksd;
-    private final TBSpecificationBtn kse;
-    private final TBSpecificationBtn ksf;
+    private PbListView fEa;
+    private final BdRecyclerView hcG;
+    private final InterestedForumFragment ksi;
+    private final com.baidu.tieba.newinterest.c.b ksj;
+    private com.baidu.tieba.newinterest.a.b ksk;
+    private final TBSpecificationBtn ksl;
+    private final TBSpecificationBtn ksm;
     private final TbPageContext<BaseFragmentActivity> mPageContext;
 
     public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.newinterest.c.b bVar) {
-        this.ksb = interestedForumFragment;
-        this.hcC = bdRecyclerView;
-        this.ksc = bVar;
+        this.ksi = interestedForumFragment;
+        this.hcG = bdRecyclerView;
+        this.ksj = bVar;
         this.mPageContext = tbPageContext;
-        this.ksf = tBSpecificationBtn;
-        this.kse = tBSpecificationBtn2;
+        this.ksm = tBSpecificationBtn;
+        this.ksl = tBSpecificationBtn2;
         initUI();
-        cpZ();
+        cqa();
     }
 
     private void initUI() {
-        this.ksd = new com.baidu.tieba.newinterest.a.b();
-        this.hcC.setLayoutManager(new LinearLayoutManager(this.hcC.getContext()));
-        this.hcC.setAdapter(this.ksd);
-        this.fDW = new PbListView(this.hcC.getContext());
-        this.fDW.createView();
-        this.fDW.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fDW.setLineGone();
-        this.fDW.setTextColor(ap.getColor(R.color.cp_cont_d));
-        this.fDW.setTextSize(R.dimen.tbfontsize33);
-        this.fDW.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.hcC.setNextPage(this.fDW);
-        bGR();
+        this.ksk = new com.baidu.tieba.newinterest.a.b();
+        this.hcG.setLayoutManager(new LinearLayoutManager(this.hcG.getContext()));
+        this.hcG.setAdapter(this.ksk);
+        this.fEa = new PbListView(this.hcG.getContext());
+        this.fEa.createView();
+        this.fEa.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fEa.setLineGone();
+        this.fEa.setTextColor(ap.getColor(R.color.cp_cont_d));
+        this.fEa.setTextSize(R.dimen.tbfontsize33);
+        this.fEa.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.hcG.setNextPage(this.fEa);
+        bGS();
     }
 
-    private void cpZ() {
-        this.hcC.setOnSrollToBottomListener(this.Vh);
-        this.ksc.a((b.InterfaceC0755b) this);
-        this.ksc.a((b.a) this);
-        this.ksd.a(this);
-        this.ksf.setOnClickListener(this);
+    private void cqa() {
+        this.hcG.setOnSrollToBottomListener(this.Vh);
+        this.ksj.a((b.InterfaceC0755b) this);
+        this.ksj.a((b.a) this);
+        this.ksk.a(this);
+        this.ksm.setOnClickListener(this);
     }
 
-    public void bGR() {
-        this.fDW.setTopExtraViewGone();
-        this.fDW.startLoadData();
-        this.fDW.setText(this.hcC.getContext().getString(R.string.list_loading));
-        this.fDW.showEmptyView(l.getDimens(this.hcC.getContext(), R.dimen.tbds217));
+    public void bGS() {
+        this.fEa.setTopExtraViewGone();
+        this.fEa.startLoadData();
+        this.fEa.setText(this.hcG.getContext().getString(R.string.list_loading));
+        this.fEa.showEmptyView(l.getDimens(this.hcG.getContext(), R.dimen.tbds217));
     }
 
-    public void cTN() {
-        this.fDW.ao(this.hcC.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.hcC.getContext(), R.dimen.tbds178));
-        this.fDW.setTextSize(R.dimen.tbds36);
-        this.fDW.setNoMoreTextColorId(R.color.cp_cont_d);
-        this.fDW.endLoadData();
-        this.fDW.showEmptyView(l.getDimens(this.hcC.getContext(), R.dimen.tbds217));
+    public void cTO() {
+        this.fEa.ao(this.hcG.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.hcG.getContext(), R.dimen.tbds178));
+        this.fEa.setTextSize(R.dimen.tbds36);
+        this.fEa.setNoMoreTextColorId(R.color.cp_cont_d);
+        this.fEa.endLoadData();
+        this.fEa.showEmptyView(l.getDimens(this.hcG.getContext(), R.dimen.tbds217));
     }
 
-    public void cTL() {
-        this.ksd.cTL();
+    public void cTM() {
+        this.ksk.cTM();
     }
 
     public void es(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.ksc.ey(list);
-        this.ksc.cTU();
+        this.ksj.ey(list);
+        this.ksj.cTV();
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.a
-    public void bHO() {
+    public void bHP() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0755b
     public void a(c cVar) {
-        if (cVar != null && cVar.ksi != null && !y.isEmpty(cVar.ksi)) {
-            if (this.hcC.getVisibility() == 8) {
-                this.hcC.setVisibility(0);
+        if (cVar != null && cVar.ksp != null && !y.isEmpty(cVar.ksp)) {
+            if (this.hcG.getVisibility() == 8) {
+                this.hcG.setVisibility(0);
             }
-            this.ksd.bQ(cVar.ksi);
-            this.ksb.cTO();
+            this.ksk.bQ(cVar.ksp);
+            this.ksi.cTP();
         }
-        if (!this.ksc.hasMore()) {
-            cTN();
+        if (!this.ksj.hasMore()) {
+            cTO();
         }
     }
 
     @Override // com.baidu.tieba.newinterest.c.b.InterfaceC0755b
     public void onError(int i, String str) {
-        this.ksb.onError(str);
+        this.ksi.onError(str);
     }
 
     @Override // com.baidu.tieba.newinterest.a.b.InterfaceC0754b
     public void ab(int i, boolean z) {
-        if (i > 0 && !this.ksf.isEnabled()) {
-            this.ksf.setEnabled(true);
-            this.ksf.setText(this.hcC.getResources().getString(R.string.start_the_trip));
+        if (i > 0 && !this.ksm.isEnabled()) {
+            this.ksm.setEnabled(true);
+            this.ksm.setText(this.hcG.getResources().getString(R.string.start_the_trip));
         } else if (i == 0) {
-            this.ksf.setEnabled(false);
-            this.ksf.setText(this.hcC.getResources().getString(R.string.try_to_select));
+            this.ksm.setEnabled(false);
+            this.ksm.setText(this.hcG.getResources().getString(R.string.try_to_select));
         }
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         if (!z) {
-            this.kse.setText(this.mPageContext.getString(R.string.select_all));
-            this.kse.setConfig(bVar);
+            this.ksl.setText(this.mPageContext.getString(R.string.select_all));
+            this.ksl.setConfig(bVar);
             return;
         }
-        this.kse.setText(this.mPageContext.getString(R.string.unselect_all));
+        this.ksl.setText(this.mPageContext.getString(R.string.unselect_all));
         bVar.pd(R.color.cp_cont_d);
-        this.kse.setConfig(bVar);
+        this.ksl.setConfig(bVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ksf) {
+        if (view == this.ksm) {
             try {
-                this.ksc.ew(this.ksd.cTK());
+                this.ksj.ew(this.ksk.cTL());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

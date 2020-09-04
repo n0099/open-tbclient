@@ -8,23 +8,23 @@ import java.util.List;
 public class r implements b, a.InterfaceC0932a {
     private final List<a.InterfaceC0932a> listeners = new ArrayList();
     private final String name;
-    private final ShapeTrimPath.Type oiA;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiB;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiC;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiD;
+    private final ShapeTrimPath.Type oiS;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiT;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiU;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiV;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.oiA = shapeTrimPath.ecV();
-        this.oiB = shapeTrimPath.edO().edf();
-        this.oiC = shapeTrimPath.edN().edf();
-        this.oiD = shapeTrimPath.edJ().edf();
-        aVar.a(this.oiB);
-        aVar.a(this.oiC);
-        aVar.a(this.oiD);
-        this.oiB.b(this);
-        this.oiC.b(this);
-        this.oiD.b(this);
+        this.oiS = shapeTrimPath.ede();
+        this.oiT = shapeTrimPath.edX().edo();
+        this.oiU = shapeTrimPath.edW().edo();
+        this.oiV = shapeTrimPath.edS().edo();
+        aVar.a(this.oiT);
+        aVar.a(this.oiU);
+        aVar.a(this.oiV);
+        this.oiT.b(this);
+        this.oiU.b(this);
+        this.oiV.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0932a
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0932a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type ecV() {
-        return this.oiA;
+    public ShapeTrimPath.Type ede() {
+        return this.oiS;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> ecW() {
-        return this.oiB;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> edf() {
+        return this.oiT;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> ecX() {
-        return this.oiC;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> edg() {
+        return this.oiU;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> ecY() {
-        return this.oiD;
+    public com.tb.airbnb.lottie.a.b.a<?, Float> edh() {
+        return this.oiV;
     }
 }

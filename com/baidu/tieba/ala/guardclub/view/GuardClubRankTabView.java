@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a geh;
+    private a gel;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes7.dex */
@@ -29,7 +29,7 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.geh = aVar;
+        this.gel = aVar;
     }
 
     public void setSelect(int i) {
@@ -39,8 +39,8 @@ public class GuardClubRankTabView extends LinearLayout {
                 bI(getChildAt(i2));
             }
             bH(childAt);
-            if (this.geh != null) {
-                this.geh.dY(i);
+            if (this.gel != null) {
+                this.gel.dY(i);
             }
         }
     }

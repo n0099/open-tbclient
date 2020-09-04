@@ -4,7 +4,7 @@ class cm {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f170a;
+    public String f169a;
     public String b;
 
     public cm() {
@@ -12,7 +12,7 @@ class cm {
 
     public cm(int i, String str, String str2) {
         this.a = i;
-        this.f170a = str;
+        this.f169a = str;
         this.b = str2;
     }
 }

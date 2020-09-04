@@ -13,18 +13,18 @@ import java.util.Objects;
 import java.util.Set;
 /* loaded from: classes14.dex */
 public class b extends g {
-    private Set<a> dGj;
+    private Set<a> dGn;
 
     public b(List<? extends a> list, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (list != null && !list.isEmpty()) {
-            this.dGj = new LinkedHashSet();
+            this.dGn = new LinkedHashSet();
             Map<String, PMSAppInfo> aTv = com.baidu.swan.pms.database.a.aTt().aTv();
             Map<String, com.baidu.swan.pms.model.f> aTu = com.baidu.swan.pms.database.a.aTt().aTu();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
                     a(aTv, aTu, aVar2, aVar);
-                    this.dGj.add(aVar2);
+                    this.dGn.add(aVar2);
                 }
             }
         }
@@ -33,14 +33,14 @@ public class b extends g {
     public b(Collection<String> collection, @Nullable com.baidu.swan.pms.utils.a aVar) {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
-            this.dGj = new LinkedHashSet();
+            this.dGn = new LinkedHashSet();
             Map<String, PMSAppInfo> aTv = com.baidu.swan.pms.database.a.aTt().aTv();
             Map<String, com.baidu.swan.pms.model.f> aTu = com.baidu.swan.pms.database.a.aTt().aTu();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
                     a(aTv, aTu, aVar2, aVar);
-                    this.dGj.add(aVar2);
+                    this.dGn.add(aVar2);
                 }
             }
         }
@@ -55,7 +55,7 @@ public class b extends g {
             }
             if (!map2.containsKey(aVar.getBundleId())) {
                 aVar.cj(0L);
-            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.sP(aVar.getBundleId())) {
+            } else if (aVar2 != null && pMSAppInfo.versionCode != 0 && !aVar2.sQ(aVar.getBundleId())) {
                 aVar.cj(0L);
             } else {
                 com.baidu.swan.pms.model.f fVar = map2.get(aVar.getBundleId());
@@ -75,37 +75,37 @@ public class b extends g {
 
     @Nullable
     public Set<a> aUj() {
-        return this.dGj;
+        return this.dGn;
     }
 
     /* loaded from: classes14.dex */
     public static class a {
-        private String dGk;
-        private long dGl;
-        private long dGm;
+        private String dGo;
+        private long dGp;
+        private long dGq;
         private int mCategory;
 
         public a(String str) {
             this.mCategory = -1;
-            this.dGl = 0L;
-            this.dGm = 0L;
-            this.dGk = str;
+            this.dGp = 0L;
+            this.dGq = 0L;
+            this.dGo = str;
         }
 
         public a(String str, int i) {
             this.mCategory = -1;
-            this.dGl = 0L;
-            this.dGm = 0L;
-            this.dGk = str;
+            this.dGp = 0L;
+            this.dGq = 0L;
+            this.dGo = str;
             this.mCategory = i;
         }
 
         public String getBundleId() {
-            return this.dGk;
+            return this.dGo;
         }
 
         public long aUk() {
-            return this.dGl;
+            return this.dGp;
         }
 
         public int getCategory() {
@@ -113,15 +113,15 @@ public class b extends g {
         }
 
         public long aUl() {
-            return this.dGm;
+            return this.dGq;
         }
 
         void cj(long j) {
-            this.dGl = j;
+            this.dGp = j;
         }
 
         void ck(long j) {
-            this.dGm = j;
+            this.dGq = j;
         }
 
         void setCategory(int i) {
@@ -129,7 +129,7 @@ public class b extends g {
         }
 
         public int hashCode() {
-            return Objects.hash(this.dGk, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.dGo, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -138,7 +138,7 @@ public class b extends g {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.dGk) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.dGo) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

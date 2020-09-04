@@ -378,16 +378,16 @@ public class Plugin {
 
     public boolean remapStartServiceIntent(Intent intent) {
         String className;
-        ServiceInfo ci;
+        ServiceInfo cj;
         if (intent == null) {
             return false;
         }
         if (intent.getComponent() == null) {
             String action = intent.getAction();
-            if (TextUtils.isEmpty(action) || (ci = this.mManifest.ci(action)) == null || TextUtils.isEmpty(ci.name)) {
+            if (TextUtils.isEmpty(action) || (cj = this.mManifest.cj(action)) == null || TextUtils.isEmpty(cj.name)) {
                 return false;
             }
-            className = ci.name;
+            className = cj.name;
         } else {
             className = intent.getComponent().getClassName();
         }
@@ -625,7 +625,7 @@ public class Plugin {
 
     private void createDataRoot() {
         try {
-            this.mPluginDataRoot = Util.cQ(this.mPackageName);
+            this.mPluginDataRoot = Util.cR(this.mPackageName);
             this.mPluginDataRoot.mkdirs();
         } catch (Exception e) {
             BdLog.e(e);
@@ -951,7 +951,7 @@ public class Plugin {
         String str2;
         b bVar = new b();
         bVar.pkgName = str;
-        this.mPluginApkFile = com.baidu.adp.plugin.install.c.co(str);
+        this.mPluginApkFile = com.baidu.adp.plugin.install.c.cp(str);
         if (this.mPluginApkFile == null) {
             if (PluginPackageManager.pO().isMainProcess()) {
                 if (com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().findPluginSetting(str) != null) {
@@ -963,11 +963,11 @@ public class Plugin {
                 bVar.Rb = str2;
                 com.baidu.adp.plugin.b.a.py().h("plugin_load", "apk_file_null", str, str2);
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cM(str);
             bVar.isSucc = false;
             return bVar;
         } else if (!assertApkFile()) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cM(str);
             if (PluginPackageManager.pO().isMainProcess()) {
                 com.baidu.adp.plugin.b.a.py().h("plugin_load", "apk_file_illegal", str, this.mPluginApkFile.getAbsolutePath());
             }

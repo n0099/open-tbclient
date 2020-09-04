@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes10.dex */
 class h {
-    static h oAA = new h();
-    static h oAB;
-    static h oAC;
-    boolean oAr = true;
-    boolean oAs = true;
-    boolean oAt = false;
-    boolean oAu = false;
-    boolean oAv = false;
-    boolean oAw = true;
-    boolean oAx = true;
-    boolean oAy = true;
-    int oAz;
+    static h oAS = new h();
+    static h oAT;
+    static h oAU;
+    boolean oAJ = true;
+    boolean oAK = true;
+    boolean oAL = false;
+    boolean oAM = false;
+    boolean oAN = false;
+    boolean oAO = true;
+    boolean oAP = true;
+    boolean oAQ = true;
+    int oAR;
 
     h() {
     }
 
     static {
-        oAA.oAr = true;
-        oAA.oAs = false;
-        oAA.oAt = false;
-        oAA.oAu = false;
-        oAA.oAv = true;
-        oAA.oAw = false;
-        oAA.oAx = false;
-        oAA.oAz = 0;
-        oAB = new h();
-        oAB.oAr = true;
-        oAB.oAs = true;
-        oAB.oAt = false;
-        oAB.oAu = false;
-        oAB.oAv = false;
-        oAA.oAz = 1;
-        oAC = new h();
-        oAC.oAr = false;
-        oAC.oAs = true;
-        oAC.oAt = false;
-        oAC.oAu = true;
-        oAC.oAv = false;
-        oAC.oAy = false;
-        oAC.oAz = 2;
+        oAS.oAJ = true;
+        oAS.oAK = false;
+        oAS.oAL = false;
+        oAS.oAM = false;
+        oAS.oAN = true;
+        oAS.oAO = false;
+        oAS.oAP = false;
+        oAS.oAR = 0;
+        oAT = new h();
+        oAT.oAJ = true;
+        oAT.oAK = true;
+        oAT.oAL = false;
+        oAT.oAM = false;
+        oAT.oAN = false;
+        oAS.oAR = 1;
+        oAU = new h();
+        oAU.oAJ = false;
+        oAU.oAK = true;
+        oAU.oAL = false;
+        oAU.oAM = true;
+        oAU.oAN = false;
+        oAU.oAQ = false;
+        oAU.oAR = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Ol(int i) {
-        if (this.oAu) {
+        if (this.oAM) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.oAr);
+        return b(cls, cls.getName(), this.oAJ);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.oAv);
+        return b(cls, str, this.oAN);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.oAs) {
+            if (!this.oAK) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.oAt && clsArr != null && clsArr.length != 0) {
+        if (this.oAL && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

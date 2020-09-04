@@ -30,7 +30,7 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String bCc() {
+    public static String bCd() {
         return Build.VERSION.RELEASE;
     }
 

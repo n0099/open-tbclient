@@ -35,15 +35,15 @@ public abstract class b {
             if (b == null) {
                 return new com.baidu.swan.apps.api.c.b(1001, "fun page not exists");
             }
-            if (!b.cIc) {
-                com.baidu.swan.apps.ac.d.a.print("payment fun page, " + bVar.cIg + " mode");
-                if (pz(bVar.cIg)) {
-                    if (b.cIb) {
+            if (!b.cIg) {
+                com.baidu.swan.apps.ac.d.a.print("payment fun page, " + bVar.cIk + " mode");
+                if (pA(bVar.cIk)) {
+                    if (b.cIf) {
                         a(bVar, b, bVar2);
                     } else {
                         return new com.baidu.swan.apps.api.c.b(1001, "fun page not exists");
                     }
-                } else if (b.cIb) {
+                } else if (b.cIf) {
                     a(bVar, b, bVar2);
                 } else {
                     a(bVar, b.appKey, bVar2);
@@ -51,14 +51,14 @@ public abstract class b {
                 com.baidu.swan.apps.ac.d.a.print("open fun page end");
                 return new com.baidu.swan.apps.api.c.b(0);
             }
-            return a(b.cHZ, bVar);
+            return a(b.cId, bVar);
         } else {
             com.baidu.swan.apps.ac.d.a.print("open user info or choose address fun page");
             return a(bVar, bVar2);
         }
     }
 
-    private boolean pz(String str) {
+    private boolean pA(String str) {
         return TextUtils.equals(str, "develop");
     }
 
@@ -66,8 +66,8 @@ public abstract class b {
         com.baidu.swan.apps.ac.d.a.print("local has not main pkg, download fun page main pkg");
         com.baidu.swan.pms.c.d.c cVar = new com.baidu.swan.pms.c.d.c(str, com.baidu.swan.apps.runtime.d.azE().XP());
         cVar.lT(0);
-        cVar.wJ(bVar.cIf);
-        cVar.wN("3");
+        cVar.wK(bVar.cIj);
+        cVar.wO("3");
         com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.c.a(str, new a.InterfaceC0389a() { // from class: com.baidu.swan.apps.ac.c.d.b.1
             @Override // com.baidu.swan.apps.core.pms.c.a.InterfaceC0389a
             public void aiQ() {
@@ -89,8 +89,8 @@ public abstract class b {
     private void a(final com.baidu.swan.apps.ac.c.b.b bVar, com.baidu.swan.apps.ac.c.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         com.baidu.swan.apps.ac.d.a.print("main pkg is exist, download fun page sub pkg");
         String str = aVar.appKey;
-        int i = aVar.cIa;
-        com.baidu.swan.pms.c.a(new f(str, i, com.baidu.swan.apps.ac.g.b.bZ(aVar.cHZ, aVar.cHY), 0), new com.baidu.swan.apps.core.pms.e.a(str, String.valueOf(i), new com.baidu.swan.apps.core.pms.b() { // from class: com.baidu.swan.apps.ac.c.d.b.2
+        int i = aVar.cIe;
+        com.baidu.swan.pms.c.a(new f(str, i, com.baidu.swan.apps.ac.g.b.bZ(aVar.cId, aVar.cIc), 0), new com.baidu.swan.apps.core.pms.e.a(str, String.valueOf(i), new com.baidu.swan.apps.core.pms.b() { // from class: com.baidu.swan.apps.ac.c.d.b.2
             @Override // com.baidu.swan.apps.core.pms.b
             public void ais() {
                 b.this.a(bVar, true, (com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a>) bVar2);
@@ -107,20 +107,20 @@ public abstract class b {
     public void a(com.baidu.swan.apps.ac.c.b.b bVar, boolean z, com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         if (z) {
             com.baidu.swan.apps.ac.c.b.a b = b(bVar);
-            if (b == null || !b.cIc) {
+            if (b == null || !b.cIg) {
                 com.baidu.swan.apps.ac.d.a.print("payment fun page, download success, but not exist");
-                com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(bVar.caT);
-                aVar.caU = bVar.caU;
+                com.baidu.swan.apps.ac.c.c.a aVar = new com.baidu.swan.apps.ac.c.c.a(bVar.caX);
+                aVar.caY = bVar.caY;
                 bVar2.K(aVar);
                 return;
             }
             com.baidu.swan.apps.ac.d.a.print("payment fun page, download success, ready to jump");
-            a(b.cHZ, bVar);
+            a(b.cId, bVar);
             return;
         }
         com.baidu.swan.apps.ac.d.a.print("payment fun page, download failed");
-        com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caT);
-        aVar2.caU = bVar.caU;
+        com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caX);
+        aVar2.caY = bVar.caY;
         bVar2.K(aVar2);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AccessState implements Serializable {
     private static final long serialVersionUID = 2345844599685454996L;
     private String token;
@@ -55,7 +55,7 @@ public class AccessState implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class UserInfo implements Serializable {
         public String bduss;
         public String strEmail;

@@ -7,34 +7,34 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public abstract class h {
-    private static final HashMap<String, h> bMQ = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> bMR = new ConcurrentHashMap<>();
+    private static final HashMap<String, h> bMU = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> bMV = new ConcurrentHashMap<>();
 
     public abstract IBinder Ws();
 
     /* loaded from: classes7.dex */
     private static class a {
-        public IBinder bMS;
-        public boolean bMT;
+        public IBinder bMW;
+        public boolean bMX;
 
         private a() {
-            this.bMT = false;
+            this.bMX = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        h hVar = bMQ.get(str);
+        h hVar = bMU.get(str);
         if (hVar != null) {
             hVar.Wt();
             return hVar.Ws();
         }
-        a aVar = bMR.get(str);
+        a aVar = bMV.get(str);
         if (aVar != null) {
-            if (!aVar.bMT && Binder.getCallingUid() != Process.myUid()) {
+            if (!aVar.bMX && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.bMS;
+            return aVar.bMW;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return bMR.remove(str) != null;
+        return bMV.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,13 +52,13 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (bMQ.get(str) != null) {
+        if (bMU.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.bMS = iBinder;
-        aVar.bMT = z;
-        bMR.put(str, aVar);
+        aVar.bMW = iBinder;
+        aVar.bMX = z;
+        bMV.put(str, aVar);
     }
 
     public void Wt() {

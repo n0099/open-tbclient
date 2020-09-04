@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ItemStarData implements Serializable {
     public List<SingleItemStar> list;
 
@@ -21,7 +21,7 @@ public class ItemStarData implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class SingleItemStar implements Serializable {
         public String content;
         public String name;

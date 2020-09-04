@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String mPp;
-    private boolean mKe;
-    private boolean mPq;
+    private static String mPH;
+    private boolean mKw;
+    private boolean mPI;
 
     public c(boolean z, boolean z2) {
-        this.mKe = true;
-        this.mPq = false;
-        this.mKe = z;
-        this.mPq = z2;
+        this.mKw = true;
+        this.mPI = false;
+        this.mKw = z;
+        this.mPI = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.mPq || !SG(str2);
+        return this.mPI || !SG(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.mKe && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.mKw && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,15 +52,15 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return mPp;
+        return mPH;
     }
 
     public static void bN(String str) {
-        mPp = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        mPH = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dGs() {
-        mPp = "";
+    public static void dGB() {
+        mPH = "";
     }
 
     public static boolean SG(String str) {

@@ -8,23 +8,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class i {
-    public boolean aDh;
-    public int aDi;
-    public long aDj;
+    public boolean aDj;
     public int aDk;
-    public int aDl;
+    public long aDl;
     public int aDm;
     public int aDn;
-    public long aDo;
+    public int aDo;
     public int aDp;
-    public int aDq;
-    public long aDr;
+    public long aDq;
+    public int aDr;
     public int aDs;
-    public int aDt;
-    public String[] aDu;
+    public long aDt;
+    public int aDu;
     public int aDv;
-    public a aDw;
-    public b aDx;
+    public String[] aDw;
+    public int aDx;
+    public a aDy;
+    public b aDz;
     public int activityId;
     public long begin_time;
     public long end_time;
@@ -39,58 +39,58 @@ public class i {
     public String webUrl;
 
     public void a(a aVar) {
-        this.aDw = aVar;
+        this.aDy = aVar;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aDh = jSONObject.optInt("is_new") == 1;
+            this.aDj = jSONObject.optInt("is_new") == 1;
             this.pic_url = jSONObject.optString("pic_url");
             this.picType = jSONObject.optInt("pic_type");
             this.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            this.aDi = jSONObject.optInt("version_and");
-            this.aDk = jSONObject.optInt("yule_show");
-            this.aDl = jSONObject.optInt("yule_game");
-            this.aDm = jSONObject.optInt("home_status");
-            this.aDn = jSONObject.optInt("guest_status");
-            this.aDj = jSONObject.optLong("anchor_user_id");
-            this.aDq = jSONObject.optInt("sequence_id");
-            this.aDr = jSONObject.optLong("add_time");
+            this.aDk = jSONObject.optInt("version_and");
+            this.aDm = jSONObject.optInt("yule_show");
+            this.aDn = jSONObject.optInt("yule_game");
+            this.aDo = jSONObject.optInt("home_status");
+            this.aDp = jSONObject.optInt("guest_status");
+            this.aDl = jSONObject.optLong("anchor_user_id");
+            this.aDs = jSONObject.optInt("sequence_id");
+            this.aDt = jSONObject.optLong("add_time");
             this.begin_time = jSONObject.optLong("begin_time");
             this.end_time = jSONObject.optLong("end_time");
             this.pos = jSONObject.optInt("pos");
             this.position = jSONObject.optInt("position");
             this.type = jSONObject.optInt("type");
-            this.aDo = jSONObject.optInt("challenge_live");
-            this.aDp = jSONObject.optInt("normal_live");
-            this.aDt = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.aDq = jSONObject.optInt("challenge_live");
+            this.aDr = jSONObject.optInt("normal_live");
+            this.aDv = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
             this.activityId = jSONObject.optInt("activity_id");
             this.showTime = jSONObject.optLong("show_time");
-            this.aDs = jSONObject.optInt("need_show");
+            this.aDu = jSONObject.optInt("need_show");
             this.webUrl = jSONObject.optString("h5_url");
-            this.aDv = jSONObject.optInt("jump_type");
+            this.aDx = jSONObject.optInt("jump_type");
             JSONArray optJSONArray = jSONObject.optJSONArray("info_fields");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                this.aDu = new String[length];
+                this.aDw = new String[length];
                 for (int i = 0; i < length; i++) {
-                    this.aDu[i] = optJSONArray.optString(i);
+                    this.aDw[i] = optJSONArray.optString(i);
                 }
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("pic_loc_info");
             if (optJSONObject != null) {
-                this.aDx = new b(optJSONObject);
+                this.aDz = new b(optJSONObject);
             }
         }
     }
 
     /* loaded from: classes7.dex */
     public static class a {
-        public double aDA;
-        public List<String> aDB;
-        public List<String> aDC;
-        public int aDy;
-        public double aDz;
+        public int aDA;
+        public double aDB;
+        public double aDC;
+        public List<String> aDD;
+        public List<String> aDE;
         public long currentTime;
         public long endTime;
 
@@ -100,23 +100,23 @@ public class i {
         }
 
         void parseJson(JSONObject jSONObject) {
-            this.aDy = jSONObject.optInt("switch");
-            this.aDz = jSONObject.optDouble("guard_club_rate");
-            this.aDA = jSONObject.optDouble("current_rate");
+            this.aDA = jSONObject.optInt("switch");
+            this.aDB = jSONObject.optDouble("guard_club_rate");
+            this.aDC = jSONObject.optDouble("current_rate");
             this.currentTime = jSONObject.optLong("current_time");
             this.endTime = jSONObject.optLong("rate_end_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("rate_gift_ids");
             if (optJSONArray != null) {
-                this.aDB = new ArrayList();
+                this.aDD = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aDB.add(String.valueOf(optJSONArray.optLong(i)));
+                    this.aDD.add(String.valueOf(optJSONArray.optLong(i)));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("speed_white_list");
             if (optJSONArray2 != null) {
-                this.aDC = new ArrayList();
+                this.aDE = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    this.aDC.add(String.valueOf(optJSONArray2.optLong(i2)));
+                    this.aDE.add(String.valueOf(optJSONArray2.optLong(i2)));
                 }
             }
         }

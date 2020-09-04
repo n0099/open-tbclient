@@ -4,10 +4,10 @@ import android.content.Context;
 /* loaded from: classes6.dex */
 public class b implements tv.chushou.zues.toolkit.richtext.a {
     private Context mContext;
-    private int oKU;
+    private int oLm;
 
     public b(int i, Context context) {
-        this.oKU = i;
+        this.oLm = i;
         this.mContext = context;
     }
 

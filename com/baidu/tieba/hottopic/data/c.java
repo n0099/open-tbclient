@@ -7,11 +7,11 @@ import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes15.dex */
 public class c implements q {
-    public static final BdUniqueId iYS = BdUniqueId.gen();
-    private long iYO;
-    private String iYP;
-    private int iYT = -1;
-    private String iYU;
+    public static final BdUniqueId iYY = BdUniqueId.gen();
+    private long iYU;
+    private String iYV;
+    private int iYZ = -1;
+    private String iZa;
     private long mId;
     private String mName;
     private int mTag;
@@ -19,7 +19,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String czU() {
+    public String czV() {
         return this.module_title;
     }
 
@@ -27,12 +27,12 @@ public class c implements q {
         return this.tips;
     }
 
-    public String czV() {
+    public String czW() {
         return this.rule_jump_url;
     }
 
-    public long czW() {
-        return this.iYO;
+    public long czX() {
+        return this.iYU;
     }
 
     public int getTag() {
@@ -47,12 +47,12 @@ public class c implements q {
         return this.mName;
     }
 
-    public int czX() {
-        return this.iYT;
+    public int czY() {
+        return this.iYZ;
     }
 
     public void Ar(int i) {
-        this.iYT = i;
+        this.iYZ = i;
     }
 
     public void a(TopicList topicList) {
@@ -60,9 +60,9 @@ public class c implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.iYO = topicList.discuss_num.longValue();
-            this.iYP = topicList.topic_desc;
-            this.iYU = topicList.topic_pic;
+            this.iYU = topicList.discuss_num.longValue();
+            this.iYV = topicList.topic_desc;
+            this.iZa = topicList.topic_pic;
         }
     }
 
@@ -78,6 +78,6 @@ public class c implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iYS;
+        return iYY;
     }
 }

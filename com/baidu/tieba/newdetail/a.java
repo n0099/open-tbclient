@@ -36,19 +36,19 @@ public interface a {
 
         void a(d dVar, boolean z, int i);
 
-        void bGd();
-
-        void cSq();
+        void bGe();
 
         void cSr();
 
         void cSs();
 
-        e cSt();
+        void cSt();
 
-        int cSu();
+        e cSu();
 
-        void cSv();
+        int cSv();
+
+        void cSw();
 
         void d(long j, long j2, int i);
 
@@ -66,6 +66,6 @@ public interface a {
 
         void resume();
 
-        void si(boolean z);
+        void sk(boolean z);
     }
 }

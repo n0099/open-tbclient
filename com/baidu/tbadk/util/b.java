@@ -12,32 +12,32 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private static b eUH = null;
+    private static b eUL = null;
 
     private b() {
     }
 
-    public static synchronized b buY() {
+    public static synchronized b buZ() {
         b bVar;
         synchronized (b.class) {
-            if (eUH == null) {
-                eUH = new b();
+            if (eUL == null) {
+                eUL = new b();
             }
-            bVar = eUH;
+            bVar = eUL;
         }
         return bVar;
     }
 
-    public void buZ() {
-        String bva = bva();
-        if (!TextUtils.isEmpty(bva)) {
-            com.baidu.adp.lib.e.c.mM().a(bva, 10, null, 0, 0, null, new Object[0]);
+    public void bva() {
+        String bvb = bvb();
+        if (!TextUtils.isEmpty(bvb)) {
+            com.baidu.adp.lib.e.c.mM().a(bvb, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String bva() {
+    public String bvb() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 

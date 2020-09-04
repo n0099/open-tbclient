@@ -14,44 +14,44 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class HotTopicTabModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a dOR;
-    private String eAh;
-    private b iLm;
-    private final HashMap<String, List<q>> iLn;
+    private com.baidu.adp.framework.listener.a dOV;
+    private String eAl;
+    private b iLs;
+    private final HashMap<String, List<q>> iLt;
     private boolean mIsLoading;
 
-    public List<q> JH(String str) {
-        return this.iLn.get(str);
+    public List<q> JI(String str) {
+        return this.iLt.get(str);
     }
 
-    public List<q> cxA() {
-        return JH(this.eAh);
+    public List<q> cxB() {
+        return JI(this.eAl);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public HotTopicTabModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eAh = "all";
-        this.iLn = new HashMap<>();
-        cxB();
+        this.eAl = "all";
+        this.iLt = new HashMap<>();
+        cxC();
     }
 
-    private void cxB() {
-        this.dOR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661) { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabModel.1
+    private void cxC() {
+        this.dOV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661) { // from class: com.baidu.tieba.homepage.hotTopic.tab.HotTopicTabModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 HotTopicTabModel.this.mIsLoading = false;
-                if (HotTopicTabModel.this.iLm != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (HotTopicTabModel.this.iLs != null && (responsedMessage instanceof com.baidu.tieba.homepage.hotTopic.tab.net.a) && HotTopicTabModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        HotTopicTabModel.this.iLm.a(-1, null);
+                        HotTopicTabModel.this.iLs.a(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
                     com.baidu.tieba.homepage.hotTopic.tab.net.a aVar = (com.baidu.tieba.homepage.hotTopic.tab.net.a) responsedMessage;
-                    if (!TextUtils.isEmpty(HotTopicTabModel.this.eAh)) {
-                        HotTopicTabModel.this.iLn.put(HotTopicTabModel.this.eAh, aVar.getDataList());
+                    if (!TextUtils.isEmpty(HotTopicTabModel.this.eAl)) {
+                        HotTopicTabModel.this.iLt.put(HotTopicTabModel.this.eAl, aVar.getDataList());
                     }
-                    HotTopicTabModel.this.iLm.a(responsedMessage.getError(), aVar);
+                    HotTopicTabModel.this.iLs.a(responsedMessage.getError(), aVar);
                 }
             }
         };
@@ -59,15 +59,15 @@ public class HotTopicTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setPresenter(b bVar) {
-        this.iLm = bVar;
+        this.iLs = bVar;
     }
 
     public void setTabCode(String str) {
-        this.eAh = str;
+        this.eAl = str;
     }
 
     public String bmH() {
-        return this.eAh;
+        return this.eAl;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,7 +76,7 @@ public class HotTopicTabModel extends BdBaseModel {
             return false;
         }
         HotTopicTabRequest hotTopicTabRequest = new HotTopicTabRequest();
-        hotTopicTabRequest.setTabCode(this.eAh);
+        hotTopicTabRequest.setTabCode(this.eAl);
         hotTopicTabRequest.setTag(this.unique_id);
         this.mIsLoading = MessageManager.getInstance().sendMessage(hotTopicTabRequest);
         return this.mIsLoading;
@@ -85,8 +85,8 @@ public class HotTopicTabModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.dOR.setTag(bdUniqueId);
-        registerListener(this.dOR);
+        this.dOV.setTag(bdUniqueId);
+        registerListener(this.dOV);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -95,7 +95,7 @@ public class HotTopicTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dOR);
+        MessageManager.getInstance().unRegisterListener(this.dOV);
         this.mIsLoading = false;
     }
 }

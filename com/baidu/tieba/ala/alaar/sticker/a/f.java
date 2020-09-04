@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes7.dex */
 public class f {
-    private static int fyp = 0;
-    private static volatile boolean fyq = false;
+    private static int fyt = 0;
+    private static volatile boolean fyu = false;
 
     public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
         com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
@@ -21,7 +21,7 @@ public class f {
         MessageManager.getInstance().sendMessage(bVar);
     }
 
-    public static void dR(String str, String str2) {
+    public static void dS(String str, String str2) {
         com.baidu.tieba.ala.alaar.messages.a aVar = new com.baidu.tieba.ala.alaar.messages.a();
         aVar.setParams();
         aVar.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
@@ -32,18 +32,18 @@ public class f {
     }
 
     public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        fyp = i;
-        fyq = true;
+        fyt = i;
+        fyu = true;
         com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bEF() {
-        fyq = false;
+    public static void bEG() {
+        fyu = false;
     }
 
-    public static boolean bEG() {
-        return fyq;
+    public static boolean bEH() {
+        return fyu;
     }
 }

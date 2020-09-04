@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static void log() {
         aq aqVar = new aq("c13395");

@@ -8,13 +8,13 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes15.dex */
 public class HomePageStatic {
-    public static boolean iFP = false;
+    public static boolean iFV = false;
 
     static {
-        cvY();
+        cvZ();
     }
 
-    public static void cvY() {
+    public static void cvZ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003010, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=" + CmdConfigSocket.CMD_GET_MY_POST);
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);

@@ -5,25 +5,25 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f implements c {
-    private int fcJ;
-    protected int fcK;
-    private double fcL;
-    private boolean fcM;
+    private int fcN;
+    protected int fcO;
+    private double fcP;
+    private boolean fcQ;
 
     public f() {
-        this.fcJ = 3;
-        this.fcK = this.fcJ;
-        this.fcM = true;
+        this.fcN = 3;
+        this.fcO = this.fcN;
+        this.fcQ = true;
     }
 
     public f(int i) {
-        this.fcJ = 3;
-        this.fcK = this.fcJ;
-        this.fcM = true;
+        this.fcN = 3;
+        this.fcO = this.fcN;
+        this.fcQ = true;
         if (i > 0) {
-            this.fcK = i;
+            this.fcO = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class f implements c {
         }
         int count = y.getCount(list);
         if (count >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.fcJ);
+            constrainImageLayout.setImageMaxChildCount(this.fcN);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = count - this.fcK;
+        int i3 = count - this.fcO;
         if (i3 > 0) {
-            int i4 = this.fcK + i;
+            int i4 = this.fcO + i;
             List<MediaData> subList = y.subList(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.fcM) {
+            if (!this.fcQ) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(subList, i, true, this.fcM);
+            constrainImageLayout.setUrls(subList, i, true, this.fcQ);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(y.subList(list, i, count), i);
@@ -75,13 +75,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.fcL > 0.0d) {
-            return this.fcL;
+        if (this.fcP > 0.0d) {
+            return this.fcP;
         }
         return 0.6666666666666666d;
     }
 
     public void u(double d) {
-        this.fcL = d;
+        this.fcP = d;
     }
 }

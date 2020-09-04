@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class m implements i {
-    private a awy;
+    private a awA;
 
     /* loaded from: classes10.dex */
     private class a {
-        private JSONObject awA;
-        private JSONObject awB;
-        private a.C0148a awz;
+        private a.C0148a awB;
+        private JSONObject awC;
+        private JSONObject awD;
         private Context i;
         private boolean k;
         private boolean l;
@@ -26,7 +26,7 @@ public class m implements i {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.awz = new com.baidu.helios.common.c.a(context.getApplicationContext()).Ah().fv("cloud").fv("cstore");
+            this.awB = new com.baidu.helios.common.c.a(context.getApplicationContext()).Ah().fw("cloud").fw("cstore");
         }
 
         private boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -46,12 +46,12 @@ public class m implements i {
 
         private synchronized boolean b() {
             boolean a;
-            if (this.awA == null) {
+            if (this.awC == null) {
                 a = true;
-            } else if (this.awB == null) {
+            } else if (this.awD == null) {
                 throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
             } else {
-                a = a(this.awA, this.awB);
+                a = a(this.awC, this.awD);
             }
             return a;
         }
@@ -61,15 +61,15 @@ public class m implements i {
         }
 
         private long d() {
-            if (this.awA == null) {
+            if (this.awC == null) {
                 return 0L;
             }
-            return this.awA.optLong("ctime", 0L);
+            return this.awC.optLong("ctime", 0L);
         }
 
         private void e() {
             try {
-                this.awA = l.a(this.awz.q("cs.dat", true));
+                this.awC = l.a(this.awB.q("cs.dat", true));
                 this.q = d();
             } catch (Exception e) {
                 this.q = 0L;
@@ -78,7 +78,7 @@ public class m implements i {
 
         private void f() {
             try {
-                JSONObject a = l.a(this.awz.q("ct.dat", true));
+                JSONObject a = l.a(this.awB.q("ct.dat", true));
                 if (a == null) {
                     this.n = 172800L;
                 } else {
@@ -91,7 +91,7 @@ public class m implements i {
 
         private void g() {
             try {
-                JSONObject a = l.a(this.awz.q("ci.dat", true));
+                JSONObject a = l.a(this.awB.q("ci.dat", true));
                 if (a == null) {
                     this.k = true;
                 } else {
@@ -104,7 +104,7 @@ public class m implements i {
 
         private boolean h() {
             try {
-                this.awz.d("cs.dat", this.awA.toString(), true);
+                this.awB.d("cs.dat", this.awC.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -115,7 +115,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("isOn", this.k);
-                this.awz.d("ci.dat", jSONObject.toString(), true);
+                this.awB.d("ci.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -126,7 +126,7 @@ public class m implements i {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("TIME_OUT", this.n);
-                this.awz.d("ct.dat", jSONObject.toString(), true);
+                this.awB.d("ct.dat", jSONObject.toString(), true);
                 return true;
             } catch (Exception e) {
                 return false;
@@ -157,7 +157,7 @@ public class m implements i {
         }
 
         public void a(JSONObject jSONObject) {
-            this.awB = jSONObject;
+            this.awD = jSONObject;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:15:0x002a, code lost:
@@ -173,7 +173,7 @@ public class m implements i {
                 m();
                 boolean zF = com.baidu.helios.b.ag(this.i).zF();
                 if (this.k && zF) {
-                    if (this.awA == null) {
+                    if (this.awC == null) {
                         z = true;
                     } else {
                         if (!c()) {
@@ -186,7 +186,7 @@ public class m implements i {
         }
 
         public void b(JSONObject jSONObject) {
-            this.awA = jSONObject;
+            this.awC = jSONObject;
             h();
         }
     }
@@ -195,8 +195,8 @@ public class m implements i {
         if (context == null) {
             throw new NullPointerException("context should not be null");
         }
-        if (this.awy == null) {
-            this.awy = new a(context.getApplicationContext());
+        if (this.awA == null) {
+            this.awA = new a(context.getApplicationContext());
         }
     }
 
@@ -217,22 +217,22 @@ public class m implements i {
 
     @Override // com.baidu.helios.a.a.i
     public boolean a() {
-        return this.awy.a();
+        return this.awA.a();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b() {
-        this.awy.l();
+        this.awA.l();
     }
 
     @Override // com.baidu.helios.a.a.i
     public void b(JSONObject jSONObject) {
-        this.awy.b(jSONObject);
+        this.awA.b(jSONObject);
     }
 
     @Override // com.baidu.helios.a.a.i
     public i r(JSONObject jSONObject) {
-        this.awy.a(jSONObject);
+        this.awA.a(jSONObject);
         return this;
     }
 }

@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes15.dex */
 public class m extends c implements com.baidu.tbadk.core.util.f.a {
-    public static final BdUniqueId ebo = BdUniqueId.gen();
-    public static String hmX = "";
-    public static String hmY = "";
-    public static String hnp = "";
-    public static String hmW = "";
-    public static String hnq = "";
-    public static String hnr = "";
-    public static String hns = "";
-    public boolean hno = false;
-    public boolean hnt = true;
-    public boolean eay = false;
-    public boolean hnu = false;
-    public boolean eaE = false;
-    public boolean eaF = false;
-    public boolean hnn = false;
+    public static final BdUniqueId ebs = BdUniqueId.gen();
+    public static String hnb = "";
+    public static String hnc = "";
+    public static String hnt = "";
+    public static String hna = "";
+    public static String hnu = "";
+    public static String hnv = "";
+    public static String hnw = "";
+    public boolean hns = false;
+    public boolean hnx = true;
+    public boolean eaC = false;
+    public boolean hny = false;
+    public boolean eaI = false;
+    public boolean eaJ = false;
+    public boolean hnr = false;
+    public boolean eaS = false;
     public boolean eaO = false;
-    public boolean eaK = false;
-    public boolean eaM = false;
-    public boolean eaN = false;
+    public boolean eaQ = false;
+    public boolean eaR = false;
     public int sourceType = 0;
 
     public m(bw bwVar) {
-        this.dUS = bwVar;
+        this.dUW = bwVar;
     }
 
     public static boolean aa(bw bwVar) {
@@ -37,83 +37,83 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.dUS == null) {
+        if (this.dUW == null) {
             return l.TYPE;
         }
-        if (this.eay) {
-            return l.hnc;
+        if (this.eaC) {
+            return l.hng;
         }
-        if (this.hnu) {
-            return ebo;
+        if (this.hny) {
+            return ebs;
         }
-        if (this.eaE) {
-            return l.hnh;
+        if (this.eaI) {
+            return l.hnl;
         }
-        if (this.eaF) {
-            return l.hnj;
+        if (this.eaJ) {
+            return l.hnn;
         }
-        if (this.hnn) {
-            return l.hni;
+        if (this.hnr) {
+            return l.hnm;
+        }
+        if (this.eaS) {
+            return l.eba;
         }
         if (this.eaO) {
-            return l.eaW;
+            return l.ebm;
         }
-        if (this.eaK) {
-            return l.ebi;
+        if (this.eaQ) {
+            return l.ebo;
         }
-        if (this.eaM) {
-            return l.ebk;
+        if (this.eaR) {
+            return l.ebp;
         }
-        if (this.eaN) {
-            return l.ebl;
-        }
-        return ebo;
+        return ebs;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.AbsThreadDataSupport
     public bw bce() {
-        if (this.dUS == null) {
+        if (this.dUW == null) {
             return null;
         }
-        if (this.dUS.bes() != 5) {
-            this.dUS.nf(1);
+        if (this.dUW.bes() != 5) {
+            this.dUW.nf(1);
         }
-        return this.dUS;
+        return this.dUW;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
     public String bcf() {
-        if (this.dUS == null) {
+        if (this.dUW == null) {
             return null;
         }
-        return this.dUS.edk;
+        return this.dUW.edo;
     }
 
-    public aq He(String str) {
+    public aq Hf(String str) {
         aq aqVar = new aq(str);
-        if (this.dUS != null) {
-            aqVar.u("fid", this.dUS.getFid());
-            aqVar.dD("tid", this.dUS.getTid());
-            if (this.dUS.bdn()) {
+        if (this.dUW != null) {
+            aqVar.u("fid", this.dUW.getFid());
+            aqVar.dD("tid", this.dUW.getTid());
+            if (this.dUW.bdn()) {
                 aqVar.ai("obj_type", 8);
-            } else if (this.dUS.bgA()) {
+            } else if (this.dUW.bgA()) {
                 aqVar.ai("obj_type", 9);
-            } else if (this.dUS.bdk()) {
+            } else if (this.dUW.bdk()) {
                 aqVar.ai("obj_type", 2);
             }
-            aqVar.ai("obj_param1", cco() ? 2 : 1);
-            if (this.dUS.beE() != null) {
-                aqVar.dD("obj_id", this.dUS.beE().getUserId());
+            aqVar.ai("obj_param1", ccp() ? 2 : 1);
+            if (this.dUW.beE() != null) {
+                aqVar.dD("obj_id", this.dUW.beE().getUserId());
             }
         }
         return aqVar;
     }
 
-    public aq ccv() {
-        aq aC = aC(hnp, true);
+    public aq ccw() {
+        aq aC = aC(hnt, true);
         if (aC != null && bce() != null) {
             bw bce = bce();
-            aC.ai("obj_name", bce.bgh() != null && (bce.bgh().dwH() != null || bce.bgh().bxE() != null) ? 1 : 0);
+            aC.ai("obj_name", bce.bgh() != null && (bce.bgh().dwM() != null || bce.bgh().bxF() != null) ? 1 : 0);
             if (bce.beE() != null) {
                 aC.ai(TiebaInitialize.Params.AB_TYPE, bce.beE().hadConcerned() ? 1 : 0);
             }
@@ -132,7 +132,7 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
     }
 
     public aq b(bw bwVar, int i) {
-        aq aC = aC(hmW, true);
+        aq aC = aC(hna, true);
         if (aC != null) {
             if (i != -1) {
                 aC.ai("click_locate", i);
@@ -153,8 +153,8 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
         return b(bwVar, -1);
     }
 
-    public aq ccC() {
-        aq aC = aC(hns, true);
+    public aq ccD() {
+        aq aC = aC(hnw, true);
         if (aC != null && bce() != null) {
             bw bce = bce();
             if (bce.getBaijiahaoData() != null) {
@@ -168,7 +168,7 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
     }
 
     public aq ag(bw bwVar) {
-        aq aC = aC(hmX, true);
+        aq aC = aC(hnb, true);
         if (aC != null && bce() != null) {
             bw bce = bce();
             if (bce.getBaijiahaoData() != null) {
@@ -187,10 +187,10 @@ public class m extends c implements com.baidu.tbadk.core.util.f.a {
 
     @Override // com.baidu.tbadk.core.util.f.a
     public String getVideoUrl() {
-        if (this.dUS == null || this.dUS.beW() == null || this.dUS.beW().video_url == null) {
+        if (this.dUW == null || this.dUW.beW() == null || this.dUW.beW().video_url == null) {
             return null;
         }
-        return this.dUS.beW().video_url;
+        return this.dUW.beW().video_url;
     }
 
     public int ae(bw bwVar) {

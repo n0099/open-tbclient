@@ -20,9 +20,9 @@ public interface a {
 
     void b(boolean z, int i, String str);
 
-    void cF(boolean z);
-
     void cG(boolean z);
+
+    void cH(boolean z);
 
     void q(int i, String str);
 

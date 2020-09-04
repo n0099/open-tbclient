@@ -14,7 +14,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String CAN_GOODS = "can_goods";

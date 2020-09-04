@@ -30,7 +30,7 @@ public class j extends aa {
             return false;
         }
         eVar.azT().aCP().remove(aA);
-        com.baidu.swan.apps.am.e.dai.update();
+        com.baidu.swan.apps.am.e.dam.update();
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         return true;
     }

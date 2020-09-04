@@ -29,18 +29,18 @@ public class b extends aa {
                 public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         try {
-                            jSONObject.put("loadCts", b.this.q(context.getResources().getString(a.h.aiapps_debug_load_cts), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.axb()))));
-                            jSONObject.put("emitLive", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_live), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awV()))));
-                            jSONObject.put("emitHttps", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_https), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awW()))));
-                            jSONObject.put("useExtension", b.this.q(context.getResources().getString(a.h.aiapps_debug_use_extension), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awT()))));
-                            jSONObject.put("emitDomain", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_domain), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en((com.baidu.swan.apps.ad.a.a.awO() || com.baidu.swan.apps.ad.a.a.awN()) ? false : true))));
-                            jSONObject.put("emitWss", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_wss), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.axa()))));
-                            jSONObject.put("emitLaunchMode", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_launch_mode), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awZ()))));
+                            jSONObject.put("loadCts", b.this.q(context.getResources().getString(a.h.aiapps_debug_load_cts), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.axb()))));
+                            jSONObject.put("emitLive", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_live), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awV()))));
+                            jSONObject.put("emitHttps", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_https), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awW()))));
+                            jSONObject.put("useExtension", b.this.q(context.getResources().getString(a.h.aiapps_debug_use_extension), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awT()))));
+                            jSONObject.put("emitDomain", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_domain), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo((com.baidu.swan.apps.ad.a.a.awO() || com.baidu.swan.apps.ad.a.a.awN()) ? false : true))));
+                            jSONObject.put("emitWss", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_wss), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.axa()))));
+                            jSONObject.put("emitLaunchMode", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_launch_mode), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awZ()))));
                             jSONObject.put("debugEnvData", b.this.q(context.getResources().getString(a.h.aiapps_debug_game_extra_data), com.baidu.swan.apps.ad.a.a.axc()));
-                            jSONObject.put("emitReplaceSwanCore", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_swan_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awX()))));
-                            jSONObject.put("emitReplaceGameCore", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_game_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awY()))));
-                            jSONObject.put("emitReplaceJsNative", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_js_native), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.axf()))));
-                            jSONObject.put("emitReplaceV8Core", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_v8_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.en(d.C0396d.akJ()))));
+                            jSONObject.put("emitReplaceSwanCore", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_swan_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awX()))));
+                            jSONObject.put("emitReplaceGameCore", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_game_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awY()))));
+                            jSONObject.put("emitReplaceJsNative", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_js_native), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.axf()))));
+                            jSONObject.put("emitReplaceV8Core", b.this.q(context.getResources().getString(a.h.aiapps_debug_emit_replace_v8_core), Integer.valueOf(com.baidu.swan.apps.extcore.c.a.eo(d.C0396d.akJ()))));
                             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                             return;
                         } catch (JSONException e) {
@@ -69,8 +69,8 @@ public class b extends aa {
                 return false;
             } else {
                 try {
-                    jSONObject.put("emitHttps", com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.awW()));
-                    jSONObject.put("emitWss", com.baidu.swan.apps.extcore.c.a.en(com.baidu.swan.apps.ad.a.a.axa()));
+                    jSONObject.put("emitHttps", com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.awW()));
+                    jSONObject.put("emitWss", com.baidu.swan.apps.extcore.c.a.eo(com.baidu.swan.apps.ad.a.a.axa()));
                     jSONObject.put("debugEnvData", com.baidu.swan.apps.ad.a.a.axc());
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 } catch (JSONException e) {

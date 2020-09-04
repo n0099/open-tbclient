@@ -16,11 +16,11 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
-    private static c mcj;
-    private SparseArray<HashSet<String>> mcm;
-    private a mcn;
+    private static c mcy;
+    private SparseArray<HashSet<String>> mcB;
+    private a mcC;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.s.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -29,7 +29,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.irg = false;
+                        aVar.irm = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -40,84 +40,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener dUB = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
+    private CustomMessageListener dUF = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.s.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.mcm != null) {
-                    c.this.mcm.clear();
+                if (c.this.mcB != null) {
+                    c.this.mcB.clear();
                 }
-                c.this.mck.dvD();
+                c.this.mcz.dvI();
             }
         }
     };
-    private int mcl = com.baidu.tbadk.core.sharedPref.b.bik().getInt("card_show_statistic_max_count", 200);
-    private final b mck = new b();
+    private int mcA = com.baidu.tbadk.core.sharedPref.b.bik().getInt("card_show_statistic_max_count", 200);
+    private final b mcz = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.dUB);
+        MessageManager.getInstance().registerListener(this.dUF);
     }
 
-    public static c dvE() {
-        if (mcj == null) {
+    public static c dvJ() {
+        if (mcy == null) {
             synchronized (c.class) {
-                if (mcj == null) {
-                    mcj = new c();
+                if (mcy == null) {
+                    mcy = new c();
                 }
             }
         }
-        return mcj;
+        return mcy;
     }
 
     public void A(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.mck.A(bdUniqueId);
+            this.mcz.A(bdUniqueId);
         }
     }
 
     public void B(BdUniqueId bdUniqueId) {
         l.checkMainThread();
         if (bdUniqueId != null) {
-            this.mck.B(bdUniqueId);
+            this.mcz.B(bdUniqueId);
             D(bdUniqueId);
         }
     }
 
     public void D(BdUniqueId bdUniqueId) {
-        if (this.mcm != null) {
-            this.mcm.remove(bdUniqueId.getId());
+        if (this.mcB != null) {
+            this.mcB.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, aq aqVar) {
-        this.mck.a(bdUniqueId, true);
+        this.mcz.a(bdUniqueId, true);
         TiebaStatic.log(aqVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, aq aqVar) {
         if (bdUniqueId != null && aqVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.mck.C(bdUniqueId)) {
+            if (!this.mcz.C(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + aqVar.getKey());
             }
-            if (this.mcm == null) {
-                this.mcm = new SparseArray<>();
+            if (this.mcB == null) {
+                this.mcB = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.mcm.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.mcB.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.mcm.put(bdUniqueId.getId(), hashSet);
+                this.mcB.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = aqVar.getKey() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
-            if (!hashSet.contains(str2) && !csv()) {
+            if (!hashSet.contains(str2) && !csw()) {
                 hashSet.add(str2);
-                this.mck.a(bdUniqueId, aqVar);
+                this.mcz.a(bdUniqueId, aqVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,29 +125,29 @@ public class c {
         }
     }
 
-    private boolean csv() {
-        if (this.mcn == null) {
-            this.mcn = new a();
+    private boolean csw() {
+        if (this.mcC == null) {
+            this.mcC = new a();
         }
-        if (this.mcn.irg) {
+        if (this.mcC.irm) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.mcn.isRunning) {
-            this.mcn.count++;
-            if (currentTimeMillis - this.mcn.irf < 120000) {
-                if (this.mcn.count >= this.mcl) {
-                    this.mcn.irg = true;
-                    a(this.mcn);
+        if (this.mcC.isRunning) {
+            this.mcC.count++;
+            if (currentTimeMillis - this.mcC.irl < 120000) {
+                if (this.mcC.count >= this.mcA) {
+                    this.mcC.irm = true;
+                    a(this.mcC);
                     return true;
                 }
             } else {
-                this.mcn.isRunning = false;
-                this.mcn.count = 0;
+                this.mcC.isRunning = false;
+                this.mcC.count = 0;
             }
         } else {
-            this.mcn.isRunning = true;
-            this.mcn.irf = currentTimeMillis;
+            this.mcC.isRunning = true;
+            this.mcC.irl = currentTimeMillis;
         }
         return false;
     }
@@ -164,22 +164,22 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.mck.a(bdUniqueId, z);
+        this.mcz.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class a {
         public int count;
-        public long irf;
-        public boolean irg;
+        public long irl;
+        public boolean irm;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.irf = 0L;
-            this.irg = false;
+            this.irl = 0L;
+            this.irm = false;
         }
     }
 }

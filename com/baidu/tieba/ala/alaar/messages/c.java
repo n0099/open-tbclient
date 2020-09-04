@@ -6,14 +6,14 @@ import com.baidu.live.utils.p;
 import com.baidu.mobstat.Config;
 /* loaded from: classes7.dex */
 public class c extends HttpMessage {
-    private BdUniqueId beV;
+    private BdUniqueId beX;
     private String mRequestType;
     private int pn;
     private int rn;
 
     public c(BdUniqueId bdUniqueId, String str, int i, int i2) {
         super(1021156);
-        this.beV = bdUniqueId;
+        this.beX = bdUniqueId;
         this.mRequestType = str;
         this.pn = i;
         this.rn = i2;
@@ -24,6 +24,6 @@ public class c extends HttpMessage {
         addParam("type", this.mRequestType);
         addParam(Config.PACKAGE_NAME, this.pn);
         addParam("rn", this.rn);
-        setTag(this.beV);
+        setTag(this.beX);
     }
 }

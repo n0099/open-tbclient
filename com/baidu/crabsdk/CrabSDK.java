@@ -101,7 +101,7 @@ public class CrabSDK {
 
     public static void init(Application application, String str, String str2) {
         if (!TextUtils.isEmpty(str2) && ((str2.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || str2.startsWith("http://")) && str2.endsWith("/"))) {
-            com.baidu.crabsdk.c.a.ds("Change upload domain: " + str2);
+            com.baidu.crabsdk.c.a.dt("Change upload domain: " + str2);
             a.O = str2;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -150,10 +150,10 @@ public class CrabSDK {
         boolean z;
         int myPid = Process.myPid();
         CURRENT_PID = myPid;
-        com.baidu.crabsdk.c.a.ds("CrabSDK.init from " + T.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.c.a.dt("CrabSDK.init from " + T.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
-            com.baidu.crabsdk.c.a.ds("getRunningAppProcesses error!!");
+            com.baidu.crabsdk.c.a.dt("getRunningAppProcesses error!!");
             return;
         }
         Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
@@ -166,10 +166,10 @@ public class CrabSDK {
             if (next.pid == myPid) {
                 if (next.processName.equals(application.getPackageName())) {
                     U = true;
-                    com.baidu.crabsdk.c.a.ds("Main process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.dt("Main process " + next.processName + ".");
                 } else {
                     U = false;
-                    com.baidu.crabsdk.c.a.ds("Sub process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.dt("Sub process " + next.processName + ".");
                 }
                 CURRENT_PNAME = next.processName;
                 z = true;
@@ -227,7 +227,7 @@ public class CrabSDK {
                 a.I = i;
                 new Thread(uP).start();
             } else {
-                com.baidu.crabsdk.c.a.dt("ANR watch thread is running");
+                com.baidu.crabsdk.c.a.du("ANR watch thread is running");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("resumeAnrWatchThread->Exception", e);
@@ -279,7 +279,7 @@ public class CrabSDK {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.b.h.ano = str;
+        com.baidu.crabsdk.b.h.anq = str;
     }
 
     public static void setDebugAnrExpUrl(String str) {
@@ -308,7 +308,7 @@ public class CrabSDK {
 
     public static void setLogcatLineCount(int i) {
         if (i > 1000) {
-            com.baidu.crabsdk.c.a.dt("强烈建议logcat最大行数小于1000！");
+            com.baidu.crabsdk.c.a.du("强烈建议logcat最大行数小于1000！");
             a.h = 1000;
         } else {
             a.h = i;
@@ -376,7 +376,7 @@ public class CrabSDK {
 
     public static void stopUploadLogs(Future future) {
         try {
-            com.baidu.crabsdk.c.a.dt("Stop uploading logs task...");
+            com.baidu.crabsdk.c.a.du("Stop uploading logs task...");
             if (future != null) {
                 future.cancel(true);
             }
@@ -414,7 +414,7 @@ public class CrabSDK {
             str3 = "";
         }
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.crabsdk.b.h.ano = str2;
+            com.baidu.crabsdk.b.h.anq = str2;
         }
         return k.b(str.trim(), onUploadFilesCallback, "", "", str3);
     }

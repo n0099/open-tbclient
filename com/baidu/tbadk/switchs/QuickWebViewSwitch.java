@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.facebook.common.util.TriState;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
     private static TriState state = TriState.UNSET;
     private static QuickWebViewSwitch mInstance = new QuickWebViewSwitch();

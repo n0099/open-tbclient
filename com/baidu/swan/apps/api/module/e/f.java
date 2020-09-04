@@ -12,7 +12,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jl(String str) {
+    public com.baidu.swan.apps.api.c.b jm(String str) {
         if (DEBUG) {
             Log.d("Api-PullDownRefresh", "stop pull down refresh");
         }
@@ -47,7 +47,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
                         f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                         return;
                     }
-                    eVar.aaK().fr(false);
+                    eVar.aaK().fs(false);
                     com.baidu.swan.apps.console.c.i("Api-PullDownRefresh", "refresh complete");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
                 }

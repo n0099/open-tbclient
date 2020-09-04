@@ -19,8 +19,8 @@ public class d implements com.baidu.swan.apps.console.debugger.a {
     @Override // com.baidu.swan.apps.console.debugger.a
     public void n(Bundle bundle) {
         Pp = u.g(bundle, "extraWSUrl");
-        com.baidu.swan.apps.console.debugger.b.kF(u.g(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.kG(u.g(bundle, "slavePreload"));
+        com.baidu.swan.apps.console.debugger.b.kG(u.g(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.kH(u.g(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a

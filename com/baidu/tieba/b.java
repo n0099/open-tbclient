@@ -2,20 +2,20 @@ package com.baidu.tieba;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static void a(com.baidu.tbadk.coreExtra.data.e eVar) {
         if (eVar != null) {
-            if (eVar.ezZ != 0) {
-                com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.ezZ + "");
+            if (eVar.eAd != 0) {
+                com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, eVar.eAd + "");
             }
-            if (eVar.ezY != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.ezY + "");
+            if (eVar.eAc != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+                com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.APP_ENTRANCE_PREFIX + TbadkCoreApplication.getCurrentAccount(), eVar.eAc + "");
             }
         }
     }
 
-    public int bzi() {
+    public int bzj() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             string = com.baidu.tbadk.core.sharedPref.b.bik().getString(SharedPrefConfig.APP_ENTRANCE_NO_LOGIN_KEY, "");

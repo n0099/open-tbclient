@@ -4,9 +4,9 @@ import tbclient.SmartApp;
 /* loaded from: classes16.dex */
 public class m implements c {
     private String Np;
-    private Long lfx;
-    private String lfy;
-    private Integer lfz;
+    private Long lfE;
+    private String lfF;
+    private Integer lfG;
     private String mAppKey;
     private String mAvatar;
     private String mLink;
@@ -17,18 +17,18 @@ public class m implements c {
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.lfx = smartApp.swan_app_id;
+            this.lfE = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
             this.Np = smartApp._abstract;
             this.mPic = smartApp.pic;
-            this.lfy = smartApp.h5_url;
+            this.lfF = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.lfz = smartApp.is_game;
+            this.lfG = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dgI() {
-        return this.lfx;
+    public Long dgJ() {
+        return this.lfE;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.lfy;
+        return this.lfF;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dgJ() {
-        return this.lfz;
+    public Integer dgK() {
+        return this.lfG;
     }
 }

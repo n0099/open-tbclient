@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     public static Drawable rt(int i) {
         switch (i) {

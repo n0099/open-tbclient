@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile ArrayMap<String, e> cFn;
+    private static volatile ArrayMap<String, e> cFr;
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull
@@ -42,7 +42,7 @@ public class a extends b {
             p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.network.c.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.fa(false);
+                    a.fb(false);
                 }
             }, "updateInfoReload");
         } else {
@@ -67,8 +67,8 @@ public class a extends b {
         com.baidu.swan.apps.network.c.a.auW().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
             public void auZ() {
-                Map<String, e> fa = a.fa(true);
-                if (fa.size() <= 0) {
+                Map<String, e> fb = a.fb(true);
+                if (fb.size() <= 0) {
                     if (a.DEBUG) {
                         Log.d("SwanAppUpdateManager", "has not scope set，required request from server");
                     }
@@ -78,12 +78,12 @@ public class a extends b {
                             if (a.DEBUG) {
                                 Log.d("SwanAppUpdateManager", "has scope set");
                             }
-                            com.baidu.swan.apps.ap.e.b.this.I(a.fa(true));
+                            com.baidu.swan.apps.ap.e.b.this.I(a.fb(true));
                         }
                     });
                     return;
                 }
-                com.baidu.swan.apps.ap.e.b.this.I(fa);
+                com.baidu.swan.apps.ap.e.b.this.I(fb);
                 if (a.DEBUG) {
                     Log.d("SwanAppUpdateManager", "callback scope set");
                 }
@@ -92,27 +92,27 @@ public class a extends b {
     }
 
     public static void b(final String str, @NonNull final com.baidu.swan.apps.ap.e.b<e> bVar) {
-        final String oO = com.baidu.swan.apps.network.c.c.b.avi().oO(str);
+        final String oP = com.baidu.swan.apps.network.c.c.b.avi().oP(str);
         boolean awk = com.baidu.swan.apps.performance.b.c.awk();
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "API get scope info, scopeId = " + str + " ; isUpdateAsyncAb = " + awk);
         }
         if (awk) {
-            a(str, bVar, oO);
+            a(str, bVar, oP);
         } else {
             com.baidu.swan.apps.network.c.a.auW().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.3
                 @Override // com.baidu.swan.apps.network.c.a.a
                 public void auZ() {
-                    a.a(str, bVar, oO);
+                    a.a(str, bVar, oP);
                 }
             });
         }
     }
 
     public static void a(final String str, @NonNull final com.baidu.swan.apps.ap.e.b<e> bVar, final String str2) {
-        e eVar = fa(true).get(str);
+        e eVar = fb(true).get(str);
         if (eVar != null) {
-            com.baidu.swan.apps.network.c.c.b.avi().oP(str2);
+            com.baidu.swan.apps.network.c.c.b.avi().oQ(str2);
             bVar.I(eVar);
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "callback scope node");
@@ -126,18 +126,18 @@ public class a extends b {
         com.baidu.swan.apps.network.c.a.auW().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.4
             @Override // com.baidu.swan.apps.network.c.a.a
             public void auZ() {
-                com.baidu.swan.apps.network.c.c.b.avi().oP(str2);
-                bVar.I(a.fa(true).get(str));
+                com.baidu.swan.apps.network.c.c.b.avi().oQ(str2);
+                bVar.I(a.fb(true).get(str));
             }
         });
     }
 
     @Nullable
-    public static e oN(String str) {
+    public static e oO(String str) {
         if (DEBUG) {
             Log.d("SwanAppUpdateManager", "getAccreditListDataFromLocalCache, scope = " + str);
         }
-        return fa(true).get(str);
+        return fb(true).get(str);
     }
 
     public static void avf() {
@@ -155,14 +155,14 @@ public class a extends b {
 
     public static void resetCache() {
         com.baidu.swan.apps.console.c.bb("SwanAppUpdateManager", "resetCache");
-        cFn = null;
+        cFr = null;
     }
 
     @NonNull
-    public static Map<String, e> fa(boolean z) {
+    public static Map<String, e> fb(boolean z) {
         JSONObject optJSONObject;
         long currentTimeMillis = System.currentTimeMillis();
-        ArrayMap<String, e> arrayMap = cFn;
+        ArrayMap<String, e> arrayMap = cFr;
         if (arrayMap != null && z) {
             if (DEBUG) {
                 Log.d("SwanAppUpdateManager", "getAccreditListData from cache, size = " + arrayMap.size());
@@ -195,9 +195,9 @@ public class a extends b {
                     arrayMap2.put(next, e.i(next, optJSONObject));
                 }
             }
-            cFn = arrayMap2;
+            cFr = arrayMap2;
             if (DEBUG) {
-                Log.d("SwanAppUpdateManager", "getAccreditListData cost = " + (System.currentTimeMillis() - currentTimeMillis) + " ; size = " + (cFn == null ? 0 : cFn.size()));
+                Log.d("SwanAppUpdateManager", "getAccreditListData cost = " + (System.currentTimeMillis() - currentTimeMillis) + " ; size = " + (cFr == null ? 0 : cFr.size()));
             }
             com.baidu.swan.apps.console.c.bb("SwanAppUpdateManager", "getAccreditListData - from json");
             return arrayMap2;

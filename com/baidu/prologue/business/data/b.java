@@ -9,10 +9,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class b {
-    private final e bKz;
+    private final e bKD;
 
     public b(e eVar) {
-        this.bKz = eVar;
+        this.bKD = eVar;
     }
 
     public void Vp() {
@@ -28,17 +28,17 @@ public class b {
     public void Vq() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.il(this.bKz.ext);
+        aVar.im(this.bKD.ext);
         Als.a(aVar);
     }
 
     public void b(@NonNull Als.Area area, String str) {
         Als.a aVar = new Als.a(Als.Type.CLICK);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.il(this.bKz.ext);
+        aVar.im(this.bKD.ext);
         aVar.b(area);
         if (!TextUtils.isEmpty(str)) {
-            aVar.io(str);
+            aVar.ip(str);
         }
         Als.a(aVar);
     }
@@ -46,33 +46,33 @@ public class b {
     public void g(String str, long j) {
         Als.a aVar = new Als.a(Als.Type.CLOSE);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.il(this.bKz.ext);
-        aVar.in(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.bKi.get().UW()) {
-            aVar.im("1");
+        aVar.im(this.bKD.ext);
+        aVar.io(String.valueOf(j));
+        if (com.baidu.prologue.a.b.a.bKm.get().UW()) {
+            aVar.in("1");
         } else {
-            aVar.im("0");
+            aVar.in("0");
         }
-        aVar.io(str);
+        aVar.ip(str);
         Als.a(aVar);
     }
 
     public void aN(String str, String str2) {
         Als.a aVar = new Als.a(Als.Type.DISCARD);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.il(this.bKz.ext);
-        aVar.im("10");
-        aVar.in(str);
-        aVar.io(str2);
+        aVar.im(this.bKD.ext);
+        aVar.in("10");
+        aVar.io(str);
+        aVar.ip(str2);
         Als.a(aVar);
     }
 
     public void Vr() {
         String[] strArr;
-        for (String str : this.bKz.bKN) {
+        for (String str : this.bKD.bKR) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.ip(new JSONObject(str).optString("url"));
+                    i.iq(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -84,10 +84,10 @@ public class b {
 
     public void Vs() {
         String[] strArr;
-        for (String str : this.bKz.bKO) {
+        for (String str : this.bKD.bKS) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.ip(new JSONObject(str).optString("url"));
+                    i.iq(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -102,7 +102,7 @@ public class b {
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);
             aVar.a(Als.Page.NA_SPLASH);
-            aVar.il(string);
+            aVar.im(string);
             Als.a(aVar);
         }
     }

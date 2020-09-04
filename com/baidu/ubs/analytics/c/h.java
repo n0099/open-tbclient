@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a ngf;
+    private a ngx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.ngf = aVar;
+        this.ngx = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.ngf.dMm()) {
-            for (a.InterfaceC0849a interfaceC0849a : this.ngf.dMm()) {
+        synchronized (this.ngx.dMv()) {
+            for (a.InterfaceC0849a interfaceC0849a : this.ngx.dMv()) {
                 interfaceC0849a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.ngf.dMm()) {
-            for (a.InterfaceC0849a interfaceC0849a : this.ngf.dMm()) {
+        synchronized (this.ngx.dMv()) {
+            for (a.InterfaceC0849a interfaceC0849a : this.ngx.dMv()) {
                 interfaceC0849a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.ngf.dMm()) {
-            for (a.InterfaceC0849a interfaceC0849a : this.ngf.dMm()) {
+        synchronized (this.ngx.dMv()) {
+            for (a.InterfaceC0849a interfaceC0849a : this.ngx.dMv()) {
                 interfaceC0849a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.ngf.dMm()) {
-            Iterator<a.InterfaceC0849a> it = this.ngf.dMm().iterator();
+        synchronized (this.ngx.dMv()) {
+            Iterator<a.InterfaceC0849a> it = this.ngx.dMv().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.ngf.dMm()) {
-            Iterator<a.InterfaceC0849a> it = this.ngf.dMm().iterator();
+        synchronized (this.ngx.dMv()) {
+            Iterator<a.InterfaceC0849a> it = this.ngx.dMv().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.ngf.dMm()) {
-            Iterator<a.InterfaceC0849a> it = this.ngf.dMm().iterator();
+        synchronized (this.ngx.dMv()) {
+            Iterator<a.InterfaceC0849a> it = this.ngx.dMv().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.ngf.dMm()) {
-            for (a.InterfaceC0849a interfaceC0849a : this.ngf.dMm()) {
+        synchronized (this.ngx.dMv()) {
+            for (a.InterfaceC0849a interfaceC0849a : this.ngx.dMv()) {
                 interfaceC0849a.onActivityDestroyed(activity);
             }
         }

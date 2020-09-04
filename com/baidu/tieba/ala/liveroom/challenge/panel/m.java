@@ -7,8 +7,6 @@ public interface m {
 
     void bM(int i, int i2);
 
-    void bPZ();
-
     void bQa();
 
     void bQb();
@@ -19,13 +17,15 @@ public interface m {
 
     void bQe();
 
+    void bQf();
+
     void dE(int i);
 
     void ee(long j);
 
     void ef(long j);
 
-    void fJ(String str);
+    void fK(String str);
 
     void h(int i, int i2, String str);
 

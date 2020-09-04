@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.c;
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class p extends a {
     private int procType;
 
@@ -41,17 +41,17 @@ public class p extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a Cl = com.baidu.tbadk.imageManager.c.bsW().Cl(str3);
-        if (Cl == null) {
+        com.baidu.adp.widget.ImageView.a Cm = com.baidu.tbadk.imageManager.c.bsX().Cm(str3);
+        if (Cm == null) {
             Bitmap bitmap = ap.getBitmap(com.baidu.adp.lib.f.b.toInt(str2, 0));
             if (bitmap == null) {
                 return null;
             }
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(bitmap, false, str2);
-            com.baidu.tbadk.imageManager.c.bsW().c(str3, aVar);
+            com.baidu.tbadk.imageManager.c.bsX().c(str3, aVar);
             return aVar;
         }
-        return Cl;
+        return Cm;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a

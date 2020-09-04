@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageFileInfo extends MediaFileInfo {
     public static final int IMAGE_TYPE_EMOTION = 1;
     public static final int IMAGE_TYPE_NORMAL = 0;

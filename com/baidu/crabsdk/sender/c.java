@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class c extends a {
-    private ActivityManager aoF;
+    private ActivityManager aoH;
     private int bB;
 
     public c(Context context) {
         super(context);
-        this.aoF = null;
+        this.aoH = null;
         this.bB = -100;
-        this.aoF = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.aoH = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -56,11 +56,11 @@ public final class c extends a {
             com.baidu.crabsdk.c.a.a("封装anr数据失败!", e);
         }
         try {
-            byte[] dY = i.dY(str);
-            if (dY == null || dY.length <= 0) {
+            byte[] dZ = i.dZ(str);
+            if (dZ == null || dZ.length <= 0) {
                 com.baidu.crabsdk.c.a.w("read trace file error! " + str);
             } else {
-                hashMap.put(Config.TRACE_PART, Base64.encodeToString(dY, 0));
+                hashMap.put(Config.TRACE_PART, Base64.encodeToString(dZ, 0));
             }
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("wrap trace to anrRecord error!", e2);
@@ -77,28 +77,28 @@ public final class c extends a {
                 return false;
             }
             if (uY.pid == Process.myPid()) {
-                com.baidu.crabsdk.c.a.ds("anr info catched...");
+                com.baidu.crabsdk.c.a.dt("anr info catched...");
                 Map<String, Object> a = a(uY, str);
                 if (com.baidu.crabsdk.a.P != null) {
                     com.baidu.crabsdk.a.P.onAnrStarted(a);
                 }
-                Map<String, Object> a2 = g.a(this.aoC, (Throwable) null, false);
+                Map<String, Object> a2 = g.a(this.aoE, (Throwable) null, false);
                 if (a2 == null) {
-                    com.baidu.crabsdk.c.a.dt("info map is null!");
+                    com.baidu.crabsdk.c.a.du("info map is null!");
                     return true;
                 }
                 a2.putAll(a);
                 g.b(a2);
-                i.a(this.aoC, i.e(a2));
+                i.a(this.aoE, i.e(a2));
                 h.vf();
                 if (h.vb()) {
-                    com.baidu.crabsdk.c.a.ds("begin to upload anr info...");
-                    k.a(false, this.aoC);
+                    com.baidu.crabsdk.c.a.dt("begin to upload anr info...");
+                    k.a(false, this.aoE);
                 }
             } else {
-                com.baidu.crabsdk.c.a.ds("Anr occur! But not the current pid!" + Process.myPid());
+                com.baidu.crabsdk.c.a.dt("Anr occur! But not the current pid!" + Process.myPid());
             }
-            com.baidu.crabsdk.c.a.ds("getLogcatErrorInfo return true");
+            com.baidu.crabsdk.c.a.dt("getLogcatErrorInfo return true");
             return true;
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getLogcatErrorInfo error!", e);
@@ -111,7 +111,7 @@ public final class c extends a {
 
     private ActivityManager.ProcessErrorStateInfo uY() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aoF.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aoH.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {
@@ -130,7 +130,7 @@ public final class c extends a {
         if (this.bB != Process.myPid()) {
             this.bB = Process.myPid();
             try {
-                com.baidu.crabsdk.c.a.ds("anr trace logic thread.");
+                com.baidu.crabsdk.c.a.dt("anr trace logic thread.");
                 boolean h = h(str);
                 long nanoTime = System.nanoTime();
                 while (!h) {
@@ -141,7 +141,7 @@ public final class c extends a {
                     }
                     h = h(str);
                     if ((System.nanoTime() - nanoTime) / TimeUtils.NANOS_PER_MS > 30000) {
-                        com.baidu.crabsdk.c.a.dt("anr trace logic timeout!");
+                        com.baidu.crabsdk.c.a.du("anr trace logic timeout!");
                         return;
                     }
                 }

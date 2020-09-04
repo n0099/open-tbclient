@@ -4,20 +4,20 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements LayoutInflater.Factory {
-    private c dUw;
+    private c dUA;
 
     public void a(c cVar) {
-        this.dUw = cVar;
+        this.dUA = cVar;
     }
 
     @Override // android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.dUw == null) {
-            this.dUw = new c();
+        if (this.dUA == null) {
+            this.dUA = new c();
         }
-        this.dUw.initModeInfos(str, context, attributeSet);
+        this.dUA.initModeInfos(str, context, attributeSet);
         return null;
     }
 }

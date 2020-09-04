@@ -7,19 +7,19 @@ import java.util.Iterator;
 /* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b cYx;
-    private ArrayList<com.baidu.swan.apps.ap.e.b<Exception>> cYy = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.ap.e.b<Exception>> cYz = new ArrayList<>();
+    public static volatile b cYB;
+    private ArrayList<com.baidu.swan.apps.ap.e.b<Exception>> cYC = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.ap.e.b<Exception>> cYD = new ArrayList<>();
 
     public static b aDs() {
-        if (cYx == null) {
+        if (cYB == null) {
             synchronized (b.class) {
-                if (cYx == null) {
-                    cYx = new b();
+                if (cYB == null) {
+                    cYB = new b();
                 }
             }
         }
-        return cYx;
+        return cYB;
     }
 
     public void jT(int i) {
@@ -39,9 +39,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.cYz;
+                arrayList = this.cYD;
             } else {
-                arrayList = this.cYy;
+                arrayList = this.cYC;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.c.b.1
@@ -62,17 +62,17 @@ public final class b {
     public void f(int i, Exception exc) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.ap.e.b<Exception>> it = this.cYy.iterator();
+                Iterator<com.baidu.swan.apps.ap.e.b<Exception>> it = this.cYC.iterator();
                 while (it.hasNext()) {
                     a(it.next(), exc);
                 }
-                this.cYy.clear();
+                this.cYC.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.ap.e.b<Exception>> it2 = this.cYz.iterator();
+                Iterator<com.baidu.swan.apps.ap.e.b<Exception>> it2 = this.cYD.iterator();
                 while (it2.hasNext()) {
                     a(it2.next(), exc);
                 }
-                this.cYz.clear();
+                this.cYD.clear();
             }
         }
     }

@@ -8,10 +8,10 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static a dVw;
-    private Runnable dVx = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
+    private static a dVA;
+    private Runnable dVB = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.this.mO(0);
@@ -19,14 +19,14 @@ public class a {
     };
 
     public static a bcb() {
-        if (dVw == null) {
+        if (dVA == null) {
             synchronized (a.class) {
-                if (dVw == null) {
-                    dVw = new a();
+                if (dVA == null) {
+                    dVA = new a();
                 }
             }
         }
-        return dVw;
+        return dVA;
     }
 
     public void mO(int i) {
@@ -48,7 +48,7 @@ public class a {
     public void bcd() {
         if (bcc()) {
             mO(1);
-            e.mS().postDelayed(this.dVx, 500L);
+            e.mS().postDelayed(this.dVB, 500L);
         }
     }
 }

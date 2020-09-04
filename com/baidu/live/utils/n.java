@@ -14,12 +14,12 @@ public class n {
     private static int everyDayUser = 0;
     private static int everyDayDevice = 0;
     private static int deviceNotClick = 0;
-    private static boolean bqw = false;
-    private static HashMap<Long, Integer> bqx = new HashMap<>();
+    private static boolean bqz = false;
+    private static HashMap<Long, Integer> bqA = new HashMap<>();
 
     private static void init() {
-        if (com.baidu.live.w.a.Nk().beH.aHj != null) {
-            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.w.a.Nk().beH.aHj;
+        if (com.baidu.live.w.a.Nk().beJ.aHl != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.w.a.Nk().beJ.aHl;
             if (alaFeedDiversionData.frequencyData != null) {
                 AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
                 startEveryLive = alaFrequencyData.startEveryLive;
@@ -37,7 +37,7 @@ public class n {
         if (startEveryLive <= 0) {
             return false;
         }
-        if (bqx.containsKey(Long.valueOf(j)) && bqx.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+        if (bqA.containsKey(Long.valueOf(j)) && bqA.get(Long.valueOf(j)).intValue() >= startEveryLive) {
             return false;
         }
         return true;
@@ -64,10 +64,10 @@ public class n {
 
     public static void ax(long j) {
         Integer num = 0;
-        if (bqx.containsKey(Long.valueOf(j))) {
-            num = bqx.get(Long.valueOf(j));
+        if (bqA.containsKey(Long.valueOf(j))) {
+            num = bqA.get(Long.valueOf(j));
         }
-        bqx.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        bqA.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
         JSONObject Po = Po();
         String b = j.b(new Date());
         JSONObject optJSONObject = Po.optJSONObject(b);
@@ -121,15 +121,15 @@ public class n {
         }
     }
 
-    public static void cE(boolean z) {
+    public static void cF(boolean z) {
         com.baidu.live.c.AD().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.c.AD().getInt("feed_diversion_noclick_frequency", 0) + 1);
     }
 
     public static boolean ay(long j) {
         boolean aw;
-        if (!bqw && (aw = aw(j))) {
-            bqw = (Pm() && Pn()) ? false : true;
-            return aw & (bqw ? false : true);
+        if (!bqz && (aw = aw(j))) {
+            bqz = (Pm() && Pn()) ? false : true;
+            return aw & (bqz ? false : true);
         }
         return false;
     }

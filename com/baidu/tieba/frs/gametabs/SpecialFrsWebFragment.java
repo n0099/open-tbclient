@@ -69,14 +69,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
-    private static boolean fog = false;
+    private static boolean fok = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
-    private FrameLayout chM;
-    private String eVt;
-    private d imA;
-    private NoNetworkView imB;
-    private FrameLayout imC;
-    private com.baidu.tieba.frs.b.a imD;
+    private FrameLayout chQ;
+    private String eVx;
+    private d imG;
+    private NoNetworkView imH;
+    private FrameLayout imI;
+    private com.baidu.tieba.frs.b.a imJ;
     private boolean isLoading;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private String mBid;
@@ -84,9 +84,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     private l mHybridBridge;
     private View mRootView;
     private int mTabId;
-    private ScrollBridgeWebview fZc = null;
-    private boolean fGI = true;
-    private boolean imE = false;
+    private ScrollBridgeWebview fZg = null;
+    private boolean fGM = true;
+    private boolean imK = false;
     private boolean mIsPaying = false;
     protected boolean mShareResultToFe = false;
     private com.baidu.tieba.tbadkCore.e.c jsCallback = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.1
@@ -98,7 +98,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
             return false;
         }
     };
-    private CustomMessageListener fJR = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.6
+    private CustomMessageListener fJV = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -106,7 +106,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsInfoTab".equals(split[0]) || "FrsRankList".equals(split[0])) {
-                        SpecialFrsWebFragment.this.bGQ();
+                        SpecialFrsWebFragment.this.bGR();
                     }
                 }
             }
@@ -118,18 +118,18 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && !StringUtils.isNull(SpecialFrsWebFragment.this.mUrl)) {
                 SpecialFrsWebFragment.this.isLoading = true;
-                SpecialFrsWebFragment.this.showLoadingView(SpecialFrsWebFragment.this.chM);
+                SpecialFrsWebFragment.this.showLoadingView(SpecialFrsWebFragment.this.chQ);
                 SpecialFrsWebFragment.this.loadUrl(SpecialFrsWebFragment.this.mUrl);
             }
         }
     };
-    private CustomMessageListener imF = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.8
+    private CustomMessageListener imL = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001227 && SpecialFrsWebFragment.this.mIsPaying) {
-                if (SpecialFrsWebFragment.this.fZc != null) {
-                    SpecialFrsWebFragment.this.fZc.reload();
+                if (SpecialFrsWebFragment.this.fZg != null) {
+                    SpecialFrsWebFragment.this.fZg.reload();
                 }
                 SpecialFrsWebFragment.this.mIsPaying = false;
             }
@@ -139,11 +139,11 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetWorkAvailable()) {
-                SpecialFrsWebFragment.this.hideNetRefreshView(SpecialFrsWebFragment.this.imC);
-                SpecialFrsWebFragment.this.chM.setVisibility(0);
-                SpecialFrsWebFragment.this.imC.setVisibility(8);
-                SpecialFrsWebFragment.this.fGI = true;
-                SpecialFrsWebFragment.this.bGQ();
+                SpecialFrsWebFragment.this.hideNetRefreshView(SpecialFrsWebFragment.this.imI);
+                SpecialFrsWebFragment.this.chQ.setVisibility(0);
+                SpecialFrsWebFragment.this.imI.setVisibility(8);
+                SpecialFrsWebFragment.this.fGM = true;
+                SpecialFrsWebFragment.this.bGR();
                 return;
             }
             SpecialFrsWebFragment.this.showToast(R.string.neterror);
@@ -163,7 +163,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     public String getForumId() {
-        return this.eVt;
+        return this.eVx;
     }
 
     public String getForumName() {
@@ -178,10 +178,10 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.eVt = bundle.getString("fid");
+            this.eVx = bundle.getString("fid");
             this.mForumName = bundle.getString("fname");
         } else if (getArguments() != null) {
-            this.eVt = getArguments().getString("fid");
+            this.eVx = getArguments().getString("fid");
             this.mForumName = getArguments().getString("fname");
         }
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
@@ -189,57 +189,57 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         this.jsBridge.a(new com.baidu.tbadk.browser.b(getPageContext().getPageActivity()));
         this.jsBridge.a(buildGameDownloadJSPrompt());
         initCookie();
-        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.fJR, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.fJV, getBaseFragmentActivity().getUniqueId());
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
-        MessageManager.getInstance().registerListener(this.imF);
+        MessageManager.getInstance().registerListener(this.imL);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         ViewParent parent;
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.special_frs_web_index, (ViewGroup) null);
-        this.imB = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-        this.chM = (FrameLayout) this.mRootView.findViewById(R.id.webview_container_layout);
-        this.imC = (FrameLayout) this.mRootView.findViewById(R.id.no_data_container);
-        if (this.imA == null) {
-            this.imA = new d(getPageContext());
+        this.imH = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+        this.chQ = (FrameLayout) this.mRootView.findViewById(R.id.webview_container_layout);
+        this.imI = (FrameLayout) this.mRootView.findViewById(R.id.no_data_container);
+        if (this.imG == null) {
+            this.imG = new d(getPageContext());
         }
-        this.imA.a((NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar), this);
+        this.imG.a((NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar), this);
         createWebView();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.chM.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.chQ.getLayoutParams();
         layoutParams.addRule(3, R.id.view_navigation_bar);
-        this.chM.setLayoutParams(layoutParams);
-        if (this.fZc != null && (parent = this.fZc.getParent()) != null && (parent instanceof ViewGroup)) {
-            ((ViewGroup) parent).removeView(this.fZc);
+        this.chQ.setLayoutParams(layoutParams);
+        if (this.fZg != null && (parent = this.fZg.getParent()) != null && (parent instanceof ViewGroup)) {
+            ((ViewGroup) parent).removeView(this.fZg);
         }
-        this.chM.addView(this.fZc);
+        this.chQ.addView(this.fZg);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.imA != null) {
-            this.imA.onChangeSkinType(i);
+        if (this.imG != null) {
+            this.imG.onChangeSkinType(i);
         }
-        if (this.imB != null) {
-            this.imB.onChangeSkinType(getPageContext(), i);
+        if (this.imH != null) {
+            this.imH.onChangeSkinType(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.imA != null) {
-            this.imA.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (this.imG != null) {
+            this.imG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.imA == null) {
-            this.imA = new d(getPageContext());
+        if (this.imG == null) {
+            this.imG = new d(getPageContext());
         }
     }
 
@@ -247,7 +247,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         if (bundle != null) {
-            bundle.putString("fid", this.eVt);
+            bundle.putString("fid", this.eVx);
             bundle.putString("fname", this.mForumName);
         }
     }
@@ -256,12 +256,12 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.fZc != null) {
-                if (this.fGI) {
+            if (this.fZg != null) {
+                if (this.fGM) {
                     initData();
                 }
                 try {
-                    this.fZc.onResume();
+                    this.fZg.onResume();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -269,9 +269,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
             } else {
                 return;
             }
-        } else if (this.fZc != null) {
+        } else if (this.fZg != null) {
             try {
-                this.fZc.onPause();
+                this.fZg.onPause();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -284,22 +284,22 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
 
     private void initData() {
         if (this.mUrl != null && this.mUrl.contains("redirect=1")) {
-            this.imE = true;
+            this.imK = true;
         }
         loadUrl(this.mUrl);
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_GAME_TRIAL_INSTANCE, com.baidu.tieba.frs.b.a.class);
         if (runTask != null) {
-            this.imD = (com.baidu.tieba.frs.b.a) runTask.getData();
-            if (this.imD != null) {
-                this.imD.init();
+            this.imJ = (com.baidu.tieba.frs.b.a) runTask.getData();
+            if (this.imJ != null) {
+                this.imJ.init();
             }
         }
     }
 
     protected void callHiddenWebViewMethod(String str) {
-        if (this.fZc != null) {
+        if (this.fZg != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.fZc, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.fZg, new Object[0]);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -307,30 +307,30 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     public View createWebView() {
-        if (this.fZc == null) {
-            this.fZc = new ScrollBridgeWebview(getPageContext().getPageActivity());
-            this.fZc.setNeedDisAllowParentInterceptTouchEvent(true);
-            this.fZc.getSettings().setJavaScriptEnabled(true);
-            this.fZc.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.fZc.getSettings().setAllowFileAccess(true);
-            this.fZc.getSettings().setDatabaseEnabled(true);
-            this.fZc.getSettings().setDomStorageEnabled(true);
-            this.fZc.getSettings().setSupportZoom(true);
-            this.fZc.getSettings().setBuiltInZoomControls(true);
-            this.fZc.getSettings().setUseWideViewPort(true);
-            this.fZc.getSettings().setLoadWithOverviewMode(true);
-            this.fZc.getSettings().setDatabasePath(getBaseFragmentActivity().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
-            this.fZc.setHorizontalScrollBarEnabled(false);
-            this.fZc.setHorizontalScrollbarOverlay(false);
-            this.fZc.setInitialScale(100);
-            this.fZc.setScrollBarStyle(33554432);
-            this.fZc.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.fZc.setWebViewClient(new a());
-            this.fZc.setDownloadListener(new b());
+        if (this.fZg == null) {
+            this.fZg = new ScrollBridgeWebview(getPageContext().getPageActivity());
+            this.fZg.setNeedDisAllowParentInterceptTouchEvent(true);
+            this.fZg.getSettings().setJavaScriptEnabled(true);
+            this.fZg.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.fZg.getSettings().setAllowFileAccess(true);
+            this.fZg.getSettings().setDatabaseEnabled(true);
+            this.fZg.getSettings().setDomStorageEnabled(true);
+            this.fZg.getSettings().setSupportZoom(true);
+            this.fZg.getSettings().setBuiltInZoomControls(true);
+            this.fZg.getSettings().setUseWideViewPort(true);
+            this.fZg.getSettings().setLoadWithOverviewMode(true);
+            this.fZg.getSettings().setDatabasePath(getBaseFragmentActivity().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
+            this.fZg.setHorizontalScrollBarEnabled(false);
+            this.fZg.setHorizontalScrollbarOverlay(false);
+            this.fZg.setInitialScale(100);
+            this.fZg.setScrollBarStyle(33554432);
+            this.fZg.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.fZg.setWebViewClient(new a());
+            this.fZg.setDownloadListener(new b());
             com.baidu.tieba.frs.gametabs.b bVar = new com.baidu.tieba.frs.gametabs.b(getPageContext());
             bVar.setOnJsPromptCallback(this.jsCallback);
-            this.fZc.setWebChromeClient(bVar);
-            this.fZc.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.9
+            this.fZg.setWebChromeClient(bVar);
+            this.fZg.setOnScrollChangeListener(new ScrollBridgeWebview.a() { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.9
                 @Override // com.baidu.tbadk.core.hybrid.ScrollBridgeWebview.a
                 public void p(int i, int i2, int i3, int i4) {
                 }
@@ -343,9 +343,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
                 public void onScrollChanged(int i, int i2, int i3, int i4) {
                 }
             });
-            CompatibleUtile.getInstance().removeJavascriptInterface(this.fZc);
+            CompatibleUtile.getInstance().removeJavascriptInterface(this.fZg);
             boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
-            l a2 = q.a(isHybridBridgeEnabled, this.fZc, (com.baidu.tbadk.core.hybrid.b) null);
+            l a2 = q.a(isHybridBridgeEnabled, this.fZg, (com.baidu.tbadk.core.hybrid.b) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
                 a2.a(new n(a2) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.10
@@ -373,7 +373,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
                 a2.a(new com.baidu.tbadk.browser.c(a2));
                 a2.a(new com.baidu.tbadk.core.hybrid.a.d(a2));
                 a2.a(new e(a2));
-                a2.a(new com.baidu.tieba.frs.gametabs.a(a2, this.eVt));
+                a2.a(new com.baidu.tieba.frs.gametabs.a(a2, this.eVx));
                 a2.a(new n(a2) { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.12
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.tbadk.core.hybrid.n
@@ -438,7 +438,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
                 });
             }
         }
-        return this.fZc;
+        return this.fZg;
     }
 
     public void a(ShareItem shareItem) {
@@ -462,8 +462,8 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     public void loadUrl(String str) {
-        if (this.fZc != null) {
-            CompatibleUtile.getInstance().loadUrl(this.fZc, str);
+        if (this.fZg != null) {
+            CompatibleUtile.getInstance().loadUrl(this.fZg, str);
         }
     }
 
@@ -489,27 +489,27 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.imF);
-        if (this.imD != null) {
-            this.imD.release();
-            this.imD = null;
+        MessageManager.getInstance().unRegisterListener(this.imL);
+        if (this.imJ != null) {
+            this.imJ.release();
+            this.imJ = null;
         }
-        if (this.imA != null) {
-            this.imA.onDestroy();
+        if (this.imG != null) {
+            this.imG.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.dxh();
+            this.jsBridge.dxm();
         }
-        if (this.fZc != null) {
-            this.fZc.getSettings().setBuiltInZoomControls(true);
-            this.fZc.setVisibility(8);
+        if (this.fZg != null) {
+            this.fZg.getSettings().setBuiltInZoomControls(true);
+            this.fZg.setVisibility(8);
             com.baidu.adp.lib.f.e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        if (SpecialFrsWebFragment.this.fZc != null) {
-                            SpecialFrsWebFragment.this.fZc.destroy();
-                            SpecialFrsWebFragment.this.fZc = null;
+                        if (SpecialFrsWebFragment.this.fZg != null) {
+                            SpecialFrsWebFragment.this.fZg.destroy();
+                            SpecialFrsWebFragment.this.fZg = null;
                         }
                     } catch (Throwable th) {
                         BdLog.e(th);
@@ -528,29 +528,29 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (SpecialFrsWebFragment.this.fZc != null) {
+            if (SpecialFrsWebFragment.this.fZg != null) {
                 SpecialFrsWebFragment.this.isLoading = false;
-                SpecialFrsWebFragment.this.hideLoadingView(SpecialFrsWebFragment.this.chM);
+                SpecialFrsWebFragment.this.hideLoadingView(SpecialFrsWebFragment.this.chQ);
                 SpecialFrsWebFragment.this.mUrl = str;
-                SpecialFrsWebFragment.this.fZc.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
-                if (SpecialFrsWebFragment.this.fGI) {
-                    SpecialFrsWebFragment.this.fGI = false;
+                SpecialFrsWebFragment.this.fZg.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
+                if (SpecialFrsWebFragment.this.fGM) {
+                    SpecialFrsWebFragment.this.fGM = false;
                 }
-                String title = SpecialFrsWebFragment.this.fZc.getTitle();
+                String title = SpecialFrsWebFragment.this.fZg.getTitle();
                 if (!TextUtils.isEmpty(title)) {
-                    SpecialFrsWebFragment.this.yb(title);
+                    SpecialFrsWebFragment.this.yc(title);
                 }
-                SpecialFrsWebFragment.this.imA.setNavBarVisibility(SpecialFrsWebFragment.this.isNeedShowNavigationBar());
-                SpecialFrsWebFragment.this.imA.hD(SpecialFrsWebFragment.this.isNeedShowShareItem());
-                SpecialFrsWebFragment.this.imA.oT(SpecialFrsWebFragment.this.isNeedShowMenuItem());
+                SpecialFrsWebFragment.this.imG.setNavBarVisibility(SpecialFrsWebFragment.this.isNeedShowNavigationBar());
+                SpecialFrsWebFragment.this.imG.hE(SpecialFrsWebFragment.this.isNeedShowShareItem());
+                SpecialFrsWebFragment.this.imG.oV(SpecialFrsWebFragment.this.isNeedShowMenuItem());
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (SpecialFrsWebFragment.this.fZc != null) {
-                SpecialFrsWebFragment.this.fZc.stopLoading();
+            if (SpecialFrsWebFragment.this.fZg != null) {
+                SpecialFrsWebFragment.this.fZg.stopLoading();
                 SpecialFrsWebFragment.this.onReceivedError(i);
             }
         }
@@ -558,10 +558,10 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (SpecialFrsWebFragment.this.fZc != null) {
-                if (SpecialFrsWebFragment.this.fGI) {
+            if (SpecialFrsWebFragment.this.fZg != null) {
+                if (SpecialFrsWebFragment.this.fGM) {
                     SpecialFrsWebFragment.this.isLoading = true;
-                    SpecialFrsWebFragment.this.showLoadingView(SpecialFrsWebFragment.this.chM);
+                    SpecialFrsWebFragment.this.showLoadingView(SpecialFrsWebFragment.this.chQ);
                 }
                 SpecialFrsWebFragment.this.mUrl = str;
             }
@@ -572,16 +572,16 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (SpecialFrsWebFragment.this.fGI) {
-                SpecialFrsWebFragment.this.fGI = false;
+            if (SpecialFrsWebFragment.this.fGM) {
+                SpecialFrsWebFragment.this.fGM = false;
                 return false;
-            } else if (!SpecialFrsWebFragment.this.IG(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
-                if (!SpecialFrsWebFragment.this.Fj(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.fZc.isShown()) {
+            } else if (!SpecialFrsWebFragment.this.IH(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
+                if (!SpecialFrsWebFragment.this.Fk(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.fZg.isShown()) {
                     if (str.startsWith("tdoudiscount:")) {
                         SpecialFrsWebFragment.this.mIsPaying = true;
                     }
-                    if (!SpecialFrsWebFragment.this.yc(str)) {
-                        if (SpecialFrsWebFragment.this.imE) {
+                    if (!SpecialFrsWebFragment.this.yd(str)) {
+                        if (SpecialFrsWebFragment.this.imK) {
                             return be.bju().a(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
                         }
                         be.bju().a((TbPageContext<?>) SpecialFrsWebFragment.this.getPageContext(), new String[]{str}, true);
@@ -599,7 +599,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean IG(String str) {
+    public boolean IH(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -607,24 +607,24 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Fj(String str) {
-        return IH(str) || IJ(str) || IK(str) || II(str);
+    public boolean Fk(String str) {
+        return II(str) || IK(str) || IL(str) || IJ(str);
     }
 
-    private boolean IH(String str) {
+    private boolean II(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_SDK)) {
             return false;
         }
         int parseInt = Integer.parseInt(ai.getMatchStringFromURL(str, "fid="));
         int parseInt2 = Integer.parseInt(ai.getMatchStringFromURL(str, "gameid="));
         String matchStringFromURL = ai.getMatchStringFromURL(str, "gamename=");
-        if (this.imD != null) {
-            this.imD.a(getPageContext(), matchStringFromURL, parseInt2, parseInt);
+        if (this.imJ != null) {
+            this.imJ.a(getPageContext(), matchStringFromURL, parseInt2, parseInt);
         }
         return true;
     }
 
-    private boolean II(String str) {
+    private boolean IJ(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FRS_DETAIL)) {
             return false;
         }
@@ -632,7 +632,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         return true;
     }
 
-    private boolean IJ(String str) {
+    private boolean IK(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_START_GAME)) {
             return false;
         }
@@ -643,7 +643,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
         return true;
     }
 
-    private boolean IK(String str) {
+    private boolean IL(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_JUMP_PB)) {
             return false;
         }
@@ -676,14 +676,14 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     public void onReceivedError(int i) {
-        if (this.fZc != null) {
-            this.mUrl = this.fZc.getUrl();
-            this.fZc.stopLoading();
+        if (this.fZg != null) {
+            this.mUrl = this.fZg.getUrl();
+            this.fZg.stopLoading();
         }
-        this.chM.setVisibility(8);
-        this.imC.setVisibility(0);
+        this.chQ.setVisibility(8);
+        this.imI.setVisibility(0);
         if (getPageContext() != null) {
-            showNetRefreshView(this.imC, getPageContext().getString(R.string.url_not_found), null, getPageContext().getString(R.string.refresh), false, this.mOnRefreshClickListener);
+            showNetRefreshView(this.imI, getPageContext().getString(R.string.url_not_found), null, getPageContext().getString(R.string.refresh), false, this.mOnRefreshClickListener);
         }
     }
 
@@ -697,8 +697,8 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void trackFPS() {
-        if (!fog) {
-            fog = true;
+        if (!fok) {
+            fok = true;
             g.bhN().a(16, new com.baidu.tbadk.core.hybrid.j() { // from class: com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment.5
                 @Override // com.baidu.tbadk.core.hybrid.j
                 public void aU(List<Long> list) {
@@ -726,9 +726,9 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     @Override // com.baidu.tieba.frs.at
-    public NavigationBar bJH() {
-        if (this.imA != null) {
-            return this.imA.bJH();
+    public NavigationBar bJI() {
+        if (this.imG != null) {
+            return this.imG.bJI();
         }
         return null;
     }
@@ -759,7 +759,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGQ() {
+    public void bGR() {
         if (!this.isLoading && !TextUtils.isEmpty(this.mUrl) && j.isNetWorkAvailable()) {
             loadUrl(this.mUrl);
         }
@@ -779,8 +779,8 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements at {
                 if (this.mHybridBridge != null) {
                     this.mHybridBridge.a(a2);
                 }
-                if (!StringUtils.isNull(this.mUrl) && this.mUrl.contains("topicgroupcallback=1") && intent != null && intent.getIntExtra("extra_share_status", -1) == 1 && this.fZc != null) {
-                    this.fZc.loadUrl("javascript:window.__js_bridge_topic_group_share_action()");
+                if (!StringUtils.isNull(this.mUrl) && this.mUrl.contains("topicgroupcallback=1") && intent != null && intent.getIntExtra("extra_share_status", -1) == 1 && this.fZg != null) {
+                    this.fZg.loadUrl("javascript:window.__js_bridge_topic_group_share_action()");
                 }
             }
         }

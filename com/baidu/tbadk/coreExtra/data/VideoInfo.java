@@ -9,7 +9,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
     private static final String KEY_VIDEO_DURATION = "video_l";

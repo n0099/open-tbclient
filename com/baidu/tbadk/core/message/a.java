@@ -85,7 +85,7 @@ public class a {
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            aq dD = new aq("c13271").ai("obj_type", cVar.dWP).ai("obj_locate", cVar.dWQ).ai("obj_id", cVar.dWR).ai("obj_name", i).dD("post_id", agreeData.postId).dD("nid", agreeData.nid);
+            aq dD = new aq("c13271").ai("obj_type", cVar.dWT).ai("obj_locate", cVar.dWU).ai("obj_id", cVar.dWV).ai("obj_name", i).dD("post_id", agreeData.postId).dD("nid", agreeData.nid);
             if (bwVar != null) {
                 dD.dD("tid", bwVar.getId()).dD("nid", bwVar.getNid()).u("fid", bwVar.getFid()).dD("ab_tag", bwVar.mRecomAbTag).dD(IntentConfig.RECOM_SOURCE, bwVar.mRecomSource).dD("weight", bwVar.mRecomWeight).dD("extra", bwVar.mRecomExtra);
                 if (bwVar.getBaijiahaoData() != null) {

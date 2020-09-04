@@ -145,7 +145,7 @@ public final class ViewManager {
         FloatContainer mContainer = getMContainer();
         View floatingView2 = this.config.getFloatingView();
         if (floatingView2 == null) {
-            q.egj();
+            q.egs();
         }
         mContainer.addView(floatingView2);
         getMContainer().setTouchListener(new FloatContainer.TouchListener() { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$1
@@ -406,7 +406,7 @@ public final class ViewManager {
     private final View getContentView() {
         View floatingView = this.config.getFloatingView();
         if (floatingView == null) {
-            q.egj();
+            q.egs();
         }
         return floatingView;
     }

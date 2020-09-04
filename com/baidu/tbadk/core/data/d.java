@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public String labelColor;
     public int labelId;

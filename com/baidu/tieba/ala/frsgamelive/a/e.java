@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.c.f;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, f.a> {
-    private com.baidu.tieba.ala.e fWZ;
+    private com.baidu.tieba.ala.e fXd;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -27,12 +27,12 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsga
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, f.a aVar) {
-        aVar.fYH.a(cVar);
-        aVar.fYH.c(this.fWZ);
+        aVar.fYL.a(cVar);
+        aVar.fYL.c(this.fXd);
         return aVar.getView();
     }
 
     public void a(com.baidu.tieba.ala.e eVar) {
-        this.fWZ = eVar;
+        this.fXd = eVar;
     }
 }

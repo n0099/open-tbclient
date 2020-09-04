@@ -9,9 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c implements IAdapterData {
-    public static final BdUniqueId fPq = BdUniqueId.gen();
+    public static final BdUniqueId fPu = BdUniqueId.gen();
     private String desc;
-    private List<IAdapterData> fPr;
+    private List<IAdapterData> fPv;
     private String icon;
     private String id;
     private String level;
@@ -25,13 +25,13 @@ public class c implements IAdapterData {
         this.desc = jSONObject.optString("desc");
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_list");
         if (optJSONArray != null) {
-            this.fPr = new ArrayList();
+            this.fPv = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
                 cVar.di(optJSONObject);
-                this.fPr.add(cVar);
+                this.fPv.add(cVar);
             }
         }
     }
@@ -44,12 +44,12 @@ public class c implements IAdapterData {
         return this.name;
     }
 
-    public List<IAdapterData> bHY() {
-        return this.fPr;
+    public List<IAdapterData> bHZ() {
+        return this.fPv;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return fPq;
+        return fPu;
     }
 }

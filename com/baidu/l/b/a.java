@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a implements com.baidu.l.c.a {
     private static final String TAG = a.class.getSimpleName();
-    private static final String bEx = SchemeConfig.getSchemeHead() + "://swan/";
+    private static final String bEB = SchemeConfig.getSchemeHead() + "://swan/";
 
     @Override // com.baidu.l.c.a
     public void e(Activity activity, String str, com.baidu.l.a.a aVar) {
@@ -40,7 +40,7 @@ public class a implements com.baidu.l.c.a {
         if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
             com.baidu.l.a.K(3, "支付信息不能为空");
         } else {
-            SchemeRouter.invoke(context, bEx + optString + optString2);
+            SchemeRouter.invoke(context, bEB + optString + optString2);
         }
     }
 
@@ -54,7 +54,7 @@ public class a implements com.baidu.l.c.a {
     }
 
     @Override // com.baidu.l.c.a
-    public void hS(String str) {
+    public void hT(String str) {
         com.baidu.swan.apps.aa.a.avq().appId = str;
     }
 
@@ -64,7 +64,7 @@ public class a implements com.baidu.l.c.a {
         if (TextUtils.isEmpty(str)) {
             d.l(bundle);
         } else {
-            com.baidu.swan.apps.process.messaging.a.axs().a(new c(119, bundle).u(str).fo(true));
+            com.baidu.swan.apps.process.messaging.a.axs().a(new c(119, bundle).u(str).fp(true));
         }
     }
 

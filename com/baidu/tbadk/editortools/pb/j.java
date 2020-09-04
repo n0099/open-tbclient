@@ -1,6 +1,6 @@
 package com.baidu.tbadk.editortools.pb;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
-    public String eNk;
+    public String eNo;
     public String mContent;
 }

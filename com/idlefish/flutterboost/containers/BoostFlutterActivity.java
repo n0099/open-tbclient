@@ -336,4 +336,7 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
 
     public void setSwipeBackEnable(boolean z) {
     }
+
+    public void swipeBackControl(double d) {
+    }
 }

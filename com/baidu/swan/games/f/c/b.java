@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b drq;
-    private HashMap<String, c> doC = new HashMap<>();
+    private static volatile b drv;
+    private HashMap<String, c> doG = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b doE = com.baidu.swan.games.network.b.aOC();
-    private String doD = f.aKZ();
+    private com.baidu.swan.games.network.b doI = com.baidu.swan.games.network.b.aOC();
+    private String doH = f.aKZ();
 
     public static b aNm() {
-        if (drq == null) {
+        if (drv == null) {
             synchronized (b.class) {
-                if (drq == null) {
-                    drq = new b();
+                if (drv == null) {
+                    drv = new b();
                 }
             }
         }
-        return drq;
+        return drv;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String uC = uC(str);
-            File file = new File(uC(str));
+            String uD = uD(str);
+            File file = new File(uD(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(uC);
+                    valueCallback.onReceiveValue(uD);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!uA(str)) {
-                    uB(str);
+                if (!uB(str)) {
+                    uC(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean uA(String str) {
-        return this.doC.containsKey(str);
+    private boolean uB(String str) {
+        return this.doG.containsKey(str);
     }
 
-    private void uB(String str) {
+    private void uC(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.doE, this.doD, str, this);
-        this.doC.put(str, cVar);
+        c cVar = new c(this.doI, this.doH, str, this);
+        this.doG.put(str, cVar);
         cVar.load();
     }
 
@@ -84,7 +84,7 @@ public class b implements a {
     public void cA(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (uA(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (uB(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,7 +92,7 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.doC.remove(str);
+                this.doG.remove(str);
             }
         }
     }
@@ -101,17 +101,17 @@ public class b implements a {
     public void ac(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (uA(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (uB(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.doC.remove(str);
+                this.doG.remove(str);
             }
         }
     }
 
-    private String uC(String str) throws MalformedURLException {
-        return this.doD + f.ux(str);
+    private String uD(String str) throws MalformedURLException {
+        return this.doH + f.uy(str);
     }
 }

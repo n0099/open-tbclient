@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes20.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State orO = State.NotReady;
-    private T orP;
+    private State osg = State.NotReady;
+    private T osh;
 
-    protected abstract void efN();
+    protected abstract void efW();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.orO != State.Failed) {
-            switch (this.orO) {
+        if (this.osg != State.Failed) {
+            switch (this.osg) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return efM();
+                    return efV();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.orO = State.NotReady;
-            return this.orP;
+            this.osg = State.NotReady;
+            return this.osh;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean efM() {
-        this.orO = State.Failed;
-        efN();
-        return this.orO == State.Ready;
+    private final boolean efV() {
+        this.osg = State.Failed;
+        efW();
+        return this.osg == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bK(T t) {
-        this.orP = t;
-        this.orO = State.Ready;
+        this.osh = t;
+        this.osg = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.orO = State.Done;
+        this.osg = State.Done;
     }
 }

@@ -16,23 +16,23 @@ public class ap implements ar {
     private static boolean a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f108a;
+    private Context f107a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ServiceConnection f109a;
+    private ServiceConnection f108a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f107a = 0;
+    private volatile int f106a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile String f111a = null;
+    private volatile String f110a = null;
 
     /* renamed from: b  reason: collision with other field name */
-    private volatile boolean f112b = false;
+    private volatile boolean f111b = false;
     private volatile String b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f110a = new Object();
+    private final Object f109a = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
@@ -44,31 +44,31 @@ public class ap implements ar {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                ap.this.f111a = b.a(iBinder);
-                ap.this.f112b = b.m136a(iBinder);
+                ap.this.f110a = b.a(iBinder);
+                ap.this.f111b = b.m136a(iBinder);
                 ap.this.b();
-                ap.this.f107a = 2;
-                synchronized (ap.this.f110a) {
+                ap.this.f106a = 2;
+                synchronized (ap.this.f109a) {
                     try {
-                        ap.this.f110a.notifyAll();
+                        ap.this.f109a.notifyAll();
                     } catch (Exception e) {
                     }
                 }
             } catch (Exception e2) {
                 ap.this.b();
-                ap.this.f107a = 2;
-                synchronized (ap.this.f110a) {
+                ap.this.f106a = 2;
+                synchronized (ap.this.f109a) {
                     try {
-                        ap.this.f110a.notifyAll();
+                        ap.this.f109a.notifyAll();
                     } catch (Exception e3) {
                     }
                 }
             } catch (Throwable th) {
                 ap.this.b();
-                ap.this.f107a = 2;
-                synchronized (ap.this.f110a) {
+                ap.this.f106a = 2;
+                synchronized (ap.this.f109a) {
                     try {
-                        ap.this.f110a.notifyAll();
+                        ap.this.f109a.notifyAll();
                     } catch (Exception e4) {
                     }
                     throw th;
@@ -114,7 +114,7 @@ public class ap implements ar {
     }
 
     public ap(Context context) {
-        this.f108a = context;
+        this.f107a = context;
         a();
     }
 
@@ -129,25 +129,25 @@ public class ap implements ar {
     }
 
     private void a() {
-        this.f109a = new a();
+        this.f108a = new a();
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         boolean z = false;
         try {
-            z = this.f108a.bindService(intent, this.f109a, 1);
+            z = this.f107a.bindService(intent, this.f108a, 1);
         } catch (Exception e) {
         }
-        this.f107a = z ? 1 : 2;
+        this.f106a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f107a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f106a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f110a) {
+        synchronized (this.f109a) {
             try {
                 com.xiaomi.channel.commonutils.logger.b.m54a("huawei's " + str + " wait...");
-                this.f110a.wait(IMConnection.RETRY_DELAY_TIMES);
+                this.f109a.wait(IMConnection.RETRY_DELAY_TIMES);
             } catch (Exception e) {
             }
         }
@@ -169,9 +169,9 @@ public class ap implements ar {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f109a != null) {
+        if (this.f108a != null) {
             try {
-                this.f108a.unbindService(this.f109a);
+                this.f107a.unbindService(this.f108a);
             } catch (Exception e) {
             }
         }
@@ -191,7 +191,7 @@ public class ap implements ar {
     /* renamed from: b  reason: collision with other method in class */
     public String mo135b() {
         a("getOAID");
-        return this.f111a;
+        return this.f110a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -204,7 +204,7 @@ public class ap implements ar {
         if (this.b == null) {
             synchronized (this) {
                 if (this.b == null) {
-                    this.b = a(this.f108a);
+                    this.b = a(this.f107a);
                 }
             }
         }

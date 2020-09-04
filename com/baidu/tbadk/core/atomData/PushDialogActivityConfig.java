@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushDialogActivityConfig extends IntentConfig {
     public static final String KEY_TASK_ID = "task_id";
     public static final String KEY_THREAD_ID = "thread_id";

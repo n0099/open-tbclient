@@ -15,10 +15,10 @@ import com.baidu.live.data.br;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class ImBarrageTrackView extends FrameLayout {
-    private a aAZ;
-    private int aBa;
-    private int aBb;
-    private boolean aBc;
+    private a aBb;
+    private int aBc;
+    private int aBd;
+    private boolean aBe;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -33,19 +33,19 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aAZ = aVar;
+        this.aBb = aVar;
     }
 
     public boolean Bs() {
-        return this.aBc;
+        return this.aBe;
     }
 
     public void setCanAddNext() {
-        this.aBc = true;
+        this.aBe = true;
     }
 
     public void a(br brVar, com.baidu.live.data.a aVar, String str, String str2) {
-        this.aBc = false;
+        this.aBe = false;
         ba(false);
         View b = b(brVar, aVar, str, str2);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
@@ -62,8 +62,8 @@ public class ImBarrageTrackView extends FrameLayout {
 
     private void init() {
         setBackgroundColor(0);
-        this.aBa = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.aBb = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aBc = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aBd = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
     private void ba(boolean z) {
@@ -98,8 +98,8 @@ public class ImBarrageTrackView extends FrameLayout {
         imBarrageItemView.setCallback(new ImBarrageItemView.a() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.1
             @Override // com.baidu.live.barrage.view.ImBarrageItemView.a
             public void b(com.baidu.live.data.a aVar2) {
-                if (ImBarrageTrackView.this.aAZ != null) {
-                    ImBarrageTrackView.this.aAZ.b(aVar2);
+                if (ImBarrageTrackView.this.aBb != null) {
+                    ImBarrageTrackView.this.aBb.b(aVar2);
                 }
             }
         });
@@ -109,7 +109,7 @@ public class ImBarrageTrackView extends FrameLayout {
 
     private Animator K(final View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", getWidth(), -view.getMeasuredWidth());
-        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aBa) * 1000.0f);
+        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aBc) * 1000.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setRepeatCount(0);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.2
@@ -125,7 +125,7 @@ public class ImBarrageTrackView extends FrameLayout {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.barrage.view.ImBarrageTrackView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aBb) {
+                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aBd) {
                     ImBarrageTrackView.this.Bt();
                 }
             }
@@ -135,10 +135,10 @@ public class ImBarrageTrackView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Bt() {
-        if (!this.aBc) {
-            this.aBc = true;
-            if (this.aAZ != null) {
-                this.aAZ.onNext();
+        if (!this.aBe) {
+            this.aBe = true;
+            if (this.aBb != null) {
+                this.aBb.onNext();
             }
         }
     }

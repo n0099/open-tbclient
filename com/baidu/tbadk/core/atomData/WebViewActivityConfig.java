@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";

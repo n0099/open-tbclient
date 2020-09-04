@@ -119,7 +119,7 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
         if (this.mWebViewHookHandler != null) {
-            return this.mWebViewHookHandler.dM(canGoBack);
+            return this.mWebViewHookHandler.dN(canGoBack);
         }
         return canGoBack;
     }
@@ -200,9 +200,9 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         if (sIsSetWebViewSize) {
             Pair<Integer, Integer> pair = null;
             if (i2 == Integer.MIN_VALUE) {
-                Pair<Integer, Integer> sG = ah.sG(str);
-                i2 = ((Integer) sG.second).intValue();
-                pair = sG;
+                Pair<Integer, Integer> sH = ah.sH(str);
+                i2 = ((Integer) sH.second).intValue();
+                pair = sH;
             }
             if (i == Integer.MIN_VALUE) {
                 i3 = pair != null ? ((Integer) pair.first).intValue() : ah.getDisplayWidth(AppRuntime.getAppContext());

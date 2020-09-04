@@ -1,5 +1,5 @@
 package com.baidu.tbadk.clientConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface a {
     void an(Object obj);
 

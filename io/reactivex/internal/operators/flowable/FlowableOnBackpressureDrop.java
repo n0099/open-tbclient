@@ -13,7 +13,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
-        this.omB.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.omT.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
     /* loaded from: classes7.dex */

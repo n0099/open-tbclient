@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a implements x {
-    private com.baidu.live.gift.c.a aVH;
+    private com.baidu.live.gift.c.a aVJ;
     private Context mContext;
 
     public a(Context context) {
@@ -21,8 +21,8 @@ public class a implements x {
     }
 
     @Override // com.baidu.live.gift.x
-    public void gt(String str) {
-        this.aVH.gJ(str);
+    public void gu(String str) {
+        this.aVJ.gK(str);
     }
 
     @Override // com.baidu.live.gift.x
@@ -31,14 +31,14 @@ public class a implements x {
 
     @Override // com.baidu.live.gift.x
     public void release() {
-        if (this.aVH != null) {
-            this.aVH.release();
+        if (this.aVJ != null) {
+            this.aVJ.release();
         }
     }
 
     private void Hh() {
-        this.aVH = new com.baidu.live.gift.c.a();
-        this.aVH.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+        this.aVJ = new com.baidu.live.gift.c.a();
+        this.aVJ.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.f> arrayList2, ArrayList<g> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -70,10 +70,10 @@ public class a implements x {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aVH == null) {
-                this.aVH = new com.baidu.live.gift.c.a();
+            if (this.aVJ == null) {
+                this.aVJ = new com.baidu.live.gift.c.a();
             }
-            this.aVH.gJ("gift_send_101");
+            this.aVJ.gK("gift_send_101");
         }
     }
 
@@ -94,7 +94,7 @@ public class a implements x {
                     } else {
                         for (com.baidu.live.gift.g gVar : Er) {
                             if (gVar.DR().equals(str)) {
-                                gVar.aNn.aNu = i;
+                                gVar.aNp.aNw = i;
                             }
                         }
                     }

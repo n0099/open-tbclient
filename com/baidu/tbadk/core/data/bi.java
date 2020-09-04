@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bi extends u implements com.baidu.tbadk.mvc.b.a {
-    private boolean dZT;
+    private boolean dZX;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
@@ -29,11 +29,11 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
     }
 
     public boolean isLike() {
-        return this.dZT;
+        return this.dZX;
     }
 
     public void setLike(boolean z) {
-        this.dZT = z;
+        this.dZX = z;
     }
 
     public int bdI() {
@@ -58,7 +58,7 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mAvatar = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
-                this.dZT = recommendForumInfo.is_like.intValue() == 1;
+                this.dZX = recommendForumInfo.is_like.intValue() == 1;
                 this.member_count = recommendForumInfo.member_count.intValue();
                 this.thread_count = recommendForumInfo.thread_count.intValue();
                 this.recom_reason = recommendForumInfo.recom_reason;
@@ -72,11 +72,11 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
         this.mForumId = j;
     }
 
-    public void zf(String str) {
+    public void zg(String str) {
         this.mAvatar = str;
     }
 
-    public void zg(String str) {
+    public void zh(String str) {
         this.mForumName = str;
     }
 
@@ -85,7 +85,7 @@ public class bi extends u implements com.baidu.tbadk.mvc.b.a {
         return this.recom_reason;
     }
 
-    public void zh(String str) {
+    public void zi(String str) {
         this.recom_reason = str;
     }
 }

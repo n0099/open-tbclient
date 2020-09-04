@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     private String groupMsgName;
     private String groupUpdatesEventContent;
@@ -38,7 +38,7 @@ public class f {
     private HashMap<String, String> privateGidName = new HashMap<>();
     private List<a> officialNotificationData = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public String content;
         public String gName;

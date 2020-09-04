@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
 import tbclient.ActiveConfig.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NewUserRedPackageData implements Serializable {
     public String clickUrl;
     public String money;

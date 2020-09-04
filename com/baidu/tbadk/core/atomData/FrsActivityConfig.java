@@ -22,7 +22,7 @@ import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";
@@ -168,7 +168,7 @@ public class FrsActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
         AccountData currentAccountObj;
-        int IW;
+        int IX;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("name");
         String stringExtra2 = intent.getStringExtra("from");
@@ -188,27 +188,27 @@ public class FrsActivityConfig extends IntentConfig {
         }
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            IW = 3;
+            IX = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            IW = 6;
+            IX = 6;
         } else {
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            IW = g.IW("1~" + str + stringExtra);
+            IX = g.IX("1~" + str + stringExtra);
         }
-        frsRequestData.setSortType(g.yG(IW));
-        if (IW == 5) {
+        frsRequestData.setSortType(g.yG(IX));
+        if (IX == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.fP("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.fP("client_type", "2");
+        frsRequestData.fQ("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.fQ("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        g.a(IW, frsRequestData);
+        g.a(IX, frsRequestData);
         frsRequestData.QD("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
@@ -223,17 +223,17 @@ public class FrsActivityConfig extends IntentConfig {
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ab.bvI(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(ab.bvJ(), 0L));
         frsRequestData.setStType(stringExtra2);
         frsRequestData.HK(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.fT(longExtra);
-        g.a(IW, frsRequestData);
+        frsRequestData.fV(longExtra);
+        g.a(IX, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bw.ebD.get() && r.dnh().dnb() != null) {
-            int aT = r.dnh().dnb().aT(stringExtra, false);
-            int aU = r.dnh().dnb().aU(stringExtra, false);
+        if (bw.ebH.get() && r.dnk().dne() != null) {
+            int aT = r.dnk().dne().aT(stringExtra, false);
+            int aU = r.dnk().dne().aU(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 aT++;
             } else if (frsRequestData.getLoadType() == 2) {

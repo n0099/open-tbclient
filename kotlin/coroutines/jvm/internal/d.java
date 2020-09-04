@@ -14,8 +14,8 @@ public final class d {
         }
         ea(1, b.v());
         int c = c(baseContinuationImpl);
-        int i = c < 0 ? -1 : b.ege()[c];
-        String d = f.osl.d(baseContinuationImpl);
+        int i = c < 0 ? -1 : b.egn()[c];
+        String d = f.osD.d(baseContinuationImpl);
         return new StackTraceElement(d == null ? b.c() : d + '/' + b.c(), b.m(), b.f(), i);
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.message;
 import com.baidu.tbadk.coreExtra.data.l;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     private l mData;
 

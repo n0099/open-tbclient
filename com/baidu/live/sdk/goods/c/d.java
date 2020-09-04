@@ -24,10 +24,10 @@ import com.baidu.live.view.f;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class d extends f {
-    private RoundRectRelativeLayout bjn;
-    private TextView bjo;
-    private float bjp;
-    private a bjq;
+    private RoundRectRelativeLayout bjq;
+    private TextView bjr;
+    private float bjs;
+    private a bjt;
     private boolean isHost;
     private Activity mActivity;
     private ViewGroup mContentLayout;
@@ -54,12 +54,12 @@ public class d extends f {
     public void setHost(boolean z) {
         this.isHost = z;
         if (z) {
-            this.bjo.setVisibility(0);
+            this.bjr.setVisibility(0);
         }
     }
 
     public void a(a aVar) {
-        this.bjq = aVar;
+        this.bjt = aVar;
     }
 
     public void setData(List<com.baidu.live.sdk.goods.a.a> list) {
@@ -74,15 +74,15 @@ public class d extends f {
             bVar.a(new b.a() { // from class: com.baidu.live.sdk.goods.c.d.1
                 @Override // com.baidu.live.sdk.goods.c.b.a
                 public void u(String str, boolean z) {
-                    if (d.this.bjq != null) {
-                        d.this.bjq.u(str, z);
+                    if (d.this.bjt != null) {
+                        d.this.bjt.u(str, z);
                     }
                 }
 
                 @Override // com.baidu.live.sdk.goods.c.b.a
                 public void v(String str, boolean z) {
-                    if (d.this.bjq != null) {
-                        d.this.bjq.v(str, z);
+                    if (d.this.bjt != null) {
+                        d.this.bjt.v(str, z);
                     }
                 }
             });
@@ -101,11 +101,11 @@ public class d extends f {
 
     public void n(int i, boolean z) {
         if (i == 2) {
-            this.bjn.setCornerRadius(this.bjp, 0.0f, 0.0f, this.bjp);
+            this.bjq.setCornerRadius(this.bjs, 0.0f, 0.0f, this.bjs);
             setAnimationStyle(a.j.sdk_goods_list_right_left);
             Ne();
         } else {
-            this.bjn.setCornerRadius(this.bjp, this.bjp, 0.0f, 0.0f);
+            this.bjq.setCornerRadius(this.bjs, this.bjs, 0.0f, 0.0f);
             setAnimationStyle(a.j.sdk_goods_list_up_to_top);
         }
         int[] eG = eG(i);
@@ -141,18 +141,18 @@ public class d extends f {
     }
 
     private void initView() {
-        this.bjp = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
+        this.bjs = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
         setContentView(LayoutInflater.from(this.mActivity).inflate(a.h.live_goods_display_list_popup, (ViewGroup) null));
-        this.bjn = (RoundRectRelativeLayout) getContentView().findViewById(a.g.rrrl_goods_display_list);
+        this.bjq = (RoundRectRelativeLayout) getContentView().findViewById(a.g.rrrl_goods_display_list);
         this.mTitleTextView = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_title);
-        this.bjo = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_config);
+        this.bjr = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_config);
         this.mContentLayout = (ViewGroup) getContentView().findViewById(a.g.layout_goods_display_list_content);
         this.mListView = (ListView) getContentView().findViewById(a.g.lv_good_display_list);
-        this.bjo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
+        this.bjr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.bjq != null) {
-                    d.this.bjq.Na();
+                if (d.this.bjt != null) {
+                    d.this.bjt.Na();
                 }
             }
         });
@@ -187,10 +187,10 @@ public class d extends f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onItemClick(int i) {
-        if (this.bjq != null && this.mListView != null && this.mListView.getAdapter() != null) {
+        if (this.bjt != null && this.mListView != null && this.mListView.getAdapter() != null) {
             Object item = this.mListView.getAdapter().getItem(i);
             if (item instanceof com.baidu.live.sdk.goods.a.a) {
-                this.bjq.e((com.baidu.live.sdk.goods.a.a) item);
+                this.bjt.e((com.baidu.live.sdk.goods.a.a) item);
             }
         }
     }

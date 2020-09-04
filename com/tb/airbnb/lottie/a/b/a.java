@@ -9,9 +9,9 @@ import java.util.List;
 public abstract class a<K, A> {
     private final List<? extends com.tb.airbnb.lottie.e.a<K>> Du;
     @Nullable
-    protected com.tb.airbnb.lottie.e.c<A> oiE;
+    protected com.tb.airbnb.lottie.e.c<A> oiW;
     @Nullable
-    private com.tb.airbnb.lottie.e.a<K> oiF;
+    private com.tb.airbnb.lottie.e.a<K> oiX;
     final List<InterfaceC0932a> listeners = new ArrayList();
     private boolean Dt = false;
     private float progress = 0.0f;
@@ -62,9 +62,9 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> ecZ() {
-        if (this.oiF != null && this.oiF.m(this.progress)) {
-            return this.oiF;
+    private com.tb.airbnb.lottie.e.a<K> edi() {
+        if (this.oiX != null && this.oiX.m(this.progress)) {
+            return this.oiX;
         }
         com.tb.airbnb.lottie.e.a<K> aVar = this.Du.get(this.Du.size() - 1);
         if (this.progress < aVar.kx()) {
@@ -75,7 +75,7 @@ public abstract class a<K, A> {
                 }
             }
         }
-        this.oiF = aVar;
+        this.oiX = aVar;
         return aVar;
     }
 
@@ -84,19 +84,19 @@ public abstract class a<K, A> {
         if (this.Dt) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> ecZ = ecZ();
-        if (ecZ.la()) {
+        com.tb.airbnb.lottie.e.a<K> edi = edi();
+        if (edi.la()) {
             return 0.0f;
         }
-        return (this.progress - ecZ.kx()) / (ecZ.jk() - ecZ.kx());
+        return (this.progress - edi.kx()) / (edi.jk() - edi.kx());
     }
 
     private float ji() {
-        com.tb.airbnb.lottie.e.a<K> ecZ = ecZ();
-        if (ecZ.la()) {
+        com.tb.airbnb.lottie.e.a<K> edi = edi();
+        if (edi.la()) {
             return 0.0f;
         }
-        return ecZ.GZ.getInterpolation(jh());
+        return edi.GZ.getInterpolation(jh());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -116,7 +116,7 @@ public abstract class a<K, A> {
     }
 
     public A getValue() {
-        return a(ecZ(), ji());
+        return a(edi(), ji());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
-        if (this.oiE != null) {
-            this.oiE.b(null);
+        if (this.oiW != null) {
+            this.oiW.b(null);
         }
-        this.oiE = cVar;
+        this.oiW = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

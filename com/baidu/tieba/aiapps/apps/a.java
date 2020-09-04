@@ -58,9 +58,9 @@ public final class a {
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
                                     TiebaStatic.log(new aq("c13391").dD("obj_type", parse.getQueryParameter("obj_type")).dD("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.dOT)) {
+                                if (g.this.getUrl().startsWith(f.dOX)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.dPn, f.dPz);
+                                    buildUpon.appendQueryParameter(f.dPr, f.dPD);
                                     parse = buildUpon.build();
                                 }
                                 UtilHelper.dealOneScheme(com.baidu.adp.base.a.lb().currentActivity(), parse.toString());
@@ -86,7 +86,7 @@ public final class a {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new aq("c13274").dD("uid", TbadkCoreApplication.getCurrentAccount()).dD("obj_id", gVar.dPF).dD("obj_source", "tb_password").dD("obj_name", gVar.appName).ai("obj_param1", gVar.dPG.intValue()));
+                            TiebaStatic.log(new aq("c13274").dD("uid", TbadkCoreApplication.getCurrentAccount()).dD("obj_id", gVar.dPJ).dD("obj_source", "tb_password").dD("obj_name", gVar.appName).ai("obj_param1", gVar.dPK.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {

@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends ImageSpan {
     private int paddingLeft;
     private int paddingRight;

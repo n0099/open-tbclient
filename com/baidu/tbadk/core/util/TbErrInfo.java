@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.res.Resources;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbErrInfo {
     public static final int ERR_FILE_IO_SD = -25;
     public static final int ERR_FILE_NO_SD = -23;

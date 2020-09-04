@@ -7,7 +7,7 @@ public interface d {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void eq(boolean z);
+        void er(boolean z);
     }
 
     void a(@NonNull a aVar);

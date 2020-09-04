@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static final List<String> mcg = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> mcv = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
     public static String Qz(String str) {
         return "enterfourm_att_" + str;
@@ -80,8 +80,8 @@ public class a {
     public static aq a(String str, String str2, boolean z, int i, int i2) {
         aq aqVar = new aq(str2);
         aqVar.dD("page_type", str).ai("ad_exp", z ? 1 : 0).ai("ad_exp_cnt", i).ai("obj_floor", 0).ai("obj_adlocate", i2);
-        if (str != null && mcg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ezW);
+        if (str != null && mcv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eAa);
         }
         return aqVar;
     }
@@ -106,8 +106,8 @@ public class a {
         if (!at.isEmpty(bwVar.bga())) {
             aqVar.dD("list_strategy", bwVar.bga());
         }
-        if (str != null && mcg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().ezW)) {
-            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ezW);
+        if (str != null && mcv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().eAa)) {
+            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eAa);
         } else if (!at.isEmpty(bwVar.mRecomAbTag)) {
             aqVar.dD("ab_tag", bwVar.mRecomAbTag);
         }
@@ -140,8 +140,8 @@ public class a {
             str3 = str4;
         }
         ai.dD("obj_id", str3).ai("obj_adlocate", i3);
-        if (str != null && mcg.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().ezW);
+        if (str != null && mcv.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eAa);
         }
         if (z) {
             aqVar.ai("obj_locate", i);

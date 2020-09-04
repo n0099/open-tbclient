@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a {
-    private C0148a awU;
+    private C0148a awW;
     private Context mContext;
 
     public a(Context context) {
@@ -27,10 +27,10 @@ public class a {
     }
 
     public synchronized C0148a Ah() {
-        if (this.awU == null) {
-            this.awU = new C0148a(".helios", null);
+        if (this.awW == null) {
+            this.awW = new C0148a(".helios", null);
         }
-        return this.awU;
+        return this.awW;
     }
 
     public static void k(File file) {
@@ -127,23 +127,23 @@ public class a {
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public final class C0148a {
-        private File awV;
-        private String awW;
-        private C0148a awX;
-        private boolean awY;
+        private File awX;
+        private String awY;
+        private C0148a awZ;
+        private boolean axa;
 
         C0148a(String str, C0148a c0148a) {
-            this.awY = false;
-            this.awW = str;
-            this.awX = c0148a;
-            this.awY = false;
+            this.axa = false;
+            this.awY = str;
+            this.awZ = c0148a;
+            this.axa = false;
         }
 
         C0148a(File file) {
-            this.awY = false;
-            this.awY = true;
-            this.awV = file;
-            this.awW = file.getName();
+            this.axa = false;
+            this.axa = true;
+            this.awX = file;
+            this.awY = file.getName();
         }
 
         public void Ai() {
@@ -151,32 +151,32 @@ public class a {
         }
 
         public File Aj() {
-            File file = this.awV;
+            File file = this.awX;
             if (file == null) {
-                if (this.awX == null) {
-                    file = new File(a.this.Af(), this.awW);
+                if (this.awZ == null) {
+                    file = new File(a.this.Af(), this.awY);
                 } else {
-                    file = new File(this.awX.Aj(), this.awW);
+                    file = new File(this.awZ.Aj(), this.awY);
                 }
-                this.awV = file;
+                this.awX = file;
             }
             return file;
         }
 
         public String Ak() {
-            return this.awW;
+            return this.awY;
         }
 
-        public C0148a fv(String str) {
+        public C0148a fw(String str) {
             return new C0148a(str, this);
         }
 
         public File getFile(String str) {
-            return new File(this.awV, str);
+            return new File(this.awX, str);
         }
 
         public C0148a Al() {
-            return this.awX;
+            return this.awZ;
         }
 
         public boolean d(String str, String str2, boolean z) {
@@ -188,7 +188,7 @@ public class a {
         }
 
         public C0148a l(File file) {
-            if (this.awY) {
+            if (this.axa) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();

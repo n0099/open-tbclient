@@ -56,21 +56,21 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_guard_throne_rank_item_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.geq = (TextView) view.findViewById(a.g.tv_rank_label);
-            aVar.ger = (HeadImageView) view.findViewById(a.g.avatar_rank);
-            aVar.ges = (TextView) view.findViewById(a.g.tv_rank_name);
-            aVar.get = (TextView) view.findViewById(a.g.tv_rank_score);
-            a(aVar.ger);
+            aVar.geu = (TextView) view.findViewById(a.g.tv_rank_label);
+            aVar.gev = (HeadImageView) view.findViewById(a.g.avatar_rank);
+            aVar.gew = (TextView) view.findViewById(a.g.tv_rank_name);
+            aVar.gex = (TextView) view.findViewById(a.g.tv_rank_score);
+            a(aVar.gev);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         a.b.C0613b c0613b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0613b != null) {
-            aVar.geq.setText(c0613b.rank);
-            aVar.ger.startLoad(c0613b.portrait, 12, false);
-            aVar.ges.setText(c0613b.nickname);
-            aVar.get.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.FB(c0613b.score)));
+            aVar.geu.setText(c0613b.rank);
+            aVar.gev.startLoad(c0613b.portrait, 12, false);
+            aVar.gew.setText(c0613b.nickname);
+            aVar.gex.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.FC(c0613b.score)));
         }
         return view;
     }
@@ -85,10 +85,10 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes7.dex */
     private class a {
-        public TextView geq;
-        public HeadImageView ger;
-        public TextView ges;
-        public TextView get;
+        public TextView geu;
+        public HeadImageView gev;
+        public TextView gew;
+        public TextView gex;
 
         private a() {
         }

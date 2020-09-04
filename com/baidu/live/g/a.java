@@ -9,32 +9,32 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class a {
-    private final HashMap<b, Rect> aLR = new HashMap<>();
-    private final HashSet<b> aLS = new HashSet<>();
-    private final LinkedList<C0170a> aLT = new LinkedList<>();
+    private final HashMap<b, Rect> aLT = new HashMap<>();
+    private final HashSet<b> aLU = new HashSet<>();
+    private final LinkedList<C0170a> aLV = new LinkedList<>();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.aLS.add(bVar);
+            this.aLU.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.aLS.remove(bVar);
+            this.aLU.remove(bVar);
         }
     }
 
     public void Df() {
         Log.e("LiveDrag", "start refreshViewRect");
-        if (!this.aLS.isEmpty()) {
-            Iterator<b> it = this.aLS.iterator();
+        if (!this.aLU.isEmpty()) {
+            Iterator<b> it = this.aLU.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.getOverlayView() != null) {
                     Rect rect = new Rect();
                     next.getOverlayView().getGlobalVisibleRect(rect);
-                    this.aLR.put(next, rect);
+                    this.aLT.put(next, rect);
                     Log.e("LiveDrag", "view" + next.getOverlayView().getId() + " left=" + rect.left + " top=" + rect.top + " right=" + rect.right + " bottom=" + rect.bottom);
                 }
             }
@@ -43,12 +43,12 @@ public class a {
     }
 
     public void L(View view) {
-        if (!this.aLT.isEmpty()) {
+        if (!this.aLV.isEmpty()) {
             LinkedList linkedList = new LinkedList();
-            Iterator<C0170a> it = this.aLT.iterator();
+            Iterator<C0170a> it = this.aLV.iterator();
             while (it.hasNext()) {
                 C0170a next = it.next();
-                if (next != null && next.aLU == view) {
+                if (next != null && next.aLW == view) {
                     linkedList.add(next);
                 }
             }
@@ -56,10 +56,10 @@ public class a {
                 Iterator it2 = linkedList.iterator();
                 while (it2.hasNext()) {
                     C0170a c0170a = (C0170a) it2.next();
-                    if (c0170a.aLV != null) {
-                        c0170a.aLV.setViewTouchable(true);
+                    if (c0170a.aLX != null) {
+                        c0170a.aLX.setViewTouchable(true);
                     }
-                    this.aLT.remove(c0170a);
+                    this.aLV.remove(c0170a);
                 }
             }
         }
@@ -68,8 +68,8 @@ public class a {
     /* renamed from: com.baidu.live.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     private static class C0170a {
-        public View aLU;
-        public b aLV;
+        public View aLW;
+        public b aLX;
 
         private C0170a() {
         }

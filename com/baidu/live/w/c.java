@@ -10,9 +10,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.utils.p;
 /* loaded from: classes7.dex */
 public class c {
-    private static volatile c bkh;
-    public o bki;
-    private HttpMessageListener bkj = new HttpMessageListener(1021124) { // from class: com.baidu.live.w.c.1
+    private static volatile c bkk;
+    public o bkl;
+    private HttpMessageListener bkm = new HttpMessageListener(1021124) { // from class: com.baidu.live.w.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -20,7 +20,7 @@ public class c {
                 if (httpResponsedMessage.getError() == 0) {
                     GetQuickGiftHttpResponseMessage getQuickGiftHttpResponseMessage = (GetQuickGiftHttpResponseMessage) httpResponsedMessage;
                     if (getQuickGiftHttpResponseMessage.LK() != null) {
-                        c.this.bki = getQuickGiftHttpResponseMessage.LK();
+                        c.this.bkl = getQuickGiftHttpResponseMessage.LK();
                     }
                 }
             }
@@ -28,19 +28,19 @@ public class c {
     };
 
     public static c Np() {
-        if (bkh == null) {
+        if (bkk == null) {
             synchronized (c.class) {
-                if (bkh == null) {
-                    bkh = new c();
+                if (bkk == null) {
+                    bkk = new c();
                 }
             }
         }
-        return bkh;
+        return bkk;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.bkj);
-        this.bki = new o();
+        MessageManager.getInstance().registerListener(this.bkm);
+        this.bkl = new o();
     }
 
     public void Nq() {

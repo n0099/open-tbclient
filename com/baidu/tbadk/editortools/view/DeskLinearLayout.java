@@ -5,9 +5,9 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DeskLinearLayout extends LinearLayout {
-    private View eNN;
+    private View eNR;
     private boolean visible;
 
     public DeskLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class DeskLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.eNN != null) {
-            this.eNN.measure(getChildMeasureSpec(i, 0, this.eNN.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.eNN.getLayoutParams().height));
+        if (this.eNR != null) {
+            this.eNR.measure(getChildMeasureSpec(i, 0, this.eNR.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.eNR.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class DeskLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.eNN != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.eNN.getMeasuredWidth();
-            this.eNN.layout(measuredWidth, 0, this.eNN.getMeasuredWidth() + measuredWidth, this.eNN.getMeasuredHeight());
+        if (this.eNR != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.eNR.getMeasuredWidth();
+            this.eNR.layout(measuredWidth, 0, this.eNR.getMeasuredWidth() + measuredWidth, this.eNR.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.eNN = view;
+        this.eNR = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class DeskLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.eNN.getLeft(), this.eNN.getTop());
-            this.eNN.draw(canvas);
+            canvas.translate(this.eNR.getLeft(), this.eNR.getTop());
+            this.eNR.draw(canvas);
             canvas.restore();
         }
     }

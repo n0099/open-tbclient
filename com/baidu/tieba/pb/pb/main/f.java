@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class f extends ba {
-    private TextView kzC;
+    private TextView kzJ;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.kzC = null;
+        this.kzJ = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ba
     protected void a(e eVar) {
-        this.kzC = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.kzC.setVisibility(8);
+        this.kzJ = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.kzJ.setVisibility(8);
     }
 
-    public void sI(boolean z) {
-        if (this.kzC != null) {
+    public void sK(boolean z) {
+        if (this.kzJ != null) {
             if (z) {
-                this.kzC.setText(R.string.push);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kzC, R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kzC, R.drawable.push_bg_selector);
-                this.kzC.setClickable(true);
+                this.kzJ.setText(R.string.push);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kzJ, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kzJ, R.drawable.push_bg_selector);
+                this.kzJ.setClickable(true);
             } else {
-                this.kzC.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kzC, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kzC, R.color.cp_cont_d);
-                this.kzC.setClickable(false);
+                this.kzJ.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.kzJ, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.kzJ, R.color.cp_cont_d);
+                this.kzJ.setClickable(false);
             }
-            this.kzC.setVisibility(0);
+            this.kzJ.setVisibility(0);
         }
     }
 
@@ -41,14 +41,14 @@ public class f extends ba {
         if (bwVar != null && bwVar.beZ() != null) {
             int status = bwVar.beZ().getStatus();
             if (status == 1) {
-                sI(true);
+                sK(true);
             } else if (status == 2) {
-                sI(false);
+                sK(false);
             }
         }
     }
 
-    public TextView cWN() {
-        return this.kzC;
+    public TextView cWO() {
+        return this.kzJ;
     }
 }

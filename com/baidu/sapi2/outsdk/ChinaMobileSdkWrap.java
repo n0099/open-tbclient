@@ -27,9 +27,9 @@ public class ChinaMobileSdkWrap {
             Log.i(OneKeyLoginSdkCall.a, "in china mobile login pre get phone info");
             com.cmic.sso.sdk.b.a bf = com.cmic.sso.sdk.b.a.bf(sapiConfiguration.context, a);
             if (i == 0) {
-                bf.gg(15000L);
+                bf.gi(15000L);
             } else {
-                bf.gg(i);
+                bf.gi(i);
             }
             bf.c(sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, new b() { // from class: com.baidu.sapi2.outsdk.ChinaMobileSdkWrap.1
                 @Override // com.cmic.sso.sdk.b.b
@@ -78,7 +78,7 @@ public class ChinaMobileSdkWrap {
     public void b(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
         try {
             com.cmic.sso.sdk.b.a bf = com.cmic.sso.sdk.b.a.bf(sapiConfiguration.context, a);
-            bf.gg(15000L);
+            bf.gi(15000L);
             bf.a(sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, new b() { // from class: com.baidu.sapi2.outsdk.ChinaMobileSdkWrap.2
                 @Override // com.cmic.sso.sdk.b.b
                 public void onGetTokenComplete(JSONObject jSONObject) {
@@ -113,7 +113,7 @@ public class ChinaMobileSdkWrap {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final SapiConfiguration sapiConfiguration, final OneKeyLoginSdkCall.TokenListener tokenListener) {
         com.cmic.sso.sdk.b.a bf = com.cmic.sso.sdk.b.a.bf(sapiConfiguration.context, a);
-        bf.gg(15000L);
+        bf.gi(15000L);
         bf.b(sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, new b() { // from class: com.baidu.sapi2.outsdk.ChinaMobileSdkWrap.3
             @Override // com.cmic.sso.sdk.b.b
             public void onGetTokenComplete(JSONObject jSONObject) {

@@ -9,14 +9,14 @@ import com.google.ar.core.ArCoreApk;
 /* loaded from: classes11.dex */
 public final class aa implements Runnable {
     private final /* synthetic */ Context b;
-    final /* synthetic */ ArCoreApk.a nCy;
-    private final /* synthetic */ w nCz;
+    final /* synthetic */ ArCoreApk.a nCQ;
+    private final /* synthetic */ w nCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar, Context context, ArCoreApk.a aVar) {
-        this.nCz = wVar;
+        this.nCR = wVar;
         this.b = context;
-        this.nCy = aVar;
+        this.nCQ = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,14 +24,14 @@ public final class aa implements Runnable {
         com.google.a.b.a.a.a.a aVar;
         Bundle b;
         try {
-            aVar = this.nCz.nCs;
+            aVar = this.nCR.nCK;
             String str = this.b.getApplicationInfo().packageName;
-            w wVar = this.nCz;
+            w wVar = this.nCR;
             b = w.b();
             aVar.a(str, b, new u(this));
         } catch (RemoteException e) {
             Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.nCy.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            this.nCQ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

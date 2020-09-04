@@ -9,10 +9,10 @@ import android.view.animation.Animation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NavigationBarShadowView extends View {
-    private AlphaAnimation erm;
-    private AlphaAnimation ern;
+    private AlphaAnimation erq;
+    private AlphaAnimation ers;
     private int mSkinType;
 
     public NavigationBarShadowView(Context context) {
@@ -34,22 +34,22 @@ public class NavigationBarShadowView extends View {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (getVisibility() != 0) {
             setVisibility(0);
-            if (this.erm == null) {
-                this.erm = new AlphaAnimation(0.0f, 1.0f);
-                this.erm.setFillAfter(true);
-                this.erm.setDuration(300L);
+            if (this.erq == null) {
+                this.erq = new AlphaAnimation(0.0f, 1.0f);
+                this.erq.setFillAfter(true);
+                this.erq.setDuration(300L);
             }
-            startAnimation(this.erm);
+            startAnimation(this.erq);
         }
     }
 
     public void hide() {
         if (getVisibility() == 0) {
-            if (this.ern == null) {
-                this.ern = new AlphaAnimation(1.0f, 0.0f);
-                this.ern.setFillAfter(true);
-                this.ern.setDuration(300L);
-                this.ern.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
+            if (this.ers == null) {
+                this.ers = new AlphaAnimation(1.0f, 0.0f);
+                this.ers.setFillAfter(true);
+                this.ers.setDuration(300L);
+                this.ers.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -64,7 +64,7 @@ public class NavigationBarShadowView extends View {
                     }
                 });
             }
-            startAnimation(this.ern);
+            startAnimation(this.ers);
         }
     }
 

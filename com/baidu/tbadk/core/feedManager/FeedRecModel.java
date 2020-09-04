@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
-    private a egj;
-    private boolean egk = false;
-    private int egl = 1;
-    private com.baidu.adp.framework.listener.a dOR = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tbadk.core.feedManager.FeedRecModel.1
+    private a egn;
+    private boolean ego = false;
+    private int egp = 1;
+    private com.baidu.adp.framework.listener.a dOV = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tbadk.core.feedManager.FeedRecModel.1
         /* JADX WARN: Removed duplicated region for block: B:19:0x0035  */
         /* JADX WARN: Removed duplicated region for block: B:22:0x004b  */
         @Override // com.baidu.adp.framework.listener.a
@@ -28,7 +28,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             boolean z2 = false;
-            if (responsedMessage != null && FeedRecModel.this.egj != null) {
+            if (responsedMessage != null && FeedRecModel.this.egn != null) {
                 if (responsedMessage.getOrginalMessage() != null) {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
                     if (extra instanceof FeedRecRequest) {
@@ -36,7 +36,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         z = feedRecRequest.getLoadType() == 1;
                         z2 = feedRecRequest.getNeedForumlist() == 1;
                         if (responsedMessage.getError() == 0) {
-                            FeedRecModel.this.egj.am(responsedMessage.getError(), responsedMessage.getErrorString());
+                            FeedRecModel.this.egn.am(responsedMessage.getError(), responsedMessage.getErrorString());
                             return;
                         }
                         DataRes dataRes = null;
@@ -46,7 +46,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                             dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                         }
                         BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                        FeedRecModel.this.egj.a(dataRes, z, z2);
+                        FeedRecModel.this.egn.a(dataRes, z, z2);
                         return;
                     }
                 }
@@ -57,7 +57,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(DataRes dataRes, boolean z, boolean z2);
 
@@ -68,18 +68,18 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         setUniqueId(BdUniqueId.gen());
         bhB();
         bhA();
-        registerListener(this.dOR);
+        registerListener(this.dOV);
     }
 
     public void a(a aVar) {
-        this.egj = aVar;
+        this.egn = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         FeedRecRequest feedRecRequest = new FeedRecRequest();
-        int i = this.egl;
-        this.egl = i + 1;
+        int i = this.egp;
+        this.egp = i + 1;
         feedRecRequest.setRequestTime(i);
         feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         feedRecRequest.setNetType(NetMessage.NetType.HTTP);

@@ -46,7 +46,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.impl.a.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.apps.impl.a.a.anE().mL("cloneResult = " + c.anG().mM(m2));
+                        com.baidu.swan.apps.impl.a.a.anE().mM("cloneResult = " + c.anG().mN(m2));
                     }
                 }, "installSwanAppRunnable");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);

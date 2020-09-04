@@ -10,24 +10,24 @@ import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
 import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
 /* loaded from: classes17.dex */
 public class b {
-    private static b frT = new b();
-    private a frU;
-    private final HttpMessageListener frV = new HttpMessageListener(1003192) { // from class: com.baidu.tieba.advert.sdk.b.b.1
+    private static b frX = new b();
+    private a frY;
+    private final HttpMessageListener frZ = new HttpMessageListener(1003192) { // from class: com.baidu.tieba.advert.sdk.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof SplashHttpResponse) {
                 SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                 if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                    if (b.this.frU != null) {
-                        b.this.frU.DW(splashHttpResponse.getResultMsg());
+                    if (b.this.frY != null) {
+                        b.this.frY.DX(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
                 }
                 BdLog.e("Response of splash has error");
-                if (b.this.frU != null) {
-                    b.this.frU.DX(splashHttpResponse.getResultMsg());
+                if (b.this.frY != null) {
+                    b.this.frY.DY(splashHttpResponse.getResultMsg());
                     return;
                 }
                 return;
@@ -38,26 +38,26 @@ public class b {
 
     /* loaded from: classes17.dex */
     public interface a {
-        void DW(String str);
-
         void DX(String str);
+
+        void DY(String str);
     }
 
     private b() {
     }
 
-    public static b bCd() {
-        return frT;
+    public static b bCe() {
+        return frX;
     }
 
     public void a(TbPageContext<?> tbPageContext, a aVar, AdInfo adInfo) {
-        this.frU = aVar;
-        this.frV.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.frV);
+        this.frY = aVar;
+        this.frZ.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.frZ);
         SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
     }
 
-    public static String bCe() {
+    public static String bCf() {
         return "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics";
     }
 

@@ -5,5 +5,5 @@ import java.io.File;
 public interface b {
     void B(File file);
 
-    void ok(String str);
+    void ol(String str);
 }

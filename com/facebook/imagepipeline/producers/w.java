@@ -14,7 +14,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes8.dex */
 public class w extends z {
-    private static final String[] cUo = {IMConstants.MSG_ROW_ID, "_data"};
+    private static final String[] cUs = {IMConstants.MSG_ROW_ID, "_data"};
     private final ContentResolver mContentResolver;
 
     public w(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -26,22 +26,22 @@ public class w extends z {
     protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.g.e X;
         InputStream createInputStream;
-        Uri dWg = imageRequest.dWg();
-        if (!com.facebook.common.util.d.J(dWg)) {
-            return (!com.facebook.common.util.d.K(dWg) || (X = X(dWg)) == null) ? e(this.mContentResolver.openInputStream(dWg), -1) : X;
+        Uri dWp = imageRequest.dWp();
+        if (!com.facebook.common.util.d.J(dWp)) {
+            return (!com.facebook.common.util.d.K(dWp) || (X = X(dWp)) == null) ? e(this.mContentResolver.openInputStream(dWp), -1) : X;
         }
-        if (dWg.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(dWg);
-        } else if (dWg.toString().endsWith("/display_photo")) {
+        if (dWp.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(dWp);
+        } else if (dWp.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(dWg, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(dWp, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + dWg);
+                throw new IOException("Contact photo does not exist: " + dWp);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dWg);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dWp);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + dWg);
+                throw new IOException("Contact photo does not exist: " + dWp);
             }
         }
         return e(createInputStream, -1);
@@ -50,7 +50,7 @@ public class w extends z {
     @Nullable
     private com.facebook.imagepipeline.g.e X(Uri uri) throws IOException {
         com.facebook.imagepipeline.g.e eVar = null;
-        Cursor query = this.mContentResolver.query(uri, cUo, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, cUs, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dVy() {
+    protected String dVH() {
         return "LocalContentUriFetchProducer";
     }
 }

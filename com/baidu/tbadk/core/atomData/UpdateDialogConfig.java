@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UpdateDialogConfig extends IntentConfig {
     public static final String KEY_AS_APK_URL = "as_apk_url";
     public static final String KEY_OTHER_APK_DATA = "other_apk_data";

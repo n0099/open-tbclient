@@ -21,11 +21,11 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.l;
 /* loaded from: classes16.dex */
 public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
-    private aa<l> aeT;
-    private v akI;
-    private BdUniqueId ePv;
-    private int eoe;
-    private NEGFeedBackView.a flJ;
+    private aa<l> aeV;
+    private v akK;
+    private BdUniqueId ePz;
+    private int eoj;
+    private NEGFeedBackView.a flN;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
@@ -38,13 +38,13 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aeT = new aa<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
+        this.aeV = new aa<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(lVar, e.this.eoe);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(lVar, e.this.eoj);
                 }
             }
         };
@@ -52,7 +52,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
     }
 
     public void a(v vVar) {
-        this.akI = vVar;
+        this.akK = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,19 +63,19 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
         aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
         am amVar = new am(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        cVar.dWK = 15;
-        cVar.dWQ = 11;
+        cVar.dWO = 15;
+        cVar.dWU = 11;
         amVar.setAgreeStatisticData(cVar);
         amVar.setFrom(12);
         amVar.setShareReportFrom(9);
-        amVar.setGameId(this.eoe);
+        amVar.setGameId(this.eoj);
         amVar.setFromForPb(18);
         amVar.bk(32);
         aVar.b(amVar);
-        aj a = aVar.a(true, viewGroup, this.akI);
+        aj a = aVar.a(true, viewGroup, this.akK);
         a.setSourceForPb(18);
         al<l> alVar = new al<>(a);
-        alVar.setPageId(this.ePv);
+        alVar.setPageId(this.ePz);
         a(new ab() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.2
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -83,8 +83,8 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
                     al alVar2 = (al) view.getTag();
                     l lVar = (l) qVar;
                     lVar.objType = 1;
-                    if (e.this.aeT != null) {
-                        e.this.aeT.a(alVar2.getView(), lVar);
+                    if (e.this.aeV != null) {
+                        e.this.aeV.a(alVar2.getView(), lVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(lVar, view.getContext(), 18, false, com.baidu.card.f.a((v) viewGroup2, view, i));
                     alVar2.tR().b(new a.C0095a(1));
@@ -96,7 +96,7 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, l lVar, al alVar) {
-        if (lVar == null || alVar == null || alVar.getView() == null || lVar.dUS == null) {
+        if (lVar == null || alVar == null || alVar.getView() == null || lVar.dUW == null) {
             return null;
         }
         lVar.vy(lVar.position + 1);
@@ -111,22 +111,22 @@ public class e extends com.baidu.adp.widget.ListView.a<l, al<l>> {
                 }
             });
         }
-        alVar.aL(false).a(this.flJ);
+        alVar.aL(false).a(this.flN);
         alVar.b((al) lVar);
         alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        alVar.tR().a(this.aeT);
+        alVar.tR().a(this.aeV);
         return alVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ePv = bdUniqueId;
+        this.ePz = bdUniqueId;
     }
 
     public void zQ(int i) {
-        this.eoe = i;
+        this.eoj = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.flJ = aVar;
+        this.flN = aVar;
     }
 }

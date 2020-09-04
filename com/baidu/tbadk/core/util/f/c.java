@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.ListView.t;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static void a(t tVar, BdUniqueId bdUniqueId, b bVar) {
         r adapter;

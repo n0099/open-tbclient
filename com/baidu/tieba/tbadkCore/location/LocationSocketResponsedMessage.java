@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetPoisByLocation.GetPoisByLocationResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocationSocketResponsedMessage extends SocketResponsedMessage {
     private LocationData mLocationData;
 

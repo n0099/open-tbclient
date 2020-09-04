@@ -7,25 +7,25 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 /* loaded from: classes19.dex */
 public class f extends d {
-    private String dkN;
-    private String dkO;
-    private String dkP;
-    private String dkQ;
-    private String dli;
-    private String dlj;
-    private String dlk;
-    private String dll;
+    private String dkR;
+    private String dkS;
+    private String dkT;
+    private String dkU;
+    private String dlm;
+    private String dln;
+    private String dlo;
+    private String dlp;
 
     public f(Context context, b bVar) {
         super(context, bVar);
-        this.dkN = "rvideo";
-        this.dkO = "10";
-        this.dkP = "MSSP,ANTI,VIDEO,NMON";
-        this.dkQ = "LP,DL";
-        this.dli = "70300";
-        this.dlj = "70301";
-        this.dlk = "70302";
-        this.dll = "70303";
+        this.dkR = "rvideo";
+        this.dkS = "10";
+        this.dkT = "MSSP,ANTI,VIDEO,NMON";
+        this.dkU = "LP,DL";
+        this.dlm = "70300";
+        this.dln = "70301";
+        this.dlo = "70302";
+        this.dlp = "70303";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
@@ -35,14 +35,14 @@ public class f extends d {
         if (!com.baidu.swan.games.view.a.c.isLandScape()) {
             str = "";
         } else if (com.baidu.swan.games.view.a.c.aQv()) {
-            str = this.dlj;
+            str = this.dln;
         } else if (com.baidu.swan.games.view.a.c.aQw()) {
-            str = this.dli;
+            str = this.dlm;
         }
         if (com.baidu.swan.game.ad.downloader.a.aIo()) {
-            str2 = this.dll;
+            str2 = this.dlp;
         } else if (com.baidu.swan.game.ad.downloader.a.aIp()) {
-            str2 = this.dlk;
+            str2 = this.dlo;
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return str + str2;
@@ -53,10 +53,10 @@ public class f extends d {
     @Override // com.baidu.swan.game.ad.b.d
     protected HashMap<String, String> aJj() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.dkQ);
-        hashMap.put("prod", this.dkN);
-        hashMap.put("at", this.dkO);
-        hashMap.put(IXAdRequestInfo.FET, this.dkP);
+        hashMap.put("act", this.dkU);
+        hashMap.put("prod", this.dkR);
+        hashMap.put("at", this.dkS);
+        hashMap.put(IXAdRequestInfo.FET, this.dkT);
         return hashMap;
     }
 }

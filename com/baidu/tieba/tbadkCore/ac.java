@@ -4,39 +4,39 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.data.cb;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ac extends bw {
-    public static final BdUniqueId mdU = BdUniqueId.gen();
-    private boolean fKl = false;
-    private by mdV;
-    private cb mdW;
+    public static final BdUniqueId mej = BdUniqueId.gen();
+    private boolean fKp = false;
+    private by mek;
+    private cb mel;
 
     @Override // com.baidu.tbadk.core.data.bw, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mdU;
+        return mej;
     }
 
-    public boolean dwe() {
-        return this.fKl;
+    public boolean dwj() {
+        return this.fKp;
     }
 
-    public void vX(boolean z) {
-        this.fKl = z;
+    public void vZ(boolean z) {
+        this.fKp = z;
     }
 
-    public by dwf() {
-        return this.mdV;
+    public by dwk() {
+        return this.mek;
     }
 
     public void a(by byVar) {
-        this.mdV = byVar;
+        this.mek = byVar;
     }
 
-    public cb dwg() {
-        return this.mdW;
+    public cb dwl() {
+        return this.mel;
     }
 
     public void a(cb cbVar) {
-        this.mdW = cbVar;
+        this.mel = cbVar;
     }
 }

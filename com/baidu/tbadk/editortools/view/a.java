@@ -6,13 +6,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.view.CommonTabContentView;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
-    protected EditorTools aay;
-    private CommonTabContentView.b eNp;
-    private b eNu;
-    private InterfaceC0553a eNv;
-    private CommonTabHost.a eNw;
+    protected EditorTools aaA;
+    private CommonTabHost.a eNA;
+    private CommonTabContentView.b eNt;
+    private b eNy;
+    private InterfaceC0553a eNz;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -21,18 +21,18 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     private int mPaddingRight = 0;
     private int mPaddingTop = 0;
     private int mPaddingBottom = 0;
-    private int eNx = 0;
+    private int eNB = 0;
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0553a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
-        public int eNy;
-        public int eNz;
+        public int eNC;
+        public int eND;
     }
 
     public abstract void exit();
@@ -42,33 +42,33 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     public abstract void init(Context context);
 
     public void a(CommonTabHost.a aVar) {
-        this.eNw = aVar;
+        this.eNA = aVar;
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.aay = editorTools;
+        this.aaA = editorTools;
     }
 
     protected void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.aay != null) {
-            this.aay.b(aVar);
+        if (this.aaA != null) {
+            this.aaA.b(aVar);
         }
     }
 
-    public b bsE() {
-        return this.eNu;
+    public b bsF() {
+        return this.eNy;
     }
 
     public void a(b bVar) {
-        this.eNu = bVar;
+        this.eNy = bVar;
     }
 
-    public InterfaceC0553a bsF() {
-        return this.eNv;
+    public InterfaceC0553a bsG() {
+        return this.eNz;
     }
 
     public void a(InterfaceC0553a interfaceC0553a) {
-        this.eNv = interfaceC0553a;
+        this.eNz = interfaceC0553a;
     }
 
     public int getColumn() {
@@ -111,19 +111,19 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.mPaddingRight;
     }
 
-    public int bsG() {
-        return this.eNx;
+    public int bsH() {
+        return this.eNB;
     }
 
-    public CommonTabHost.a bsH() {
-        return this.eNw;
+    public CommonTabHost.a bsI() {
+        return this.eNA;
     }
 
     public void a(CommonTabContentView.b bVar) {
-        this.eNp = bVar;
+        this.eNt = bVar;
     }
 
-    public CommonTabContentView.b bsI() {
-        return this.eNp;
+    public CommonTabContentView.b bsJ() {
+        return this.eNt;
     }
 }

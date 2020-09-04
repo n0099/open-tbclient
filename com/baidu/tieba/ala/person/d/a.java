@@ -15,17 +15,17 @@ public class a {
         personUserData.user_info = new ah();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aHS = bVar.metaKey;
+        personUserData.user_info.aHU = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.ghn;
+        personUserData.relation_info.follow_status = bVar.ghr;
         return personUserData;
     }
 
-    public static String aY(int i, String str) {
+    public static String aX(int i, String str) {
         String str2;
         String str3;
         String str4 = null;

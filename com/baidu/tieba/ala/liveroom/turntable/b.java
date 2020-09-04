@@ -8,6 +8,6 @@ public class b implements a.InterfaceC0640a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0640a
-    public void aW(int i, String str) {
+    public void aV(int i, String str) {
     }
 }

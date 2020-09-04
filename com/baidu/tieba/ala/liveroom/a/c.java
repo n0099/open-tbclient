@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes7.dex */
 public interface c {
-    void FK(String str);
+    void FL(String str);
 
     void aC(String str, int i);
 

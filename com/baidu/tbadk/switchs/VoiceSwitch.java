@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VoiceSwitch extends a {
     public static final int DEFAULT_TYPE = 0;
     public static final int OFF_TYPE = 1;

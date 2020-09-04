@@ -8,49 +8,49 @@ import tbclient.GetForumBroadcastList.DataRes;
 import tbclient.Page;
 /* loaded from: classes20.dex */
 public class a {
-    private boolean fky;
-    private List<b> jmW = new ArrayList();
-    private boolean jmX;
+    private boolean fkC;
+    private List<b> jnc = new ArrayList();
+    private boolean jnd;
     private Page page;
 
-    public boolean cEw() {
-        return this.jmX;
+    public boolean cEx() {
+        return this.jnd;
     }
 
-    public boolean bzC() {
-        return this.fky;
+    public boolean bzD() {
+        return this.fkC;
     }
 
-    public void qs(boolean z) {
-        this.fky = z;
+    public void qu(boolean z) {
+        this.fkC = z;
     }
 
-    public List<b> cEx() {
-        return this.jmW;
+    public List<b> cEy() {
+        return this.jnc;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.page = dataRes.page;
             if (this.page != null) {
-                this.jmX = this.page.has_more.intValue() == 1;
+                this.jnd = this.page.has_more.intValue() == 1;
             }
             List<BroadcastInfo> list = dataRes.bcast_infos;
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
                     b bVar = new b();
                     bVar.a(list.get(i));
-                    this.jmW.add(bVar);
+                    this.jnc.add(bVar);
                 }
             }
         }
     }
 
-    public void cEy() {
-        if (this.jmW != null && this.jmW.size() > 0) {
-            for (b bVar : this.jmW) {
+    public void cEz() {
+        if (this.jnc != null && this.jnc.size() > 0) {
+            for (b bVar : this.jnc) {
                 if (bVar != null) {
-                    l.cEn().b(bVar.cEF().forum_id.longValue(), bVar.cED() * 100, bVar.cEB());
+                    l.cEo().b(bVar.cEG().forum_id.longValue(), bVar.cEE() * 100, bVar.cEC());
                 }
             }
         }

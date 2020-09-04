@@ -7,25 +7,25 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.BawuThrones;
 /* loaded from: classes15.dex */
 public class c {
-    private x hRD;
-    private BawuThrones hRE;
+    private x hRJ;
+    private BawuThrones hRK;
 
     private c() {
     }
 
-    public static c ckW() {
-        return a.hRF;
+    public static c ckX() {
+        return a.hRL;
     }
 
     public void a(BawuThrones bawuThrones) {
-        this.hRE = bawuThrones;
+        this.hRK = bawuThrones;
     }
 
-    public BawuThrones ckX() {
-        return this.hRE;
+    public BawuThrones ckY() {
+        return this.hRK;
     }
 
-    public void eB(String str, String str2) {
+    public void eC(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
         httpMessage.addParam("forum_id", str);
         httpMessage.addParam("thread_id", str2);
@@ -33,23 +33,23 @@ public class c {
     }
 
     public void b(TbPageContext tbPageContext, String str, String str2) {
-        if (this.hRD == null) {
-            this.hRD = new x();
+        if (this.hRJ == null) {
+            this.hRJ = new x();
         }
-        this.hRD.b(tbPageContext, str, str2);
+        this.hRJ.b(tbPageContext, str, str2);
     }
 
     public void destory() {
-        this.hRE = null;
-        if (this.hRD != null) {
-            this.hRD.onDestory();
+        this.hRK = null;
+        if (this.hRJ != null) {
+            this.hRJ.onDestory();
         }
-        this.hRD = null;
+        this.hRJ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public static class a {
-        private static c hRF = new c();
+        private static c hRL = new c();
     }
 }

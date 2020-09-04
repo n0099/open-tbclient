@@ -9,25 +9,25 @@ import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class e implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private d cjT;
-    private LinkedList<com.baidu.swan.apps.event.a.a> cjS = new LinkedList<>();
-    private b cjR = new b(2);
+    private d cjX;
+    private LinkedList<com.baidu.swan.apps.event.a.a> cjW = new LinkedList<>();
+    private b cjV = new b(2);
     private final Object mLock = new Object();
-    private volatile boolean cjU = false;
-    private volatile boolean cjV = false;
-    private volatile boolean cjW = false;
-    private boolean cjN = false;
+    private volatile boolean cjY = false;
+    private volatile boolean cjZ = false;
+    private volatile boolean cka = false;
+    private boolean cjR = false;
 
     public void a(boolean z, c cVar) {
-        if (!this.cjW) {
+        if (!this.cka) {
             synchronized (this.mLock) {
-                if (!this.cjW) {
-                    this.cjN = z;
+                if (!this.cka) {
+                    this.cjR = z;
                     d m = d.m(true, z);
                     m.a(this);
                     m.a(cVar);
-                    this.cjR.a(m);
-                    this.cjW = true;
+                    this.cjV.a(m);
+                    this.cka = true;
                     return;
                 }
             }
@@ -35,18 +35,18 @@ public class e implements c {
         if (DEBUG) {
             Log.w("SwanAppMasterProvider", "call prepareDefault repeat");
         }
-        d lv = this.cjR.lv("_default_id_");
-        if (lv != null) {
-            lv.a(cVar);
+        d lw = this.cjV.lw("_default_id_");
+        if (lw != null) {
+            lw.a(cVar);
         }
     }
 
     public boolean ail() {
-        return this.cjU;
+        return this.cjY;
     }
 
     public boolean aim() {
-        return this.cjW;
+        return this.cka;
     }
 
     public void a(String str, PrefetchEvent.b bVar) {
@@ -57,11 +57,11 @@ public class e implements c {
             if (DEBUG) {
                 Log.w("SwanAppMasterProvider", "prefetch appId is empty");
             }
-        } else if (this.cjV) {
+        } else if (this.cjZ) {
             com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
             if (azJ != null) {
                 if (TextUtils.equals(str, azJ.getAppId())) {
-                    this.cjT.a(str, bVar);
+                    this.cjX.a(str, bVar);
                     if (DEBUG) {
                         Log.w("SwanAppMasterProvider", "prefetch after app start - " + str);
                     }
@@ -69,75 +69,75 @@ public class e implements c {
                     Log.w("SwanAppMasterProvider", "can not prefetch after swan app start");
                 }
             }
-        } else if (!this.cjU) {
+        } else if (!this.cjY) {
             if (DEBUG) {
                 Log.w("SwanAppMasterProvider", "can not prefetch before default mater ready");
             }
         } else {
             synchronized (this.mLock) {
-                if (!this.cjV) {
-                    d lv = this.cjR.lv(str);
-                    if (lv == null) {
-                        lv = d.m(false, this.cjN);
-                        this.cjR.a(lv);
+                if (!this.cjZ) {
+                    d lw = this.cjV.lw(str);
+                    if (lw == null) {
+                        lw = d.m(false, this.cjR);
+                        this.cjV.a(lw);
                     }
-                    lv.a(str, bVar);
+                    lw.a(str, bVar);
                 }
             }
         }
     }
 
-    public d lx(String str) {
-        d lv;
+    public d ly(String str) {
+        d lw;
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
         if (DEBUG) {
             Log.w("SwanAppMasterProvider", "real start a swan app - " + str);
         }
-        if (!this.cjU && DEBUG) {
+        if (!this.cjY && DEBUG) {
             throw new RuntimeException("should call startApp after preload finished");
         }
-        if (this.cjV) {
-            return this.cjT;
+        if (this.cjZ) {
+            return this.cjX;
         }
         synchronized (this.mLock) {
-            if (!this.cjV) {
+            if (!this.cjZ) {
                 if (TextUtils.isEmpty(str)) {
-                    lv = this.cjR.lv("_default_id_");
+                    lw = this.cjV.lw("_default_id_");
                 } else {
-                    lv = this.cjR.lv(str);
-                    if (lv == null || !lv.isReady()) {
-                        lv = this.cjR.lv("_default_id_");
+                    lw = this.cjV.lw(str);
+                    if (lw == null || !lw.isReady()) {
+                        lw = this.cjV.lw("_default_id_");
                     }
                 }
-                a(lv, str);
+                a(lw, str);
             }
         }
         if (DEBUG) {
             Log.i("SwanAppMasterProvider", "get right master cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-            Log.i("SwanAppMasterProvider", "final master id - " + this.cjT.aii().aaU());
+            Log.i("SwanAppMasterProvider", "final master id - " + this.cjX.aii().aaU());
         }
-        return this.cjT;
+        return this.cjX;
     }
 
     private void a(d dVar, String str) {
-        this.cjT = dVar;
-        this.cjT.lw(str);
-        this.cjV = true;
+        this.cjX = dVar;
+        this.cjX.lx(str);
+        this.cjZ = true;
         aip();
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        this.cjR.e(Collections.singletonList(dVar));
+        this.cjV.e(Collections.singletonList(dVar));
         if (DEBUG) {
             Log.i("SwanAppMasterProvider", "clear useless master cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
     }
 
     public boolean ain() {
-        return this.cjV;
+        return this.cjZ;
     }
 
     public d aio() {
-        if (this.cjV) {
-            return this.cjT;
+        if (this.cjZ) {
+            return this.cjX;
         }
         if (DEBUG) {
             Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + aim());
@@ -147,48 +147,48 @@ public class e implements c {
     }
 
     public void reset() {
-        this.cjU = false;
-        this.cjV = false;
-        this.cjW = false;
-        this.cjN = false;
-        this.cjT = null;
-        this.cjR.e(null);
+        this.cjY = false;
+        this.cjZ = false;
+        this.cka = false;
+        this.cjR = false;
+        this.cjX = null;
+        this.cjV.e(null);
         synchronized (this.mLock) {
-            this.cjS.clear();
+            this.cjW.clear();
         }
         a.aif();
     }
 
     private void aip() {
-        if (!this.cjS.isEmpty() && this.cjV) {
+        if (!this.cjW.isEmpty() && this.cjZ) {
             synchronized (this.mLock) {
-                Iterator<com.baidu.swan.apps.event.a.a> it = this.cjS.iterator();
+                Iterator<com.baidu.swan.apps.event.a.a> it = this.cjW.iterator();
                 while (it.hasNext()) {
                     com.baidu.swan.apps.event.a.a next = it.next();
                     if (DEBUG) {
-                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.bXU);
+                        Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.bXY);
                     }
                     com.baidu.swan.apps.core.turbo.d.ajS().b(next);
                 }
-                this.cjS.clear();
+                this.cjW.clear();
             }
         }
     }
 
     public boolean aiq() {
-        return this.cjN;
+        return this.cjR;
     }
 
     public void a(com.baidu.swan.apps.event.a.a aVar) {
-        if (aVar != null && !this.cjV) {
+        if (aVar != null && !this.cjZ) {
             synchronized (this.mLock) {
-                this.cjS.add(aVar);
+                this.cjW.add(aVar);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.core.g.a.c
     public void onReady() {
-        this.cjU = true;
+        this.cjY = true;
     }
 }

@@ -33,9 +33,9 @@ public class j extends aa {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.rJ(optString) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.BD_FILE) {
             jSONObject = cg(com.baidu.swan.apps.storage.b.cn(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.rJ(optString) == PathType.RELATIVE) {
+        } else if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.RELATIVE) {
             jSONObject = cg(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
@@ -65,11 +65,11 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface js = js(str);
-            if (js == null) {
+            ExifInterface jt = jt(str);
+            if (jt == null) {
                 return null;
             }
-            i = js.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = jt.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface js(String str) {
+    private ExifInterface jt(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

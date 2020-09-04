@@ -8,17 +8,17 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile j bXP;
-    private HashMap<String, Boolean> bXN = new HashMap<>();
-    private HashMap<String, com.baidu.swan.apps.inlinewidget.f.c.a> bXO = new HashMap<>();
-    private int aEE = -1;
-    private com.baidu.swan.apps.ap.e.b<Integer> bXQ = null;
-    private com.baidu.swan.apps.v.h bXR = null;
-    private com.baidu.swan.apps.framework.a bXS = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.k.j.1
+    private static volatile j bXT;
+    private HashMap<String, Boolean> bXR = new HashMap<>();
+    private HashMap<String, com.baidu.swan.apps.inlinewidget.f.c.a> bXS = new HashMap<>();
+    private int aEG = -1;
+    private com.baidu.swan.apps.ap.e.b<Integer> bXU = null;
+    private com.baidu.swan.apps.v.h bXV = null;
+    private com.baidu.swan.apps.framework.a bXW = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.k.j.1
         @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
         public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            if (i == 4 && j.this.bXQ != null && j.this.isFullScreen()) {
-                j.this.bXQ.I(1);
+            if (i == 4 && j.this.bXU != null && j.this.isFullScreen()) {
+                j.this.bXU.I(1);
                 return true;
             }
             return false;
@@ -26,26 +26,26 @@ public class j {
     };
 
     public static j aco() {
-        if (bXP == null) {
+        if (bXT == null) {
             synchronized (j.class) {
-                if (bXP == null) {
-                    bXP = new j();
+                if (bXT == null) {
+                    bXT = new j();
                 }
             }
         }
-        return bXP;
+        return bXT;
     }
 
     public void I(String str, boolean z) {
-        if (this.bXN != null) {
-            this.bXN.put(str, Boolean.valueOf(z));
+        if (this.bXR != null) {
+            this.bXR.put(str, Boolean.valueOf(z));
         }
     }
 
-    public void kb(String str) {
-        if (this.bXN != null) {
-            this.bXN.remove(str);
-            int size = this.bXN.keySet().size();
+    public void kc(String str) {
+        if (this.bXR != null) {
+            this.bXR.remove(str);
+            int size = this.bXR.keySet().size();
             if (DEBUG) {
                 Log.i("SwanInlinePlayerManager", "removePlayerState: last player count " + size);
             }
@@ -53,12 +53,12 @@ public class j {
     }
 
     public boolean isFullScreen() {
-        return this.aEE == 90 || this.aEE == -90;
+        return this.aEG == 90 || this.aEG == -90;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void gA(int i) {
-        this.aEE = i;
+        this.aEG = i;
     }
 
     public void acp() {
@@ -74,80 +74,80 @@ public class j {
     }
 
     public void acq() {
-        if (isFullScreen() && this.bXQ != null) {
-            this.bXQ.I(0);
+        if (isFullScreen() && this.bXU != null) {
+            this.bXU.I(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(com.baidu.swan.apps.ap.e.b<Integer> bVar) {
-        this.bXQ = bVar;
+        this.bXU = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void acr() {
-        this.bXQ = null;
+        this.bXU = null;
     }
 
     public void release() {
         synchronized (this) {
             acs();
             acu();
-            this.bXN = null;
-            this.bXO.clear();
-            this.bXQ = null;
+            this.bXR = null;
+            this.bXS.clear();
+            this.bXU = null;
         }
-        bXP = null;
+        bXT = null;
     }
 
     protected void acs() {
-        if (this.bXR != null) {
-            com.baidu.swan.apps.v.i.b(this.bXR);
-            this.bXR = null;
+        if (this.bXV != null) {
+            com.baidu.swan.apps.v.i.b(this.bXV);
+            this.bXV = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void act() {
-        com.baidu.swan.apps.v.f.arY().arI().a(this.bXS);
+        com.baidu.swan.apps.v.f.arY().arI().a(this.bXW);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void acu() {
         SwanAppActivity arI = com.baidu.swan.apps.v.f.arY().arI();
-        if (this.bXS != null && arI != null) {
-            arI.b(this.bXS);
+        if (this.bXW != null && arI != null) {
+            arI.b(this.bXW);
         }
     }
 
     public void a(com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.aop())) {
-            this.bXO.put(aVar.aop(), aVar);
-        }
-    }
-
-    public void kc(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.bXO.remove(str);
+            this.bXS.put(aVar.aop(), aVar);
         }
     }
 
     public void kd(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.bXS.remove(str);
+        }
+    }
+
+    public void ke(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: empty player id ");
             }
-        } else if (this.bXO != null && this.bXO.size() > 0) {
-            for (String str2 : this.bXO.keySet()) {
+        } else if (this.bXS != null && this.bXS.size() > 0) {
+            for (String str2 : this.bXS.keySet()) {
                 if (str2.equals(str)) {
                     if (DEBUG) {
                         Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: skip itself." + str);
                     }
                 } else {
-                    com.baidu.swan.apps.inlinewidget.f.c.a aVar = this.bXO.get(str2);
+                    com.baidu.swan.apps.inlinewidget.f.c.a aVar = this.bXS.get(str2);
                     if (aVar != null) {
                         aVar.pause();
-                        aVar.aos().mX(aVar.aop());
+                        aVar.aos().mY(aVar.aop());
                     }
                 }
             }

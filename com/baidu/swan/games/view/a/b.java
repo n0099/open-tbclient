@@ -47,7 +47,7 @@ public class b {
         h.a("916", "68", aVar);
     }
 
-    public static void wj(String str) {
+    public static void wk(String str) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";

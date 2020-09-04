@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a<T> {
-    private List<com.baidu.swan.uuid.a.b<T>> dKG = new ArrayList(6);
+    private List<com.baidu.swan.uuid.a.b<T>> dKK = new ArrayList(6);
 
     public void a(com.baidu.swan.uuid.a.b<T> bVar) {
-        if (bVar != null && !this.dKG.contains(bVar)) {
-            this.dKG.add(bVar);
+        if (bVar != null && !this.dKK.contains(bVar)) {
+            this.dKK.add(bVar);
         }
     }
 
@@ -17,7 +17,7 @@ public class a<T> {
         T t;
         ArrayList<com.baidu.swan.uuid.a.b> arrayList = new ArrayList();
         T t2 = null;
-        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.dKG.iterator();
+        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.dKK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 t = t2;
@@ -58,7 +58,7 @@ public class a<T> {
 
     public void al(T t) {
         if (!ak(t)) {
-            for (com.baidu.swan.uuid.a.b<T> bVar : this.dKG) {
+            for (com.baidu.swan.uuid.a.b<T> bVar : this.dKK) {
                 if (bVar.aWA()) {
                     bVar.put(t);
                 }

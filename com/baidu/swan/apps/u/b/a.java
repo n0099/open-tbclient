@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static boolean isShowing = false;
-    private static final long cvL = TimeUnit.SECONDS.toMillis(1);
+    private static final long cvP = TimeUnit.SECONDS.toMillis(1);
 
     public static void a(Context context, @NonNull com.baidu.swan.apps.am.a aVar, int i, String str) {
         a(context, aVar, i, str, (Bundle) null);
@@ -141,7 +141,7 @@ public class a {
     }
 
     private static boolean W(@NonNull Context context, @Nullable String str) {
-        return (TextUtils.isEmpty(str) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.u.f.a.nV(str)) ? false : true;
+        return (TextUtils.isEmpty(str) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.u.f.a.nW(str)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,7 +166,7 @@ public class a {
             com.baidu.swan.apps.process.messaging.service.e.ayg().a(new com.baidu.swan.apps.process.messaging.service.a() { // from class: com.baidu.swan.apps.u.b.a.1
                 @Override // com.baidu.swan.apps.process.messaging.service.a
                 public void c(String str3, com.baidu.swan.apps.process.messaging.service.c cVar) {
-                    if (cVar.cJz.index == i && N.contains(str3)) {
+                    if (cVar.cJD.index == i && N.contains(str3)) {
                         com.baidu.swan.apps.process.messaging.service.e.ayg().a(this);
                         a.bG(str, str2);
                     }
@@ -176,19 +176,19 @@ public class a {
                 public void alw() {
                     a.bG(str, str2);
                 }
-            }, cvL);
+            }, cvP);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void bG(String str, String str2) {
         if (!isShowing) {
-            SwanAppErrorDialog.aFR().qa(str).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.u.b.a.2
+            SwanAppErrorDialog.aFR().qb(str).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.u.b.a.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     boolean unused = a.isShowing = false;
                 }
-            }).qb(str2).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            }).qc(str2).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
             isShowing = true;
         }
     }

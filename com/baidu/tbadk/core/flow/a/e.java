@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.flow.a;
 
 import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     private int height = -2;
     private int width = -1;

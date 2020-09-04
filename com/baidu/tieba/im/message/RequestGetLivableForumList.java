@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.GetLivableForumList.DataReq;
 import protobuf.GetLivableForumList.GetLivableForumListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequestGetLivableForumList extends TbSocketMessage {
     int filterFlag;
     int likeForumFlag;

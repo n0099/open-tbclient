@@ -2,7 +2,7 @@ package com.baidu.tieba.k;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface b {
     void dT(JSONObject jSONObject) throws JSONException;
 

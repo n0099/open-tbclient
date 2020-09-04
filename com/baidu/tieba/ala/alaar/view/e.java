@@ -11,77 +11,77 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 /* loaded from: classes7.dex */
 public class e {
-    private TextView esQ;
-    private TbImageView fAI;
-    public ImageView fAJ;
-    private ObjectAnimator fAK;
-    public ImageView fBO;
+    private TextView esU;
+    private TbImageView fAM;
+    public ImageView fAN;
+    private ObjectAnimator fAO;
+    public ImageView fBS;
     public View mRootView;
 
     public e(View view) {
         this.mRootView = view;
-        this.fAI = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
-        this.fAI.setDefaultBgResource(a.f.filter_beauty_item_bg);
-        this.fAI.setIsRound(true);
-        this.fAI.setAutoChangeStyle(false);
-        this.fAI.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fAI.setDrawBorder(false);
-        this.fAJ = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
-        this.fBO = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
-        this.esQ = (TextView) this.mRootView.findViewById(a.g.filter_text);
+        this.fAM = (TbImageView) this.mRootView.findViewById(a.g.filter_img);
+        this.fAM.setDefaultBgResource(a.f.filter_beauty_item_bg);
+        this.fAM.setIsRound(true);
+        this.fAM.setAutoChangeStyle(false);
+        this.fAM.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fAM.setDrawBorder(false);
+        this.fAN = (ImageView) this.mRootView.findViewById(a.g.filter_unload);
+        this.fBS = (ImageView) this.mRootView.findViewById(a.g.filter_bg);
+        this.esU = (TextView) this.mRootView.findViewById(a.g.filter_text);
     }
 
     public void b(f fVar) {
         if (fVar != null) {
-            this.fAI.setVisibility(0);
-            if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(fVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.Ef(fVar.AP())) {
-                this.fAJ.setVisibility(4);
+            this.fAM.setVisibility(0);
+            if (this.mRootView.getContext().getString(a.i.beauty_yuantu).equals(fVar.getName()) || com.baidu.tieba.ala.alaar.sticker.a.e.Eg(fVar.AP())) {
+                this.fAN.setVisibility(4);
+                bFd();
+            } else if (!TextUtils.isEmpty(fVar.AP()) && com.baidu.tieba.ala.alaar.sticker.a.e.cE(fVar.AP())) {
+                this.fAN.setVisibility(0);
                 bFc();
-            } else if (!TextUtils.isEmpty(fVar.AP()) && com.baidu.tieba.ala.alaar.sticker.a.e.cD(fVar.AP())) {
-                this.fAJ.setVisibility(0);
-                bFb();
             } else {
-                this.fAJ.setVisibility(0);
-                this.fAJ.setRotation(0.0f);
-                this.fAJ.setImageResource(a.f.sticker_unload);
-                bFc();
+                this.fAN.setVisibility(0);
+                this.fAN.setRotation(0.0f);
+                this.fAN.setImageResource(a.f.sticker_unload);
+                bFd();
             }
-            this.esQ.setText(fVar.getName());
+            this.esU.setText(fVar.getName());
             c(fVar);
         }
     }
 
     public void c(f fVar) {
         if (fVar != null) {
-            this.fAI.startLoad(fVar.AO(), 10, false);
+            this.fAM.startLoad(fVar.AO(), 10, false);
         }
-    }
-
-    public void bFn() {
-        this.esQ.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
-        this.fBO.setVisibility(4);
     }
 
     public void bFo() {
-        this.esQ.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
-        this.fBO.setVisibility(0);
+        this.esU.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_cont_i));
+        this.fBS.setVisibility(4);
     }
 
-    public void bFb() {
-        if (this.fAK == null) {
-            this.fAK = ObjectAnimator.ofFloat(this.fAJ, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-            this.fAK.setRepeatCount(-1);
-            this.fAK.setDuration(1000L);
-        }
-        if (!this.fAK.isRunning()) {
-            this.fAJ.setImageResource(a.f.sticker_loading);
-            this.fAK.start();
-        }
+    public void bFp() {
+        this.esU.setTextColor(this.mRootView.getResources().getColor(a.d.sdk_cp_other_b));
+        this.fBS.setVisibility(0);
     }
 
     public void bFc() {
-        if (this.fAK != null && this.fAK.isRunning()) {
-            this.fAK.cancel();
+        if (this.fAO == null) {
+            this.fAO = ObjectAnimator.ofFloat(this.fAN, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+            this.fAO.setRepeatCount(-1);
+            this.fAO.setDuration(1000L);
+        }
+        if (!this.fAO.isRunning()) {
+            this.fAN.setImageResource(a.f.sticker_loading);
+            this.fAO.start();
+        }
+    }
+
+    public void bFd() {
+        if (this.fAO != null && this.fAO.isRunning()) {
+            this.fAO.cancel();
         }
     }
 }

@@ -28,74 +28,74 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ALaImMsgView extends RelativeLayout implements j {
-    private boolean bbC;
-    private ALAImMsgListView bdA;
-    private ALAImMsgMoreChatView bdB;
-    private TextView bdC;
-    private boolean bdD;
-    private boolean bdE;
-    private ALAImEnterView bdz;
+    private boolean bbE;
+    private ALAImEnterView bdB;
+    private ALAImMsgListView bdC;
+    private ALAImMsgMoreChatView bdD;
+    private TextView bdE;
+    private boolean bdF;
+    private boolean bdG;
     private String mOtherParams;
     private TbPageContext mTbPageContext;
     private String mVid;
 
     public ALaImMsgView(Context context) {
         super(context);
-        this.bdD = false;
-        this.bdE = false;
+        this.bdF = false;
+        this.bdG = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdD = false;
-        this.bdE = false;
+        this.bdF = false;
+        this.bdG = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bdD = false;
-        this.bdE = false;
+        this.bdF = false;
+        this.bdG = false;
         init(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bdA.setPageContext(tbPageContext);
+        this.bdC.setPageContext(tbPageContext);
     }
 
     private void init(Context context) {
-        this.bdz = new ALAImEnterView(context);
+        this.bdB = new ALAImEnterView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, getResources().getDimensionPixelSize(a.e.sdk_im_entereffect_height));
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-        addView(this.bdz, layoutParams);
-        this.bdA = new ALAImMsgListView(context);
-        this.bdA.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
+        addView(this.bdB, layoutParams);
+        this.bdC = new ALAImMsgListView(context);
+        this.bdC.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
             @Override // com.baidu.live.im.view.ALAImMsgListView.a
             public void Kr() {
-                ALaImMsgView.this.bdB.setVisibility(8);
+                ALaImMsgView.this.bdD.setVisibility(8);
             }
         });
-        this.bdA.setId(a.g.ala_im_normal_panel);
+        this.bdC.setId(a.g.ala_im_normal_panel);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = layoutParams.height + getResources().getDimensionPixelOffset(a.e.sdk_ds16);
         layoutParams2.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
         layoutParams2.addRule(12);
-        addView(this.bdA, layoutParams2);
-        this.bdB = new ALAImMsgMoreChatView(context);
+        addView(this.bdC, layoutParams2);
+        this.bdD = new ALAImMsgMoreChatView(context);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(context.getResources().getDimensionPixelSize(a.e.sdk_ds236), context.getResources().getDimensionPixelSize(a.e.sdk_ds60));
         layoutParams3.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds20);
-        layoutParams3.addRule(8, this.bdA.getId());
-        addView(this.bdB, layoutParams3);
-        this.bdB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
+        layoutParams3.addRule(8, this.bdC.getId());
+        addView(this.bdD, layoutParams3);
+        this.bdD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!ALaImMsgView.this.bdD) {
-                    if (!ALaImMsgView.this.bdE) {
-                        ALaImMsgView.this.bdE = false;
-                        ALaImMsgView.this.bdB.setVisibility(8);
-                        ALaImMsgView.this.bdA.Kp();
+                if (!ALaImMsgView.this.bdF) {
+                    if (!ALaImMsgView.this.bdG) {
+                        ALaImMsgView.this.bdG = false;
+                        ALaImMsgView.this.bdD.setVisibility(8);
+                        ALaImMsgView.this.bdC.Kp();
                         return;
                     }
                     return;
@@ -106,7 +106,7 @@ public class ALaImMsgView extends RelativeLayout implements j {
     }
 
     public void setMode(boolean z) {
-        this.bdA.setMode(z);
+        this.bdC.setMode(z);
     }
 
     @Override // android.view.View
@@ -114,9 +114,9 @@ public class ALaImMsgView extends RelativeLayout implements j {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.bdA.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bdC.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             } else if (configuration.orientation == 1) {
-                this.bdA.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                this.bdC.setMaxHeight(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             }
         }
     }
@@ -128,86 +128,86 @@ public class ALaImMsgView extends RelativeLayout implements j {
 
     @Override // com.baidu.live.im.j
     public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        this.bdA.setMsgData(list);
+        this.bdC.setMsgData(list);
     }
 
     public boolean R(List<com.baidu.live.im.data.a> list) {
-        return (list.size() == this.bdA.getData().size() && list.get(list.size() + (-1)) == this.bdA.getData().get(this.bdA.getData().size() + (-1))) ? false : true;
+        return (list.size() == this.bdC.getData().size() && list.get(list.size() + (-1)) == this.bdC.getData().get(this.bdC.getData().size() + (-1))) ? false : true;
     }
 
     public void w(com.baidu.live.im.data.a aVar) {
-        this.bdz.v(aVar);
+        this.bdB.v(aVar);
     }
 
     @Override // com.baidu.live.im.j
     public void Je() {
-        this.bdA.Je();
+        this.bdC.Je();
     }
 
     public void Ju() {
         KI();
-        this.bdz.Ju();
-        this.bdA.Ju();
+        this.bdB.Ju();
+        this.bdC.Ju();
     }
 
     public void Kq() {
-        this.bdz.release();
-        this.bdA.Kq();
-        this.bdB.setVisibility(8);
+        this.bdB.release();
+        this.bdC.Kq();
+        this.bdD.setVisibility(8);
     }
 
     @Override // com.baidu.live.im.j
     public void b(String str, String str2, boolean z, String str3) {
-        this.bdA.b(str, str2, z, str3);
+        this.bdC.b(str, str2, z, str3);
     }
 
     @Override // com.baidu.live.im.j
     public void setNeedTopAlphaShade(boolean z) {
-        this.bdA.setNeedTopAlphaShade(z);
+        this.bdC.setNeedTopAlphaShade(z);
     }
 
     @Override // com.baidu.live.im.j
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.bdD = z;
+        this.bdF = z;
     }
 
     public void setLogData(String str, String str2) {
         this.mVid = str != null ? str : "";
         this.mOtherParams = str2 != null ? str2 : "";
-        this.bdA.setLogData(str, str2);
+        this.bdC.setLogData(str, str2);
     }
 
     public void setFromMaster(boolean z) {
-        this.bbC = z;
-        if (this.bdA != null) {
-            this.bdA.setFromMaster(this.bbC);
+        this.bbE = z;
+        if (this.bdC != null) {
+            this.bdC.setFromMaster(this.bbE);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.bdD) {
-                this.bdE = true;
+            if (this.bdF) {
+                this.bdG = true;
                 BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
             } else {
-                this.bdE = false;
+                this.bdG = false;
             }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     public void KG() {
-        if (this.bdA.Kn()) {
-            this.bdB.setVisibility(0);
+        if (this.bdC.Kn()) {
+            this.bdD.setVisibility(0);
         }
     }
 
     public void av(final String str, final String str2) {
-        if (this.bdC == null) {
-            this.bdC = new AlaImAddTagTextView(getContext());
-            this.bdC.setId(a.g.ala_im_add_tag);
-            this.bdC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
+        if (this.bdE == null) {
+            this.bdE = new AlaImAddTagTextView(getContext());
+            this.bdE.setId(a.g.ala_im_add_tag);
+            this.bdE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     JSONObject jSONObject = new JSONObject();
@@ -223,42 +223,42 @@ public class ALaImMsgView extends RelativeLayout implements j {
             });
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12);
-            layoutParams.addRule(5, this.bdA.getId());
+            layoutParams.addRule(5, this.bdC.getId());
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.e.sdk_ds8);
-            addView(this.bdC, layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bdA.getLayoutParams();
+            addView(this.bdE, layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bdC.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams2.removeRule(12);
             } else {
                 layoutParams2.addRule(12, 0);
             }
-            layoutParams2.addRule(2, this.bdC.getId());
-            this.bdA.setLayoutParams(layoutParams2);
+            layoutParams2.addRule(2, this.bdE.getId());
+            this.bdC.setLayoutParams(layoutParams2);
         }
-        this.bdC.setVisibility(0);
+        this.bdE.setVisibility(0);
     }
 
     public void KH() {
-        if (this.bdC != null) {
-            this.bdC.setVisibility(8);
+        if (this.bdE != null) {
+            this.bdE.setVisibility(8);
         }
         KI();
     }
 
     public int getImMsgListViewTop() {
-        return getTop() + this.bdA.getTop();
+        return getTop() + this.bdC.getTop();
     }
 
     public int getImMsgListViewHeight() {
-        return this.bdA.getHeight();
+        return this.bdC.getHeight();
     }
 
     private void KI() {
-        if (this.bdA != null) {
-            ViewGroup.LayoutParams layoutParams = this.bdA.getLayoutParams();
+        if (this.bdC != null) {
+            ViewGroup.LayoutParams layoutParams = this.bdC.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).addRule(12);
-                this.bdA.setLayoutParams(layoutParams);
+                this.bdC.setLayoutParams(layoutParams);
             }
         }
     }

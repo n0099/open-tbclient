@@ -55,7 +55,7 @@ public class ad implements aa {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
             }
-            d.dLL().k(str, str2, i);
+            d.dLU().k(str, str2, i);
             return;
         }
         try {
@@ -71,7 +71,7 @@ public class ad implements aa {
                 if (DEBUG) {
                     Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
                 }
-                d.dLL().a(str, jSONObject, i);
+                d.dLU().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -118,7 +118,7 @@ public class ad implements aa {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
             }
-            return d.dLL().beginFlow(str, str2, i);
+            return d.dLU().beginFlow(str, str2, i);
         }
         return v(str, str2, i);
     }
@@ -131,7 +131,7 @@ public class ad implements aa {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
             }
-            return d.dLL().beginFlow(str, jSONObject, i);
+            return d.dLU().beginFlow(str, jSONObject, i);
         }
         return v(str, jSONObject.toString(), i);
     }
@@ -156,7 +156,7 @@ public class ad implements aa {
                         }
                     }
                 }
-                d.dLL().a(flow.getId(), flow.getHandle(), jSONArray);
+                d.dLU().a(flow.getId(), flow.getHandle(), jSONArray);
                 return;
             }
             try {
@@ -174,7 +174,7 @@ public class ad implements aa {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-                d.dLL().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
+                d.dLU().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
                 return;
             }
             try {
@@ -192,7 +192,7 @@ public class ad implements aa {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-                d.dLL().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
+                d.dLU().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
                 return;
             }
             try {
@@ -210,7 +210,7 @@ public class ad implements aa {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-                d.dLL().f(flow.getId(), flow.getHandle(), str);
+                d.dLU().f(flow.getId(), flow.getHandle(), str);
                 return;
             }
             try {
@@ -261,7 +261,7 @@ public class ad implements aa {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.dLL().f(flow.getId(), flow.getHandle(), jSONObject.toString());
+                d.dLU().f(flow.getId(), flow.getHandle(), jSONObject.toString());
                 return;
             }
             try {
@@ -299,7 +299,7 @@ public class ad implements aa {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-                d.dLL().H(flow.getId(), flow.getHandle());
+                d.dLU().H(flow.getId(), flow.getHandle());
                 return;
             }
             try {
@@ -312,17 +312,17 @@ public class ad implements aa {
 
     @Override // com.baidu.ubc.aa
     public void b(v vVar, boolean z, s sVar) {
-        d.dLL().a(vVar, z, sVar);
+        d.dLU().a(vVar, z, sVar);
     }
 
-    public boolean dMa() {
+    public boolean dMj() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_SAMPLE", false);
         }
         return true;
     }
 
-    public boolean dMb() {
+    public boolean dMk() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_DEBUG", AppConfig.isDebug());
         }

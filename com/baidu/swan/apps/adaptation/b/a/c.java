@@ -7,14 +7,14 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        public static final c bSS = new c();
+        public static final c bSW = new c();
     }
 
     private c() {
     }
 
     public static c abd() {
-        return a.bSS;
+        return a.bSW;
     }
 
     public j abe() {

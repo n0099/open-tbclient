@@ -5,15 +5,15 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 /* loaded from: classes15.dex */
 public final class a extends GestureDetector.SimpleOnGestureListener {
-    private final WheelView fiI;
+    private final WheelView fiM;
 
     public a(WheelView wheelView) {
-        this.fiI = wheelView;
+        this.fiM = wheelView;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
     public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        this.fiI.scrollBy(f2);
+        this.fiM.scrollBy(f2);
         return true;
     }
 }

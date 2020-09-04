@@ -3,25 +3,25 @@ package rx;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes5.dex */
 public final class a {
-    public static final d oDb = c.oDh;
-    public static final d oDc = oDb;
-    public static final d oDd = b.oDg;
-    public static final d oDe = C0985a.oDf;
+    public static final d oDt = c.oDz;
+    public static final d oDu = oDt;
+    public static final d oDv = b.oDy;
+    public static final d oDw = C0985a.oDx;
 
     /* loaded from: classes5.dex */
     public interface d {
-        boolean ejB() throws MissingBackpressureException;
+        boolean ejK() throws MissingBackpressureException;
     }
 
     /* loaded from: classes5.dex */
     static final class b implements d {
-        static final b oDg = new b();
+        static final b oDy = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean ejB() {
+        public boolean ejK() {
             return true;
         }
     }
@@ -29,26 +29,26 @@ public final class a {
     /* renamed from: rx.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     static final class C0985a implements d {
-        static final C0985a oDf = new C0985a();
+        static final C0985a oDx = new C0985a();
 
         private C0985a() {
         }
 
         @Override // rx.a.d
-        public boolean ejB() {
+        public boolean ejK() {
             return false;
         }
     }
 
     /* loaded from: classes5.dex */
     static final class c implements d {
-        static final c oDh = new c();
+        static final c oDz = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean ejB() throws MissingBackpressureException {
+        public boolean ejK() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

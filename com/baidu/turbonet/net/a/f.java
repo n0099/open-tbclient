@@ -7,17 +7,17 @@ import java.io.OutputStream;
 /* loaded from: classes10.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException neq;
-    private boolean ner;
+    private IOException neJ;
+    private boolean neK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dLr() throws IOException;
+    public abstract void dLA() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dLs() throws IOException;
+    public abstract void dLB() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dLt();
+    public abstract UploadDataProvider dLC();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.neq = iOException;
-        this.ner = true;
+        this.neJ = iOException;
+        this.neK = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.ner) {
-            dLH();
+        if (this.neK) {
+            dLQ();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dLH() throws IOException {
-        if (this.neq != null) {
-            throw this.neq;
+    public void dLQ() throws IOException {
+        if (this.neJ != null) {
+            throw this.neJ;
         }
     }
 }

@@ -14,7 +14,7 @@ public class c {
     private List<q> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int lXX = 0;
+    public int lYm = 0;
     public int scrollOffset = 0;
 
     public List<q> getDataList() {

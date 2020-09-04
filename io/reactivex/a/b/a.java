@@ -6,12 +6,12 @@ import io.reactivex.v;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class a {
-    private static final v olY = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
+    private static final v omq = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eeW */
+        /* renamed from: eff */
         public v call() throws Exception {
-            return C0959a.olZ;
+            return C0959a.omr;
         }
     });
 
@@ -19,11 +19,11 @@ public final class a {
     /* renamed from: io.reactivex.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C0959a {
-        static final v olZ = new b(new Handler(Looper.getMainLooper()));
+        static final v omr = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v eeV() {
-        return io.reactivex.a.a.a.e(olY);
+    public static v efe() {
+        return io.reactivex.a.a.a.e(omq);
     }
 
     public static v c(Looper looper) {

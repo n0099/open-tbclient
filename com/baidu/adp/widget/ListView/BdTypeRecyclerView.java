@@ -11,7 +11,7 @@ import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdTypeRecyclerView extends BdRecyclerView implements v<BdTypeRecyclerView> {
     private HashMap<BdUniqueId, a> VJ;
     private HashMap<BdUniqueId, j> VK;

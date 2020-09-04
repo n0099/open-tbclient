@@ -7,12 +7,12 @@ import com.baidu.tbadk.imageManager.d;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    public static final Pattern hEO = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern hEP = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern hEU = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern hEV = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String HC(String str) {
+    public static String HD(String str) {
         String replaceAll = str.replaceAll(d.SHARP_TEXT_PREFIX_SHORT, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
@@ -40,14 +40,14 @@ public class a {
         return sb.toString();
     }
 
-    public static int HD(String str) {
+    public static int HE(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = hEO.matcher(str);
+        Matcher matcher = hEU.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

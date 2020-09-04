@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.aq;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.PublicKey;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     public static boolean o(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {

@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> {
-    private TextView fGS;
-    private HeadImageView fGT;
-    private TextView fGU;
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b fGV;
-    private RelativeLayout fGW;
+    private TextView fGW;
+    private HeadImageView fGX;
+    private TextView fGY;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b fGZ;
+    private RelativeLayout fHa;
     private TextView mName;
     private View mRoot;
 
     public i(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.mRoot = getView();
-        this.fGW = (RelativeLayout) getView().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
+        this.fHa = (RelativeLayout) getView().findViewById(R.id.id_tab_live_sub_offline_item_wrapper);
         this.mName = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_name);
-        this.fGS = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_description);
-        this.fGT = (HeadImageView) getView().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
-        this.fGT.setAutoChangeStyle(true);
-        this.fGT.setIsRound(true);
-        this.fGT.setDrawBorder(true);
-        this.fGT.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-        this.fGT.setDefaultBgResource(17170445);
-        this.fGT.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.fGT.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fGU = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_time);
-        this.fGW.setOnClickListener(this);
+        this.fGW = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_description);
+        this.fGX = (HeadImageView) getView().findViewById(R.id.id_tab_live_sub_offline_item_avatar);
+        this.fGX.setAutoChangeStyle(true);
+        this.fGX.setIsRound(true);
+        this.fGX.setDrawBorder(true);
+        this.fGX.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+        this.fGX.setDefaultBgResource(17170445);
+        this.fGX.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.fGX.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fGY = (TextView) getView().findViewById(R.id.id_tab_live_sub_offline_item_time);
+        this.fHa.setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -44,8 +44,8 @@ public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.mRoot, R.color.cp_bg_line_d);
         ap.setViewTextColor(this.mName, (int) R.color.cp_cont_b);
-        ap.setViewTextColor(this.fGS, (int) R.color.cp_cont_c);
-        ap.setViewTextColor(this.fGU, (int) R.color.cp_cont_c);
+        ap.setViewTextColor(this.fGW, (int) R.color.cp_cont_c);
+        ap.setViewTextColor(this.fGY, (int) R.color.cp_cont_c);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -58,22 +58,22 @@ public class i extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* renamed from: b */
     public void a(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
         if (bVar != null) {
-            this.fGV = bVar;
+            this.fGZ = bVar;
             String str = bVar.user_nickname;
             if (StringUtils.isNull(str)) {
                 str = StringUtils.isNull(bVar.user_name) ? "" : bVar.user_name;
             }
             this.mName.setText(str);
-            this.fGS.setText(StringUtils.isNull(bVar.fFX) ? "" : bVar.fFX);
-            this.fGT.startLoad(bVar.portrait, 10, false);
-            this.fGU.setText(StringUtils.isNull(bVar.remark) ? "" : bVar.remark);
+            this.fGW.setText(StringUtils.isNull(bVar.fGb) ? "" : bVar.fGb);
+            this.fGX.startLoad(bVar.portrait, 10, false);
+            this.fGY.setText(StringUtils.isNull(bVar.remark) ? "" : bVar.remark);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cbz() != null) {
-            cbz().a(view, this.fGV);
+        if (cbA() != null) {
+            cbA().a(view, this.fGZ);
         }
     }
 }

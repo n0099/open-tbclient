@@ -9,13 +9,13 @@ public interface a {
 
     void S(View.OnClickListener onClickListener);
 
-    void gL(String str);
-
-    void sD(boolean z);
-
-    void sE(boolean z);
+    void gM(String str);
 
     void sF(boolean z);
+
+    void sG(boolean z);
+
+    void sH(boolean z);
 
     void setData(f fVar);
 

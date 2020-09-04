@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onFailed();
 

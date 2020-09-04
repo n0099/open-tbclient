@@ -7,60 +7,60 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b {
-    private static volatile b dwW;
-    private int aTw;
-    private volatile ArrayList<a> dwX = new ArrayList<>(20);
+    private static volatile b dxa;
+    private int aTy;
+    private volatile ArrayList<a> dxb = new ArrayList<>(20);
 
     private b() {
     }
 
     public static b aPn() {
-        if (dwW == null) {
+        if (dxa == null) {
             synchronized (b.class) {
-                if (dwW == null) {
-                    dwW = new b();
+                if (dxa == null) {
+                    dxa = new b();
                 }
             }
         }
-        return dwW;
+        return dxa;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.dwX.size() < 20) {
-                this.dwX.add(aVar);
+            if (this.dxb.size() < 20) {
+                this.dxb.add(aVar);
             } else {
-                this.aTw++;
+                this.aTy++;
             }
         }
     }
 
     public synchronized JSONObject aPo() {
         JSONObject jSONObject;
-        int size = this.dwX.size();
+        int size = this.dxb.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.aTw);
+                jSONObject2.put("dropcnt", this.aTy);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.dwX.iterator();
+                Iterator<a> it = this.dxb.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.dwX.clear();
+            this.dxb.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.dwX.clear();
-        this.aTw = 0;
+        this.dxb.clear();
+        this.aTy = 0;
     }
 }

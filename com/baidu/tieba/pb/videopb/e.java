@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes16.dex */
 public class e extends w {
-    private d kWy = new d();
-    private int kWz = 0;
-    private PbModel kzD;
+    private d kWF = new d();
+    private int kWG = 0;
+    private PbModel kzK;
 
     public void init(Intent intent) {
-        this.kWy.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.kWy.uf(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.kWF.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.kWF.uh(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.kzD = pbModel;
+        this.kzK = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.kWz) {
-            this.kWz = i;
-            this.kWy.L(fVar);
+        if (i >= this.kWG) {
+            this.kWG = i;
+            this.kWF.L(fVar);
             if (fVar != null) {
-                d dVar = this.kWy;
-                if (fVar.getIsNewUrl() != 1 && !fVar.cVO()) {
+                d dVar = this.kWF;
+                if (fVar.getIsNewUrl() != 1 && !fVar.cVP()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,111 +38,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f dep() {
-        return this.kWy.dep();
+    public com.baidu.tieba.pb.data.f deq() {
+        return this.kWF.deq();
     }
 
     public boolean isFromCDN() {
-        return this.kWy.isFromCDN();
+        return this.kWF.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f deq() {
-        return this.kWy.deq();
+    public com.baidu.tieba.pb.data.f der() {
+        return this.kWF.der();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.kWy.setData(fVar);
+            this.kWF.setData(fVar);
         }
     }
 
-    public p<bw> der() {
-        return this.kWy.der();
+    public p<bw> des() {
+        return this.kWF.des();
     }
 
-    public Rect des() {
-        if (this.kWy.des() == null || this.kWy.des().isEmpty()) {
+    public Rect det() {
+        if (this.kWF.det() == null || this.kWF.det().isEmpty()) {
             return null;
         }
-        return this.kWy.des();
+        return this.kWF.det();
     }
 
-    public void ui(boolean z) {
-        if (this.kWy.dew().getValue() != null) {
-            com.baidu.tieba.pb.data.f aH = this.kzD.aH(this.kWy.dew().getValue());
+    public void uk(boolean z) {
+        if (this.kWF.dex().getValue() != null) {
+            com.baidu.tieba.pb.data.f aH = this.kzK.aH(this.kWF.dex().getValue());
             if (aH != null) {
-                this.kWy.deu().addLast(this.kWy.deq());
-                this.kWy.setData(aH);
-                this.kWy.aP(!y.isEmpty(aH.cVN()) ? aH.cVN().get(0) : null);
-                this.kWy.aO(this.kWy.deu().getLast() != null ? this.kWy.deu().getLast().cVl() : null);
-                this.kzD.Ep(z ? 21 : 22);
-                this.kzD.j(aH);
-                this.kWy.setIsLoading(true);
+                this.kWF.dev().addLast(this.kWF.der());
+                this.kWF.setData(aH);
+                this.kWF.aP(!y.isEmpty(aH.cVO()) ? aH.cVO().get(0) : null);
+                this.kWF.aO(this.kWF.dev().getLast() != null ? this.kWF.dev().getLast().cVm() : null);
+                this.kzK.Ep(z ? 21 : 22);
+                this.kzK.j(aH);
+                this.kWF.setIsLoading(true);
             }
         }
     }
 
     public void aQ(bw bwVar) {
         com.baidu.tieba.pb.data.f aH;
-        if (bwVar != null && (aH = this.kzD.aH(bwVar)) != null) {
-            this.kWy.deu().addLast(this.kWy.deq());
-            this.kWy.setData(aH);
-            this.kWy.aP(!y.isEmpty(aH.cVN()) ? aH.cVN().get(0) : null);
-            this.kWy.aO(this.kWy.deu().getLast() != null ? this.kWy.deu().getLast().cVl() : null);
-            this.kzD.Ep(20);
-            this.kzD.j(aH);
-            this.kWy.setIsLoading(true);
+        if (bwVar != null && (aH = this.kzK.aH(bwVar)) != null) {
+            this.kWF.dev().addLast(this.kWF.der());
+            this.kWF.setData(aH);
+            this.kWF.aP(!y.isEmpty(aH.cVO()) ? aH.cVO().get(0) : null);
+            this.kWF.aO(this.kWF.dev().getLast() != null ? this.kWF.dev().getLast().cVm() : null);
+            this.kzK.Ep(20);
+            this.kzK.j(aH);
+            this.kWF.setIsLoading(true);
         }
     }
 
-    public void deB() {
-        com.baidu.tieba.pb.data.f pollLast = this.kWy.deu().pollLast();
+    public void deC() {
+        com.baidu.tieba.pb.data.f pollLast = this.kWF.dev().pollLast();
         if (pollLast != null) {
-            this.kWy.setData(pollLast);
-            this.kWy.aP(!y.isEmpty(pollLast.cVN()) ? pollLast.cVN().get(0) : null);
-            this.kWy.aO(this.kWy.deu().peekLast() != null ? this.kWy.deu().peekLast().cVl() : null);
-            this.kzD.j(pollLast);
-            this.kWy.setIsLoading(true);
+            this.kWF.setData(pollLast);
+            this.kWF.aP(!y.isEmpty(pollLast.cVO()) ? pollLast.cVO().get(0) : null);
+            this.kWF.aO(this.kWF.dev().peekLast() != null ? this.kWF.dev().peekLast().cVm() : null);
+            this.kzK.j(pollLast);
+            this.kWF.setIsLoading(true);
         }
-    }
-
-    public p<bw> dev() {
-        return this.kWy.dev();
     }
 
     public p<bw> dew() {
-        return this.kWy.dew();
+        return this.kWF.dew();
     }
 
-    public p<Boolean> dex() {
-        return this.kWy.dex();
-    }
-
-    public void ug(boolean z) {
-        this.kWy.ug(z);
+    public p<bw> dex() {
+        return this.kWF.dex();
     }
 
     public p<Boolean> dey() {
-        return this.kWy.dey();
+        return this.kWF.dey();
     }
 
-    public void uh(boolean z) {
-        this.kWy.uh(z);
-    }
-
-    public void setIsLoading(boolean z) {
-        this.kWy.setIsLoading(z);
+    public void ui(boolean z) {
+        this.kWF.ui(z);
     }
 
     public p<Boolean> dez() {
-        return this.kWy.dez();
+        return this.kWF.dez();
     }
 
-    public boolean det() {
-        return this.kWy.det();
+    public void uj(boolean z) {
+        this.kWF.uj(z);
     }
 
-    public p<Integer> deA() {
-        return this.kWy.deA();
+    public void setIsLoading(boolean z) {
+        this.kWF.setIsLoading(z);
+    }
+
+    public p<Boolean> deA() {
+        return this.kWF.deA();
+    }
+
+    public boolean deu() {
+        return this.kWF.deu();
+    }
+
+    public p<Integer> deB() {
+        return this.kWF.deB();
     }
 }

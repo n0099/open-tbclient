@@ -15,23 +15,23 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.k;
 /* loaded from: classes7.dex */
 public class b extends TypeAdapter.ViewHolder {
-    private HeadImageView gdn;
-    private TextView ggI;
-    private TextView ggJ;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b gic;
+    private HeadImageView gdr;
+    private TextView ggM;
+    private TextView ggN;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.b.b gih;
 
     public b(Context context, final BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.h.sdk_prc_person_forbiddenlist_item, (ViewGroup) null));
-        this.gdn = (HeadImageView) getView().findViewById(a.g.view_header);
-        this.gdn.setIsRound(true);
-        this.ggI = (TextView) getView().findViewById(a.g.text_user_name);
-        this.ggJ = (TextView) getView().findViewById(a.g.btn_right);
-        this.ggJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
+        this.gdr = (HeadImageView) getView().findViewById(a.g.view_header);
+        this.gdr.setIsRound(true);
+        this.ggM = (TextView) getView().findViewById(a.g.text_user_name);
+        this.ggN = (TextView) getView().findViewById(a.g.btn_right);
+        this.ggN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.d.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CustomMessage customMessage = new CustomMessage(2913051, b.this.gic);
+                CustomMessage customMessage = new CustomMessage(2913051, b.this.gih);
                 customMessage.setTag(bdUniqueId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.gic);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913051, b.this.gih);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -39,8 +39,8 @@ public class b extends TypeAdapter.ViewHolder {
     }
 
     public void b(com.baidu.tieba.ala.live.personcenter.forbidden.b.b bVar) {
-        this.gic = bVar;
-        k.a(this.gdn, bVar.getPortrait(), false, false);
-        this.ggI.setText(bVar.bpu());
+        this.gih = bVar;
+        k.a(this.gdr, bVar.getPortrait(), false, false);
+        this.ggM.setText(bVar.bpv());
     }
 }

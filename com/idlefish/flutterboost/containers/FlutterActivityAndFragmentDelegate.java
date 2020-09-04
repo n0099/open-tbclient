@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
@@ -83,6 +84,8 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         SplashScreen provideSplashScreen();
 
         void setSwipeBackEnable(boolean z);
+
+        void swipeBackControl(double d);
     }
 
     public FlutterActivityAndFragmentDelegate(@NonNull Host host) {
@@ -106,6 +109,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     public void onAttach(@NonNull Context context) {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onAttach1" + getContainerUrl());
+        }
         ensureAlive();
         if (FlutterBoost.instance().platform().whenEngineStart() == FlutterBoost.ConfigBuilder.FLUTTER_ACTIVITY_CREATED) {
             FlutterBoost.instance().doInitialFlutter();
@@ -117,6 +123,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         this.host.configureFlutterEngine(this.flutterEngine);
         this.host.getActivity().getWindow().setFormat(-3);
         setDisplayMode();
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onAttach2" + getContainerUrl());
+        }
     }
 
     private void setDisplayMode() {
@@ -163,7 +172,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @NonNull
     @SuppressLint({"ResourceType"})
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        Log.v(TAG, "Creating FlutterView.");
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setLastFlutterPage(getContainerUrl());
+            Log.v(TAG, "Creating FlutterView.");
+            a.getInstance().setFlutterPath("onCreateView1" + getContainerUrl());
+        }
         this.mSyncer = FlutterBoost.instance().containerManager().generateSyncer(this);
         ensureAlive();
         this.flutterView = new XFlutterView(this.host.getActivity(), FlutterBoost.instance().platform().renderMode(), this.host.getTransparencyMode());
@@ -175,6 +188,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         }
         this.flutterSplashView.displayFlutterViewWithSplash(this.flutterView, this.host.provideSplashScreen());
         this.mSyncer.onCreate();
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onCreateView2");
+        }
         return this.flutterSplashView;
     }
 
@@ -184,6 +200,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     public void onResume() {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onResume1" + getContainerUrl());
+        }
         a.getInstance().setLastFlutterPage(getContainerUrl());
         this.mSyncer.onAppear();
         Log.v(TAG, "onResume()");
@@ -197,6 +216,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         if (this.platformPlugin != null) {
             this.platformPlugin.attachToActivity(this.host.getActivity());
         }
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onResume2" + getContainerUrl());
+        }
     }
 
     public void onPostResume() {
@@ -206,6 +228,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     public void onPause() {
         Log.v(TAG, "onPause()");
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onPause1" + getContainerUrl());
+        }
         ensureAlive();
         this.mSyncer.onDisappear();
         this.flutterEngine.getLifecycleChannel().appIsInactive();
@@ -225,15 +250,21 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     public void onDetach() {
         Log.v(TAG, "onDetach()");
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onDetach1" + getContainerUrl());
+        }
         ensureAlive();
         if (this.platformPlugin != null) {
             this.platformPlugin.detachActivity(getContextActivity());
             this.platformPlugin = null;
         }
-        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != 0 || ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == this.host.hashCode()) {
+        if (ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE != 0 && ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE == this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
         }
         Utils.fixInputMethodManagerLeak(this.host.getActivity());
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onDetach2" + getContainerUrl());
+        }
     }
 
     public void onBackPressed() {
@@ -253,6 +284,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     public void onNewIntent(@NonNull Intent intent) {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onNewIntent" + getContainerUrl());
+        }
         this.mSyncer.onNewIntent(intent);
         ensureAlive();
         if (this.flutterEngine != null) {
@@ -264,6 +298,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("onActivityResult" + getContainerUrl());
+        }
         this.mSyncer.onActivityResult(i, i2, intent);
         HashMap hashMap = new HashMap();
         if (intent != null) {
@@ -341,6 +378,9 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
     public void finishContainer(Map<String, Object> map) {
+        if (FlutterCrabReportEnableSwitch.isOn()) {
+            a.getInstance().setFlutterPath("finishContainer" + getContainerUrl());
+        }
         if (map != null) {
             setBoostResult(this.host.getActivity(), new HashMap(map));
             this.host.getActivity().finish();
@@ -368,7 +408,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
     public String getContainerUrl() {
-        return this.host.getContainerUrl();
+        return this.host == null ? "" : this.host.getContainerUrl();
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
@@ -387,5 +427,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
     public void setSwipeBackEnable(boolean z) {
         this.host.setSwipeBackEnable(z);
+    }
+
+    @Override // com.idlefish.flutterboost.interfaces.IFlutterViewContainer
+    public void swipeBackControl(double d) {
+        this.host.swipeBackControl(d);
     }
 }

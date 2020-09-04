@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class UniversityEvaluationConfig extends IntentConfig {
     public static final String FORUM_WRITE_DATA = "forum_write_data";
     public static final String ITEM_INFO = "item_info";

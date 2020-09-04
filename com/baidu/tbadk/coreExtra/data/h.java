@@ -1,12 +1,12 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean eAb = false;
+    private boolean eAf = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {

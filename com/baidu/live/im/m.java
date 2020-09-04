@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class m {
-    private r aAh;
+    private r aAj;
 
     public void g(r rVar) {
         Log.i("i", "@@@ localText imsdmctrl ent");
@@ -25,12 +25,12 @@ public class m {
     }
 
     public void a(r rVar) {
-        this.aAh = rVar;
+        this.aAj = rVar;
     }
 
     public void Fb() {
         Log.i("i", "@@@ localText imsdmctrl oqt");
-        this.aAh = null;
+        this.aAj = null;
         Jr();
     }
 
@@ -78,7 +78,7 @@ public class m {
     private void a(ImSendMsgData imSendMsgData) {
         Map<String, Integer> ES = t.EQ().ES();
         if (ES != null && ES.containsKey(imSendMsgData.barrageId) && ES.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aAh.aDE.userId), String.valueOf(this.aAh.mLiveInfo.live_id));
+            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.aAj.aDG.userId), String.valueOf(this.aAj.mLiveInfo.live_id));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
     }

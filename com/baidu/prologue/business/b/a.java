@@ -9,75 +9,76 @@ import com.baidu.prologue.business.data.f;
 import com.baidu.prologue.service.network.Als;
 /* loaded from: classes9.dex */
 public class a<T extends com.baidu.prologue.business.c.b> {
-    private T bLh = null;
-    e bLi;
-    private d bLj;
-    private com.baidu.prologue.business.data.b bLk;
+    private T bLl = null;
+    e bLm;
+    private d bLn;
+    private com.baidu.prologue.business.data.b bLo;
     Context mContext;
 
     public a(Context context, e eVar) {
-        this.bLi = null;
-        this.bLi = eVar;
+        this.bLm = null;
+        this.bLm = eVar;
         this.mContext = context;
-        this.bLk = new com.baidu.prologue.business.data.b(this.bLi);
+        this.bLo = new com.baidu.prologue.business.data.b(this.bLm);
         com.baidu.prologue.business.data.c.b(eVar);
     }
 
     public void a(T t) {
-        this.bLh = t;
-        t.ig(this.bLi.bKK).dh(this.bLi.isFullScreen()).gb(this.bLi.bKM).m31if(String.valueOf(this.bLi.bKL)).di(this.bLi.bKS).ih(this.bLi.bKJ);
+        this.bLl = t;
+        t.ih(this.bLm.bKO).di(this.bLm.isFullScreen()).gb(this.bLm.bKQ).ig(String.valueOf(this.bLm.bKP)).dj(this.bLm.bKW).ii(this.bLm.bKN);
     }
 
     public T VF() {
-        return this.bLh;
+        return this.bLl;
     }
 
     public void a(d dVar) {
-        this.bLj = dVar;
+        this.bLn = dVar;
     }
 
     public void ry() {
-        this.bLj.ry();
-        ie(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
+        this.bLn.ry();
+        m31if(Als.CloseType.COUNTDOWN_TIME_FINISH.value);
     }
 
     public void onAdShow() {
-        if (this.bLk != null && this.bLj != null && this.bLj.Vm() != null) {
-            this.bLk.Vp();
-            this.bLj.onAdShow();
-            this.bLj.Vm().addView(VF().getRootView());
-            com.baidu.prologue.business.data.d.e(this.bLi);
-            f.h(this.bLi);
-            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bLi.bKR);
+        if (this.bLo != null && this.bLn != null && this.bLn.Vm() != null) {
+            this.bLo.Vp();
+            this.bLn.onAdShow();
+            this.bLn.Vm().addView(VF().getRootView());
+            com.baidu.prologue.business.data.d.e(this.bLm);
+            f.h(this.bLm);
+            Log.d("SplashAdBasePresenter", "onadshow currate: " + this.bLm.bKV);
         }
     }
 
-    public void id(String str) {
-        if (this.bLi.VA()) {
-            this.bLk.a(Als.Area.IMAGE, str);
+    public void ie(String str) {
+        if (this.bLm.VA()) {
+            this.bLo.a(Als.Area.IMAGE, str);
         } else {
-            this.bLk.a(Als.Area.VIDEO, str);
+            this.bLo.a(Als.Area.VIDEO, str);
         }
-        this.bLj.onAdClick();
-        com.baidu.prologue.c.d.invoke(this.mContext, this.bLi.action);
-        ie(Als.CloseType.CLICK_AD_AREA.value);
+        this.bLn.onAdClick();
+        com.baidu.prologue.c.d.invoke(this.mContext, this.bLm.action);
+        m31if(Als.CloseType.CLICK_AD_AREA.value);
     }
 
     public void Vn() {
-        this.bLj.Vn();
-        ie(Als.CloseType.CLICK_SKIP_BUTTON.value);
+        this.bLn.Vn();
+        m31if(Als.CloseType.CLICK_SKIP_BUTTON.value);
     }
 
-    protected void ie(String str) {
+    /* renamed from: if  reason: not valid java name */
+    protected void m31if(String str) {
         if (Als.CloseType.COUNTDOWN_TIME_FINISH.value.equals(str)) {
-            this.bLk.g(str, this.bLh.VJ());
+            this.bLo.g(str, this.bLl.VJ());
         } else {
-            this.bLk.g(str, this.bLh.VI());
+            this.bLo.g(str, this.bLl.VI());
         }
-        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.bKi.get());
+        com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.bKm.get());
     }
 
     public void VG() {
-        this.bLj.Vo();
+        this.bLn.Vo();
     }
 }

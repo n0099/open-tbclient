@@ -23,8 +23,8 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a rf(String str) {
-        return new a(com.baidu.swan.ubc.e.xh(str));
+    public static a rg(String str) {
+        return new a(com.baidu.swan.ubc.e.xi(str));
     }
 
     public static void a(@NonNull a aVar, String str, String str2) {

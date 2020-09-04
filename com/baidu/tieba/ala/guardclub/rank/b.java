@@ -30,19 +30,19 @@ import com.baidu.tieba.ala.guardclub.model.k;
 import com.baidu.tieba.ala.guardclub.rank.d;
 /* loaded from: classes7.dex */
 public class b implements d.a {
-    private String aIy;
-    private String aIz;
-    private String aTc;
-    private com.baidu.live.l.c aUB;
-    private CustomMessageListener aVN;
-    private CustomMessageListener bci;
-    private String ber;
-    private long bew;
-    private a gcH;
-    private boolean gcI;
-    private boolean gcJ;
-    private i gcK;
-    private h gcL;
+    private String aIA;
+    private String aIB;
+    private String aTe;
+    private com.baidu.live.l.c aUD;
+    private CustomMessageListener aVP;
+    private CustomMessageListener bck;
+    private String beu;
+    private long bey;
+    private a gcL;
+    private boolean gcM;
+    private boolean gcN;
+    private i gcO;
+    private h gcP;
     private TbPageContext mContext;
     private String mOtherParams;
     private long mRoomId;
@@ -55,7 +55,7 @@ public class b implements d.a {
 
         void az(String str, int i);
 
-        ViewGroup bKj();
+        ViewGroup bKk();
 
         void tr(int i);
 
@@ -67,19 +67,19 @@ public class b implements d.a {
     }
 
     public void a(Intent intent, a aVar) {
-        this.gcH = aVar;
+        this.gcL = aVar;
         k(intent);
         Hk();
-        bKz();
+        bKA();
         Ho();
     }
 
-    public void bKx() {
-        if (this.aUB == null) {
-            this.aUB = new com.baidu.live.l.c();
-            this.aUB.initListener();
+    public void bKy() {
+        if (this.aUD == null) {
+            this.aUD = new com.baidu.live.l.c();
+            this.aUD.initListener();
         }
-        this.aUB.refreshCurUserScores();
+        this.aUD.refreshCurUserScores();
     }
 
     public void aA(String str, int i) {
@@ -87,9 +87,9 @@ public class b implements d.a {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(this.mContext.getPageActivity(), 0L, this.mOtherParams, true, "", true)));
             return;
         }
-        if (this.gcK == null) {
-            this.gcK = new i();
-            this.gcK.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
+        if (this.gcO == null) {
+            this.gcO = new i();
+            this.gcO.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.b.1
                 @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.m.a
                 public void a(boolean z, String str2, long j, String str3, String str4) {
                     super.a(z, str2, j, str3, str4);
@@ -97,45 +97,45 @@ public class b implements d.a {
                 }
             });
         }
-        this.gcK.Fx(str);
+        this.gcO.Fy(str);
     }
 
     public void release() {
-        this.gcH = null;
-        if (this.gcL != null) {
-            this.gcL.onDestory();
+        this.gcL = null;
+        if (this.gcP != null) {
+            this.gcP.onDestory();
         }
-        if (this.gcK != null) {
-            this.gcK.release();
+        if (this.gcO != null) {
+            this.gcO.release();
         }
-        if (this.aUB != null) {
-            this.aUB.onDestroy();
+        if (this.aUD != null) {
+            this.aUD.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.aVN);
-        MessageManager.getInstance().unRegisterListener(this.bci);
+        MessageManager.getInstance().unRegisterListener(this.aVP);
+        MessageManager.getInstance().unRegisterListener(this.bck);
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
-    public void lt(boolean z) {
-        this.gcJ = z;
+    public void lv(boolean z) {
+        this.gcN = z;
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
     public void tr(int i) {
-        if (this.gcH != null) {
-            this.gcH.tr(i);
+        if (this.gcL != null) {
+            this.gcL.tr(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
     public void c(k kVar) {
         if (kVar.liveStatus == 1 && !TextUtils.isEmpty(kVar.liveId)) {
-            if (this.gcJ) {
+            if (this.gcN) {
                 BdUtilHelper.showToast(this.mContext.getPageActivity(), "正在直播中，不能切换直播间哟！");
                 return;
-            } else if (String.valueOf(this.bew).equals(kVar.liveId)) {
-                if (this.gcH != null) {
-                    this.gcH.N(new Intent().putExtra("guard_club_rank_back_to_room", true));
+            } else if (String.valueOf(this.bey).equals(kVar.liveId)) {
+                if (this.gcL != null) {
+                    this.gcL.N(new Intent().putExtra("guard_club_rank_back_to_room", true));
                     return;
                 }
                 return;
@@ -151,47 +151,47 @@ public class b implements d.a {
     public void d(k kVar) {
         int i = 1000;
         av Io = g.Im().Io();
-        if (Io != null && Io.aIQ > 0) {
-            i = Io.aIQ;
+        if (Io != null && Io.aIS > 0) {
+            i = Io.aIS;
         }
-        if (this.gcH != null) {
-            this.gcH.az(kVar.id, i);
+        if (this.gcL != null) {
+            this.gcL.az(kVar.id, i);
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
-    public void bKy() {
-        if (this.gcH != null) {
-            this.gcH.N(new Intent().putExtra("guard_club_rank_hit", true));
+    public void bKz() {
+        if (this.gcL != null) {
+            this.gcL.N(new Intent().putExtra("guard_club_rank_hit", true));
         }
     }
 
     private void k(Intent intent) {
-        this.ber = String.valueOf(intent.getLongExtra(GuardClubActivityConfig.ANCHOR_ID, 0L));
-        this.bew = intent.getLongExtra(GuardClubActivityConfig.LIVE_ID, 0L);
-        this.gcI = intent.getBooleanExtra(GuardClubActivityConfig.IS_LIVE_OWNER, false);
+        this.beu = String.valueOf(intent.getLongExtra(GuardClubActivityConfig.ANCHOR_ID, 0L));
+        this.bey = intent.getLongExtra(GuardClubActivityConfig.LIVE_ID, 0L);
+        this.gcM = intent.getBooleanExtra(GuardClubActivityConfig.IS_LIVE_OWNER, false);
         this.mOtherParams = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
         this.mRoomId = intent.getLongExtra(GuardClubActivityConfig.ROOM_ID, 0L);
-        this.aTc = intent.getStringExtra(GuardClubActivityConfig.FEED_ID);
-        this.aIy = intent.getStringExtra(GuardClubActivityConfig.ANCHOR_NAME);
-        this.aIz = intent.getStringExtra(GuardClubActivityConfig.ANCHOR_PORTRAIT);
+        this.aTe = intent.getStringExtra(GuardClubActivityConfig.FEED_ID);
+        this.aIA = intent.getStringExtra(GuardClubActivityConfig.ANCHOR_NAME);
+        this.aIB = intent.getStringExtra(GuardClubActivityConfig.ANCHOR_PORTRAIT);
     }
 
     private void Hk() {
-        this.aVN = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
+        this.aVP = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gcH != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    b.this.gcH.N(null);
+                if (b.this.gcL != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
+                    b.this.gcL.N(null);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aVN);
+        MessageManager.getInstance().registerListener(this.aVP);
     }
 
-    private void bKz() {
-        this.bci = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.rank.b.3
+    private void bKA() {
+        this.bck = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.rank.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -207,12 +207,12 @@ public class b implements d.a {
     }
 
     private void Ho() {
-        c cVar = new c(this.mContext.getPageActivity(), 2, this.ber, this.gcI);
+        c cVar = new c(this.mContext.getPageActivity(), 2, this.beu, this.gcM);
         cVar.a(this);
-        c cVar2 = new c(this.mContext.getPageActivity(), 1, this.ber, this.gcI);
+        c cVar2 = new c(this.mContext.getPageActivity(), 1, this.beu, this.gcM);
         cVar2.a(this);
-        if (this.gcH != null) {
-            this.gcH.a(cVar, cVar2);
+        if (this.gcL != null) {
+            this.gcL.a(cVar, cVar2);
         }
     }
 
@@ -226,19 +226,19 @@ public class b implements d.a {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str3);
             return;
         }
-        if (this.gcH != null) {
-            this.gcH.v(str, j);
-            ViewGroup bKj = this.gcH.bKj();
-            if (bKj != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                if (this.gcL == null) {
-                    this.gcL = new h(this.mContext.getPageActivity());
+        if (this.gcL != null) {
+            this.gcL.v(str, j);
+            ViewGroup bKk = this.gcL.bKk();
+            if (bKk != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
+                if (this.gcP == null) {
+                    this.gcP = new h(this.mContext.getPageActivity());
                 }
-                this.gcL.setOtherParams(this.mOtherParams);
+                this.gcP.setOtherParams(this.mOtherParams);
                 int[] iArr = new int[2];
-                bKj.getLocationOnScreen(iArr);
+                bKk.getLocationOnScreen(iArr);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams.topMargin = iArr[1] * (-1);
-                this.gcL.a(bKj, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
+                this.gcP.a(bKk, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
             }
         }
         if (!TextUtils.isEmpty(str2)) {
@@ -247,34 +247,34 @@ public class b implements d.a {
     }
 
     private void dZ(long j) {
-        if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.w.a.Nk().beH.aGM) {
+        if (!TbadkCoreApplication.getInst().isMobileBaidu() || com.baidu.live.w.a.Nk().beJ.aGO) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
             alaLiveRoomActivityConfig.addExtraByLiveId(j, "", AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
             alaLiveRoomActivityConfig.addExtraByParams(this.mOtherParams);
             AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
-            alaLastLiveroomInfo.setLastAnchorUid(this.ber);
-            alaLastLiveroomInfo.setLastAnchorUname(this.aIy);
-            alaLastLiveroomInfo.setLastAnchorPortrait(this.aIz);
-            alaLastLiveroomInfo.setLastLiveId(this.bew);
+            alaLastLiveroomInfo.setLastAnchorUid(this.beu);
+            alaLastLiveroomInfo.setLastAnchorUname(this.aIA);
+            alaLastLiveroomInfo.setLastAnchorPortrait(this.aIB);
+            alaLastLiveroomInfo.setLastLiveId(this.bey);
             alaLastLiveroomInfo.setLastRoomId(this.mRoomId);
             alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_GUARD_RANK);
             alaLiveRoomActivityConfig.addLastLiveInfoParams(alaLastLiveroomInfo);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
-            if (this.gcH != null) {
-                this.gcH.N(null);
+            if (this.gcL != null) {
+                this.gcL.N(null);
             }
         }
     }
 
     private void e(k kVar) {
-        boolean z = this.gcI;
-        if (z && !TextUtils.isEmpty(this.ber) && !TextUtils.isEmpty(kVar.aKh) && !this.ber.equals(kVar.aKh)) {
+        boolean z = this.gcM;
+        if (z && !TextUtils.isEmpty(this.beu) && !TextUtils.isEmpty(kVar.aKj) && !this.beu.equals(kVar.aKj)) {
             z = false;
         }
-        GuardClubInfoActivityConfig guardClubInfoActivityConfig = new GuardClubInfoActivityConfig(this.mContext.getPageActivity(), Long.valueOf(kVar.aKh).longValue(), 0L, z, this.mOtherParams, kVar.gcF);
+        GuardClubInfoActivityConfig guardClubInfoActivityConfig = new GuardClubInfoActivityConfig(this.mContext.getPageActivity(), Long.valueOf(kVar.aKj).longValue(), 0L, z, this.mOtherParams, kVar.gcJ);
         guardClubInfoActivityConfig.setRoomId(this.mRoomId);
-        guardClubInfoActivityConfig.setFeedId(this.aTc);
-        guardClubInfoActivityConfig.setIsClubMember(kVar.gcF);
+        guardClubInfoActivityConfig.setFeedId(this.aTe);
+        guardClubInfoActivityConfig.setIsClubMember(kVar.gcJ);
         guardClubInfoActivityConfig.setHideRank(true);
         guardClubInfoActivityConfig.setIsTranslucent(true);
         guardClubInfoActivityConfig.setRequestCode(RequestResponseCode.REQUEST_GUARD_CLUB_INFO);

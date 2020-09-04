@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public interface a {
-    public static final AtomicReference<a> bKi = new AtomicReference<>();
+    public static final AtomicReference<a> bKm = new AtomicReference<>();
 
     @NonNull
     Context UK();

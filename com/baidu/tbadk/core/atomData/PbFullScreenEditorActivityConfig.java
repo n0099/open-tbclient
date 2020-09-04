@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbFullScreenEditorActivityConfig extends IntentConfig {
     public static final String EDITOR_DATA = "editor_data";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";

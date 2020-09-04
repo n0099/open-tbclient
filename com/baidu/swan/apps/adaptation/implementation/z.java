@@ -12,7 +12,7 @@ public class z implements au {
     }
 
     public static z aae() {
-        return a.bSM;
+        return a.bSQ;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.au
@@ -28,6 +28,6 @@ public class z implements au {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static final z bSM = new z();
+        private static final z bSQ = new z();
     }
 }

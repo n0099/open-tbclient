@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
     public static String ADD_USER_COLLECT_EMOTION_ACTION = "add_user_collect_emotoin";
     public static String IMAGE_URL = "image_url";
@@ -18,7 +18,7 @@ public class d {
     public static String SHARP_TEXT_PREFIX = "#(meme,collect_";
     public static String SHARP_TEXT_PREFIX_SHORT = "meme,collect_";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public String pkgId;
         public String url;

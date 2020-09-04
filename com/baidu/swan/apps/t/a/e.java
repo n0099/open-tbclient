@@ -37,7 +37,7 @@ public class e implements com.baidu.swan.a.a {
     public int getConnectionTimeout() {
         b.a aqh = aqh();
         if (aqh != null) {
-            return aqh.cQN;
+            return aqh.cQR;
         }
         return -1;
     }
@@ -54,7 +54,7 @@ public class e implements com.baidu.swan.a.a {
 
     @Override // com.baidu.swan.a.a
     public void a(String str, HttpRequestBuilder httpRequestBuilder) {
-        if (com.baidu.swan.apps.i.c.kC(str)) {
+        if (com.baidu.swan.apps.i.c.kD(str)) {
             httpRequestBuilder.setHeader("x-u-id", com.baidu.swan.uuid.b.dJ(AppRuntime.getAppContext()).getUUID());
             try {
                 httpRequestBuilder.setHeader("x-c2-id", com.baidu.swan.apps.t.a.aoO().bl(AppRuntime.getAppContext()));
@@ -80,13 +80,13 @@ public class e implements com.baidu.swan.a.a {
             return null;
         }
         SwanAppConfigData azR = azJ.azR();
-        if (azR == null || azR.cQX == null) {
+        if (azR == null || azR.cRb == null) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("SwanNetworkImpl", "config or mNetworkConfig is null");
                 return null;
             }
             return null;
         }
-        return azR.cQX;
+        return azR.cRb;
     }
 }

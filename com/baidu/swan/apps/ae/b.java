@@ -18,10 +18,10 @@ public final class b extends com.baidu.swan.apps.process.a.a.a {
         String string3 = bundle.getString("appId");
         String string4 = bundle.getString("hostName");
         if (ProcessUtils.isMainProcess()) {
-            if (string != null && (ayo2 = c.cJW.ayo()) != null) {
+            if (string != null && (ayo2 = c.cKa.ayo()) != null) {
                 ayo2.J(string, string3, string4);
             }
-            if (string2 == null || (ayo = c.cJW.ayo()) == null) {
+            if (string2 == null || (ayo = c.cKa.ayo()) == null) {
                 return;
             }
             ayo.I(string2, string3, string4);

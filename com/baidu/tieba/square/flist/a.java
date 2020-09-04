@@ -12,17 +12,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.e;
 /* loaded from: classes17.dex */
 public class a extends BaseAdapter {
-    private e lYa;
-    private int lYb = 0;
-    C0802a lYc;
+    private e lYp;
+    private int lYq = 0;
+    C0802a lYr;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     public class C0802a {
-        ImageView lYd;
-        TextView lYe;
+        ImageView lYs;
+        TextView lYt;
 
         C0802a() {
         }
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lYa == null || this.lYa.maq == null) {
+        if (this.lYp == null || this.lYp.maG == null) {
             return 0;
         }
-        return this.lYa.maq.size();
+        return this.lYp.maG.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.lYa == null || this.lYa.maq == null) {
+        if (this.lYp == null || this.lYp.maG == null) {
             return null;
         }
-        return this.lYa.maq.get(i);
+        return this.lYp.maG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = duX();
+            view = dvc();
         }
-        if (this.lYa != null) {
-            e eVar = this.lYa.maq.get(i);
-            this.lYc = (C0802a) view.getTag();
+        if (this.lYp != null) {
+            e eVar = this.lYp.maG.get(i);
+            this.lYr = (C0802a) view.getTag();
             if (eVar != null) {
-                a(this.lYc, eVar, view, i);
+                a(this.lYr, eVar, view, i);
             }
         }
         return view;
     }
 
     public void HA(int i) {
-        this.lYb = i;
+        this.lYq = i;
         notifyDataSetChanged();
     }
 
     public void a(e eVar) {
-        this.lYa = eVar;
+        this.lYp = eVar;
     }
 
-    public e duW() {
-        return this.lYa;
+    public e dvb() {
+        return this.lYp;
     }
 
-    private View duX() {
+    private View dvc() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.lYc = new C0802a();
-        this.lYc.lYd = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.lYc.lYe = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.lYc);
+        this.lYr = new C0802a();
+        this.lYr.lYs = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.lYr.lYt = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.lYr);
         return inflate;
     }
 
     private void a(C0802a c0802a, e eVar, View view, int i) {
         if (c0802a != null && eVar != null) {
-            c0802a.lYe.setText("");
+            c0802a.lYt.setText("");
             if (i == 0) {
-                c0802a.lYe.setText(this.mActivity.getString(R.string.all) + eVar.lYi);
+                c0802a.lYt.setText(this.mActivity.getString(R.string.all) + eVar.lYx);
             } else {
-                c0802a.lYe.setText(eVar.lYi);
+                c0802a.lYt.setText(eVar.lYx);
             }
-            if (i != this.lYb) {
-                c0802a.lYd.setVisibility(4);
-                ap.setViewTextColor(c0802a.lYe, R.color.common_color_10200, 1);
+            if (i != this.lYq) {
+                c0802a.lYs.setVisibility(4);
+                ap.setViewTextColor(c0802a.lYt, R.color.common_color_10200, 1);
                 return;
             }
-            c0802a.lYd.setVisibility(0);
-            ap.setViewTextColor(c0802a.lYe, R.color.common_color_10013, 1);
+            c0802a.lYs.setVisibility(0);
+            ap.setViewTextColor(c0802a.lYt, R.color.common_color_10013, 1);
         }
     }
 }

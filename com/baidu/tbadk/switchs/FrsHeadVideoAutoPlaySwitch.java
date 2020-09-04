@@ -1,5 +1,5 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class FrsHeadVideoAutoPlaySwitch extends BaseNormalSwitch {
     private static final FrsHeadVideoAutoPlaySwitch mInstance = new FrsHeadVideoAutoPlaySwitch();
 

@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes20.dex */
 public class b extends c<UserMuteListActivity> {
     private BdListView Vo;
-    private NoNetworkView fCm;
-    private a lSs;
+    private NoNetworkView fCq;
+    private a lSH;
     private BaseActivity<UserMuteListActivity> mActivity;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -24,7 +24,7 @@ public class b extends c<UserMuteListActivity> {
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.mActivity = baseActivity;
-        this.lSs = aVar;
+        this.lSH = aVar;
         initUI();
     }
 
@@ -35,12 +35,12 @@ public class b extends c<UserMuteListActivity> {
     private void initUI() {
         this.mActivity.setContentView(R.layout.user_mute_list_activity);
         this.mRoot = this.mActivity.findViewById(R.id.root_view);
-        this.fCm = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.fCq = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.user_mute_list_text);
         this.Vo = (BdListView) this.mRoot.findViewById(R.id.mute_user_list);
-        this.mNoDataView = NoDataViewFactory.a(this.mActivity.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.eUU), NoDataViewFactory.d.oK(R.string.user_mute_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mActivity.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.eUY), NoDataViewFactory.d.oK(R.string.user_mute_list_no_data_text), null);
         bkF();
     }
 
@@ -50,16 +50,16 @@ public class b extends c<UserMuteListActivity> {
         this.mActivity.getLayoutMode().onModeChanged(this.mRoot);
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), skinType);
         this.mNoDataView.onChangeSkinType(this.mActivity.getPageContext(), skinType);
-        this.fCm.onChangeSkinType(this.mActivity.getPageContext(), skinType);
+        this.fCq.onChangeSkinType(this.mActivity.getPageContext(), skinType);
     }
 
-    public void crx() {
+    public void cry() {
         this.Vo.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.oK(R.string.user_mute_list_no_data_text));
     }
 
-    public void dso() {
+    public void dst() {
         this.Vo.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.oK(R.string.refresh_view_title_text));

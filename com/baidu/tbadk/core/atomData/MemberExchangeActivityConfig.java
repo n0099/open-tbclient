@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MemberExchangeActivityConfig extends IntentConfig {
     public static final String DESC_STR = "desc_str";
     public static final String DUE_DATE = "due_date";
@@ -20,7 +20,7 @@ public class MemberExchangeActivityConfig extends IntentConfig {
         getIntent().putExtra(DESC_STR, str5);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class MemberInfo implements Serializable {
         private String dueDate;
         private String memberImage;
@@ -31,7 +31,7 @@ public class MemberExchangeActivityConfig extends IntentConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class VipRecommendData implements Serializable {
         private int dayCounts;
         private String descStr;

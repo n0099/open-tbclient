@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bd {
     public static boolean v(long j, long j2) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;

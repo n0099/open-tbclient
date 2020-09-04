@@ -12,7 +12,7 @@ import kotlin.h;
 public @interface c {
     String c() default "";
 
-    int[] ege() default {};
+    int[] egn() default {};
 
     String f() default "";
 

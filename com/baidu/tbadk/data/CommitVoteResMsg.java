@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommitVoteResMsg extends JsonHttpResponsedMessage {
     private AuthTokenData tokenData;
 

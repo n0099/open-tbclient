@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess.event;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TipEvent extends SerializableEvent {
     public String linkUrl;
     public String message;

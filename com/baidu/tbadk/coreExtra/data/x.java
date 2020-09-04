@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x {
-    public static final List<String> eAF = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
-    private static List<String> eAG;
+    public static final List<String> eAJ = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
+    private static List<String> eAK;
 
-    public static boolean AV(String str) {
+    public static boolean AW(String str) {
         String string;
         if (TbadkCoreApplication.getInst().isDebugMode()) {
             return true;
@@ -19,16 +19,16 @@ public class x {
         if (at.isEmpty(str)) {
             return false;
         }
-        if (eAG == null && (string = com.baidu.tbadk.core.sharedPref.b.bik().getString("js_host_white_list", null)) != null) {
-            eAG = AX(string);
+        if (eAK == null && (string = com.baidu.tbadk.core.sharedPref.b.bik().getString("js_host_white_list", null)) != null) {
+            eAK = AY(string);
         }
-        if (eAG == null) {
-            eAG = eAF;
+        if (eAK == null) {
+            eAK = eAJ;
         }
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String host = parse.getHost();
-            for (String str2 : eAG) {
+            for (String str2 : eAK) {
                 if (host.endsWith(str2)) {
                     return true;
                 }
@@ -37,16 +37,16 @@ public class x {
         return false;
     }
 
-    public static void AW(String str) {
+    public static void AX(String str) {
         if (str == null) {
             com.baidu.tbadk.core.sharedPref.b.bik().putString("js_host_white_list", "");
         } else {
             com.baidu.tbadk.core.sharedPref.b.bik().putString("js_host_white_list", str);
         }
-        eAG = AX(str);
+        eAK = AY(str);
     }
 
-    private static List<String> AX(String str) {
+    private static List<String> AY(String str) {
         if (at.isEmpty(str)) {
             return null;
         }

@@ -86,7 +86,7 @@ public class d extends com.baidu.swan.apps.api.a.d {
 
     public static void aD(@NonNull JSONObject jSONObject) throws JSONException {
         com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        if (azI != null && azI.azU().qZ("mapp_location")) {
+        if (azI != null && azI.azU().ra("mapp_location")) {
             com.baidu.swan.apps.t.b.d apb = com.baidu.swan.apps.t.a.apb();
             com.baidu.swan.apps.scheme.actions.f.b aqj = apb == null ? null : apb.aqj();
             if (aqj != null) {

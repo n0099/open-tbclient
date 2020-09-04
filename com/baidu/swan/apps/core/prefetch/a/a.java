@@ -13,20 +13,20 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final boolean clM;
+    private static final boolean clQ;
 
     static {
-        clM = ProcessUtils.isMainProcess() ? lL("swan_prefetch_app_data") : ajc();
+        clQ = ProcessUtils.isMainProcess() ? lM("swan_prefetch_app_data") : ajc();
         if (DEBUG) {
-            Log.i("PrefetchABSwitcher", "prefetch switch - " + clM);
+            Log.i("PrefetchABSwitcher", "prefetch switch - " + clQ);
         }
     }
 
     public static boolean isOn() {
-        return clM;
+        return clQ;
     }
 
-    private static boolean lL(String str) {
+    private static boolean lM(String str) {
         int ajb;
         if (DEBUG) {
             if (com.baidu.swan.apps.ad.a.a.awM() || (ajb = ajb()) == 1) {
@@ -61,7 +61,7 @@ public final class a {
     }
 
     public static boolean ajd() {
-        return !ag.sF("3.210.0");
+        return !ag.sG("3.210.0");
     }
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a.a$a  reason: collision with other inner class name */

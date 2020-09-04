@@ -4,40 +4,40 @@ import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
-    private String ebR;
-    private String ebS;
+    private String ebV;
+    private String ebW;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private List<FrsTabInfo> hRZ;
-    private final List<com.baidu.tbadk.mainTab.b> hSa = new LinkedList();
+    private List<FrsTabInfo> hSf;
+    private final List<com.baidu.tbadk.mainTab.b> hSg = new LinkedList();
     private Context mContext;
     private String mFrom;
 
     public g(Context context, List<FrsTabInfo> list) {
-        this.hRZ = list;
+        this.hSf = list;
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> clw() {
-        return this.hRZ;
+    public List<FrsTabInfo> clx() {
+        return this.hSf;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hSa) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.hSg) {
                 if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.hSa.add(bVar);
+            this.hSg.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> clx() {
-        return this.hSa;
+    public List<com.baidu.tbadk.mainTab.b> cly() {
+        return this.hSg;
     }
 
     public void setForumName(String str) {
@@ -68,11 +68,11 @@ public class g {
         this.forumGameLabel = str;
     }
 
-    public void zs(String str) {
-        this.ebR = str;
+    public void zt(String str) {
+        this.ebV = str;
     }
 
-    public void zt(String str) {
-        this.ebS = str;
+    public void zu(String str) {
+        this.ebW = str;
     }
 }

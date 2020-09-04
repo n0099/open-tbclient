@@ -26,48 +26,48 @@ import com.baidu.tieba.pb.pb.main.ay;
 import com.baidu.tieba.view.i;
 /* loaded from: classes16.dex */
 public class c {
-    private com.baidu.tieba.pb.a.c eFf;
-    private ImageView kNN;
-    private PbFragment kzt;
-    private RelativeLayout kNL = null;
-    private TextView kNM = null;
-    private CustomMessageListener kNO = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.main.a.c.1
+    private com.baidu.tieba.pb.a.c eFj;
+    private ImageView kNU;
+    private PbFragment kzA;
+    private RelativeLayout kNS = null;
+    private TextView kNT = null;
+    private CustomMessageListener kNV = new CustomMessageListener(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD) { // from class: com.baidu.tieba.pb.pb.main.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (c.this.kNM != null) {
-                c.this.kNM.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
+            if (c.this.kNT != null) {
+                c.this.kNT.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
             }
         }
     };
 
     public c(PbFragment pbFragment, com.baidu.tieba.pb.a.c cVar) {
-        this.kzt = pbFragment;
-        this.eFf = cVar;
-        this.kzt.registerListener(this.kNO);
+        this.kzA = pbFragment;
+        this.eFj = cVar;
+        this.kzA.registerListener(this.kNV);
         initView();
     }
 
     private void initView() {
-        if (this.kNL == null) {
-            this.kNL = (RelativeLayout) LayoutInflater.from(this.kzt.getContext()).inflate(R.layout.new_pb_title, (ViewGroup) null);
-            this.kNN = (ImageView) this.kNL.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
-            this.kNN.setScaleType(ImageView.ScaleType.MATRIX);
+        if (this.kNS == null) {
+            this.kNS = (RelativeLayout) LayoutInflater.from(this.kzA.getContext()).inflate(R.layout.new_pb_title, (ViewGroup) null);
+            this.kNU = (ImageView) this.kNS.findViewById(R.id.pb_thread_type_stamp_title_bottom_part);
+            this.kNU.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
-            matrix.postTranslate(0.0f, -ay.dai());
-            this.kNN.setImageMatrix(matrix);
-            this.kNM = (TextView) this.kNL.findViewById(R.id.tv_pb_title);
-            this.kNM.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
-            this.kNM.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            this.kNM.getPaint().setFakeBoldText(true);
-            ap.setViewTextColor(this.kNM, R.color.cp_cont_b);
-            this.kNM.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
-            this.kNM.setVisibility(8);
-            if (this.kNM.getParent() == null) {
-                this.kNL.addView(this.kNM);
+            matrix.postTranslate(0.0f, -ay.daj());
+            this.kNU.setImageMatrix(matrix);
+            this.kNT = (TextView) this.kNS.findViewById(R.id.tv_pb_title);
+            this.kNT.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
+            this.kNT.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+            this.kNT.getPaint().setFakeBoldText(true);
+            ap.setViewTextColor(this.kNT, R.color.cp_cont_b);
+            this.kNT.setTextSize(0, TbConfig.getContentSizeOfPostTitle());
+            this.kNT.setVisibility(8);
+            if (this.kNT.getParent() == null) {
+                this.kNS.addView(this.kNT);
             }
-            this.kNL.setOnTouchListener(this.eFf);
-            this.kNL.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.c.2
+            this.kNS.setOnTouchListener(this.eFj);
+            this.kNS.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.c.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     return false;
@@ -77,58 +77,58 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kNM != null) {
-            ap.setViewTextColor(this.kNM, R.color.cp_cont_b);
-            this.kNM.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
+        if (this.kNT != null) {
+            ap.setViewTextColor(this.kNT, R.color.cp_cont_b);
+            this.kNT.setLinkTextColor(ap.getColor(R.color.cp_link_tip_c));
         }
     }
 
     public void A(f fVar) {
-        if (fVar != null && !fVar.cVl().bdk() && this.kNM.getText() != null && this.kNM.getText().length() > 0) {
-            this.kNM.setVisibility(0);
+        if (fVar != null && !fVar.cVm().bdk() && this.kNT.getText() != null && this.kNT.getText().length() > 0) {
+            this.kNT.setVisibility(0);
         } else {
-            this.kNM.setVisibility(8);
+            this.kNT.setVisibility(8);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            this.kNL.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.kNL);
+            this.kNS.setVisibility(8);
+            bdTypeListView.removeHeaderView(this.kNS);
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            this.kNL.setVisibility(0);
-            bdTypeListView.addHeaderView(this.kNL);
+            this.kNS.setVisibility(0);
+            bdTypeListView.addHeaderView(this.kNS);
         }
     }
 
     public void B(f fVar) {
-        if (fVar != null && fVar.cVl() != null) {
-            SpannableStringBuilder bfo = fVar.cVl().bfo();
-            SpannableString aI = ay.aI(fVar.cVl());
-            if (!StringUtils.isNull(fVar.cVl().getTitle())) {
+        if (fVar != null && fVar.cVm() != null) {
+            SpannableStringBuilder bfo = fVar.cVm().bfo();
+            SpannableString aI = ay.aI(fVar.cVm());
+            if (!StringUtils.isNull(fVar.cVm().getTitle())) {
                 if (aI != null) {
                     bfo.append((CharSequence) aI);
-                    this.kNM.setText(bfo, TextView.BufferType.SPANNABLE);
+                    this.kNT.setText(bfo, TextView.BufferType.SPANNABLE);
                 } else {
-                    this.kNM.setText(bfo);
+                    this.kNT.setText(bfo);
                 }
                 C(fVar);
-                this.kNM.setVisibility(0);
-                this.kNM.setMaxLines(3);
-                this.kNM.setEllipsize(TextUtils.TruncateAt.END);
-                this.kNM.invalidate();
+                this.kNT.setVisibility(0);
+                this.kNT.setMaxLines(3);
+                this.kNT.setEllipsize(TextUtils.TruncateAt.END);
+                this.kNT.invalidate();
                 return;
             }
-            this.kNM.setVisibility(8);
+            this.kNT.setVisibility(8);
         }
     }
 
     public void C(f fVar) {
-        if (this.kNM != null) {
+        if (this.kNT != null) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds37);
             int dimens2 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
             int dimens3 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds56);
@@ -136,42 +136,42 @@ public class c {
             layoutParams.topMargin = dimens;
             layoutParams.leftMargin = dimens2;
             layoutParams.rightMargin = dimens2;
-            if (fVar.cVO()) {
+            if (fVar.cVP()) {
                 dimens3 = 0;
             }
             layoutParams.bottomMargin = dimens3;
-            this.kNM.setLayoutParams(layoutParams);
+            this.kNT.setLayoutParams(layoutParams);
         }
     }
 
     public void D(f fVar) {
-        if (fVar != null && fVar.cVl() != null) {
-            SpannableStringBuilder bfo = fVar.cVl().bfo();
-            this.kNM.setOnTouchListener(new i(bfo));
-            this.kNM.setText(bfo);
-            this.kNM.setVisibility(0);
+        if (fVar != null && fVar.cVm() != null) {
+            SpannableStringBuilder bfo = fVar.cVm().bfo();
+            this.kNT.setOnTouchListener(new i(bfo));
+            this.kNT.setText(bfo);
+            this.kNT.setVisibility(0);
         }
     }
 
     public void c(f fVar, boolean z, boolean z2) {
-        if (fVar != null && fVar.cVl() != null && fVar.cVl().beS() == 0 && !fVar.cVl().bdk()) {
-            if (fVar.kwL) {
-                this.kNN.setImageResource(R.drawable.pic_frs_headlines_n);
-                this.kNN.setVisibility(0);
+        if (fVar != null && fVar.cVm() != null && fVar.cVm().beS() == 0 && !fVar.cVm().bdk()) {
+            if (fVar.kwS) {
+                this.kNU.setImageResource(R.drawable.pic_frs_headlines_n);
+                this.kNU.setVisibility(0);
             } else if (z && z2) {
-                this.kNN.setImageResource(R.drawable.pic_pb_stick_refined_n);
-                this.kNN.setVisibility(0);
+                this.kNU.setImageResource(R.drawable.pic_pb_stick_refined_n);
+                this.kNU.setVisibility(0);
             } else if (z) {
-                this.kNN.setImageResource(R.drawable.pic_pb_refined_n);
-                this.kNN.setVisibility(0);
+                this.kNU.setImageResource(R.drawable.pic_pb_refined_n);
+                this.kNU.setVisibility(0);
             } else if (z2) {
-                this.kNN.setImageResource(R.drawable.pic_pb_stick_n);
-                this.kNN.setVisibility(0);
+                this.kNU.setImageResource(R.drawable.pic_pb_stick_n);
+                this.kNU.setVisibility(0);
             } else {
-                this.kNN.setVisibility(8);
+                this.kNU.setVisibility(8);
             }
-            if (this.kNN.getVisibility() == 0 && this.kNN.getLayoutParams() != null) {
-                this.kNN.getLayoutParams().height = ay.daj() - ay.dai();
+            if (this.kNU.getVisibility() == 0 && this.kNU.getLayoutParams() != null) {
+                this.kNU.getLayoutParams().height = ay.dak() - ay.daj();
             }
         }
     }

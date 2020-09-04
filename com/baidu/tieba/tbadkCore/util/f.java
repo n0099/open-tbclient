@@ -11,28 +11,28 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean mhT = new AtomicBoolean(false);
-    private static List<Integer> mhU = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean mij = new AtomicBoolean(false);
+    private static List<Integer> mik = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!mhU.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!mik.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!mhU.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!mik.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
     }
 
     private static boolean b(int i, String str, a aVar) {
-        i AS;
-        if (mhT.compareAndSet(false, true)) {
+        i AT;
+        if (mij.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
                 final i bmB = i.bmB();
@@ -63,41 +63,41 @@ public class f {
                 }
             } else {
                 if (i == 3250017) {
-                    AS = i.bmC();
+                    AT = i.bmC();
                 } else if (i == 3250023) {
-                    AS = i.bmD();
+                    AT = i.bmD();
                 } else if (i == 3250024) {
-                    AS = new i(4, null);
+                    AT = new i(4, null);
                 } else {
-                    AS = i.AS(str);
+                    AT = i.AT(str);
                 }
-                AS.a(aVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, AS));
+                AT.a(aVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, AT));
             }
-            mhT.set(false);
+            mij.set(false);
             return true;
         }
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static abstract class a {
-        public abstract void Hs(String str);
-
         public abstract void Ht(String str);
 
-        public abstract void cev();
+        public abstract void Hu(String str);
+
+        public abstract void cew();
 
         public void b(i.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof i.a) {
-                    Hs(((i.a) cVar).authSid);
+                    Ht(((i.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof i.b) {
-                    Ht(((i.b) cVar).callbackKey);
+                    Hu(((i.b) cVar).callbackKey);
                     return;
                 } else {
-                    cev();
+                    cew();
                     return;
                 }
             }

@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b implements a<JSONObject> {
-    private JSONArray cWJ = new JSONArray();
+    private JSONArray cWN = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -33,14 +33,14 @@ public class b implements a<JSONObject> {
 
     public void bM(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cWJ.put(jSONObject);
+            this.cWN.put(jSONObject);
         }
     }
 
     public JSONObject aCm() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.cWJ);
+            jSONObject.put("launchLog", this.cWN);
             jSONObject.put("performance", e.avQ());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -58,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cWJ = new JSONArray();
+        this.cWN = new JSONArray();
     }
 }

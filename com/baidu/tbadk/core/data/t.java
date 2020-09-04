@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class t implements Comparable<t> {
     public String dXA;
-    public String dXB;
-    public boolean dXC;
-    public int dXD;
-    public int dXE;
-    public String dXv;
-    public String dXw;
-    public boolean dXx;
-    public String dXy;
+    public boolean dXB;
+    public String dXC;
+    public String dXD;
+    public String dXE;
+    public String dXF;
+    public boolean dXG;
+    public int dXH;
+    public int dXI;
     public String dXz;
     public String mContent;
     public String mDescription;
@@ -39,14 +39,14 @@ public class t implements Comparable<t> {
             return tVar;
         }
         tVar.mTitle = dVar.mTitle;
-        tVar.mIcon = dVar.bLF;
-        tVar.dXA = dVar.dXA;
-        tVar.mPrice = dVar.exW;
-        tVar.dXv = dVar.dXv;
-        tVar.dXC = dVar.dXC;
+        tVar.mIcon = dVar.bLJ;
+        tVar.dXE = dVar.dXE;
+        tVar.mPrice = dVar.eya;
+        tVar.dXz = dVar.dXz;
+        tVar.dXG = dVar.dXG;
         tVar.mDescription = dVar.mDescription;
-        tVar.dXx = dVar.dXD == 1;
-        tVar.dXD = dVar.dXD;
+        tVar.dXB = dVar.dXH == 1;
+        tVar.dXH = dVar.dXH;
         tbLinkSpanGroup.b(tVar);
         return tVar;
     }
@@ -60,16 +60,16 @@ public class t implements Comparable<t> {
             return tVar;
         }
         tVar.mContent = TextUtils.isEmpty(aVar.adA()) ? TbadkCoreApplication.getInst().getString(R.string.web_page_link) : aVar.adA() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-        tVar.mTitle = aVar.cvz();
-        tVar.dXB = aVar.cvB();
+        tVar.mTitle = aVar.cvA();
+        tVar.dXF = aVar.cvC();
         if (!com.baidu.tbadk.core.util.y.isEmpty(aVar.getImageList()) && aVar.getImageList().get(0) != null) {
             tVar.mIcon = aVar.getImageList().get(0).getSrc();
         }
-        tVar.dXA = aVar.adA();
+        tVar.dXE = aVar.adA();
         tVar.mPrice = aVar.getPrice();
-        if (aVar.cvA() != null) {
-            tVar.dXy = aVar.cvA().cvC();
-            tVar.dXz = aVar.cvA().cvD();
+        if (aVar.cvB() != null) {
+            tVar.dXC = aVar.cvB().cvD();
+            tVar.dXD = aVar.cvB().cvE();
         }
         tbLinkSpanGroup.b(tVar);
         return tVar;
@@ -79,6 +79,6 @@ public class t implements Comparable<t> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull t tVar) {
-        return this.dXE - tVar.dXE;
+        return this.dXI - tVar.dXI;
     }
 }

@@ -15,46 +15,46 @@ import java.util.HashMap;
 import tbclient.VideoInfo;
 /* loaded from: classes16.dex */
 public class f extends com.baidu.tieba.play.operableVideoView.b {
-    private bw afJ;
-    private com.baidu.afd.videopaster.d hjj;
-    private CustomMessageListener hjy;
-    private boolean iQZ;
-    protected boolean iRa;
-    private Runnable iRb;
+    private bw afL;
+    private CustomMessageListener hjC;
+    private com.baidu.afd.videopaster.d hjn;
+    private boolean iRf;
+    protected boolean iRg;
+    private Runnable iRh;
 
     public f(Context context, View view) {
         super(context, view);
-        this.iQZ = false;
-        this.hjy = new CustomMessageListener(2921395) { // from class: com.baidu.tieba.homepage.personalize.view.f.3
+        this.iRf = false;
+        this.hjC = new CustomMessageListener(2921395) { // from class: com.baidu.tieba.homepage.personalize.view.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 com.baidu.afd.videopaster.data.b bVar;
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.afd.videopaster.data.b) && (bVar = (com.baidu.afd.videopaster.data.b) customResponsedMessage.getData()) != null) {
                     String videoId = bVar.getVideoId();
-                    if (!StringUtils.isNull(videoId) && f.this.afJ != null && videoId.equals(f.this.afJ.getId())) {
-                        f.this.hjj.a(f.this.a(f.this.afJ, bVar));
+                    if (!StringUtils.isNull(videoId) && f.this.afL != null && videoId.equals(f.this.afL.getId())) {
+                        f.this.hjn.a(f.this.a(f.this.afL, bVar));
                     }
                 }
             }
         };
-        this.iRb = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.f.4
+        this.iRh = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.f.4
             @Override // java.lang.Runnable
             public void run() {
-                if (f.this.hjj != null) {
-                    f.this.iRa = false;
-                    f.this.hjj.stop();
-                    f.this.hjj.onDestroy();
+                if (f.this.hjn != null) {
+                    f.this.iRg = false;
+                    f.this.hjn.stop();
+                    f.this.hjn.onDestroy();
                 }
             }
         };
-        ve(true);
-        cyH();
+        vg(true);
+        cyI();
     }
 
-    protected void cyH() {
-        this.hjj = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) djM());
-        this.hjj.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.f.1
+    protected void cyI() {
+        this.hjn = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) djP());
+        this.hjn.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.f.1
             @Override // com.baidu.afd.videopaster.d.a
             public void rM() {
             }
@@ -76,12 +76,12 @@ public class f extends com.baidu.tieba.play.operableVideoView.b {
         a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.f.2
             @Override // com.baidu.tieba.play.operableVideoView.d.a
             public void cA(int i, int i2) {
-                if (!f.this.dkK()) {
+                if (!f.this.dkN()) {
                     if (i2 >= i) {
-                        if (f.this.hjj.a(false, false, "NEWINDEX")) {
+                        if (f.this.hjn.a(false, false, "NEWINDEX")) {
                         }
-                    } else if (i != 0 && !f.this.akX && (i2 * 100) / i >= 80 && i > 15000) {
-                        f.this.aB(f.this.afJ);
+                    } else if (i != 0 && !f.this.akZ && (i2 * 100) / i >= 80 && i > 15000) {
+                        f.this.aB(f.this.afL);
                     }
                 }
             }
@@ -91,21 +91,21 @@ public class f extends com.baidu.tieba.play.operableVideoView.b {
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.hjy.setTag(this.ahK);
-        MessageManager.getInstance().registerListener(this.hjy);
+        this.hjC.setTag(this.ahM);
+        MessageManager.getInstance().registerListener(this.hjC);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bw bwVar) {
         if (bwVar != null) {
             super.setData(bwVar);
-            boolean z = this.afJ == bwVar;
-            this.afJ = bwVar;
-            if (this.hjj != null) {
-                if (this.iQZ && z) {
-                    this.iQZ = false;
+            boolean z = this.afL == bwVar;
+            this.afL = bwVar;
+            if (this.hjn != null) {
+                if (this.iRf && z) {
+                    this.iRf = false;
                 } else {
-                    this.hjj.reset();
+                    this.hjn.reset();
                 }
             }
         }
@@ -113,7 +113,7 @@ public class f extends com.baidu.tieba.play.operableVideoView.b {
 
     @Override // com.baidu.tieba.play.operableVideoView.b, com.baidu.tieba.play.operableVideoView.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        if (!this.hjj.a(false, false, "NEWINDEX")) {
+        if (!this.hjn.a(false, false, "NEWINDEX")) {
             startPlay();
         }
     }
@@ -172,26 +172,26 @@ public class f extends com.baidu.tieba.play.operableVideoView.b {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean pN(boolean z) {
-        if (this.hjj != null) {
+    public boolean pP(boolean z) {
+        if (this.hjn != null) {
             if (z) {
-                if (this.hjj.rv()) {
-                    this.iRa = false;
-                    this.hjj.stop();
+                if (this.hjn.rv()) {
+                    this.iRg = false;
+                    this.hjn.stop();
                 }
-            } else if (this.hjj.rv()) {
-                this.iQZ = true;
-                this.hjj.aB(true);
+            } else if (this.hjn.rv()) {
+                this.iRf = true;
+                this.hjn.aB(true);
             }
         }
-        return super.pN(z);
+        return super.pP(z);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void startPlay() {
-        if (this.hjj != null && this.hjj.rv()) {
-            this.iRa = true;
-            this.hjj.resume();
+        if (this.hjn != null && this.hjn.rv()) {
+            this.iRg = true;
+            this.hjn.resume();
             return;
         }
         super.startPlay();
@@ -200,22 +200,22 @@ public class f extends com.baidu.tieba.play.operableVideoView.b {
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void stopPlay() {
         super.stopPlay();
-        if (this.hjj != null && this.hjj.rv()) {
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iRb);
-            com.baidu.adp.lib.f.e.mS().post(this.iRb);
+        if (this.hjn != null && this.hjn.rv()) {
+            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.iRh);
+            com.baidu.adp.lib.f.e.mS().post(this.iRh);
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    protected int cyI() {
+    protected int cyJ() {
         return 1;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public boolean isPlaying() {
-        if (this.hjj == null || !this.hjj.rv()) {
+        if (this.hjn == null || !this.hjn.rv()) {
             return super.isPlaying();
         }
-        return this.iRa || this.hjj.rF();
+        return this.iRg || this.hjn.rF();
     }
 }

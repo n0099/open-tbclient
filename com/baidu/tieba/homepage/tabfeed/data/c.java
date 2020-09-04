@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.k;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class c {
-    public ai iSA;
-    public ArrayList<q> iSy;
-    public k iSz;
-    public int iQk = 0;
-    public int iQj = 0;
-    public boolean fky = true;
+    public ArrayList<q> iSE;
+    public k iSF;
+    public ai iSG;
+    public int iQq = 0;
+    public int iQp = 0;
+    public boolean fkC = true;
     public boolean hasMore = true;
 }

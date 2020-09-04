@@ -1,5 +1,5 @@
 package com.baidu.tieba.tbadkCore.writeModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public String errorMessage;
     public long forumId;

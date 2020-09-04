@@ -8,9 +8,9 @@ import com.facebook.imagepipeline.d.j;
 import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class c {
-    private static a nmh;
-    private static final Class<?> nju = c.class;
-    private static volatile boolean nmi = false;
+    private static final Class<?> njM = c.class;
+    private static volatile boolean nmA = false;
+    private static a nmz;
 
     private c() {
     }
@@ -24,10 +24,10 @@ public class c {
     }
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
-        if (nmi) {
-            com.facebook.common.c.a.g(nju, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+        if (nmA) {
+            com.facebook.common.c.a.g(njM, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
-            nmi = true;
+            nmA = true;
         }
         Context applicationContext = context.getApplicationContext();
         if (hVar == null) {
@@ -39,50 +39,50 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        nmh = new a(context, bVar);
-        SimpleDraweeView.b(nmh);
+        nmz = new a(context, bVar);
+        SimpleDraweeView.b(nmz);
     }
 
-    public static e dPn() {
-        return nmh.get().get();
+    public static e dPw() {
+        return nmz.get().get();
     }
 
-    public static j dPo() {
-        return j.dTo();
+    public static j dPx() {
+        return j.dTx();
     }
 
-    public static com.facebook.imagepipeline.d.g dPp() {
-        return dPo().dPp();
+    public static com.facebook.imagepipeline.d.g dPy() {
+        return dPx().dPy();
     }
 
-    public static boolean dPq() {
-        return nmi;
+    public static boolean dPz() {
+        return nmA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public static class a implements com.facebook.common.internal.j<com.facebook.common.internal.j<? extends AbstractDraweeControllerBuilder>> {
         private Context mContext;
-        private b nmj;
-        private volatile f nmk = null;
+        private b nmB;
+        private volatile f nmC = null;
 
         a(Context context, b bVar) {
             this.mContext = context;
-            this.nmj = bVar;
+            this.nmB = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: dPr */
+        /* renamed from: dPA */
         public com.facebook.common.internal.j<e> get() {
-            if (this.nmk == null) {
+            if (this.nmC == null) {
                 synchronized (this) {
-                    if (this.nmk == null) {
-                        this.nmk = new f(this.mContext, this.nmj);
+                    if (this.nmC == null) {
+                        this.nmC = new f(this.mContext, this.nmB);
                     }
                 }
             }
-            return this.nmk;
+            return this.nmC;
         }
     }
 }

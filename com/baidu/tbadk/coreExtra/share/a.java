@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.y;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static void a(ShareItem shareItem, final Context context, final int i, final DialogInterface.OnCancelListener onCancelListener) {
         if (shareItem != null && !TextUtils.isEmpty(shareItem.content) && !TextUtils.isEmpty(shareItem.title) && (context instanceof Activity)) {
-            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.eEO);
+            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.eES);
             Activity activity = (Activity) context;
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.zy(context.getString(R.string.command_share_tips));
-            aVar.zz(shareItem.eEO);
+            aVar.zz(context.getString(R.string.command_share_tips));
+            aVar.zA(shareItem.eES);
             aVar.setAutoNight(false);
-            aVar.m39if(true);
+            aVar.ig(true);
             aVar.setTitleShowCenter(true);
             aVar.a(j(i, context), new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b

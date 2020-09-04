@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.GetBigday.DataReq;
 import tbclient.GetBigday.GetBigdayReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class GetBigdayInfoReqMessage extends NetMessage {
     public GetBigdayInfoReqMessage() {
         super(CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);

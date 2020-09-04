@@ -17,8 +17,8 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super R> cVar) {
-        if (!g.a(this.omB, cVar, this.mapper)) {
-            this.omB.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.omT, cVar, this.mapper)) {
+            this.omT.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 

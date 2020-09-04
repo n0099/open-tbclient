@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private String dFs;
-    private long dFt;
+    private String dFw;
+    private long dFx;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -38,18 +38,18 @@ public class c {
     }
 
     public String aTH() {
-        return this.dFs;
+        return this.dFw;
     }
 
     public void setTipMessage(String str) {
-        this.dFs = str;
+        this.dFw = str;
     }
 
     public void ch(long j) {
-        this.dFt = j;
+        this.dFx = j;
     }
 
-    public static c wE(String str) {
+    public static c wF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import tbclient.DetailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
     private String text;
     private String url;

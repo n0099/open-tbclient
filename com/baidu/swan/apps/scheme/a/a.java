@@ -31,13 +31,13 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a extends UnitedSchemeBaseInterceptor {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final Set<String> cUd = new HashSet();
+    public static final Set<String> cUh = new HashSet();
 
     static {
-        cUd.add("_baiduboxapp");
-        cUd.add(BuyTBeanActivityConfig.CALLBACK);
-        cUd.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
-        cUd.add("_naExtParams");
+        cUh.add("_baiduboxapp");
+        cUh.add(BuyTBeanActivityConfig.CALLBACK);
+        cUh.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        cUh.add("_naExtParams");
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -65,13 +65,13 @@ public class a extends UnitedSchemeBaseInterceptor {
             Log.d("SwanLaunchInterceptor", "mAppId: " + j);
         }
         String alv = SwanLauncher.alv();
-        d.azE().azA().azM().nL(alv);
+        d.azE().azA().azM().nM(alv);
         if (TextUtils.isEmpty(j)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.am.a sm = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sm("appId is empty");
-            e.aEg().j(sm);
-            h.b(new com.baidu.swan.apps.statistic.a.d().ru(h.jv(0)).i(sm).cm(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
-            i.d(sm);
+            com.baidu.swan.apps.am.a sn = new com.baidu.swan.apps.am.a().bO(1L).bP(1L).sn("appId is empty");
+            e.aEg().j(sn);
+            h.b(new com.baidu.swan.apps.statistic.a.d().rv(h.jv(0)).i(sn).cm(SuspensionBallEntity.KEY_SCHEME, uri.toString()));
+            i.d(sn);
             return true;
         }
         String a = ai.a(j, uri, true);
@@ -85,11 +85,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         String uri2 = uri.toString();
         com.baidu.swan.apps.console.c.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
         String queryParameter = uri.getQueryParameter("_naExtParams");
-        c.a aVar = (c.a) ((c.a) ((c.a) new c.a().nB(j)).nF(!TextUtils.isEmpty(queryParameter) ? f(uri) : uri2)).nL(alv);
+        c.a aVar = (c.a) ((c.a) ((c.a) new c.a().nC(j)).nG(!TextUtils.isEmpty(queryParameter) ? f(uri) : uri2)).nM(alv);
         if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(e)) {
-            aVar.nG(a + "?" + e);
+            aVar.nH(a + "?" + e);
         } else if (!TextUtils.isEmpty(a)) {
-            aVar.nG(a);
+            aVar.nH(a);
         }
         String str = null;
         String str2 = null;
@@ -98,8 +98,8 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (!TextUtils.isEmpty(param)) {
             try {
                 JSONObject jSONObject = new JSONObject(param);
-                aVar.nE(jSONObject.optString("from"));
-                aVar.nI(jSONObject.optString("notinhis"));
+                aVar.nF(jSONObject.optString("from"));
+                aVar.nJ(jSONObject.optString("notinhis"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ext");
                 str3 = jSONObject.optString("navi");
                 aVar.bI("srcAppId", jSONObject.optString("srcAppId"));
@@ -120,7 +120,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         e = e2;
                     }
                     try {
-                        aVar.nH(optJSONObject.optString("clkid"));
+                        aVar.nI(optJSONObject.optString("clkid"));
                         aVar.bI("aiapp_abtest_info", optJSONObject.optString("aiapp_abtest_info"));
                         aVar.bI(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT, optJSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
                         aVar.m("click_time", optJSONObject.optLong("click", -1L));
@@ -194,7 +194,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     }
 
     private String e(Uri uri) {
-        return ai.deleteQueryParam(uri.getEncodedQuery(), cUd);
+        return ai.deleteQueryParam(uri.getEncodedQuery(), cUh);
     }
 
     private String f(Uri uri) {

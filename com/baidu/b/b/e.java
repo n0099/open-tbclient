@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes20.dex */
 public class e extends com.baidu.b.b.a {
-    private f acu;
+    private f acx;
     private Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,19 +76,19 @@ public class e extends com.baidu.b.b.a {
     class b {
         private int d;
         private int b = 33;
-        private a[] acv = new a[this.b];
+        private a[] acy = new a[this.b];
 
         public b() {
         }
 
         private void b(int i) {
-            if (i - this.acv.length > 0) {
-                int length = this.acv.length;
+            if (i - this.acy.length > 0) {
+                int length = this.acy.length;
                 int i2 = length + (length >> 1);
                 if (i2 - i >= 0) {
                     i = i2;
                 }
-                this.acv = (a[]) Arrays.copyOf(this.acv, i);
+                this.acy = (a[]) Arrays.copyOf(this.acy, i);
             }
         }
 
@@ -98,7 +98,7 @@ public class e extends com.baidu.b.b.a {
 
         public void b(a aVar) {
             b(this.d + 1);
-            a[] aVarArr = this.acv;
+            a[] aVarArr = this.acy;
             int i = this.d;
             this.d = i + 1;
             aVarArr[i] = aVar;
@@ -119,7 +119,7 @@ public class e extends com.baidu.b.b.a {
             if (i >= this.d) {
                 throw new IndexOutOfBoundsException("idx " + i + " size " + this.d);
             }
-            return this.acv[i];
+            return this.acy[i];
         }
     }
 
@@ -131,10 +131,10 @@ public class e extends com.baidu.b.b.a {
         /* loaded from: classes20.dex */
         public static class a {
             private int a;
-            private a acy;
+            private a acA;
 
             public a(a aVar) {
-                this.acy = aVar;
+                this.acA = aVar;
             }
 
             public void a() {
@@ -227,15 +227,15 @@ public class e extends com.baidu.b.b.a {
 
     public e() {
         super("upc", 9000000L);
-        this.acu = new f();
-        this.acu.a();
+        this.acx = new f();
+        this.acx.a();
     }
 
     private a a(String str, int i, List<c.a> list, int i2, C0089e c0089e) {
         for (c.a aVar : list) {
-            if (a(str, i, aVar.acy, i2, c0089e)) {
+            if (a(str, i, aVar.acA, i2, c0089e)) {
                 aVar.a();
-                return aVar.acy;
+                return aVar.acA;
             }
         }
         return null;
@@ -273,7 +273,7 @@ public class e extends com.baidu.b.b.a {
                     i4++;
                 }
             }
-            i3 = this.acu.a(this.d, parse, 0, i2, 1);
+            i3 = this.acx.a(this.d, parse, 0, i2, 1);
             break;
         }
         if (i3 == 0) {
@@ -295,7 +295,7 @@ public class e extends com.baidu.b.b.a {
                 break;
             }
             try {
-                i2 = this.acu.a(this.d, parse, 0, i, 1);
+                i2 = this.acx.a(this.d, parse, 0, i, 1);
                 break;
             } catch (Throwable th) {
                 try {
@@ -420,6 +420,6 @@ public class e extends com.baidu.b.b.a {
 
     @Override // com.baidu.b.b.a
     public void a(a.c cVar) {
-        this.d = this.acf.a;
+        this.d = this.ach.a;
     }
 }

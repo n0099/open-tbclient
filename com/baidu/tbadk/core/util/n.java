@@ -29,12 +29,12 @@ import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class n {
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final File CACHE_DIR = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void B(HashMap<String, String> hashMap);
     }
@@ -373,11 +373,11 @@ public class n {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean zP(String str) {
+    public static boolean zQ(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean zQ(String str) {
+    public static boolean zR(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1732,7 +1732,7 @@ public class n {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
@@ -1882,15 +1882,15 @@ public class n {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.n.1
-            int eiZ = 0;
+            int ejd = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.eiZ++;
+                this.ejd++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.eiZ == length) {
+                if (this.ejd == length) {
                     com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tbadk.core.util.n.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -1994,7 +1994,7 @@ public class n {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String zR(String str) {
+    public static String zS(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2002,7 +2002,7 @@ public class n {
         return parse.getLastPathSegment();
     }
 
-    public static String zS(String str) {
+    public static String zT(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -2010,7 +2010,7 @@ public class n {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void zT(@NonNull String str) {
+    public static void zU(@NonNull String str) {
         if (str != null) {
             N(new File(CACHE_DIR + "/" + str));
         }

@@ -52,7 +52,7 @@ public class a {
             }
             mFileName = str;
             OR = cVar;
-            OQ.cg(str);
+            OQ.ch(str);
             mPlayingState = 2;
             new Thread(OQ).start();
             return true;

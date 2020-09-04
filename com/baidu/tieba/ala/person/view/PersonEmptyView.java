@@ -11,9 +11,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes7.dex */
 public class PersonEmptyView extends LinearLayout {
-    private TextView fRA;
-    private TextView fRB;
-    private ImageView fRz;
+    private ImageView fRD;
+    private TextView fRE;
+    private TextView fRF;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_empty_view, this);
-        this.fRz = (ImageView) findViewById(a.g.empty_image);
+        this.fRD = (ImageView) findViewById(a.g.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.fRz.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fRD.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.e.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.e.sdk_ds334);
-            this.fRz.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
-            this.fRz.setLayoutParams(layoutParams);
+            this.fRD.setPadding(0, (int) getContext().getResources().getDimension(a.e.sdk_ds64), 0, 0);
+            this.fRD.setLayoutParams(layoutParams);
         }
-        this.fRA = (TextView) findViewById(a.g.empty_text);
-        this.fRB = (TextView) findViewById(a.g.empty_sub_text);
+        this.fRE = (TextView) findViewById(a.g.empty_text);
+        this.fRF = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.fRz.setImageResource(i);
+            this.fRD.setImageResource(i);
         } else {
-            this.fRz.setVisibility(8);
+            this.fRD.setVisibility(8);
         }
         if (i2 != -1) {
-            this.fRA.setText(i2);
+            this.fRE.setText(i2);
         } else {
-            this.fRA.setVisibility(8);
+            this.fRE.setVisibility(8);
         }
         if (i3 != -1) {
-            this.fRB.setText(i3);
+            this.fRF.setText(i3);
         } else {
-            this.fRB.setVisibility(8);
+            this.fRF.setVisibility(8);
         }
     }
 }

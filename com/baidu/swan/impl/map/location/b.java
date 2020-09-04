@@ -9,18 +9,18 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes19.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<g> dBO;
-    private e dBP;
-    private boolean dBQ;
-    private String dBR;
+    private List<g> dBS;
+    private e dBT;
+    private boolean dBU;
+    private String dBV;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
     public b(Context context, RecyclerView recyclerView, e eVar, boolean z) {
         this.mRecyclerView = recyclerView;
         this.mContext = context;
-        this.dBP = eVar;
-        this.dBQ = z;
+        this.dBT = eVar;
+        this.dBU = z;
     }
 
     public b(Context context, RecyclerView recyclerView, e eVar) {
@@ -33,7 +33,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 101:
                 return new d(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_footer, viewGroup, false));
             default:
-                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.dBP);
+                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.dBT);
         }
     }
 
@@ -44,7 +44,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 ((d) viewHolder).setVisibility(aSb());
                 return;
             default:
-                ((c) viewHolder).a(this.dBO.get(i), this.dBR, aSc());
+                ((c) viewHolder).a(this.dBS.get(i), this.dBV, aSc());
                 return;
         }
     }
@@ -59,31 +59,31 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void b(List<g> list, String str) {
         if (list != null) {
-            this.dBO = list;
-            this.dBR = str;
+            this.dBS = list;
+            this.dBV = str;
             notifyDataSetChanged();
         }
     }
 
     private boolean aSc() {
-        return !TextUtils.isEmpty(this.dBR);
+        return !TextUtils.isEmpty(this.dBV);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dBO == null) {
+        if (this.dBS == null) {
             return 0;
         }
-        return (this.dBQ ? 1 : 0) + this.dBO.size();
+        return (this.dBU ? 1 : 0) + this.dBS.size();
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return (!this.dBQ || i < getItemCount() + (-1)) ? 100 : 101;
+        return (!this.dBU || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
     public void aSd() {
-        for (g gVar : this.dBO) {
+        for (g gVar : this.dBS) {
             gVar.isSelected = false;
         }
     }

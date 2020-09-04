@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes17.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView aax;
-    private View mDB;
-    private View mDC;
-    private View mDD;
-    private ObjectAnimator mDE;
-    private ObjectAnimator mDF;
-    private ObjectAnimator mDG;
-    private ObjectAnimator mDH;
+    private TextView aaz;
+    private View mDT;
+    private View mDU;
+    private View mDV;
+    private ObjectAnimator mDW;
+    private ObjectAnimator mDX;
+    private ObjectAnimator mDY;
+    private ObjectAnimator mDZ;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.mDB = findViewById(R.id.record_layer1);
-        this.mDC = findViewById(R.id.record_layer2);
-        this.mDD = findViewById(R.id.record_layer3);
-        this.aax = (TextView) findViewById(R.id.tv_tip);
-        this.mDD.setScaleX(0.766f);
-        this.mDD.setScaleY(0.766f);
+        this.mDT = findViewById(R.id.record_layer1);
+        this.mDU = findViewById(R.id.record_layer2);
+        this.mDV = findViewById(R.id.record_layer3);
+        this.aaz = (TextView) findViewById(R.id.tv_tip);
+        this.mDV.setScaleX(0.766f);
+        this.mDV.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.mDD;
+        return this.mDV;
     }
 
     public View getLayer1() {
-        return this.mDB;
+        return this.mDT;
     }
 
     public View getLayer2() {
-        return this.mDC;
+        return this.mDU;
     }
 
     public TextView getTvTip() {
-        return this.aax;
+        return this.aaz;
     }
 
-    public void dEf() {
-        if (this.mDH != null && this.mDH.isRunning()) {
-            this.mDG.cancel();
+    public void dEo() {
+        if (this.mDZ != null && this.mDZ.isRunning()) {
+            this.mDY.cancel();
         }
-        if (this.mDG == null) {
-            this.mDG = ObjectAnimator.ofPropertyValuesHolder(this.mDC, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.mDG.setDuration(200L);
+        if (this.mDY == null) {
+            this.mDY = ObjectAnimator.ofPropertyValuesHolder(this.mDU, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.mDY.setDuration(200L);
         }
-        this.mDG.start();
+        this.mDY.start();
     }
 
-    public void dEg() {
-        if (this.mDG != null && this.mDG.isRunning()) {
-            this.mDG.cancel();
+    public void dEp() {
+        if (this.mDY != null && this.mDY.isRunning()) {
+            this.mDY.cancel();
         }
-        if (this.mDC.getScaleX() != 1.0f) {
-            if (this.mDH == null) {
-                this.mDH = ObjectAnimator.ofPropertyValuesHolder(this.mDC, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.mDH.setDuration(200L);
+        if (this.mDU.getScaleX() != 1.0f) {
+            if (this.mDZ == null) {
+                this.mDZ = ObjectAnimator.ofPropertyValuesHolder(this.mDU, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.mDZ.setDuration(200L);
             }
-            this.mDH.start();
+            this.mDZ.start();
         }
     }
 
-    public void wN(boolean z) {
-        if (this.mDF != null && this.mDF.isRunning()) {
-            this.mDF.cancel();
+    public void wP(boolean z) {
+        if (this.mDX != null && this.mDX.isRunning()) {
+            this.mDX.cancel();
         }
-        if (this.mDE == null) {
-            this.mDE = ObjectAnimator.ofPropertyValuesHolder(this.mDD, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.mDE.setRepeatCount(-1);
-            this.mDE.setRepeatMode(2);
-            this.mDE.setDuration(1000L);
+        if (this.mDW == null) {
+            this.mDW = ObjectAnimator.ofPropertyValuesHolder(this.mDV, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.mDW.setRepeatCount(-1);
+            this.mDW.setRepeatMode(2);
+            this.mDW.setDuration(1000L);
         }
-        this.mDD.setVisibility(0);
+        this.mDV.setVisibility(0);
         if (z) {
-            this.mDB.setVisibility(8);
+            this.mDT.setVisibility(8);
         } else {
-            this.mDB.setBackgroundResource(R.drawable.red_square_bg);
+            this.mDT.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.aax.setVisibility(8);
-        this.mDE.start();
+        this.aaz.setVisibility(8);
+        this.mDW.start();
     }
 
-    public void dDU() {
-        if (this.mDE != null && this.mDE.isRunning()) {
-            this.mDE.cancel();
+    public void dEd() {
+        if (this.mDW != null && this.mDW.isRunning()) {
+            this.mDW.cancel();
         }
-        if (this.mDF == null) {
-            this.mDF = ObjectAnimator.ofPropertyValuesHolder(this.mDD, PropertyValuesHolder.ofFloat("scaleX", this.mDD.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.mDD.getScaleY(), 0.766f));
-            this.mDF.setDuration((500.0f * Math.abs(0.766f - this.mDD.getScaleX())) / 0.3f);
+        if (this.mDX == null) {
+            this.mDX = ObjectAnimator.ofPropertyValuesHolder(this.mDV, PropertyValuesHolder.ofFloat("scaleX", this.mDV.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.mDV.getScaleY(), 0.766f));
+            this.mDX.setDuration((500.0f * Math.abs(0.766f - this.mDV.getScaleX())) / 0.3f);
         }
-        this.mDB.setVisibility(0);
-        this.mDB.setBackgroundResource(R.drawable.red_circle_bg);
-        this.mDF.start();
+        this.mDT.setVisibility(0);
+        this.mDT.setBackgroundResource(R.drawable.red_circle_bg);
+        this.mDX.start();
     }
 }

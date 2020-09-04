@@ -5,7 +5,7 @@ import android.graphics.DashPathEffect;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public class ab extends a {
-    private DashPathEffect bZM;
+    private DashPathEffect bZQ;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -20,14 +20,14 @@ public class ab extends a {
         }
         int H = jSONArray.length() > 1 ? com.baidu.swan.apps.ap.ah.H((float) jSONArray.optDouble(1)) : 0;
         if (fArr != null && H >= 0) {
-            this.bZM = new DashPathEffect(fArr, H);
+            this.bZQ = new DashPathEffect(fArr, H);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bZM != null) {
-            bVar.mStrokePaint.setPathEffect(this.bZM);
+        if (this.bZQ != null) {
+            bVar.mStrokePaint.setPathEffect(this.bZQ);
         }
     }
 }

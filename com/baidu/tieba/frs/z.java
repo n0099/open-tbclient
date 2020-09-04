@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.bn;
 import java.util.ArrayList;
 /* loaded from: classes16.dex */
 public class z extends k<bl, a> {
-    private com.baidu.tieba.frs.view.e hWO;
+    private com.baidu.tieba.frs.view.e hWU;
 
     public z(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -21,8 +21,8 @@ public class z extends k<bl, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bf */
     public a b(ViewGroup viewGroup) {
-        this.hWO = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
-        return new a(this.hWO);
+        this.hWU = new com.baidu.tieba.frs.view.e(this.mPageContext, this.mPageId);
+        return new a(this.hWU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class z extends k<bl, a> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bl blVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) blVar, (bl) aVar);
-        this.hWO = aVar.hWP;
+        this.hWU = aVar.hWV;
         ArrayList<bn> bdL = blVar.bdL();
         if (bdL.size() <= 0) {
             return null;
@@ -50,18 +50,18 @@ public class z extends k<bl, a> {
                 aaVar.a(bbVar);
             }
         }
-        this.hWO.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.hWP.a(aaVar);
+        this.hWU.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.hWV.a(aaVar);
         return aVar.getView();
     }
 
     /* loaded from: classes16.dex */
     public class a extends af.a {
-        public com.baidu.tieba.frs.view.e hWP;
+        public com.baidu.tieba.frs.view.e hWV;
 
         public a(com.baidu.tieba.frs.view.e eVar) {
             super(eVar.getView());
-            this.hWP = eVar;
+            this.hWV = eVar;
         }
     }
 }

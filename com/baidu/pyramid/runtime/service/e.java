@@ -6,7 +6,7 @@ import com.baidu.ubc.ac;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e {
-    private static final HashMap<d, b<?>> bNe = new HashMap<>();
+    private static final HashMap<d, b<?>> bNi = new HashMap<>();
 
     static {
         WC();
@@ -28,13 +28,13 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (bNe) {
-            bNe.put(dVar, bVar);
+        synchronized (bNi) {
+            bNi.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = bNe.get(dVar);
+        b<?> bVar = bNi.get(dVar);
         if (bVar != null) {
             return (T) bVar.WA();
         }

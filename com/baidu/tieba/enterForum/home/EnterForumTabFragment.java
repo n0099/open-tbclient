@@ -17,17 +17,17 @@ import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class EnterForumTabFragment extends BaseFragment implements g {
-    private c hvF;
-    private NewPagerSlidingTabBaseStrip.a hvG = new NewPagerSlidingTabBaseStrip.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.1
+    private c hvL;
+    private NewPagerSlidingTabBaseStrip.a hvM = new NewPagerSlidingTabBaseStrip.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumTabFragment.1
         @Override // com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip.a
         public void l(View view, int i) {
-            if (view != null && EnterForumTabFragment.this.isPrimary() && EnterForumTabFragment.this.hvF != null) {
-                if (EnterForumTabFragment.this.hvF.cfO() == i) {
-                    EnterForumTabFragment.this.hvF.wa(i);
+            if (view != null && EnterForumTabFragment.this.isPrimary() && EnterForumTabFragment.this.hvL != null) {
+                if (EnterForumTabFragment.this.hvL.cfP() == i) {
+                    EnterForumTabFragment.this.hvL.wa(i);
                 } else if (i == 0) {
                     TiebaStatic.log(new aq("c13366").ai("obj_locate", 1));
                 } else if (i > 0) {
-                    TiebaStatic.log(new aq("c13366").ai("obj_locate", 3).dD("resource_id", EnterForumTabFragment.this.hvF.wb(i)));
+                    TiebaStatic.log(new aq("c13366").ai("obj_locate", 3).dD("resource_id", EnterForumTabFragment.this.hvL.wb(i)));
                 }
             }
         }
@@ -36,16 +36,16 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1 && EnterForumTabFragment.this.hvF != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1 && EnterForumTabFragment.this.hvL != null) {
                 if (EnterForumTabFragment.this.isPrimary()) {
-                    EnterForumTabFragment.this.hvF.wa(EnterForumTabFragment.this.hvF.cfO());
+                    EnterForumTabFragment.this.hvL.wa(EnterForumTabFragment.this.hvL.cfP());
                     return;
                 }
-                int cfO = EnterForumTabFragment.this.hvF.cfO();
-                if (cfO == 0) {
+                int cfP = EnterForumTabFragment.this.hvL.cfP();
+                if (cfP == 0) {
                     TiebaStatic.log(new aq("c13366").ai("obj_locate", 1));
-                } else if (cfO > 0) {
-                    TiebaStatic.log(new aq("c13366").ai("obj_locate", 3).dD("resource_id", EnterForumTabFragment.this.hvF.wb(cfO)));
+                } else if (cfP > 0) {
+                    TiebaStatic.log(new aq("c13366").ai("obj_locate", 3).dD("resource_id", EnterForumTabFragment.this.hvL.wb(cfP)));
                 }
             }
         }
@@ -54,30 +54,30 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hvF = new c(this);
+        this.hvL = new c(this);
         registerListener(this.mEnterForumTabClickListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.enter_forum_tab, viewGroup, false);
-        this.hvF.a(inflate, bundle);
+        this.hvL.a(inflate, bundle);
         a(getActivity().getIntent(), bundle);
-        this.hvF.a(this.hvG);
+        this.hvL.a(this.hvM);
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.hvF.amH();
+        this.hvL.amH();
     }
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.hvF != null) {
-            this.hvF.onActivityResult(i, i2, intent);
+        if (this.hvL != null) {
+            this.hvL.onActivityResult(i, i2, intent);
         }
     }
 
@@ -87,7 +87,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
-        if (this.hvF != null) {
+        if (this.hvL != null) {
             super.changeSkinType(i);
         }
     }
@@ -95,34 +95,34 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hvF != null) {
-            this.hvF.onChangeSkinType(this.mSkinType);
+        if (this.hvL != null) {
+            this.hvL.onChangeSkinType(this.mSkinType);
         }
     }
 
     private void a(Intent intent, Bundle bundle) {
-        if (this.hvF != null && intent != null && intent.getExtras() != null && intent.getBooleanExtra("is_from_scheme", false)) {
+        if (this.hvL != null && intent != null && intent.getExtras() != null && intent.getBooleanExtra("is_from_scheme", false)) {
             String stringExtra = intent.getStringExtra("sub_locate_type");
-            int Hv = this.hvF.Hv(stringExtra);
-            if (this.hvF.cfJ()) {
-                if (this.hvF.vX(Hv != -1 ? Hv : 0)) {
+            int Hw = this.hvL.Hw(stringExtra);
+            if (this.hvL.cfK()) {
+                if (this.hvL.vX(Hw != -1 ? Hw : 0)) {
                     intent.removeExtra("sub_locate_type");
                     intent.removeExtra("is_from_scheme");
                     return;
                 }
                 return;
             }
-            this.hvF.Hu(stringExtra);
+            this.hvL.Hv(stringExtra);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.cDY().cDZ();
+        com.baidu.tieba.im.db.e.cDZ().cEa();
         MessageManager.getInstance().unRegisterListener(this.mEnterForumTabClickListener);
-        if (this.hvF != null) {
-            this.hvF.abP();
+        if (this.hvL != null) {
+            this.hvL.abP();
         }
     }
 
@@ -149,8 +149,8 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        if (this.hvF != null) {
-            this.hvF.setPrimary(z);
+        if (this.hvL != null) {
+            this.hvL.setPrimary(z);
         }
     }
 
@@ -160,8 +160,8 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         if (isPrimary() && getActivity() != null) {
             a(getActivity().getIntent(), null);
         }
-        if (this.hvF != null) {
-            this.hvF.setPrimary(isPrimary());
+        if (this.hvL != null) {
+            this.hvL.setPrimary(isPrimary());
         }
     }
 
@@ -175,7 +175,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return com.baidu.tbadk.m.e.btZ().getMaxCostFromServer();
+                return com.baidu.tbadk.m.e.bua().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b
@@ -187,20 +187,20 @@ public class EnterForumTabFragment extends BaseFragment implements g {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
-        if (this.hvF != null) {
-            return this.hvF.getCurrentPageKey();
+        if (this.hvL != null) {
+            return this.hvL.getCurrentPageKey();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.g
     public void B(Intent intent) {
-        if (intent != null && this.hvF != null) {
-            int Hv = this.hvF.Hv(intent.getStringExtra("sub_locate_type"));
-            if (Hv == -1) {
-                Hv = 0;
+        if (intent != null && this.hvL != null) {
+            int Hw = this.hvL.Hw(intent.getStringExtra("sub_locate_type"));
+            if (Hw == -1) {
+                Hw = 0;
             }
-            if (this.hvF.vX(Hv)) {
+            if (this.hvL.vX(Hw)) {
                 intent.removeExtra("sub_locate_type");
             }
         }

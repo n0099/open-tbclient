@@ -21,7 +21,7 @@ public class b extends PopupWindow implements View.OnClickListener {
     private static final int[] b = {6666, ResponseCode.MCASAT_SEND_MSG_COLSE_ROOM, 520, Opcodes.NEWARRAY, 66, 10, 1};
     private static final int[] c = {a.i.str_gift_count_6666, a.i.str_gift_count_1314, a.i.str_gift_count_520, a.i.str_gift_count_188, a.i.str_gift_count_66, a.i.str_gift_count_10, a.i.str_gift_count_1};
     private List<Pair<String, String>> a;
-    private a obZ;
+    private a ocs;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -33,7 +33,7 @@ public class b extends PopupWindow implements View.OnClickListener {
         this.a = new ArrayList();
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_gift_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.obZ = aVar;
+        this.ocs = aVar;
         inflate.findViewById(a.f.tv_customize).setOnClickListener(this);
         for (int i = 0; i < b.length; i++) {
             this.a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
@@ -44,8 +44,8 @@ public class b extends PopupWindow implements View.OnClickListener {
             @Override // tv.chushou.zues.widget.adapterview.d
             public void C(View view, int i2) {
                 Pair pair = (Pair) b.this.a.get(i2);
-                if (b.this.obZ != null) {
-                    b.this.obZ.a(false, Integer.parseInt((String) pair.first));
+                if (b.this.ocs != null) {
+                    b.this.ocs.a(false, Integer.parseInt((String) pair.first));
                 }
                 b.this.dismiss();
             }
@@ -68,8 +68,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.tv_customize) {
             dismiss();
-            if (this.obZ != null) {
-                this.obZ.a(true, -1);
+            if (this.ocs != null) {
+                this.ocs.a(true, -1);
             }
         }
     }

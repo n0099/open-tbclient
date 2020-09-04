@@ -33,7 +33,7 @@ public class a {
         return aVar;
     }
 
-    public void cq(String str) {
+    public void cr(String str) {
         if (str != null) {
             Integer num = this.Sj.get(str);
             if (num == null) {
@@ -45,7 +45,7 @@ public class a {
 
     public void D(String str, String str2) {
         if (str != null && str2 != null) {
-            cq(str);
+            cr(str);
         }
     }
 

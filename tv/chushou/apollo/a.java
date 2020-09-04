@@ -3,25 +3,25 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public int oKF;
-    public int oKG;
-    public boolean oKH;
-    public int oKI;
+    public int oKX;
+    public int oKY;
+    public boolean oKZ;
+    public int oLa;
     public int strokeWidth;
 
     public a(C1003a c1003a) {
-        this.oKF = 20;
-        this.oKG = 20;
-        this.oKH = true;
+        this.oKX = 20;
+        this.oKY = 20;
+        this.oKZ = true;
         this.strokeWidth = 2;
-        this.oKI = 800;
+        this.oLa = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.oKF = c1003a.oKF;
-        this.oKG = c1003a.oKG;
-        this.oKH = c1003a.oKH;
+        this.oKX = c1003a.oKX;
+        this.oKY = c1003a.oKY;
+        this.oKZ = c1003a.oKZ;
         this.strokeWidth = c1003a.strokeWidth;
-        this.oKI = c1003a.oKI;
+        this.oLa = c1003a.oLa;
         this.isFullScreen = c1003a.isFullScreen;
         this.borderColor = c1003a.borderColor;
     }
@@ -31,14 +31,14 @@ public class a {
     public static class C1003a {
         public int borderColor;
         public boolean isFullScreen;
-        public int oKF;
-        public int oKG;
-        public boolean oKH;
-        public int oKI;
+        public int oKX;
+        public int oKY;
+        public boolean oKZ;
+        public int oLa;
         public int strokeWidth;
 
-        public C1003a ze(boolean z) {
-            this.oKH = z;
+        public C1003a zg(boolean z) {
+            this.oKZ = z;
             return this;
         }
 
@@ -48,11 +48,11 @@ public class a {
         }
 
         public C1003a Ot(int i) {
-            this.oKI = i;
+            this.oLa = i;
             return this;
         }
 
-        public C1003a zf(boolean z) {
+        public C1003a zh(boolean z) {
             this.isFullScreen = z;
             return this;
         }
@@ -62,7 +62,7 @@ public class a {
             return this;
         }
 
-        public a elu() {
+        public a elD() {
             return new a(this);
         }
     }

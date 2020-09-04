@@ -89,7 +89,7 @@ public class c {
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.tQ(str);
+        bVar.tR(str);
     }
 
     public static void a(String str, String str2, String str3, com.baidu.swan.game.ad.a.b bVar) {
@@ -111,7 +111,7 @@ public class c {
                 jSONObject2.put("page_type", 1);
                 jSONObject2.put("traffic_type", 1);
                 jSONObject.put("content", jSONObject2);
-                bVar.tR(jSONObject.toString());
+                bVar.tS(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }

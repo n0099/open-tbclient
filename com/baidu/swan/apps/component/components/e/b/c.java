@@ -4,20 +4,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c extends com.baidu.swan.apps.component.a.b.b {
-    public boolean cbo;
+    public boolean cbs;
 
     public c() {
         super("coverImage", "viewId");
-        this.cbo = false;
+        this.cbs = false;
     }
 
     @Override // com.baidu.swan.apps.component.a.b.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
-            this.cbo = jSONObject.optBoolean("loadState", false);
-            if (this.caX != null && this.caE != null) {
-                this.caX.eV(this.caE.optBoolean("fixed", false));
+            this.cbs = jSONObject.optBoolean("loadState", false);
+            if (this.cbb != null && this.caI != null) {
+                this.cbb.eW(this.caI.optBoolean("fixed", false));
             }
         }
     }

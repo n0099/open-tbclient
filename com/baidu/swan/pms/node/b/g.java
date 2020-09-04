@@ -4,25 +4,25 @@ import com.baidu.swan.c.i;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class g {
-    private static volatile g dGK;
-    private a dGL = new a();
+    private static volatile g dGO;
+    private a dGP = new a();
 
     public static g aUG() {
-        if (dGK == null) {
+        if (dGO == null) {
             synchronized (g.class) {
-                if (dGK == null) {
-                    dGK = new g();
+                if (dGO == null) {
+                    dGO = new g();
                 }
             }
         }
-        return dGK;
+        return dGO;
     }
 
     private g() {
     }
 
     public String getVersion() {
-        return this.dGL.getString("version", "0");
+        return this.dGP.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,7 +35,7 @@ public class g {
 
     public void b(f fVar) {
         if (fVar != null) {
-            this.dGL.edit().putString("version", fVar.getVersion()).apply();
+            this.dGP.edit().putString("version", fVar.getVersion()).apply();
         }
     }
 

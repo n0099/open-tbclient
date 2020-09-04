@@ -17,11 +17,11 @@ import tbclient.User;
 /* loaded from: classes16.dex */
 public class d implements j {
     public boolean hasMore;
-    public int icf;
-    public String icg;
-    public String ich;
-    public boolean ici;
-    public SportScheduleInfo icj;
+    public int icl;
+    public String icm;
+    public String icn;
+    public boolean ico;
+    public SportScheduleInfo icp;
     public ItemInfo itemInfo;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<q> threadList = new ArrayList<>();
@@ -55,13 +55,13 @@ public class d implements j {
                 }
             }
             com.baidu.tbadk.a.a.a.aG(this.threadList);
-            this.icf = dataRes.new_thread_num.intValue();
+            this.icl = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.icg = dataRes.sport_head_info.head_url;
-                this.ich = dataRes.sport_head_info.jump_url;
-                this.ici = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.icm = dataRes.sport_head_info.head_url;
+                this.icn = dataRes.sport_head_info.jump_url;
+                this.ico = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.icj = dataRes.sport_schedule_info;
+            this.icp = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

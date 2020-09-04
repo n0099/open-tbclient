@@ -13,15 +13,15 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes16.dex */
 public class a {
-    private BdUniqueId ahK;
-    private InterfaceC0670a hwM;
-    private c hxN;
+    private BdUniqueId ahM;
+    private InterfaceC0670a hwS;
+    private c hxT;
     private int mPageNum = 1;
-    private com.baidu.adp.framework.listener.a dOR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
+    private com.baidu.adp.framework.listener.a dOV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == a.this.ahK) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == a.this.ahM) {
                     c cVar = null;
                     if (responsedMessage instanceof HotUserRankHttpResMsg) {
                         cVar = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
@@ -29,29 +29,29 @@ public class a {
                         cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() == 0) {
-                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.hxK))) {
-                            if (a.this.hwM != null) {
-                                a.this.hwM.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.hxQ))) {
+                            if (a.this.hwS != null) {
+                                a.this.hwS.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             }
                         } else if (cVar != null) {
-                            a.this.hxN.hxJ = cVar.hxJ;
-                            a.this.hxN.hxK.addAll(cVar.hxK);
-                            a.this.hxN.hxL = cVar.hxL;
-                            a.this.hxN.geE = cVar.geE;
-                            a.this.hxN.hxM = cVar.hxM;
-                            a.this.hxN.hxB = cVar.hxB;
-                            if (y.isEmpty(cVar.hxK)) {
-                                a.this.hxN.hasMore = false;
+                            a.this.hxT.hxP = cVar.hxP;
+                            a.this.hxT.hxQ.addAll(cVar.hxQ);
+                            a.this.hxT.hxR = cVar.hxR;
+                            a.this.hxT.geI = cVar.geI;
+                            a.this.hxT.hxS = cVar.hxS;
+                            a.this.hxT.hxH = cVar.hxH;
+                            if (y.isEmpty(cVar.hxQ)) {
+                                a.this.hxT.hasMore = false;
                             } else {
-                                a.this.hxN.hasMore = cVar.hasMore;
+                                a.this.hxT.hasMore = cVar.hasMore;
                                 a.e(a.this);
                             }
-                            if (a.this.hwM != null) {
-                                a.this.hwM.a(cVar);
+                            if (a.this.hwS != null) {
+                                a.this.hwS.a(cVar);
                             }
                         }
-                    } else if (a.this.hwM != null) {
-                        a.this.hwM.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (a.this.hwS != null) {
+                        a.this.hwS.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -73,20 +73,20 @@ public class a {
     }
 
     public a(BdUniqueId bdUniqueId) {
-        this.ahK = bdUniqueId;
-        this.dOR.setTag(this.ahK);
-        MessageManager.getInstance().registerListener(this.dOR);
+        this.ahM = bdUniqueId;
+        this.dOV.setTag(this.ahM);
+        MessageManager.getInstance().registerListener(this.dOV);
         bhA();
         bhB();
-        this.hxN = new c();
+        this.hxT = new c();
     }
 
-    public void Hx(String str) {
+    public void Hy(String str) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.category = str;
         hotUserRankReqMsg.pageSize = 20;
         hotUserRankReqMsg.pageNum = this.mPageNum;
-        hotUserRankReqMsg.setTag(this.ahK);
+        hotUserRankReqMsg.setTag(this.ahM);
         MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
     }
 
@@ -95,20 +95,20 @@ public class a {
         hotUserRankReqMsg.forumId = j;
         hotUserRankReqMsg.pageSize = 20;
         hotUserRankReqMsg.pageNum = this.mPageNum;
-        hotUserRankReqMsg.setTag(this.ahK);
+        hotUserRankReqMsg.setTag(this.ahM);
         MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
     }
 
     public c getPageData() {
-        return this.hxN;
+        return this.hxT;
     }
 
-    public int cfU() {
+    public int cfV() {
         return this.mPageNum;
     }
 
     public boolean hasMore() {
-        return this.hxN.hasMore;
+        return this.hxT.hasMore;
     }
 
     private void bhA() {
@@ -128,11 +128,11 @@ public class a {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().removeMessage(this.ahK);
-        MessageManager.getInstance().unRegisterListener(this.ahK);
+        MessageManager.getInstance().removeMessage(this.ahM);
+        MessageManager.getInstance().unRegisterListener(this.ahM);
     }
 
     public void a(InterfaceC0670a interfaceC0670a) {
-        this.hwM = interfaceC0670a;
+        this.hwS = interfaceC0670a;
     }
 }

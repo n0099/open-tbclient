@@ -6,10 +6,10 @@ import android.os.Message;
 /* loaded from: classes19.dex */
 public class BdWorkThread extends HandlerThread {
     private static final String LOG_TAG = BdWorkThread.class.getSimpleName();
-    private a aec;
-    private Message aed;
-    private volatile Status aee;
-    private long aef;
+    private a aee;
+    private Message aef;
+    private volatile Status aeg;
+    private long aeh;
     private long mInterval;
     private final Object mLock;
     private Handler mPrivateHandler;
@@ -33,8 +33,8 @@ public class BdWorkThread extends HandlerThread {
     }
 
     public void i(Message message) {
-        if (System.currentTimeMillis() - this.aef > this.mInterval) {
-            this.aee = Status.WORKING;
+        if (System.currentTimeMillis() - this.aeh > this.mInterval) {
+            this.aeg = Status.WORKING;
             this.mPrivateHandler.removeMessages(1);
             this.mPrivateHandler.removeMessages(2);
             this.mPrivateHandler.obtainMessage(1, message).sendToTarget();
@@ -61,24 +61,24 @@ public class BdWorkThread extends HandlerThread {
                     }
                 };
             }
-            i(this.aed);
-            this.aed = null;
+            i(this.aef);
+            this.aef = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(Message message) {
-        this.aee = Status.PROCESS;
-        this.aef = System.currentTimeMillis();
+        this.aeg = Status.PROCESS;
+        this.aeh = System.currentTimeMillis();
         try {
-            if (this.aec != null) {
-                this.aec.k(message);
+            if (this.aee != null) {
+                this.aee.k(message);
             }
         } catch (Error e) {
         } catch (Exception e2) {
         }
-        if (this.aee == Status.PROCESS) {
-            this.aee = Status.RUNNING;
+        if (this.aeg == Status.PROCESS) {
+            this.aeg = Status.RUNNING;
             return;
         }
         synchronized (this.mLock) {
@@ -91,8 +91,8 @@ public class BdWorkThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void tj() {
         try {
-            if (this.aec != null) {
-                this.aec.tk();
+            if (this.aee != null) {
+                this.aee.tk();
             }
         } catch (Error e) {
         } catch (Exception e2) {

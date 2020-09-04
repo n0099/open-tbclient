@@ -13,11 +13,11 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a {
-        private static final p dJZ = new p();
+        private static final p dKd = new p();
     }
 
     public static p aWc() {
-        return a.dJZ;
+        return a.dKd;
     }
 
     public final void onEvent(String str) {
@@ -44,7 +44,7 @@ public class p {
             return;
         }
         try {
-            aVG().ubcOnEvent(str, s.xo(str2), i);
+            aVG().ubcOnEvent(str, s.xp(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class p {
             }
             return n.aWb().j(str, str2, i);
         }
-        return l(str, s.xo(str2), i);
+        return l(str, s.xp(str2), i);
     }
 
     public void upload() {

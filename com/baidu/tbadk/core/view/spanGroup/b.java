@@ -2,18 +2,18 @@ package com.baidu.tbadk.core.view.spanGroup;
 
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends Editable.Factory {
-    private c exz;
+    private c exD;
 
     public b(c cVar) {
-        this.exz = cVar;
+        this.exD = cVar;
     }
 
     @Override // android.text.Editable.Factory
     public Editable newEditable(CharSequence charSequence) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        spannableStringBuilder.setSpan(this.exz, 0, charSequence.length(), 18);
+        spannableStringBuilder.setSpan(this.exD, 0, charSequence.length(), 18);
         return spannableStringBuilder;
     }
 }

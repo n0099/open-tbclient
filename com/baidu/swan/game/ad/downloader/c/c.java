@@ -18,5 +18,5 @@ public interface c {
 
     void i(DownloadInfo downloadInfo);
 
-    DownloadInfo tE(String str);
+    DownloadInfo tF(String str);
 }

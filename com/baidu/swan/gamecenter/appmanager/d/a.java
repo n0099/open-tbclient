@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    String cQE;
-    String cXC;
-    String cXE;
+    String cQI;
     String cXG;
-    String cXJ;
+    String cXI;
+    String cXK;
+    String cXN;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -22,45 +22,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.cXC = "";
-        this.cXE = "";
         this.cXG = "";
+        this.cXI = "";
+        this.cXK = "";
         this.mScheme = "";
-        this.cXJ = "";
+        this.cXN = "";
         if (e.azJ() != null) {
             b.a azM = e.azJ().azM();
             this.mFrom = h.jv(azM.getAppFrameType());
             this.mAppId = azM.getAppId();
             this.mSource = azM.aqN();
-            this.cXE = azM.aqT().getString("aiapp_extra_need_download", "");
-            this.cXG = azM.aqT().getString("aiapp_extra_preset_pkg", "");
+            this.cXI = azM.aqT().getString("aiapp_extra_need_download", "");
+            this.cXK = azM.aqT().getString("aiapp_extra_preset_pkg", "");
             this.mScheme = azM.aqP();
-            this.cXJ = azM.getPage();
-            this.cQE = azM.arg();
+            this.cXN = azM.getPage();
+            this.cQI = azM.arg();
             this.mAppVersion = azM.getVersion();
-            this.cXC = azM.getVersionCode();
+            this.cXG = azM.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.cXC = "";
-        this.cXE = "";
         this.cXG = "";
+        this.cXI = "";
+        this.cXK = "";
         this.mScheme = "";
-        this.cXJ = "";
+        this.cXN = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.cXE = jSONObject.optString("needDown");
-            this.cXG = jSONObject.optString("isPreset");
+            this.cXI = jSONObject.optString("needDown");
+            this.cXK = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-            this.cXJ = jSONObject.optString("extPage");
-            this.cQE = jSONObject.optString("launchId", null);
+            this.cXN = jSONObject.optString("extPage");
+            this.cQI = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.cXC = jSONObject.optString("thirdVersion");
+            this.cXG = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.cXE);
-            jSONObject.put("isPreset", this.cXG);
+            jSONObject.put("needDown", this.cXI);
+            jSONObject.put("isPreset", this.cXK);
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            jSONObject.put("extPage", this.cXJ);
-            jSONObject.put("launchId", this.cQE);
+            jSONObject.put("extPage", this.cXN);
+            jSONObject.put("launchId", this.cQI);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.cXC);
+            jSONObject.put("thirdVersion", this.cXG);
         } catch (JSONException e) {
             e.printStackTrace();
         }

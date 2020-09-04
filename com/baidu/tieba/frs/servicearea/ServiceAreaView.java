@@ -12,58 +12,58 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.z;
 /* loaded from: classes16.dex */
 public class ServiceAreaView extends FrameLayout {
-    private b iqo;
-    private int iqp;
+    private b iqu;
+    private int iqv;
 
     public ServiceAreaView(@NonNull Context context) {
         super(context);
-        this.iqp = ap.getColor(R.color.cp_link_tip_a);
+        this.iqv = ap.getColor(R.color.cp_link_tip_a);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iqp = ap.getColor(R.color.cp_link_tip_a);
+        this.iqv = ap.getColor(R.color.cp_link_tip_a);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iqp = ap.getColor(R.color.cp_link_tip_a);
+        this.iqv = ap.getColor(R.color.cp_link_tip_a);
     }
 
     public void setData(z zVar) {
         if (zVar != null) {
             int dimens = l.getDimens(getContext(), R.dimen.tbds24);
             int dimens2 = l.getDimens(getContext(), R.dimen.tbds37);
-            if (zVar.mdS > 3) {
-                this.iqo = new c(getContext());
-            } else if (zVar.mdS == 2 || zVar.mdS == 3) {
-                this.iqo = new f(getContext());
-            } else if (zVar.mdS == 1) {
-                this.iqo = new d(getContext());
+            if (zVar.meh > 3) {
+                this.iqu = new c(getContext());
+            } else if (zVar.meh == 2 || zVar.meh == 3) {
+                this.iqu = new f(getContext());
+            } else if (zVar.meh == 1) {
+                this.iqu = new d(getContext());
                 dimens2 = l.getDimens(getContext(), R.dimen.tbds19);
             }
             setPadding(0, dimens, 0, dimens2);
             removeAllViews();
-            addView(this.iqo.getView(), -1, -2);
-            this.iqo.setData(zVar);
-            if (this.iqo instanceof a) {
-                ((a) this.iqo).setThemeFontColor(this.iqp);
+            addView(this.iqu.getView(), -1, -2);
+            this.iqu.setData(zVar);
+            if (this.iqu instanceof a) {
+                ((a) this.iqu).setThemeFontColor(this.iqv);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iqo != null) {
-            this.iqo.onChangeSkinType(i);
+        if (this.iqu != null) {
+            this.iqu.onChangeSkinType(i);
         }
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
     }
 
     public void setThemeFontColor(int i) {
-        this.iqp = i;
-        if (this.iqo instanceof a) {
-            ((a) this.iqo).setThemeFontColor(this.iqp);
+        this.iqv = i;
+        if (this.iqu instanceof a) {
+            ((a) this.iqu).setThemeFontColor(this.iqv);
         }
     }
 }

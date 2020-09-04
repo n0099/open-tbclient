@@ -3,9 +3,9 @@ package org.java_websocket.d;
 public interface a {
     boolean WA(String str);
 
-    String ejy();
+    String ejH();
 
-    a ejz();
+    a ejI();
 
     String toString();
 }

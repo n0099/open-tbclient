@@ -12,7 +12,7 @@ import kotlin.text.l;
 @kotlin.h
 /* loaded from: classes6.dex */
 public final class d {
-    public static final d nHw = new d();
+    public static final d nHO = new d();
 
     private d() {
     }
@@ -25,7 +25,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.egj();
+            q.egs();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -54,11 +54,11 @@ public final class d {
         q.m(str2, "avatarUrl");
         q.m(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder yi = ImageRequestBuilder.ab(i.UO(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).yi(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Lp(com.kascend.chushou.view.a.a(null)).dQN(), tv.chushou.basis.d.b.elJ());
-        com.facebook.drawee.controller.a dQa = com.facebook.drawee.a.a.c.dPn().be(yi.dWr()).dQe();
+        ImageRequestBuilder yk = ImageRequestBuilder.ab(i.UO(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).yk(true);
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Lp(com.kascend.chushou.view.a.a(null)).dQW(), tv.chushou.basis.d.b.elS());
+        com.facebook.drawee.controller.a dQj = com.facebook.drawee.a.a.c.dPw().be(yk.dWA()).dQn();
         q.l((Object) a, "draweeHolder");
-        a.setController(dQa);
+        a.setController(dQj);
         cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
@@ -67,7 +67,7 @@ public final class d {
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.emn();
+        tv.chushou.zues.utils.h.emw();
         System.gc();
     }
 }

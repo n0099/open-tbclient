@@ -48,7 +48,7 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (a.C0520a c0520a : list) {
-                com.baidu.swan.pms.model.f fVar = c0520a.dGb;
+                com.baidu.swan.pms.model.f fVar = c0520a.dGf;
                 if (fVar != null && a(c0520a, gVar.aix())) {
                     arrayList.add(new f(new e(fVar), c0520a, new c(gVar.aix())));
                 }
@@ -80,7 +80,7 @@ public class h {
             com.baidu.swan.pms.model.e eVar = (com.baidu.swan.pms.model.e) t;
             return a(cVar, t, eVar.md5, eVar.downloadUrl);
         } else if (t instanceof a.C0520a) {
-            com.baidu.swan.pms.model.f fVar = ((a.C0520a) t).dGb;
+            com.baidu.swan.pms.model.f fVar = ((a.C0520a) t).dGf;
             return a(cVar, t, fVar.md5, fVar.downloadUrl);
         } else {
             return false;

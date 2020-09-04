@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class SwanAppRoundedImageView extends ImageView {
-    private static final ImageView.ScaleType[] deh = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
-    private boolean dei;
+    private static final ImageView.ScaleType[] del = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+    private boolean dem;
     private Drawable mBackgroundDrawable;
     private int mBorderColor;
     private int mBorderWidth;
@@ -35,7 +35,7 @@ public class SwanAppRoundedImageView extends ImageView {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(a.j.RoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(deh[i2]);
+            setScaleType(del[i2]);
         }
         this.mCornerRadius = obtainStyledAttributes.getDimensionPixelSize(a.j.RoundedImageView_corner_radius, -1);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(a.j.RoundedImageView_border_width, -1);
@@ -46,7 +46,7 @@ public class SwanAppRoundedImageView extends ImageView {
             this.mBorderWidth = 2;
         }
         this.mBorderColor = obtainStyledAttributes.getColor(a.j.RoundedImageView_border_color, ViewCompat.MEASURED_STATE_MASK);
-        this.dei = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_round_background, false);
+        this.dem = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_round_background, false);
         obtainStyledAttributes.recycle();
     }
 
@@ -157,7 +157,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.view.View
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
-        if (this.dei && drawable != null) {
+        if (this.dem && drawable != null) {
             this.mBackgroundDrawable = com.baidu.swan.apps.res.ui.c.a(drawable, this.mScaleType, this.mCornerRadius, this.mBorderWidth, this.mBorderColor);
         } else {
             this.mBackgroundDrawable = drawable;
@@ -175,7 +175,7 @@ public class SwanAppRoundedImageView extends ImageView {
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setCornerRadius(i);
             }
-            if (this.dei && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
+            if (this.dem && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
                 ((com.baidu.swan.apps.res.ui.c) this.mBackgroundDrawable).setCornerRadius(i);
             }
         }
@@ -195,7 +195,7 @@ public class SwanAppRoundedImageView extends ImageView {
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setBorderColor(i);
             }
-            if (this.dei && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
+            if (this.dem && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
                 ((com.baidu.swan.apps.res.ui.c) this.mBackgroundDrawable).setBorderColor(i);
             }
             if (this.mBorderWidth > 0) {
@@ -210,7 +210,7 @@ public class SwanAppRoundedImageView extends ImageView {
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setBorderWidth(i);
             }
-            if (this.dei && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
+            if (this.dem && (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c)) {
                 ((com.baidu.swan.apps.res.ui.c) this.mBackgroundDrawable).setBorderWidth(i);
             }
             invalidate();
@@ -218,8 +218,8 @@ public class SwanAppRoundedImageView extends ImageView {
     }
 
     public void setRoundBackground(boolean z) {
-        if (this.dei != z) {
-            this.dei = z;
+        if (this.dem != z) {
+            this.dem = z;
             if (z) {
                 if (this.mBackgroundDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                     ((com.baidu.swan.apps.res.ui.c) this.mBackgroundDrawable).setScaleType(this.mScaleType);

@@ -11,9 +11,9 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes16.dex */
 public class b extends bo {
-    public static final Integer iHH = 6;
-    private boolean eaf;
-    private List<MetaData> eag = new ArrayList();
+    public static final Integer iHN = 6;
+    private boolean eaj;
+    private List<MetaData> eak = new ArrayList();
 
     @Override // com.baidu.tbadk.core.data.bo
     public void aM(List<User> list) {
@@ -22,7 +22,7 @@ public class b extends bo {
             for (int i = 0; i < min; i++) {
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(list.get(i));
-                this.eag.add(metaData);
+                this.eak.add(metaData);
             }
         }
     }
@@ -31,17 +31,17 @@ public class b extends bo {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(iHH);
+        return concernData.recom_type.equals(iHN);
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dXF;
+        return dXJ;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
     public List<MetaData> bdR() {
-        return this.eag;
+        return this.eak;
     }
 
     @Override // com.baidu.tbadk.core.data.bo, com.baidu.tbadk.core.data.AbsThreadDataSupport
@@ -56,11 +56,11 @@ public class b extends bo {
 
     @Override // com.baidu.tbadk.core.data.bo
     public boolean bdS() {
-        return this.eaf;
+        return this.eaj;
     }
 
     @Override // com.baidu.tbadk.core.data.bo
-    public void hV(boolean z) {
-        this.eaf = z;
+    public void hW(boolean z) {
+        this.eaj = z;
     }
 }

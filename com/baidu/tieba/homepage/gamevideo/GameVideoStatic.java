@@ -11,10 +11,10 @@ import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes16.dex */
 public class GameVideoStatic {
     static {
-        cwX();
+        cwY();
     }
 
-    private static void cwX() {
+    private static void cwY() {
         b bVar = new b(309646);
         bVar.setResponsedClass(GameVideoSocketResMessage.class);
         bVar.setNeedAck(true);

@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class f {
-    private a dRO;
+    private a dRS;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -262,19 +262,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.dRO = new a(eVar);
-        this.dRO.setPriority(3);
-        this.dRO.execute(new Object[0]);
+        this.dRS = new a(eVar);
+        this.dRS.setPriority(3);
+        this.dRS.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e dRQ;
+        private final e dRU;
 
         public a(e eVar) {
-            this.dRQ = eVar;
+            this.dRU = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -289,8 +289,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.dRQ != null) {
-                this.dRQ.onPreLoad();
+            if (this.dRU != null) {
+                this.dRU.onPreLoad();
             }
         }
 
@@ -300,16 +300,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.dRQ != null) {
-                this.dRQ.a(gVar);
+            if (this.dRU != null) {
+                this.dRU.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.dRO != null) {
-            this.dRO.cancel();
-            this.dRO = null;
+        if (this.dRS != null) {
+            this.dRS.cancel();
+            this.dRS = null;
         }
     }
 }

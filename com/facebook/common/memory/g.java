@@ -10,7 +10,7 @@ public interface g {
 
     PooledByteBuffer b(InputStream inputStream, int i) throws IOException;
 
-    i dOG();
+    i dOP();
 
     PooledByteBuffer q(InputStream inputStream) throws IOException;
 }

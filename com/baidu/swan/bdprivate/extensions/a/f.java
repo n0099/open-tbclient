@@ -77,7 +77,7 @@ public class f extends aa {
                         f.this.a(false, null, callbackHandler, str, 20050003, "user fail to login");
                         return;
                     case 0:
-                        f.this.a(eVar.cVg, com.baidu.swan.apps.v.f.arY().arI(), callbackHandler, str);
+                        f.this.a(eVar.cVk, com.baidu.swan.apps.v.f.arY().arI(), callbackHandler, str);
                         return;
                 }
             }
@@ -92,14 +92,14 @@ public class f extends aa {
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
                 public void I(com.baidu.swan.apps.setting.oauth.h<a.C0445a> hVar) {
-                    if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.cVR == null) {
+                    if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.cVV == null) {
                         f.this.a(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
                         return;
                     }
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("data", hVar.mData.cVR.optString("data"));
-                        jSONObject.put("iv", hVar.mData.cVR.optString("iv"));
+                        jSONObject.put("data", hVar.mData.cVV.optString("data"));
+                        jSONObject.put("iv", hVar.mData.cVV.optString("iv"));
                         f.this.a(true, jSONObject, callbackHandler, str, 0, "success");
                     } catch (JSONException e) {
                     }

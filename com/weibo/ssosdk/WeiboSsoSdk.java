@@ -16,12 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class WeiboSsoSdk {
-    private static WeiboSsoSdk okp;
-    private static b okq;
-    private volatile ReentrantLock oko = new ReentrantLock(true);
-    private boolean okr = true;
-    private a oks;
-    private int okt;
+    private static WeiboSsoSdk okH;
+    private static b okI;
+    private volatile ReentrantLock okG = new ReentrantLock(true);
+    private boolean okJ = true;
+    private a okK;
+    private int okL;
 
     private native String riseWind(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, int i2);
 
@@ -30,17 +30,17 @@ public class WeiboSsoSdk {
     }
 
     private WeiboSsoSdk() throws Exception {
-        if (okq == null || !okq.eel()) {
+        if (okI == null || !okI.eeu()) {
             throw new Exception("config error");
         }
-        this.okt = 0;
+        this.okL = 0;
         new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.1
             @Override // java.lang.Runnable
             public void run() {
                 while (true) {
                     try {
                         Thread.sleep(86400000L);
-                        WeiboSsoSdk.eei().bS((WeiboSsoSdk.this.oks == null || TextUtils.isEmpty(WeiboSsoSdk.this.oks.zD())) ? WeiboSsoSdk.this.eek() : WeiboSsoSdk.this.oks.zD(), 2);
+                        WeiboSsoSdk.eer().bS((WeiboSsoSdk.this.okK == null || TextUtils.isEmpty(WeiboSsoSdk.this.okK.zD())) ? WeiboSsoSdk.this.eet() : WeiboSsoSdk.this.okK.zD(), 2);
                     } catch (Exception e) {
                     }
                 }
@@ -51,8 +51,8 @@ public class WeiboSsoSdk {
             public void run() {
                 try {
                     Thread.sleep(60000L);
-                    if (WeiboSsoSdk.this.okr) {
-                        WeiboSsoSdk.this.bS((WeiboSsoSdk.this.oks == null || TextUtils.isEmpty(WeiboSsoSdk.this.oks.zD())) ? WeiboSsoSdk.this.eek() : WeiboSsoSdk.this.oks.zD(), 2);
+                    if (WeiboSsoSdk.this.okJ) {
+                        WeiboSsoSdk.this.bS((WeiboSsoSdk.this.okK == null || TextUtils.isEmpty(WeiboSsoSdk.this.okK.zD())) ? WeiboSsoSdk.this.eet() : WeiboSsoSdk.this.okK.zD(), 2);
                     }
                 } catch (Exception e) {
                 }
@@ -64,9 +64,9 @@ public class WeiboSsoSdk {
         boolean z = false;
         synchronized (WeiboSsoSdk.class) {
             if (bVar != null) {
-                if (bVar.eel() && okq == null) {
-                    okq = (b) bVar.clone();
-                    com.weibo.ssosdk.a.init(okq.getApplicationContext());
+                if (bVar.eeu() && okI == null) {
+                    okI = (b) bVar.clone();
+                    com.weibo.ssosdk.a.init(okI.getApplicationContext());
                     z = true;
                 }
             }
@@ -74,13 +74,13 @@ public class WeiboSsoSdk {
         return z;
     }
 
-    public static synchronized WeiboSsoSdk eei() throws Exception {
+    public static synchronized WeiboSsoSdk eer() throws Exception {
         WeiboSsoSdk weiboSsoSdk;
         synchronized (WeiboSsoSdk.class) {
-            if (okp == null) {
-                okp = new WeiboSsoSdk();
+            if (okH == null) {
+                okH = new WeiboSsoSdk();
             }
-            weiboSsoSdk = okp;
+            weiboSsoSdk = okH;
         }
         return weiboSsoSdk;
     }
@@ -88,7 +88,7 @@ public class WeiboSsoSdk {
     /* loaded from: classes19.dex */
     public static final class a {
         private String mAid;
-        private String okv;
+        private String okN;
 
         public String zD() {
             return this.mAid;
@@ -104,7 +104,7 @@ public class WeiboSsoSdk {
                     throw new Exception("error： " + optString + " msg:" + jSONObject.optString("msg", ""));
                 }
                 aVar.mAid = jSONObject2.optString("aid", "");
-                aVar.okv = jSONObject2.optString("sub", "");
+                aVar.okN = jSONObject2.optString("sub", "");
                 return aVar;
             } catch (Exception e) {
                 throw e;
@@ -148,21 +148,21 @@ public class WeiboSsoSdk {
     /* JADX INFO: Access modifiers changed from: private */
     public void bS(String str, int i) throws Exception {
         String str2;
-        if (!TextUtils.isEmpty(okq.yJ(false))) {
-            if (!this.oko.tryLock()) {
-                this.oko.lock();
-                this.oko.unlock();
+        if (!TextUtils.isEmpty(okI.yL(false))) {
+            if (!this.okG.tryLock()) {
+                this.okG.lock();
+                this.okG.unlock();
                 return;
             }
-            this.okr = false;
-            String mfp = com.weibo.ssosdk.a.getMfp(okq.getApplicationContext());
+            this.okJ = false;
+            String mfp = com.weibo.ssosdk.a.getMfp(okI.getApplicationContext());
             try {
                 str2 = URLEncoder.encode(str, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String VG = VG(riseWind(okq.yJ(true), okq.getApplicationContext().getPackageName(), str2, mfp, okq.yI(true), okq.yH(true), okq.yG(true), okq.yF(true), okq.yK(true), okq.yE(true), i, this.okt));
-            this.okt++;
+            String VG = VG(riseWind(okI.yL(true), okI.getApplicationContext().getPackageName(), str2, mfp, okI.yK(true), okI.yJ(true), okI.yI(true), okI.yH(true), okI.yM(true), okI.yG(true), i, this.okL));
+            this.okL++;
             if (VG != null) {
                 try {
                     a VI = a.VI(VG);
@@ -170,22 +170,22 @@ public class WeiboSsoSdk {
                         VH(VI.zD());
                     }
                     if (i == 1) {
-                        this.oks = VI;
+                        this.okK = VI;
                     }
-                    this.oko.unlock();
+                    this.okG.unlock();
                     return;
                 } catch (Exception e2) {
-                    this.oko.unlock();
+                    this.okG.unlock();
                     throw e2;
                 }
             }
-            this.oko.unlock();
+            this.okG.unlock();
             throw new Exception("network error.");
         }
     }
 
-    public a eej() throws Exception {
-        if (this.oks == null) {
+    public a ees() throws Exception {
+        if (this.okK == null) {
             Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -198,16 +198,16 @@ public class WeiboSsoSdk {
             thread.start();
             thread.join();
         }
-        if (this.oks == null) {
+        if (this.okK == null) {
             throw new Exception("visitor login failed");
         }
-        return this.oks;
+        return this.okK;
     }
 
     public String zD() throws Exception {
-        String eek = eek();
-        if (TextUtils.isEmpty(eek)) {
-            if (this.oks == null || TextUtils.isEmpty(this.oks.zD())) {
+        String eet = eet();
+        if (TextUtils.isEmpty(eet)) {
+            if (this.okK == null || TextUtils.isEmpty(this.okK.zD())) {
                 Thread thread = new Thread(new Runnable() { // from class: com.weibo.ssosdk.WeiboSsoSdk.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -220,17 +220,17 @@ public class WeiboSsoSdk {
                 thread.start();
                 thread.join();
             }
-            if (this.oks == null) {
+            if (this.okK == null) {
                 throw new Exception("visitor login failed");
             }
-            return this.oks.zD();
+            return this.okK.zD();
         }
-        return eek;
+        return eet;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [378=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public String eek() {
+    public String eet() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;
@@ -276,7 +276,7 @@ public class WeiboSsoSdk {
     }
 
     private File NL(int i) {
-        return new File(okq.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
+        return new File(okI.getApplicationContext().getFilesDir(), "weibo_sso_sdk_aid" + i);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */

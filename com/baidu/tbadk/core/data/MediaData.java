@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MediaData extends OrmObject implements Serializable {
     public static final int EXT_TYPE_XIAOYING = 12;
     public String origin_pic;

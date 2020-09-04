@@ -64,7 +64,7 @@ public class a extends aa {
         boolean z = eVar.forbidden;
         int aFd = aj.aFd();
         long aFe = aj.aFe();
-        List<String> list = eVar.cVj;
+        List<String> list = eVar.cVn;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {

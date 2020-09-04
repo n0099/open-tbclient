@@ -12,28 +12,28 @@ import android.view.View;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class SliderBar extends View {
-    private static final String[] cLF = {"小", "中", "大", "特大"};
-    private int cLG;
-    private String[] cLH;
-    private float cLI;
-    private float cLJ;
+    private static final String[] cLJ = {"小", "中", "大", "特大"};
     private int cLK;
-    private float cLL;
-    private int cLM;
-    private int cLN;
+    private String[] cLL;
+    private float cLM;
+    private float cLN;
     private int cLO;
-    private int cLP;
+    private float cLP;
     private int cLQ;
     private int cLR;
     private int cLS;
-    private boolean cLT;
+    private int cLT;
     private int cLU;
-    private boolean cLV;
-    private c cLW;
-    private a cLX;
-    private b cLY;
-    private int cLZ;
-    private boolean cMa;
+    private int cLV;
+    private int cLW;
+    private boolean cLX;
+    private int cLY;
+    private boolean cLZ;
+    private c cMa;
+    private a cMb;
+    private b cMc;
+    private int cMd;
+    private boolean cMe;
     private ValueAnimator mAnimator;
     private int mCurrentIndex;
     private int mTextColor;
@@ -46,109 +46,109 @@ public class SliderBar extends View {
 
     public SliderBar(Context context) {
         super(context);
-        this.cLG = 4;
-        this.cLH = cLF;
-        this.cLI = 15.0f;
-        this.cLJ = 3.0f;
-        this.cLK = -7829368;
-        this.cLL = 30.0f;
-        this.cLM = -1;
-        this.cLN = -1;
-        this.cLO = 1711276032;
-        this.cLP = 3;
+        this.cLK = 4;
+        this.cLL = cLJ;
+        this.cLM = 15.0f;
+        this.cLN = 3.0f;
+        this.cLO = -7829368;
+        this.cLP = 30.0f;
+        this.cLQ = -1;
+        this.cLR = -1;
+        this.cLS = 1711276032;
+        this.cLT = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.cLQ = -7829368;
-        this.cLR = 50;
-        this.cLS = 500;
-        this.cLT = false;
-        this.cLU = -3355444;
-        this.cLV = true;
-        this.cLZ = -1;
+        this.cLU = -7829368;
+        this.cLV = 50;
+        this.cLW = 500;
+        this.cLX = false;
+        this.cLY = -3355444;
+        this.cLZ = true;
+        this.cMd = -1;
         this.mCurrentIndex = 0;
-        this.cMa = true;
+        this.cMe = true;
     }
 
     public SliderBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cLG = 4;
-        this.cLH = cLF;
-        this.cLI = 15.0f;
-        this.cLJ = 3.0f;
-        this.cLK = -7829368;
-        this.cLL = 30.0f;
-        this.cLM = -1;
-        this.cLN = -1;
-        this.cLO = 1711276032;
-        this.cLP = 3;
+        this.cLK = 4;
+        this.cLL = cLJ;
+        this.cLM = 15.0f;
+        this.cLN = 3.0f;
+        this.cLO = -7829368;
+        this.cLP = 30.0f;
+        this.cLQ = -1;
+        this.cLR = -1;
+        this.cLS = 1711276032;
+        this.cLT = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.cLQ = -7829368;
-        this.cLR = 50;
-        this.cLS = 500;
-        this.cLT = false;
-        this.cLU = -3355444;
-        this.cLV = true;
-        this.cLZ = -1;
+        this.cLU = -7829368;
+        this.cLV = 50;
+        this.cLW = 500;
+        this.cLX = false;
+        this.cLY = -3355444;
+        this.cLZ = true;
+        this.cMd = -1;
         this.mCurrentIndex = 0;
-        this.cMa = true;
+        this.cMe = true;
         init(attributeSet);
     }
 
     public SliderBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cLG = 4;
-        this.cLH = cLF;
-        this.cLI = 15.0f;
-        this.cLJ = 3.0f;
-        this.cLK = -7829368;
-        this.cLL = 30.0f;
-        this.cLM = -1;
-        this.cLN = -1;
-        this.cLO = 1711276032;
-        this.cLP = 3;
+        this.cLK = 4;
+        this.cLL = cLJ;
+        this.cLM = 15.0f;
+        this.cLN = 3.0f;
+        this.cLO = -7829368;
+        this.cLP = 30.0f;
+        this.cLQ = -1;
+        this.cLR = -1;
+        this.cLS = 1711276032;
+        this.cLT = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.cLQ = -7829368;
-        this.cLR = 50;
-        this.cLS = 500;
-        this.cLT = false;
-        this.cLU = -3355444;
-        this.cLV = true;
-        this.cLZ = -1;
+        this.cLU = -7829368;
+        this.cLV = 50;
+        this.cLW = 500;
+        this.cLX = false;
+        this.cLY = -3355444;
+        this.cLZ = true;
+        this.cMd = -1;
         this.mCurrentIndex = 0;
-        this.cMa = true;
+        this.cMe = true;
         init(attributeSet);
     }
 
     public void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.SliderBar);
         try {
-            this.cLI = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_tickDiameter, 15.0f);
-            this.cLJ = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barLineWide, 3.0f);
-            this.cLK = obtainStyledAttributes.getColor(a.j.SliderBar_barLineColor, -7829368);
-            this.cLL = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbRadius, 30.0f);
-            this.cLM = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorNormal, -1);
-            this.cLN = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorPressed, -1);
-            this.cLO = obtainStyledAttributes.getColor(a.j.SliderBar_thumbCircleColor, 1711276032);
-            this.cLP = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbCircleWide, 3.0f);
+            this.cLM = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_tickDiameter, 15.0f);
+            this.cLN = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barLineWide, 3.0f);
+            this.cLO = obtainStyledAttributes.getColor(a.j.SliderBar_barLineColor, -7829368);
+            this.cLP = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbRadius, 30.0f);
+            this.cLQ = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorNormal, -1);
+            this.cLR = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorPressed, -1);
+            this.cLS = obtainStyledAttributes.getColor(a.j.SliderBar_thumbCircleColor, 1711276032);
+            this.cLT = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbCircleWide, 3.0f);
             this.mTextSize = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextSize, 40.0f);
             this.mTextColor = obtainStyledAttributes.getColor(a.j.SliderBar_barTextColor, -7829368);
-            this.cLQ = obtainStyledAttributes.getColor(a.j.SliderBar_barChosenTextColor, -7829368);
-            this.cLR = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextPadding, 50.0f);
-            this.cLS = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_defaultWidth, 500.0f);
+            this.cLU = obtainStyledAttributes.getColor(a.j.SliderBar_barChosenTextColor, -7829368);
+            this.cLV = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextPadding, 50.0f);
+            this.cLW = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_defaultWidth, 500.0f);
             this.mCurrentIndex = obtainStyledAttributes.getInt(a.j.SliderBar_currentIndex, 0);
-            this.cLV = obtainStyledAttributes.getBoolean(a.j.SliderBar_animation, true);
-            this.cLT = obtainStyledAttributes.getBoolean(a.j.SliderBar_isShowShadow, false);
-            this.cLU = obtainStyledAttributes.getColor(a.j.SliderBar_shadowColor, -3355444);
+            this.cLZ = obtainStyledAttributes.getBoolean(a.j.SliderBar_animation, true);
+            this.cLX = obtainStyledAttributes.getBoolean(a.j.SliderBar_isShowShadow, false);
+            this.cLY = obtainStyledAttributes.getColor(a.j.SliderBar_shadowColor, -3355444);
         } finally {
             obtainStyledAttributes.recycle();
         }
     }
 
     public void init() {
-        this.cLX = new a(getXCoordinate(), getYCoordinate(), getBarLineLength());
-        this.cLW = new c(getXCoordinate() + (this.cLX.ayF() * this.mCurrentIndex), getYCoordinate());
+        this.cMb = new a(getXCoordinate(), getYCoordinate(), getBarLineLength());
+        this.cMa = new c(getXCoordinate() + (this.cMb.ayF() * this.mCurrentIndex), getYCoordinate());
     }
 
     @Override // android.view.View
@@ -156,7 +156,7 @@ public class SliderBar extends View {
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         if (mode != 1073741824) {
-            int i3 = this.cLS;
+            int i3 = this.cLW;
             size = mode == Integer.MIN_VALUE ? Math.min(size, i3) : i3;
         }
         int mode2 = View.MeasureSpec.getMode(i2);
@@ -169,7 +169,7 @@ public class SliderBar extends View {
     }
 
     private int getMinHeight() {
-        return (int) ((this.cLL * 2.0f) + this.cLR + getFontHeight() + getPaddingTop() + getPaddingBottom());
+        return (int) ((this.cLP * 2.0f) + this.cLV + getFontHeight() + getPaddingTop() + getPaddingBottom());
     }
 
     @Override // android.view.View
@@ -181,8 +181,8 @@ public class SliderBar extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.cLX.draw(canvas);
-        this.cLW.draw(canvas);
+        this.cMb.draw(canvas);
+        this.cMa.draw(canvas);
     }
 
     @Override // android.view.View
@@ -214,16 +214,16 @@ public class SliderBar extends View {
     }
 
     private boolean o(float f, float f2) {
-        if (!this.cLW.ayH() && this.cLW.s(f, f2)) {
+        if (!this.cMa.ayH() && this.cMa.s(f, f2)) {
             ayB();
             return true;
         }
-        this.cLZ = q(f, f2);
+        this.cMd = q(f, f2);
         return true;
     }
 
     private boolean C(float f) {
-        if (this.cLW.ayH()) {
+        if (this.cMa.ayH()) {
             D(f);
             return true;
         }
@@ -231,14 +231,14 @@ public class SliderBar extends View {
     }
 
     private boolean p(float f, float f2) {
-        if (this.cLW.ayH()) {
+        if (this.cMa.ayH()) {
             ayC();
             return true;
-        } else if (this.cLZ == q(f, f2) && this.cLZ != -1) {
-            r(this.cLW.getX(), getXCoordinate() + (this.cLZ * this.cLX.ayF()));
-            this.mCurrentIndex = this.cLZ;
-            if (this.cLY != null) {
-                this.cLY.a(this, this.mCurrentIndex);
+        } else if (this.cMd == q(f, f2) && this.cMd != -1) {
+            r(this.cMa.getX(), getXCoordinate() + (this.cMd * this.cMb.ayF()));
+            this.mCurrentIndex = this.cMd;
+            if (this.cMc != null) {
+                this.cMc.a(this, this.mCurrentIndex);
                 return true;
             }
             return true;
@@ -248,7 +248,7 @@ public class SliderBar extends View {
     }
 
     private int q(float f, float f2) {
-        for (int i = 0; i < this.cLG; i++) {
+        for (int i = 0; i < this.cLK; i++) {
             if (b(f, f2, i)) {
                 return i;
             }
@@ -257,38 +257,38 @@ public class SliderBar extends View {
     }
 
     private boolean b(float f, float f2, int i) {
-        return Math.abs(f - (getXCoordinate() + (this.cLX.ayF() * ((float) i)))) < this.cLW.ayG() && Math.abs(f2 - getYCoordinate()) < this.cLW.ayG() * 2.0f;
+        return Math.abs(f - (getXCoordinate() + (this.cMb.ayF() * ((float) i)))) < this.cMa.ayG() && Math.abs(f2 - getYCoordinate()) < this.cMa.ayG() * 2.0f;
     }
 
     private void ayB() {
-        this.cLW.ayI();
+        this.cMa.ayI();
         invalidate();
     }
 
     private void D(float f) {
-        if (f >= this.cLX.ayD() && f <= this.cLX.ayE()) {
-            this.cLW.setX(f);
+        if (f >= this.cMb.ayD() && f <= this.cMb.ayE()) {
+            this.cMa.setX(f);
             invalidate();
         }
     }
 
     private void ayC() {
-        int b2 = this.cLX.b(this.cLW);
+        int b2 = this.cMb.b(this.cMa);
         if (this.mCurrentIndex != b2) {
             this.mCurrentIndex = b2;
-            if (this.cLY != null) {
-                this.cLY.a(this, this.mCurrentIndex);
+            if (this.cMc != null) {
+                this.cMc.a(this, this.mCurrentIndex);
             }
         }
-        float x = this.cLW.getX();
-        float a2 = this.cLX.a(this.cLW);
-        if (this.cLV) {
+        float x = this.cMa.getX();
+        float a2 = this.cMb.a(this.cMa);
+        if (this.cLZ) {
             r(x, a2);
         } else {
-            this.cLW.setX(a2);
+            this.cMa.setX(a2);
             invalidate();
         }
-        this.cLW.release();
+        this.cMa.release();
     }
 
     private void r(float f, float f2) {
@@ -298,7 +298,7 @@ public class SliderBar extends View {
         this.mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.SliderBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                SliderBar.this.cLW.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                SliderBar.this.cMa.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 SliderBar.this.invalidate();
             }
         });
@@ -306,22 +306,22 @@ public class SliderBar extends View {
     }
 
     public SliderBar a(b bVar) {
-        this.cLY = bVar;
+        this.cMc = bVar;
         return this;
     }
 
     public SliderBar iK(int i) {
-        if (i < 0 || i >= this.cLG) {
+        if (i < 0 || i >= this.cLK) {
             throw new IllegalArgumentException("A thumb index is out of bounds");
         }
         if (this.mCurrentIndex != i) {
             this.mCurrentIndex = i;
-            if (this.cLW != null && this.cLX != null) {
-                this.cLW.setX(getXCoordinate() + (this.cLX.ayF() * this.mCurrentIndex));
+            if (this.cMa != null && this.cMb != null) {
+                this.cMa.setX(getXCoordinate() + (this.cMb.ayF() * this.mCurrentIndex));
                 invalidate();
             }
-            if (this.cLY != null) {
-                this.cLY.a(this, this.mCurrentIndex);
+            if (this.cMc != null) {
+                this.cMc.a(this, this.mCurrentIndex);
             }
         }
         return this;
@@ -332,26 +332,26 @@ public class SliderBar extends View {
     }
 
     private float getXCoordinate() {
-        return getPaddingLeft() + this.cLL;
+        return getPaddingLeft() + this.cLP;
     }
 
     private float getYCoordinate() {
-        return ((getHeight() - getPaddingBottom()) - ((getHeight() - getMinHeight()) / 2.0f)) - this.cLL;
+        return ((getHeight() - getPaddingBottom()) - ((getHeight() - getMinHeight()) / 2.0f)) - this.cLP;
     }
 
     private float getFontHeight() {
-        if (this.cLH == null || this.cLH.length == 0) {
+        if (this.cLL == null || this.cLL.length == 0) {
             return 0.0f;
         }
         Paint paint = new Paint();
         paint.setTextSize(this.mTextSize);
-        paint.measureText(this.cLH[0]);
+        paint.measureText(this.cLL[0]);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         return fontMetrics.descent - fontMetrics.ascent;
     }
 
     private float getBarLineLength() {
-        return ((getWidth() - (2.0f * this.cLL)) - getPaddingLeft()) - getPaddingRight();
+        return ((getWidth() - (2.0f * this.cLP)) - getPaddingLeft()) - getPaddingRight();
     }
 
     private boolean isAnimationRunning() {
@@ -368,61 +368,61 @@ public class SliderBar extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class a {
-        private final float cLu;
-        private final float cMc;
-        private final float cMd;
-        private int cMe;
-        private float cMf;
-        private float cMg;
-        private Paint cMh = new Paint();
-        private Paint cMi;
+        private final float cLy;
+        private final float cMg;
+        private final float cMh;
+        private int cMi;
+        private float cMj;
+        private float cMk;
+        private Paint cMl = new Paint();
+        private Paint cMm;
         private Paint mTextPaint;
 
         a(float f, float f2, float f3) {
-            this.cMg = 7.5f;
-            this.cLu = f;
-            this.cMc = f + f3;
-            this.cMd = f2;
-            this.cMe = SliderBar.this.cLG - 1;
-            this.cMf = f3 / this.cMe;
-            this.cMg = SliderBar.this.cLI / 2.0f;
-            this.cMh.setColor(SliderBar.this.cLK);
-            this.cMh.setStrokeWidth(SliderBar.this.cLJ);
-            this.cMh.setAntiAlias(true);
+            this.cMk = 7.5f;
+            this.cLy = f;
+            this.cMg = f + f3;
+            this.cMh = f2;
+            this.cMi = SliderBar.this.cLK - 1;
+            this.cMj = f3 / this.cMi;
+            this.cMk = SliderBar.this.cLM / 2.0f;
+            this.cMl.setColor(SliderBar.this.cLO);
+            this.cMl.setStrokeWidth(SliderBar.this.cLN);
+            this.cMl.setAntiAlias(true);
             this.mTextPaint = new Paint();
             this.mTextPaint.setColor(SliderBar.this.mTextColor);
             this.mTextPaint.setTextSize(SliderBar.this.mTextSize);
             this.mTextPaint.setAntiAlias(true);
-            this.cMi = new Paint();
-            this.cMi.setColor(SliderBar.this.cLQ);
-            this.cMi.setTextSize(SliderBar.this.mTextSize);
-            this.cMi.setAntiAlias(true);
+            this.cMm = new Paint();
+            this.cMm.setColor(SliderBar.this.cLU);
+            this.cMm.setTextSize(SliderBar.this.mTextSize);
+            this.cMm.setAntiAlias(true);
         }
 
         void draw(Canvas canvas) {
             o(canvas);
-            if (SliderBar.this.cMa) {
+            if (SliderBar.this.cMe) {
                 p(canvas);
             }
         }
 
         private void o(Canvas canvas) {
-            canvas.drawLine(this.cLu, this.cMd, this.cMc, this.cMd, this.cMh);
+            canvas.drawLine(this.cLy, this.cMh, this.cMg, this.cMh, this.cMl);
         }
 
         private void p(Canvas canvas) {
-            for (int i = 0; i <= this.cMe; i++) {
-                float f = this.cLu + (this.cMf * i);
-                canvas.drawCircle(f, this.cMd, this.cMg, this.cMh);
-                if (SliderBar.this.cLH != null && SliderBar.this.cLH.length > 0) {
-                    String str = SliderBar.this.cLH[i];
+            for (int i = 0; i <= this.cMi; i++) {
+                float f = this.cLy + (this.cMj * i);
+                canvas.drawCircle(f, this.cMh, this.cMk, this.cMl);
+                if (SliderBar.this.cLL != null && SliderBar.this.cLL.length > 0) {
+                    String str = SliderBar.this.cLL[i];
                     if (!TextUtils.isEmpty(str)) {
                         if (i == SliderBar.this.mCurrentIndex) {
-                            Paint.FontMetrics fontMetrics = this.cMi.getFontMetrics();
-                            canvas.drawText(str, f - (pY(str) / 2.0f), ((this.cMd - SliderBar.this.cLL) - SliderBar.this.cLR) - (fontMetrics.bottom - fontMetrics.descent), this.cMi);
+                            Paint.FontMetrics fontMetrics = this.cMm.getFontMetrics();
+                            canvas.drawText(str, f - (pZ(str) / 2.0f), ((this.cMh - SliderBar.this.cLP) - SliderBar.this.cLV) - (fontMetrics.bottom - fontMetrics.descent), this.cMm);
                         } else {
                             Paint.FontMetrics fontMetrics2 = this.mTextPaint.getFontMetrics();
-                            canvas.drawText(str, f - (pY(str) / 2.0f), ((this.cMd - SliderBar.this.cLL) - SliderBar.this.cLR) - (fontMetrics2.bottom - fontMetrics2.descent), this.mTextPaint);
+                            canvas.drawText(str, f - (pZ(str) / 2.0f), ((this.cMh - SliderBar.this.cLP) - SliderBar.this.cLV) - (fontMetrics2.bottom - fontMetrics2.descent), this.mTextPaint);
                         }
                     }
                 }
@@ -430,19 +430,19 @@ public class SliderBar extends View {
         }
 
         float ayD() {
-            return this.cLu;
+            return this.cLy;
         }
 
         float ayE() {
-            return this.cMc;
+            return this.cMg;
         }
 
         float ayF() {
-            return this.cMf;
+            return this.cMj;
         }
 
         float a(c cVar) {
-            return this.cLu + (this.cMf * b(cVar));
+            return this.cLy + (this.cMj * b(cVar));
         }
 
         int b(c cVar) {
@@ -450,10 +450,10 @@ public class SliderBar extends View {
         }
 
         int E(float f) {
-            return (int) (((f - this.cLu) + (this.cMf / 2.0f)) / this.cMf);
+            return (int) (((f - this.cLy) + (this.cMj / 2.0f)) / this.cMj);
         }
 
-        float pY(String str) {
+        float pZ(String str) {
             return this.mTextPaint.measureText(str);
         }
     }
@@ -461,43 +461,43 @@ public class SliderBar extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class c {
-        private final float cMj;
-        private boolean cMk;
-        private Paint cMl = new Paint();
-        private Paint cMm;
-        private Paint cMn;
+        private final float cMn;
+        private boolean cMo;
+        private Paint cMp = new Paint();
+        private Paint cMq;
+        private Paint cMr;
         private float mX;
         private final float mY;
 
         c(float f, float f2) {
             this.mX = f;
             this.mY = f2;
-            this.cMj = (int) Math.max(50.0f, SliderBar.this.cLL * 2.0f);
-            this.cMl.setColor(SliderBar.this.cLM);
-            this.cMl.setAntiAlias(true);
-            this.cMm = new Paint();
-            this.cMm.setColor(SliderBar.this.cLN);
-            this.cMm.setAntiAlias(true);
-            this.cMn = new Paint();
-            this.cMn.setStyle(Paint.Style.STROKE);
-            this.cMn.setColor(SliderBar.this.cLO);
-            this.cMn.setAntiAlias(true);
-            this.cMn.setStrokeWidth(SliderBar.this.cLP);
-            if (SliderBar.this.cLT) {
-                SliderBar.this.setLayerType(1, this.cMl);
-                SliderBar.this.setLayerType(1, this.cMm);
-                this.cMl.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.cLU);
-                this.cMm.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.cLU);
+            this.cMn = (int) Math.max(50.0f, SliderBar.this.cLP * 2.0f);
+            this.cMp.setColor(SliderBar.this.cLQ);
+            this.cMp.setAntiAlias(true);
+            this.cMq = new Paint();
+            this.cMq.setColor(SliderBar.this.cLR);
+            this.cMq.setAntiAlias(true);
+            this.cMr = new Paint();
+            this.cMr.setStyle(Paint.Style.STROKE);
+            this.cMr.setColor(SliderBar.this.cLS);
+            this.cMr.setAntiAlias(true);
+            this.cMr.setStrokeWidth(SliderBar.this.cLT);
+            if (SliderBar.this.cLX) {
+                SliderBar.this.setLayerType(1, this.cMp);
+                SliderBar.this.setLayerType(1, this.cMq);
+                this.cMp.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.cLY);
+                this.cMq.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.cLY);
             }
         }
 
         void draw(Canvas canvas) {
-            if (this.cMk) {
-                canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLL, this.cMm);
+            if (this.cMo) {
+                canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLP, this.cMq);
             } else {
-                canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLL, this.cMl);
+                canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLP, this.cMp);
             }
-            canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLL, this.cMn);
+            canvas.drawCircle(this.mX, this.mY, SliderBar.this.cLP, this.cMr);
         }
 
         void setX(float f) {
@@ -509,23 +509,23 @@ public class SliderBar extends View {
         }
 
         float ayG() {
-            return this.cMj;
+            return this.cMn;
         }
 
         boolean ayH() {
-            return this.cMk;
+            return this.cMo;
         }
 
         void ayI() {
-            this.cMk = true;
+            this.cMo = true;
         }
 
         void release() {
-            this.cMk = false;
+            this.cMo = false;
         }
 
         boolean s(float f, float f2) {
-            return Math.abs(f - this.mX) <= this.cMj && Math.abs(f2 - this.mY) <= this.cMj;
+            return Math.abs(f - this.mX) <= this.cMn && Math.abs(f2 - this.mY) <= this.cMn;
         }
     }
 }

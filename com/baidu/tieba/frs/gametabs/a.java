@@ -17,13 +17,13 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes16.dex */
 public class a extends n {
-    private String eVt;
-    private l ehL;
+    private String eVx;
+    private l ehP;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.ehL = lVar;
-        this.eVt = str;
+        this.ehP = lVar;
+        this.eVx = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,22 +44,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    IF(optString);
+                    IG(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.dnn().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Pp(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.dnq().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.Pq(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new aq("c12775").dD("fid", StringUtils.isNull(this.eVt) ? "" : this.eVt));
+                TiebaStatic.log(new aq("c12775").dD("fid", StringUtils.isNull(this.eVx) ? "" : this.eVx));
             }
         }
     }
 
-    private void IF(String str) {
+    private void IG(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.ehL.getContext() instanceof Activity)) {
+            if (!(this.ehP.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.ehL.getContext().startActivity(intent);
+            this.ehP.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

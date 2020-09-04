@@ -8,23 +8,23 @@ import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
 /* loaded from: classes7.dex */
 public class PriorityVerticalLinearLayout extends LinearLayout {
-    private int bgC;
+    private int bgE;
 
     public PriorityVerticalLinearLayout(Context context) {
         super(context);
-        this.bgC = -1;
+        this.bgE = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bgC = -1;
+        this.bgE = -1;
         setOrientation(1);
     }
 
     public PriorityVerticalLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgC = -1;
+        this.bgE = -1;
         setOrientation(1);
     }
 
@@ -33,7 +33,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
         int U = U(view);
         if (U >= 0) {
             super.addView(view, U, layoutParams);
-            if (this.bgC >= 0) {
+            if (this.bgE >= 0) {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view.getLayoutParams();
                 if (layoutParams2 != null) {
                     int i2 = -1;
@@ -43,7 +43,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
                     if (i2 == 20) {
                         layoutParams2.bottomMargin = 0;
                     } else {
-                        layoutParams2.bottomMargin = this.bgC;
+                        layoutParams2.bottomMargin = this.bgE;
                     }
                     layoutParams2.topMargin = 0;
                 }
@@ -53,7 +53,7 @@ public class PriorityVerticalLinearLayout extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bgC = i;
+        this.bgE = i;
     }
 
     private int U(View view) {

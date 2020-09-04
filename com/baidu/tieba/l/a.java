@@ -11,19 +11,19 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 /* loaded from: classes17.dex */
 class a {
-    private static final int khS = ah(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int khT = ah(new byte[]{106, 117, 110, 107});
-    private static final int khU = ah(new byte[]{109, 100, 97, 116});
-    private static final int khV = ah(new byte[]{109, 111, 111, 118});
-    private static final int khW = ah(new byte[]{112, 110, 111, 116});
-    private static final int khX = ah(new byte[]{115, 107, 105, 112});
-    private static final int khY = ah(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int khZ = ah(new byte[]{80, 73, 67, 84});
-    private static final int kia = ah(new byte[]{102, 116, 121, 112});
-    private static final int kib = ah(new byte[]{117, 117, 105, 100});
-    private static final int kic = ah(new byte[]{99, 109, 111, 118});
-    private static final int kie = ah(new byte[]{115, 116, 99, 111});
-    private static final int kif = ah(new byte[]{99, 111, 54, 52});
+    private static final int khZ = ah(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int kia = ah(new byte[]{106, 117, 110, 107});
+    private static final int kib = ah(new byte[]{109, 100, 97, 116});
+    private static final int kic = ah(new byte[]{109, 111, 111, 118});
+    private static final int kie = ah(new byte[]{112, 110, 111, 116});
+    private static final int kif = ah(new byte[]{115, 107, 105, 112});
+    private static final int kig = ah(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int kih = ah(new byte[]{80, 73, 67, 84});
+    private static final int kii = ah(new byte[]{102, 116, 121, 112});
+    private static final int kij = ah(new byte[]{117, 117, 105, 100});
+    private static final int kik = ah(new byte[]{99, 109, 111, 118});
+    private static final int kil = ah(new byte[]{115, 116, 99, 111});
+    private static final int kim = ah(new byte[]{99, 111, 54, 52});
 
     static long Dh(int i) {
         return i & 4294967295L;
@@ -61,7 +61,7 @@ class a {
         return read == byteBuffer.capacity();
     }
 
-    public static int MK(String str) {
+    public static int ML(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -97,14 +97,14 @@ class a {
             }
             long Dh = Dh(order.getInt());
             i = order.getInt();
-            if (i == kia) {
+            if (i == kii) {
                 int fz = fz(Dh);
                 ByteBuffer order2 = ByteBuffer.allocate(fz).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= fz - 8) {
                     order2.flip();
-                    if ((i == khS && i != khT && i != khU && i != khV && i != khW && i != khX && i != khY && i != khZ && i != kib && i != kia) || Dh < 8) {
+                    if ((i == khZ && i != kia && i != kib && i != kic && i != kie && i != kif && i != kig && i != kih && i != kij && i != kii) || Dh < 8) {
                         break;
                     }
                     i2 = i;
@@ -122,16 +122,16 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + Dh) - 8);
                 }
-                if (i == khS) {
+                if (i == khZ) {
                 }
                 i2 = i;
             }
         }
-        return i != khV ? 0 : 1;
+        return i != kic ? 0 : 1;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
-    public static boolean fk(String str, String str2) {
+    public static boolean fl(String str, String str2) {
         FileInputStream fileInputStream;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -194,7 +194,7 @@ class a {
             }
             j2 = Dh(order.getInt());
             i2 = order.getInt();
-            if (i2 == kia) {
+            if (i2 == kii) {
                 int fz = fz(j2);
                 byteBuffer2 = ByteBuffer.allocate(fz).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -208,7 +208,7 @@ class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == khS && i2 != khT && i2 != khU && i2 != khV && i2 != khW && i2 != khX && i2 != khY && i2 != khZ && i2 != kib && i2 != kia) {
+                if (i2 == khZ && i2 != kia && i2 != kib && i2 != kic && i2 != kie && i2 != kif && i2 != kig && i2 != kih && i2 != kij && i2 != kii) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -236,13 +236,13 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == khS) {
+                if (i2 == khZ) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != khV) {
+        if (i != kic) {
             return false;
         }
         int fz2 = fz(j2);
@@ -251,13 +251,13 @@ class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == kic) {
+        if (order2.getInt(12) == kik) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != kie && i3 != kif) {
+            if (i3 != kil && i3 != kim) {
                 order2.position(order2.position() + 1);
             } else if (Dh(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -267,7 +267,7 @@ class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int fz3 = fz(order2.getInt());
-                if (i3 == kie) {
+                if (i3 == kil) {
                     if (order2.remaining() < fz3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -280,7 +280,7 @@ class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != kif) {
+                } else if (i3 != kim) {
                     continue;
                 } else if (order2.remaining() < fz3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

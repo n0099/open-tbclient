@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.CommitInviteMsg.CommitInviteMsgResIdl;
 import protobuf.CommitInviteMsg.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ResponseCommitInviteMessage extends SocketResponsedMessage {
     private DataRes mResData;
 

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class g implements Cloneable {
     public static final String UNITED_SCHEME = c.getSchemeHead() + "://";
-    g bMf;
+    g bMj;
     private HashMap<String, String> mParams;
     private String[] mPaths;
     private String mReferUrl;
@@ -38,7 +38,7 @@ public class g implements Cloneable {
     /* renamed from: VX */
     public g clone() {
         g gVar = new g(this.mUri, this.mSource, j.getPaths(this.mUri), (HashMap) this.mParams.clone());
-        gVar.bMf = this;
+        gVar.bMj = this;
         gVar.callbackInvoked = this.callbackInvoked;
         gVar.mReferUrl = this.mReferUrl;
         return gVar;

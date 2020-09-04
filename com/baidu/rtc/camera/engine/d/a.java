@@ -1,8 +1,8 @@
 package com.baidu.rtc.camera.engine.d;
 /* loaded from: classes11.dex */
 public final class a {
-    private int bNL = 0;
-    private float bNM = 0.0f;
+    private int bNP = 0;
+    private float bNQ = 0.0f;
     private long mUpdateTime = 0;
 
     public void WL() {
@@ -11,17 +11,17 @@ public final class a {
             this.mUpdateTime = currentTimeMillis;
         }
         if (currentTimeMillis - this.mUpdateTime > 1000) {
-            this.bNM = (this.bNL / ((float) (currentTimeMillis - this.mUpdateTime))) * 1000.0f;
+            this.bNQ = (this.bNP / ((float) (currentTimeMillis - this.mUpdateTime))) * 1000.0f;
             this.mUpdateTime = currentTimeMillis;
-            this.bNL = 0;
+            this.bNP = 0;
         }
-        this.bNL++;
+        this.bNP++;
     }
 
     public float WM() {
         if (System.currentTimeMillis() - this.mUpdateTime > 2000) {
             return 0.0f;
         }
-        return this.bNM;
+        return this.bNQ;
     }
 }

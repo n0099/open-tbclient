@@ -19,7 +19,7 @@ import com.baidu.swan.apps.u.c.b;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g dnN;
+    private g dnR;
 
     public void reload(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
@@ -57,12 +57,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull Activity activity, @NonNull String str, @NonNull final com.baidu.swan.games.binding.model.c cVar, @NonNull final com.baidu.swan.apps.u.c.b bVar) {
-        if (this.dnN != null && this.dnN.isShowing()) {
+        if (this.dnR != null && this.dnR.isShowing()) {
             b(cVar, "reload failed, the reload dialog has been displayed.");
             return;
         }
         g.a aVar = new g.a(activity);
-        aVar.he(a.h.swangame_reload_dialog_title).qe(str).azl().a(new com.baidu.swan.apps.view.c.a()).fA(false);
+        aVar.he(a.h.swangame_reload_dialog_title).qf(str).azl().a(new com.baidu.swan.apps.view.c.a()).fB(false);
         aVar.d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.s.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -76,7 +76,7 @@ public class a {
                 a.this.r(bVar);
             }
         });
-        this.dnN = aVar.azp();
+        this.dnR = aVar.azp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

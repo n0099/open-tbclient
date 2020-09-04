@@ -3,32 +3,32 @@ package com.baidu.tieba.tbadkCore.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String aEc;
+    private String aEe;
     private int height;
-    private String meB;
-    private String meC;
-    private String meD;
+    private String meQ;
+    private String meR;
+    private String meS;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.meB = null;
+        this.meQ = null;
         this.urlFlag = 0;
-        this.meC = null;
-        this.meD = null;
-        this.aEc = null;
+        this.meR = null;
+        this.meS = null;
+        this.aEe = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.meB = timgs.img_url;
+            this.meQ = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.meC = timgs.url;
-            this.meD = timgs.big_cdn_url;
-            this.aEc = timgs.des_main;
+            this.meR = timgs.url;
+            this.meS = timgs.big_cdn_url;
+            this.aEe = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,15 +51,15 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.meB;
+        return this.meQ;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String bcC() {
-        return this.meC;
+        return this.meR;
     }
 
-    public String dwn() {
-        return this.meB;
+    public String dws() {
+        return this.meQ;
     }
 }

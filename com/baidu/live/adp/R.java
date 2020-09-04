@@ -81,12 +81,12 @@ public final class R {
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f968common = 0x7f0f01b0;
-        public static final int pull_content = 0x7f0f2055;
+        public static final int f967common = 0x7f0f01b0;
+        public static final int pull_content = 0x7f0f2056;
         public static final int pull_image = 0x7f0f0bdb;
-        public static final int pull_root = 0x7f0f2053;
-        public static final int pull_text = 0x7f0f2056;
-        public static final int pull_time = 0x7f0f2057;
+        public static final int pull_root = 0x7f0f2054;
+        public static final int pull_text = 0x7f0f2057;
+        public static final int pull_time = 0x7f0f2058;
         public static final int shader = 0x7f0f01b1;
     }
 
@@ -97,27 +97,27 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class string {
-        public static final int sdk_adp_label_name = 0x7f0813f1;
-        public static final int sdk_adp_loading = 0x7f0813f2;
-        public static final int sdk_adp_pull_to_refresh = 0x7f0813f3;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f0813f4;
-        public static final int sdk_adp_release_to_refresh = 0x7f0813f5;
-        public static final int sdk_dialog_cancel = 0x7f081419;
-        public static final int sdk_dialog_ok = 0x7f08141a;
-        public static final int sdk_error_unkown_try_again = 0x7f081424;
-        public static final int sdk_im_error_codec = 0x7f081436;
-        public static final int sdk_im_error_default = 0x7f081437;
-        public static final int sdk_load_res_failed = 0x7f08145e;
-        public static final int sdk_location_all_offline = 0x7f081462;
-        public static final int sdk_location_gps_offline = 0x7f081464;
-        public static final int sdk_location_net_offline = 0x7f081465;
-        public static final int sdk_location_out_time = 0x7f081466;
-        public static final int sdk_neterror = 0x7f08146d;
-        public static final int sdk_prompt = 0x7f0814d6;
-        public static final int sdk_send_error = 0x7f0814ed;
-        public static final int sdk_share_to = 0x7f0814f3;
-        public static final int sdk_voice_err_other = 0x7f081540;
-        public static final int sdk_waiting = 0x7f081541;
+        public static final int sdk_adp_label_name = 0x7f0813f2;
+        public static final int sdk_adp_loading = 0x7f0813f3;
+        public static final int sdk_adp_pull_to_refresh = 0x7f0813f4;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f0813f5;
+        public static final int sdk_adp_release_to_refresh = 0x7f0813f6;
+        public static final int sdk_dialog_cancel = 0x7f08141a;
+        public static final int sdk_dialog_ok = 0x7f08141b;
+        public static final int sdk_error_unkown_try_again = 0x7f081425;
+        public static final int sdk_im_error_codec = 0x7f081437;
+        public static final int sdk_im_error_default = 0x7f081438;
+        public static final int sdk_load_res_failed = 0x7f08145f;
+        public static final int sdk_location_all_offline = 0x7f081463;
+        public static final int sdk_location_gps_offline = 0x7f081465;
+        public static final int sdk_location_net_offline = 0x7f081466;
+        public static final int sdk_location_out_time = 0x7f081467;
+        public static final int sdk_neterror = 0x7f08146e;
+        public static final int sdk_prompt = 0x7f0814d7;
+        public static final int sdk_send_error = 0x7f0814ee;
+        public static final int sdk_share_to = 0x7f0814f4;
+        public static final int sdk_voice_err_other = 0x7f081541;
+        public static final int sdk_waiting = 0x7f081542;
     }
 
     /* loaded from: classes3.dex */

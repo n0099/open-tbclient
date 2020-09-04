@@ -10,5 +10,5 @@ public interface b extends f.c {
 
     void cb(int i, int i2);
 
-    void cgx();
+    void cgy();
 }

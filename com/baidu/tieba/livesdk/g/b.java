@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b implements INetWork {
-    private c jUi;
-    private DownLoadCallback jUj;
+    private c jUo;
+    private DownLoadCallback jUp;
     private int readTimeout = 0;
     private int connectTimeout = 0;
     private int retryCount = 0;
@@ -28,14 +28,14 @@ public class b implements INetWork {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 18:
-                    if (b.this.jUj != null) {
-                        b.this.jUj.onFileUpdateProgress(message.obj, message.arg1, message.arg2);
+                    if (b.this.jUp != null) {
+                        b.this.jUp.onFileUpdateProgress(message.obj, message.arg1, message.arg2);
                         break;
                     }
                     break;
                 case 19:
-                    if (b.this.jUj != null) {
-                        b.this.jUj.onFileDownloaded(message.obj, message.arg1, null);
+                    if (b.this.jUp != null) {
+                        b.this.jUp.onFileDownloaded(message.obj, message.arg1, null);
                         break;
                     }
                     break;
@@ -72,8 +72,8 @@ public class b implements INetWork {
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public void cancel() {
-        if (this.jUi != null) {
-            this.jUi.cancel();
+        if (this.jUo != null) {
+            this.jUo.cancel();
         }
     }
 
@@ -81,9 +81,9 @@ public class b implements INetWork {
     public NetResponse post(List<Map.Entry<String, Object>> list) {
         this.HX.ms().setMethod(HttpMessageTask.HTTP_METHOD.POST);
         this.HX.ms().n(list);
-        this.jUi = new c(this.HX);
-        this.jUi.ak(false);
-        this.jUi.f(this.retryCount, this.readTimeout, this.connectTimeout);
+        this.jUo = new c(this.HX);
+        this.jUo.ak(false);
+        this.jUo.f(this.retryCount, this.readTimeout, this.connectTimeout);
         return a(this.HX.mt());
     }
 
@@ -91,16 +91,16 @@ public class b implements INetWork {
     public NetResponse get(List<Map.Entry<String, Object>> list) {
         this.HX.ms().setMethod(HttpMessageTask.HTTP_METHOD.GET);
         this.HX.ms().n(list);
-        this.jUi = new c(this.HX);
-        this.jUi.d(this.retryCount, this.readTimeout, this.connectTimeout);
+        this.jUo = new c(this.HX);
+        this.jUo.d(this.retryCount, this.readTimeout, this.connectTimeout);
         return a(this.HX.mt());
     }
 
     @Override // com.baidu.live.adp.lib.network.http.interfaces.INetWork
     public NetResponse download(final Object obj, String str, DownLoadCallback downLoadCallback) {
-        this.jUj = downLoadCallback;
-        this.jUi = new c(this.HX);
-        this.mainHandler.sendMessage(Message.obtain(this.mainHandler, 19, this.jUi.a(str, new h() { // from class: com.baidu.tieba.livesdk.g.b.2
+        this.jUp = downLoadCallback;
+        this.jUo = new c(this.HX);
+        this.mainHandler.sendMessage(Message.obtain(this.mainHandler, 19, this.jUo.a(str, new h() { // from class: com.baidu.tieba.livesdk.g.b.2
             @Override // com.baidu.adp.lib.network.http.h
             public void onProgress(int i, int i2) {
                 b.this.mainHandler.sendMessage(Message.obtain(b.this.mainHandler, 18, i, i2, obj));

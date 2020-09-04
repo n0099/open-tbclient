@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class a extends AlertDialog {
-    private View hgn;
+    private View hgr;
     private String mTitle;
     private TextView mTitleView;
 
@@ -27,7 +27,7 @@ public class a extends AlertDialog {
         if (window != null) {
             window.setDimAmount(0.0f);
             window.setContentView(R.layout.id_card_dialog);
-            this.hgn = window.findViewById(R.id.toast_container);
+            this.hgr = window.findViewById(R.id.toast_container);
             this.mTitleView = (TextView) window.findViewById(R.id.toast_tv);
             if (!StringUtils.isNull(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
@@ -37,6 +37,6 @@ public class a extends AlertDialog {
     }
 
     public void tl(int i) {
-        ap.c(this.hgn, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
+        ap.c(this.hgr, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
     }
 }

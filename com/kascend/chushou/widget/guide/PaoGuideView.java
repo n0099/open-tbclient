@@ -22,7 +22,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
     private View d;
     private boolean e;
     private boolean f;
-    private a ocm;
+    private a ocF;
 
     public PaoGuideView(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         this.b = null;
         this.e = false;
         this.f = false;
-        this.ocm = null;
+        this.ocF = null;
         this.c = null;
         this.d = null;
     }
@@ -70,10 +70,10 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
             this.c = LayoutInflater.from(context).inflate(a.h.web_guide_view, (ViewGroup) null, false);
         }
         removeAllViews();
-        this.ocm = new a();
+        this.ocF = new a();
         Bundle bundle = new Bundle();
-        bundle.putString("mH5Url", (tv.chushou.common.a.cvD() + "play-help/bang-guide.htm?") + "roomId=" + str);
-        this.ocm.setArguments(bundle);
+        bundle.putString("mH5Url", (tv.chushou.common.a.cvE() + "play-help/bang-guide.htm?") + "roomId=" + str);
+        this.ocF.setArguments(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -1);
         layoutParams.addRule(11);
         this.d.setOnClickListener(this);
@@ -83,13 +83,13 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         addView(this.d, layoutParams2);
         addView(this.c, layoutParams);
         FragmentTransaction beginTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.guide_fragment, this.ocm);
+        beginTransaction.add(a.f.guide_fragment, this.ocF);
         beginTransaction.commitAllowingStateLoss();
     }
 
     public void c() {
-        if (this.ocm != null && this.ocm.isAdded()) {
-            this.ocm.a();
+        if (this.ocF != null && this.ocF.isAdded()) {
+            this.ocF.a();
         }
     }
 

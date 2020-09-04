@@ -17,7 +17,7 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // io.reactivex.j, org.b.c
     public void onSubscribe(d dVar) {
-        this.oqu = Thread.currentThread();
+        this.oqM = Thread.currentThread();
         if (dVar == null) {
             this.errors.add(new NullPointerException("onSubscribe received a null Subscription"));
         } else if (!this.subscription.compareAndSet(null, dVar)) {
@@ -26,20 +26,20 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
                 this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + dVar));
             }
         } else {
-            if (this.oqw != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
+            if (this.oqO != 0 && (dVar instanceof io.reactivex.internal.a.d)) {
                 this.qs = (io.reactivex.internal.a.d) dVar;
-                int requestFusion = this.qs.requestFusion(this.oqw);
-                this.oqx = requestFusion;
+                int requestFusion = this.qs.requestFusion(this.oqO);
+                this.oqP = requestFusion;
                 if (requestFusion == 1) {
-                    this.oqv = true;
-                    this.oqu = Thread.currentThread();
+                    this.oqN = true;
+                    this.oqM = Thread.currentThread();
                     while (true) {
                         try {
                             T poll = this.qs.poll();
                             if (poll != null) {
                                 this.values.add(poll);
                             } else {
-                                this.oqt++;
+                                this.oqL++;
                                 return;
                             }
                         } catch (Throwable th) {
@@ -63,14 +63,14 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.b.c
     public void onNext(T t) {
-        if (!this.oqv) {
-            this.oqv = true;
+        if (!this.oqN) {
+            this.oqN = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
-        this.oqu = Thread.currentThread();
-        if (this.oqx != 2) {
+        this.oqM = Thread.currentThread();
+        if (this.oqP != 2) {
             this.values.add(t);
             if (t == null) {
                 this.errors.add(new NullPointerException("onNext received a null value"));
@@ -96,38 +96,38 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
 
     @Override // org.b.c
     public void onError(Throwable th) {
-        if (!this.oqv) {
-            this.oqv = true;
+        if (!this.oqN) {
+            this.oqN = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new NullPointerException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.oqu = Thread.currentThread();
+            this.oqM = Thread.currentThread();
             this.errors.add(th);
             if (th == null) {
                 this.errors.add(new IllegalStateException("onError received a null Throwable"));
             }
             this.actual.onError(th);
         } finally {
-            this.oqs.countDown();
+            this.oqK.countDown();
         }
     }
 
     @Override // org.b.c
     public void onComplete() {
-        if (!this.oqv) {
-            this.oqv = true;
+        if (!this.oqN) {
+            this.oqN = true;
             if (this.subscription.get() == null) {
                 this.errors.add(new IllegalStateException("onSubscribe not called in proper order"));
             }
         }
         try {
-            this.oqu = Thread.currentThread();
-            this.oqt++;
+            this.oqM = Thread.currentThread();
+            this.oqL++;
             this.actual.onComplete();
         } finally {
-            this.oqs.countDown();
+            this.oqK.countDown();
         }
     }
 

@@ -7,9 +7,9 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes20.dex */
 final class ak<T> extends d<T> implements RandomAccess {
-    private int bqk;
+    private int bqn;
     private final int capacity;
-    private final Object[] orZ;
+    private final Object[] osr;
     private int size;
 
     public ak(int i) {
@@ -17,7 +17,7 @@ final class ak<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.orZ = new Object[this.capacity];
+        this.osr = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -31,8 +31,8 @@ final class ak<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.orQ.dX(i, size());
-        return (T) this.orZ[(this.bqk + i) % getCapacity()];
+        d.osi.dX(i, size());
+        return (T) this.osr[(this.bqn + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -48,15 +48,15 @@ final class ak<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = ak.this.size();
-            this.index = ak.this.bqk;
+            this.index = ak.this.bqn;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.ak$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void efN() {
+        protected void efW() {
             if (this.count != 0) {
-                bK(ak.this.orZ[this.index]);
+                bK(ak.this.osr[this.index]);
                 this.index = (this.index + 1) % ak.this.getCapacity();
                 this.count--;
                 return;
@@ -82,15 +82,15 @@ final class ak<T> extends d<T> implements RandomAccess {
             kotlin.jvm.internal.q.l((Object) tArr, "java.util.Arrays.copyOf(this, newSize)");
         }
         int size = size();
-        int i2 = this.bqk;
+        int i2 = this.bqn;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.orZ[i2];
+            tArr[i3] = this.osr[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.orZ[i];
+            tArr[i3] = this.osr[i];
             i3++;
             i++;
         }
@@ -115,7 +115,7 @@ final class ak<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.orZ[(this.bqk + size()) % getCapacity()] = t;
+        this.osr[(this.bqn + size()) % getCapacity()] = t;
         this.size = size() + 1;
     }
 
@@ -129,15 +129,15 @@ final class ak<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.bqk;
+            int i2 = this.bqn;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.orZ, null, i2, this.capacity);
-                a(this.orZ, null, 0, capacity);
+                a(this.osr, null, i2, this.capacity);
+                a(this.osr, null, 0, capacity);
             } else {
-                a(this.orZ, null, i2, capacity);
+                a(this.osr, null, i2, capacity);
             }
-            this.bqk = capacity;
+            this.bqn = capacity;
             this.size = size() - i;
         }
     }

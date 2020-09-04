@@ -18,13 +18,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends n {
-    private l ehL;
+    private l ehP;
 
     public c(l lVar) {
         super(lVar);
-        this.ehL = lVar;
+        this.ehP = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,8 +59,8 @@ public class c extends n {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).mM(optInt).hH(true).yS(arrayList.size() > 0 ? arrayList.get(0) : "").hI(true).a(concurrentHashMap).hJ(true);
-            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dP(this.ehL.getContext())));
+            aVar.x(arrayList).mM(optInt).hI(true).yT(arrayList.size() > 0 ? arrayList.get(0) : "").hJ(true).a(concurrentHashMap).hK(true);
+            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.dP(this.ehP.getContext())));
         }
     }
 

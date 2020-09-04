@@ -61,7 +61,7 @@ public class e {
         }
     }
 
-    public static void kR(String str) {
+    public static void kS(String str) {
         b(str, null, null, true);
     }
 
@@ -234,7 +234,7 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).rj(jSONObject2).ri(com.baidu.swan.apps.runtime.e.azK()).ama();
+        new c.a(10006).rk(jSONObject2).rj(com.baidu.swan.apps.runtime.e.azK()).ama();
     }
 
     public static void z(String str, String str2, String str3) {
@@ -254,7 +254,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).rj(jSONObject2).ri(com.baidu.swan.apps.runtime.e.azK()).ama();
+            new c.a(10008).rk(jSONObject2).rj(com.baidu.swan.apps.runtime.e.azK()).ama();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

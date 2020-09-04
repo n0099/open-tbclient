@@ -11,13 +11,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class i extends com.baidu.swan.apps.api.a.d {
-    private int bXK;
+    private int bXO;
 
     public i(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ka(String str) {
+    public com.baidu.swan.apps.api.c.b kb(String str) {
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> aX = com.baidu.swan.apps.api.d.b.aX("Api-ShowSMSPanel", str);
         com.baidu.swan.apps.api.c.b bVar = (com.baidu.swan.apps.api.c.b) aX.first;
         if (!bVar.isSuccess()) {
@@ -70,14 +70,14 @@ public class i extends com.baidu.swan.apps.api.a.d {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        this.bXK = jSONArray.length();
-        for (int i = 0; i < this.bXK; i++) {
+        this.bXO = jSONArray.length();
+        for (int i = 0; i < this.bXO; i++) {
             String optString = jSONArray.optString(i);
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
             sb.append(optString);
-            if (i != this.bXK - 1) {
+            if (i != this.bXO - 1) {
                 sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             }
         }
@@ -87,7 +87,7 @@ public class i extends com.baidu.swan.apps.api.a.d {
     private void acn() {
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mType = "sms_panel";
-        fVar.mValue = String.valueOf(this.bXK);
+        fVar.mValue = String.valueOf(this.bXO);
         fVar.u("appid", com.baidu.swan.apps.runtime.d.azE().getAppId());
         com.baidu.swan.apps.statistic.h.a("1639", fVar);
     }

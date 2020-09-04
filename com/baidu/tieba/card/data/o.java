@@ -2,19 +2,19 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class o extends b implements q {
-    public static final BdUniqueId hnv = BdUniqueId.gen();
-    public boolean hnw = true;
-    public boolean hnx = true;
-    public String hny;
-    public List<n> hnz;
+    public static final BdUniqueId hnz = BdUniqueId.gen();
+    public boolean hnA = true;
+    public boolean hnB = true;
+    public String hnC;
+    public List<n> hnD;
     public int locate;
     public int position;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hnv;
+        return hnz;
     }
 
     @Override // com.baidu.tieba.card.data.q
@@ -23,17 +23,17 @@ public class o extends b implements q {
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public boolean ccq() {
+    public boolean ccr() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void nn(boolean z) {
-        this.hnw = z;
+    public void np(boolean z) {
+        this.hnA = z;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void no(boolean z) {
-        this.hnx = z;
+    public void nq(boolean z) {
+        this.hnB = z;
     }
 }

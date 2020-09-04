@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.at;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private a eDX;
+    private a eEb;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void e(ShareItem shareItem);
     }
@@ -50,7 +50,7 @@ public class b {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.eEH = str;
+                    shareItem2.eEL = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -62,14 +62,14 @@ public class b {
             /* renamed from: d */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (b.this.eDX != null) {
-                    b.this.eDX.e(shareItem2);
+                if (b.this.eEb != null) {
+                    b.this.eEb.e(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
     public void a(a aVar) {
-        this.eDX = aVar;
+        this.eEb = aVar;
     }
 }

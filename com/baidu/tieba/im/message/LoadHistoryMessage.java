@@ -2,15 +2,15 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tieba.im.chat.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
     private d callback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public String id;
-        public String jvY;
-        public String jvZ;
+        public String jwe;
+        public String jwf;
         public int limit;
     }
 

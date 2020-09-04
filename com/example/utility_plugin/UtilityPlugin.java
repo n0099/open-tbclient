@@ -140,17 +140,17 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                         openBBASMApp(methodCall, result);
                     } else if (methodCall.method.equals("readNewMessage")) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("bookmarkNum", Integer.valueOf(a.doQ().doN() ? 1 : 0));
-                        hashMap.put("fansNum", Integer.valueOf(a.doQ().doM() ? 1 : 0));
+                        hashMap.put("bookmarkNum", Integer.valueOf(a.doT().doQ() ? 1 : 0));
+                        hashMap.put("fansNum", Integer.valueOf(a.doT().doP() ? 1 : 0));
                         result.success(hashMap);
                     } else if (methodCall.method.equals("clearNewMessage")) {
                         clearNewMessage(methodCall, result);
                     } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                        result.success(Boolean.valueOf(a.doQ().doO()));
+                        result.success(Boolean.valueOf(a.doT().doR()));
                     } else if (methodCall.method.equals("showLoginAwardCell")) {
                         result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                     } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                        result.success(Boolean.valueOf(a.doQ().doP()));
+                        result.success(Boolean.valueOf(a.doT().doS()));
                     } else if (methodCall.method.equals("getThemeMode")) {
                         result.success(ap.bjk());
                     } else if (methodCall.method.equals("getMyPrivateStat")) {
@@ -178,7 +178,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     } else if (methodCall.method.equals("getAppVersion")) {
                         result.success(TbConfig.getVersion());
                     } else if (methodCall.method.equals("goToSearch")) {
-                        goToSearch((String) methodCall.argument("search"));
+                        goToSearch((String) methodCall.argument("search"), (String) methodCall.argument(SquareSearchActivityConfig.SEARCH_VALUE));
                     } else if (methodCall.method.equals("goToSendThread")) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new i(1)));
                         TiebaStatic.log(new aq("c13702").dD("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -194,6 +194,8 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921479));
                     } else if (methodCall.method.equals("getHistoryForumStr")) {
                         result.success((String) MessageManager.getInstance().runTask(2921483, String.class).getData());
+                    } else if (methodCall.method.equals("getRecnbarShow")) {
+                        result.success(Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)));
                     } else if (methodCall.method.equals("goToSignIn")) {
                         goToSignIn();
                     } else if (methodCall.method.equals("negativeFeedBack")) {
@@ -208,11 +210,11 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                             negativeFeedBack(round, round2, round3, bwVar.bcg());
                         }
                     } else if (methodCall.method.equals("experimentTypeForBarEntry")) {
-                        if (c.aZN().xZ("11_8_forum_guide_c") != null) {
+                        if (c.aZN().ya("11_8_forum_guide_c") != null) {
                             result.success(3);
-                        } else if (c.aZN().xZ("11_8_forum_guide_b") != null) {
+                        } else if (c.aZN().ya("11_8_forum_guide_b") != null) {
                             result.success(2);
-                        } else if (c.aZN().xZ("11_8_forum_guide_a") != null) {
+                        } else if (c.aZN().ya("11_8_forum_guide_a") != null) {
                             result.success(1);
                         }
                     } else {
@@ -273,28 +275,28 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
     }
 
     private void getWebViewUserAgent(MethodChannel.Result result) {
-        result.success(ai.bvR());
+        result.success(ai.bvS());
     }
 
     private void getChannelTabInfo(MethodChannel.Result result) {
         HashMap hashMap = new HashMap();
-        k boW = TbSingleton.getInstance().getChannelConfigModel().boW();
-        if (boW != null) {
-            if (!TextUtils.isEmpty(boW.getTid())) {
-                hashMap.put("tid", boW.getTid());
+        k boX = TbSingleton.getInstance().getChannelConfigModel().boX();
+        if (boX != null) {
+            if (!TextUtils.isEmpty(boX.getTid())) {
+                hashMap.put("tid", boX.getTid());
             }
-            if (!TextUtils.isEmpty(boW.bmH())) {
-                hashMap.put("tabCode", boW.bmH());
+            if (!TextUtils.isEmpty(boX.bmH())) {
+                hashMap.put("tabCode", boX.bmH());
             }
-            hashMap.put("tabType", String.valueOf(boW.bmG()));
+            hashMap.put("tabType", String.valueOf(boX.bmG()));
         }
         result.success(hashMap);
     }
 
-    private void goToSearch(String str) {
+    private void goToSearch(String str, String str2) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof TbPageContextSupport) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new SquareSearchActivityConfig(currentActivity, "", false, str)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new SquareSearchActivityConfig(currentActivity, "", false, str, str2)));
         }
     }
 
@@ -355,7 +357,15 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
         aq aqVar = new aq((String) methodCall.argument("key"));
         if (hashMap != null && !hashMap.isEmpty()) {
             for (Map.Entry entry : hashMap.entrySet()) {
-                aqVar.dD((String) entry.getKey(), (String) entry.getValue());
+                if (entry.getValue() instanceof String) {
+                    aqVar.dD((String) entry.getKey(), (String) entry.getValue());
+                } else if (entry.getValue() instanceof Integer) {
+                    aqVar.ai((String) entry.getKey(), ((Integer) entry.getValue()).intValue());
+                } else if (entry.getValue() instanceof Long) {
+                    aqVar.u((String) entry.getKey(), ((Long) entry.getValue()).longValue());
+                } else if (entry.getValue() instanceof Double) {
+                    aqVar.c((String) entry.getKey(), ((Double) entry.getValue()).doubleValue());
+                }
             }
         }
         TiebaStatic.log(aqVar);
@@ -372,7 +382,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
     private void postSignProcess(MethodCall methodCall, MethodChannel.Result result) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof TbPageContextSupport) {
-            f.boT().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+            f.boU().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
         }
     }
 
@@ -385,7 +395,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    d.cIj().z(TbadkApplication.getCurrentAccount(), String.valueOf(str), booleanValue);
+                    d.cIk().z(TbadkApplication.getCurrentAccount(), String.valueOf(str), booleanValue);
                 }
                 return null;
             }
@@ -394,9 +404,9 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
     }
 
     private void getIsOfficalForumLetterReminderOpen(MethodCall methodCall, MethodChannel.Result result) {
-        OfficialSettingItemData eS = d.cIj().eS(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
-        if (eS != null) {
-            result.success(Boolean.valueOf(eS.isAcceptNotify()));
+        OfficialSettingItemData eT = d.cIk().eT(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+        if (eT != null) {
+            result.success(Boolean.valueOf(eT.isAcceptNotify()));
         } else {
             result.success(true);
         }
@@ -445,7 +455,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
         return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [629=4] */
     public byte[] readFileFromRaw(Resources resources, int i) {
         OutputStream outputStream;
         InputStream inputStream;
@@ -528,11 +538,11 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
         String str = (String) methodCall.arguments;
         if (!StringUtils.isNull(str)) {
             if ("bookmarkNum".equals(str)) {
-                a.doQ().h(3, false, true);
+                a.doT().h(3, false, true);
             } else if ("fansNum".equals(str)) {
-                a.doQ().h(2, false, true);
+                a.doT().h(2, false, true);
             } else if ("giftNum".equals(str)) {
-                a.doQ().h(1, false, true);
+                a.doT().h(1, false, true);
             }
         }
     }
@@ -575,14 +585,14 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     bgv.agreeType = 2;
                     bgv.hasAgree = true;
                     bgv.agreeNum++;
-                    com.baidu.tieba.o.a.dmM().G(tbPageContext);
+                    com.baidu.tieba.o.a.dmP().G(tbPageContext);
                     i = 0;
                 }
             } else {
                 bgv.agreeType = 2;
                 bgv.hasAgree = true;
                 bgv.agreeNum++;
-                com.baidu.tieba.o.a.dmM().G(tbPageContext);
+                com.baidu.tieba.o.a.dmP().G(tbPageContext);
                 i = 0;
             }
             sendMesage(i, bgv);

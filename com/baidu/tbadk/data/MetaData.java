@@ -23,7 +23,7 @@ import tbclient.GodInfo;
 import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.userLike.a, Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
     private AlaInfoData alaInfo;

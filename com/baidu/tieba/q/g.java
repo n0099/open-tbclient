@@ -2,7 +2,7 @@ package com.baidu.tieba.q;
 
 import com.baidu.ubc.q;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g implements q {
     @Override // com.baidu.ubc.q
     public String avl() {
@@ -10,7 +10,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public boolean oQ(String str) {
+    public boolean oR(String str) {
         return false;
     }
 
@@ -20,7 +20,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dtt() {
+    public List<String> dty() {
         return null;
     }
 }

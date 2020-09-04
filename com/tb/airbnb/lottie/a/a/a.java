@@ -19,13 +19,13 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     private final float[] Cu;
     private final List<com.tb.airbnb.lottie.a.b.a<?, Float>> Cx;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    private final com.tb.airbnb.lottie.model.layer.a ohY;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> ohZ;
-    private final com.tb.airbnb.lottie.a.b.a<?, Integer> oia;
+    private final com.tb.airbnb.lottie.model.layer.a oiq;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oir;
+    private final com.tb.airbnb.lottie.a.b.a<?, Integer> ois;
     @Nullable
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oib;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oit;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oic;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oiu;
     private final PathMeasure Cq = new PathMeasure();
     private final Path path = new Path();
     private final Path Cr = new Path();
@@ -36,38 +36,38 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, Paint.Cap cap, Paint.Join join, float f, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.b bVar2) {
         this.lottieDrawable = fVar;
-        this.ohY = aVar;
+        this.oiq = aVar;
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
         this.paint.setStrokeMiter(f);
-        this.oia = dVar.edf();
-        this.ohZ = bVar.edf();
+        this.ois = dVar.edo();
+        this.oir = bVar.edo();
         if (bVar2 == null) {
-            this.oib = null;
+            this.oit = null;
         } else {
-            this.oib = bVar2.edf();
+            this.oit = bVar2.edo();
         }
         this.Cx = new ArrayList(list.size());
         this.Cu = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            this.Cx.add(list.get(i).edf());
+            this.Cx.add(list.get(i).edo());
         }
-        aVar.a(this.oia);
-        aVar.a(this.ohZ);
+        aVar.a(this.ois);
+        aVar.a(this.oir);
         for (int i2 = 0; i2 < this.Cx.size(); i2++) {
             aVar.a(this.Cx.get(i2));
         }
-        if (this.oib != null) {
-            aVar.a(this.oib);
+        if (this.oit != null) {
+            aVar.a(this.oit);
         }
-        this.oia.b(this);
-        this.ohZ.b(this);
+        this.ois.b(this);
+        this.oir.b(this);
         for (int i3 = 0; i3 < list.size(); i3++) {
             this.Cx.get(i3).b(this);
         }
-        if (this.oib != null) {
-            this.oib.b(this);
+        if (this.oit != null) {
+            this.oit.b(this);
         }
     }
 
@@ -84,7 +84,7 @@ public abstract class a implements d, j, a.InterfaceC0932a {
         while (size >= 0) {
             b bVar = list.get(size);
             size--;
-            rVar = ((bVar instanceof r) && ((r) bVar).ecV() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
+            rVar = ((bVar instanceof r) && ((r) bVar).ede() == ShapeTrimPath.Type.Individually) ? (r) bVar : rVar;
         }
         if (rVar != null) {
             rVar.a(this);
@@ -93,7 +93,7 @@ public abstract class a implements d, j, a.InterfaceC0932a {
         C0931a c0931a2 = null;
         while (size2 >= 0) {
             b bVar2 = list2.get(size2);
-            if ((bVar2 instanceof r) && ((r) bVar2).ecV() == ShapeTrimPath.Type.Individually) {
+            if ((bVar2 instanceof r) && ((r) bVar2).ede() == ShapeTrimPath.Type.Individually) {
                 if (c0931a2 != null) {
                     this.Ct.add(c0931a2);
                 }
@@ -117,19 +117,19 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.tb.airbnb.lottie.c.beginSection("StrokeContent#draw");
-        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.oia.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
-        this.paint.setStrokeWidth(this.ohZ.getValue().floatValue() * com.tb.airbnb.lottie.d.f.b(matrix));
+        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.ois.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setStrokeWidth(this.oir.getValue().floatValue() * com.tb.airbnb.lottie.d.f.b(matrix));
         if (this.paint.getStrokeWidth() <= 0.0f) {
             com.tb.airbnb.lottie.c.bb("StrokeContent#draw");
             return;
         }
         a(matrix);
-        if (this.oic != null) {
-            this.paint.setColorFilter(this.oic.getValue());
+        if (this.oiu != null) {
+            this.paint.setColorFilter(this.oiu.getValue());
         }
         for (int i2 = 0; i2 < this.Ct.size(); i2++) {
             C0931a c0931a = this.Ct.get(i2);
-            if (c0931a.oid != null) {
+            if (c0931a.oiv != null) {
                 a(canvas, c0931a, matrix);
             } else {
                 com.tb.airbnb.lottie.c.beginSection("StrokeContent#buildPath");
@@ -149,7 +149,7 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     private void a(Canvas canvas, C0931a c0931a, Matrix matrix) {
         float f;
         com.tb.airbnb.lottie.c.beginSection("StrokeContent#applyTrimPath");
-        if (c0931a.oid == null) {
+        if (c0931a.oiv == null) {
             com.tb.airbnb.lottie.c.bb("StrokeContent#applyTrimPath");
             return;
         }
@@ -166,9 +166,9 @@ public abstract class a implements d, j, a.InterfaceC0932a {
             }
             length = this.Cq.getLength() + f;
         }
-        float floatValue = (c0931a.oid.ecY().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0931a.oid.ecW().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0931a.oid.ecX().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue = (c0931a.oiv.edh().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0931a.oiv.edf().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0931a.oiv.edg().getValue().floatValue() * f) / 100.0f) + floatValue;
         int size2 = c0931a.CB.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {
@@ -204,7 +204,7 @@ public abstract class a implements d, j, a.InterfaceC0932a {
             }
         }
         this.path.computeBounds(this.rect, false);
-        float floatValue = this.ohZ.getValue().floatValue();
+        float floatValue = this.oir.getValue().floatValue();
         this.rect.set(this.rect.left - (floatValue / 2.0f), this.rect.top - (floatValue / 2.0f), this.rect.right + (floatValue / 2.0f), (floatValue / 2.0f) + this.rect.bottom);
         rectF.set(this.rect);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
@@ -236,7 +236,7 @@ public abstract class a implements d, j, a.InterfaceC0932a {
             fArr[i2] = fArr[i2] * b;
             i = i2 + 1;
         }
-        this.paint.setPathEffect(new DashPathEffect(this.Cu, this.oib == null ? 0.0f : this.oib.getValue().floatValue()));
+        this.paint.setPathEffect(new DashPathEffect(this.Cu, this.oit == null ? 0.0f : this.oit.getValue().floatValue()));
         com.tb.airbnb.lottie.c.bb("StrokeContent#applyDashPattern");
     }
 
@@ -249,17 +249,17 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     @CallSuper
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.BH) {
-            this.oia.a(cVar);
+            this.ois.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.BO) {
-            this.ohZ.a(cVar);
+            this.oir.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.Cb) {
             if (cVar == null) {
-                this.oic = null;
+                this.oiu = null;
                 return;
             }
-            this.oic = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.oic.b(this);
-            this.ohY.a(this.oic);
+            this.oiu = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.oiu.b(this);
+            this.oiq.a(this.oiu);
         }
     }
 
@@ -269,11 +269,11 @@ public abstract class a implements d, j, a.InterfaceC0932a {
     public static final class C0931a {
         private final List<l> CB;
         @Nullable
-        private final r oid;
+        private final r oiv;
 
         private C0931a(@Nullable r rVar) {
             this.CB = new ArrayList();
-            this.oid = rVar;
+            this.oiv = rVar;
         }
     }
 }

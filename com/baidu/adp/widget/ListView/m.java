@@ -1,7 +1,7 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.animation.OvershootInterpolator;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class m extends OvershootInterpolator {
     private final float Wn;
 

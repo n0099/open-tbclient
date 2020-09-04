@@ -16,9 +16,9 @@ public class c extends a {
 
     @Override // com.baidu.swan.apps.ac.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ac.c.b.b bVar, com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caT);
-        aVar2.caU = bVar.caU;
-        if (aVar == null || aVar.cWr.aEc() == 10003) {
+        final com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.caX);
+        aVar2.caY = bVar.caY;
+        if (aVar == null || aVar.cWv.aEc() == 10003) {
             com.baidu.swan.apps.ac.d.a.print("user denied");
             bVar2.K(aVar2);
             return;
@@ -30,7 +30,7 @@ public class c extends a {
                 com.baidu.swan.apps.ac.d.a.print("obtain address success");
                 aVar2.isSuccess = true;
                 if (jSONObject != null) {
-                    aVar2.cIj = jSONObject.toString();
+                    aVar2.cIn = jSONObject.toString();
                 }
                 bVar2.K(aVar2);
             }

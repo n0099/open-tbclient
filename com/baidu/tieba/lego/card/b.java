@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends e {
     private final List<e> factories;
 
@@ -18,13 +18,13 @@ public class b extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        private static final b jOj = new b();
+        private static final b jOp = new b();
     }
 
-    public static b cLT() {
-        return a.jOj;
+    public static b cLU() {
+        return a.jOp;
     }
 
     public synchronized void a(e eVar) {
@@ -32,7 +32,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cLU() {
+    protected void cLV() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -85,7 +85,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo LC(String str) {
+    public static ICardInfo LD(String str) {
         try {
             ICardInfo dP = dP(new JSONObject(str));
             if (dP != null) {
@@ -103,7 +103,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo LD(String str) throws Exception {
+    public static ICardInfo LE(String str) throws Exception {
         ICardInfo dP = dP(new JSONObject(str));
         if (dP == null || !dP.isValid()) {
             return null;
@@ -112,6 +112,6 @@ public class b extends e {
     }
 
     public static ICardInfo dP(JSONObject jSONObject) throws CardParseException {
-        return cLT().c(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
+        return cLU().c(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
     }
 }

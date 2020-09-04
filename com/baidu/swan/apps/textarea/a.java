@@ -5,5 +5,5 @@ public interface a {
 
     void K(String str, int i);
 
-    void kx(String str);
+    void ky(String str);
 }

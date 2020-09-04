@@ -6,8 +6,8 @@ public class c {
     private boolean acceptRanges;
     private boolean calledCompleted;
     private long finished;
-    private DownloadException fxU;
-    private a fxV;
+    private DownloadException fxY;
+    private a fxZ;
     private long length;
     private int percent;
     private String savedPath;
@@ -59,19 +59,19 @@ public class c {
     }
 
     public Exception getException() {
-        return this.fxU;
+        return this.fxY;
     }
 
     public void d(DownloadException downloadException) {
-        this.fxU = downloadException;
+        this.fxY = downloadException;
     }
 
-    public a bEu() {
-        return this.fxV;
+    public a bEv() {
+        return this.fxZ;
     }
 
     public void a(a aVar) {
-        this.fxV = aVar;
+        this.fxZ = aVar;
     }
 
     public String getSavedPath() {

@@ -9,13 +9,13 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class a {
-    private C0100a aln;
+    private C0100a alp;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public final class C0100a {
-        private C0100a alR;
+        private C0100a alT;
         private File b;
         private String c;
         private boolean e;
@@ -30,7 +30,7 @@ public class a {
         C0100a(String str, C0100a c0100a) {
             this.e = false;
             this.c = str;
-            this.alR = c0100a;
+            this.alT = c0100a;
             this.e = false;
         }
 
@@ -45,7 +45,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.alR == null ? new File(a.this.a(), this.c) : new File(this.alR.b(), this.c);
+                file = this.alT == null ? new File(a.this.a(), this.c) : new File(this.alT.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -63,7 +63,7 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0100a dl(String str) {
+        public C0100a dm(String str) {
             return new C0100a(str, this);
         }
 
@@ -87,7 +87,7 @@ public class a {
         }
 
         public C0100a ur() {
-            return this.alR;
+            return this.alT;
         }
     }
 
@@ -194,9 +194,9 @@ public class a {
     }
 
     public synchronized C0100a uq() {
-        if (this.aln == null) {
-            this.aln = new C0100a(".cesium", null);
+        if (this.alp == null) {
+            this.alp = new C0100a(".cesium", null);
         }
-        return this.aln;
+        return this.alp;
     }
 }

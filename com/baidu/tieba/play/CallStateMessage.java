@@ -2,7 +2,7 @@ package com.baidu.tieba.play;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CallStateMessage extends CustomResponsedMessage {
     private int mState;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ForumSquareActivityConfig extends IntentConfig {
     public static final String FORUM_CLASS_NAME = "class_name";
 

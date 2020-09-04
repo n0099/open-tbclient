@@ -5,9 +5,9 @@ import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h extends DiskFileOperate {
-    protected a eiX;
+    protected a ejb;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options mOptions;
 
@@ -15,16 +15,16 @@ public class h extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.mOptions = null;
-        this.eiX = null;
-        this.eiX = new a();
+        this.ejb = null;
+        this.ejb = new a();
     }
 
     public boolean isGif() {
-        return this.eiX.mIsGif;
+        return this.ejb.mIsGif;
     }
 
     public void setGif(boolean z) {
-        this.eiX.mIsGif = z;
+        this.ejb.mIsGif = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class h extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.eiX.toByteArray();
+        return this.ejb.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -56,8 +56,8 @@ public class h extends DiskFileOperate {
             this.mOptions = new BitmapFactory.Options();
             this.mOptions.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean paserFromByte = this.eiX.paserFromByte(bArr);
-        if (this.eiX.mValidTime == 0 || this.eiX.mValidTime >= System.currentTimeMillis()) {
+        boolean paserFromByte = this.ejb.paserFromByte(bArr);
+        if (this.ejb.mValidTime == 0 || this.ejb.mValidTime >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!paserFromByte) {
                 headerSize = 0;
@@ -73,7 +73,7 @@ public class h extends DiskFileOperate {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         private static byte GIF_FLAG = Byte.MIN_VALUE;
         boolean mIsGif = false;

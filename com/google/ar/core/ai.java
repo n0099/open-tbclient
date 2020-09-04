@@ -10,6 +10,6 @@ enum ai extends Session.c {
 
     @Override // com.google.ar.core.Session.c
     public final k a(long j, Session session) {
-        return session.nCj.b(j, session);
+        return session.nCB.b(j, session);
     }
 }

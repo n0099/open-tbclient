@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
 public final class d {
-    private static volatile d drj;
+    private static volatile d drn;
     private final Lock mLock = new ReentrantLock();
     private ArrayList<j> mListeners = new ArrayList<>();
 
@@ -13,14 +13,14 @@ public final class d {
     }
 
     public static d aNh() {
-        if (drj == null) {
+        if (drn == null) {
             synchronized (d.class) {
-                if (drj == null) {
-                    drj = new d();
+                if (drn == null) {
+                    drn = new d();
                 }
             }
         }
-        return drj;
+        return drn;
     }
 
     private Object[] aNi() {

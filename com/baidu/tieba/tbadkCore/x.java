@@ -4,10 +4,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class x {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void a(WriteData writeData);
     }
@@ -69,22 +69,22 @@ public class x {
 
     public static void b(String str, WriteData writeData) {
         if (!at.isEmpty(str)) {
-            com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+            com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                zx.asyncSet(QK(str), writeData.toDraftString(), 604800000L);
+                zy.asyncSet(QK(str), writeData.toDraftString(), 604800000L);
             } else {
-                zx.asyncRemove(QK(str));
+                zy.asyncRemove(QK(str));
             }
         }
     }
 
     public static void c(String str, WriteData writeData) {
         if (!at.isEmpty(str)) {
-            com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+            com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
             if (writeData != null) {
-                zx.asyncSet(QL(str), writeData.toDraftString(), 604800000L);
+                zy.asyncSet(QL(str), writeData.toDraftString(), 604800000L);
             } else {
-                zx.asyncRemove(QL(str));
+                zy.asyncRemove(QL(str));
             }
         }
     }
@@ -107,12 +107,12 @@ public class x {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        zx.set(x.QJ(str), WriteData.this.toDraftString(), 604800000L);
+                        zy.set(x.QJ(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    zx.remove(x.QJ(str));
+                    zy.remove(x.QJ(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -126,12 +126,12 @@ public class x {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        zx.set(x.QI(str), WriteData.this.toDraftString(), 604800000L);
+                        zy.set(x.QI(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    zx.remove(x.QI(str));
+                    zy.remove(x.QI(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -145,12 +145,12 @@ public class x {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        zx.set(x.QH(str), WriteData.this.toDraftString(), 604800000L);
+                        zy.set(x.QH(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    zx.remove(x.QH(str));
+                    zy.remove(x.QH(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -164,12 +164,12 @@ public class x {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> zx = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> zy = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        zx.set(x.QG(str), WriteData.this.toDraftString(), 604800000L);
+                        zy.set(x.QG(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    zx.remove(x.QG(str));
+                    zy.remove(x.QG(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -201,14 +201,14 @@ public class x {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a mdP;
+        private final a mee;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.mdP = aVar;
+            this.mee = aVar;
             this.cacheKey = str;
         }
 
@@ -219,7 +219,7 @@ public class x {
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.c.a.bhb().zx("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.c.a.bhb().zy("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }
@@ -232,8 +232,8 @@ public class x {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.mdP != null) {
-                this.mdP.a(writeData);
+            if (this.mee != null) {
+                this.mee.a(writeData);
             }
         }
     }

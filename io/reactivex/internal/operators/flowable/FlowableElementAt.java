@@ -12,7 +12,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
-        this.omB.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
+        this.omT.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
     }
 
     /* loaded from: classes7.dex */

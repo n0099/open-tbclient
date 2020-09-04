@@ -7,7 +7,7 @@ import tbclient.ActiveCenter;
 /* loaded from: classes16.dex */
 public class g extends com.baidu.tieba.card.data.c implements q {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ActiveCenterData dQF;
+    private ActiveCenterData dQJ;
     public int position;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
@@ -16,13 +16,13 @@ public class g extends com.baidu.tieba.card.data.c implements q {
     }
 
     public ActiveCenterData aZb() {
-        return this.dQF;
+        return this.dQJ;
     }
 
     public void a(ActiveCenter activeCenter) {
         if (activeCenter != null) {
-            this.dQF = new ActiveCenterData();
-            this.dQF.parseProto(activeCenter);
+            this.dQJ = new ActiveCenterData();
+            this.dQJ.parseProto(activeCenter);
         }
     }
 
@@ -32,15 +32,15 @@ public class g extends com.baidu.tieba.card.data.c implements q {
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public boolean ccq() {
+    public boolean ccr() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void nn(boolean z) {
+    public void np(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void no(boolean z) {
+    public void nq(boolean z) {
     }
 }

@@ -9,10 +9,10 @@ import java.lang.reflect.Method;
 import java.util.Properties;
 /* loaded from: classes6.dex */
 public class f {
-    private static SoftReference<Properties> oMY;
+    private static SoftReference<Properties> oNq;
 
     public static String get(@NonNull String str) {
-        Object obj = emk().get(str);
+        Object obj = emt().get(str);
         if (obj == null) {
             obj = WX(str);
         }
@@ -30,12 +30,12 @@ public class f {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [56=4] */
-    private static synchronized Properties emk() {
+    private static synchronized Properties emt() {
         Properties properties;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         synchronized (f.class) {
-            properties = oMY != null ? oMY.get() : null;
+            properties = oNq != null ? oNq.get() : null;
             if (properties == null) {
                 properties = new Properties();
                 try {
@@ -50,7 +50,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream);
                 } catch (Exception e2) {
                     tv.chushou.a.a.d.a.b(fileInputStream);
-                    oMY = new SoftReference<>(properties);
+                    oNq = new SoftReference<>(properties);
                     return properties;
                 } catch (Throwable th2) {
                     th = th2;
@@ -58,7 +58,7 @@ public class f {
                     tv.chushou.a.a.d.a.b(fileInputStream2);
                     throw th;
                 }
-                oMY = new SoftReference<>(properties);
+                oNq = new SoftReference<>(properties);
             }
         }
         return properties;

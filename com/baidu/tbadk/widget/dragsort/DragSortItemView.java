@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DragSortItemView extends ViewGroup {
     private int mGravity;
 

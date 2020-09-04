@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
-    void cBO();
+    void cBP();
 }

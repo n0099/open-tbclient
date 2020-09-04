@@ -19,22 +19,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f extends aa {
-    private static final String crl = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.jC(0));
-    private static final String crm = "https://smartprogram.baidu.com/batapi/engine" + crl + "&type=1";
-    private static final String crn = "https://smartprogram.baidu.com/batapi/engine" + crl + "&type=2";
-    private String bSt;
-    private boolean cro;
-    private boolean crp;
-    private boolean crq;
-    private String crr;
-    private String crs;
-    private JSONObject crt;
+    private static final String crp = String.format("?swanjs_version=%s", com.baidu.swan.apps.swancore.b.jC(0));
+    private static final String crq = "https://smartprogram.baidu.com/batapi/engine" + crp + "&type=1";
+    private static final String crr = "https://smartprogram.baidu.com/batapi/engine" + crp + "&type=2";
+    private String bSx;
+    private boolean crs;
+    private boolean crt;
+    private boolean cru;
+    private String crv;
+    private String crw;
+    private JSONObject crx;
 
     public f(j jVar) {
         super(jVar, "/swanAPI/debug/setCtsConfig");
-        this.cro = false;
-        this.crp = false;
-        this.crq = false;
+        this.crs = false;
+        this.crt = false;
+        this.cru = false;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -49,7 +49,7 @@ public class f extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            this.bSt = b.optString("cb");
+            this.bSx = b.optString("cb");
             if (!b.has("loadCts")) {
                 com.baidu.swan.apps.console.c.e("setCtsConfig", "loadCts is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -61,21 +61,21 @@ public class f extends aa {
                 /* renamed from: a */
                 public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                        com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, f.this.bSt);
+                        com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, f.this.bSx);
                         return;
                     }
-                    f.this.crt = new JSONObject();
+                    f.this.crx = new JSONObject();
                     if (b.optInt("loadCts") == 1) {
                         f.this.bZ(context);
-                        f.this.a(eVar, f.this.crr, callbackHandler, "master");
-                        f.this.a(eVar, f.this.crs, callbackHandler, "slave");
-                        f.this.crq = true;
+                        f.this.a(eVar, f.this.crv, callbackHandler, "master");
+                        f.this.a(eVar, f.this.crw, callbackHandler, "slave");
+                        f.this.cru = true;
                         return;
                     }
-                    f.this.crq = false;
-                    com.baidu.swan.apps.ad.a.a.fl(false);
+                    f.this.cru = false;
+                    com.baidu.swan.apps.ad.a.a.fm(false);
                     com.baidu.swan.apps.ad.a.a.agw();
-                    callbackHandler.handleSchemeDispatchCallback(f.this.bSt, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(f.this.bSx, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             });
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
@@ -88,25 +88,25 @@ public class f extends aa {
         if (com.baidu.swan.apps.ap.g.exists(context, "aiapps/debug_cts_url.json")) {
             try {
                 JSONObject jSONObject = new JSONObject(com.baidu.swan.apps.ap.g.loadAssetsFile(context, "aiapps/debug_cts_url.json"));
-                this.crr = jSONObject.optString("master");
-                this.crs = jSONObject.optString("slave");
-                if (TextUtils.isEmpty(this.crr)) {
-                    this.crr = crm;
+                this.crv = jSONObject.optString("master");
+                this.crw = jSONObject.optString("slave");
+                if (TextUtils.isEmpty(this.crv)) {
+                    this.crv = crq;
                 }
-                if (TextUtils.isEmpty(this.crs)) {
-                    this.crs = crn;
+                if (TextUtils.isEmpty(this.crw)) {
+                    this.crw = crr;
                     return;
                 }
                 return;
             } catch (JSONException e) {
                 e.printStackTrace();
-                this.crr = crm;
-                this.crs = crn;
+                this.crv = crq;
+                this.crw = crr;
                 return;
             }
         }
-        this.crr = crm;
-        this.crs = crn;
+        this.crv = crq;
+        this.crw = crr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -118,7 +118,7 @@ public class f extends aa {
                     f.this.a(eVar, response, str2, callbackHandler);
                 } else {
                     com.baidu.swan.apps.console.c.e("setCtsConfig", "request Cts Server Address fail,code is " + response.code());
-                    callbackHandler.handleSchemeDispatchCallback(f.this.bSt, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    callbackHandler.handleSchemeDispatchCallback(f.this.bSx, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
                 return response;
             }
@@ -130,12 +130,12 @@ public class f extends aa {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 com.baidu.swan.apps.console.c.e("SwanAppAction", "request Cts Server Address onFailure: " + exc.getMessage());
-                callbackHandler.handleSchemeDispatchCallback(f.this.bSt, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                callbackHandler.handleSchemeDispatchCallback(f.this.bSx, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         });
-        aVar.dEO = true;
-        aVar.dEP = false;
-        aVar.dEQ = true;
+        aVar.dES = true;
+        aVar.dET = false;
+        aVar.dEU = true;
         com.baidu.swan.a.c.a.aSW().a(aVar);
     }
 
@@ -146,19 +146,19 @@ public class f extends aa {
             if (jSONObject.has("code") && jSONObject.optInt("code") == 0) {
                 a(jSONObject.optJSONArray("data").optString(0), str, eVar, callbackHandler);
             } else {
-                callbackHandler.handleSchemeDispatchCallback(this.bSt, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                callbackHandler.handleSchemeDispatchCallback(this.bSx, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            callbackHandler.handleSchemeDispatchCallback(this.bSt, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            callbackHandler.handleSchemeDispatchCallback(this.bSx, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
         }
     }
 
     private void a(String str, final String str2, com.baidu.swan.apps.runtime.e eVar, final CallbackHandler callbackHandler) {
-        com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(com.baidu.swan.apps.t.a.aoV().iH(str), new ResponseCallback() { // from class: com.baidu.swan.apps.extcore.c.a.f.3
+        com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(com.baidu.swan.apps.t.a.aoV().iI(str), new ResponseCallback() { // from class: com.baidu.swan.apps.extcore.c.a.f.3
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
-                f.this.a(response, str2, f.this.bSt, callbackHandler);
+                f.this.a(response, str2, f.this.bSx, callbackHandler);
                 return response;
             }
 
@@ -169,12 +169,12 @@ public class f extends aa {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 com.baidu.swan.apps.console.c.e("setCtsConfig", "download cts file fail");
-                callbackHandler.handleSchemeDispatchCallback(f.this.bSt, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                callbackHandler.handleSchemeDispatchCallback(f.this.bSx, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         });
-        aVar.dEO = true;
-        aVar.dEP = false;
-        aVar.dEQ = true;
+        aVar.dES = true;
+        aVar.dET = false;
+        aVar.dEU = true;
         com.baidu.swan.a.c.a.aSW().a(aVar);
     }
 
@@ -204,14 +204,14 @@ public class f extends aa {
                     }
                     switch (c) {
                         case 0:
-                            this.crt.put("master", jSONArray);
-                            this.cro = true;
-                            a(this.crt, callbackHandler, str2);
+                            this.crx.put("master", jSONArray);
+                            this.crs = true;
+                            a(this.crx, callbackHandler, str2);
                             return;
                         case 1:
-                            this.crt.put("slave", jSONArray);
-                            this.crp = true;
-                            a(this.crt, callbackHandler, str2);
+                            this.crx.put("slave", jSONArray);
+                            this.crt = true;
+                            a(this.crx, callbackHandler, str2);
                             return;
                         default:
                             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
@@ -233,12 +233,12 @@ public class f extends aa {
     }
 
     private void a(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
-        if (this.cro && this.crp && this.crq) {
-            com.baidu.swan.apps.ad.a.a.fl(true);
+        if (this.crs && this.crt && this.cru) {
+            com.baidu.swan.apps.ad.a.a.fm(true);
             com.baidu.swan.apps.storage.c.h.aDf().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            this.crp = false;
-            this.cro = false;
+            this.crt = false;
+            this.crs = false;
             com.baidu.swan.apps.ad.a.a.agw();
         }
     }

@@ -13,14 +13,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableRepeatWhen<T> extends a<T, T> {
-    final h<? super q<Object>, ? extends t<?>> onp;
+    final h<? super q<Object>, ? extends t<?>> onH;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> efG = PublishSubject.efF().efG();
+        io.reactivex.subjects.b<T> efP = PublishSubject.efO().efP();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.k(this.onp.apply(efG), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, efG, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.k(this.onH.apply(efP), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, efP, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();

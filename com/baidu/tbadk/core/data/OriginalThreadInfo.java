@@ -24,20 +24,20 @@ import tbclient.OriginThreadInfo;
 import tbclient.PbContent;
 import tbclient.User;
 import tbclient.VideoInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class OriginalThreadInfo {
     public Agree agree;
     public User author;
     public List<PbContent> content;
-    public boolean dYh = false;
-    public ArrayList<MediaData> dZc;
-    public List<AbstractData> dZd;
-    public AlaInfoData dZe;
-    public boolean dZf;
-    public ArrayList<VoiceData.VoiceModel> dZg;
-    public SpannableString dZh;
-    public boolean dZi;
-    public List<HeadItem> dZj;
+    public boolean dYl = false;
+    public ArrayList<MediaData> dZg;
+    public List<AbstractData> dZh;
+    public AlaInfoData dZi;
+    public boolean dZj;
+    public ArrayList<VoiceData.VoiceModel> dZk;
+    public SpannableString dZl;
+    public boolean dZm;
+    public List<HeadItem> dZn;
     public long forumId;
     public String forumName;
     public Item item;
@@ -73,49 +73,49 @@ public class OriginalThreadInfo {
         this.reply_num = originThreadInfo.reply_num;
         this.shared_num = originThreadInfo.shared_num;
         if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo.media)) {
-            this.dZc = new ArrayList<>();
+            this.dZg = new ArrayList<>();
             for (Media media : originThreadInfo.media) {
                 if (media != null) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.dZc.add(mediaData);
+                    this.dZg.add(mediaData);
                 }
             }
         } else {
-            this.dZc = null;
+            this.dZg = null;
         }
         if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo._abstract)) {
-            this.dZd = new ArrayList();
+            this.dZh = new ArrayList();
             for (Abstract r0 : originThreadInfo._abstract) {
                 if (r0 != null) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parser(r0);
-                    this.dZd.add(abstractData);
+                    this.dZh.add(abstractData);
                 }
             }
         } else {
-            this.dZd = null;
+            this.dZh = null;
         }
         if (originThreadInfo.ala_info != null) {
-            this.dZe = new AlaInfoData();
-            this.dZe.parserProtobuf(originThreadInfo.ala_info);
+            this.dZi = new AlaInfoData();
+            this.dZi.parserProtobuf(originThreadInfo.ala_info);
         } else {
-            this.dZe = null;
+            this.dZi = null;
         }
-        this.dYh = originThreadInfo.is_deleted.intValue() == 1;
-        this.dZf = originThreadInfo.is_ugc.intValue() == 1;
+        this.dYl = originThreadInfo.is_deleted.intValue() == 1;
+        this.dZj = originThreadInfo.is_ugc.intValue() == 1;
         if (originThreadInfo.ori_ugc_info != null) {
             this.oriUgcInfo = new BaijiahaoData();
             this.oriUgcInfo.parseProto(originThreadInfo.ori_ugc_info);
         }
         this.videoInfo = originThreadInfo.video_info;
-        this.dZi = originThreadInfo.is_new_style.intValue() == 1;
+        this.dZm = originThreadInfo.is_new_style.intValue() == 1;
         if (originThreadInfo.voice_info != null) {
-            this.dZg = new ArrayList<>();
+            this.dZk = new ArrayList<>();
             for (int i = 0; i < originThreadInfo.voice_info.size(); i++) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.parserProtobuf(originThreadInfo.voice_info.get(i));
-                this.dZg.add(voiceModel);
+                this.dZk.add(voiceModel);
             }
         }
         if (originThreadInfo.item != null && originThreadInfo.item.item_id.longValue() != 0) {
@@ -125,10 +125,10 @@ public class OriginalThreadInfo {
             this.itemData = new ItemData();
             this.itemData.parseProto(this.item);
         }
-        this.dZj = originThreadInfo.item_star;
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.dZj)) {
+        this.dZn = originThreadInfo.item_star;
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.dZn)) {
             this.itemStarData = new ItemStarData();
-            this.itemStarData.parseProto(this.dZj);
+            this.itemStarData.parseProto(this.dZn);
         }
         if (originThreadInfo.poll_info != null) {
             this.pollData = new PollData();
@@ -152,36 +152,36 @@ public class OriginalThreadInfo {
             this.content = aw.Q(jSONObject.optJSONArray("content"));
             JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
             if (optJSONObject != null) {
-                this.dZe = new AlaInfoData();
-                this.dZe.parserJson(optJSONObject);
+                this.dZi = new AlaInfoData();
+                this.dZi.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null) {
-                this.dZc = new ArrayList<>();
+                this.dZg = new ArrayList<>();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserJson(optJSONArray.getJSONObject(i));
-                    this.dZc.add(mediaData);
+                    this.dZg.add(mediaData);
                 }
             } else {
-                this.dZc = null;
+                this.dZg = null;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
             if (optJSONArray2 != null) {
-                this.dZd = new ArrayList();
+                this.dZh = new ArrayList();
                 int length2 = optJSONArray2.length();
                 for (int i2 = 0; i2 < length2; i2++) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.dZd.add(abstractData);
+                    this.dZh.add(abstractData);
                 }
             } else {
-                this.dZd = null;
+                this.dZh = null;
             }
-            this.dYh = jSONObject.optInt("is_deleted") == 1;
-            this.dZf = jSONObject.optInt("is_ugc") == 1;
-            this.dZi = jSONObject.optInt("is_new_style") == 1;
+            this.dYl = jSONObject.optInt("is_deleted") == 1;
+            this.dZj = jSONObject.optInt("is_ugc") == 1;
+            this.dZm = jSONObject.optInt("is_new_style") == 1;
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ori_ugc_info");
             if (optJSONObject2 != null) {
                 this.oriUgcInfo = new BaijiahaoData();
@@ -190,11 +190,11 @@ public class OriginalThreadInfo {
             this.videoInfo = cf.cU(jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO));
             JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                this.dZg = new ArrayList<>();
+                this.dZk = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     voiceModel.parseJson(optJSONArray3.optJSONObject(i3));
-                    this.dZg.add(voiceModel);
+                    this.dZk.add(voiceModel);
                 }
             }
             bde();
@@ -208,15 +208,15 @@ public class OriginalThreadInfo {
     }
 
     private void bde() {
-        this.dZh = new SpannableString(com.baidu.tbadk.widget.richText.e.l(this.content, this.dZj));
+        this.dZl = new SpannableString(com.baidu.tbadk.widget.richText.e.l(this.content, this.dZn));
     }
 
     public static OriginalThreadInfo s(bw bwVar) {
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.edE != null) {
-            return bwVar.edE;
+        if (bwVar.edI != null) {
+            return bwVar.edI;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         originalThreadInfo.forumName = bwVar.beI();
@@ -228,11 +228,11 @@ public class OriginalThreadInfo {
         AbstractData abstractData = new AbstractData();
         abstractData.text = bwVar.getAbstract();
         arrayList.add(abstractData);
-        originalThreadInfo.dZd = arrayList;
+        originalThreadInfo.dZh = arrayList;
         ArrayList<MediaData> arrayList2 = new ArrayList<>();
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
-        originalThreadInfo.dZc = arrayList2;
+        originalThreadInfo.dZg = arrayList2;
         originalThreadInfo.videoInfo = bwVar.beW();
         if (bwVar.isLinkThread() && bwVar.bgi() != null) {
             am bgi = bwVar.bgi();
@@ -242,11 +242,11 @@ public class OriginalThreadInfo {
         } else if (bwVar.bfL() && bwVar.bek() != null) {
             mediaData.setPic(bwVar.bek().getThreadImgUrl());
         } else if (com.baidu.tbadk.core.util.y.getCount(bwVar.beN()) > 0) {
-            originalThreadInfo.dZc = bwVar.beN();
+            originalThreadInfo.dZg = bwVar.beN();
         } else if (bwVar.beW() != null && !StringUtils.isNull(bwVar.beW().thumbnail_url)) {
             mediaData.setPic(bwVar.beW().thumbnail_url);
         }
-        originalThreadInfo.dZe = bwVar.beY();
+        originalThreadInfo.dZi = bwVar.beY();
         originalThreadInfo.bdi();
         originalThreadInfo.itemData = bwVar.itemData;
         originalThreadInfo.itemStarData = bwVar.itemStarData;
@@ -258,19 +258,19 @@ public class OriginalThreadInfo {
     public bw bdf() {
         bw bwVar = new bw();
         bwVar.setTitle(this.title);
-        if (this.dZc != null) {
-            bwVar.G(new ArrayList<>(this.dZc));
+        if (this.dZg != null) {
+            bwVar.G(new ArrayList<>(this.dZg));
         }
-        bwVar.zn(this.forumName);
+        bwVar.zo(this.forumName);
         bwVar.setTid(this.threadId);
-        bwVar.a(this.dZe);
+        bwVar.a(this.dZi);
         bwVar.setFid(this.forumId);
         bwVar.setThreadType(this.threadType);
         bwVar.isShareThread = true;
         bwVar.setBaijiahaoData(this.oriUgcInfo);
         bwVar.a(this.videoInfo);
-        bwVar.zv(this.showPicUrl);
-        bwVar.edE = this;
+        bwVar.zw(this.showPicUrl);
+        bwVar.edI = this;
         return bwVar;
     }
 
@@ -281,7 +281,7 @@ public class OriginalThreadInfo {
     }
 
     public boolean bdh() {
-        return this.dZi;
+        return this.dZm;
     }
 
     public void bdi() {
@@ -301,10 +301,10 @@ public class OriginalThreadInfo {
                 this.showType = 0;
                 break;
         }
-        if (com.baidu.tbadk.core.util.y.getItem(this.dZc, 0) != null) {
-            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.dZc, 0)).small_pic_url;
+        if (com.baidu.tbadk.core.util.y.getItem(this.dZg, 0) != null) {
+            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.dZg, 0)).small_pic_url;
             if (StringUtils.isNull(this.showPicUrl)) {
-                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.dZc, 0)).getPicUrl();
+                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.dZg, 0)).getPicUrl();
             }
         }
         if (StringUtils.isNull(this.showPicUrl) && this.videoInfo != null) {
@@ -317,8 +317,8 @@ public class OriginalThreadInfo {
                 this.showType = 1;
             }
         }
-        if (com.baidu.tbadk.core.util.y.getItem(this.dZd, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZd, 0)).text)) {
-            this.showText = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZd, 0)).text;
+        if (com.baidu.tbadk.core.util.y.getItem(this.dZh, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZh, 0)).text)) {
+            this.showText = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZh, 0)).text;
         } else if (!StringUtils.isNull(this.title)) {
             this.showText = this.title;
         } else {
@@ -333,7 +333,7 @@ public class OriginalThreadInfo {
                 PbContent pbContent = this.content.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bdk() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.CB(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.CC(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -350,10 +350,10 @@ public class OriginalThreadInfo {
         String str;
         if (!StringUtils.isNull(this.title)) {
             str = this.title;
-        } else if (com.baidu.tbadk.core.util.y.getItem(this.dZd, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZd, 0)).text)) {
+        } else if (com.baidu.tbadk.core.util.y.getItem(this.dZh, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZh, 0)).text)) {
             str = null;
         } else {
-            str = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZd, 0)).text;
+            str = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.dZh, 0)).text;
         }
         if (TextUtils.isEmpty(str)) {
             return TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
@@ -384,7 +384,7 @@ public class OriginalThreadInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ShareInfo extends OrmObject implements Serializable {
         public ItemData itemData;
         public ItemStarData itemStarData;

@@ -1,14 +1,14 @@
 package com.baidu.pass;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public final class R {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class attr {
         public static final int sapi_sdk_align = 0x7f010502;
         public static final int sapi_sdk_max_height = 0x7f010503;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class color {
         public static final int color_pass_btn_text_blue = 0x7f0b0c7e;
         public static final int color_pass_btn_text_white = 0x7f0b0c7f;
@@ -32,7 +32,7 @@ public final class R {
         public static final int pass_httpclient_permissions_dialog_title_text_color_night = 0x7f0b077e;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class drawable {
         public static final int drawable_pass_btn_blue = 0x7f0209b4;
         public static final int drawable_pass_btn_white = 0x7f0209b5;
@@ -47,7 +47,7 @@ public final class R {
         public static final int pass_httpclient_permissions_dialog_positive_btn_bg_night = 0x7f021744;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class id {
         public static final int center = 0x7f0f016f;
         public static final int first_style_btn = 0x7f0f18eb;
@@ -62,22 +62,22 @@ public final class R {
         public static final int title = 0x7f0f0151;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class layout {
         public static final int layout_pass_confirm_dialog = 0x7f030518;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class string {
         public static final int app_name = 0x7f08045c;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class style {
         public static final int style_pass_dialog = 0x7f0a02d7;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static final class styleable {
         public static final int sapi_sdk_align_textview_sapi_sdk_align = 0;
         public static final int sapi_sdk_max_height_scroll_view_sapi_sdk_max_height = 0;

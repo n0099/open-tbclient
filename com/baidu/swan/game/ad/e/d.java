@@ -3,12 +3,12 @@ package com.baidu.swan.game.ad.e;
 import org.json.JSONObject;
 /* loaded from: classes19.dex */
 public class d {
-    public static JSONObject ua(String str) {
+    public static JSONObject ub(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);
             jSONObject.put("errMsg", "fail");
-            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.tY(str));
+            jSONObject.put("errDes", com.baidu.swan.game.ad.d.b.tZ(str));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.af;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ad extends RecyclerView.Adapter<af.a> implements u<q> {
     private SparseArray<a<q, af.a>> mDelegateAdapters;
     @SuppressLint({"UseSparseArrays"})

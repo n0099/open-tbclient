@@ -3,37 +3,37 @@ package com.baidu.tieba.ala.category.b;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class a {
-    private c fPn;
-    private c fPo;
+    private c fPr;
+    private c fPs;
 
     public void parse(JSONObject jSONObject) {
-        this.fPn = new c();
-        this.fPn.di(jSONObject.optJSONObject("cat1"));
-        this.fPo = new c();
-        this.fPo.di(jSONObject.optJSONObject("cat2"));
-    }
-
-    public c bHV() {
-        return this.fPn;
-    }
-
-    public void c(c cVar) {
-        this.fPn = cVar;
+        this.fPr = new c();
+        this.fPr.di(jSONObject.optJSONObject("cat1"));
+        this.fPs = new c();
+        this.fPs.di(jSONObject.optJSONObject("cat2"));
     }
 
     public c bHW() {
-        return this.fPo;
+        return this.fPr;
+    }
+
+    public void c(c cVar) {
+        this.fPr = cVar;
+    }
+
+    public c bHX() {
+        return this.fPs;
     }
 
     public void d(c cVar) {
-        this.fPo = cVar;
+        this.fPs = cVar;
     }
 
     public static String a(a aVar) {
-        return (aVar == null || aVar.bHV() == null || aVar.bHV().getId() == null) ? "" : aVar.bHV().getId();
+        return (aVar == null || aVar.bHW() == null || aVar.bHW().getId() == null) ? "" : aVar.bHW().getId();
     }
 
     public static String b(a aVar) {
-        return (aVar == null || aVar.bHW() == null || aVar.bHW().getId() == null) ? "" : aVar.bHW().getId();
+        return (aVar == null || aVar.bHX() == null || aVar.bHX().getId() == null) ? "" : aVar.bHX().getId();
     }
 }

@@ -2,20 +2,20 @@ package com.baidu.afd;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c implements g {
-    private final int XV;
-    private final int XW;
     private final int XX;
-    private HashMap XY;
+    private final int XY;
+    private final int XZ;
+    private HashMap Ya;
     private int floor;
     private final String tabId;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.XV = i;
-        this.XW = i2;
-        this.XX = i3;
+        this.XX = i;
+        this.XY = i2;
+        this.XZ = i3;
         this.tabId = str;
         this.tabName = str2;
         this.floor = i4;
@@ -27,12 +27,12 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public int rg() {
-        return this.XV;
+        return this.XX;
     }
 
     @Override // com.baidu.afd.g
     public int rh() {
-        return this.XW;
+        return this.XY;
     }
 
     @Override // com.baidu.afd.g
@@ -42,14 +42,14 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public Map<String, String> rj() {
-        return this.XY;
+        return this.Ya;
     }
 
     @Override // com.baidu.afd.g
     public void u(HashMap hashMap) {
-        this.XY = hashMap;
-        if (!this.XY.containsKey("iadex")) {
-            hashMap.put("iadex", com.baidu.tbadk.util.c.bvd());
+        this.Ya = hashMap;
+        if (!this.Ya.containsKey("iadex")) {
+            hashMap.put("iadex", com.baidu.tbadk.util.c.bve());
         }
     }
 }

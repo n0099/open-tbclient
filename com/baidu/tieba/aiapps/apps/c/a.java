@@ -55,10 +55,10 @@ public class a implements ac {
             dVar.setCurrentPageKey(getCurrentPageKey());
             dVar.setTid(j);
             dVar.objID = string;
-            dVar.eRi = string2;
+            dVar.eRm = string2;
             dVar.setSorceKeyList(getCurrentPageSourceKeyList());
-            com.baidu.tbadk.m.e.btZ().jz(true);
-            com.baidu.tbadk.m.e.btZ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.m.e.bua().jB(true);
+            com.baidu.tbadk.m.e.bua().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
             com.baidu.tbadk.core.sharedPref.b.bik().putLong("smart_app_tid", 0L);
         }
     }

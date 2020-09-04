@@ -37,7 +37,7 @@ public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.vid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, com.baidu.tieba.pb.videopb.e.a aVar) {
         if (sVar != null) {
-            aVar.setData(sVar.dUS);
+            aVar.setData(sVar.dUW);
         }
         aVar.bkF();
         return view;

@@ -31,10 +31,10 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
     protected boolean aBw() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.cVQ);
-            jSONObject.put("ma_id", isEmpty ? aBW().id : this.cVQ);
+            boolean isEmpty = TextUtils.isEmpty(this.cVU);
+            jSONObject.put("ma_id", isEmpty ? aBW().id : this.cVU);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? aBW().getAppKey() : this.cVQ);
+            jSONObject2.put("app_key", isEmpty ? aBW().getAppKey() : this.cVU);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             jSONObject2.put("stoken", this.mStoken);
@@ -48,7 +48,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
                 e.printStackTrace();
             }
         }
-        this.cWf = jSONObject;
+        this.cWj = jSONObject;
         cj("data", jSONObject.toString());
         return true;
     }
@@ -65,7 +65,7 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bj + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bj) {
-                s.this.aBW().azV().a(s.this.mActivity, s.this.cWe, this);
+                s.this.aBW().azV().a(s.this.mActivity, s.this.cWi, this);
                 return false;
             }
             s.this.a(new b());
@@ -98,12 +98,12 @@ public class s extends com.baidu.swan.apps.setting.oauth.a.f {
     /* loaded from: classes3.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (s.this.cWd != null && s.this.cWc != null && s.this.cWc.bVb) {
-                long j = s.this.cWc.bVc;
+            if (s.this.cWh != null && s.this.cWg != null && s.this.cWg.bVf) {
+                long j = s.this.cWg.bVg;
                 if (s.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                s.this.cWd.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                s.this.cWh.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 

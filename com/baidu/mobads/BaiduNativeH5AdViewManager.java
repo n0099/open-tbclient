@@ -3,7 +3,7 @@ package com.baidu.mobads;
 import android.content.Context;
 /* loaded from: classes20.dex */
 public class BaiduNativeH5AdViewManager {
-    private static BaiduNativeH5AdViewManager bDl;
+    private static BaiduNativeH5AdViewManager bDo;
 
     private BaiduNativeH5AdViewManager() {
     }
@@ -11,10 +11,10 @@ public class BaiduNativeH5AdViewManager {
     public static synchronized BaiduNativeH5AdViewManager getInstance() {
         BaiduNativeH5AdViewManager baiduNativeH5AdViewManager;
         synchronized (BaiduNativeH5AdViewManager.class) {
-            if (bDl == null) {
-                bDl = new BaiduNativeH5AdViewManager();
+            if (bDo == null) {
+                bDo = new BaiduNativeH5AdViewManager();
             }
-            baiduNativeH5AdViewManager = bDl;
+            baiduNativeH5AdViewManager = bDo;
         }
         return baiduNativeH5AdViewManager;
     }

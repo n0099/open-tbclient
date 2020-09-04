@@ -313,7 +313,7 @@ public final class d {
         }
     }
 
-    public static boolean xs(String str) {
+    public static boolean xt(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -385,7 +385,7 @@ public final class d {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !xv(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !xw(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -529,7 +529,7 @@ public final class d {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !xv(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !xw(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -594,7 +594,7 @@ public final class d {
 
     @CheckResult
     @Nullable
-    public static String xt(@Nullable String str) {
+    public static String xu(@Nullable String str) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) <= -1 || lastIndexOf >= str.length() - 1) {
             return null;
@@ -614,7 +614,7 @@ public final class d {
         return str;
     }
 
-    public static String xu(String str) {
+    public static String xv(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -721,7 +721,7 @@ public final class d {
         }
     }
 
-    public static boolean xv(String str) {
+    public static boolean xw(String str) {
         return str.contains("../");
     }
 
@@ -821,7 +821,7 @@ public final class d {
         }
     }
 
-    public static long xw(String str) {
+    public static long xx(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

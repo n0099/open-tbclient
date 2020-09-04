@@ -17,33 +17,33 @@ import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import java.util.ArrayList;
 /* loaded from: classes18.dex */
 public class a extends BaseAdapter {
-    private String dBR;
-    private final boolean jVu = true;
-    private ArrayList<ForumSuggestModel.Forum> jVv;
+    private String dBV;
+    private final boolean jVA = true;
+    private ArrayList<ForumSuggestModel.Forum> jVB;
     private final BaseActivity<?> mActivity;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         this.mActivity = baseActivity;
-        this.jVv = arrayList;
+        this.jVB = arrayList;
     }
 
     public void aI(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.jVv = arrayList;
-        if (this.jVv != null) {
+        this.jVB = arrayList;
+        if (this.jVB != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void LP(String str) {
-        this.dBR = str;
+    public void LQ(String str) {
+        this.dBV = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jVv == null) {
+        if (this.jVB == null) {
             return 0;
         }
-        return this.jVv.size();
+        return this.jVB.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.jVv.get(i);
+        return this.jVB.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,13 +69,13 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mActivity.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
             C0743a c0743a2 = new C0743a();
-            c0743a2.jVx = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0743a2.jVx.setGifIconSupport(false);
-            c0743a2.eus = (TextView) view.findViewById(R.id.name);
-            c0743a2.jVy = (TextView) view.findViewById(R.id.forum_member_count);
-            c0743a2.jVz = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0743a2.jVA = (TextView) view.findViewById(R.id.slogan);
-            c0743a2.jVw = view.findViewById(R.id.offical_icon);
+            c0743a2.jVD = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0743a2.jVD.setGifIconSupport(false);
+            c0743a2.euw = (TextView) view.findViewById(R.id.name);
+            c0743a2.jVE = (TextView) view.findViewById(R.id.forum_member_count);
+            c0743a2.jVF = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0743a2.jVG = (TextView) view.findViewById(R.id.slogan);
+            c0743a2.jVC = view.findViewById(R.id.offical_icon);
             view.setTag(c0743a2);
             c0743a = c0743a2;
         } else {
@@ -85,29 +85,29 @@ public class a extends BaseAdapter {
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0743a.jVx.setTag(str2);
-            c0743a.jVx.startLoad(str2, 10, false);
-            c0743a.jVx.invalidate();
-            if (this.jVu) {
+            c0743a.jVD.setTag(str2);
+            c0743a.jVD.startLoad(str2, 10, false);
+            c0743a.jVD.invalidate();
+            if (this.jVA) {
                 str = this.mActivity.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            c(c0743a.eus, str);
-            c0743a.jVx.setTag(item.avatar);
-            c0743a.jVy.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + CF(item.member_num));
-            c0743a.jVz.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + CF(item.thread_num));
-            if (this.jVu || !TextUtils.isEmpty(item.slogan)) {
-                c0743a.jVA.setVisibility(0);
-                c0743a.jVA.setText(item.slogan);
+            c(c0743a.euw, str);
+            c0743a.jVD.setTag(item.avatar);
+            c0743a.jVE.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + CF(item.member_num));
+            c0743a.jVF.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + CF(item.thread_num));
+            if (this.jVA || !TextUtils.isEmpty(item.slogan)) {
+                c0743a.jVG.setVisibility(0);
+                c0743a.jVG.setText(item.slogan);
             } else {
-                c0743a.jVA.setVisibility(8);
+                c0743a.jVG.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0743a.jVw.setVisibility(0);
-                ap.setBackgroundResource(c0743a.jVw, R.drawable.icon_search_official);
+                c0743a.jVC.setVisibility(0);
+                ap.setBackgroundResource(c0743a.jVC, R.drawable.icon_search_official);
             } else {
-                c0743a.jVw.setVisibility(8);
+                c0743a.jVC.setVisibility(8);
             }
             this.mActivity.getLayoutMode().setNightMode(skinType == 1);
             this.mActivity.getLayoutMode().onModeChanged(view);
@@ -123,9 +123,9 @@ public class a extends BaseAdapter {
     }
 
     public void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBR)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBV)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.dBR.toLowerCase();
+            String lowerCase2 = this.dBV.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -133,7 +133,7 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBR.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBV.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
@@ -141,12 +141,12 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     private class C0743a {
-        TextView eus;
-        TextView jVA;
-        View jVw;
-        BarImageView jVx;
-        TextView jVy;
-        TextView jVz;
+        TextView euw;
+        View jVC;
+        BarImageView jVD;
+        TextView jVE;
+        TextView jVF;
+        TextView jVG;
 
         private C0743a() {
         }

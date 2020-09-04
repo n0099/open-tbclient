@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tieba.R;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -654,7 +654,7 @@ public class TbConfig {
     public static String HTTPS_QUICK_WEBVIEW_PREFIX = "https://tieba.baidu.com/";
     public static final String CHECK_SHARE_SDK_URL = SERVER_ADDRESS + "c/s/checkAppValid";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -787,7 +787,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bsW().setPhotoMaxNum(i);
+            c.bsX().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -1008,7 +1008,7 @@ public class TbConfig {
         return BROADCAST_CHANGESKIN;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class DownFlowCmd {
         public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
 

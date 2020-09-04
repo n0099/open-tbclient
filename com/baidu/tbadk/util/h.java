@@ -2,7 +2,7 @@ package com.baidu.tbadk.util;
 
 import android.graphics.Bitmap;
 import java.lang.reflect.Array;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     public static Bitmap b(Bitmap bitmap, int i, boolean z) {
         int width;

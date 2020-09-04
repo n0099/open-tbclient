@@ -18,18 +18,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b fZD = null;
+    private static volatile b fZH = null;
     private long currLiveId;
 
-    public static b bJX() {
-        if (fZD == null) {
+    public static b bJY() {
+        if (fZH == null) {
             synchronized (b.class) {
-                if (fZD == null) {
-                    fZD = new b();
+                if (fZH == null) {
+                    fZH = new b();
                 }
             }
         }
-        return fZD;
+        return fZH;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */
@@ -48,8 +48,8 @@ public class b implements com.baidu.live.guardclub.i {
         Map<String, Object> process;
         if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (Io = com.baidu.live.guardclub.g.Im().Io()) != null) {
             this.currLiveId = j;
-            int i2 = Io.aIS;
-            int i3 = Io.aIT;
+            int i2 = Io.aIU;
+            int i3 = Io.aIV;
             String b = com.baidu.live.utils.j.b(new Date());
             String string = com.baidu.live.c.AD().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
@@ -86,7 +86,7 @@ public class b implements com.baidu.live.guardclub.i {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = Io.aIU;
+                    int i5 = Io.aIW;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -121,7 +121,7 @@ public class b implements com.baidu.live.guardclub.i {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = Io.aIU;
+            int i52 = Io.aIW;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
@@ -151,8 +151,8 @@ public class b implements com.baidu.live.guardclub.i {
         try {
             av Io = com.baidu.live.guardclub.g.Im().Io();
             if (Io != null) {
-                i = Io.aIS;
-                i2 = Io.aIT;
+                i = Io.aIU;
+                i2 = Io.aIV;
             } else {
                 i = 0;
             }

@@ -5,19 +5,19 @@ import android.content.Context;
 final class l extends Thread {
     private final Context a;
     private volatile boolean c;
-    private final y nCk;
+    private final y nCC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
         this.a = context;
-        this.nCk = yVar;
+        this.nCC = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
-            if (o.dWT().b(this.a)) {
-                this.nCk.a(p.COMPLETED);
+            if (o.dXc().b(this.a)) {
+                this.nCC.a(p.COMPLETED);
                 return;
             }
             try {

@@ -7,13 +7,13 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public Bitmap bm;
     private Context mContext;
-    public Bundle mhe;
-    public boolean mhf;
-    public boolean mhg;
+    public Bundle mht;
+    public boolean mhu;
+    public boolean mhv;
     public Rect rect;
     private Rect src = new Rect();
 

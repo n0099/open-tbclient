@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
 /* loaded from: classes7.dex */
 public interface a {
-    com.baidu.tieba.sdk.c.a cNO();
+    com.baidu.tieba.sdk.c.a cNP();
 
-    void cNP();
+    void cNQ();
 }

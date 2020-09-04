@@ -2,7 +2,7 @@ package com.baidu.tbadk.widget.richText;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     private String text;
     public int textColor = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);

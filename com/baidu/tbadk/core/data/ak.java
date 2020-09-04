@@ -2,28 +2,28 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ak extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo Yn;
+    private ICardInfo Yp;
     private String card;
-    private boolean dYK;
+    private boolean dYO;
 
-    public void zb(String str) {
+    public void zc(String str) {
         this.card = str;
     }
 
     public void bcU() {
-        this.Yn = com.baidu.tieba.lego.card.b.LC(this.card);
-        this.dYK = this.Yn != null;
+        this.Yp = com.baidu.tieba.lego.card.b.LD(this.card);
+        this.dYO = this.Yp != null;
     }
 
     public ICardInfo bcV() {
-        return this.Yn;
+        return this.Yp;
     }
 
     public boolean isValid() {
-        return this.dYK;
+        return this.dYO;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q

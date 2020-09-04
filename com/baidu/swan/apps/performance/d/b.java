@@ -10,19 +10,19 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 class b {
-    private boolean cGV;
-    private boolean cHB;
+    private boolean cGZ;
+    private boolean cHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.cGV = false;
+        this.cGZ = false;
         awz();
         awy();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void done() {
-        this.cGV = true;
+        this.cGZ = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,7 +47,7 @@ class b {
 
     private void a(int i, long j, String str, String str2) {
         ViewGroup aww;
-        if (!this.cGV && (aww = aww()) != null) {
+        if (!this.cGZ && (aww = aww()) != null) {
             TextView textView = (TextView) aww.findViewById(i);
             textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
             textView.setBackgroundColor(Color.parseColor(str));
@@ -57,7 +57,7 @@ class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(long j, long j2) {
         ViewGroup aww;
-        if (!this.cGV && (aww = aww()) != null) {
+        if (!this.cGZ && (aww = aww()) != null) {
             ((TextView) aww.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
         }
     }
@@ -68,7 +68,7 @@ class b {
             ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(a.f.start_up_root_container);
             if (viewGroup2 == null) {
                 ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.azJ().azC()).inflate(a.g.swan_app_startup_window, viewGroup);
-                this.cHB = true;
+                this.cHF = true;
                 return viewGroup3;
             }
             return viewGroup2;
@@ -83,20 +83,20 @@ class b {
             if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
-            this.cHB = false;
+            this.cHF = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void awy() {
-        if (!this.cHB) {
+        if (!this.cHF) {
             aww();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void awz() {
-        if (this.cHB) {
+        if (this.cHF) {
             awx();
         }
     }

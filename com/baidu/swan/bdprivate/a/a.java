@@ -127,12 +127,12 @@ public final class a {
     public static void b(Context context, String str, ArrayList<String> arrayList, final b.a aVar) {
         com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
         if (azI == null) {
-            aVar.sV(null);
+            aVar.sW(null);
             return;
         }
         com.baidu.swan.apps.process.messaging.client.a azz = azI.azz();
         if (azz == null) {
-            aVar.sV(null);
+            aVar.sW(null);
             return;
         }
         Bundle bundle = new Bundle();
@@ -154,7 +154,7 @@ public final class a {
                 } else if (a.DEBUG) {
                     Log.d("AccountUtils", "get openBduss : result null");
                 }
-                b.a.this.sV(str2);
+                b.a.this.sW(str2);
             }
 
             @Override // com.baidu.swan.apps.process.a.b.c.b, com.baidu.swan.apps.process.a.b.c.a
@@ -305,7 +305,7 @@ public final class a {
         if (callOnMainWithContentProvider.isOk()) {
             aa aaVar = new aa();
             aaVar.displayName = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-            aaVar.aYk = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
+            aaVar.aYm = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
             return aaVar;
         }
         return null;
@@ -455,7 +455,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final Activity activity, String str, String str2) {
-        new g.a(activity).e(str).qe(str2).a(new com.baidu.swan.apps.view.c.a()).fA(true).a(activity.getString(b.g.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.a.a.9
+        new g.a(activity).e(str).qf(str2).a(new com.baidu.swan.apps.view.c.a()).fB(true).a(activity.getString(b.g.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.a.a.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.a(activity, true, (Bundle) null, (com.baidu.swan.apps.a.a) null);

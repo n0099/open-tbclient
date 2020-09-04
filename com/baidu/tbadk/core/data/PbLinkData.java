@@ -6,7 +6,7 @@ import com.baidu.searchbox.config.QuickPersistConfigConst;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PbLinkData extends com.baidu.tieba.card.data.d implements Serializable {
     public String extTxt;
     public String linkFrom;

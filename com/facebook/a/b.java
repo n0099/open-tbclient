@@ -18,7 +18,7 @@ public class b implements a {
     }
 
     @Override // com.facebook.a.a
-    public InputStream dNI() throws IOException {
+    public InputStream dNR() throws IOException {
         return new FileInputStream(this.mFile);
     }
 

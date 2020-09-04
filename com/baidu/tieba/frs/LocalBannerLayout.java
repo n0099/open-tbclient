@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LocalBannerLayout extends RelativeLayout {
-    private com.baidu.tbadk.core.flow.a.d<h> aij;
-    private com.baidu.tbadk.core.flow.a.d<h> aik;
-    private CoverFlowLocalView<h> hXC;
+    private com.baidu.tbadk.core.flow.a.d<h> ail;
+    private com.baidu.tbadk.core.flow.a.d<h> aim;
+    private CoverFlowLocalView<h> hXI;
     private List<h> mData;
 
     public LocalBannerLayout(Context context) {
@@ -25,19 +25,19 @@ public class LocalBannerLayout extends RelativeLayout {
 
     public LocalBannerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aik = new com.baidu.tbadk.core.flow.a.d<h>() { // from class: com.baidu.tieba.frs.LocalBannerLayout.2
+        this.aim = new com.baidu.tbadk.core.flow.a.d<h>() { // from class: com.baidu.tieba.frs.LocalBannerLayout.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i2, String str) {
-                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.aij != null) {
-                    LocalBannerLayout.this.aij.e(i2, str);
+                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.ail != null) {
+                    LocalBannerLayout.this.ail.e(i2, str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i2, h hVar) {
-                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.aij != null) {
-                    LocalBannerLayout.this.aij.a(i2, hVar);
+                if (i2 >= 0 && LocalBannerLayout.this.mData != null && i2 <= LocalBannerLayout.this.mData.size() + 1 && LocalBannerLayout.this.ail != null) {
+                    LocalBannerLayout.this.ail.a(i2, hVar);
                 }
             }
         };
@@ -45,7 +45,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     private void init() {
-        this.hXC = new CoverFlowLocalView<>(getContext());
+        this.hXI = new CoverFlowLocalView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.frs.LocalBannerLayout.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e tZ() {
@@ -75,22 +75,22 @@ public class LocalBannerLayout extends RelativeLayout {
                 return cVar;
             }
         };
-        this.hXC.setIndicatorNoOffet(false);
-        this.hXC.setDisableParentEvent(false);
-        this.hXC.setCoverFlowFactory(bVar);
-        this.hXC.setIndicatorVisible(0);
-        this.hXC.setIsAutoPlayDragging(false);
-        this.hXC.setAutoPlay(false);
-        this.hXC.setCallback(this.aik);
-        addView(this.hXC);
+        this.hXI.setIndicatorNoOffet(false);
+        this.hXI.setDisableParentEvent(false);
+        this.hXI.setCoverFlowFactory(bVar);
+        this.hXI.setIndicatorVisible(0);
+        this.hXI.setIsAutoPlayDragging(false);
+        this.hXI.setAutoPlay(false);
+        this.hXI.setCallback(this.aim);
+        addView(this.hXI);
     }
 
     public void setData(List<h> list) {
         this.mData = list;
-        this.hXC.setData(list);
+        this.hXI.setData(list);
     }
 
     public void setOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<h> dVar) {
-        this.aij = dVar;
+        this.ail = dVar;
     }
 }

@@ -14,13 +14,13 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b doO;
-    private HandlerThread doS;
-    private SwanAudioPlayer doT;
+    private static volatile b doS;
+    private HandlerThread doW;
+    private SwanAudioPlayer doX;
     private Handler mHandler;
-    private HashMap<String, Long> doQ = new HashMap<>();
-    private String doR = f.aKZ();
-    private com.baidu.swan.games.audio.a.b doP = new com.baidu.swan.games.audio.a.b(this.doR);
+    private HashMap<String, Long> doU = new HashMap<>();
+    private String doV = f.aKZ();
+    private com.baidu.swan.games.audio.a.b doT = new com.baidu.swan.games.audio.a.b(this.doV);
 
     static {
         com.baidu.swan.games.utils.so.d.aQb();
@@ -31,28 +31,28 @@ public class b {
         aLh().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.doT = SwanAudioPlayer.getInstance();
+                b.this.doX = SwanAudioPlayer.getInstance();
                 SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         });
     }
 
     public static b aLf() {
-        if (doO == null) {
+        if (doS == null) {
             synchronized (b.class) {
-                if (doO == null) {
-                    doO = new b();
+                if (doS == null) {
+                    doS = new b();
                 }
             }
         }
-        return doO;
+        return doS;
     }
 
     private void aLg() {
-        if (this.doS == null) {
-            this.doS = new HandlerThread("audio_thread");
-            this.doS.start();
-            this.mHandler = new Handler(this.doS.getLooper());
+        if (this.doW == null) {
+            this.doW = new HandlerThread("audio_thread");
+            this.doW.start();
+            this.mHandler = new Handler(this.doW.getLooper());
         }
     }
 
@@ -61,11 +61,11 @@ public class b {
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.doP.a(str, aVar);
+        this.doT.a(str, aVar);
     }
 
-    public String uC(String str) throws MalformedURLException {
-        return this.doR + f.ux(str);
+    public String uD(String str) throws MalformedURLException {
+        return this.doV + f.uy(str);
     }
 
     public synchronized c ae(String str, boolean z) {
@@ -75,9 +75,9 @@ public class b {
         return new d();
     }
 
-    public long uD(String str) {
-        if (this.doQ.containsKey(str)) {
-            return this.doQ.get(str).longValue();
+    public long uE(String str) {
+        if (this.doU.containsKey(str)) {
+            return this.doU.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -85,7 +85,7 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.doQ.put(str, Long.valueOf(parseLong));
+                this.doU.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e) {
                 if (DEBUG) {
@@ -100,30 +100,30 @@ public class b {
     }
 
     public void pauseAll() {
-        if (this.doT != null) {
+        if (this.doX != null) {
             aLh().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.doT.pauseAll();
+                    b.this.doX.pauseAll();
                 }
             }, 50L);
         }
     }
 
     public void onResume() {
-        if (this.doT != null) {
+        if (this.doX != null) {
             aLh().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.doT.resume();
+                    b.this.doX.resume();
                 }
             });
         }
     }
 
     public boolean aLi() {
-        if (this.doT != null) {
-            this.doT.isAudioPlayer();
+        if (this.doX != null) {
+            this.doX.isAudioPlayer();
             return false;
         }
         return false;

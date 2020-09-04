@@ -4,9 +4,9 @@ import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
 /* loaded from: classes20.dex */
 public class a implements Iterable<Character> {
-    public static final C0969a osM = new C0969a(null);
-    private final char osK;
-    private final char osL;
+    public static final C0969a ote = new C0969a(null);
+    private final char otc;
+    private final char otd;
     private final int step;
 
     public a(char c, char c2, int i) {
@@ -16,43 +16,43 @@ public class a implements Iterable<Character> {
         if (i == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.osK = c;
-        this.osL = (char) kotlin.internal.d.ak(c, c2, i);
+        this.otc = c;
+        this.otd = (char) kotlin.internal.d.ak(c, c2, i);
         this.step = i;
     }
 
-    public final char egq() {
-        return this.osK;
+    public final char egz() {
+        return this.otc;
     }
 
-    public final char egr() {
-        return this.osL;
+    public final char egA() {
+        return this.otd;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: egs */
+    /* renamed from: egB */
     public kotlin.collections.n iterator() {
-        return new b(this.osK, this.osL, this.step);
+        return new b(this.otc, this.otd, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.osK > this.osL : this.osK < this.osL;
+        return this.step > 0 ? this.otc > this.otd : this.otc < this.otd;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.osK == ((a) obj).osK && this.osL == ((a) obj).osL && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.otc == ((a) obj).otc && this.otd == ((a) obj).otd && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.osK * 31) + this.osL) * 31) + this.step;
+        return (((this.otc * 31) + this.otd) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.osK + IStringUtil.TOP_PATH + this.osL + " step " + this.step : this.osK + " downTo " + this.osL + " step " + (-this.step);
+        return this.step > 0 ? this.otc + IStringUtil.TOP_PATH + this.otd + " step " + this.step : this.otc + " downTo " + this.otd + " step " + (-this.step);
     }
 
     @kotlin.h

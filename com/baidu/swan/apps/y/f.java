@@ -9,9 +9,9 @@ import com.baidu.swan.apps.u.c.b;
 /* loaded from: classes8.dex */
 public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core.f.e {
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    private static f cEk;
-    private boolean cEl;
-    private a cEm = new b();
+    private static f cEo;
+    private boolean cEp;
+    private a cEq = new b();
 
     private f() {
         EventBusWrapper.lazyRegister("dialog_event_tag", com.baidu.swan.apps.res.widget.dialog.a.class, new rx.functions.b<com.baidu.swan.apps.res.widget.dialog.a>() { // from class: com.baidu.swan.apps.y.f.1
@@ -26,19 +26,19 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
 
     @NonNull
     public static f auI() {
-        if (cEk == null) {
+        if (cEo == null) {
             synchronized (f.class) {
-                if (cEk == null) {
-                    cEk = new f();
+                if (cEo == null) {
+                    cEo = new f();
                 }
             }
         }
-        return cEk;
+        return cEo;
     }
 
-    public void eY(boolean z) {
-        this.cEl = z;
-        if (this.cEl) {
+    public void eZ(boolean z) {
+        this.cEp = z;
+        if (this.cEp) {
             e.auD();
             com.baidu.swan.apps.statistic.e.aCv();
         }
@@ -51,7 +51,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
         if (DEBUG) {
             Log.d("SwanAppPageMonitor", "start page monitoring, delay: " + YV);
         }
-        if (this.cEl) {
+        if (this.cEp) {
             boolean auK = auK();
             if (DEBUG) {
                 Log.d("SwanAppPageMonitor", "WhiteScreenForward: switch=" + auK);
@@ -64,11 +64,11 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
                     if (DEBUG) {
                         Log.d("SwanAppPageMonitor", "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
                     }
-                    h.b(new com.baidu.swan.apps.statistic.a.d().ru(h.jv(azM.getAppFrameType())).i(new com.baidu.swan.apps.am.a().bO(5L).bP(40L).sm("whitescreen monitor out of time: time=" + currentTimeMillis)).a(azM));
+                    h.b(new com.baidu.swan.apps.statistic.a.d().rv(h.jv(azM.getAppFrameType())).i(new com.baidu.swan.apps.am.a().bO(5L).bP(40L).sn("whitescreen monitor out of time: time=" + currentTimeMillis)).a(azM));
                 }
             }
             cVar = new com.baidu.swan.apps.y.a.c(1, null, YV, true);
-            this.cEl = false;
+            this.cEp = false;
         } else {
             cVar = null;
         }
@@ -111,7 +111,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
         d(new com.baidu.swan.apps.y.a.e(fVar, false));
     }
 
-    public void eP(boolean z) {
+    public void eQ(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppPageMonitor", "change to " + (z ? "background" : "foreground"));
         }
@@ -120,7 +120,7 @@ public class f implements com.baidu.swan.apps.core.f.c, com.baidu.swan.apps.core
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.y.a.c cVar) {
-        this.cEm.a(cVar);
+        this.cEq.a(cVar);
     }
 
     public static void aux() {

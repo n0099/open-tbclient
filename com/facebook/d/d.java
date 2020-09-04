@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes8.dex */
 class d {
-    private static final Class<?> nju = d.class;
+    private static final Class<?> njM = d.class;
 
     d() {
     }
@@ -31,20 +31,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.nAe - 8;
+        int i2 = aVar.nAw - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.nAc, 274), aVar.nAc);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.nAu, 274), aVar.nAu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        boolean nAc;
-        int nAd;
-        int nAe;
+        boolean nAu;
+        int nAv;
+        int nAw;
 
         private a() {
         }
@@ -54,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.nAd = c.a(inputStream, 4, false);
+        aVar.nAv = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.nAd != 1229531648 && aVar.nAd != 1296891946) {
-            com.facebook.common.c.a.h(nju, "Invalid TIFF header");
+        if (aVar.nAv != 1229531648 && aVar.nAv != 1296891946) {
+            com.facebook.common.c.a.h(njM, "Invalid TIFF header");
             return 0;
         }
-        aVar.nAc = aVar.nAd == 1229531648;
-        aVar.nAe = c.a(inputStream, 4, aVar.nAc);
+        aVar.nAu = aVar.nAv == 1229531648;
+        aVar.nAw = c.a(inputStream, 4, aVar.nAu);
         int i3 = i2 - 4;
-        if (aVar.nAe < 8 || aVar.nAe - 8 > i3) {
-            com.facebook.common.c.a.h(nju, "Invalid offset");
+        if (aVar.nAw < 8 || aVar.nAw - 8 > i3) {
+            com.facebook.common.c.a.h(njM, "Invalid offset");
             return 0;
         }
         return i3;

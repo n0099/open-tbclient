@@ -7,9 +7,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class e extends c {
-    public String cxM = "";
-    public String cxN = "";
-    public ArrayList<String> cxO;
+    public String cxQ = "";
+    public String cxR = "";
+    public ArrayList<String> cxS;
 
     @Override // com.baidu.swan.apps.w.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -17,19 +17,19 @@ public class e extends c {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("scale")) {
-                this.cxx = jSONObject.optDouble("scale", 18.0d);
+                this.cxB = jSONObject.optDouble("scale", 18.0d);
             }
             if (jSONObject.has("name")) {
-                this.cxM = jSONObject.optString("name");
+                this.cxQ = jSONObject.optString("name");
             }
             if (jSONObject.has("address")) {
-                this.cxN = jSONObject.optString("address");
+                this.cxR = jSONObject.optString("address");
             }
             if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
                 int length = optJSONArray.length();
-                this.cxO = new ArrayList<>();
+                this.cxS = new ArrayList<>();
                 for (int i = 0; i < length; i++) {
-                    this.cxO.add(optJSONArray.optString(i));
+                    this.cxS.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -37,6 +37,6 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.caU) || this.cxw == null || !this.cxw.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.caY) || this.cxA == null || !this.cxA.isValid()) ? false : true;
     }
 }

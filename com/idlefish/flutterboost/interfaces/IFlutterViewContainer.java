@@ -20,4 +20,6 @@ public interface IFlutterViewContainer {
     void onContainerShown();
 
     void setSwipeBackEnable(boolean z);
+
+    void swipeBackControl(double d);
 }

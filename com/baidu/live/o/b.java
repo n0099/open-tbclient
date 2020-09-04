@@ -14,13 +14,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes7.dex */
 public class b extends BdBaseModel {
-    private InterfaceC0183b bgF;
-    private a bgG;
-    private HttpMessageListener bgH;
-    private HttpMessageListener bgI;
+    private InterfaceC0183b bgH;
+    private a bgI;
     private HttpMessageListener bgJ;
     private HttpMessageListener bgK;
     private HttpMessageListener bgL;
+    private HttpMessageListener bgM;
+    private HttpMessageListener bgN;
     private TbPageContext mPageContext;
 
     /* loaded from: classes7.dex */
@@ -38,7 +38,7 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bgH = new HttpMessageListener(1021031) { // from class: com.baidu.live.o.b.1
+        this.bgJ = new HttpMessageListener(1021031) { // from class: com.baidu.live.o.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -56,7 +56,7 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.bgI = new HttpMessageListener(1021058) { // from class: com.baidu.live.o.b.2
+        this.bgK = new HttpMessageListener(1021058) { // from class: com.baidu.live.o.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -71,7 +71,7 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.bgJ = new HttpMessageListener(1021059) { // from class: com.baidu.live.o.b.3
+        this.bgL = new HttpMessageListener(1021059) { // from class: com.baidu.live.o.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -86,7 +86,7 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.bgK = new HttpMessageListener(1021060) { // from class: com.baidu.live.o.b.4
+        this.bgM = new HttpMessageListener(1021060) { // from class: com.baidu.live.o.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -95,8 +95,8 @@ public class b extends BdBaseModel {
                         b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
                         b.this.mPageContext.showToast(a.i.sdk_person_operation_success);
-                        if (b.this.bgF != null) {
-                            b.this.bgF.Mg();
+                        if (b.this.bgH != null) {
+                            b.this.bgH.Mg();
                         }
                     } else {
                         b.this.mPageContext.showToast(httpResponsedMessage.getErrorString());
@@ -104,45 +104,45 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.bgL = new HttpMessageListener(1021030) { // from class: com.baidu.live.o.b.5
+        this.bgN = new HttpMessageListener(1021030) { // from class: com.baidu.live.o.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && b.this.bgG != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021030 && b.this.bgI != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        b.this.bgG.onFail(httpResponsedMessage.getErrorString());
+                        b.this.bgI.onFail(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        b.this.bgG.Mf();
+                        b.this.bgI.Mf();
                     } else {
-                        b.this.bgG.onFail(httpResponsedMessage.getErrorString());
+                        b.this.bgI.onFail(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.bgH.setSelfListener(true);
-        this.bgI.setSelfListener(true);
         this.bgJ.setSelfListener(true);
         this.bgK.setSelfListener(true);
         this.bgL.setSelfListener(true);
-        registerListener(this.bgL);
-        registerListener(this.bgH);
-        registerListener(this.bgI);
+        this.bgM.setSelfListener(true);
+        this.bgN.setSelfListener(true);
+        registerListener(this.bgN);
         registerListener(this.bgJ);
         registerListener(this.bgK);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021031, com.baidu.live.a.ayu);
+        registerListener(this.bgL);
+        registerListener(this.bgM);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021031, com.baidu.live.a.ayw);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021058, com.baidu.live.a.ayw);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1021058, com.baidu.live.a.ayy);
         tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1021059, com.baidu.live.a.ayx);
+        TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(1021059, com.baidu.live.a.ayz);
         tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        TbHttpMessageTask tbHttpMessageTask4 = new TbHttpMessageTask(1021060, com.baidu.live.a.ayy);
+        TbHttpMessageTask tbHttpMessageTask4 = new TbHttpMessageTask(1021060, com.baidu.live.a.ayA);
         tbHttpMessageTask4.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask4);
-        TbHttpMessageTask tbHttpMessageTask5 = new TbHttpMessageTask(1021030, com.baidu.live.a.ayt);
+        TbHttpMessageTask tbHttpMessageTask5 = new TbHttpMessageTask(1021030, com.baidu.live.a.ayv);
         tbHttpMessageTask5.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask5);
     }
@@ -156,8 +156,8 @@ public class b extends BdBaseModel {
     public void az(String str, String str2) {
         boolean z = true;
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            if (this.bgG != null) {
-                this.bgG.onFail(this.mPageContext.getResources().getString(a.i.sdk_no_network));
+            if (this.bgI != null) {
+                this.bgI.onFail(this.mPageContext.getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
@@ -174,8 +174,8 @@ public class b extends BdBaseModel {
         }
         z = z2;
         if (z) {
-            if (this.bgG != null) {
-                this.bgG.onFail(this.mPageContext.getResources().getString(a.i.ala_report_failed));
+            if (this.bgI != null) {
+                this.bgI.onFail(this.mPageContext.getResources().getString(a.i.ala_report_failed));
                 return;
             }
             return;
@@ -273,10 +273,10 @@ public class b extends BdBaseModel {
     }
 
     public void a(InterfaceC0183b interfaceC0183b) {
-        this.bgF = interfaceC0183b;
+        this.bgH = interfaceC0183b;
     }
 
     public void a(a aVar) {
-        this.bgG = aVar;
+        this.bgI = aVar;
     }
 }

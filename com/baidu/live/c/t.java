@@ -10,6 +10,6 @@ public class t extends IntentConfig {
         getIntent().putExtra("live_id", str);
         getIntent().putExtra("anchor_id", str2);
         getIntent().putExtra("is_guest_state", z);
-        getIntent().putExtra("ala_wish_list_data", AlaLiveWishListData.toListString(rVar.aEg));
+        getIntent().putExtra("ala_wish_list_data", AlaLiveWishListData.toListString(rVar.aEi));
     }
 }

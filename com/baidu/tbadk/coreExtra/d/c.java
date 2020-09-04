@@ -6,9 +6,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c eIF = new c();
+    private static c eIJ = new c();
     private final SparseArray<a> availableAPIs;
     private boolean closeLongConnectionAPI;
     private int longConnectionFailedErrno;
@@ -16,8 +16,8 @@ public class c extends com.baidu.adp.framework.listener.c {
     private long retryTimeInMills;
     private final HashSet<Integer> unavailableAPIS;
 
-    public static c bqz() {
-        return eIF;
+    public static c bqA() {
+        return eIJ;
     }
 
     private c() {
@@ -41,7 +41,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.longConnectionFailedErrno = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bqB().getForegroundInterval() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().getLastReceDataTime() > e.bqC().getForegroundInterval() + 20000) {
             com.baidu.adp.framework.client.socket.i.debug("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.longConnectionFailedErrno = 2;
             return false;
@@ -120,7 +120,7 @@ public class c extends com.baidu.adp.framework.listener.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public int errorCount;
         public boolean startBlockOnErrorCount;

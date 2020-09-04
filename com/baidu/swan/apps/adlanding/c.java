@@ -53,6 +53,6 @@ public class c extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.model.b bVar, f fVar) {
         com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
-        fVar.ln("adLanding").al(f.cig, f.cii).a("adLanding", bVar).ahx();
+        fVar.lo("adLanding").al(f.cik, f.cim).a("adLanding", bVar).ahx();
     }
 }

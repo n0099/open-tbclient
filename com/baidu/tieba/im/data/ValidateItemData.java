@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ValidateItemData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 3854743775726463617L;
     private String UserId;

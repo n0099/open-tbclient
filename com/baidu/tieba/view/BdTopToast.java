@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class BdTopToast extends LinearLayout {
-    private TextView cjk;
-    private Animation itL;
-    private Animation itM;
+    private TextView cjo;
+    private Animation itR;
+    private Animation itS;
     private int mDuration;
-    private BottomShadowLinearLayout mGv;
-    private boolean mGw;
+    private BottomShadowLinearLayout mGN;
+    private boolean mGO;
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
@@ -53,16 +53,16 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.mGv = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.mGN = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.cjk = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.cjo = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
     }
 
     private void initAnimation() {
-        this.itL = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.itM = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.itM.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
+        this.itR = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.itS = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.itS.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.BdTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -87,13 +87,13 @@ public class BdTopToast extends LinearLayout {
         };
     }
 
-    public BdTopToast wS(boolean z) {
-        this.mGw = z;
+    public BdTopToast wU(boolean z) {
+        this.mGO = z;
         return this;
     }
 
     public BdTopToast Sp(String str) {
-        this.cjk.setText(str);
+        this.cjo.setText(str);
         return this;
     }
 
@@ -105,7 +105,7 @@ public class BdTopToast extends LinearLayout {
             release();
             viewGroup.addView(this, -1, -2);
             onChangeSkinType();
-            startAnimation(this.itL);
+            startAnimation(this.itR);
             if (this.mDuration >= 0) {
                 com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, this.mDuration);
             } else {
@@ -117,7 +117,7 @@ public class BdTopToast extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.itM);
+        startAnimation(this.itS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_h);
-        if (this.mGw) {
+        if (this.mGO) {
             SvgManager.bjq().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.cjk, R.color.cp_link_tip_a);
+            ap.setViewTextColor(this.cjo, R.color.cp_link_tip_a);
         } else {
             SvgManager.bjq().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.cjk, R.color.cp_cont_h);
+            ap.setViewTextColor(this.cjo, R.color.cp_cont_h);
         }
-        this.mGv.onChangeSkinType();
+        this.mGN.onChangeSkinType();
     }
 }

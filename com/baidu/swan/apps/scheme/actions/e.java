@@ -48,7 +48,7 @@ public class e extends aa {
                         return;
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    com.baidu.swan.apps.p.a.anu().mJ(optString2);
+                    com.baidu.swan.apps.p.a.anu().mK(optString2);
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

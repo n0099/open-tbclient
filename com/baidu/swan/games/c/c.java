@@ -6,19 +6,19 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.swan.apps.event.a.b {
     private String data;
-    private String dqE;
+    private String dqI;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.dqE = str2;
+        this.dqI = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String mw(String str) {
-        String str2 = this.dqE;
+    public String mx(String str) {
+        String str2 = this.dqI;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
     }
 
-    public static com.baidu.swan.apps.event.a.b gC(boolean z) {
+    public static com.baidu.swan.apps.event.a.b gD(boolean z) {
         return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
     }
 

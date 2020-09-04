@@ -19,38 +19,38 @@ import java.util.TimeZone;
 /* loaded from: classes8.dex */
 public class c implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0375a cea;
-    private LocalServerSocket ceb;
-    com.baidu.swan.apps.console.v8inspector.a.a cec;
-    private String ced;
+    private a.InterfaceC0375a cee;
+    private LocalServerSocket cef;
+    com.baidu.swan.apps.console.v8inspector.a.a ceg;
+    private String ceh;
     private boolean mRunning;
 
     /* loaded from: classes8.dex */
     public static class a {
-        String cee;
-        boolean cef;
+        String cei;
+        boolean cej;
         Map<String, String> headers = new HashMap();
         String method;
         String uri;
     }
 
     public c(String str, a.InterfaceC0375a interfaceC0375a) {
-        this.ced = str;
-        this.cea = interfaceC0375a;
+        this.ceh = str;
+        this.cee = interfaceC0375a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         if (!this.mRunning) {
             try {
-                this.ceb = new LocalServerSocket(this.ced);
+                this.cef = new LocalServerSocket(this.ceh);
                 this.mRunning = true;
                 int i = 0;
                 while (this.mRunning) {
-                    LocalSocket accept = this.ceb.accept();
-                    this.cec = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
-                    this.cec.b(this.cea);
-                    ExecutorUtilsExt.postOnSerial(this.cec, "V8InspectorServer");
+                    LocalSocket accept = this.cef.accept();
+                    this.ceg = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
+                    this.ceg.b(this.cee);
+                    ExecutorUtilsExt.postOnSerial(this.ceg, "V8InspectorServer");
                     if (com.baidu.swan.apps.ad.a.a.axd() && (i = i + 1) > 10) {
                         if (DEBUG) {
                             Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
@@ -68,31 +68,31 @@ public class c implements a.b {
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void stop() {
         this.mRunning = false;
-        if (this.ceb != null) {
+        if (this.cef != null) {
             try {
-                this.ceb.close();
+                this.cef.close();
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("V8InspectorServer", "stop local server fail", e);
             }
-            this.ceb = null;
+            this.cef = null;
         }
-        if (this.cec != null) {
-            this.cec.close();
-            this.cec = null;
+        if (this.ceg != null) {
+            this.ceg.close();
+            this.ceg = null;
         }
-        this.cea = null;
+        this.cee = null;
     }
 
     /* loaded from: classes8.dex */
     public static abstract class b {
-        a ceg;
+        a cek;
 
         abstract Map<String, String> aex();
 
         abstract String aey();
 
         public b(a aVar) {
-            this.ceg = aVar;
+            this.cek = aVar;
         }
 
         protected String getContent() {

@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private ag gEW;
+    private ag gFa;
 
-    public ag bVb() {
-        return this.gEW;
+    public ag bVc() {
+        return this.gFa;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -26,10 +26,10 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("live_info")) != null) {
                 AlaLiveSwitchData.liveActivityType = optJSONObject.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
             }
-            this.gEW = new ag();
-            this.gEW.parseJson(jSONObject);
-            setError(this.gEW.mErrorCode);
-            setErrorString(this.gEW.mErrorMsg);
+            this.gFa = new ag();
+            this.gFa.parseJson(jSONObject);
+            setError(this.gFa.mErrorCode);
+            setErrorString(this.gFa.mErrorMsg);
         }
     }
 }

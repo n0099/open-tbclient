@@ -2,24 +2,24 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e extends b implements q {
-    public String eVt = "";
+    public String eVx = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo hmD = null;
+    public AdvertAppInfo hmH = null;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.hmD != null && this.hmD.getType() == AdvertAppInfo.dVO) {
-            return AdvertAppInfo.dVU;
+        if (this.hmH != null && this.hmH.getType() == AdvertAppInfo.dVS) {
+            return AdvertAppInfo.dVY;
         }
-        if (this.hmD != null && this.hmD.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.dVX;
-            switch (this.hmD.legoCard.getGoodsStyle()) {
+        if (this.hmH != null && this.hmH.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.dWb;
+            switch (this.hmH.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.dVY;
+                    return AdvertAppInfo.dWc;
                 case 3:
                 case 4:
                 case 5:
@@ -29,14 +29,14 @@ public class e extends b implements q {
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.dVZ;
+                    return AdvertAppInfo.dWd;
                 case 7:
                 case 14:
-                    return AdvertAppInfo.dWa;
+                    return AdvertAppInfo.dWe;
                 case 12:
-                    return AdvertAppInfo.dWc;
+                    return AdvertAppInfo.dWg;
                 case 13:
-                    return AdvertAppInfo.dWb;
+                    return AdvertAppInfo.dWf;
             }
         }
         return null;
@@ -44,23 +44,23 @@ public class e extends b implements q {
 
     @Override // com.baidu.tieba.card.data.q
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.hmD != null ? this.hmD.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.hmH != null ? this.hmH.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public boolean ccq() {
+    public boolean ccr() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void nn(boolean z) {
+    public void np(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void no(boolean z) {
+    public void nq(boolean z) {
     }
 
-    public AdvertAppInfo ccr() {
-        return this.hmD;
+    public AdvertAppInfo ccs() {
+        return this.hmH;
     }
 }

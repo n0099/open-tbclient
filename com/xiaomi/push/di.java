@@ -15,10 +15,10 @@ public class di {
     private static volatile di a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f209a;
+    private Context f208a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ConcurrentLinkedQueue<b> f210a = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<b> f209a = new ConcurrentLinkedQueue<>();
 
     /* loaded from: classes7.dex */
     class a extends b {
@@ -62,30 +62,30 @@ public class di {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        File f212a;
+        File f211a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f213a;
+        String f212a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f214a;
+        boolean f213a;
         String b;
 
         /* renamed from: b  reason: collision with other field name */
-        boolean f215b;
+        boolean f214b;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(String str, String str2, File file, boolean z) {
             super();
-            this.f213a = str;
+            this.f212a = str;
             this.b = str2;
-            this.f212a = file;
-            this.f215b = z;
+            this.f211a = file;
+            this.f214b = z;
         }
 
         private boolean c() {
             int i;
-            SharedPreferences sharedPreferences = di.this.f209a.getSharedPreferences("log.timestamp", 0);
+            SharedPreferences sharedPreferences = di.this.f208a.getSharedPreferences("log.timestamp", 0);
             String string = sharedPreferences.getString("log.requst", "");
             long currentTimeMillis = System.currentTimeMillis();
             try {
@@ -114,7 +114,7 @@ public class di {
 
         @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
         public boolean a() {
-            return az.d(di.this.f209a) || (this.f215b && az.b(di.this.f209a));
+            return az.d(di.this.f208a) || (this.f214b && az.b(di.this.f208a));
         }
 
         @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
@@ -124,10 +124,10 @@ public class di {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uid", com.xiaomi.push.service.be.m559a());
                     hashMap.put("token", this.b);
-                    hashMap.put("net", az.m140a(di.this.f209a));
-                    az.a(this.f213a, hashMap, this.f212a, "file");
+                    hashMap.put("net", az.m140a(di.this.f208a));
+                    az.a(this.f212a, hashMap, this.f211a, "file");
                 }
-                this.f214a = true;
+                this.f213a = true;
             } catch (IOException e) {
             }
         }
@@ -135,22 +135,22 @@ public class di {
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
         public void mo229c() {
-            if (!this.f214a) {
+            if (!this.f213a) {
                 this.a++;
                 if (this.a < 3) {
-                    di.this.f210a.add(this);
+                    di.this.f209a.add(this);
                 }
             }
-            if (this.f214a || this.a >= 3) {
-                this.f212a.delete();
+            if (this.f213a || this.a >= 3) {
+                this.f211a.delete();
             }
             di.this.a((1 << this.a) * 1000);
         }
     }
 
     private di(Context context) {
-        this.f209a = context;
-        this.f210a.add(new a());
+        this.f208a = context;
+        this.f209a.add(new a());
         b(0L);
     }
 
@@ -162,13 +162,13 @@ public class di {
                 }
             }
         }
-        a.f209a = context;
+        a.f208a = context;
         return a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        b peek = this.f210a.peek();
+        b peek = this.f209a.peek();
         if (peek == null || !peek.a()) {
             return;
         }
@@ -181,7 +181,7 @@ public class di {
             return;
         }
         try {
-            File file = new File(this.f209a.getExternalFilesDir(null) + "/.logcache");
+            File file = new File(this.f208a.getExternalFilesDir(null) + "/.logcache");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
@@ -193,21 +193,21 @@ public class di {
     }
 
     private void b(long j) {
-        if (this.f210a.isEmpty()) {
+        if (this.f209a.isEmpty()) {
             return;
         }
         gv.a(new dk(this), j);
     }
 
     private void c() {
-        while (!this.f210a.isEmpty()) {
-            b peek = this.f210a.peek();
+        while (!this.f209a.isEmpty()) {
+            b peek = this.f209a.peek();
             if (peek != null) {
-                if (!peek.b() && this.f210a.size() <= 6) {
+                if (!peek.b() && this.f209a.size() <= 6) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                this.f210a.remove(peek);
+                this.f209a.remove(peek);
             }
         }
     }
@@ -218,7 +218,7 @@ public class di {
     }
 
     public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
-        this.f210a.add(new dj(this, i, date, date2, str, str2, z));
+        this.f209a.add(new dj(this, i, date, date2, str, str2, z));
         b(0L);
     }
 }

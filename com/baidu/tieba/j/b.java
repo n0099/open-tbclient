@@ -1,7 +1,7 @@
 package com.baidu.tieba.j;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.b.c {
     public b() {
         super(0);
@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.framework.b.c {
     /* renamed from: b */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.zA(httpResponsedMessage.getCmd())) {
-            a.cvF();
+            a.cvG();
         }
         return httpResponsedMessage;
     }

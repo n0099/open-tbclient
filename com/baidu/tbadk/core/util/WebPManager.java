@@ -8,10 +8,10 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WebPManager {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum ResourceStateType {
         NORMAL(false, false, 1),
         NORMAL_PRESS(true, false, 2),

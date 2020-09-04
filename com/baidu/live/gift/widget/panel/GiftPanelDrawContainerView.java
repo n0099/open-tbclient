@@ -23,14 +23,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes7.dex */
 public class GiftPanelDrawContainerView extends LinearLayout implements View.OnClickListener {
-    public View aWO;
-    public TextView aWP;
-    public ImageButton aWQ;
-    public ImageButton aWR;
+    public View aWQ;
+    public TextView aWR;
     public ImageButton aWS;
-    public AlaGiftDrawPanel aWT;
-    private a aWU;
-    private AlaGiftDrawPanel.a aWV;
+    public ImageButton aWT;
+    public ImageButton aWU;
+    public AlaGiftDrawPanel aWV;
+    private a aWW;
+    private AlaGiftDrawPanel.a aWX;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -41,23 +41,23 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
 
     public GiftPanelDrawContainerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aWV = new AlaGiftDrawPanel.a() { // from class: com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.3
+        this.aWX = new AlaGiftDrawPanel.a() { // from class: com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.3
             @Override // com.baidu.live.gift.graffitiGift.AlaGiftDrawPanel.a
             public void d(int i, long j) {
-                GiftPanelDrawContainerView.this.aWP.setText(String.format(GiftPanelDrawContainerView.this.getResources().getString(a.i.ala_gift_draw_title_drawing), Long.valueOf(j)));
+                GiftPanelDrawContainerView.this.aWR.setText(String.format(GiftPanelDrawContainerView.this.getResources().getString(a.i.ala_gift_draw_title_drawing), Long.valueOf(j)));
                 if (i <= 0) {
                     GiftPanelDrawContainerView.this.HZ();
-                    GiftPanelDrawContainerView.this.aWP.setVisibility(8);
-                    GiftPanelDrawContainerView.this.aWQ.setEnabled(false);
-                    GiftPanelDrawContainerView.this.aWR.setEnabled(false);
+                    GiftPanelDrawContainerView.this.aWR.setVisibility(8);
+                    GiftPanelDrawContainerView.this.aWS.setEnabled(false);
+                    GiftPanelDrawContainerView.this.aWT.setEnabled(false);
                 } else {
-                    GiftPanelDrawContainerView.this.aWP.setVisibility(0);
-                    GiftPanelDrawContainerView.this.aWQ.setEnabled(true);
-                    GiftPanelDrawContainerView.this.aWR.setEnabled(true);
+                    GiftPanelDrawContainerView.this.aWR.setVisibility(0);
+                    GiftPanelDrawContainerView.this.aWS.setEnabled(true);
+                    GiftPanelDrawContainerView.this.aWT.setEnabled(true);
                     GiftPanelDrawContainerView.this.HZ();
                 }
-                if (GiftPanelDrawContainerView.this.aWU != null) {
-                    GiftPanelDrawContainerView.this.aWU.dZ(i);
+                if (GiftPanelDrawContainerView.this.aWW != null) {
+                    GiftPanelDrawContainerView.this.aWW.dZ(i);
                 }
             }
         };
@@ -65,12 +65,12 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
     }
 
     public void setCallback(a aVar) {
-        this.aWU = aVar;
+        this.aWW = aVar;
     }
 
     public void f(boolean z, final String str) {
         if (z) {
-            if (this.aWT.getVisibility() == 0) {
+            if (this.aWV.getVisibility() == 0) {
                 Ia();
             }
             HZ();
@@ -84,73 +84,73 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
                         if (bdImage == null || bdImage.getRawBitmap() == null) {
                             GiftPanelDrawContainerView.this.Ib();
                         } else if (str2 != null && str2.equals(str)) {
-                            GiftPanelDrawContainerView.this.aWT.setGiftBitmp(bdImage.getRawBitmap());
+                            GiftPanelDrawContainerView.this.aWV.setGiftBitmp(bdImage.getRawBitmap());
                         }
                     }
                 }, null);
             } else {
                 Ib();
             }
-            if (this.aWT != null && this.aWT.getCurrentPointSize() > 0) {
-                if (this.aWP != null) {
-                    this.aWP.setVisibility(0);
+            if (this.aWV != null && this.aWV.getCurrentPointSize() > 0) {
+                if (this.aWR != null) {
+                    this.aWR.setVisibility(0);
                     return;
                 }
                 return;
-            } else if (this.aWP != null) {
-                this.aWP.setVisibility(8);
+            } else if (this.aWR != null) {
+                this.aWR.setVisibility(8);
                 return;
             } else {
                 return;
             }
         }
         bI(true);
-        if (this.aWT != null) {
-            this.aWT.GO();
+        if (this.aWV != null) {
+            this.aWV.GO();
         }
     }
 
     public void setGiftItem(g gVar) {
-        if (this.aWT != null) {
-            this.aWT.setAlaGiftItem(gVar);
+        if (this.aWV != null) {
+            this.aWV.setAlaGiftItem(gVar);
         }
     }
 
     public l getGraffitiData() {
-        if (this.aWT == null) {
+        if (this.aWV == null) {
             return null;
         }
         l lVar = new l();
-        lVar.aOu = BdUtilHelper.dip2px(getContext().getApplicationContext(), 32.0f);
-        lVar.aOv.addAll(this.aWT.getPoints());
-        lVar.aOs = this.aWT.getMeasuredHeight();
-        lVar.aOr = this.aWT.getMeasuredWidth();
+        lVar.aOw = BdUtilHelper.dip2px(getContext().getApplicationContext(), 32.0f);
+        lVar.aOx.addAll(this.aWV.getPoints());
+        lVar.aOu = this.aWV.getMeasuredHeight();
+        lVar.aOt = this.aWV.getMeasuredWidth();
         Rect rect = new Rect();
-        this.aWT.getGlobalVisibleRect(rect);
-        lVar.aOp = rect.left;
-        lVar.aOq = rect.top;
-        lVar.aOw = lVar.aOv.size();
-        lVar.aOy = this.aWT.getGraffitiPointDesDatas();
-        lVar.aOx = new Rect(0, 0, rect.width(), rect.height());
+        this.aWV.getGlobalVisibleRect(rect);
+        lVar.aOr = rect.left;
+        lVar.aOs = rect.top;
+        lVar.aOy = lVar.aOx.size();
+        lVar.aOA = this.aWV.getGraffitiPointDesDatas();
+        lVar.aOz = new Rect(0, 0, rect.width(), rect.height());
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext().getApplicationContext());
-        lVar.aOn = screenDimensions[0];
-        lVar.aOo = screenDimensions[1];
+        lVar.aOp = screenDimensions[0];
+        lVar.aOq = screenDimensions[1];
         return lVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aWQ) {
-            if (this.aWT != null) {
-                this.aWT.GR();
+        if (view == this.aWS) {
+            if (this.aWV != null) {
+                this.aWV.GR();
             }
-        } else if (view == this.aWR) {
-            this.aWR.setEnabled(false);
-            this.aWQ.setEnabled(false);
+        } else if (view == this.aWT) {
+            this.aWT.setEnabled(false);
+            this.aWS.setEnabled(false);
             bI(false);
-            this.aWV.d(0, 0L);
-        } else if (view == this.aWS && this.aWU != null) {
-            this.aWU.FR();
+            this.aWX.d(0, 0L);
+        } else if (view == this.aWU && this.aWW != null) {
+            this.aWW.FR();
         }
     }
 
@@ -166,23 +166,23 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
     }
 
     private void FG() {
-        this.aWO = findViewById(a.g.layout_title);
-        this.aWP = (TextView) findViewById(a.g.tv_title);
-        this.aWQ = (ImageButton) findViewById(a.g.btn_revert);
-        this.aWR = (ImageButton) findViewById(a.g.btn_clean);
-        this.aWS = (ImageButton) findViewById(a.g.btn_hide);
-        this.aWT = (AlaGiftDrawPanel) findViewById(a.g.panel_draw);
+        this.aWQ = findViewById(a.g.layout_title);
+        this.aWR = (TextView) findViewById(a.g.tv_title);
+        this.aWS = (ImageButton) findViewById(a.g.btn_revert);
+        this.aWT = (ImageButton) findViewById(a.g.btn_clean);
+        this.aWU = (ImageButton) findViewById(a.g.btn_hide);
+        this.aWV = (AlaGiftDrawPanel) findViewById(a.g.panel_draw);
     }
 
     private void HV() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aWO.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aWQ.getLayoutParams();
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             layoutParams.height = getResources().getDimensionPixelSize(a.e.sdk_ds128);
         } else {
             layoutParams.height = getResources().getDimensionPixelSize(a.e.sdk_ds128) - UtilHelper.getStatusBarHeight();
         }
-        this.aWO.setLayoutParams(layoutParams);
-        this.aWO.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.2
+        this.aWQ.setLayoutParams(layoutParams);
+        this.aWQ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.live.gift.widget.panel.GiftPanelDrawContainerView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return true;
@@ -191,45 +191,45 @@ public class GiftPanelDrawContainerView extends LinearLayout implements View.OnC
     }
 
     private void HW() {
-        this.aWQ.setOnClickListener(this);
-        this.aWQ.setEnabled(false);
+        this.aWS.setOnClickListener(this);
+        this.aWS.setEnabled(false);
     }
 
     private void HX() {
-        this.aWR.setOnClickListener(this);
-        this.aWR.setEnabled(false);
+        this.aWT.setOnClickListener(this);
+        this.aWT.setEnabled(false);
     }
 
     private void HY() {
-        this.aWS.setOnClickListener(this);
+        this.aWU.setOnClickListener(this);
     }
 
     private void FI() {
-        this.aWT.setGiftDrawEventListener(this.aWV);
-        this.aWT.setGiftCountRange(10, 100);
+        this.aWV.setGiftDrawEventListener(this.aWX);
+        this.aWV.setGiftCountRange(10, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void HZ() {
-        if (this.aWT != null) {
-            if (this.aWT.getCurrentPointSize() > 0) {
-                this.aWT.setTipImageVisibility(8);
+        if (this.aWV != null) {
+            if (this.aWV.getCurrentPointSize() > 0) {
+                this.aWV.setTipImageVisibility(8);
             } else {
-                this.aWT.setTipImageVisibility(0);
+                this.aWV.setTipImageVisibility(0);
             }
         }
     }
 
     private void Ia() {
-        if (this.aWT != null) {
-            this.aWT.GP();
-            this.aWT.GQ();
+        if (this.aWV != null) {
+            this.aWV.GP();
+            this.aWV.GQ();
         }
     }
 
     private void bI(boolean z) {
-        if (this.aWT != null) {
-            this.aWT.bI(z);
+        if (this.aWV != null) {
+            this.aWV.bI(z);
         }
     }
 

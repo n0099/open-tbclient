@@ -12,8 +12,8 @@ import org.json.JSONObject;
 public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> implements a.InterfaceC0515a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private com.baidu.swan.apps.w.b dCm;
-    private com.baidu.swan.apps.w.a.a dCn;
+    private com.baidu.swan.apps.w.b dCq;
+    private com.baidu.swan.apps.w.a.a dCr;
 
     public static a aSe() {
         return new a();
@@ -30,8 +30,8 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> im
             c.e("map", "cb is empty");
             return false;
         }
-        this.dCm = bVar;
-        this.dCn = aVar;
+        this.dCq = bVar;
+        this.dCr = aVar;
         d.a(context, new d.a() { // from class: com.baidu.swan.impl.map.location.a.a.1
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
@@ -59,23 +59,23 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> im
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0515a
     public void onCancel() {
         c.i("map", "choose location cancel");
-        if (this.dCm != null && this.dCn != null) {
-            this.dCm.g(this.dCn.callBack, 1002, "choose location canceled");
+        if (this.dCq != null && this.dCr != null) {
+            this.dCq.g(this.dCr.callBack, 1002, "choose location canceled");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0515a
     public void onError() {
         c.i("map", "choose location fail");
-        if (this.dCm != null && this.dCn != null) {
-            this.dCm.g(this.dCn.callBack, 1007, "choose location failed");
+        if (this.dCq != null && this.dCr != null) {
+            this.dCq.g(this.dCr.callBack, 1007, "choose location failed");
         }
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0515a
     public void a(SelectedLocationInfo selectedLocationInfo) {
-        if (this.dCm != null && this.dCn != null) {
-            this.dCm.d(this.dCn.callBack, selectedLocationInfo.toJson());
+        if (this.dCq != null && this.dCr != null) {
+            this.dCq.d(this.dCr.callBack, selectedLocationInfo.toJson());
         }
     }
 

@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, d> {
     private TbPageContext<?> mPageContext;
 

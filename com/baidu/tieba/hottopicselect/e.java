@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes15.dex */
 public class e extends BaseExpandableListAdapter {
-    private LayoutInflater jek;
-    private ExpandableListView jel;
+    private LayoutInflater jeq;
+    private ExpandableListView jer;
     private final List<c> mList = new ArrayList();
     private TbPageContext<HotTopicSelectActivity> mPageContext;
 
     /* loaded from: classes15.dex */
     public static class a {
-        int aiB = 3;
-        TextView jak = null;
-        TextView jem = null;
-        View jan = null;
-        View jao = null;
+        int aiD = 3;
+        TextView jaq = null;
+        TextView jes = null;
+        View jat = null;
+        View jau = null;
     }
 
     /* loaded from: classes15.dex */
     public static class b {
-        int aiB = 3;
+        int aiD = 3;
         View dividerLine;
-        View jen;
+        View jet;
         TextView titleTv;
     }
 
     public e(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jek = LayoutInflater.from(this.mPageContext.getPageActivity());
+        this.jeq = LayoutInflater.from(this.mPageContext.getPageActivity());
     }
 
     public List<c> getList() {
@@ -57,11 +57,11 @@ public class e extends BaseExpandableListAdapter {
 
     @Override // android.widget.BaseExpandableListAdapter, android.widget.ExpandableListAdapter
     public void onGroupCollapsed(int i) {
-        if (this.jel != null) {
+        if (this.jer != null) {
             int groupCount = getGroupCount();
             for (int i2 = 0; i2 < groupCount; i2++) {
                 if (i2 != i) {
-                    this.jel.collapseGroup(i);
+                    this.jer.collapseGroup(i);
                 }
             }
         }
@@ -116,11 +116,11 @@ public class e extends BaseExpandableListAdapter {
     public View getGroupView(int i, boolean z, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || !(view.getTag() instanceof b)) {
-            view = this.jek.inflate(R.layout.hot_group_item, (ViewGroup) null);
+            view = this.jeq.inflate(R.layout.hot_group_item, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.titleTv = (TextView) view.findViewById(R.id.header_text);
             bVar2.dividerLine = view.findViewById(R.id.divider_line);
-            bVar2.jen = view.findViewById(R.id.group_divider);
+            bVar2.jet = view.findViewById(R.id.group_divider);
             view.setTag(bVar2);
             view.setClickable(false);
             bVar = bVar2;
@@ -129,13 +129,13 @@ public class e extends BaseExpandableListAdapter {
         }
         c group = getGroup(i);
         if (group != null) {
-            bVar.titleTv.setText(at.cutStringWithSuffix(group.cAP(), 15, null));
+            bVar.titleTv.setText(at.cutStringWithSuffix(group.cAQ(), 15, null));
             if (i == 0) {
                 bVar.dividerLine.setVisibility(0);
-                bVar.jen.setVisibility(8);
+                bVar.jet.setVisibility(8);
             } else {
                 bVar.dividerLine.setVisibility(8);
-                bVar.jen.setVisibility(0);
+                bVar.jet.setVisibility(0);
             }
             a(bVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -143,24 +143,24 @@ public class e extends BaseExpandableListAdapter {
     }
 
     private void a(b bVar, View view, int i) {
-        if (bVar != null && bVar.aiB != i) {
+        if (bVar != null && bVar.aiD != i) {
             ap.setBackgroundColor(view, R.color.cp_bg_line_d);
             ap.setBackgroundColor(bVar.dividerLine, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(bVar.jen, R.color.cp_bg_line_e);
+            ap.setBackgroundColor(bVar.jet, R.color.cp_bg_line_e);
             ap.setViewTextColor(bVar.titleTv, R.color.cp_cont_d, 1);
-            bVar.aiB = i;
+            bVar.aiD = i;
         }
     }
 
     private void a(a aVar, View view, int i) {
-        if (aVar != null && aVar.aiB != i) {
+        if (aVar != null && aVar.aiD != i) {
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundResource(aVar.jem, R.drawable.hot_select_tag_bg);
-            ap.setBackgroundColor(aVar.jan, R.color.cp_bg_line_c);
-            ap.setBackgroundColor(aVar.jao, R.color.cp_bg_line_c);
-            ap.setViewTextColor(aVar.jem, R.color.cp_link_tip_a, 1);
-            ap.setViewTextColor(aVar.jak, R.color.cp_cont_b, 1);
-            aVar.aiB = i;
+            ap.setBackgroundResource(aVar.jes, R.drawable.hot_select_tag_bg);
+            ap.setBackgroundColor(aVar.jat, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(aVar.jau, R.color.cp_bg_line_c);
+            ap.setViewTextColor(aVar.jes, R.color.cp_link_tip_a, 1);
+            ap.setViewTextColor(aVar.jaq, R.color.cp_cont_b, 1);
+            aVar.aiD = i;
         }
     }
 
@@ -170,12 +170,12 @@ public class e extends BaseExpandableListAdapter {
         View view2;
         d child = getChild(i, i2);
         if (view == null || !(view.getTag() instanceof a)) {
-            View inflate = this.jek.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
+            View inflate = this.jeq.inflate(R.layout.hot_child_bang_item, (ViewGroup) null);
             aVar = new a();
-            aVar.jak = (TextView) inflate.findViewById(R.id.hot_topic_title);
-            aVar.jem = (TextView) inflate.findViewById(R.id.hot_topic_tag);
-            aVar.jan = inflate.findViewById(R.id.divider_line_top);
-            aVar.jao = inflate.findViewById(R.id.divider_line_bottom);
+            aVar.jaq = (TextView) inflate.findViewById(R.id.hot_topic_title);
+            aVar.jes = (TextView) inflate.findViewById(R.id.hot_topic_tag);
+            aVar.jat = inflate.findViewById(R.id.divider_line_top);
+            aVar.jau = inflate.findViewById(R.id.divider_line_bottom);
             inflate.setTag(aVar);
             view2 = inflate;
         } else {
@@ -183,8 +183,8 @@ public class e extends BaseExpandableListAdapter {
             view2 = view;
         }
         if (child != null) {
-            aVar.jak.setText(com.baidu.tbadk.plugins.b.Cz(at.cutStringWithEllipsisNew(child.getTopicName(), 15)));
-            h(aVar.jem, child.cAQ().intValue());
+            aVar.jaq.setText(com.baidu.tbadk.plugins.b.CA(at.cutStringWithEllipsisNew(child.getTopicName(), 15)));
+            h(aVar.jes, child.cAR().intValue());
             a(aVar, view2, TbadkCoreApplication.getInst().getSkinType());
         }
         return view2;

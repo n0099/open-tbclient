@@ -8,17 +8,17 @@ public class b {
     public String card_logo;
     public String card_name;
     public String card_pro;
-    public long kww;
-    public int kwx;
-    public String kwy;
+    public long kwD;
+    public int kwE;
+    public String kwF;
 
     public void a(SendCardInfo sendCardInfo) {
         if (sendCardInfo != null) {
             this.card_logo = sendCardInfo.card_logo;
             this.card_name = sendCardInfo.card_name;
             this.card_pro = sendCardInfo.card_pro;
-            this.kwx = sendCardInfo.card_get_status.intValue();
-            this.kww = sendCardInfo.packet_id.longValue();
+            this.kwE = sendCardInfo.card_get_status.intValue();
+            this.kwD = sendCardInfo.packet_id.longValue();
         }
     }
 
@@ -27,17 +27,17 @@ public class b {
             this.card_logo = jSONObject.optString("card_logo");
             this.card_name = jSONObject.optString("card_name");
             this.card_pro = jSONObject.optString("card_pro");
-            this.kwx = jSONObject.optInt("card_get_status");
-            this.kww = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
-            this.kwy = jSONObject.optString("card_num");
+            this.kwE = jSONObject.optInt("card_get_status");
+            this.kwD = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
+            this.kwF = jSONObject.optString("card_num");
         }
     }
 
-    public boolean cVi() {
-        return this.kwx == 3;
+    public boolean cVj() {
+        return this.kwE == 3;
     }
 
-    public boolean cVj() {
-        return this.kwx == 1;
+    public boolean cVk() {
+        return this.kwE == 1;
     }
 }

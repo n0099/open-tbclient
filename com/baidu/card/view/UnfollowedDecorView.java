@@ -18,9 +18,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.c.g;
 /* loaded from: classes15.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    private int agi;
-    private int agj;
-    public g akN;
+    private int agk;
+    private int agl;
+    public g akP;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -32,9 +32,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.agi = R.drawable.ic_icon_pure_card_delete_svg;
-        this.agj = R.color.cp_cont_g;
-        this.akN = new g(o((Activity) context));
+        this.agk = R.drawable.ic_icon_pure_card_delete_svg;
+        this.agl = R.color.cp_cont_g;
+        this.akP = new g(o((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         SvgManager.bjq().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -43,13 +43,13 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!k.isFastDoubleClick()) {
-            this.akN.Fd();
-            this.akN.Nv();
+            this.akP.Fd();
+            this.akP.Nv();
         }
     }
 
     public void q(bw bwVar) {
-        this.akN.q(bwVar);
+        this.akP.q(bwVar);
         if (!ay.w(bwVar) && bwVar.bgw()) {
             setVisibility(0);
         } else {
@@ -58,7 +58,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.bjq().a(this, this.agi, this.agj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bjq().a(this, this.agk, this.agl, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private TbPageContext o(Activity activity) {
@@ -72,8 +72,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void setSvgResId(int i, int i2) {
-        this.agi = i;
-        this.agj = i2;
-        SvgManager.bjq().a(this, this.agi, this.agj, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.agk = i;
+        this.agl = i2;
+        SvgManager.bjq().a(this, this.agk, this.agl, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

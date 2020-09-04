@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends k {
     public c() {
         super(CmdConfigSocket.CMD_MESSAGE_SYNC);

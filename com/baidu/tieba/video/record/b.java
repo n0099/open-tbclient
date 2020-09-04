@@ -4,22 +4,22 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes17.dex */
 class b {
+    private float mAh;
+    private int mAi;
+    private i mAj;
     private Camera mCamera;
     private int mode = 0;
-    private float mzP;
-    private int mzQ;
-    private i mzR;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.mzR = iVar;
+        this.mAj = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.mzR == null || !this.mzR.bmc()) {
+        if (this.mAj == null || !this.mAj.bmc()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.mzP) / 10.0f);
+                        int i = (int) ((spacing - this.mAh) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.mzQ;
+                            int i2 = i + this.mAi;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.mzP = spacing;
+                            this.mAh = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.mzP = spacing(motionEvent);
+                    this.mAh = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.mzQ = i;
+                this.mAi = i;
             }
         }
     }

@@ -8,33 +8,33 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class a extends af.a {
-    public int aiB;
-    public TextView jaj;
-    public TextView jak;
-    public TextView jal;
-    public TextView jam;
-    public View jan;
-    public View jao;
-    public TbImageView jap;
-    public LinearLayout jaq;
+    public int aiD;
+    public TextView jap;
+    public TextView jaq;
+    public TextView jar;
+    public TextView jas;
+    public View jat;
+    public View jau;
+    public TbImageView jav;
+    public LinearLayout jaw;
 
     public a(View view) {
         super(view);
-        this.aiB = 3;
-        this.jaj = null;
-        this.jak = null;
-        this.jal = null;
-        this.jam = null;
-        this.jan = null;
-        this.jao = null;
+        this.aiD = 3;
         this.jap = null;
         this.jaq = null;
-        this.jaj = (TextView) view.findViewById(R.id.topic_module);
-        this.jal = (TextView) view.findViewById(R.id.topic_desc);
-        this.jak = (TextView) view.findViewById(R.id.topic_title);
-        this.jap = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.jan = view.findViewById(R.id.devide_line_top);
-        this.jao = view.findViewById(R.id.devide_line_bottom);
-        this.jaq = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.jar = null;
+        this.jas = null;
+        this.jat = null;
+        this.jau = null;
+        this.jav = null;
+        this.jaw = null;
+        this.jap = (TextView) view.findViewById(R.id.topic_module);
+        this.jar = (TextView) view.findViewById(R.id.topic_desc);
+        this.jaq = (TextView) view.findViewById(R.id.topic_title);
+        this.jav = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.jat = view.findViewById(R.id.devide_line_top);
+        this.jau = view.findViewById(R.id.devide_line_bottom);
+        this.jaw = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 import tbclient.DeleteThreadInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AntiData implements Serializable {
     private static final long serialVersionUID = 2355009973517935888L;
     private String block_forum_id;

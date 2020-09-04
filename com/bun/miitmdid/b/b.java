@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask nhz;
+    private AsyncTask nhR;
     private String a = null;
-    private a nhy = null;
+    private a nhQ = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -38,11 +38,11 @@ public class b {
     public class C0854b {
         private String b;
         private int c;
-        private Exception nhC;
+        private Exception nhU;
 
         public C0854b(String str, Exception exc, int i) {
             this.b = str;
-            this.nhC = exc;
+            this.nhU = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0854b dMY() {
+    public C0854b dNh() {
         try {
             String b = b();
             if (j) {
@@ -126,7 +126,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0854b dMZ() {
+    public C0854b dNi() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -196,7 +196,7 @@ public class b {
     }
 
     public b a(a aVar) {
-        this.nhy = aVar;
+        this.nhQ = aVar;
         return this;
     }
 
@@ -206,12 +206,12 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dMX() {
-        this.nhz = new AsyncTask<Void, Void, C0854b>() { // from class: com.bun.miitmdid.b.b.1
-            b nhA;
+    public b dNg() {
+        this.nhR = new AsyncTask<Void, Void, C0854b>() { // from class: com.bun.miitmdid.b.b.1
+            b nhS;
 
             {
-                this.nhA = b.this;
+                this.nhS = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -220,16 +220,16 @@ public class b {
             /* renamed from: a */
             public void onPostExecute(C0854b c0854b) {
                 super.onPostExecute(c0854b);
-                if (b.this.nhy != null) {
+                if (b.this.nhQ != null) {
                     if (c0854b == null) {
-                        b.this.nhy.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0854b.nhC != null) {
-                        b.this.nhy.a(c0854b.nhC, -1, null);
+                        b.this.nhQ.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0854b.nhU != null) {
+                        b.this.nhQ.a(c0854b.nhU, -1, null);
                     } else {
                         try {
-                            b.this.nhy.a(null, c0854b.c, c0854b.b);
+                            b.this.nhQ.a(null, c0854b.c, c0854b.b);
                         } catch (Exception e) {
-                            b.this.nhy.a(e, -1, null);
+                            b.this.nhQ.a(e, -1, null);
                         }
                     }
                 }
@@ -240,13 +240,13 @@ public class b {
             @Override // android.os.AsyncTask
             /* renamed from: q */
             public C0854b doInBackground(Void... voidArr) {
-                return this.nhA.h.equalsIgnoreCase("GET") ? b.this.dMY() : b.this.dMZ();
+                return this.nhS.h.equalsIgnoreCase("GET") ? b.this.dNh() : b.this.dNi();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;
     }
 
-    public b gj(@NonNull String str, @NonNull String str2) {
+    public b gk(@NonNull String str, @NonNull String str2) {
         this.g.put(str, str2);
         return this;
     }

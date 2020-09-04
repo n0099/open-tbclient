@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.a.a.d {
     public static final int BIG_IMG = 2;
     public static final int CONTENT = 1;
@@ -17,7 +17,7 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
     private Map<BdUniqueId, com.baidu.tbadk.a.e> mABTestMap = new HashMap();
     public SparseArray<String> feedBackReasonMap = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum SupportType {
         FULL,
         TOP,
@@ -76,7 +76,7 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         if (bce == null) {
             return false;
         }
-        return bce.eeg || bce.eei;
+        return bce.eek || bce.eem;
     }
 
     public boolean bcl() {
@@ -84,7 +84,7 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
         if (bce == null) {
             return false;
         }
-        return bce.eef || bce.eeg || bce.eei || bce.eeh || bce.eej;
+        return bce.eej || bce.eek || bce.eem || bce.eel || bce.een;
     }
 
     public boolean bcm() {
@@ -97,16 +97,16 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
 
     public boolean bcn() {
         bw bce = bce();
-        if (bce != null && bce.eef) {
-            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRn), "11_7_index_c");
+        if (bce != null && bce.eej) {
+            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRr), "11_7_index_c");
         }
         return false;
     }
 
     public boolean bco() {
         bw bce = bce();
-        if (bce != null && bce.eef) {
-            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRn), "11_7_index_d");
+        if (bce != null && bce.eej) {
+            return com.baidu.tbadk.a.d.a(k(com.baidu.tbadk.a.a.b.dRr), "11_7_index_d");
         }
         return false;
     }
@@ -117,9 +117,9 @@ public abstract class AbsThreadDataSupport extends com.baidu.tieba.card.data.b i
             return false;
         }
         boolean z = bce.bgy() || bce.bdm() || bce.bdn();
-        if (bce.eef && z) {
+        if (bce.eej && z) {
             return true;
         }
-        return bce.eeh && z && !bce.beE().hadConcerned();
+        return bce.eel && z && !bce.beE().hadConcerned();
     }
 }

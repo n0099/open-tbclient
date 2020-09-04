@@ -11,7 +11,7 @@ public interface a {
 
     void b(SwanAdDownloadState swanAdDownloadState, int i);
 
-    void dz(boolean z);
+    void dA(boolean z);
 
-    void iN(String str);
+    void iO(String str);
 }

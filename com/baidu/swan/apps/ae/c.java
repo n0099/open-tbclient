@@ -11,8 +11,8 @@ import org.json.JSONObject;
 @h
 /* loaded from: classes8.dex */
 public final class c {
-    private static a cJV;
-    public static final c cJW = new c();
+    private static a cJZ;
+    public static final c cKa = new c();
 
     @h
     /* loaded from: classes8.dex */
@@ -26,7 +26,7 @@ public final class c {
     }
 
     public final a ayo() {
-        return cJV;
+        return cJZ;
     }
 
     public final void ayp() {
@@ -34,13 +34,13 @@ public final class c {
         q.l((Object) azE, "Swan.get()");
         com.baidu.swan.apps.adaptation.a azG = azE.azG();
         q.l((Object) azG, "Swan.get().adaptationProducer");
-        azG.Yq().aah().bi(d.azE()).A(b.cJX).aBy();
+        azG.Yq().aah().bi(d.azE()).A(b.cKb).aBy();
     }
 
     @h
     /* loaded from: classes8.dex */
     static final class b<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final b cJX = new b();
+        public static final b cKb = new b();
 
         b() {
         }
@@ -53,11 +53,11 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a ayo = c.cJW.ayo();
+                a ayo = c.cKa.ayo();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("openid");
                     if (ayo == null || !ProcessUtils.isMainProcess()) {
-                        c.cJW.cd(null, optString);
+                        c.cKa.cd(null, optString);
                         return;
                     }
                     q.l((Object) optString, "openId");
@@ -77,14 +77,14 @@ public final class c {
         q.l((Object) azE, "Swan.get()");
         com.baidu.swan.apps.adaptation.a azG = azE.azG();
         q.l((Object) azG, "Swan.get().adaptationProducer");
-        azG.Yq().aah().bh(d.azE()).A(C0332c.cJY).aBy();
+        azG.Yq().aah().bh(d.azE()).A(C0332c.cKc).aBy();
     }
 
     @h
     /* renamed from: com.baidu.swan.apps.ae.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     static final class C0332c<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final C0332c cJY = new C0332c();
+        public static final C0332c cKc = new C0332c();
 
         C0332c() {
         }
@@ -97,11 +97,11 @@ public final class c {
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a ayo = c.cJW.ayo();
+                a ayo = c.cKa.ayo();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("swanid");
                     if (ayo == null || !ProcessUtils.isMainProcess()) {
-                        c.cJW.cd(optString, null);
+                        c.cKa.cd(optString, null);
                         return;
                     }
                     q.l((Object) optString, "swanId");

@@ -27,8 +27,8 @@ import java.util.List;
 public class c extends RecyclerView.Adapter {
     private List<WriteVoteItemData> mData;
     private TbPageContext mPageContext;
-    private InterfaceC0844c mYI;
-    private boolean mYH = false;
+    private InterfaceC0844c mZa;
+    private boolean mYZ = false;
     TextView.OnEditorActionListener mOnEditorActionListener = new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.write.write.vote.c.1
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -48,7 +48,7 @@ public class c extends RecyclerView.Adapter {
 
         void a(WriteVoteItemData writeVoteItemData, int i);
 
-        void dJD();
+        void dJM();
     }
 
     public c(TbPageContext tbPageContext) {
@@ -61,7 +61,7 @@ public class c extends RecyclerView.Adapter {
     }
 
     public void a(InterfaceC0844c interfaceC0844c) {
-        this.mYI = interfaceC0844c;
+        this.mZa = interfaceC0844c;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -78,14 +78,14 @@ public class c extends RecyclerView.Adapter {
         if (viewHolder instanceof b) {
             b bVar = (b) viewHolder;
             String text = this.mData.get(i).getText();
-            bVar.mYN.setHint(String.format(this.mPageContext.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
-            bVar.mYN.setGravity(19);
+            bVar.mZf.setHint(String.format(this.mPageContext.getString(R.string.write_vote_item), Integer.valueOf(i + 1)));
+            bVar.mZf.setGravity(19);
             if (i < this.mData.size() - 1) {
-                bVar.mYN.setImeOptions(5);
+                bVar.mZf.setImeOptions(5);
             } else {
-                bVar.mYN.setImeOptions(1);
+                bVar.mZf.setImeOptions(1);
             }
-            ImageView imageView = bVar.mYO;
+            ImageView imageView = bVar.mZg;
             if (this.mData.size() > 2) {
                 imageView.setVisibility(0);
             } else {
@@ -94,30 +94,30 @@ public class c extends RecyclerView.Adapter {
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.mYI != null) {
-                        c.this.mYI.JV(i);
+                    if (c.this.mZa != null) {
+                        c.this.mZa.JV(i);
                     }
                 }
             });
             bVar.setPosition(i);
             if (!StringUtils.isNull(text)) {
-                bVar.mYN.setText(text);
+                bVar.mZf.setText(text);
             } else {
-                bVar.mYN.setText("");
+                bVar.mZf.setText("");
             }
-            if (this.mYH && i == this.mData.size() - 1) {
-                bVar.mYN.requestFocus();
-                this.mYH = false;
+            if (this.mYZ && i == this.mData.size() - 1) {
+                bVar.mZf.requestFocus();
+                this.mYZ = false;
             }
         } else if (viewHolder instanceof a) {
             a aVar = (a) viewHolder;
-            aVar.mYK.setText(String.format(this.mPageContext.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.mData.size())));
-            aVar.mYM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.c.3
+            aVar.mZc.setText(String.format(this.mPageContext.getString(R.string.write_add_vote_item), Integer.valueOf(20 - this.mData.size())));
+            aVar.mZe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.vote.c.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.mYI != null) {
-                        c.this.mYI.dJD();
-                        c.this.mYH = true;
+                    if (c.this.mZa != null) {
+                        c.this.mZa.dJM();
+                        c.this.mYZ = true;
                     }
                 }
             });
@@ -154,15 +154,15 @@ public class c extends RecyclerView.Adapter {
             gradientDrawable.setStroke(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.cp_border_d), 0.16f));
             if (viewHolder instanceof b) {
                 b bVar = (b) viewHolder;
-                bVar.mYN.setTextColor(ap.getColor(R.color.cp_cont_b));
-                bVar.mYN.setHintTextColor(ap.getColor(R.color.cp_cont_d));
-                bVar.mYN.setBackgroundDrawable(gradientDrawable);
-                SvgManager.bjq().a(bVar.mYO, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
+                bVar.mZf.setTextColor(ap.getColor(R.color.cp_cont_b));
+                bVar.mZf.setHintTextColor(ap.getColor(R.color.cp_cont_d));
+                bVar.mZf.setBackgroundDrawable(gradientDrawable);
+                SvgManager.bjq().a(bVar.mZg, R.drawable.ic_icon_mask_select_delete24_svg, SvgManager.SvgResourceStateType.NORMAL);
             } else if (viewHolder instanceof a) {
                 a aVar = (a) viewHolder;
-                ap.setViewTextColor(aVar.mYK, R.color.cp_link_tip_a);
-                aVar.mYM.setBackgroundDrawable(gradientDrawable);
-                SvgManager.bjq().a(aVar.mYL, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.cp_link_tip_a, SvgManager.SvgResourceStateType.NORMAL);
+                ap.setViewTextColor(aVar.mZc, R.color.cp_link_tip_a);
+                aVar.mZe.setBackgroundDrawable(gradientDrawable);
+                SvgManager.bjq().a(aVar.mZd, R.drawable.ic_icon_pure_post_addvote12_svg, R.color.cp_link_tip_a, SvgManager.SvgResourceStateType.NORMAL);
             }
         }
     }
@@ -174,27 +174,27 @@ public class c extends RecyclerView.Adapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b extends RecyclerView.ViewHolder {
-        public EditText mYN;
-        public ImageView mYO;
-        private d mYP;
+        public EditText mZf;
+        public ImageView mZg;
+        private d mZh;
 
         public b(View view) {
             super(view);
-            this.mYN = (EditText) view.findViewById(R.id.vote_item);
-            this.mYO = (ImageView) view.findViewById(R.id.img_delete);
-            this.mYP = new d(this);
-            this.mYN.setOnEditorActionListener(c.this.mOnEditorActionListener);
+            this.mZf = (EditText) view.findViewById(R.id.vote_item);
+            this.mZg = (ImageView) view.findViewById(R.id.img_delete);
+            this.mZh = new d(this);
+            this.mZf.setOnEditorActionListener(c.this.mOnEditorActionListener);
         }
 
         public void setPosition(int i) {
-            this.mYP.setPosition(i);
-            this.mYN.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.vote.c.b.1
+            this.mZh.setPosition(i);
+            this.mZf.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.write.write.vote.c.b.1
                 @Override // android.view.View.OnFocusChangeListener
                 public void onFocusChange(View view, boolean z) {
                     if (z) {
-                        b.this.mYN.addTextChangedListener(b.this.mYP);
+                        b.this.mZf.addTextChangedListener(b.this.mZh);
                     } else {
-                        b.this.mYN.removeTextChangedListener(b.this.mYP);
+                        b.this.mZf.removeTextChangedListener(b.this.mZh);
                     }
                 }
             });
@@ -204,26 +204,26 @@ public class c extends RecyclerView.Adapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends RecyclerView.ViewHolder {
-        public TextView mYK;
-        public ImageView mYL;
-        public RelativeLayout mYM;
+        public TextView mZc;
+        public ImageView mZd;
+        public RelativeLayout mZe;
 
         public a(View view) {
             super(view);
-            this.mYK = (TextView) view.findViewById(R.id.vote_add_item);
-            this.mYL = (ImageView) view.findViewById(R.id.vote_add_item_icon);
-            this.mYM = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
+            this.mZc = (TextView) view.findViewById(R.id.vote_add_item);
+            this.mZd = (ImageView) view.findViewById(R.id.vote_add_item_icon);
+            this.mZe = (RelativeLayout) view.findViewById(R.id.vote_add_item_back);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class d implements TextWatcher {
-        private final b mYR;
+        private final b mZj;
         private int position;
 
         public d(b bVar) {
-            this.mYR = bVar;
+            this.mZj = bVar;
         }
 
         public void setPosition(int i) {
@@ -249,12 +249,12 @@ public class c extends RecyclerView.Adapter {
                 writeVoteItemData.setId(this.position + 1);
                 if (ae.getTextLengthWithEmoji(obj) > 28) {
                     obj = ae.subStringWithEmoji(obj, 28);
-                    this.mYR.mYN.setText(obj);
-                    this.mYR.mYN.setSelection(obj.length());
+                    this.mZj.mZf.setText(obj);
+                    this.mZj.mZf.setSelection(obj.length());
                     c.this.mPageContext.showToast(String.format(c.this.mPageContext.getString(R.string.write_vote_toast), 14));
                 }
                 writeVoteItemData.setText(obj);
-                c.this.mYI.a(writeVoteItemData, this.position);
+                c.this.mZa.a(writeVoteItemData, this.position);
             }
         }
     }

@@ -26,29 +26,29 @@ public class n {
     }
 
     public static boolean a(TbPageContext tbPageContext, com.baidu.live.data.r rVar, g gVar, String str) {
-        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || rVar == null || rVar.mLiveInfo == null || rVar.aEd == null) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null || gVar == null || rVar == null || rVar.mLiveInfo == null || rVar.aEf == null) {
             return false;
         }
         if (gVar.Eq()) {
-            if (gVar.Em() == 6 && rVar.aEd.levelId < 3) {
+            if (gVar.Em() == 6 && rVar.aEf.levelId < 3) {
                 return false;
             }
-            if (gVar.Em() == 7 && rVar.aEd.levelId < 7) {
+            if (gVar.Em() == 7 && rVar.aEf.levelId < 7) {
                 return false;
             }
-            if (gVar.Em() == 8 && rVar.aEd.levelId < 13) {
+            if (gVar.Em() == 8 && rVar.aEf.levelId < 13) {
                 return false;
             }
-            if (gVar.Em() == 9 && rVar.aEd.levelId < 22) {
+            if (gVar.Em() == 9 && rVar.aEf.levelId < 22) {
                 return false;
             }
-            if (gVar.Em() == 10 && rVar.aEd.levelId < 29) {
+            if (gVar.Em() == 10 && rVar.aEf.levelId < 29) {
                 return false;
             }
-            if (gVar.Em() == 11 && rVar.aEd.levelId < 39) {
+            if (gVar.Em() == 11 && rVar.aEf.levelId < 39) {
                 return false;
             }
-            if (gVar.Em() == 12 && rVar.aEd.levelId < 47) {
+            if (gVar.Em() == 12 && rVar.aEf.levelId < 47) {
                 return false;
             }
         }
@@ -58,13 +58,13 @@ public class n {
                     BdUtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getResources().getString(a.i.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                v.b(gVar, 1, rVar.aDE.userId + "", rVar.aDE.userName, rVar.mLiveInfo.live_id + "", rVar.mLiveInfo.room_id + "", rVar.mLiveInfo.appId + "", rVar.mLiveInfo.feed_id + "", str, 0L);
+                v.b(gVar, 1, rVar.aDG.userId + "", rVar.aDG.userName, rVar.mLiveInfo.live_id + "", rVar.mLiveInfo.room_id + "", rVar.mLiveInfo.appId + "", rVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, rVar.mLiveInfo.feed_id, rVar.mLiveInfo.live_id + "", str);
             } else if (TbadkCoreApplication.getInst().currentAccountTdouNum <= 0 || TbadkCoreApplication.getInst().currentAccountTdouNum < JavaTypesHelper.toLong(gVar.getPrice(), 0L) * 1) {
                 a(tbPageContext, str);
                 return false;
             } else {
-                v.b(gVar, 1, rVar.aDE.userId + "", rVar.aDE.userName, rVar.mLiveInfo.live_id + "", rVar.mLiveInfo.room_id + "", rVar.mLiveInfo.appId + "", rVar.mLiveInfo.feed_id + "", str, 0L);
+                v.b(gVar, 1, rVar.aDG.userId + "", rVar.aDG.userName, rVar.mLiveInfo.live_id + "", rVar.mLiveInfo.room_id + "", rVar.mLiveInfo.appId + "", rVar.mLiveInfo.feed_id + "", str, 0L);
                 a(gVar, rVar.mLiveInfo.feed_id, rVar.mLiveInfo.live_id + "", str);
             }
         }

@@ -10,24 +10,24 @@ import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
-    private AgreeView.a etr;
+    private AgreeView.a etv;
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context) {
         super(context);
-        this.etr = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
+        this.etv = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
             public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.iz(z);
+                ThreadCardBottomOpSegmentWeightLayout.this.iA(z);
             }
         };
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.etr = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
+        this.etv = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
             @Override // com.baidu.tbadk.core.view.AgreeView.a
             public void e(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.iz(z);
+                ThreadCardBottomOpSegmentWeightLayout.this.iA(z);
             }
         };
     }
@@ -40,26 +40,26 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void aag() {
-        this.etw.setVisibilityListener(this.etr);
-        this.etw.ip(true);
+        this.etA.setVisibilityListener(this.etv);
+        this.etA.iq(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iz(boolean z) {
+    public void iA(boolean z) {
         if (bkR()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.etw.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.etA.getLayoutParams();
             float f = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.etw.setLayoutParams(layoutParams);
+            this.etA.setLayoutParams(layoutParams);
         }
     }
 
     private boolean bkR() {
-        boolean bki = this.etw.bki();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.etw.getLayoutParams();
+        boolean bki = this.etA.bki();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.etA.getLayoutParams();
         int i = layoutParams.width;
         if (layoutParams.weight != (bki ? 1.0f : 2.0f) || i != 0) {
             return true;

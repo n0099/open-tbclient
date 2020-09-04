@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public String mErrorMessage;
     public int mErrorNo;
     public String mVideoUrl;
-    public ArrayList<Integer> mic;
-    public String mie;
+    public ArrayList<Integer> mit;
+    public String miu;
 
     public void parseJson(String str) {
         if (!StringUtils.isNull(str)) {
@@ -21,12 +21,12 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.mic = new ArrayList<>();
+                        this.mit = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.mic.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.mit.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.mie = optJSONObject.optString("upload_id");
+                    this.miu = optJSONObject.optString("upload_id");
                     this.mVideoUrl = optJSONObject.optString("video_url");
                 }
             } catch (JSONException e) {

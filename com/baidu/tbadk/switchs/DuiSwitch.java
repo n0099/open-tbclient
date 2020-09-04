@@ -1,5 +1,5 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class DuiSwitch extends BaseNormalSwitch {
     private static DuiSwitch mInstance = new DuiSwitch();
 

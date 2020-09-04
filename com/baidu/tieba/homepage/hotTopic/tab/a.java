@@ -12,7 +12,7 @@ public class a {
     public static void a(View view, Object obj, int i, String str) {
         if (obj instanceof com.baidu.tieba.homepage.hotTopic.tab.b.c) {
             com.baidu.tieba.homepage.hotTopic.tab.b.c cVar = (com.baidu.tieba.homepage.hotTopic.tab.b.c) obj;
-            if (cVar.iLO) {
+            if (cVar.iLU) {
                 aq aqVar = new aq("c13736");
                 aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
                 aqVar.bjn();
@@ -24,7 +24,7 @@ public class a {
             aqVar2.dD("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar2.bjn();
         } else if (obj instanceof e) {
-            bw bwVar = ((e) obj).dUS;
+            bw bwVar = ((e) obj).dUW;
             aq aqVar3 = new aq("c13738");
             aqVar3.dD("obj_type", str);
             aqVar3.dD("uid", TbadkCoreApplication.getCurrentAccount());
@@ -53,7 +53,7 @@ public class a {
 
     public static void a(View view, Object obj, String str) {
         if (obj instanceof e) {
-            bw bwVar = ((e) obj).dUS;
+            bw bwVar = ((e) obj).dUW;
             aq aqVar = new aq("c13825");
             aqVar.dD("obj_type", str);
             aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());

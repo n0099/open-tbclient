@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     public ForbidParentSwipeBackRelativeLayout(Context context) {
         super(context);

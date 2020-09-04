@@ -2,7 +2,7 @@ package com.baidu.tbadk.browser.newshare;
 
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ThreadAchievementShareInfo implements Serializable {
     private String desc;
     private String fr;
@@ -50,7 +50,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         this.fr = str;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ParamBean implements Serializable {
         private long agree_num;
         private List<ContentBean> content;
@@ -202,7 +202,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class UserBean implements Serializable {
         private String img;
         private String user_img;
@@ -233,7 +233,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ThreadListBean implements Serializable {
         private int duration;
         private String hotvalue;
@@ -300,7 +300,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ContentBean implements Serializable {
         private String height;
         private String src;
@@ -349,7 +349,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoInfoBean implements Serializable {
         private int auditing;
         private int format_matched;
@@ -515,7 +515,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoDescBean implements Serializable {
         private int video_height;
         private int video_id;
@@ -564,7 +564,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoDescCaeBean implements Serializable {
         private int video_height;
         private int video_id;
@@ -613,7 +613,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class VideoDescH265Bean implements Serializable {
         private int video_height;
         private int video_id;

@@ -105,13 +105,13 @@ public class a {
         } else {
             Uq = Uq();
         }
-        if (!hZ(Uq)) {
+        if (!ia(Uq)) {
             Uq = Up();
         }
         return !TextUtils.isEmpty(Uq) ? Uq.toUpperCase() : Uq;
     }
 
-    private static boolean hZ(String str) {
+    private static boolean ia(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 }

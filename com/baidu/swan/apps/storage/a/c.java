@@ -32,9 +32,9 @@ public class c extends aa {
         }
         String optString = optParamsAsJo.optString("filePath");
         String str = "";
-        if (com.baidu.swan.apps.storage.b.rJ(optString) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.BD_FILE) {
             str = com.baidu.swan.apps.storage.b.cn(optString, com.baidu.swan.apps.runtime.e.azK());
-        } else if (com.baidu.swan.apps.storage.b.rJ(optString) == PathType.RELATIVE) {
+        } else if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.RELATIVE) {
             str = com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion());
         }
         if (DEBUG) {

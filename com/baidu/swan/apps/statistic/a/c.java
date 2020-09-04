@@ -7,46 +7,46 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bez;
-    private int cXt;
-    private String cXu;
-    private String cXv;
-    private long cXw;
-    private long cXx;
+    private String beB;
+    private long cXA;
+    private long cXB;
+    private int cXx;
+    private String cXy;
+    private String cXz;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.cXt = i;
-        this.bez = "0";
+        this.cXx = i;
+        this.beB = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.cXt = i2;
-        this.bez = "1";
+        this.cXx = i2;
+        this.beB = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.cXt = i2;
-        this.cXw = j;
-        this.cXx = j2;
+        this.cXx = i2;
+        this.cXA = j;
+        this.cXB = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.bez = "2";
+            this.beB = "2";
         } else {
-            this.bez = "1";
+            this.beB = "1";
         }
     }
 
-    public void rs(String str) {
-        this.cXu = str;
+    public void rt(String str) {
+        this.cXy = str;
     }
 
     public String getRequestUrl() {
@@ -54,40 +54,40 @@ public class c extends f {
     }
 
     public String aCH() {
-        return this.bez;
+        return this.beB;
     }
 
-    public void rt(String str) {
-        this.cXv = str;
+    public void ru(String str) {
+        this.cXz = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cXz == null) {
-            this.cXz = new JSONObject();
+        if (this.cXD == null) {
+            this.cXD = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.bez, "1") || TextUtils.equals(this.bez, "2")) {
-                this.cXz.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.beB, "1") || TextUtils.equals(this.beB, "2")) {
+                this.cXD.put("errorno", this.mErrCode);
             }
-            this.mRequestUrl = com.baidu.swan.apps.statistic.g.rm(this.mRequestUrl);
-            this.cXz.put("url", this.mRequestUrl);
-            this.cXz.put("netStatus", this.cXt);
+            this.mRequestUrl = com.baidu.swan.apps.statistic.g.rn(this.mRequestUrl);
+            this.cXD.put("url", this.mRequestUrl);
+            this.cXD.put("netStatus", this.cXx);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.cXz.put("msg", this.mMsg);
+                this.cXD.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.cXu)) {
-                this.cXz.put("pagetype", this.cXu);
+            if (!TextUtils.isEmpty(this.cXy)) {
+                this.cXD.put("pagetype", this.cXy);
             }
-            if (!TextUtils.isEmpty(this.cXv)) {
-                this.cXz.put("curpage", this.cXv);
+            if (!TextUtils.isEmpty(this.cXz)) {
+                this.cXD.put("curpage", this.cXz);
             }
-            if (!TextUtils.isEmpty(this.bez)) {
-                this.cXz.put("requesttype", this.bez);
+            if (!TextUtils.isEmpty(this.beB)) {
+                this.cXD.put("requesttype", this.beB);
             }
-            if (this.cXx - this.cXw > 0) {
-                this.cXz.put("startTime", this.cXw);
-                this.cXz.put("endTime", this.cXx);
+            if (this.cXB - this.cXA > 0) {
+                this.cXD.put("startTime", this.cXA);
+                this.cXD.put("endTime", this.cXB);
             }
         } catch (JSONException e) {
             if (DEBUG) {

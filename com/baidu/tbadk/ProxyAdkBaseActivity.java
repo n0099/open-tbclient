@@ -51,7 +51,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -544,7 +544,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         UtilHelper.quitDialog(getActivity());
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     class DelayRunnable implements Runnable {
         private View mView;
 
@@ -561,7 +561,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public abstract class LoadDataCallBack {
         public abstract void callback(Object... objArr);
 
@@ -839,7 +839,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

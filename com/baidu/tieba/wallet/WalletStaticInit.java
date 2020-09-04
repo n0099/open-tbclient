@@ -11,7 +11,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WalletStaticInit {
     public static void init() {
         be.bju().a(new be.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1

@@ -5,9 +5,9 @@ public interface b {
 
     c KQ(int i);
 
-    int[] dNE();
+    int[] dNN();
 
-    boolean dNF();
+    boolean dNO();
 
     int getFrameCount();
 

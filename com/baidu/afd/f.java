@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static e j(JSONObject jSONObject, String str) throws ParseError {
@@ -99,8 +99,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Yf = z;
-                eVar.Yg = com.baidu.tieba.lego.card.b.LC(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Yh = z;
+                eVar.Yi = com.baidu.tieba.lego.card.b.LD(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

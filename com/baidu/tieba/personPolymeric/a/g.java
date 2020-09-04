@@ -26,14 +26,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> aVar) {
-        if (aVar == null || aVar.ccE() == null || hVar == null) {
+        if (aVar == null || aVar.ccF() == null || hVar == null) {
             return null;
         }
-        aVar.ccE().a(hVar);
-        if (aVar.ccE().getView() != null) {
-            aVar.ccE().getView().setOnClickListener(this.mOnClickListener);
+        aVar.ccF().a(hVar);
+        if (aVar.ccF().getView() != null) {
+            aVar.ccF().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.ccE().getView();
+        return aVar.ccF().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

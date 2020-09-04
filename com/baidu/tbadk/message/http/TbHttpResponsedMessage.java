@@ -6,7 +6,7 @@ import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.util.ad;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
         super(i);

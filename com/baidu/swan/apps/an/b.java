@@ -10,20 +10,20 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String das;
+    private static String dax;
 
     public static String aEi() {
-        return so("swan");
+        return sp("swan");
     }
 
     public static String alj() {
-        return so("swangame");
+        return sp("swangame");
     }
 
-    private static String so(String str) {
+    private static String sp(String str) {
         String hostName = com.baidu.swan.apps.t.a.apw().getHostName();
         a aVar = new a();
-        aVar.sp(str).sq(c.getVersion()).ss(hostName).st(getVersionName()).su(getOSVersion());
+        aVar.sq(str).ss(c.getVersion()).st(hostName).su(getVersionName()).sv(getOSVersion());
         return aVar.aEj();
     }
 
@@ -32,12 +32,12 @@ public class b {
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(das)) {
-            return das;
+        if (!TextUtils.isEmpty(dax)) {
+            return dax;
         }
         try {
-            das = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return das;
+            dax = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return dax;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,46 +56,46 @@ public class b {
 
     /* loaded from: classes8.dex */
     public static class a {
-        private String amh;
-        private String dau;
-        private String dav;
-        private String daw;
-        private String dax;
-        private static String daz = "%s/%s";
-        private static String daA = "%s-%s/%s";
-        private static String daB = "(Baidu; P1 %s)";
-        private static String daC = "%s/%s";
-
-        public a sp(String str) {
-            this.dau = str;
-            return this;
-        }
+        private static String daD = "%s/%s";
+        private static String daE = "%s-%s/%s";
+        private static String daF = "(Baidu; P1 %s)";
+        private static String daG = "%s/%s";
+        private String amj;
+        private String daA;
+        private String daB;
+        private String daC;
+        private String daz;
 
         public a sq(String str) {
-            this.dav = str;
+            this.daz = str;
             return this;
         }
 
         public a ss(String str) {
-            this.daw = str;
+            this.daA = str;
             return this;
         }
 
         public a st(String str) {
-            this.dax = str;
+            this.daB = str;
             return this;
         }
 
         public a su(String str) {
-            this.amh = str;
+            this.daC = str;
+            return this;
+        }
+
+        public a sv(String str) {
+            this.amj = str;
             return this;
         }
 
         public String aEj() {
-            String format = String.format(daz, this.dau, this.dav);
-            String format2 = String.format(daA, this.dau, this.daw, this.dax);
-            String format3 = String.format(daC, this.daw, this.dax);
-            String format4 = String.format(daB, this.amh);
+            String format = String.format(daD, this.daz, this.daA);
+            String format2 = String.format(daE, this.daz, this.daB, this.daC);
+            String format3 = String.format(daG, this.daB, this.daC);
+            String format4 = String.format(daF, this.amj);
             if (aEk()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
@@ -103,7 +103,7 @@ public class b {
         }
 
         private boolean aEk() {
-            return TextUtils.equals("baiduboxapp", this.daw);
+            return TextUtils.equals("baiduboxapp", this.daB);
         }
     }
 }

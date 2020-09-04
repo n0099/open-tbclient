@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static BdAsyncTask<?, ?, ?> a(final String str, String str2, String str3, String str4, final a.InterfaceC0536a interfaceC0536a) {
         com.baidu.tbadk.core.a.d dVar = new com.baidu.tbadk.core.a.d();
@@ -45,11 +45,11 @@ public class b {
         return aVar;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String kgN;
-        private final a.InterfaceC0536a kgO;
-        private final boolean kgP;
+        private final String kgU;
+        private final a.InterfaceC0536a kgV;
+        private final boolean kgW;
         private final String mName;
         private volatile aa mNetwork = null;
         private final String mPtoken;
@@ -57,10 +57,10 @@ public class b {
 
         public a(String str, String str2, String str3, a.InterfaceC0536a interfaceC0536a, boolean z) {
             this.mName = str;
-            this.kgN = str2;
+            this.kgU = str2;
             this.mPtoken = str3;
-            this.kgP = z;
-            this.kgO = interfaceC0536a == null ? new a.InterfaceC0536a() { // from class: com.baidu.tieba.model.b.a.1
+            this.kgW = z;
+            this.kgV = interfaceC0536a == null ? new a.InterfaceC0536a() { // from class: com.baidu.tieba.model.b.a.1
                 @Override // com.baidu.tbadk.core.a.a.InterfaceC0536a
                 public void onBeforeLogin(String str4) {
                 }
@@ -83,7 +83,7 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.kgO.onBeforeLogin(this.mName);
+            this.kgV.onBeforeLogin(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class b {
             a.b a;
             this.mNetwork = new aa(TbConfig.LOGIN_FULL_ADDRESS);
             this.mNetwork.biQ().bjv().mIsUseCurrentBDUSS = false;
-            this.mNetwork.addPostData("bdusstoken", this.kgN + "|" + this.mPtoken);
+            this.mNetwork.addPostData("bdusstoken", this.kgU + "|" + this.mPtoken);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.addPostData("stoken", this.mStoken);
             }
@@ -117,8 +117,8 @@ public class b {
                 accountData2.setAccount(anVar.getUser().getUserName());
                 accountData2.setPassword("");
                 accountData2.setID(anVar.getUser().getUserId());
-                String str = this.kgN;
-                if (this.kgP && (a = e.a(com.baidu.tbadk.core.a.a.bbN().yM(str))) != null) {
+                String str = this.kgU;
+                if (this.kgW && (a = e.a(com.baidu.tbadk.core.a.a.bbN().yN(str))) != null) {
                     str = a.mBduss + "|" + a.mPtoken;
                 }
                 accountData2.setBDUSS(str);
@@ -187,10 +187,10 @@ public class b {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.bid().ij(false);
+            ReloginManager.bid().ik(false);
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "cslogin_result", this.mNetwork.getServerErrorCode(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.kgO.a(accountData);
+                this.kgV.a(accountData);
                 return;
             }
             String str = null;
@@ -201,7 +201,7 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
             }
-            this.kgO.onFailure(this.mName, i, str);
+            this.kgV.onFailure(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

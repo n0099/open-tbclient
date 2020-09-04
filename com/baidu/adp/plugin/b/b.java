@@ -17,7 +17,7 @@ public class b {
     private long startTime;
     private String type;
 
-    private static b cr(String str) {
+    private static b cs(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
@@ -34,7 +34,7 @@ public class b {
     }
 
     public static b pB() {
-        return cr("plugin_load");
+        return cs("plugin_load");
     }
 
     public static void F(String str, String str2) {

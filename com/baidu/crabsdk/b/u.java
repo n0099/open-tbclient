@@ -13,11 +13,11 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> anB = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static com.baidu.crabsdk.c.b<List> anD = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
     private static String bv = "";
     private static String bc = "";
-    private static int anC = 0;
-    private static int anD = 0;
+    private static int anE = 0;
+    private static int anF = 0;
 
     private static WebView J(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class u {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, anC, anD)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, anE, anF)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -42,7 +42,7 @@ public final class u {
     }
 
     public static String U() {
-        return anB.size() > 0 ? new JSONArray((Collection) anB).toString() : "";
+        return anD.size() > 0 ? new JSONArray((Collection) anD).toString() : "";
     }
 
     public static boolean uU() {
@@ -59,11 +59,11 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (anC == 0 || anD == 0) {
+        if (anE == 0 || anF == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            anD = displayMetrics.heightPixels;
-            anC = displayMetrics.widthPixels;
+            anF = displayMetrics.heightPixels;
+            anE = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
@@ -71,7 +71,7 @@ public final class u {
                 if (!name.equals(bc)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
                     bc = name;
-                    anB.clear();
+                    anD.clear();
                 }
                 if (activity != null) {
                     try {
@@ -90,7 +90,7 @@ public final class u {
                                 arrayList.add(J.getTitle());
                                 arrayList.add(bv);
                                 com.baidu.crabsdk.c.a.v("title:" + J.getTitle() + "; url:" + bv);
-                                anB.add(arrayList);
+                                anD.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + U());
                                 return;
                             }

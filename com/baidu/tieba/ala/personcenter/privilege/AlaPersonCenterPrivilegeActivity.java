@@ -16,8 +16,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
-    private LinkedList<AbsFragment> gUb = new LinkedList<>();
-    private AlaPrivilegeFragmentAdapter gUc;
+    private LinkedList<AbsFragment> gUf = new LinkedList<>();
+    private AlaPrivilegeFragmentAdapter gUg;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -29,12 +29,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void onPreInit() {
         super.onPreInit();
-        if (!y.isEmpty(this.gUb)) {
-            this.gUb.clear();
+        if (!y.isEmpty(this.gUf)) {
+            this.gUf.clear();
         }
-        this.gUb.add(new AlaAchievementMarkFragment());
-        this.gUb.add(new AlaEnterEffectFragment());
-        this.gUc = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.gUb);
+        this.gUf.add(new AlaAchievementMarkFragment());
+        this.gUf.add(new AlaEnterEffectFragment());
+        this.gUg = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.gUf);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -50,15 +50,15 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.gUc;
+        return this.gUg;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!y.isEmpty(this.gUb)) {
-            Iterator<AbsFragment> it = this.gUb.iterator();
+        if (!y.isEmpty(this.gUf)) {
+            Iterator<AbsFragment> it = this.gUf.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {

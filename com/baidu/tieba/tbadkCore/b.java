@@ -1,15 +1,15 @@
 package com.baidu.tieba.tbadkCore;
 
 import tbclient.FrsPage.Group;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private int mcw = 0;
-    private int mcx = 0;
+    private int mcL = 0;
+    private int mcM = 0;
 
     public void a(Group group) {
         if (group != null) {
-            this.mcw = group.group_count.intValue();
-            this.mcx = group.hide_recommend_group.intValue();
+            this.mcL = group.group_count.intValue();
+            this.mcM = group.hide_recommend_group.intValue();
         }
     }
 }

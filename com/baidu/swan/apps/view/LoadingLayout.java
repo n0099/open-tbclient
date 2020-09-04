@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes8.dex */
 public class LoadingLayout extends LinearLayout {
-    private ImageView ddb;
-    private TextView ddc;
+    private ImageView ddf;
+    private TextView ddg;
 
     public LoadingLayout(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class LoadingLayout extends LinearLayout {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.swanapp_album_loadding_layout, (ViewGroup) null);
         inflate.setBackgroundResource(a.c.aiapps_white);
-        this.ddb = (ImageView) inflate.findViewById(a.f.album_loadding_img);
-        this.ddc = (TextView) inflate.findViewById(a.f.album_loadding_tv);
+        this.ddf = (ImageView) inflate.findViewById(a.f.album_loadding_img);
+        this.ddg = (TextView) inflate.findViewById(a.f.album_loadding_tv);
         addView(inflate);
     }
 
-    public void gh(boolean z) {
+    public void gi(boolean z) {
         if (z) {
             setVisibility(0);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0331a.swanapp_album_rotate_loading);
-            this.ddb.setImageResource(a.e.swanapp_album_progress_icon);
-            this.ddb.startAnimation(loadAnimation);
+            this.ddf.setImageResource(a.e.swanapp_album_progress_icon);
+            this.ddf.startAnimation(loadAnimation);
             return;
         }
         setVisibility(8);

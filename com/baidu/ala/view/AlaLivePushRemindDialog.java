@@ -23,12 +23,12 @@ public class AlaLivePushRemindDialog {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
                 d.boy().pE(300);
-                d.boy().iQ(true);
                 d.boy().iR(true);
-                d.boy().iP(true);
-                d.boy().iH(true);
+                d.boy().iS(true);
+                d.boy().iQ(true);
                 d.boy().iI(true);
-                d.boy().iG(true);
+                d.boy().iJ(true);
+                d.boy().iH(true);
                 AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
             }
         }

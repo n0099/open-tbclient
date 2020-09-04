@@ -16,51 +16,51 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoControllerView extends RelativeLayout {
-    private int dMm;
-    private int fpd;
-    private MediaController.MediaPlayerControl fpe;
-    protected TextView fpf;
-    protected TextView fpg;
-    protected SeekBar fph;
-    private SeekBar.OnSeekBarChangeListener fpk;
-    private SeekBar.OnSeekBarChangeListener fpl;
-    private b jSt;
-    private a jSu;
+    private int dMq;
+    private int fph;
+    private MediaController.MediaPlayerControl fpi;
+    protected TextView fpj;
+    protected TextView fpk;
+    protected SeekBar fpl;
+    private SeekBar.OnSeekBarChangeListener fpo;
+    private SeekBar.OnSeekBarChangeListener fpp;
+    private a jSA;
+    private b jSz;
     private Context mContext;
     private boolean mDragging;
     protected int mDuration;
     private Handler mHandler;
     private boolean mShowing;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void bBq();
+        void bBr();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void se(int i);
     }
 
     public VideoControllerView(Context context) {
         super(context);
-        this.fpd = 50;
+        this.fph = 50;
         this.mDragging = false;
         this.mShowing = true;
-        this.dMm = 0;
+        this.dMq = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.VideoControllerView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpe != null && VideoControllerView.this.fpe.isPlaying()) {
-                            int bBp = VideoControllerView.this.bBp();
-                            if (VideoControllerView.this.jSt != null) {
-                                VideoControllerView.this.jSt.se(bBp);
+                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpi != null && VideoControllerView.this.fpi.isPlaying()) {
+                            int bBq = VideoControllerView.this.bBq();
+                            if (VideoControllerView.this.jSz != null) {
+                                VideoControllerView.this.jSz.se(bBq);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fpd - (bBp % VideoControllerView.this.fpd));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fph - (bBq % VideoControllerView.this.fph));
                             return;
                         }
                         return;
@@ -69,14 +69,14 @@ public class VideoControllerView extends RelativeLayout {
                 }
             }
         };
-        this.fpl = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
+        this.fpp = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
                 VideoControllerView.this.mDragging = true;
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStartTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStartTrackingTouch(seekBar);
                 }
                 VideoControllerView.this.mHandler.removeMessages(1);
             }
@@ -84,15 +84,15 @@ public class VideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
                 if (z) {
-                    VideoControllerView.this.dMm = (int) ((VideoControllerView.this.fpe.getDuration() * i) / 10000);
-                    if (VideoControllerView.this.fpf != null) {
-                        VideoControllerView.this.fpf.setText(at.stringForVideoTime(VideoControllerView.this.dMm));
+                    VideoControllerView.this.dMq = (int) ((VideoControllerView.this.fpi.getDuration() * i) / 10000);
+                    if (VideoControllerView.this.fpj != null) {
+                        VideoControllerView.this.fpj.setText(at.stringForVideoTime(VideoControllerView.this.dMq));
                     }
-                    if (VideoControllerView.this.jSu != null) {
-                        VideoControllerView.this.jSu.bBq();
+                    if (VideoControllerView.this.jSA != null) {
+                        VideoControllerView.this.jSA.bBr();
                     }
-                    if (VideoControllerView.this.fpk != null) {
-                        VideoControllerView.this.fpk.onProgressChanged(seekBar, VideoControllerView.this.dMm, z);
+                    if (VideoControllerView.this.fpo != null) {
+                        VideoControllerView.this.fpo.onProgressChanged(seekBar, VideoControllerView.this.dMq, z);
                     }
                 }
             }
@@ -101,11 +101,11 @@ public class VideoControllerView extends RelativeLayout {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
-                VideoControllerView.this.fpe.seekTo(VideoControllerView.this.dMm);
+                VideoControllerView.this.fpi.seekTo(VideoControllerView.this.dMq);
                 VideoControllerView.this.mDragging = false;
                 VideoControllerView.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStopTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -114,21 +114,21 @@ public class VideoControllerView extends RelativeLayout {
 
     public VideoControllerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fpd = 50;
+        this.fph = 50;
         this.mDragging = false;
         this.mShowing = true;
-        this.dMm = 0;
+        this.dMq = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.VideoControllerView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpe != null && VideoControllerView.this.fpe.isPlaying()) {
-                            int bBp = VideoControllerView.this.bBp();
-                            if (VideoControllerView.this.jSt != null) {
-                                VideoControllerView.this.jSt.se(bBp);
+                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpi != null && VideoControllerView.this.fpi.isPlaying()) {
+                            int bBq = VideoControllerView.this.bBq();
+                            if (VideoControllerView.this.jSz != null) {
+                                VideoControllerView.this.jSz.se(bBq);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fpd - (bBp % VideoControllerView.this.fpd));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fph - (bBq % VideoControllerView.this.fph));
                             return;
                         }
                         return;
@@ -137,14 +137,14 @@ public class VideoControllerView extends RelativeLayout {
                 }
             }
         };
-        this.fpl = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
+        this.fpp = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
                 VideoControllerView.this.mDragging = true;
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStartTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStartTrackingTouch(seekBar);
                 }
                 VideoControllerView.this.mHandler.removeMessages(1);
             }
@@ -152,15 +152,15 @@ public class VideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
                 if (z) {
-                    VideoControllerView.this.dMm = (int) ((VideoControllerView.this.fpe.getDuration() * i) / 10000);
-                    if (VideoControllerView.this.fpf != null) {
-                        VideoControllerView.this.fpf.setText(at.stringForVideoTime(VideoControllerView.this.dMm));
+                    VideoControllerView.this.dMq = (int) ((VideoControllerView.this.fpi.getDuration() * i) / 10000);
+                    if (VideoControllerView.this.fpj != null) {
+                        VideoControllerView.this.fpj.setText(at.stringForVideoTime(VideoControllerView.this.dMq));
                     }
-                    if (VideoControllerView.this.jSu != null) {
-                        VideoControllerView.this.jSu.bBq();
+                    if (VideoControllerView.this.jSA != null) {
+                        VideoControllerView.this.jSA.bBr();
                     }
-                    if (VideoControllerView.this.fpk != null) {
-                        VideoControllerView.this.fpk.onProgressChanged(seekBar, VideoControllerView.this.dMm, z);
+                    if (VideoControllerView.this.fpo != null) {
+                        VideoControllerView.this.fpo.onProgressChanged(seekBar, VideoControllerView.this.dMq, z);
                     }
                 }
             }
@@ -169,11 +169,11 @@ public class VideoControllerView extends RelativeLayout {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
-                VideoControllerView.this.fpe.seekTo(VideoControllerView.this.dMm);
+                VideoControllerView.this.fpi.seekTo(VideoControllerView.this.dMq);
                 VideoControllerView.this.mDragging = false;
                 VideoControllerView.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStopTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -182,21 +182,21 @@ public class VideoControllerView extends RelativeLayout {
 
     public VideoControllerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fpd = 50;
+        this.fph = 50;
         this.mDragging = false;
         this.mShowing = true;
-        this.dMm = 0;
+        this.dMq = 0;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.VideoControllerView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpe != null && VideoControllerView.this.fpe.isPlaying()) {
-                            int bBp = VideoControllerView.this.bBp();
-                            if (VideoControllerView.this.jSt != null) {
-                                VideoControllerView.this.jSt.se(bBp);
+                        if (!VideoControllerView.this.mDragging && VideoControllerView.this.mShowing && VideoControllerView.this.fpi != null && VideoControllerView.this.fpi.isPlaying()) {
+                            int bBq = VideoControllerView.this.bBq();
+                            if (VideoControllerView.this.jSz != null) {
+                                VideoControllerView.this.jSz.se(bBq);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fpd - (bBp % VideoControllerView.this.fpd));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.fph - (bBq % VideoControllerView.this.fph));
                             return;
                         }
                         return;
@@ -205,14 +205,14 @@ public class VideoControllerView extends RelativeLayout {
                 }
             }
         };
-        this.fpl = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
+        this.fpp = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.play.VideoControllerView.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
                 VideoControllerView.this.mDragging = true;
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStartTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStartTrackingTouch(seekBar);
                 }
                 VideoControllerView.this.mHandler.removeMessages(1);
             }
@@ -220,15 +220,15 @@ public class VideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
                 if (z) {
-                    VideoControllerView.this.dMm = (int) ((VideoControllerView.this.fpe.getDuration() * i2) / 10000);
-                    if (VideoControllerView.this.fpf != null) {
-                        VideoControllerView.this.fpf.setText(at.stringForVideoTime(VideoControllerView.this.dMm));
+                    VideoControllerView.this.dMq = (int) ((VideoControllerView.this.fpi.getDuration() * i2) / 10000);
+                    if (VideoControllerView.this.fpj != null) {
+                        VideoControllerView.this.fpj.setText(at.stringForVideoTime(VideoControllerView.this.dMq));
                     }
-                    if (VideoControllerView.this.jSu != null) {
-                        VideoControllerView.this.jSu.bBq();
+                    if (VideoControllerView.this.jSA != null) {
+                        VideoControllerView.this.jSA.bBr();
                     }
-                    if (VideoControllerView.this.fpk != null) {
-                        VideoControllerView.this.fpk.onProgressChanged(seekBar, VideoControllerView.this.dMm, z);
+                    if (VideoControllerView.this.fpo != null) {
+                        VideoControllerView.this.fpo.onProgressChanged(seekBar, VideoControllerView.this.dMq, z);
                     }
                 }
             }
@@ -237,11 +237,11 @@ public class VideoControllerView extends RelativeLayout {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
                 seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
-                VideoControllerView.this.fpe.seekTo(VideoControllerView.this.dMm);
+                VideoControllerView.this.fpi.seekTo(VideoControllerView.this.dMq);
                 VideoControllerView.this.mDragging = false;
                 VideoControllerView.this.mHandler.sendEmptyMessageDelayed(1, 500L);
-                if (VideoControllerView.this.fpk != null) {
-                    VideoControllerView.this.fpk.onStopTrackingTouch(seekBar);
+                if (VideoControllerView.this.fpo != null) {
+                    VideoControllerView.this.fpo.onStopTrackingTouch(seekBar);
                 }
             }
         };
@@ -252,10 +252,10 @@ public class VideoControllerView extends RelativeLayout {
         this.mContext = context;
         View eu = eu(context);
         addView(eu, -1, -2);
-        this.fpf = (TextView) eu.findViewById(R.id.textview_cur_time);
-        this.fpg = (TextView) eu.findViewById(R.id.textview_duration);
-        this.fph = (SeekBar) eu.findViewById(R.id.pb_video_controller_seekBar);
-        this.fph.setOnSeekBarChangeListener(this.fpl);
+        this.fpj = (TextView) eu.findViewById(R.id.textview_cur_time);
+        this.fpk = (TextView) eu.findViewById(R.id.textview_duration);
+        this.fpl = (SeekBar) eu.findViewById(R.id.pb_video_controller_seekBar);
+        this.fpl.setOnSeekBarChangeListener(this.fpp);
     }
 
     protected View eu(Context context) {
@@ -263,19 +263,19 @@ public class VideoControllerView extends RelativeLayout {
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.fpe = mediaPlayerControl;
+        this.fpi = mediaPlayerControl;
     }
 
     public void bz(int i, int i2) {
         this.mDuration = i2;
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        this.fph.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-        if (this.fpf != null) {
-            this.fpf.setText(at.stringForVideoTime(i));
+        this.fpl.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.fpj != null) {
+            this.fpj.setText(at.stringForVideoTime(i));
         }
-        if (this.fpg != null) {
-            this.fpg.setText(at.stringForVideoTime(this.mDuration));
+        if (this.fpk != null) {
+            this.fpk.setText(at.stringForVideoTime(this.mDuration));
         }
     }
 
@@ -283,63 +283,63 @@ public class VideoControllerView extends RelativeLayout {
         this.mDuration = i;
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        if (this.fpg != null) {
-            this.fpg.setText(at.stringForVideoTime(this.mDuration));
+        if (this.fpk != null) {
+            this.fpk.setText(at.stringForVideoTime(this.mDuration));
         }
     }
 
     public void showProgress() {
-        if (this.fpe != null) {
-            this.fpd = ((this.fpe.getDuration() / 200) / 50) * 50;
-            if (this.fpd < 50) {
-                this.fpd = 50;
-            } else if (this.fpd > 500) {
-                this.fpd = 500;
+        if (this.fpi != null) {
+            this.fph = ((this.fpi.getDuration() / 200) / 50) * 50;
+            if (this.fph < 50) {
+                this.fph = 50;
+            } else if (this.fph > 500) {
+                this.fph = 500;
             }
             this.mShowing = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fpd - (this.fpe.getCurrentPosition() % this.fpd));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.fph - (this.fpi.getCurrentPosition() % this.fph));
         }
     }
 
     public void aIm() {
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        this.fph.setProgress(0);
-        if (this.fpf != null) {
-            this.fpf.setText(at.stringForVideoTime(0));
+        this.fpl.setProgress(0);
+        if (this.fpj != null) {
+            this.fpj.setText(at.stringForVideoTime(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bBp() {
+    public int bBq() {
         int currentPosition;
-        if (this.fpe == null || this.mDragging) {
+        if (this.fpi == null || this.mDragging) {
             return 0;
         }
-        int duration = this.fpe.getDuration();
-        if (this.fpe instanceof TbCyberVideoView) {
-            currentPosition = ((TbCyberVideoView) this.fpe).getCurrentPositionSync();
+        int duration = this.fpi.getDuration();
+        if (this.fpi instanceof TbCyberVideoView) {
+            currentPosition = ((TbCyberVideoView) this.fpi).getCurrentPositionSync();
         } else {
-            currentPosition = this.fpe.getCurrentPosition();
+            currentPosition = this.fpi.getCurrentPosition();
         }
         if (this.mDuration <= 0 && duration != this.mDuration) {
             this.mDuration = duration;
-            if (this.fpg != null) {
-                this.fpg.setText(at.stringForVideoTime(this.mDuration));
+            if (this.fpk != null) {
+                this.fpk.setText(at.stringForVideoTime(this.mDuration));
             }
         }
         if (currentPosition > duration) {
             currentPosition = duration;
         }
-        if (this.fph != null) {
+        if (this.fpl != null) {
             if (duration > 0) {
-                this.fph.setProgress((int) ((10000 * currentPosition) / duration));
+                this.fpl.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.fpe.getBufferPercentage();
+            this.fpi.getBufferPercentage();
         }
-        if (this.fpf != null) {
-            this.fpf.setText(at.stringForVideoTime(currentPosition));
+        if (this.fpj != null) {
+            this.fpj.setText(at.stringForVideoTime(currentPosition));
             return currentPosition;
         }
         return currentPosition;
@@ -354,14 +354,14 @@ public class VideoControllerView extends RelativeLayout {
                 this.mHandler.removeMessages(1);
             }
         } else {
-            this.fpe.seekTo(i);
-            if (this.fpf != null) {
-                this.fpf.setText(at.stringForVideoTime(i));
+            this.fpi.seekTo(i);
+            if (this.fpj != null) {
+                this.fpj.setText(at.stringForVideoTime(i));
             }
             showProgress();
         }
-        if (!this.fpe.isPlaying()) {
-            this.fph.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
+        if (!this.fpi.isPlaying()) {
+            this.fpl.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
         }
     }
 
@@ -373,25 +373,25 @@ public class VideoControllerView extends RelativeLayout {
     }
 
     public int getSeekPosition() {
-        return this.dMm;
+        return this.dMq;
     }
 
     public int getCurProgress() {
-        if (this.fph != null) {
-            return this.fph.getProgress();
+        if (this.fpl != null) {
+            return this.fpl.getProgress();
         }
         return 0;
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.jSt = bVar;
+        this.jSz = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.jSu = aVar;
+        this.jSA = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.fpk = onSeekBarChangeListener;
+        this.fpo = onSeekBarChangeListener;
     }
 }

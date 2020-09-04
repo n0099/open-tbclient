@@ -17,7 +17,7 @@ public class d extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(final com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.amA().b(this.cSV, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
+        SwanFavorDataManager.amA().b(this.cSZ, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
             @Override // com.baidu.swan.apps.favordata.a.b
             public void agi() {
                 JSONObject jSONObject = new JSONObject();
@@ -28,7 +28,7 @@ public class d extends b {
                         e.printStackTrace();
                     }
                 }
-                if (d.this.cSW) {
+                if (d.this.cTa) {
                     com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).jj(2).showHighlightToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
@@ -44,7 +44,7 @@ public class d extends b {
                         e.printStackTrace();
                     }
                 }
-                if (d.this.cSW) {
+                if (d.this.cTa) {
                     com.baidu.swan.apps.res.widget.b.d.k(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).jj(2).showToast();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
@@ -59,8 +59,8 @@ public class d extends b {
             return false;
         }
         try {
-            this.cSV = this.cSW ? eVar.getAppId() : new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.cSV);
+            this.cSZ = this.cTa ? eVar.getAppId() : new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.cSZ);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

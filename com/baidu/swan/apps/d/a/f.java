@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 /* loaded from: classes8.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bTP;
-    private static com.baidu.swan.apps.a.c bTQ;
-    private static boolean bTR;
-    public static final f bTS = new f();
+    private static com.baidu.swan.apps.a.a bTT;
+    private static com.baidu.swan.apps.a.c bTU;
+    private static boolean bTV;
+    public static final f bTW = new f();
 
     static {
-        String simpleName = bTS.getClass().getSimpleName();
+        String simpleName = bTW.getClass().getSimpleName();
         q.l((Object) simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -23,25 +23,25 @@ public final class f {
     }
 
     public final com.baidu.swan.apps.a.a abw() {
-        return bTP;
+        return bTT;
     }
 
     public final com.baidu.swan.apps.a.c abx() {
-        return bTQ;
+        return bTU;
     }
 
     public final boolean aby() {
-        return bTR;
+        return bTV;
     }
 
-    public final void dA(boolean z) {
-        bTR = z;
+    public final void dB(boolean z) {
+        bTV = z;
     }
 
     public final void abz() {
-        d.bTN.abs();
-        h.bTV.abD();
-        dr(false);
+        d.bTR.abs();
+        h.bTZ.abD();
+        ds(false);
     }
 
     public final boolean abA() {
@@ -50,12 +50,12 @@ public final class f {
         }
         Boolean abC = g.abC();
         if (abC == null) {
-            q.egj();
+            q.egs();
         }
         return abC.booleanValue();
     }
 
-    public final void dr(boolean z) {
+    public final void ds(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);

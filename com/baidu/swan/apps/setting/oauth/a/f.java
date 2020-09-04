@@ -20,31 +20,31 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f extends h<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String cVQ;
-    public b.a cWc;
-    public b cWd = new b(Looper.getMainLooper(), this);
-    public Bundle cWe;
-    protected JSONObject cWf;
+    protected String cVU;
+    public b.a cWg;
+    public b cWh = new b(Looper.getMainLooper(), this);
+    public Bundle cWi;
+    protected JSONObject cWj;
     protected final Activity mActivity;
 
     public f(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.cWc = aVar;
+        this.cWg = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.cVQ = bundle.getString("__plugin__");
+            this.cVU = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.cWe = bundle;
+        this.cWi = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
     protected boolean aBw() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.cVQ);
-            jSONObject.put("ma_id", isEmpty ? aBW().id : this.cVQ);
+            boolean isEmpty = TextUtils.isEmpty(this.cVU);
+            jSONObject.put("ma_id", isEmpty ? aBW().id : this.cVU);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? aBW().getAppKey() : this.cVQ);
+            jSONObject2.put("app_key", isEmpty ? aBW().getAppKey() : this.cVU);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
             String aal = com.baidu.swan.apps.t.a.aoV().aal();
@@ -100,7 +100,7 @@ public class f extends h<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.cWd.removeMessages(1);
+        this.cWh.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,13 +117,13 @@ public class f extends h<c> {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                azV.a(f.this.mActivity, f.this.cWe, this);
-            } else if (f.this.cWc != null && f.this.cWc.bVb) {
-                long j = f.this.cWc.bVc;
+                azV.a(f.this.mActivity, f.this.cWi, this);
+            } else if (f.this.cWg != null && f.this.cWg.bVf) {
+                long j = f.this.cWg.bVg;
                 if (f.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                f.this.cWd.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                f.this.cWh.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
             return isLogin;
         }
@@ -164,16 +164,16 @@ public class f extends h<c> {
 
     /* loaded from: classes8.dex */
     public static class b extends Handler {
-        private WeakReference<f> cWh;
+        private WeakReference<f> cWl;
 
         private b(Looper looper, f fVar) {
             super(looper);
-            this.cWh = new WeakReference<>(fVar);
+            this.cWl = new WeakReference<>(fVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f fVar = this.cWh.get();
+            f fVar = this.cWl.get();
             if (fVar != null) {
                 switch (message.what) {
                     case 1:

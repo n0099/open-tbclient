@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.k;
 /* loaded from: classes8.dex */
 public class b {
-    public static final a nzY = new C0874b();
-    private static volatile c nzZ = null;
+    public static final a nAq = new C0874b();
+    private static volatile c nAr = null;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -19,22 +19,22 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        dWs().beginSection(str);
+        dWB().beginSection(str);
     }
 
     public static void endSection() {
-        dWs().endSection();
+        dWB().endSection();
     }
 
-    private static c dWs() {
-        if (nzZ == null) {
+    private static c dWB() {
+        if (nAr == null) {
             synchronized (b.class) {
-                if (nzZ == null) {
-                    nzZ = new com.facebook.imagepipeline.k.a();
+                if (nAr == null) {
+                    nAr = new com.facebook.imagepipeline.k.a();
                 }
             }
         }
-        return nzZ;
+        return nAr;
     }
 
     /* renamed from: com.facebook.imagepipeline.k.b$b  reason: collision with other inner class name */

@@ -13,10 +13,10 @@ import java.io.File;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class a extends j {
-    private b<Boolean> cHP;
-    private String cHQ;
-    private String cHR;
-    private c<h> cHS = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
+    private b<Boolean> cHT;
+    private String cHU;
+    private String cHV;
+    private c<h> cHW = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.apps.ac.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -36,7 +36,7 @@ public class a extends j {
         public void O(h hVar) {
             super.O(hVar);
             if (hVar != null) {
-                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.dFj);
+                com.baidu.swan.apps.ac.d.a.print("plugin download start: bundleId = " + hVar.dFn);
             }
         }
 
@@ -54,7 +54,7 @@ public class a extends j {
             if (aVar != null) {
                 com.baidu.swan.apps.ac.d.a.print("plugin download error: " + aVar.toString());
             }
-            a.this.cHP.K(false);
+            a.this.cHT.K(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,16 +64,16 @@ public class a extends j {
             super.M(hVar);
             if (hVar == null) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, plugin is null");
-                a.this.cHP.K(false);
+                a.this.cHT.K(false);
             } else if (!ae.e(new File(hVar.filePath), hVar.sign)) {
                 com.baidu.swan.apps.ac.d.a.print("download finish, check zip sign failure");
-                a.this.cHP.K(false);
+                a.this.cHT.K(false);
             } else {
-                File by = d.by(hVar.dFj, String.valueOf(com.baidu.swan.apps.swancore.b.sb(hVar.versionName)));
+                File by = d.by(hVar.dFn, String.valueOf(com.baidu.swan.apps.swancore.b.sc(hVar.versionName)));
                 com.baidu.swan.c.d.ensureDirectoryExist(by);
                 if (by == null || !by.exists()) {
-                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.dFj + " ; version = " + hVar.versionCode);
-                    a.this.cHP.K(false);
+                    com.baidu.swan.apps.ac.d.a.print("download finish, create file failure, name = " + hVar.dFn + " ; version = " + hVar.versionCode);
+                    a.this.cHT.K(false);
                     return;
                 }
                 boolean unzipFile = com.baidu.swan.c.d.unzipFile(hVar.filePath, by.getAbsolutePath());
@@ -82,15 +82,15 @@ public class a extends j {
                 com.baidu.swan.pms.database.a.aTt().c(hVar);
                 com.baidu.swan.c.d.deleteFile(hVar.filePath);
                 com.baidu.swan.apps.ac.d.a.print("download finish, unZipSuccess = " + unzipFile);
-                a.this.cHP.K(Boolean.valueOf(unzipFile));
+                a.this.cHT.K(Boolean.valueOf(unzipFile));
             }
         }
     };
 
     public a(String str, String str2, b<Boolean> bVar) {
-        this.cHP = bVar;
-        this.cHQ = str;
-        this.cHR = str2;
+        this.cHT = bVar;
+        this.cHU = str;
+        this.cHV = str2;
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -104,7 +104,7 @@ public class a extends j {
         h df;
         super.b(aVar);
         if (aVar != null) {
-            if (aVar.errorNo == 1010 && (df = com.baidu.swan.pms.database.a.aTt().df(this.cHQ, this.cHR)) != null) {
+            if (aVar.errorNo == 1010 && (df = com.baidu.swan.pms.database.a.aTt().df(this.cHU, this.cHV)) != null) {
                 df.updateTime = df.aTF();
                 com.baidu.swan.pms.database.a.aTt().g(df);
             }
@@ -112,14 +112,14 @@ public class a extends j {
         } else {
             com.baidu.swan.apps.ac.d.a.print("fetch plugin error");
         }
-        this.cHP.K(false);
+        this.cHT.K(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void afB() {
         super.afB();
         com.baidu.swan.apps.ac.d.a.print("no package");
-        this.cHP.K(false);
+        this.cHT.K(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -129,6 +129,6 @@ public class a extends j {
 
     @Override // com.baidu.swan.pms.a.g
     public c<h> awD() {
-        return this.cHS;
+        return this.cHW;
     }
 }

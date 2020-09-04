@@ -1,4 +1,4 @@
 package com.baidu.tbadk.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
 }

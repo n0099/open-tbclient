@@ -3,30 +3,30 @@ package com.baidu.ubc;
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public class k {
-    private int dJA;
-    private String dJB;
-    private int dJC;
-    private int dJD;
-    private String dJE;
-    private String dJy;
-    private String dJz;
+    private String dJC;
+    private String dJD;
+    private int dJE;
+    private String dJF;
+    private int dJG;
+    private int dJH;
+    private String dJI;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String nfl;
-    private String nfm;
-    private String nfn;
-    private String nfo;
+    private String nfD;
+    private String nfE;
+    private String nfF;
+    private String nfG;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.dJy = str2;
-        this.dJz = str3;
-        this.dJA = i;
+        this.dJC = str2;
+        this.dJD = str3;
+        this.dJE = i;
         this.mType = str4;
-        this.dJB = str5;
+        this.dJF = str5;
     }
 
     public void mg(int i) {
@@ -38,15 +38,15 @@ public class k {
     }
 
     public void mh(int i) {
-        this.dJC = i;
+        this.dJG = i;
     }
 
     public void mi(int i) {
-        this.dJD = i;
+        this.dJH = i;
     }
 
     public void TD(String str) {
-        this.nfl = str;
+        this.nfD = str;
     }
 
     public String getId() {
@@ -54,15 +54,15 @@ public class k {
     }
 
     public String aVH() {
-        return this.dJy;
+        return this.dJC;
     }
 
     public String aVI() {
-        return this.dJz;
+        return this.dJD;
     }
 
     public int getTimeout() {
-        return this.dJA;
+        return this.dJE;
     }
 
     public String getType() {
@@ -70,11 +70,11 @@ public class k {
     }
 
     public String aVJ() {
-        return this.dJB;
+        return this.dJF;
     }
 
-    public String dLP() {
-        return this.nfl;
+    public String dLY() {
+        return this.nfD;
     }
 
     public int aVK() {
@@ -86,27 +86,27 @@ public class k {
     }
 
     public int aVL() {
-        return this.dJC;
+        return this.dJG;
     }
 
     public int aVM() {
-        return this.dJD;
+        return this.dJH;
     }
 
-    public void xj(String str) {
-        this.dJE = str;
+    public void xk(String str) {
+        this.dJI = str;
     }
 
     public String aVN() {
-        return this.dJE;
+        return this.dJI;
     }
 
-    public String dLQ() {
-        return this.nfm;
+    public String dLZ() {
+        return this.nfE;
     }
 
     public void TE(String str) {
-        this.nfm = str;
+        this.nfE = str;
     }
 
     public void setVersion(String str) {
@@ -118,18 +118,18 @@ public class k {
     }
 
     public void TF(String str) {
-        this.nfn = str;
+        this.nfF = str;
     }
 
-    public String dLR() {
-        return this.nfn;
+    public String dMa() {
+        return this.nfF;
     }
 
     public void TG(String str) {
-        this.nfo = str;
+        this.nfG = str;
     }
 
-    public String dLS() {
-        return this.nfo;
+    public String dMb() {
+        return this.nfG;
     }
 }

@@ -6,15 +6,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class f extends g {
-    private b niE;
-    private a niF;
+    private b niW;
+    private a niX;
 
     public void a(b bVar) {
-        this.niE = bVar;
+        this.niW = bVar;
     }
 
     public void a(a aVar) {
-        this.niF = aVar;
+        this.niX = aVar;
     }
 
     /* loaded from: classes7.dex */
@@ -85,7 +85,7 @@ public class f extends g {
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.niE.d;
+        return this.niW.d;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -94,13 +94,13 @@ public class f extends g {
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put("sign", this.niE.c());
-            jSONObject2.put("msgid", this.niE.d());
-            jSONObject2.put("systemtime", this.niE.e());
-            jSONObject2.put("appid", this.niE.b());
-            jSONObject2.put("version", this.niE.a());
+            jSONObject2.put("sign", this.niW.c());
+            jSONObject2.put("msgid", this.niW.d());
+            jSONObject2.put("systemtime", this.niW.e());
+            jSONObject2.put("appid", this.niW.b());
+            jSONObject2.put("version", this.niW.a());
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, jSONObject2);
-            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.niF.a());
+            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.niX.a());
             jSONObject.put("body", jSONObject3);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -12,18 +12,18 @@ public class a extends m {
     public a(Context context) {
         super(context, (String) null, 6);
         this.name = TbadkCoreApplication.getInst().getResources().getString(R.string.switch_to_voice);
-        this.eLk = R.drawable.icon_pure_post_speak24_svg;
-        this.eLn = true;
-        this.eLs = true;
-        this.eLr = 5;
-        this.eKx = new SendVoiceView(context);
+        this.eLo = R.drawable.icon_pure_post_speak24_svg;
+        this.eLr = true;
+        this.eLw = true;
+        this.eLv = 5;
+        this.eKB = new SendVoiceView(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         layoutParams.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds10);
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         layoutParams.bottomMargin = context.getResources().getDimensionPixelSize(R.dimen.ds20);
         layoutParams.weight = 1.0f;
-        ((View) this.eKx).setLayoutParams(layoutParams);
-        this.eLt = new int[0];
+        ((View) this.eKB).setLayoutParams(layoutParams);
+        this.eLx = new int[0];
     }
 }

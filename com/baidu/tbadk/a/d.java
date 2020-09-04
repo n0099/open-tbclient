@@ -4,20 +4,20 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.a.a.f;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
-    private static Boolean dRl = null;
+    private static Boolean dRp = null;
 
     public static boolean a(BdUniqueId bdUniqueId, String... strArr) {
         return a(j(bdUniqueId), strArr);
     }
 
     public static boolean a(e eVar, String... strArr) {
-        if (eVar == null || TextUtils.isEmpty(eVar.dRm)) {
+        if (eVar == null || TextUtils.isEmpty(eVar.dRq)) {
             return false;
         }
         for (String str : strArr) {
-            if (eVar.dRm.equalsIgnoreCase(str)) {
+            if (eVar.dRq.equalsIgnoreCase(str)) {
                 return true;
             }
         }
@@ -37,43 +37,43 @@ public class d {
     }
 
     public static boolean aZT() {
-        return a(com.baidu.tbadk.a.a.e.dRn, "11_7_pb_a");
+        return a(com.baidu.tbadk.a.a.e.dRr, "11_7_pb_a");
     }
 
     public static boolean aZU() {
-        return a(com.baidu.tbadk.a.a.e.dRn, "11_7_pb_b");
+        return a(com.baidu.tbadk.a.a.e.dRr, "11_7_pb_b");
     }
 
     public static boolean aZV() {
-        return a(com.baidu.tbadk.a.a.e.dRn, "11_7_pb_c");
+        return a(com.baidu.tbadk.a.a.e.dRr, "11_7_pb_c");
     }
 
     public static boolean aZW() {
-        return a(com.baidu.tbadk.a.a.e.dRn, "11_7_pb_d");
+        return a(com.baidu.tbadk.a.a.e.dRr, "11_7_pb_d");
     }
 
     public static boolean aZX() {
-        return a(com.baidu.tbadk.a.a.e.dRn, "11_7_pb_e");
+        return a(com.baidu.tbadk.a.a.e.dRr, "11_7_pb_e");
     }
 
     public static boolean aZY() {
-        return a(com.baidu.tbadk.a.a.b.dRn, "11_7_index_a");
+        return a(com.baidu.tbadk.a.a.b.dRr, "11_7_index_a");
     }
 
     public static boolean aZZ() {
-        return a(com.baidu.tbadk.a.a.b.dRn, "11_7_index_b");
+        return a(com.baidu.tbadk.a.a.b.dRr, "11_7_index_b");
     }
 
     public static boolean baa() {
-        return a(com.baidu.tbadk.a.a.b.dRn, "11_7_index_e");
+        return a(com.baidu.tbadk.a.a.b.dRr, "11_7_index_e");
     }
 
     public static boolean bab() {
-        return a(com.baidu.tbadk.a.a.c.dRn, "11_8_hot_a");
+        return a(com.baidu.tbadk.a.a.c.dRr, "11_8_hot_a");
     }
 
     public static boolean bac() {
-        return a(com.baidu.tbadk.a.a.c.dRn, "11_8_hot_b");
+        return a(com.baidu.tbadk.a.a.c.dRr, "11_8_hot_b");
     }
 
     public static boolean bad() {

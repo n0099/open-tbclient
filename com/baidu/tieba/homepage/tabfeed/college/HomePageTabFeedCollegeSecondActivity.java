@@ -24,7 +24,7 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import java.util.List;
 /* loaded from: classes16.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
-    private f<SpecialColumnItemData> iLk = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
+    private f<SpecialColumnItemData> iLq = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
@@ -53,8 +53,8 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
             }
         }
     };
-    private BdRecyclerView iSa;
-    private a iSb;
+    private BdRecyclerView iSg;
+    private a iSh;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,42 +65,42 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_college_petrol_station);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.iSa = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
+        this.iSg = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
-            final List<SpecialColumnItemData> bGi = specialColumnListData.bGi();
-            if (bGi != null && bGi.size() > 0) {
-                SpecialColumnItemData specialColumnItemData = bGi.get(0);
+            final List<SpecialColumnItemData> bGj = specialColumnListData.bGj();
+            if (bGj != null && bGj.size() > 0) {
+                SpecialColumnItemData specialColumnItemData = bGj.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
-                    this.iSa.setLayoutManager(new LinearLayoutManager(this));
+                    this.iSg.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
                         @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
                         public int getSpanSize(int i) {
-                            return i == bGi.size() ? 2 : 1;
+                            return i == bGj.size() ? 2 : 1;
                         }
                     });
-                    this.iSa.setLayoutManager(gridLayoutManager);
+                    this.iSg.setLayoutManager(gridLayoutManager);
                     int dimens = l.getDimens(this, R.dimen.tbds44);
                     int dimens2 = l.getDimens(this, R.dimen.tbds44);
-                    this.iSa.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
+                    this.iSg.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.iSb = new a(this, bGi);
+            this.iSh = new a(this, bGj);
         }
-        this.iSb.a(this.iLk);
-        this.iSa.setAdapter(this.iSb);
+        this.iSh.a(this.iLq);
+        this.iSg.setAdapter(this.iSh);
         View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_homepage_tabfeed_footer_view_layout, (ViewGroup) null);
         ap.setViewTextColor(inflate.findViewById(R.id.tv_footer_content), R.color.cp_cont_d, 1);
-        this.iSa.addFooterView(inflate);
+        this.iSg.addFooterView(inflate);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iSb.notifyDataSetChanged();
+        this.iSh.notifyDataSetChanged();
     }
 }

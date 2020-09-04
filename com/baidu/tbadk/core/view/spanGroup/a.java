@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import android.text.Editable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.spanGroup.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a<T extends a> {
-    private static int exw = 1;
-    protected Editable exx;
-    private InterfaceC0544a exy;
+    private static int exA = 1;
+    protected Editable exB;
+    private InterfaceC0544a exC;
     private int mEnd;
     private int mFontSize;
     private final int mId;
@@ -16,7 +16,7 @@ public abstract class a<T extends a> {
     private int mStart;
 
     /* renamed from: com.baidu.tbadk.core.view.spanGroup.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface InterfaceC0544a {
         void E(int i, boolean z);
     }
@@ -26,13 +26,13 @@ public abstract class a<T extends a> {
     public abstract void a(Editable editable, int i);
 
     public a() {
-        int i = exw;
-        exw = i + 1;
+        int i = exA;
+        exA = i + 1;
         this.mId = i;
     }
 
     public void a(Editable editable, int i, int i2, int i3) {
-        this.exx = editable;
+        this.exB = editable;
         this.mStart = i;
         this.mEnd = i2;
         this.mFontSize = i3;
@@ -49,17 +49,17 @@ public abstract class a<T extends a> {
     public void setValid(boolean z) {
         boolean z2 = this.mIsValid;
         this.mIsValid = z;
-        if (z2 != z && this.exy != null) {
-            this.exy.E(this.mId, z);
+        if (z2 != z && this.exC != null) {
+            this.exC.E(this.mId, z);
         }
     }
 
     public Editable blr() {
-        return this.exx;
+        return this.exB;
     }
 
     public void b(Editable editable) {
-        this.exx = editable;
+        this.exB = editable;
     }
 
     public int getStart() {
@@ -85,7 +85,7 @@ public abstract class a<T extends a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(T t) {
         this.mIsValid = t.isValid();
-        this.exx = t.blr();
+        this.exB = t.blr();
         this.mStart = t.getStart();
         this.mEnd = t.getEnd();
         this.mFontSize = t.getFontSize();
@@ -93,16 +93,16 @@ public abstract class a<T extends a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(Object obj, int i, int i2, int i3) {
-        if (this.exx != null) {
-            this.exx.setSpan(obj, i, i2, i3);
+        if (this.exB != null) {
+            this.exB.setSpan(obj, i, i2, i3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void m(@NonNull CharSequence charSequence) {
-        if (this.exx != null && charSequence != null) {
+        if (this.exB != null && charSequence != null) {
             try {
-                this.exx.replace(this.mStart, this.mEnd, charSequence);
+                this.exB.replace(this.mStart, this.mEnd, charSequence);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -111,6 +111,6 @@ public abstract class a<T extends a> {
     }
 
     public void a(InterfaceC0544a interfaceC0544a) {
-        this.exy = interfaceC0544a;
+        this.exC = interfaceC0544a;
     }
 }

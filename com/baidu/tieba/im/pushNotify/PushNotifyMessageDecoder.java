@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushNotify.PushNotifyResIdl;
 import protobuf.PushNotify.PusherMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     private LinkedList<PushNotifyMessage> mMsgList;
 

@@ -8,16 +8,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.aa;
 /* loaded from: classes16.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
-    private aa agI;
-    private TbPageContext<?> efn;
+    private aa agK;
+    private TbPageContext<?> efr;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getContext(), bdUniqueId);
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
     }
 
     public void setOnCardSubClickListener(aa aaVar) {
-        this.agI = aaVar;
+        this.agK = aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,9 +25,9 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aK */
     public com.baidu.tieba.card.a.a<c> b(ViewGroup viewGroup) {
-        c cVar = new c(this.efn, viewGroup);
-        if (this.agI != null) {
-            cVar.c(this.agI);
+        c cVar = new c(this.efr, viewGroup);
+        if (this.agK != null) {
+            cVar.c(this.agK);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }
@@ -36,10 +36,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.ccE() == null) {
+        if (aVar == null || aVar2 == null || aVar2.ccF() == null) {
             return null;
         }
-        aVar2.ccE().a(aVar);
+        aVar2.ccF().a(aVar);
         return aVar2.getView();
     }
 

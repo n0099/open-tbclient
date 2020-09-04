@@ -1,5 +1,5 @@
 package com.baidu.tieba.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String r(Throwable th) {
         if (th == null) {

@@ -31,7 +31,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Map<String, a> cVb = new HashMap();
+    private static final Map<String, a> cVf = new HashMap();
 
     public static boolean bC(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -93,14 +93,14 @@ public final class c {
             aVar.onResult(false);
             return;
         }
-        synchronized (cVb) {
-            a aVar2 = cVb.get(eVar2.id);
+        synchronized (cVf) {
+            a aVar2 = cVf.get(eVar2.id);
             if (aVar2 != null) {
                 aVar2.GK.add(aVar);
             } else {
                 a aVar3 = new a(eVar2.id);
                 aVar3.GK.add(aVar);
-                cVb.put(eVar2.id, aVar3);
+                cVf.put(eVar2.id, aVar3);
                 DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.setting.oauth.c.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -116,7 +116,7 @@ public final class c {
                                 c.X(e.this.id, true);
                                 break;
                         }
-                        com.baidu.swan.games.v.d.vP("na_authorize_end");
+                        com.baidu.swan.games.v.d.vQ("na_authorize_end");
                     }
                 };
                 DialogInterface.OnCancelListener onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.setting.oauth.c.3
@@ -128,7 +128,7 @@ public final class c {
                     }
                 };
                 com.baidu.swan.apps.statistic.h.n("show", eVar2.id, false);
-                com.baidu.swan.games.v.d.vP("na_authorize_start");
+                com.baidu.swan.games.v.d.vQ("na_authorize_start");
                 a(context, eVar, eVar2, jSONObject, onClickListener, onCancelListener);
             }
         }
@@ -137,8 +137,8 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void X(String str, boolean z) {
         a remove;
-        synchronized (cVb) {
-            remove = cVb.remove(str);
+        synchronized (cVf) {
+            remove = cVf.remove(str);
         }
         if (remove != null && !remove.GK.isEmpty()) {
             for (com.baidu.swan.apps.setting.oauth.a aVar : remove.GK) {
@@ -194,7 +194,7 @@ public final class c {
     }
 
     public static boolean b(h<b.d> hVar) {
-        return hVar != null && hVar.isOk() && hVar.mData.cVg;
+        return hVar != null && hVar.isOk() && hVar.mData.cVk;
     }
 
     public static void a(int i, CallbackHandler callbackHandler, String str) {
@@ -226,9 +226,9 @@ public final class c {
 
     public static void a(com.baidu.swan.apps.setting.b.a aVar, CallbackHandler callbackHandler, String str) {
         int i;
-        if (aVar != null && aVar.cWr != null) {
+        if (aVar != null && aVar.cWv != null) {
             try {
-                i = (int) aVar.cWr.aEc();
+                i = (int) aVar.cWv.aEc();
             } catch (ClassCastException e) {
                 if (DEBUG) {
                     Log.e("OAuthUtils", e.toString());
@@ -273,6 +273,6 @@ public final class c {
     }
 
     public static void release() {
-        cVb.clear();
+        cVf.clear();
     }
 }

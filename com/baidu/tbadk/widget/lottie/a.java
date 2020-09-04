@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.c.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements c {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private n fcN;
+    private n fcR;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
@@ -23,10 +23,10 @@ public class a implements c {
         String str = this.mPath + hVar.iL().replace("/", "") + "/" + hVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mM().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fcN == null) {
-                this.fcN = new n();
+            if (this.fcR == null) {
+                this.fcR = new n();
             }
-            aVar = this.fcN.o(str, 0, 0);
+            aVar = this.fcR.o(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();

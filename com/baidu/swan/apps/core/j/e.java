@@ -11,7 +11,7 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class e extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File cme = ajp();
+    private File cmi = ajp();
 
     @Override // com.baidu.swan.apps.core.j.b
     public /* bridge */ /* synthetic */ void a(c cVar, d dVar) {
@@ -25,8 +25,8 @@ public class e extends b {
 
     @Override // com.baidu.swan.apps.core.j.b
     protected String ajm() {
-        if (this.cme.exists()) {
-            File file = new File(this.cme, "preset_list.json");
+        if (this.cmi.exists()) {
+            File file = new File(this.cmi, "preset_list.json");
             if (file.exists()) {
                 return com.baidu.swan.c.d.readFileData(file);
             }
@@ -36,9 +36,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String lN(String str) {
-        if (this.cme.exists()) {
-            File file = new File(this.cme, str + File.separator + "app_info.json");
+    protected String lO(String str) {
+        if (this.cmi.exists()) {
+            File file = new File(this.cmi, str + File.separator + "app_info.json");
             if (file.exists()) {
                 return com.baidu.swan.c.d.readFileData(file);
             }
@@ -50,8 +50,8 @@ public class e extends b {
     @Override // com.baidu.swan.apps.core.j.b
     protected boolean a(c cVar) {
         boolean z = false;
-        if (cVar != null && this.cme.exists()) {
-            File file = new File(this.cme, cVar.dFj + File.separator + cVar.cmc);
+        if (cVar != null && this.cmi.exists()) {
+            File file = new File(this.cmi, cVar.dFn + File.separator + cVar.cmh);
             if (file.exists()) {
                 try {
                     if (!a(Channels.newChannel(new FileInputStream(file)), cVar.sign)) {
@@ -59,7 +59,7 @@ public class e extends b {
                             Log.e("SdCardPresetController", "校验签名失败");
                         }
                     } else {
-                        File c = c(cVar.category, cVar.dFj, cVar.versionCode);
+                        File c = c(cVar.category, cVar.dFn, cVar.versionCode);
                         if (c == null) {
                             if (DEBUG) {
                                 Log.e("SdCardPresetController", "获取解压路径失败");

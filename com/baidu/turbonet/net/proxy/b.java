@@ -3,7 +3,7 @@ package com.baidu.turbonet.net.proxy;
 public interface b {
     void a(Exception exc, long j);
 
-    void gc(long j);
+    void ge(long j);
 
     void onComplete(long j);
 }

@@ -10,7 +10,7 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.tbadkCore.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static int getColor(@ColorRes int i) {
         return ap.getColor(i);
@@ -24,7 +24,7 @@ public class a {
         return ap.getDrawable(i);
     }
 
-    public static int fn(String str) {
+    public static int fo(String str) {
         if (str == null || str.length() == 0) {
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }

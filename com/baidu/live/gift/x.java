@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 public interface x {
     void Fb();
 
-    void gt(String str);
+    void gu(String str);
 
     void release();
 }

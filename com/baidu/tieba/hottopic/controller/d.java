@@ -8,30 +8,30 @@ import com.baidu.tieba.f.a;
 import com.baidu.tieba.play.i;
 /* loaded from: classes15.dex */
 public class d {
-    private i hBL;
-    private boolean iKW = true;
-    private int hUW = 0;
-    private int fCF = 0;
-    private boolean hVG = false;
-    private Runnable iYF = new Runnable() { // from class: com.baidu.tieba.hottopic.controller.d.1
+    private i hBR;
+    private boolean iLc = true;
+    private int hVc = 0;
+    private int fCJ = 0;
+    private boolean hVM = false;
+    private Runnable iYL = new Runnable() { // from class: com.baidu.tieba.hottopic.controller.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.hBL.cNe();
+            d.this.hBR.cNf();
         }
     };
-    private com.baidu.tieba.f.a iuk = new com.baidu.tieba.f.a();
+    private com.baidu.tieba.f.a iuq = new com.baidu.tieba.f.a();
 
     public d(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.hBL = new i(tbPageContext, bdTypeListView);
-        this.iuk.a(new a.InterfaceC0674a() { // from class: com.baidu.tieba.hottopic.controller.d.2
+        this.hBR = new i(tbPageContext, bdTypeListView);
+        this.iuq.a(new a.InterfaceC0674a() { // from class: com.baidu.tieba.hottopic.controller.d.2
             @Override // com.baidu.tieba.f.a.InterfaceC0674a
             public void H(int i, int i2) {
-                d.this.hVG = false;
+                d.this.hVM = false;
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0674a
             public void I(int i, int i2) {
-                d.this.hVG = true;
+                d.this.hVM = true;
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0674a
@@ -44,45 +44,45 @@ public class d {
         });
     }
 
-    public void pW(boolean z) {
-        this.iKW = z;
+    public void pY(boolean z) {
+        this.iLc = z;
     }
 
-    public void cxp() {
-        this.hBL.cxp();
-        this.iKW = false;
+    public void cxq() {
+        this.hBR.cxq();
+        this.iLc = false;
     }
 
-    public void czR() {
-        if (this.hBL != null && this.iKW) {
-            this.hBL.a(this.hUW, this.fCF, this.hVG, 1);
+    public void czS() {
+        if (this.hBR != null && this.iLc) {
+            this.hBR.a(this.hVc, this.fCJ, this.hVM, 1);
         }
     }
 
     public void onScroll(int i, int i2) {
-        this.hUW = i;
-        this.fCF = (i + i2) - 1;
+        this.hVc = i;
+        this.fCJ = (i + i2) - 1;
     }
 
     public void onTouch(MotionEvent motionEvent) {
-        if (this.iuk != null) {
-            this.iuk.onTouchEvent(motionEvent);
+        if (this.iuq != null) {
+            this.iuq.onTouchEvent(motionEvent);
         }
     }
 
-    public void pX(boolean z) {
-        this.hBL.rF(!z);
-        e.mS().removeCallbacks(this.iYF);
+    public void pZ(boolean z) {
+        this.hBR.rH(!z);
+        e.mS().removeCallbacks(this.iYL);
         if (z) {
-            this.hBL.cNd();
+            this.hBR.cNe();
         } else {
-            e.mS().postDelayed(this.iYF, 200L);
+            e.mS().postDelayed(this.iYL, 200L);
         }
     }
 
     public void destroy() {
-        if (this.hBL != null) {
-            this.hBL.destroy();
+        if (this.hBR != null) {
+            this.hBR.destroy();
         }
     }
 }

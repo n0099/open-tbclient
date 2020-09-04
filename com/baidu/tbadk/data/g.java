@@ -1,9 +1,9 @@
 package com.baidu.tbadk.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     private int activityId;
     private String activityNum;
-    private int eJz;
+    private int eJD;
 
     public int getActivityId() {
         return this.activityId;
@@ -13,19 +13,19 @@ public class g {
         this.activityId = i;
     }
 
-    public int bqV() {
-        return this.eJz;
+    public int bqW() {
+        return this.eJD;
     }
 
     public void pW(int i) {
-        this.eJz = i;
+        this.eJD = i;
     }
 
-    public String bqW() {
+    public String bqX() {
         return this.activityNum;
     }
 
-    public void BE(String str) {
+    public void BF(String str) {
         this.activityNum = str;
     }
 }

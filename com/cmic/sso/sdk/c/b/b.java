@@ -65,6 +65,6 @@ public class b extends g {
     }
 
     public String c() {
-        return dF(this.a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return dG(this.a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 }

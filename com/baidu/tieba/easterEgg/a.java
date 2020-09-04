@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes18.dex */
 public class a implements com.baidu.tieba.tbadkCore.e.b {
-    private List<c> hrD = new ArrayList();
+    private List<c> hrJ = new ArrayList();
 
     public a() {
         a(new com.baidu.tieba.easterEgg.b.a.b());
@@ -17,14 +17,14 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     public void a(c cVar) {
-        if (cVar != null && this.hrD != null) {
-            this.hrD.add(cVar);
+        if (cVar != null && this.hrJ != null) {
+            this.hrJ.add(cVar);
         }
     }
 
     public void clearListener() {
-        if (this.hrD != null) {
-            this.hrD.clear();
+        if (this.hrJ != null) {
+            this.hrJ.clear();
         }
     }
 
@@ -36,7 +36,7 @@ public class a implements com.baidu.tieba.tbadkCore.e.b {
                 String optString = jSONObject.optString("method_name");
                 if (!at.isEmpty(str2)) {
                     String trim = optString.trim();
-                    for (c cVar : this.hrD) {
+                    for (c cVar : this.hrJ) {
                         if (trim.equals(cVar.getMethodName())) {
                             cVar.a(trim, jSONObject.optString("args"), jSONObject.optString("native_exts"), jSONObject.optString("native_clbk"), jsPromptResult);
                         }

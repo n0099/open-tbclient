@@ -6,16 +6,16 @@ import com.facebook.imagepipeline.b.f;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
 public class c implements b {
-    private static final Class<?> nju = c.class;
+    private static final Class<?> njM = c.class;
     private final Bitmap.Config mBitmapConfig;
     private final ExecutorService mExecutorService;
-    private final f nqQ;
-    private final com.facebook.fresco.animation.b.c nqT;
-    private final SparseArray<Runnable> nre = new SparseArray<>();
+    private final f nri;
+    private final com.facebook.fresco.animation.b.c nrl;
+    private final SparseArray<Runnable> nrw = new SparseArray<>();
 
     public c(f fVar, com.facebook.fresco.animation.b.c cVar, Bitmap.Config config, ExecutorService executorService) {
-        this.nqQ = fVar;
-        this.nqT = cVar;
+        this.nri = fVar;
+        this.nrl = cVar;
         this.mBitmapConfig = config;
         this.mExecutorService = executorService;
     }
@@ -23,14 +23,14 @@ public class c implements b {
     @Override // com.facebook.fresco.animation.b.b.b
     public boolean a(com.facebook.fresco.animation.b.b bVar, com.facebook.fresco.animation.a.a aVar, int i) {
         int a2 = a(aVar, i);
-        synchronized (this.nre) {
-            if (this.nre.get(a2) != null) {
-                com.facebook.common.c.a.a(nju, "Already scheduled decode job for frame %d", Integer.valueOf(i));
+        synchronized (this.nrw) {
+            if (this.nrw.get(a2) != null) {
+                com.facebook.common.c.a.a(njM, "Already scheduled decode job for frame %d", Integer.valueOf(i));
             } else if (bVar.Lx(i)) {
-                com.facebook.common.c.a.a(nju, "Frame %d is cached already.", Integer.valueOf(i));
+                com.facebook.common.c.a.a(njM, "Frame %d is cached already.", Integer.valueOf(i));
             } else {
                 a aVar2 = new a(aVar, bVar, i, a2);
-                this.nre.put(a2, aVar2);
+                this.nrw.put(a2, aVar2);
                 this.mExecutorService.execute(aVar2);
             }
         }
@@ -43,16 +43,16 @@ public class c implements b {
 
     /* loaded from: classes6.dex */
     private class a implements Runnable {
-        private final com.facebook.fresco.animation.a.a nqH;
-        private final com.facebook.fresco.animation.b.b nqR;
-        private final int nrf;
-        private final int nrg;
+        private final com.facebook.fresco.animation.a.a nqZ;
+        private final com.facebook.fresco.animation.b.b nrj;
+        private final int nrx;
+        private final int nry;
 
         public a(com.facebook.fresco.animation.a.a aVar, com.facebook.fresco.animation.b.b bVar, int i, int i2) {
-            this.nqH = aVar;
-            this.nqR = bVar;
-            this.nrf = i;
-            this.nrg = i2;
+            this.nqZ = aVar;
+            this.nrj = bVar;
+            this.nrx = i;
+            this.nry = i2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [118=4] */
@@ -60,24 +60,24 @@ public class c implements b {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                if (this.nqR.Lx(this.nrf)) {
-                    com.facebook.common.c.a.a(c.nju, "Frame %d is cached already.", Integer.valueOf(this.nrf));
-                    synchronized (c.this.nre) {
-                        c.this.nre.remove(this.nrg);
+                if (this.nrj.Lx(this.nrx)) {
+                    com.facebook.common.c.a.a(c.njM, "Frame %d is cached already.", Integer.valueOf(this.nrx));
+                    synchronized (c.this.nrw) {
+                        c.this.nrw.remove(this.nry);
                     }
                     return;
                 }
-                if (dE(this.nrf, 1)) {
-                    com.facebook.common.c.a.a(c.nju, "Prepared frame frame %d.", Integer.valueOf(this.nrf));
+                if (dE(this.nrx, 1)) {
+                    com.facebook.common.c.a.a(c.njM, "Prepared frame frame %d.", Integer.valueOf(this.nrx));
                 } else {
-                    com.facebook.common.c.a.d(c.nju, "Could not prepare frame %d.", Integer.valueOf(this.nrf));
+                    com.facebook.common.c.a.d(c.njM, "Could not prepare frame %d.", Integer.valueOf(this.nrx));
                 }
-                synchronized (c.this.nre) {
-                    c.this.nre.remove(this.nrg);
+                synchronized (c.this.nrw) {
+                    c.this.nrw.remove(this.nry);
                 }
             } catch (Throwable th) {
-                synchronized (c.this.nre) {
-                    c.this.nre.remove(this.nrg);
+                synchronized (c.this.nrw) {
+                    c.this.nrw.remove(this.nry);
                     throw th;
                 }
             }
@@ -90,7 +90,7 @@ public class c implements b {
             try {
                 switch (i2) {
                     case 1:
-                        aVar = this.nqR.ab(i, this.nqH.getIntrinsicWidth(), this.nqH.getIntrinsicHeight());
+                        aVar = this.nrj.ab(i, this.nqZ.getIntrinsicWidth(), this.nqZ.getIntrinsicHeight());
                         i3 = 2;
                         try {
                             c = c(i, aVar, i2);
@@ -103,7 +103,7 @@ public class c implements b {
                         }
                     case 2:
                         try {
-                            aVar = c.this.nqQ.b(this.nqH.getIntrinsicWidth(), this.nqH.getIntrinsicHeight(), c.this.mBitmapConfig);
+                            aVar = c.this.nri.b(this.nqZ.getIntrinsicWidth(), this.nqZ.getIntrinsicHeight(), c.this.mBitmapConfig);
                             i3 = -1;
                             c = c(i, aVar, i2);
                             com.facebook.common.references.a.c(aVar);
@@ -111,7 +111,7 @@ public class c implements b {
                                 return c;
                             }
                         } catch (RuntimeException e) {
-                            com.facebook.common.c.a.a((Class<?>) c.nju, "Failed to create frame bitmap", (Throwable) e);
+                            com.facebook.common.c.a.a((Class<?>) c.njM, "Failed to create frame bitmap", (Throwable) e);
                             com.facebook.common.references.a.c(null);
                             return false;
                         }
@@ -126,10 +126,10 @@ public class c implements b {
         }
 
         private boolean c(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
-            if (com.facebook.common.references.a.a(aVar) && c.this.nqT.a(i, aVar.get())) {
-                com.facebook.common.c.a.a(c.nju, "Frame %d ready.", Integer.valueOf(this.nrf));
-                synchronized (c.this.nre) {
-                    this.nqR.b(this.nrf, aVar, i2);
+            if (com.facebook.common.references.a.a(aVar) && c.this.nrl.a(i, aVar.get())) {
+                com.facebook.common.c.a.a(c.njM, "Frame %d ready.", Integer.valueOf(this.nrx));
+                synchronized (c.this.nrw) {
+                    this.nrj.b(this.nrx, aVar, i2);
                 }
                 return true;
             }

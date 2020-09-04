@@ -2,7 +2,7 @@ package com.baidu.h.a.a;
 /* loaded from: classes18.dex */
 public class b {
     private String bduss;
-    private String bwx;
+    private String bwA;
     private String displayname;
     private String uid;
 
@@ -31,10 +31,10 @@ public class b {
     }
 
     public String Rc() {
-        return this.bwx;
+        return this.bwA;
     }
 
-    public void hz(String str) {
-        this.bwx = str;
+    public void hA(String str) {
+        this.bwA = str;
     }
 }

@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes8.dex */
 public class a {
-    private final InterfaceC0432a cPw;
-    private final ViewGroup cPx;
-    private boolean cPy;
+    private final InterfaceC0432a cPA;
+    private final ViewGroup cPB;
+    private boolean cPC;
     private int mMarginTop;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
@@ -20,8 +20,8 @@ public class a {
     }
 
     public a(@NonNull InterfaceC0432a interfaceC0432a, @NonNull ViewGroup viewGroup, int i) {
-        this.cPw = interfaceC0432a;
-        this.cPx = viewGroup;
+        this.cPA = interfaceC0432a;
+        this.cPB = viewGroup;
         this.mMarginTop = i;
     }
 
@@ -33,21 +33,21 @@ public class a {
     }
 
     public boolean azs() {
-        return this.cPy;
+        return this.cPC;
     }
 
     private Context getContext() {
-        return this.cPx.getContext();
+        return this.cPB.getContext();
     }
 
     @Nullable
     private Container azt() {
         Container container;
-        synchronized (this.cPx) {
+        synchronized (this.cPB) {
             int i = 0;
             while (true) {
-                if (i < this.cPx.getChildCount()) {
-                    View childAt = this.cPx.getChildAt(i);
+                if (i < this.cPB.getChildCount()) {
+                    View childAt = this.cPB.getChildAt(i);
                     if (!(childAt instanceof Container)) {
                         i++;
                     } else {
@@ -69,12 +69,12 @@ public class a {
         int i;
         int i2;
         int i3 = 0;
-        synchronized (this.cPx) {
+        synchronized (this.cPB) {
             azt = azt();
             if (azt == null) {
                 azt = new Container(getContext());
-                int height = this.cPx.getHeight() - this.mMarginTop;
-                if (this.cPx instanceof LinearLayout) {
+                int height = this.cPB.getHeight() - this.mMarginTop;
+                if (this.cPB instanceof LinearLayout) {
                     i = -height;
                 } else {
                     i = this.mMarginTop;
@@ -83,10 +83,10 @@ public class a {
                     i = 0;
                     height = -1;
                 }
-                if (!(this.cPx instanceof LinearLayout) && this.mMarginTop == 0) {
+                if (!(this.cPB instanceof LinearLayout) && this.mMarginTop == 0) {
                     height = -1;
                 }
-                if (this.cPy) {
+                if (this.cPC) {
                     i2 = -1;
                 } else {
                     i3 = i;
@@ -95,7 +95,7 @@ public class a {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i2);
                 layoutParams.setMargins(0, i3, 0, 0);
                 azt.setLayoutParams(layoutParams);
-                this.cPx.addView(azt);
+                this.cPB.addView(azt);
             }
         }
         return azt;
@@ -106,11 +106,11 @@ public class a {
     }
 
     public void reset(boolean z) {
-        synchronized (this.cPx) {
+        synchronized (this.cPB) {
             Container azt = azt();
             if (!z || azt == null || azt.getChildCount() <= 0) {
                 if (azt != null) {
-                    this.cPx.removeView(azt);
+                    this.cPB.removeView(azt);
                 }
             }
         }

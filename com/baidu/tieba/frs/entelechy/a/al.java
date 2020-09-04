@@ -14,23 +14,23 @@ public interface al {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bw> cpH();
+    HashMap<Integer, bw> cpI();
 
-    int cpI();
+    int cpJ();
 
-    void cpJ();
-
-    int cpK();
+    void cpK();
 
     int cpL();
 
-    void cpM();
+    int cpM();
+
+    void cpN();
 
     List<com.baidu.adp.widget.ListView.q> getDatas();
 
     void notifyDataSetChanged();
 
-    void oN(boolean z);
+    void oP(boolean z);
 
     void onDestory();
 

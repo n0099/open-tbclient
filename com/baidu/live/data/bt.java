@@ -1,10 +1,8 @@
 package com.baidu.live.data;
 /* loaded from: classes7.dex */
 public class bt {
-    public boolean aLm;
-    public boolean aLn = false;
     public boolean aLo;
-    public boolean aLp;
+    public boolean aLp = false;
     public boolean aLq;
     public boolean aLr;
     public boolean aLs;
@@ -12,4 +10,6 @@ public class bt {
     public boolean aLu;
     public boolean aLv;
     public boolean aLw;
+    public boolean aLx;
+    public boolean aLy;
 }

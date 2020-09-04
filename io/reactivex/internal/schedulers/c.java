@@ -9,17 +9,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public final class c implements io.reactivex.disposables.b, Callable<Void> {
-    static final FutureTask<Void> opB = new FutureTask<>(Functions.omg, null);
-    final Runnable bso;
-    final ExecutorService opA;
+    static final FutureTask<Void> opT = new FutureTask<>(Functions.omy, null);
+    final Runnable bsr;
+    final ExecutorService opS;
     Thread runner;
-    final AtomicReference<Future<?>> opz = new AtomicReference<>();
-    final AtomicReference<Future<?>> opy = new AtomicReference<>();
+    final AtomicReference<Future<?>> opR = new AtomicReference<>();
+    final AtomicReference<Future<?>> opQ = new AtomicReference<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Runnable runnable, ExecutorService executorService) {
-        this.bso = runnable;
-        this.opA = executorService;
+        this.bsr = runnable;
+        this.opS = executorService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
     public Void call() throws Exception {
         try {
             this.runner = Thread.currentThread();
-            this.bso.run();
-            b(this.opA.submit(this));
+            this.bsr.run();
+            b(this.opS.submit(this));
             return null;
         } finally {
             this.runner = null;
@@ -37,39 +37,39 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        Future<?> andSet = this.opz.getAndSet(opB);
-        if (andSet != null && andSet != opB) {
+        Future<?> andSet = this.opR.getAndSet(opT);
+        if (andSet != null && andSet != opT) {
             andSet.cancel(this.runner != Thread.currentThread());
         }
-        Future<?> andSet2 = this.opy.getAndSet(opB);
-        if (andSet2 != null && andSet2 != opB) {
+        Future<?> andSet2 = this.opQ.getAndSet(opT);
+        if (andSet2 != null && andSet2 != opT) {
             andSet2.cancel(this.runner != Thread.currentThread());
         }
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.opz.get() == opB;
+        return this.opR.get() == opT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.opz.get();
-            if (future2 == opB) {
+            future2 = this.opR.get();
+            if (future2 == opT) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.opz.compareAndSet(future2, future));
+        } while (!this.opR.compareAndSet(future2, future));
     }
 
     void b(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.opy.get();
-            if (future2 == opB) {
+            future2 = this.opQ.get();
+            if (future2 == opT) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.opy.compareAndSet(future2, future));
+        } while (!this.opQ.compareAndSet(future2, future));
     }
 }

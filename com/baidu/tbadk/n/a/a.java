@@ -3,28 +3,28 @@ package com.baidu.tbadk.n.a;
 import android.os.Build;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.at;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private c eSZ;
-    private String eTa;
+    private c eTd;
+    private String eTe;
 
     public a(String str) {
-        this.eTa = str;
-    }
-
-    public void buu() {
-        if (Build.VERSION.SDK_INT >= 16) {
-            if (this.eSZ == null) {
-                this.eSZ = new c();
-            }
-            this.eSZ.start();
-        }
+        this.eTe = str;
     }
 
     public void buv() {
-        if (this.eSZ != null && Build.VERSION.SDK_INT >= 16) {
-            this.eSZ.stop();
-            at(this.eTa, this.eSZ.getFps());
+        if (Build.VERSION.SDK_INT >= 16) {
+            if (this.eTd == null) {
+                this.eTd = new c();
+            }
+            this.eTd.start();
+        }
+    }
+
+    public void buw() {
+        if (this.eTd != null && Build.VERSION.SDK_INT >= 16) {
+            this.eTd.stop();
+            at(this.eTe, this.eTd.getFps());
         }
     }
 

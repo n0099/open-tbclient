@@ -30,7 +30,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class Client {
     private OkHttpClient httpClient;
-    private final UrlConverter ofw;
+    private final UrlConverter ofO;
 
     public Client() {
         this(null, 10, 30, null, null);
@@ -38,12 +38,12 @@ public final class Client {
 
     public Client(ProxyConfiguration proxyConfiguration, int i, int i2, UrlConverter urlConverter, final Dns dns) {
         OkHttpClient.Builder newBuilder;
-        this.ofw = urlConverter;
-        OkHttpClient ecu = UploadManager.ecu();
-        if (ecu == null) {
+        this.ofO = urlConverter;
+        OkHttpClient ecD = UploadManager.ecD();
+        if (ecD == null) {
             newBuilder = new OkHttpClient.Builder();
         } else {
-            newBuilder = ecu.newBuilder();
+            newBuilder = ecD.newBuilder();
             newBuilder.interceptors().clear();
             newBuilder.networkInterceptors().clear();
         }
@@ -179,7 +179,7 @@ public final class Client {
         AsyncRun.E(new Runnable() { // from class: com.qiniu.android.http.Client.3
             @Override // java.lang.Runnable
             public void run() {
-                CompletionHandler.this.a(a, a.ofT);
+                CompletionHandler.this.a(a, a.ogl);
             }
         });
     }
@@ -194,9 +194,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.ecm().Vw(upToken.ofl));
+            builder.header("User-Agent", UserAgent.ecv().Vw(upToken.ofD));
         } else {
-            builder.header("User-Agent", UserAgent.ecm().Vw("pandora"));
+            builder.header("User-Agent", UserAgent.ecv().Vw("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -231,8 +231,8 @@ public final class Client {
     public void a(String str, byte[] bArr, int i, int i2, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         CountingRequestBody create;
         Object obj;
-        if (this.ofw != null) {
-            str = this.ofw.Mr(str);
+        if (this.ofO != null) {
+            str = this.ofO.Ms(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -259,12 +259,12 @@ public final class Client {
             create = RequestBody.create(MediaType.parse(postArgs.mimeType), postArgs.data);
             length = postArgs.data.length;
         }
-        a(str, postArgs.ofL, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
+        a(str, postArgs.ogd, upToken, length, progressHandler, postArgs.fileName, create, completionHandler, cancellationHandler);
     }
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
-        if (this.ofw != null) {
-            str = this.ofw.Mr(str);
+        if (this.ofO != null) {
+            str = this.ofO.Ms(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);
@@ -289,33 +289,33 @@ public final class Client {
     /* renamed from: com.qiniu.android.http.Client$7  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass7 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder ofB;
+        final /* synthetic */ Request.Builder ofT;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void M(String str, Object obj) {
-            this.ofB.header(str, obj.toString());
+            this.ofT.header(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$8  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass8 implements StringMap.Consumer {
-        final /* synthetic */ MultipartBody.Builder ofE;
+        final /* synthetic */ MultipartBody.Builder ofW;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void M(String str, Object obj) {
-            this.ofE.addFormDataPart(str, obj.toString());
+            this.ofW.addFormDataPart(str, obj.toString());
         }
     }
 
     /* renamed from: com.qiniu.android.http.Client$9  reason: invalid class name */
     /* loaded from: classes6.dex */
     class AnonymousClass9 implements StringMap.Consumer {
-        final /* synthetic */ Request.Builder ofB;
+        final /* synthetic */ Request.Builder ofT;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
         public void M(String str, Object obj) {
-            this.ofB.header(str, obj.toString());
+            this.ofT.header(str, obj.toString());
         }
     }
 

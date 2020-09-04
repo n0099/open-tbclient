@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class AtListActivityConfig extends IntentConfig {
     public static final String IS_FOR_BJH = "is_for_bjh";
     public static final String IS_FOR_CHAT = "is_for_chat";

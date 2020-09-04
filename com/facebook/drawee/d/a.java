@@ -7,7 +7,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes4.dex */
 public interface a {
-    Animatable dPT();
+    Animatable dQc();
 
     @Nullable
     b getHierarchy();

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ba extends com.baidu.adp.base.a.d {
     public ba() {
         super(n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/tieba_database.db", 11);

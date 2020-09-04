@@ -8,10 +8,10 @@ public interface b<T> {
 
     boolean ahA();
 
-    boolean dOW();
+    boolean dPf();
 
     @Nullable
-    Throwable dOY();
+    Throwable dPh();
 
     float getProgress();
 

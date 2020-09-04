@@ -5,10 +5,10 @@ import kotlin.collections.ae;
 @kotlin.h
 /* loaded from: classes20.dex */
 public class i implements Iterable<Long> {
-    public static final a otc = new a(null);
-    private final long osZ;
-    private final long ota;
-    private final long otb;
+    public static final a otu = new a(null);
+    private final long otr;
+    private final long ots;
+    private final long ott;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
@@ -17,43 +17,43 @@ public class i implements Iterable<Long> {
         if (j3 == Long.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        this.osZ = j;
-        this.ota = kotlin.internal.d.j(j, j2, j3);
-        this.otb = j3;
+        this.otr = j;
+        this.ots = kotlin.internal.d.j(j, j2, j3);
+        this.ott = j3;
     }
 
-    public final long egz() {
-        return this.osZ;
+    public final long egI() {
+        return this.otr;
     }
 
-    public final long egA() {
-        return this.ota;
+    public final long egJ() {
+        return this.ots;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: egB */
+    /* renamed from: egK */
     public ae iterator() {
-        return new j(this.osZ, this.ota, this.otb);
+        return new j(this.otr, this.ots, this.ott);
     }
 
     public boolean isEmpty() {
-        return this.otb > 0 ? this.osZ > this.ota : this.osZ < this.ota;
+        return this.ott > 0 ? this.otr > this.ots : this.otr < this.ots;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.osZ == ((i) obj).osZ && this.ota == ((i) obj).ota && this.otb == ((i) obj).otb));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.otr == ((i) obj).otr && this.ots == ((i) obj).ots && this.ott == ((i) obj).ott));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.osZ ^ (this.osZ >>> 32))) + (this.ota ^ (this.ota >>> 32)))) + (this.otb ^ (this.otb >>> 32)));
+        return (int) ((31 * ((31 * (this.otr ^ (this.otr >>> 32))) + (this.ots ^ (this.ots >>> 32)))) + (this.ott ^ (this.ott >>> 32)));
     }
 
     public String toString() {
-        return this.otb > 0 ? this.osZ + IStringUtil.TOP_PATH + this.ota + " step " + this.otb : this.osZ + " downTo " + this.ota + " step " + (-this.otb);
+        return this.ott > 0 ? this.otr + IStringUtil.TOP_PATH + this.ots + " step " + this.ott : this.otr + " downTo " + this.ots + " step " + (-this.ott);
     }
 
     @kotlin.h

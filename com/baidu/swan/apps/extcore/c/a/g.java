@@ -41,7 +41,7 @@ public class g extends aa {
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.fe(com.baidu.swan.apps.extcore.c.a.hA(optInt));
+                    com.baidu.swan.apps.ad.a.a.ff(com.baidu.swan.apps.extcore.c.a.hA(optInt));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     com.baidu.swan.apps.ad.a.a.agw();
                 }

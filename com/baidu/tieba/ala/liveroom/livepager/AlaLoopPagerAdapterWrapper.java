@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes7.dex */
 public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
-    private SparseArray<a> gBl = new SparseArray<>();
-    private boolean gBm;
+    private SparseArray<a> gBp = new SparseArray<>();
+    private boolean gBq;
     private PagerAdapter mAdapter;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setBoundaryCaching(boolean z) {
-        this.gBm = z;
+        this.gBq = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,23 +26,23 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void notifyDataSetChanged() {
-        if (this.gBl != null) {
-            this.gBl.clear();
+        if (this.gBp != null) {
+            this.gBp.clear();
         }
-        this.gBl = new SparseArray<>();
+        this.gBp = new SparseArray<>();
         super.notifyDataSetChanged();
         this.mAdapter.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int uf(int i) {
-        int bST = bST();
-        if (bST == 0) {
+        int bSU = bSU();
+        if (bSU == 0) {
             return 0;
         }
-        int i2 = (i - 1) % bST;
+        int i2 = (i - 1) % bSU;
         if (i2 < 0) {
-            return i2 + bST;
+            return i2 + bSU;
         }
         return i2;
     }
@@ -51,12 +51,12 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return i + 1;
     }
 
-    private int bSR() {
+    private int bSS() {
         return 1;
     }
 
-    private int bSS() {
-        return (bSR() + bST()) - 1;
+    private int bST() {
+        return (bSS() + bSU()) - 1;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -64,11 +64,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return this.mAdapter.getCount() + 2;
     }
 
-    public int bST() {
+    public int bSU() {
         return this.mAdapter.getCount();
     }
 
-    public PagerAdapter bSU() {
+    public PagerAdapter bSV() {
         return this.mAdapter;
     }
 
@@ -88,8 +88,8 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         a aVar;
         int uf = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : uf(i);
-        if (this.gBm && (aVar = this.gBl.get(i)) != null) {
-            this.gBl.remove(i);
+        if (this.gBq && (aVar = this.gBp.get(i)) != null) {
+            this.gBp.remove(i);
             return aVar.object;
         }
         return this.mAdapter.instantiateItem(viewGroup, uf);
@@ -97,11 +97,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        int bSR = bSR();
         int bSS = bSS();
+        int bST = bST();
         int uf = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : uf(i);
-        if (this.gBm && (i == bSR || i == bSS)) {
-            this.gBl.put(i, new a(viewGroup, uf, obj));
+        if (this.gBq && (i == bSS || i == bST)) {
+            this.gBp.put(i, new a(viewGroup, uf, obj));
         } else {
             this.mAdapter.destroyItem(viewGroup, uf, obj);
         }
@@ -139,12 +139,12 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     /* loaded from: classes7.dex */
     static class a {
-        ViewGroup dBd;
+        ViewGroup dBh;
         Object object;
         int position;
 
         public a(ViewGroup viewGroup, int i, Object obj) {
-            this.dBd = viewGroup;
+            this.dBh = viewGroup;
             this.position = i;
             this.object = obj;
         }

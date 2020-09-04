@@ -30,7 +30,7 @@ public final class f {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().ru(h.jv(i)).i(new com.baidu.swan.apps.am.a().bO(11L).bP(2331L).sm("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d i2 = new com.baidu.swan.apps.statistic.a.d().rv(h.jv(i)).i(new com.baidu.swan.apps.am.a().bO(11L).bP(2331L).sn("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
             i2.a(((com.baidu.swan.apps.core.pms.g) dVar).aiK());
         }

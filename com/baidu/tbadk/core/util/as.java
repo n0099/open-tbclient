@@ -4,22 +4,22 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class as {
-    private static as ekP;
+    private static as ekT;
 
     public static synchronized as bjo() {
         as asVar;
         synchronized (as.class) {
-            if (ekP == null) {
-                ekP = new as();
+            if (ekT == null) {
+                ekT = new as();
             }
-            asVar = ekP;
+            asVar = ekT;
         }
         return asVar;
     }
 
-    public String Ae(String str) {
+    public String Af(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class as {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return n.getImage(Ae(str), str);
+        return n.getImage(Af(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return n.isGif(Ae(str), str);
+        return n.isGif(Af(str), str);
     }
 
-    public int Af(String str) {
+    public int Ag(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) n.checkImageFileSize(Ae(str), str);
+        return (int) n.checkImageFileSize(Af(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class as {
         if (!n.CheckTempDir(str3)) {
             n.makeRootDirectory(str3);
         }
-        String str4 = str3 + Ae(str2);
+        String str4 = str3 + Af(str2);
         if (!n.CheckTempDir(str4)) {
             n.makeRootDirectory(str4);
         }
@@ -69,7 +69,7 @@ public class as {
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            n.c(Ae(str), str, bArr);
+            n.c(Af(str), str, bArr);
         }
     }
 

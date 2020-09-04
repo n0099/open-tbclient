@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String fGE;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f fJY;
-    private h fJZ;
+    private String fGI;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f fKc;
+    private h fKd;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fEy);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.fEC);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,29 +22,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: U */
     public g b(ViewGroup viewGroup) {
-        this.fJY = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.fJZ != null) {
-            this.fJY.c(this.fJZ);
+        this.fKc = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.fKd != null) {
+            this.fKc.c(this.fKd);
         }
-        return new g(this.fJY);
+        return new g(this.fKc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.fJY.a(eVar, this.fGE);
+        gVar.fKc.a(eVar, this.fGI);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.fJZ = hVar;
-        if (this.fJY != null) {
-            this.fJY.c(this.fJZ);
+        this.fKd = hVar;
+        if (this.fKc != null) {
+            this.fKc.c(this.fKd);
         }
     }
 
     public void setEntryName(String str) {
-        this.fGE = str;
+        this.fGI = str;
     }
 }

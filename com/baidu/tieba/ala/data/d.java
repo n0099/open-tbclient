@@ -6,39 +6,39 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d {
     public long LO;
-    public String fUp;
-    public int fUq;
-    public int fUr;
-    public String fUs;
-    public int fUt;
+    public String fUA;
+    public String fUB;
+    public long fUC;
+    public long fUD;
+    public String fUt;
     public int fUu;
-    public String fUv;
+    public int fUv;
     public String fUw;
-    public String fUx;
-    public long fUy;
-    public long fUz;
+    public int fUx;
+    public int fUy;
+    public String fUz;
     public String mDesc;
     public String mGiftName;
     public int mStatus;
 
     public void parserJson(JSONObject jSONObject) {
-        this.fUp = jSONObject.optString("wish_id");
+        this.fUt = jSONObject.optString("wish_id");
         this.mGiftName = jSONObject.optString("gift_name");
-        this.fUq = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        this.fUs = jSONObject.optString("gift_url");
-        this.fUr = jSONObject.optInt("gift_type");
+        this.fUu = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
+        this.fUw = jSONObject.optString("gift_url");
+        this.fUv = jSONObject.optInt("gift_type");
         this.mDesc = jSONObject.optString("desc");
         if (TextUtils.equals("null", this.mDesc)) {
             this.mDesc = "";
         }
-        this.fUt = jSONObject.optInt("process_num");
-        this.fUu = jSONObject.optInt("finish_num");
-        this.fUv = jSONObject.optString("toplist_1");
-        this.fUw = jSONObject.optString("toplist_2");
-        this.fUx = jSONObject.optString("toplist_3");
+        this.fUx = jSONObject.optInt("process_num");
+        this.fUy = jSONObject.optInt("finish_num");
+        this.fUz = jSONObject.optString("toplist_1");
+        this.fUA = jSONObject.optString("toplist_2");
+        this.fUB = jSONObject.optString("toplist_3");
         this.LO = jSONObject.optLong("expire_time");
-        this.fUy = jSONObject.optLong("expire_seconds");
-        this.fUz = jSONObject.optLong("expire_hour");
+        this.fUC = jSONObject.optLong("expire_seconds");
+        this.fUD = jSONObject.optLong("expire_hour");
         this.mStatus = jSONObject.optInt("status");
     }
 }

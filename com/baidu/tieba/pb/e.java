@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e<T> {
     private T data;
     private int type;

@@ -32,11 +32,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d extends b {
-    private String bbU;
+    private String bbW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context) {
-        super(context, com.baidu.live.im.a.aYt);
+        super(context, com.baidu.live.im.a.aYv);
     }
 
     @Override // com.baidu.live.im.a.b
@@ -79,7 +79,7 @@ public class d extends b {
         String string;
         String format;
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        this.bbU = null;
+        this.bbW = null;
         String str5 = null;
         String str6 = "";
         if (aVar != null) {
@@ -555,7 +555,7 @@ public class d extends b {
                 SpannableString valueOf10 = SpannableString.valueOf(str2);
                 valueOf10.setSpan(new ForegroundColorSpan(-7479041), 0, valueOf10.length(), 33);
                 spannableStringBuilder.append((CharSequence) valueOf10);
-                if (!this.bbH) {
+                if (!this.bbJ) {
                     com.baidu.live.view.c cVar14 = new com.baidu.live.view.c(this.mContext, a.f.icon_im_zhuli);
                     SpannableStringBuilder spannableStringBuilder14 = new SpannableStringBuilder("  ");
                     spannableStringBuilder14.setSpan(cVar14, 1, 2, 33);
@@ -594,7 +594,7 @@ public class d extends b {
                 a(spannableStringBuilder, aVar.JK(), cVar, false, false);
                 bQ(false);
                 spannableStringBuilder.append(com.baidu.live.utils.f.E(this.mContext.getString(a.i.ala_guard_club_join), -7479041));
-                if (!this.bbH) {
+                if (!this.bbJ) {
                     com.baidu.live.view.c cVar18 = new com.baidu.live.view.c(this.mContext, a.f.icon_im_jiaru);
                     SpannableStringBuilder spannableStringBuilder18 = new SpannableStringBuilder("  ");
                     spannableStringBuilder18.setSpan(cVar18, 1, 2, 33);
@@ -603,7 +603,7 @@ public class d extends b {
                 spannableStringBuilder.setSpan(new a(this.mContext, aVar.getLink(), str3), 0, spannableStringBuilder.length(), 33);
             } else if (jSONObject3 != null && TextUtils.equals(str3, "privilege_award_royal_success")) {
                 final String optString11 = jSONObject3.optString("icon_url");
-                this.bbU = optString11;
+                this.bbW = optString11;
                 if (!TextUtils.isEmpty(optString11)) {
                     new AlaLiveMarkData().mark_pic = optString11;
                     BdResourceLoader.getInstance().loadResource(optString11, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.im.a.d.1
@@ -613,13 +613,13 @@ public class d extends b {
                         public void onLoaded(BdImage bdImage, String str13, int i4) {
                             super.onLoaded((AnonymousClass1) bdImage, str13, i4);
                             Bitmap a2 = d.this.a(bdImage);
-                            if (a2 != null && TextUtils.equals(d.this.bbU, optString11)) {
+                            if (a2 != null && TextUtils.equals(d.this.bbW, optString11)) {
                                 CenteredImageSpan centeredImageSpan = new CenteredImageSpan(d.this.mContext, a2);
                                 SpannableString spannableString = new SpannableString("[img] ");
                                 spannableString.setSpan(centeredImageSpan, 0, spannableString.length() - 1, 33);
                                 spannableStringBuilder.insert(0, (CharSequence) spannableString);
-                                cVar.aYI.setText(spannableStringBuilder);
-                                cVar.aYI.forceLayout();
+                                cVar.aYK.setText(spannableStringBuilder);
+                                cVar.aYK.forceLayout();
                             }
                         }
                     }, null);
@@ -650,9 +650,9 @@ public class d extends b {
 
     /* loaded from: classes7.dex */
     private static class a extends ClickableSpan {
-        private String aKg;
-        private String aKh;
-        private boolean bbY;
+        private String aKi;
+        private String aKj;
+        private boolean bca;
         private String contentType;
         private Context context;
         private boolean isHost;
@@ -670,13 +670,13 @@ public class d extends b {
             this.url = str;
             this.contentType = str2;
             this.liveId = str3;
-            this.aKh = str4;
-            this.aKg = str5;
+            this.aKj = str4;
+            this.aKi = str5;
             this.isHost = z;
         }
 
         public void setClickable(boolean z) {
-            this.bbY = z;
+            this.bca = z;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -728,13 +728,13 @@ public class d extends b {
             switch (c) {
                 case 0:
                     bk bkVar = new bk();
-                    bkVar.aKg = this.aKg;
+                    bkVar.aKi = this.aKi;
                     bkVar.liveId = this.liveId;
-                    bkVar.aKh = this.aKh;
+                    bkVar.aKj = this.aKj;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, bkVar));
                     return;
                 case 1:
-                    if (this.bbY) {
+                    if (this.bca) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913153));
                         return;
                     }

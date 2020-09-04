@@ -5,7 +5,7 @@ import android.os.MessageQueue;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.n.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a extends Thread {
     public a(String str) {
         super(str);

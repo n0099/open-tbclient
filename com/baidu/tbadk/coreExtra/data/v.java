@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class v {
-    public List<w> eAD;
+    public List<w> eAH;
 
     public void V(JSONArray jSONArray) {
-        this.eAD = new ArrayList();
+        this.eAH = new ArrayList();
         try {
             if (jSONArray == null) {
                 com.baidu.tbadk.core.sharedPref.b.bik().putString("key_index_tab_info_list", "[]");
@@ -23,11 +23,11 @@ public class v {
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     wVar2.parserJson(jSONArray2.getJSONObject(i2));
                     if (wVar.tabCode != null && wVar.tabCode.equals(wVar2.tabCode)) {
-                        wVar.isShowRedDot = TextUtils.isEmpty(wVar2.eAE) || !wVar2.eAE.equals(wVar.eAE);
+                        wVar.isShowRedDot = TextUtils.isEmpty(wVar2.eAI) || !wVar2.eAI.equals(wVar.eAI);
                     }
                 }
                 if (!wVar.isDirtyData()) {
-                    this.eAD.add(wVar);
+                    this.eAH.add(wVar);
                 }
             }
             com.baidu.tbadk.core.sharedPref.b.bik().putString("key_index_tab_info_list", jSONArray.toString());

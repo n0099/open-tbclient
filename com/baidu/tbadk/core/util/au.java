@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class au {
-    private static au ele = null;
+    private static au eli = null;
     private boolean mIsWifiCache = false;
-    private boolean elf = false;
+    private boolean elj = false;
     private int mPostImageSize = 1500;
     private String mUrlQuality = String.valueOf(45);
 
     public static au bjr() {
-        if (ele == null) {
+        if (eli == null) {
             synchronized (au.class) {
-                if (ele == null) {
-                    ele = new au();
+                if (eli == null) {
+                    eli = new au();
                 }
             }
         }
-        return ele;
+        return eli;
     }
 
     public au() {
@@ -29,12 +29,12 @@ public class au {
         updatePostImageSize();
     }
 
-    public void in(boolean z) {
-        this.elf = z;
+    public void io(boolean z) {
+        this.elj = z;
     }
 
     public boolean bjs() {
-        return this.elf;
+        return this.elj;
     }
 
     public void setNetworkIsWifi(boolean z) {
@@ -68,7 +68,7 @@ public class au {
         if (com.baidu.tbadk.core.k.bbM().getViewImageQuality() != 0 ? com.baidu.tbadk.core.k.bbM().getViewImageQuality() != 1 : !this.mIsWifiCache) {
             z = false;
         }
-        in(z);
+        io(z);
     }
 
     public void updateUrlQuality() {

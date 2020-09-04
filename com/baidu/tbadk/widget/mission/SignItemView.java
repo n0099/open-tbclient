@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes15.dex */
 public class SignItemView extends FrameLayout {
-    private LineView fcY;
-    private ArrayList<b> fcZ;
-    private int fdb;
-    private int fdc;
-    private int fdd;
-    private int fde;
-    private a fdq;
+    private LineView fdc;
+    private ArrayList<b> fdd;
+    private int fdf;
+    private int fdg;
+    private int fdh;
+    private int fdi;
+    private a fdu;
     private LinearLayout mContainer;
     private int mSkinType;
 
@@ -37,46 +37,46 @@ public class SignItemView extends FrameLayout {
     public SignItemView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fcZ = new ArrayList<>();
-        this.fdd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fde = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.fdd = new ArrayList<>();
+        this.fdh = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.fdi = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     public SignItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fcZ = new ArrayList<>();
-        this.fdd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fde = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.fdd = new ArrayList<>();
+        this.fdh = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.fdi = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     public SignItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.fcZ = new ArrayList<>();
-        this.fdd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
-        this.fde = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
+        this.fdd = new ArrayList<>();
+        this.fdh = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds160);
+        this.fdi = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.sign_dialog_cus_view, (ViewGroup) this, true);
         this.mContainer = (LinearLayout) findViewById(R.id.sign_item_container);
-        this.fcY = (LineView) findViewById(R.id.line_view);
-        this.fdb = l.getDimens(getContext(), R.dimen.tbds23);
-        this.fdc = l.getDimens(getContext(), R.dimen.tbds26);
+        this.fdc = (LineView) findViewById(R.id.line_view);
+        this.fdf = l.getDimens(getContext(), R.dimen.tbds23);
+        this.fdg = l.getDimens(getContext(), R.dimen.tbds26);
     }
 
     public void setItemClickListener(a aVar) {
-        this.fdq = aVar;
+        this.fdu = aVar;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.fcY.onChangeSkinType();
-            Iterator<b> it = this.fcZ.iterator();
+            this.fdc.onChangeSkinType();
+            Iterator<b> it = this.fdd.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType();
             }
@@ -90,35 +90,35 @@ public class SignItemView extends FrameLayout {
             int size = arrayList.size();
             if (arrayList != null && size != 0) {
                 this.mContainer.removeAllViews();
-                this.fcZ.clear();
+                this.fdd.clear();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     if (size <= 3) {
-                        marginLayoutParams.leftMargin = this.fdc;
-                        marginLayoutParams.rightMargin = this.fdc;
+                        marginLayoutParams.leftMargin = this.fdg;
+                        marginLayoutParams.rightMargin = this.fdg;
                     } else {
-                        marginLayoutParams.leftMargin = this.fdb;
-                        marginLayoutParams.rightMargin = this.fdb;
+                        marginLayoutParams.leftMargin = this.fdf;
+                        marginLayoutParams.rightMargin = this.fdf;
                     }
                     setLayoutParams(marginLayoutParams);
                 }
-                if (this.fcY.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fcY.getLayoutParams();
+                if (this.fdc.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.fdc.getLayoutParams();
                     if (size <= 3) {
-                        if (marginLayoutParams2.leftMargin != this.fdd || marginLayoutParams2.rightMargin != this.fdd) {
-                            marginLayoutParams2.leftMargin = this.fdd;
-                            marginLayoutParams2.rightMargin = this.fdd;
-                            this.fcY.setLayoutParams(marginLayoutParams2);
+                        if (marginLayoutParams2.leftMargin != this.fdh || marginLayoutParams2.rightMargin != this.fdh) {
+                            marginLayoutParams2.leftMargin = this.fdh;
+                            marginLayoutParams2.rightMargin = this.fdh;
+                            this.fdc.setLayoutParams(marginLayoutParams2);
                         }
-                    } else if (marginLayoutParams2.leftMargin != this.fde || marginLayoutParams2.rightMargin != this.fde) {
-                        marginLayoutParams2.leftMargin = this.fde;
-                        marginLayoutParams2.rightMargin = this.fde;
-                        this.fcY.setLayoutParams(marginLayoutParams2);
+                    } else if (marginLayoutParams2.leftMargin != this.fdi || marginLayoutParams2.rightMargin != this.fdi) {
+                        marginLayoutParams2.leftMargin = this.fdi;
+                        marginLayoutParams2.rightMargin = this.fdi;
+                        this.fdc.setLayoutParams(marginLayoutParams2);
                     }
                 }
                 for (int i = 0; i < size; i++) {
-                    this.fcZ.add(c(arrayList.get(i)));
+                    this.fdd.add(c(arrayList.get(i)));
                 }
             }
         }
@@ -130,19 +130,19 @@ public class SignItemView extends FrameLayout {
         layoutParams.weight = 1.0f;
         this.mContainer.addView(inflate, layoutParams);
         final b bVar = new b(inflate, activeCenterStatusData);
-        bVar.fdm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.SignItemView.1
+        bVar.fdq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.mission.SignItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!bVar.fdo) {
-                    Iterator it = SignItemView.this.fcZ.iterator();
+                if (!bVar.fds) {
+                    Iterator it = SignItemView.this.fdd.iterator();
                     while (it.hasNext()) {
-                        ((b) it.next()).jT(false);
+                        ((b) it.next()).jV(false);
                     }
-                    bVar.jT(true);
-                    if (SignItemView.this.fdq == null) {
+                    bVar.jV(true);
+                    if (SignItemView.this.fdu == null) {
                         return;
                     }
-                    SignItemView.this.fdq.b(bVar.fdp);
+                    SignItemView.this.fdu.b(bVar.fdt);
                 }
             }
         });
@@ -151,61 +151,61 @@ public class SignItemView extends FrameLayout {
 
     /* loaded from: classes15.dex */
     public static class b {
-        private int fdl;
-        private ImageView fdm;
-        private CircleView fdn;
-        private ActiveCenterData.ActiveCenterStatusData fdp;
+        private int fdp;
+        private ImageView fdq;
+        private CircleView fdr;
+        private ActiveCenterData.ActiveCenterStatusData fdt;
         private View itemView;
         private TextView textView;
-        private int fdh = R.drawable.ic_pic_mask_task_complete_svg;
-        private int fdi = R.drawable.ic_pic_mask_task_select_svg;
-        private int fdj = R.drawable.ic_pic_mask_task_comingsoon_svg;
-        private int fdk = R.drawable.ic_pic_mask_task_uncomplete_svg;
-        private boolean fdo = false;
+        private int fdl = R.drawable.ic_pic_mask_task_complete_svg;
+        private int fdm = R.drawable.ic_pic_mask_task_select_svg;
+        private int fdn = R.drawable.ic_pic_mask_task_comingsoon_svg;
+        private int fdo = R.drawable.ic_pic_mask_task_uncomplete_svg;
+        private boolean fds = false;
 
         public b(View view, ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-            this.fdl = this.fdj;
-            this.fdp = activeCenterStatusData;
+            this.fdp = this.fdn;
+            this.fdt = activeCenterStatusData;
             this.itemView = view;
-            this.fdm = (ImageView) this.itemView.findViewById(R.id.item_icon);
+            this.fdq = (ImageView) this.itemView.findViewById(R.id.item_icon);
             this.textView = (TextView) this.itemView.findViewById(R.id.item_text);
-            this.fdn = (CircleView) this.itemView.findViewById(R.id.select_circle);
-            this.fdn.setVisibility(4);
+            this.fdr = (CircleView) this.itemView.findViewById(R.id.select_circle);
+            this.fdr.setVisibility(4);
             if (activeCenterStatusData.is_today_mission == 0) {
                 if (activeCenterStatusData.is_completed) {
-                    this.fdl = this.fdh;
+                    this.fdp = this.fdl;
                 } else {
-                    this.fdl = this.fdk;
+                    this.fdp = this.fdo;
                 }
             } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.fdn.setVisibility(0);
+                this.fdr.setVisibility(0);
                 if (activeCenterStatusData.is_completed) {
-                    this.fdl = this.fdh;
+                    this.fdp = this.fdl;
                 } else {
-                    this.fdl = this.fdi;
+                    this.fdp = this.fdm;
                 }
             } else {
-                this.fdl = this.fdj;
+                this.fdp = this.fdn;
             }
-            SvgManager.bjq().a(this.fdm, this.fdl, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.fdq, this.fdp, SvgManager.SvgResourceStateType.NORMAL);
             ap.setViewTextColor(this.textView, R.color.cp_cont_d);
             this.textView.setText(activeCenterStatusData.day + "天");
         }
 
         public void onChangeSkinType() {
-            SvgManager.bjq().a(this.fdm, this.fdl, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bjq().a(this.fdq, this.fdp, SvgManager.SvgResourceStateType.NORMAL);
             ap.setViewTextColor(this.textView, R.color.cp_cont_d);
-            this.fdn.onChangeSkinType();
+            this.fdr.onChangeSkinType();
         }
 
-        public void jT(boolean z) {
+        public void jV(boolean z) {
             if (z) {
-                this.fdo = true;
-                this.fdn.setVisibility(0);
+                this.fds = true;
+                this.fdr.setVisibility(0);
                 return;
             }
-            this.fdo = false;
-            this.fdn.setVisibility(4);
+            this.fds = false;
+            this.fdr.setVisibility(4);
         }
     }
 }

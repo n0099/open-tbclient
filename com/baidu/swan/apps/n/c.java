@@ -57,7 +57,7 @@ public final class c {
                 }));
             }
         }
-        final g ahZ = new g.a(activity).fy(true).as(inflate).a(new com.baidu.swan.apps.view.c.a()).jd(a.e.aiapps_action_sheet_bg).fD(false).azn().fz(false).ahZ();
+        final g ahZ = new g.a(activity).fz(true).as(inflate).a(new com.baidu.swan.apps.view.c.a()).jd(a.e.aiapps_action_sheet_bg).fE(false).azn().fA(false).ahZ();
         final DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.n.c.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -99,7 +99,7 @@ public final class c {
         layoutParams.setMargins(0, 16, 0, 16);
         textView.setLayoutParams(layoutParams);
         textView.setTextColor(com.baidu.swan.support.v4.a.a.getColor(activity, a.c.swan_app_msg_dialog_title));
-        textView.setText(dVar.csh);
+        textView.setText(dVar.csl);
         final Drawable drawable = resources.getDrawable(a.e.aiapps_subscribe_msg_unselected);
         final Drawable drawable2 = resources.getDrawable(a.e.aiapps_subscribe_msg_selected);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);

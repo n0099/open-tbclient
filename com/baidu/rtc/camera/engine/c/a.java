@@ -6,8 +6,8 @@ import com.baidu.rtc.camera.engine.b.b;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.rtc.camera.engine.b.a, b {
     public a(Context context, boolean z, com.baidu.rtc.camera.b.a aVar) {
-        com.baidu.rtc.camera.engine.a.b.WH().m32do(z);
-        com.baidu.rtc.camera.a.b.WF().bNk = aVar;
+        com.baidu.rtc.camera.engine.a.b.WH().dp(z);
+        com.baidu.rtc.camera.a.b.WF().bNo = aVar;
         com.baidu.rtc.camera.engine.d.b.WN().a(this).a(this).aV(context);
     }
 

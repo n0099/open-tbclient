@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes18.dex */
 public class PersonIntroductionActivity extends BaseActivity {
-    private ImageView gNl;
-    private TextView lmU;
+    private ImageView gNp;
+    private TextView lnf;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -41,11 +41,11 @@ public class PersonIntroductionActivity extends BaseActivity {
         this.mRootView = findViewById(R.id.person_intro_root_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.person_introduction_title));
-        this.gNl = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
-        this.gNl.setOnClickListener(this.mClickListener);
-        ap.setImageResource(this.gNl, R.drawable.selector_topbar_return_black);
-        this.lmU = (TextView) findViewById(R.id.person_intro);
-        this.lmU.setText(getIntent().getStringExtra("person_introduction"));
+        this.gNp = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+        this.gNp.setOnClickListener(this.mClickListener);
+        ap.setImageResource(this.gNp, R.drawable.selector_topbar_return_black);
+        this.lnf = (TextView) findViewById(R.id.person_intro);
+        this.lnf.setText(getIntent().getStringExtra("person_introduction"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.lmU, R.color.cp_cont_b, 1, i);
+        ap.setViewTextColor(this.lnf, R.color.cp_cont_b, 1, i);
         ap.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d, i);
     }
 }

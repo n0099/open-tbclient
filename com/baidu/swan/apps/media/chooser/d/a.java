@@ -19,14 +19,14 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class a implements Runnable {
-    private static final String[] cBg = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
-    private String cuy;
+    private static final String[] cBk = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
+    private String cuC;
     private Handler mHandler;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> cBf = new ArrayList<>();
-    private ArrayList<MediaModel> czZ = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> cBj = new ArrayList<>();
+    private ArrayList<MediaModel> cAd = new ArrayList<>();
 
     public a(String str, Handler handler) {
-        this.cuy = str;
+        this.cuC = str;
         this.mHandler = handler;
     }
 
@@ -34,18 +34,18 @@ public class a implements Runnable {
     public void run() {
         atn();
         ato();
-        u(this.cBf);
+        u(this.cBj);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.oq(d.X(AppRuntime.getAppContext(), this.cuy));
-        aVar.cBe = this.czZ;
-        this.cBf.add(0, aVar);
-        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.cBf.iterator();
+        aVar.or(d.X(AppRuntime.getAppContext(), this.cuC));
+        aVar.cBi = this.cAd;
+        this.cBj.add(0, aVar);
+        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.cBj.iterator();
         while (it.hasNext()) {
             Collections.sort(it.next().ate());
         }
         if (this.mHandler != null) {
             Message obtainMessage = this.mHandler.obtainMessage(0);
-            obtainMessage.obj = this.cBf;
+            obtainMessage.obj = this.cBj;
             this.mHandler.sendMessage(obtainMessage);
         }
     }
@@ -57,18 +57,18 @@ public class a implements Runnable {
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
     private void atn() {
         Cursor cursor;
-        if (!TextUtils.equals(this.cuy, "video")) {
+        if (!TextUtils.equals(this.cuC, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
             StringBuilder sb = new StringBuilder();
             sb.append("mime_type").append("=?");
             sb.append(" or ");
             sb.append("mime_type").append("=?");
-            String[] strArr = {cBg[0], cBg[1]};
-            if (c.cAP) {
+            String[] strArr = {cBk[0], cBk[1]};
+            if (c.cAT) {
                 sb.append(" or ");
                 sb.append("mime_type").append("=?");
-                strArr = cBg;
+                strArr = cBk;
             }
             try {
                 try {
@@ -80,7 +80,7 @@ public class a implements Runnable {
                                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                                 File file = new File(string);
-                                if (file.exists() && (c.cAP || !d.isGif(string))) {
+                                if (file.exists() && (c.cAT || !d.isGif(string))) {
                                     ImageModel imageModel = new ImageModel(string);
                                     imageModel.bj(j);
                                     imageModel.setSize(j2);
@@ -126,7 +126,7 @@ public class a implements Runnable {
         Cursor cursor;
         ?? r1 = "Image";
         try {
-            if (!TextUtils.equals(this.cuy, "Image")) {
+            if (!TextUtils.equals(this.cuC, "Image")) {
                 try {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                     if (cursor != null) {
@@ -187,16 +187,16 @@ public class a implements Runnable {
             path = file.getPath();
         }
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.oq(name);
-        aVar.or(path);
-        int indexOf = this.cBf.indexOf(aVar);
+        aVar.or(name);
+        aVar.os(path);
+        int indexOf = this.cBj.indexOf(aVar);
         if (indexOf >= 0) {
-            this.cBf.get(indexOf).h(mediaModel);
+            this.cBj.get(indexOf).h(mediaModel);
         } else {
             aVar.h(mediaModel);
-            this.cBf.add(aVar);
+            this.cBj.add(aVar);
         }
-        this.czZ.add(mediaModel);
+        this.cAd.add(mediaModel);
     }
 
     private void u(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {

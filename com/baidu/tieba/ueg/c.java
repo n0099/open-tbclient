@@ -5,25 +5,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aa;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String msU;
-    private a msV;
+    private String mtm;
+    private a mtn;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
-        void cKW();
-
         void cKX();
 
         void cKY();
+
+        void cKZ();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.msU = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.msV = aVar;
+        this.mtm = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.mtn = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.msU);
+            aa aaVar = new aa(this.mtm);
             aaVar.biQ().bjv().mIsNeedAddCommenParam = false;
             aaVar.biQ().bjv().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.msV != null && num != null) {
+        if (this.mtn != null && num != null) {
             if (num.intValue() == -1) {
-                this.msV.onError(null);
+                this.mtn.onError(null);
             } else if (num.intValue() == 1) {
-                this.msV.cKW();
+                this.mtn.cKX();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.msV.cKX();
+                this.mtn.cKY();
             } else {
-                this.msV.cKY();
+                this.mtn.cKZ();
             }
         }
     }

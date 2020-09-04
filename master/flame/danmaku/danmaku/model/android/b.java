@@ -7,7 +7,7 @@ import master.flame.danmaku.danmaku.model.android.a;
 import master.flame.danmaku.danmaku.model.n;
 /* loaded from: classes6.dex */
 public abstract class b {
-    protected a oxs;
+    protected a oxK;
 
     /* loaded from: classes6.dex */
     public static abstract class a {
@@ -21,15 +21,15 @@ public abstract class b {
     public abstract void b(master.flame.danmaku.danmaku.model.d dVar, TextPaint textPaint, boolean z);
 
     public void b(master.flame.danmaku.danmaku.model.d dVar, boolean z) {
-        if (this.oxs != null) {
-            this.oxs.e(dVar, z);
+        if (this.oxK != null) {
+            this.oxK.e(dVar, z);
         }
     }
 
     public boolean a(master.flame.danmaku.danmaku.model.d dVar, Canvas canvas, float f, float f2, Paint paint, TextPaint textPaint) {
         f fVar;
-        n<?> ehx = dVar.ehx();
-        if (ehx == null || (fVar = (f) ehx.get()) == null) {
+        n<?> ehG = dVar.ehG();
+        if (ehG == null || (fVar = (f) ehG.get()) == null) {
             return false;
         }
         return fVar.a(canvas, f, f2, paint);
@@ -39,12 +39,12 @@ public abstract class b {
     }
 
     public void a(a aVar) {
-        this.oxs = aVar;
+        this.oxK = aVar;
     }
 
     public void t(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oxs != null) {
-            this.oxs.t(dVar);
+        if (this.oxK != null) {
+            this.oxK.t(dVar);
         }
     }
 }

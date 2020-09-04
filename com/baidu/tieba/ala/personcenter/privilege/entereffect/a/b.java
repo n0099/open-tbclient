@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbu;
-    private BdTypeListView fCP;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gWB;
-    private c gWC;
+    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private BdTypeListView fCT;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gWF;
+    private c gWG;
     private List<q> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,23 +24,23 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.fCP = bdTypeListView;
+        this.fCT = bdTypeListView;
         Jv();
     }
 
     private void Jv() {
-        this.bbu = new ArrayList();
-        this.gWB = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.bbu.add(this.gWB);
-        this.gWC = new c(this.mPageContext.getPageActivity());
-        this.bbu.add(this.gWC);
-        this.fCP.addAdapters(this.bbu);
+        this.bbw = new ArrayList();
+        this.gWF = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.bbw.add(this.gWF);
+        this.gWG = new c(this.mPageContext.getPageActivity());
+        this.bbw.add(this.gWG);
+        this.fCT.addAdapters(this.bbw);
     }
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.fCP.setData(list);
-            this.mDataList = this.fCP.getData();
+            this.fCT.setData(list);
+            this.mDataList = this.fCT.getData();
         }
     }
 
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbu) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
             aVar.notifyDataSetChanged();
         }
     }

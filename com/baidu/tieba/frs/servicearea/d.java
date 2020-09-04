@@ -19,37 +19,37 @@ import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.z;
 /* loaded from: classes16.dex */
 public class d implements a, b {
-    private TextView dgx;
-    private ImageView igS;
-    private View iqg;
-    private aa iqh;
-    private TextView iqk;
-    private TextView iql;
-    private TbClipImageView iqm;
+    private TextView dgB;
+    private ImageView igY;
+    private View iqm;
+    private aa iqn;
+    private TextView iqq;
+    private TextView iqr;
+    private TbClipImageView iqs;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.iqh != null && d.this.iqh.mdT != null) {
-                TiebaStatic.log(new aq("c13274").u("uid", TbadkCoreApplication.getCurrentAccountId()).dD("fid", d.this.iqh.forumId).dD("obj_source", "frs_card").dD("obj_id", d.this.iqh.mdT.id).dD("obj_name", d.this.iqh.mdT.name).ai("obj_param1", d.this.iqh.mdT.dPG.intValue()));
+            if (d.this.iqn != null && d.this.iqn.mei != null) {
+                TiebaStatic.log(new aq("c13274").u("uid", TbadkCoreApplication.getCurrentAccountId()).dD("fid", d.this.iqn.forumId).dD("obj_source", "frs_card").dD("obj_id", d.this.iqn.mei.id).dD("obj_name", d.this.iqn.mei.name).ai("obj_param1", d.this.iqn.mei.dPK.intValue()));
             }
-            e.a(view.getContext(), d.this.iqh, d.this.iqg);
-            e.c(d.this.iqh);
+            e.a(view.getContext(), d.this.iqn, d.this.iqm);
+            e.c(d.this.iqn);
         }
     };
     private View mRootView;
 
     public d(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.frs_one_service_layout, (ViewGroup) null);
-        this.dgx = (TextView) this.mRootView.findViewById(R.id.frs_service);
-        this.iqk = (TextView) this.mRootView.findViewById(R.id.frs_service_category);
-        this.iql = (TextView) this.mRootView.findViewById(R.id.frs_service_name);
-        this.iqm = (TbClipImageView) this.mRootView.findViewById(R.id.frs_service_icon);
-        this.iqm.setDrawerType(1);
-        this.iqm.setIsRound(true);
-        this.iqm.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.dgB = (TextView) this.mRootView.findViewById(R.id.frs_service);
+        this.iqq = (TextView) this.mRootView.findViewById(R.id.frs_service_category);
+        this.iqr = (TextView) this.mRootView.findViewById(R.id.frs_service_name);
+        this.iqs = (TbClipImageView) this.mRootView.findViewById(R.id.frs_service_icon);
+        this.iqs.setDrawerType(1);
+        this.iqs.setIsRound(true);
+        this.iqs.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        this.iqg = this.mRootView.findViewById(R.id.view_red_dot);
-        this.igS = (ImageView) this.mRootView.findViewById(R.id.frs_service_arrow);
+        this.iqm = this.mRootView.findViewById(R.id.view_red_dot);
+        this.igY = (ImageView) this.mRootView.findViewById(R.id.frs_service_arrow);
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
@@ -61,30 +61,30 @@ public class d implements a, b {
     public void setData(z zVar) {
         aa aaVar;
         if (zVar != null && !y.isEmpty(zVar.dataList) && (aaVar = zVar.dataList.get(0)) != null) {
-            this.iqh = aaVar;
-            if (this.iqh.mdT != null) {
-                this.iqk.setText(this.mRootView.getContext().getString(R.string.ai_smart_app));
+            this.iqn = aaVar;
+            if (this.iqn.mei != null) {
+                this.iqq.setText(this.mRootView.getContext().getString(R.string.ai_smart_app));
             } else {
-                this.iqk.setText(this.mRootView.getContext().getString(R.string.frs_service_special));
+                this.iqq.setText(this.mRootView.getContext().getString(R.string.frs_service_special));
             }
-            this.iql.setText(at.aj(aaVar.name, 20));
-            this.iqm.startLoad(aaVar.imageUrl, 10, false);
-            this.iqg.setVisibility(aaVar.hvJ ? 0 : 8);
+            this.iqr.setText(at.aj(aaVar.name, 20));
+            this.iqs.startLoad(aaVar.imageUrl, 10, false);
+            this.iqm.setVisibility(aaVar.hvP ? 0 : 8);
             e.b(aaVar);
         }
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public void onChangeSkinType(int i) {
-        ap.setViewTextColor(this.iqk, R.color.cp_cont_b);
-        ap.setViewTextColor(this.iql, R.color.cp_cont_b);
+        ap.setViewTextColor(this.iqq, R.color.cp_cont_b);
+        ap.setViewTextColor(this.iqr, R.color.cp_cont_b);
         ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        this.iqg.setBackground(ap.getDrawable(R.drawable.frs_service_red_dot));
-        this.igS.setImageDrawable(SvgManager.bjq().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null));
+        this.iqm.setBackground(ap.getDrawable(R.drawable.frs_service_red_dot));
+        this.igY.setImageDrawable(SvgManager.bjq().a(R.drawable.icon_pure_arrow12_right_svg, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null));
     }
 
     @Override // com.baidu.tieba.frs.servicearea.a
     public void setThemeFontColor(int i) {
-        this.dgx.setTextColor(i);
+        this.dgB.setTextColor(i);
     }
 }

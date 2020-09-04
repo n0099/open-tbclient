@@ -2,11 +2,11 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ac extends com.baidu.tbadk.core.data.m {
     private long mStartTime = Long.MAX_VALUE;
     private long mEndTime = 0;
-    private String eAQ = null;
+    private String eAU = null;
 
     @Override // com.baidu.tbadk.core.data.m
     public void parserJson(JSONObject jSONObject) {
@@ -14,7 +14,7 @@ public class ac extends com.baidu.tbadk.core.data.m {
             try {
                 this.mStartTime = jSONObject.optLong("start_time", Long.MAX_VALUE);
                 this.mEndTime = jSONObject.optLong("end_time", 0L);
-                this.eAQ = jSONObject.optString("dest_url", "");
+                this.eAU = jSONObject.optString("dest_url", "");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -30,6 +30,6 @@ public class ac extends com.baidu.tbadk.core.data.m {
     }
 
     public String bmS() {
-        return this.eAQ;
+        return this.eAU;
     }
 }

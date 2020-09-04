@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> aQL;
+    private List<View> aQN;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.aQL = new ArrayList();
-        this.aQL = list;
+        this.aQN = new ArrayList();
+        this.aQN = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.aQL == null) {
+        if (this.aQN == null) {
             return 0;
         }
-        return this.aQL.size();
+        return this.aQN.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -32,7 +32,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.aQL.get(i);
+            View view = this.aQN.get(i);
             P(view);
             viewGroup.removeView(view);
         }
@@ -43,7 +43,7 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.aQL.get(i);
+        View view = this.aQN.get(i);
         viewGroup.addView(view);
         return view;
     }

@@ -16,11 +16,11 @@ import com.baidu.tieba.ala.widget.ScrollTextView;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class WishListEntryView extends RelativeLayout {
-    private TbImageView gNA;
-    private ScrollTextView gNw;
-    private LinearLayout gNx;
-    private TextView gNy;
-    private TextView gNz;
+    private ScrollTextView gNA;
+    private LinearLayout gNB;
+    private TextView gNC;
+    private TextView gND;
+    private TbImageView gNE;
     private Context mContext;
     private View mView;
 
@@ -40,67 +40,67 @@ public class WishListEntryView extends RelativeLayout {
 
     private void initUI(Context context) {
         this.mView = LayoutInflater.from(getContext()).inflate(a.h.live_scroll_wish_list_widget_entry, (ViewGroup) this, true);
-        this.gNw = (ScrollTextView) this.mView.findViewById(a.g.scroll_text_view);
-        this.gNx = (LinearLayout) this.mView.findViewById(a.g.one_wish_layout);
-        this.gNy = (TextView) this.mView.findViewById(a.g.wish_text);
-        this.gNz = (TextView) this.mView.findViewById(a.g.wish_count_tv);
-        this.gNA = (TbImageView) this.mView.findViewById(a.g.wish_image_view);
+        this.gNA = (ScrollTextView) this.mView.findViewById(a.g.scroll_text_view);
+        this.gNB = (LinearLayout) this.mView.findViewById(a.g.one_wish_layout);
+        this.gNC = (TextView) this.mView.findViewById(a.g.wish_text);
+        this.gND = (TextView) this.mView.findViewById(a.g.wish_count_tv);
+        this.gNE = (TbImageView) this.mView.findViewById(a.g.wish_image_view);
     }
 
     public void af(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.gNw.caq();
-            this.gNw.aj(null);
-            this.gNw.setVisibility(8);
-            this.gNx.setVisibility(8);
+            this.gNA.car();
+            this.gNA.aj(null);
+            this.gNA.setVisibility(8);
+            this.gNB.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.gNw.caq();
-            this.gNw.aj(null);
-            this.gNw.setVisibility(8);
-            this.gNx.setVisibility(0);
+            this.gNA.car();
+            this.gNA.aj(null);
+            this.gNA.setVisibility(8);
+            this.gNB.setVisibility(0);
             setOneWishData(arrayList.get(0));
         } else {
-            this.gNx.setVisibility(8);
-            this.gNw.setVisibility(0);
-            this.gNw.car();
-            this.gNw.aj(arrayList);
+            this.gNB.setVisibility(8);
+            this.gNA.setVisibility(0);
+            this.gNA.cas();
+            this.gNA.aj(arrayList);
         }
     }
 
     public void ag(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.gNw.caq();
-            this.gNw.aj(null);
-            this.gNw.setVisibility(8);
-            this.gNx.setVisibility(8);
+            this.gNA.car();
+            this.gNA.aj(null);
+            this.gNA.setVisibility(8);
+            this.gNB.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.gNw.caq();
-            this.gNw.aj(null);
-            this.gNw.setVisibility(8);
-            this.gNx.setVisibility(0);
+            this.gNA.car();
+            this.gNA.aj(null);
+            this.gNA.setVisibility(8);
+            this.gNB.setVisibility(0);
             setOneWishData(arrayList.get(0));
         } else {
-            this.gNx.setVisibility(8);
-            this.gNw.setVisibility(0);
-            this.gNw.car();
-            this.gNw.aj(arrayList);
+            this.gNB.setVisibility(8);
+            this.gNA.setVisibility(0);
+            this.gNA.cas();
+            this.gNA.aj(arrayList);
         }
     }
 
     private void setOneWishData(AlaLiveWishListData alaLiveWishListData) {
         if (alaLiveWishListData != null) {
-            this.gNy.setText(alaLiveWishListData.gift_name);
-            this.gNA.setDefaultBgResource(a.f.icon_live_gift_default);
-            this.gNA.setDefaultErrorResource(a.f.icon_live_gift_default);
-            this.gNA.setAutoChangeStyle(false);
-            this.gNA.startLoad(alaLiveWishListData.gift_url, 10, false);
-            this.gNz.setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
+            this.gNC.setText(alaLiveWishListData.gift_name);
+            this.gNE.setDefaultBgResource(a.f.icon_live_gift_default);
+            this.gNE.setDefaultErrorResource(a.f.icon_live_gift_default);
+            this.gNE.setAutoChangeStyle(false);
+            this.gNE.startLoad(alaLiveWishListData.gift_url, 10, false);
+            this.gND.setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
         }
     }
 
     public void setOnScrollTextViewChangeListener(ScrollTextView.c cVar) {
-        if (this.gNw != null) {
-            this.gNw.setOnScrollTextViewChangeListener(cVar);
+        if (this.gNA != null) {
+            this.gNA.setOnScrollTextViewChangeListener(cVar);
         }
     }
 

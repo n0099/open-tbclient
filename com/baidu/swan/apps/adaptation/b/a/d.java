@@ -5,19 +5,19 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public long bST;
-    public long bSU;
-    public volatile long bSV;
-    public long bSW;
     public long bSX;
-    private long bSY;
-    public String bSZ = "1";
+    public long bSY;
+    public volatile long bSZ;
+    public long bTa;
+    public long bTb;
+    private long bTc;
+    public String bTd = "1";
 
     public long abf() {
-        if (this.bSY > 0) {
-            return this.bSY;
+        if (this.bTc > 0) {
+            return this.bTc;
         }
-        long[] jArr = {this.bSW, this.bSX, this.bSU};
+        long[] jArr = {this.bTa, this.bTb, this.bSY};
         int length = jArr.length;
         int i = 0;
         long j = Long.MAX_VALUE;
@@ -30,34 +30,34 @@ public class d {
             j = j2;
         }
         if (j != Long.MAX_VALUE) {
-            this.bSY = j;
+            this.bTc = j;
         }
-        return this.bSY;
+        return this.bTc;
     }
 
     public final void abg() {
-        if (this.bSV > 0 && this.bSV != this.bSW && this.bSV != this.bSX && this.bSV != this.bSU) {
+        if (this.bSZ > 0 && this.bSZ != this.bTa && this.bSZ != this.bTb && this.bSZ != this.bSY) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.bSV);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.bSZ);
             }
-        } else if (this.bSW > 0) {
+        } else if (this.bTa > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.bSW);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.bTa);
             }
-            this.bSV = this.bSW;
-            this.bSZ = "2";
-        } else if (this.bSX > 0) {
+            this.bSZ = this.bTa;
+            this.bTd = "2";
+        } else if (this.bTb > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.bSX);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.bTb);
             }
-            this.bSV = this.bSX;
-            this.bSZ = "3";
-        } else if (this.bSU > 0) {
+            this.bSZ = this.bTb;
+            this.bTd = "3";
+        } else if (this.bSY > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.bSU);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.bSY);
             }
-            this.bSV = this.bSU;
-            this.bSZ = "1";
+            this.bSZ = this.bSY;
+            this.bTd = "1";
         } else if (DEBUG) {
             throw new RuntimeException("ftp fcp fip 至少收到上述一个回调才能校准 fmp \n" + toString());
         }
@@ -65,7 +65,7 @@ public class d {
 
     @NonNull
     public String abh() {
-        String str = this.bSZ;
+        String str = this.bTd;
         char c = 65535;
         switch (str.hashCode()) {
             case 48:
@@ -108,19 +108,19 @@ public class d {
     }
 
     public String aM(long j) {
-        if (j == this.bSW) {
+        if (j == this.bTa) {
             return "2";
         }
-        if (j == this.bSX) {
+        if (j == this.bTb) {
             return "3";
         }
-        if (j != this.bSU && j == this.bSV) {
+        if (j != this.bSY && j == this.bSZ) {
             return "0";
         }
         return "1";
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.bST + ", fcp=" + this.bSU + ", fmp=" + this.bSV + ", ftp=" + this.bSW + ", fip=" + this.bSX + ", mMinCache=" + this.bSY + ", fmpType='" + this.bSZ + "', fmpTypeName='" + abh() + "'}";
+        return "WebViewPaintTiming{fp=" + this.bSX + ", fcp=" + this.bSY + ", fmp=" + this.bSZ + ", ftp=" + this.bTa + ", fip=" + this.bTb + ", mMinCache=" + this.bTc + ", fmpType='" + this.bTd + "', fmpTypeName='" + abh() + "'}";
     }
 }

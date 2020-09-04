@@ -1,33 +1,33 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes10.dex */
 class g {
-    private int dJA;
+    private String dJA;
     private String dJB;
-    private int dJC;
-    private int dJD;
-    private String dJE;
+    private String dJC;
+    private String dJD;
+    private int dJE;
     private String dJF;
-    private String dJw;
-    private String dJx;
-    private String dJy;
-    private String dJz;
+    private int dJG;
+    private int dJH;
+    private String dJI;
+    private String dJJ;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
 
     public g(String str, String str2, String str3, int i, String str4, String str5) {
-        this.dJx = str;
+        this.dJB = str;
         this.mId = str;
-        this.dJy = str2;
-        this.dJz = str3;
-        this.dJA = i;
+        this.dJC = str2;
+        this.dJD = str3;
+        this.dJE = i;
         this.mType = str4;
-        this.dJB = str5;
+        this.dJF = str5;
     }
 
-    public void xi(String str) {
-        this.dJw = str;
+    public void xj(String str) {
+        this.dJA = str;
     }
 
     public void mg(int i) {
@@ -39,11 +39,11 @@ class g {
     }
 
     public void mh(int i) {
-        this.dJC = i;
+        this.dJG = i;
     }
 
     public void mi(int i) {
-        this.dJD = i;
+        this.dJH = i;
     }
 
     public String getId() {
@@ -51,15 +51,15 @@ class g {
     }
 
     public String aVH() {
-        return this.dJy;
+        return this.dJC;
     }
 
     public String aVI() {
-        return this.dJz;
+        return this.dJD;
     }
 
     public int getTimeout() {
-        return this.dJA;
+        return this.dJE;
     }
 
     public String getType() {
@@ -67,7 +67,7 @@ class g {
     }
 
     public String aVJ() {
-        return this.dJB;
+        return this.dJF;
     }
 
     public int aVK() {
@@ -79,22 +79,22 @@ class g {
     }
 
     public int aVL() {
-        return this.dJC;
+        return this.dJG;
     }
 
     public int aVM() {
-        return this.dJD;
-    }
-
-    public void xj(String str) {
-        this.dJE = str;
-    }
-
-    public String aVN() {
-        return this.dJE;
+        return this.dJH;
     }
 
     public void xk(String str) {
-        this.dJF = str;
+        this.dJI = str;
+    }
+
+    public String aVN() {
+        return this.dJI;
+    }
+
+    public void xl(String str) {
+        this.dJJ = str;
     }
 }

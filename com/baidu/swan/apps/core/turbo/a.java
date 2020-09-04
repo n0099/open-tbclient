@@ -10,13 +10,13 @@ import java.util.TreeMap;
 public class a {
     public String appConfig;
     public String appPath;
-    public String cng;
-    public String cnh;
-    public String cni;
-    public String cnj;
-    public boolean cnk;
-    public boolean cnl;
+    public String cnk;
+    public String cnl;
     public String cnm;
+    public String cnn;
+    public boolean cno;
+    public boolean cnp;
+    public String cnq;
     public String pageType;
     public String pageUrl;
 
@@ -24,18 +24,18 @@ public class a {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appConfig", aVar.appConfig);
         treeMap.put("appPath", aVar.appPath);
-        treeMap.put("wvID", aVar.cng);
+        treeMap.put("wvID", aVar.cnk);
         treeMap.put("pageUrl", aVar.pageUrl);
-        treeMap.put("devhook", aVar.cni);
-        treeMap.put("root", aVar.cnj);
-        if (!TextUtils.isEmpty(aVar.cnh)) {
-            treeMap.put("extraData", aVar.cnh);
+        treeMap.put("devhook", aVar.cnm);
+        treeMap.put("root", aVar.cnn);
+        if (!TextUtils.isEmpty(aVar.cnl)) {
+            treeMap.put("extraData", aVar.cnl);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.cnk));
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.cno));
         treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.pageType);
-        treeMap.put("isT7Available", String.valueOf(aVar.cnl));
-        if (!TextUtils.isEmpty(aVar.cnm)) {
-            treeMap.put("masterPreload", aVar.cnm);
+        treeMap.put("isT7Available", String.valueOf(aVar.cnp));
+        if (!TextUtils.isEmpty(aVar.cnq)) {
+            treeMap.put("masterPreload", aVar.cnq);
         }
         com.baidu.swan.apps.ac.g.b.c(treeMap, "app ready event");
         j.g(aVar.pageUrl, treeMap);
@@ -45,7 +45,7 @@ public class a {
     public static String b(e eVar, String str) {
         String str2 = null;
         if (eVar != null) {
-            str2 = eVar.iM(ai.delAllParamsFromUrl(str));
+            str2 = eVar.iN(ai.delAllParamsFromUrl(str));
         }
         return str2 == null ? "" : str2;
     }

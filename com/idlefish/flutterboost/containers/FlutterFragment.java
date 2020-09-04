@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.FlutterLifeCycleBugEnableSwitch;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
@@ -190,6 +192,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 this.isResumedOrVisibleToUser = false;
                 this.delegate.onPause();
             }
+            if (FlutterLifeCycleBugEnableSwitch.isOn() && TbadkCoreApplication.getInst().isInBackground()) {
+                this.sendReumeToDart = z;
+                this.isResumedOrVisibleToUser = z;
+            }
         }
     }
 
@@ -353,5 +359,9 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     }
 
     public void setSwipeBackEnable(boolean z) {
+    }
+
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public void swipeBackControl(double d) {
     }
 }

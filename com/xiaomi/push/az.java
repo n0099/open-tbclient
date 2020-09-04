@@ -60,10 +60,10 @@ public class az {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f119a;
+        public Map<String, String> f118a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f119a.toString());
+            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f118a.toString());
         }
     }
 
@@ -161,7 +161,7 @@ public class az {
                                 bufferedReader = new BufferedReader(new InputStreamReader(new a(m141a.getErrorStream())));
                             }
                         } else {
-                            axVar.f118a.put(headerFieldKey, headerField);
+                            axVar.f117a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
@@ -183,7 +183,7 @@ public class az {
                 stringBuffer.append(readLine);
                 stringBuffer.append(property);
             }
-            axVar.f117a = stringBuffer.toString();
+            axVar.f116a = stringBuffer.toString();
             bufferedReader.close();
             y.a((Closeable) null);
             y.a((Closeable) null);
@@ -236,8 +236,8 @@ public class az {
             }
             if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
                 bVar.a = m141a.getResponseCode();
-                if (bVar.f119a == null) {
-                    bVar.f119a = new HashMap();
+                if (bVar.f118a == null) {
+                    bVar.f118a = new HashMap();
                 }
                 int i = 0;
                 while (true) {
@@ -247,7 +247,7 @@ public class az {
                         break;
                     }
                     if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                        bVar.f119a.put(headerFieldKey, headerField);
+                        bVar.f118a.put(headerFieldKey, headerField);
                     }
                     i++;
                 }

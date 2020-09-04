@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ak {
-    private static final ak eku = new ak();
+    private static final ak eky = new ak();
     private final HashMap<Class<?>, Class<?>> mActicyConfig = new HashMap<>();
 
     public static final ak bjd() {
-        return eku;
+        return eky;
     }
 
     private ak() {

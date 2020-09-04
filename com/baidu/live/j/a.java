@@ -12,7 +12,7 @@ public interface a {
 
     void c(TbPageContext tbPageContext);
 
-    void gU(String str);
+    void gV(String str);
 
     void h(r rVar);
 

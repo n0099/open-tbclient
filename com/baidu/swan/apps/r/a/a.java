@@ -39,11 +39,11 @@ import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static CharSequence cuX = "._";
+    private static CharSequence cvb = "._";
 
     /* loaded from: classes8.dex */
     public static class b {
-        public BufferedInputStream cuY;
+        public BufferedInputStream cvc;
         public int type = -1;
     }
 
@@ -74,17 +74,17 @@ public class a {
                     dataInputStream = new DataInputStream(bufferedInputStream);
                     try {
                         bVar.versionCode = a(dataInputStream);
-                        bVar.cuZ = a(dataInputStream);
-                        bVar.cva = a(dataInputStream);
-                        bVar.cvb = a(dataInputStream);
-                        bVar.cvc = b(dataInputStream);
-                        dataInputStream.readFully(bVar.cvd);
-                        byte[] J = J(bVar.cvd);
+                        bVar.cvd = a(dataInputStream);
+                        bVar.cve = a(dataInputStream);
+                        bVar.cvf = a(dataInputStream);
+                        bVar.cvg = b(dataInputStream);
+                        dataInputStream.readFully(bVar.cvh);
+                        byte[] J = J(bVar.cvh);
                         if (J == null || J.length <= 0) {
-                            c0425a.clw = "cipher is null";
+                            c0425a.clA = "cipher is null";
                             d.closeSafely(dataInputStream);
                         } else {
-                            byte[] bArr = new byte[bVar.cva];
+                            byte[] bArr = new byte[bVar.cve];
                             dataInputStream.readFully(bArr);
                             byte[] bArr2 = new byte[16];
                             byte[] bArr3 = new byte[16];
@@ -92,7 +92,7 @@ public class a {
                             System.arraycopy(J, 16, bArr3, 0, 16);
                             byte[] d = d(bArr, bArr2, bArr3);
                             if (d == null || d.length <= 0) {
-                                c0425a.clw = "index array length <= 0";
+                                c0425a.clA = "index array length <= 0";
                                 d.closeSafely(dataInputStream);
                             } else {
                                 if (i == 2) {
@@ -113,15 +113,15 @@ public class a {
                                         cVar.start();
                                         handlerArr[i2] = cVar.aoI();
                                     }
-                                    for (int i3 = 0; i3 < bVar.cuZ; i3++) {
+                                    for (int i3 = 0; i3 < bVar.cvd; i3++) {
                                         b.a aVar = new b.a();
                                         aVar.offset = a(dataInputStream2);
                                         aVar.size = a(dataInputStream2);
-                                        aVar.cve = a(dataInputStream2);
-                                        byte[] bArr4 = new byte[aVar.cve];
+                                        aVar.cvi = a(dataInputStream2);
+                                        byte[] bArr4 = new byte[aVar.cvi];
                                         dataInputStream2.readFully(bArr4);
                                         aVar.path = new String(bArr4, "utf-8");
-                                        if (aVar.path.contains(cuX)) {
+                                        if (aVar.path.contains(cvb)) {
                                             dataInputStream3.skipBytes(aVar.size);
                                         } else {
                                             byte[] bArr5 = new byte[aVar.size];
@@ -147,14 +147,14 @@ public class a {
                                     if (DEBUG) {
                                         Log.e("BundleDecrypt", "create destination directory fail");
                                     }
-                                    c0425a.clw = "create destination directory failed";
+                                    c0425a.clA = "create destination directory failed";
                                     d.closeSafely(dataInputStream);
                                 }
                             }
                         }
                     } catch (Exception e) {
                         e = e;
-                        c0425a.clw = e.getLocalizedMessage();
+                        c0425a.clA = e.getLocalizedMessage();
                         if (DEBUG) {
                             Log.e("BundleDecrypt", "decrypt bundle fail", e);
                         }
@@ -276,13 +276,13 @@ public class a {
             return closeable;
         }
         if (read == -1122498812) {
-            bVar.cuY = closeable;
+            bVar.cvc = closeable;
             bVar.type = 1;
             closeable = bVar;
         } else {
             closeable2 = closeable;
             if (read == -1122434039) {
-                bVar.cuY = closeable;
+                bVar.cvc = closeable;
                 bVar.type = 2;
                 closeable = bVar;
             }
@@ -294,7 +294,7 @@ public class a {
 
     public static b a(@NonNull BufferedInputStream bufferedInputStream) throws IOException {
         b bVar = new b();
-        bVar.cuY = bufferedInputStream;
+        bVar.cvc = bufferedInputStream;
         bufferedInputStream.mark(8);
         int read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
         if (read == -1122498812) {
@@ -325,7 +325,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public static class C0425a {
-        public String clw = "";
+        public String clA = "";
         public boolean isSuccess;
 
         C0425a(boolean z) {

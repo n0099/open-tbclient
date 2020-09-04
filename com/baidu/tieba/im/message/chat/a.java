@@ -9,19 +9,19 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static Pattern jwn = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private static Pattern jwt = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     /* renamed from: com.baidu.tieba.im.message.chat.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class C0719a {
         public long createTime;
         public String fid;
-        public String jhz;
-        public long jwo;
-        public String jwp;
-        public int jwq;
+        public String jhF;
+        public long jwu;
+        public String jwv;
+        public int jww;
         public long picId;
         public String src;
         public long taskId;
@@ -59,7 +59,7 @@ public class a {
                 C0719a c0719a = new C0719a();
                 if (!TextUtils.isEmpty(optString2)) {
                     optString2 = optString2.trim();
-                    Matcher matcher = jwn.matcher(optString2);
+                    Matcher matcher = jwt.matcher(optString2);
                     if (matcher.find()) {
                         c0719a.tid = matcher.group(1);
                     }
@@ -71,14 +71,14 @@ public class a {
                 c0719a.fid = str2;
                 c0719a.picId = optLong;
                 c0719a.taskId = j2;
-                c0719a.jhz = optString5;
+                c0719a.jhF = optString5;
                 if (i > -1) {
                     c0719a.userType = i;
                 }
                 if (userData != null) {
-                    c0719a.jwo = j;
-                    c0719a.jwp = userData.getUserId();
-                    c0719a.jwq = userData.getUserType();
+                    c0719a.jwu = j;
+                    c0719a.jwv = userData.getUserId();
+                    c0719a.jww = userData.getUserType();
                 }
                 linkedList.add(c0719a);
             }

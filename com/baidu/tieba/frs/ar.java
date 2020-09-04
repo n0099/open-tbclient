@@ -5,7 +5,7 @@ public interface ar {
 
     void a(av avVar);
 
-    void bLO();
+    void bLP();
 
     void init();
 }

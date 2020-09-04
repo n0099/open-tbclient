@@ -16,7 +16,7 @@ import com.baidu.tbadk.switchs.IdentifyImageSwitch;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static final String ABTEST = "abtest";
     public static final String ACCOUNT_BDUSS = "account_bduss";
@@ -74,21 +74,21 @@ public class ImageViewerConfig extends IntentConfig {
                 intent.putExtra("index", aVar.index);
                 intent.putExtra("is_pv", true);
                 intent.putExtra(PV_TYPE, "pb");
-                intent.putExtra(PARAM_IS_CDN, aVar.dUM);
+                intent.putExtra(PARAM_IS_CDN, aVar.dUQ);
                 intent.putExtra("fname", aVar.forumName);
                 intent.putExtra("fid", aVar.forumId);
                 intent.putExtra("tid", aVar.threadId);
                 intent.putExtra(LAST_ID, aVar.lastId);
-                intent.putExtra(REVERSE_MODE, aVar.dUN);
-                intent.putExtra(ASSIST_URLS, aVar.dUO);
-                intent.putExtra(IS_SHOW_AD, aVar.dUP);
-                intent.putExtra(NEED_BROADCAST, aVar.dUQ);
-                intent.putExtra(SEE_HOST, aVar.dUR);
+                intent.putExtra(REVERSE_MODE, aVar.dUR);
+                intent.putExtra(ASSIST_URLS, aVar.dUS);
+                intent.putExtra(IS_SHOW_AD, aVar.dUT);
+                intent.putExtra(NEED_BROADCAST, aVar.dUU);
+                intent.putExtra(SEE_HOST, aVar.dUV);
                 int size = aVar.data.size();
                 for (int i = 0; i < size; i++) {
                     String str = (String) aVar.data.get(i);
                     if (!StringUtils.isNull(str)) {
-                        ImageUrlData imageUrlData2 = aVar.dUO != null ? (ImageUrlData) aVar.dUO.get(str) : null;
+                        ImageUrlData imageUrlData2 = aVar.dUS != null ? (ImageUrlData) aVar.dUS.get(str) : null;
                         if (imageUrlData2 == null) {
                             ImageUrlData imageUrlData3 = new ImageUrlData();
                             imageUrlData3.imageUrl = str;
@@ -111,60 +111,60 @@ public class ImageViewerConfig extends IntentConfig {
             } else {
                 intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
             }
-            if (aVar.dUS != null) {
-                intent.putExtra(IS_BJH, aVar.dUS.bdo());
-                if (aVar.dUS.bdo()) {
+            if (aVar.dUW != null) {
+                intent.putExtra(IS_BJH, aVar.dUW.bdo());
+                if (aVar.dUW.bdo()) {
                     intent.putExtra(PARAM_IS_CDN, true);
                 }
-                intent.putExtra("nid", aVar.dUS.getNid());
-                intent.putExtra(IntentConfig.CARD_TYPE, aVar.dUS.bgD());
-                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.dUS.mRecomSource);
-                intent.putExtra("ab_tag", aVar.dUS.mRecomAbTag);
-                intent.putExtra("weight", aVar.dUS.mRecomWeight);
-                intent.putExtra("extra", aVar.dUS.mRecomExtra);
+                intent.putExtra("nid", aVar.dUW.getNid());
+                intent.putExtra(IntentConfig.CARD_TYPE, aVar.dUW.bgD());
+                intent.putExtra(IntentConfig.RECOM_SOURCE, aVar.dUW.mRecomSource);
+                intent.putExtra("ab_tag", aVar.dUW.mRecomAbTag);
+                intent.putExtra("weight", aVar.dUW.mRecomWeight);
+                intent.putExtra("extra", aVar.dUW.mRecomExtra);
             }
             if (!TextUtils.isEmpty(aVar.postId)) {
                 intent.putExtra("post_id", aVar.postId);
             }
-            intent.putExtra(IS_CAN_DRAG, aVar.dUU);
-            if (aVar.dUV != null && aVar.dUW != null) {
+            intent.putExtra(IS_CAN_DRAG, aVar.dUY);
+            if (aVar.dUZ != null && aVar.dVa != null) {
                 int statusBarHeight = !UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0;
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put((int) aVar.dUW.left);
-                jSONArray.put((int) (aVar.dUW.top - statusBarHeight));
-                jSONArray.put((int) aVar.dUW.right);
-                jSONArray.put((int) (aVar.dUW.bottom - statusBarHeight));
-                jSONArray.put(aVar.dUV.left);
-                jSONArray.put(aVar.dUV.top - statusBarHeight);
-                jSONArray.put(aVar.dUV.right);
-                jSONArray.put(aVar.dUV.bottom - statusBarHeight);
+                jSONArray.put((int) aVar.dVa.left);
+                jSONArray.put((int) (aVar.dVa.top - statusBarHeight));
+                jSONArray.put((int) aVar.dVa.right);
+                jSONArray.put((int) (aVar.dVa.bottom - statusBarHeight));
+                jSONArray.put(aVar.dUZ.left);
+                jSONArray.put(aVar.dUZ.top - statusBarHeight);
+                jSONArray.put(aVar.dUZ.right);
+                jSONArray.put(aVar.dUZ.bottom - statusBarHeight);
                 intent.putExtra("source_rect_in_screen", jSONArray.toString());
             }
-            intent.putExtra(IS_SHOW_HOST, aVar.dUX);
-            if (aVar.dUY) {
+            intent.putExtra(IS_SHOW_HOST, aVar.dVb);
+            if (aVar.dVc) {
                 intent.putExtra(IS_DYNAMIC_CARD, true);
                 intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
                 intent.putExtra(IS_SHOW_HOST, false);
             }
             intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
-            intent.putExtra(IS_FROM_AI_APP, aVar.dUZ);
-            intent.putExtra("from_forum_id", aVar.dUT);
+            intent.putExtra(IS_FROM_AI_APP, aVar.dVd);
+            intent.putExtra("from_forum_id", aVar.dUX);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
-        private boolean dUM;
-        private boolean dUN;
-        private ConcurrentHashMap<String, ImageUrlData> dUO;
-        private boolean dUP;
         private boolean dUQ;
-        private bw dUS;
-        private String dUT;
-        private Rect dUV;
-        private RectF dUW;
-        private boolean dUY;
-        private boolean dUZ;
+        private boolean dUR;
+        private ConcurrentHashMap<String, ImageUrlData> dUS;
+        private boolean dUT;
+        private boolean dUU;
+        private bw dUW;
+        private String dUX;
+        private Rect dUZ;
+        private RectF dVa;
+        private boolean dVc;
+        private boolean dVd;
         private ArrayList<String> data;
         private String forumName;
         private String lastId;
@@ -172,9 +172,9 @@ public class ImageViewerConfig extends IntentConfig {
         private int index = 0;
         private String forumId = "";
         private String threadId = "";
-        private boolean dUR = false;
-        private boolean dUU = true;
-        private boolean dUX = true;
+        private boolean dUV = false;
+        private boolean dUY = true;
+        private boolean dVb = true;
 
         public a x(ArrayList<String> arrayList) {
             this.data = arrayList;
@@ -186,94 +186,94 @@ public class ImageViewerConfig extends IntentConfig {
             return this;
         }
 
-        public a yP(String str) {
+        public a yQ(String str) {
             this.forumName = str;
             return this;
         }
 
-        public a yQ(String str) {
+        public a yR(String str) {
             this.forumId = str;
             return this;
         }
 
-        public a yR(String str) {
+        public a yS(String str) {
             this.threadId = str;
             return this;
         }
 
-        public a hH(boolean z) {
-            this.dUM = z;
-            return this;
-        }
-
-        public a yS(String str) {
-            this.lastId = str;
-            return this;
-        }
-
         public a hI(boolean z) {
-            this.dUN = z;
-            return this;
-        }
-
-        public a a(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-            this.dUO = concurrentHashMap;
-            return this;
-        }
-
-        public a hJ(boolean z) {
-            this.dUP = z;
-            return this;
-        }
-
-        public a hK(boolean z) {
             this.dUQ = z;
             return this;
         }
 
-        public a hL(boolean z) {
+        public a yT(String str) {
+            this.lastId = str;
+            return this;
+        }
+
+        public a hJ(boolean z) {
             this.dUR = z;
             return this;
         }
 
-        public a r(bw bwVar) {
-            this.dUS = bwVar;
+        public a a(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+            this.dUS = concurrentHashMap;
             return this;
         }
 
-        public a yT(String str) {
-            this.postId = str;
+        public a hK(boolean z) {
+            this.dUT = z;
             return this;
         }
 
-        public a hM(boolean z) {
+        public a hL(boolean z) {
             this.dUU = z;
             return this;
         }
 
-        public a a(Rect rect, RectF rectF) {
-            this.dUV = rect;
-            this.dUW = rectF;
+        public a hM(boolean z) {
+            this.dUV = z;
             return this;
         }
 
-        public a hN(boolean z) {
-            this.dUX = z;
-            return this;
-        }
-
-        public a hO(boolean z) {
-            this.dUY = z;
-            return this;
-        }
-
-        public a hP(boolean z) {
-            this.dUZ = z;
+        public a r(bw bwVar) {
+            this.dUW = bwVar;
             return this;
         }
 
         public a yU(String str) {
-            this.dUT = str;
+            this.postId = str;
+            return this;
+        }
+
+        public a hN(boolean z) {
+            this.dUY = z;
+            return this;
+        }
+
+        public a a(Rect rect, RectF rectF) {
+            this.dUZ = rect;
+            this.dVa = rectF;
+            return this;
+        }
+
+        public a hO(boolean z) {
+            this.dVb = z;
+            return this;
+        }
+
+        public a hP(boolean z) {
+            this.dVc = z;
+            return this;
+        }
+
+        public a hQ(boolean z) {
+            this.dVd = z;
+            return this;
+        }
+
+        public a yV(String str) {
+            this.dUX = str;
             return this;
         }
 

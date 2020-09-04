@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class CommitVoteReqMsg extends HttpMessage {
     public long candidate_uid;
     public long forum_id;

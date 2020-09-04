@@ -12,26 +12,26 @@ public class n implements j, l, a.InterfaceC0932a {
     private boolean CI;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiM;
     @Nullable
-    private r oid;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oif;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oig;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> oiu;
+    private r oiv;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oix;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oiy;
     private final Path path = new Path();
     private final RectF rect = new RectF();
 
     public n(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar2) {
         this.name = fVar2.getName();
         this.lottieDrawable = fVar;
-        this.oig = fVar2.edi().edf();
-        this.oif = fVar2.edp().edf();
-        this.oiu = fVar2.edH().edf();
-        aVar.a(this.oig);
-        aVar.a(this.oif);
-        aVar.a(this.oiu);
-        this.oig.b(this);
-        this.oif.b(this);
-        this.oiu.b(this);
+        this.oiy = fVar2.edr().edo();
+        this.oix = fVar2.edy().edo();
+        this.oiM = fVar2.edQ().edo();
+        aVar.a(this.oiy);
+        aVar.a(this.oix);
+        aVar.a(this.oiM);
+        this.oiy.b(this);
+        this.oix.b(this);
+        this.oiM.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC0932a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).ecV() == ShapeTrimPath.Type.Simultaneously) {
-                    this.oid = (r) bVar;
-                    this.oid.a(this);
+                if ((bVar instanceof r) && ((r) bVar).ede() == ShapeTrimPath.Type.Simultaneously) {
+                    this.oiv = (r) bVar;
+                    this.oiv.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -73,15 +73,15 @@ public class n implements j, l, a.InterfaceC0932a {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.oif.getValue();
+        PointF value = this.oix.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.oiu == null ? 0.0f : this.oiu.getValue().floatValue();
+        float floatValue = this.oiM == null ? 0.0f : this.oiM.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.oig.getValue();
+        PointF value2 = this.oiy.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,7 +104,7 @@ public class n implements j, l, a.InterfaceC0932a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.oid);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.oiv);
         this.CI = true;
         return this.path;
     }

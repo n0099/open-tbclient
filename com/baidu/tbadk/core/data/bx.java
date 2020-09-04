@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bx extends com.baidu.tieba.card.data.b {
-    public bw dUS;
-    public int eeA;
-    public int eeB;
-    public int eeC;
+    public bw dUW;
+    public int eeE;
+    public int eeF;
+    public int eeG;
     public String stType;
 
     public bx(bw bwVar) {
-        this.dUS = bwVar;
+        this.dUW = bwVar;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q

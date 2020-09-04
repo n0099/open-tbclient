@@ -9,8 +9,8 @@ import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ArrayList<a> dwA;
-    private int dwB;
+    private ArrayList<a> dwE;
+    private int dwF;
     private String mSavePath;
     private String mVideoPath;
 
@@ -18,10 +18,10 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
-        this.dwA = v(arrayList);
+        this.dwE = v(arrayList);
         this.mVideoPath = str;
         this.mSavePath = str2;
-        this.dwB = this.dwA.size();
+        this.dwF = this.dwE.size();
     }
 
     public void a(final c cVar) {
@@ -32,7 +32,7 @@ public class e {
                     ArrayList<long[]> aPf = e.this.aPf();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.dwz = aPf;
+                    dVar.dwD = aPf;
                     dVar.clipPath = e.this.mSavePath;
                     com.baidu.swan.games.m.a.aOq().a(dVar, cVar);
                 }
@@ -58,16 +58,16 @@ public class e {
 
     public ArrayList<long[]> aPf() {
         ArrayList<long[]> arrayList = new ArrayList<>();
-        if (this.dwB == 0) {
+        if (this.dwF == 0) {
             return arrayList;
         }
         if (DEBUG) {
-            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.dwA);
+            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.dwE);
         }
-        Collections.sort(this.dwA, new a.C0505a());
-        a aVar = this.dwA.get(0);
-        for (int i = 1; i < this.dwB; i++) {
-            a aVar2 = this.dwA.get(i);
+        Collections.sort(this.dwE, new a.C0505a());
+        a aVar = this.dwE.get(0);
+        for (int i = 1; i < this.dwF; i++) {
+            a aVar2 = this.dwE.get(i);
             if (!aVar.b(aVar2)) {
                 arrayList.add(a.a(aVar));
                 aVar = aVar2;

@@ -3,18 +3,18 @@ package com.baidu.tieba.lego.c;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> jSH = new HashMap<>();
+    private static final HashMap<String, e> jSN = new HashMap<>();
     public String itemId = "";
-    public long jSF;
-    public int jSG;
+    public long jSL;
+    public int jSM;
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        jSH.put(this.jSF + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        jSN.put(this.jSL + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
     public static e r(long j, String str) {
@@ -22,6 +22,6 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return jSH.get(append.append(str).toString());
+        return jSN.get(append.append(str).toString());
     }
 }

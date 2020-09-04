@@ -7,7 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ar {
     private static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
     private static Method mSetStatusBarColorIcon;

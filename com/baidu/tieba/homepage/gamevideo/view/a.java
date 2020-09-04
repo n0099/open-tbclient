@@ -8,18 +8,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes16.dex */
 public class a extends PopupWindow {
-    private TbPageContext efn;
-    private InterfaceC0696a iKp;
+    private TbPageContext efr;
+    private InterfaceC0696a iKv;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes16.dex */
     public interface InterfaceC0696a {
-        void cxd();
+        void cxe();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.efn = tbPageContext;
+        this.efr = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bf.getScreenFullSize(this.efn.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.efr.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bf.getScreenFullSize(this.efn.getPageActivity())[1] - rect.bottom);
+            setHeight(bf.getScreenFullSize(this.efr.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.iKp != null) {
-            this.iKp.cxd();
+        if (this.iKv != null) {
+            this.iKv.cxe();
         } else {
             super.dismiss();
         }
     }
 
-    public void bHi() {
+    public void bHj() {
         super.dismiss();
     }
 
     public void a(InterfaceC0696a interfaceC0696a) {
-        this.iKp = interfaceC0696a;
+        this.iKv = interfaceC0696a;
     }
 }

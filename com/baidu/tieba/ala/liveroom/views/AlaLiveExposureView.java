@@ -12,15 +12,15 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes7.dex */
 public class AlaLiveExposureView extends View {
-    private int bnH;
-    private Paint eKp;
-    private Paint gKP;
-    private int gKQ;
-    private int gKR;
-    private float gKS;
-    private float gKT;
-    private a gKU;
-    private Runnable gKV;
+    private int bnK;
+    private Paint eKt;
+    private Paint gKT;
+    private int gKU;
+    private int gKV;
+    private float gKW;
+    private float gKX;
+    private a gKY;
+    private Runnable gKZ;
     private int mActivePointerId;
     private Paint mCirclePaint;
     private float mDownX;
@@ -33,13 +33,13 @@ public class AlaLiveExposureView extends View {
 
     public AlaLiveExposureView(Context context) {
         super(context);
-        this.bnH = 5;
-        this.gKQ = 4;
-        this.gKR = 4;
-        this.gKS = 0.5f;
-        this.gKT = 0.5f;
+        this.bnK = 5;
+        this.gKU = 4;
+        this.gKV = 4;
+        this.gKW = 0.5f;
+        this.gKX = 0.5f;
         this.mActivePointerId = -1;
-        this.gKV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.gKZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -50,13 +50,13 @@ public class AlaLiveExposureView extends View {
 
     public AlaLiveExposureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bnH = 5;
-        this.gKQ = 4;
-        this.gKR = 4;
-        this.gKS = 0.5f;
-        this.gKT = 0.5f;
+        this.bnK = 5;
+        this.gKU = 4;
+        this.gKV = 4;
+        this.gKW = 0.5f;
+        this.gKX = 0.5f;
         this.mActivePointerId = -1;
-        this.gKV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.gKZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -67,13 +67,13 @@ public class AlaLiveExposureView extends View {
 
     public AlaLiveExposureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bnH = 5;
-        this.gKQ = 4;
-        this.gKR = 4;
-        this.gKS = 0.5f;
-        this.gKT = 0.5f;
+        this.bnK = 5;
+        this.gKU = 4;
+        this.gKV = 4;
+        this.gKW = 0.5f;
+        this.gKX = 0.5f;
         this.mActivePointerId = -1;
-        this.gKV = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.gKZ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -83,30 +83,30 @@ public class AlaLiveExposureView extends View {
     }
 
     private void init(Context context) {
-        this.eKp = new Paint();
-        this.eKp.setAntiAlias(true);
-        this.eKp.setStyle(Paint.Style.STROKE);
-        this.eKp.setColor(Color.parseColor("#ffffffff"));
-        this.eKp.setStrokeWidth(this.bnH);
+        this.eKt = new Paint();
+        this.eKt.setAntiAlias(true);
+        this.eKt.setStyle(Paint.Style.STROKE);
+        this.eKt.setColor(Color.parseColor("#ffffffff"));
+        this.eKt.setStrokeWidth(this.bnK);
         this.mCirclePaint = new Paint();
         this.mCirclePaint.setAntiAlias(true);
         this.mCirclePaint.setStyle(Paint.Style.STROKE);
         this.mCirclePaint.setColor(-1);
-        this.mCirclePaint.setStrokeWidth(this.gKQ);
-        this.gKP = new Paint();
-        this.gKP.setAntiAlias(true);
-        this.gKP.setStyle(Paint.Style.STROKE);
-        this.gKP.setStrokeCap(Paint.Cap.ROUND);
-        this.gKP.setColor(-1);
-        this.gKP.setStrokeWidth(this.gKR);
+        this.mCirclePaint.setStrokeWidth(this.gKU);
+        this.gKT = new Paint();
+        this.gKT.setAntiAlias(true);
+        this.gKT.setStyle(Paint.Style.STROKE);
+        this.gKT.setStrokeCap(Paint.Cap.ROUND);
+        this.gKT.setColor(-1);
+        this.gKT.setStrokeWidth(this.gKV);
     }
 
     public void setExposureListener(a aVar) {
-        this.gKU = aVar;
+        this.gKY = aVar;
     }
 
     public void setExposureValue(float f) {
-        this.gKS = f;
+        this.gKW = f;
         invalidate();
     }
 
@@ -119,25 +119,25 @@ public class AlaLiveExposureView extends View {
     }
 
     private void M(Canvas canvas) {
-        int height = (int) ((getHeight() - 88) * this.gKS);
+        int height = (int) ((getHeight() - 88) * this.gKW);
         if (height > 3) {
             int width = getWidth() / 2;
-            canvas.drawLine(width, 0, width, height + 0, this.eKp);
+            canvas.drawLine(width, 0, width, height + 0, this.eKt);
         }
     }
 
     private void N(Canvas canvas) {
         int height = getHeight() - 88;
-        int i = height - ((int) (height * this.gKS));
+        int i = height - ((int) (height * this.gKW));
         if (i > 3) {
             int width = getWidth() / 2;
             int height2 = getHeight();
-            canvas.drawLine(width, height2, width, height2 - i, this.eKp);
+            canvas.drawLine(width, height2, width, height2 - i, this.eKt);
         }
     }
 
     private void f(Canvas canvas) {
-        int round = Math.round((getHeight() - 88) * this.gKS);
+        int round = Math.round((getHeight() - 88) * this.gKW);
         int width = getWidth() / 2;
         int i = round + 44;
         canvas.drawArc(new RectF(width - 18, i - 18, width + 18, i + 18), 360.0f, 360.0f, false, this.mCirclePaint);
@@ -145,19 +145,19 @@ public class AlaLiveExposureView extends View {
 
     private void O(Canvas canvas) {
         int width = getWidth() / 2;
-        int height = ((int) ((getHeight() - 88) * this.gKS)) + 44;
-        int round = 8 - Math.round(this.gKS * 8.0f);
+        int height = ((int) ((getHeight() - 88) * this.gKW)) + 44;
+        int round = 8 - Math.round(this.gKW * 8.0f);
         int i = (height - 18) - 8;
         int i2 = i - 4;
         for (int i3 = 0; i3 < round; i3++) {
-            canvas.drawLine(width, i, width, i2, this.gKP);
+            canvas.drawLine(width, i, width, i2, this.gKT);
             canvas.rotate(45.0f, width, height);
         }
     }
 
-    public void bWX() {
-        removeCallbacks(this.gKV);
-        postDelayed(this.gKV, IMConnection.RETRY_DELAY_TIMES);
+    public void bWY() {
+        removeCallbacks(this.gKZ);
+        postDelayed(this.gKZ, IMConnection.RETRY_DELAY_TIMES);
     }
 
     @Override // android.view.View
@@ -169,24 +169,24 @@ public class AlaLiveExposureView extends View {
                 if (!isInvalidEvent(motionEvent, actionIndex, this.mActivePointerId)) {
                     this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mDownY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.gKT = this.gKS;
-                    removeCallbacks(this.gKV);
+                    this.gKX = this.gKW;
+                    removeCallbacks(this.gKZ);
                     return true;
                 }
                 break;
             case 1:
             case 3:
-                bWX();
+                bWY();
                 break;
             case 2:
                 getDiffX(motionEvent);
-                float M = ((M(motionEvent) * 1.0f) / (getHeight() - 88)) + this.gKT;
+                float M = ((M(motionEvent) * 1.0f) / (getHeight() - 88)) + this.gKX;
                 float f = M < 1.0f ? M : 1.0f;
                 float f2 = f > 0.0f ? f : 0.0f;
-                if (f2 != this.gKS) {
-                    this.gKS = f2;
-                    if (this.gKU != null) {
-                        this.gKU.onExposure(this.gKS);
+                if (f2 != this.gKW) {
+                    this.gKW = f2;
+                    if (this.gKY != null) {
+                        this.gKY.onExposure(this.gKW);
                     }
                 }
                 invalidate();

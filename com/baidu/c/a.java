@@ -15,7 +15,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 /* loaded from: classes11.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static C0094a ZN = new C0094a();
+    private static C0094a ZP = new C0094a();
     private MethodChannel channel;
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -64,14 +64,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             case 0:
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    ZN.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("personal_center"));
+                    ZP.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("personal_center"));
                 }
                 result.success(true);
                 return;
             case 1:
                 Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity2 instanceof TbPageContextSupport) {
-                    ZN.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("personal_center"));
+                    ZP.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("personal_center"));
                 }
                 result.success(true);
                 return;
@@ -82,14 +82,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.voiceId = (String) methodCall.argument("url");
                 voiceModel.duration = Integer.valueOf((String) methodCall.argument("duration")).intValue();
-                if (!ZN.isPlaying(voiceModel)) {
-                    ZN.a(voiceModel);
-                    ZN.sc();
+                if (!ZP.isPlaying(voiceModel)) {
+                    ZP.a(voiceModel);
+                    ZP.sc();
                 }
                 result.success(true);
                 return;
             case 4:
-                ZN.ZP.stopPlay();
+                ZP.ZR.stopPlay();
                 result.success(true);
                 return;
             default:
@@ -106,40 +106,40 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     /* renamed from: com.baidu.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     private static class C0094a implements VoiceManager.b {
-        String ZO;
-        VoiceManager ZP;
-        VoiceData.VoiceModel ZQ;
+        String ZQ;
+        VoiceManager ZR;
+        VoiceData.VoiceModel ZS;
 
         private C0094a() {
-            this.ZO = "";
-            this.ZP = VoiceManager.instance();
+            this.ZQ = "";
+            this.ZR = VoiceManager.instance();
         }
 
         void a(VoiceData.VoiceModel voiceModel) {
-            this.ZQ = voiceModel;
+            this.ZS = voiceModel;
         }
 
         boolean isPlaying(VoiceData.VoiceModel voiceModel) {
-            return this.ZP.isPlaying(voiceModel);
+            return this.ZR.isPlaying(voiceModel);
         }
 
-        boolean cS(String str) {
-            return this.ZO != null && this.ZO.equals(str);
+        boolean cT(String str) {
+            return this.ZQ != null && this.ZQ.equals(str);
         }
 
         boolean a(TbPageContext tbPageContext, String str) {
-            if (cS(str)) {
+            if (cT(str)) {
                 return false;
             }
-            this.ZO = str;
-            this.ZP.onCreate(tbPageContext);
+            this.ZQ = str;
+            this.ZR.onCreate(tbPageContext);
             return true;
         }
 
         void b(TbPageContext tbPageContext, String str) {
-            if (cS(str)) {
-                this.ZP.onDestory(tbPageContext);
-                this.ZO = null;
+            if (cT(str)) {
+                this.ZR.onDestory(tbPageContext);
+                this.ZQ = null;
             }
         }
 
@@ -161,7 +161,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
         public VoiceData.VoiceModel getVoiceModel() {
-            return this.ZQ;
+            return this.ZS;
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -170,7 +170,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
 
         void sc() {
-            this.ZP.startPlay(this);
+            this.ZR.startPlay(this);
         }
     }
 }

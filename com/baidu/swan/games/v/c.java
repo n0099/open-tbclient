@@ -6,13 +6,13 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 /* loaded from: classes8.dex */
 public class c {
-    public static void vM(String str) {
+    public static void vN(String str) {
         com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
         dVar.errMsg = str;
         b.aPn().a(new a(10000, dVar));
     }
 
-    public static void vN(String str) {
+    public static void vO(String str) {
         com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
         dVar.errMsg = str;
         b.aPn().a(new a(20000, dVar));
@@ -53,7 +53,7 @@ public class c {
         com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.dwY = z ? 1 : 0;
+        aVar.dxc = z ? 1 : 0;
         aVar.errMsg = str2;
         b.aPn().a(new a(70000, aVar));
     }
@@ -62,7 +62,7 @@ public class c {
         com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.dwY = z ? 1 : 0;
+        aVar.dxc = z ? 1 : 0;
         aVar.errMsg = str2;
         b.aPn().a(new a(100000, aVar));
     }
@@ -71,7 +71,7 @@ public class c {
         com.baidu.swan.games.v.a.a aVar = new com.baidu.swan.games.v.a.a();
         aVar.url = str;
         aVar.errCode = i;
-        aVar.dwY = z ? 1 : 0;
+        aVar.dxc = z ? 1 : 0;
         aVar.errMsg = str2;
         b.aPn().a(new a(110000, aVar));
     }
@@ -92,7 +92,7 @@ public class c {
         }
     }
 
-    public static void vO(String str) {
+    public static void vP(String str) {
         com.baidu.swan.games.v.a.d dVar = new com.baidu.swan.games.v.a.d();
         dVar.errMsg = str;
         b.aPn().a(new a(BdStatisticsManager.UPLOAD_TIMER_INTERVAL, dVar));

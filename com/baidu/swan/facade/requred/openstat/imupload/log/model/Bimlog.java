@@ -480,7 +480,7 @@ public final class Bimlog {
                     }
                 }
 
-                public a ty(String str) {
+                public a tz(String str) {
                     if (str == null) {
                         throw new NullPointerException();
                     }
@@ -887,7 +887,7 @@ public final class Bimlog {
                 return this;
             }
 
-            public a tz(String str) {
+            public a tA(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -921,7 +921,7 @@ public final class Bimlog {
                 return this;
             }
 
-            public a tA(String str) {
+            public a tB(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }

@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
-    private ImageView efb;
-    private TextView efc;
-    private boolean efd;
-    private a.c efe;
+    private ImageView eff;
+    private TextView efg;
+    private boolean efh;
+    private a.c efi;
 
     public NoTipAgainView(Context context) {
         this(context, null);
@@ -29,39 +29,39 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
 
     public NoTipAgainView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.efd = false;
+        this.efh = false;
         init();
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_no_tip_again, this);
-        this.efc = (TextView) findViewById(R.id.no_tip_again_text);
-        this.efb = (ImageView) findViewById(R.id.checkbox);
+        this.efg = (TextView) findViewById(R.id.no_tip_again_text);
+        this.eff = (ImageView) findViewById(R.id.checkbox);
         onChangeSkinType();
-        this.efb.setOnClickListener(this);
+        this.eff.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.efb) {
-            this.efd = !this.efd;
+        if (view == this.eff) {
+            this.efh = !this.efh;
             bhd();
-            if (this.efe != null) {
-                this.efe.bhh();
+            if (this.efi != null) {
+                this.efi.bhh();
             }
         }
     }
 
     public void onChangeSkinType() {
         bhd();
-        ap.setViewTextColor(this.efc, R.color.cp_cont_j);
+        ap.setViewTextColor(this.efg, R.color.cp_cont_j);
     }
 
     private void bhd() {
         Drawable a;
-        if (this.efb != null) {
-            ImageView imageView = this.efb;
-            if (this.efd) {
+        if (this.eff != null) {
+            ImageView imageView = this.eff;
+            if (this.efh) {
                 a = SvgManager.bjq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
                 a = SvgManager.bjq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -71,10 +71,10 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     }
 
     public boolean bhe() {
-        return this.efd;
+        return this.efh;
     }
 
     public void setOnNoTipAgainCheckListener(a.c cVar) {
-        this.efe = cVar;
+        this.efi = cVar;
     }
 }

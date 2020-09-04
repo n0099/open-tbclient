@@ -1,24 +1,24 @@
 package com.baidu.tbadk.g;
 
 import android.view.ViewGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d {
-    private ViewGroup dSc;
-    private c dSd;
+    private ViewGroup dSg;
+    private c dSh;
 
     public ViewGroup baT() {
-        return this.dSc;
+        return this.dSg;
     }
 
     public void B(ViewGroup viewGroup) {
-        this.dSc = viewGroup;
+        this.dSg = viewGroup;
     }
 
     public c baU() {
-        return this.dSd;
+        return this.dSh;
     }
 
     public void a(c cVar) {
-        this.dSd = cVar;
+        this.dSh = cVar;
     }
 }

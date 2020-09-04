@@ -1,5 +1,5 @@
 package com.baidu.afd;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ParseError extends Exception {
     public static final int ERROR_INVALID_DATA = 2;
     public static final int ERROR_INVALID_JSON_ROOT = 1;

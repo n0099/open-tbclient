@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class bg {
-    public int hXq;
-    public List<bf> hXr;
+    public int hXw;
+    public List<bf> hXx;
 }

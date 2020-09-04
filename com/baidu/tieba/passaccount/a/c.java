@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.util.at;
 import java.util.HashMap;
 /* loaded from: classes15.dex */
 public class c {
-    private static volatile c ktE;
+    private static volatile c ktL;
     private Activity activity;
-    private a ktF;
+    private a ktM;
 
     /* loaded from: classes15.dex */
     public interface a {
-        void cUe();
+        void cUf();
 
         void d(boolean z, boolean z2, String str);
 
@@ -37,28 +37,28 @@ public class c {
         void v(boolean z, String str);
     }
 
-    public static c cUw() {
-        if (ktE == null) {
+    public static c cUx() {
+        if (ktL == null) {
             synchronized (c.class) {
-                if (ktE == null) {
-                    ktE = new c();
+                if (ktL == null) {
+                    ktL = new c();
                 }
             }
         }
-        return ktE;
+        return ktL;
     }
 
     public void a(a aVar) {
-        this.ktF = aVar;
+        this.ktM = aVar;
     }
 
     public void a(Activity activity, a aVar) {
         this.activity = activity;
-        this.ktF = aVar;
-        cUx();
+        this.ktM = aVar;
+        cUy();
     }
 
-    private void cUx() {
+    private void cUy() {
         final SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             HashMap hashMap = new HashMap();
@@ -82,14 +82,14 @@ public class c {
                     } else if (checkUserFaceIdResult.status == 3) {
                         BdLog.e("人脸验证不可用");
                         l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                        if (c.this.ktF != null) {
-                            c.this.ktF.cUe();
+                        if (c.this.ktM != null) {
+                            c.this.ktM.cUf();
                         }
                     } else {
                         BdLog.e("人脸验证不可用");
                         l.showToast(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                        if (c.this.ktF != null) {
-                            c.this.ktF.cUe();
+                        if (c.this.ktM != null) {
+                            c.this.ktM.cUf();
                         }
                     }
                 }
@@ -101,8 +101,8 @@ public class c {
                     if (checkUserFaceIdResult != null) {
                         l.showToast(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
                     }
-                    if (c.this.ktF != null) {
-                        c.this.ktF.onFail();
+                    if (c.this.ktM != null) {
+                        c.this.ktM.onFail();
                     }
                 }
 
@@ -131,8 +131,8 @@ public class c {
                     RealNameFaceIDResult realNameFaceIDResult = (RealNameFaceIDResult) sapiResult;
                     BdLog.d("实名人脸验证成功,callBackKey:" + realNameFaceIDResult.callBackKey + ",authSid:" + realNameFaceIDResult.authSid);
                     l.showToast(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (c.this.ktF != null) {
-                        c.this.ktF.d(true, true, realNameFaceIDResult.callBackKey);
+                    if (c.this.ktM != null) {
+                        c.this.ktM.d(true, true, realNameFaceIDResult.callBackKey);
                     }
                     if (z) {
                         c.this.y(z2, realNameFaceIDResult.callBackKey);
@@ -140,8 +140,8 @@ public class c {
                 } else if (sapiResult instanceof UnRealNameFaceIDResult) {
                     BdLog.d("非实名人脸验证成功 callBackKey" + ((UnRealNameFaceIDResult) sapiResult).registerResult);
                     l.showToast(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (c.this.ktF != null) {
-                        c.this.ktF.d(false, true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
+                    if (c.this.ktM != null) {
+                        c.this.ktM.d(false, true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
                     }
                     if (z) {
                         c.this.y(z2, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
@@ -154,8 +154,8 @@ public class c {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !at.equals("用户取消操作", sapiResult.getResultMsg())) {
                     l.showToast(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
-                if (c.this.ktF != null) {
-                    c.this.ktF.d(sapiResult instanceof RealNameFaceIDResult, false, null);
+                if (c.this.ktM != null) {
+                    c.this.ktM.d(sapiResult instanceof RealNameFaceIDResult, false, null);
                 }
             }
         }, faceIDVerifyDTO);
@@ -175,8 +175,8 @@ public class c {
                 if (sapiResult instanceof UnRealNameFaceIDResult) {
                     BdLog.d("人脸注册结果" + ((UnRealNameFaceIDResult) sapiResult).registerResult);
                     l.showToast(TbadkCoreApplication.getInst(), "刷脸注册成功");
-                    if (c.this.ktF != null) {
-                        c.this.ktF.v(true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
+                    if (c.this.ktM != null) {
+                        c.this.ktM.v(true, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
                     }
                     if (z) {
                         c.this.y(z2, ((UnRealNameFaceIDResult) sapiResult).callBackKey);
@@ -189,8 +189,8 @@ public class c {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !at.equals("用户取消操作", sapiResult.getResultMsg())) {
                     l.showToast(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
-                if (c.this.ktF != null) {
-                    c.this.ktF.v(false, null);
+                if (c.this.ktM != null) {
+                    c.this.ktM.v(false, null);
                 }
             }
         }, faceIDRegDTO);

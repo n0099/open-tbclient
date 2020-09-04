@@ -11,7 +11,7 @@ public interface c extends com.baidu.swan.games.audio.a {
 
     boolean aLj();
 
-    void gA(boolean z);
+    void gB(boolean z);
 
     void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener);
 

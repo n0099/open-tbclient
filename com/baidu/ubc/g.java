@@ -8,34 +8,34 @@ import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class g {
-    private static volatile g nfg;
-    private int dJq;
-    private int dJr;
-    private int dJs;
+    private static volatile g nfy;
+    private int dJu;
+    private int dJv;
+    private int dJw;
     private Context mContext;
-    private f nfh = new f();
-    private ad nev = new ad();
+    private f nfz = new f();
+    private ad neN = new ad();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static g dLN() {
-        if (nfg == null) {
+    public static g dLW() {
+        if (nfy == null) {
             synchronized (e.class) {
-                if (nfg == null) {
-                    nfg = new g();
+                if (nfy == null) {
+                    nfy = new g();
                 }
             }
         }
-        return nfg;
+        return nfy;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.dJq = 360000;
-        ag dMd = ag.dMd();
-        this.dJr = dMd.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
-        this.dJs = dMd.getInt("ubc_database_limit", 10000);
-        cVar.dLK().a(this.nfh);
+        this.dJu = 360000;
+        ag dMm = ag.dMm();
+        this.dJv = dMm.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
+        this.dJw = dMm.getInt("ubc_database_limit", 10000);
+        cVar.dLT().a(this.nfz);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,56 +44,56 @@ public class g {
             String id = kVar.getId();
             if (!TextUtils.isEmpty(id)) {
                 if ("0".equals(kVar.aVH())) {
-                    this.nfh.neV.add(id);
-                    this.nfh.neY.remove(id);
+                    this.nfz.nfn.add(id);
+                    this.nfz.nfq.remove(id);
                 } else {
-                    this.nfh.neV.remove(id);
-                    this.nfh.neY.add(id);
+                    this.nfz.nfn.remove(id);
+                    this.nfz.nfq.add(id);
                 }
                 if ("1".equals(kVar.aVI())) {
-                    this.nfh.neW.add(id);
+                    this.nfz.nfo.add(id);
                 } else {
-                    this.nfh.neW.remove(id);
+                    this.nfz.nfo.remove(id);
                 }
                 if ("1".equals(kVar.aVJ())) {
-                    this.nfh.neX.add(id);
+                    this.nfz.nfp.add(id);
                 } else {
-                    this.nfh.neX.remove(id);
+                    this.nfz.nfp.remove(id);
                 }
-                if ("1".equals(kVar.dLP())) {
-                    this.nfh.neZ.add(id);
+                if ("1".equals(kVar.dLY())) {
+                    this.nfz.nfr.add(id);
                 } else {
-                    this.nfh.neZ.remove(id);
+                    this.nfz.nfr.remove(id);
                 }
                 if (kVar.aVK() >= 1 && kVar.aVK() <= 100) {
-                    this.nfh.nfa.put(id, String.valueOf(kVar.aVK()));
+                    this.nfz.nfs.put(id, String.valueOf(kVar.aVK()));
                 } else {
-                    this.nfh.nfa.remove(id);
+                    this.nfz.nfs.remove(id);
                 }
                 if (!TextUtils.isEmpty(kVar.getCategory())) {
-                    this.nfh.nfb.put(id, kVar.getCategory());
+                    this.nfz.nft.put(id, kVar.getCategory());
                 } else {
-                    this.nfh.nfb.remove(id);
+                    this.nfz.nft.remove(id);
                 }
                 if (kVar.aVM() != 0 && kVar.aVL() != 0) {
                     m mVar = new m(id, kVar.aVM(), kVar.aVL());
-                    this.nfh.nfc.put(mVar.getId(), mVar);
+                    this.nfz.nfu.put(mVar.getId(), mVar);
                 }
                 if (TextUtils.equals(kVar.aVN(), "1")) {
-                    this.nfh.nfd.add(id);
+                    this.nfz.nfv.add(id);
                 } else {
-                    this.nfh.nfd.remove(id);
+                    this.nfz.nfv.remove(id);
                 }
-                if (TextUtils.equals(kVar.dLR(), "1")) {
-                    this.nfh.nfe.add(id);
+                if (TextUtils.equals(kVar.dMa(), "1")) {
+                    this.nfz.nfw.add(id);
                 } else {
-                    this.nfh.nfe.remove(id);
+                    this.nfz.nfw.remove(id);
                 }
-                String dLS = kVar.dLS();
-                if (!TextUtils.isEmpty(dLS) && !TextUtils.equals(dLS, "0")) {
-                    this.nfh.nff.put(id, dLS);
+                String dMb = kVar.dMb();
+                if (!TextUtils.isEmpty(dMb) && !TextUtils.equals(dMb, "0")) {
+                    this.nfz.nfx.put(id, dMb);
                 } else {
-                    this.nfh.nff.remove(id);
+                    this.nfz.nfx.remove(id);
                 }
             }
         }
@@ -101,99 +101,99 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ad(String str, int i) {
-        if (this.nfh.neV.contains(str)) {
+        if (this.nfz.nfn.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.nfh.neY.contains(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean xa(String str) {
-        if (this.nev.dMb()) {
-            return true;
-        }
-        return this.nfh.neW.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.nfz.nfq.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean xb(String str) {
-        return this.nfh.neX.contains(str);
-    }
-
-    boolean Ty(String str) {
-        return this.nfh.neZ.contains(str);
+        if (this.neN.dMk()) {
+            return true;
+        }
+        return this.nfz.nfo.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String xc(String str) {
-        return this.nfh.nfb.containsKey(str) ? this.nfh.nfb.get(str) : "";
+    public boolean xc(String str) {
+        return this.nfz.nfp.contains(str);
+    }
+
+    boolean Ty(String str) {
+        return this.nfz.nfr.contains(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String xd(String str) {
+        return this.nfz.nft.containsKey(str) ? this.nfz.nft.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aVC() {
-        return this.dJq;
+        return this.dJu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void md(int i) {
-        if (i * 60000 >= this.dJq) {
-            this.dJq = i * 60000;
+        if (i * 60000 >= this.dJu) {
+            this.dJu = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aVD() {
-        return this.dJr;
+        return this.dJv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void me(int i) {
-        if (i >= this.dJr) {
-            this.dJr = i;
-            ag.dMd().putInt("ubc_data_expire_time", i);
+        if (i >= this.dJv) {
+            this.dJv = i;
+            ag.dMm().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aVE() {
-        return this.dJs;
+        return this.dJw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void mf(int i) {
-        if (i >= this.dJs) {
-            this.dJs = i;
-            ag.dMd().putInt("ubc_database_limit", i);
+        if (i >= this.dJw) {
+            this.dJw = i;
+            ag.dMm().putInt("ubc_database_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int xd(String str) {
-        if (TextUtils.isEmpty(str) || !this.nfh.nfa.containsKey(str)) {
+    public int xe(String str) {
+        if (TextUtils.isEmpty(str) || !this.nfz.nfs.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.nfh.nfa.get(str));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean xe(String str) {
-        if (this.nfh.nfc == null || !this.nfh.nfc.containsKey(str)) {
-            return false;
-        }
-        return this.nfh.nfc.get(str).aVO();
+        return Integer.parseInt(this.nfz.nfs.get(str));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean xf(String str) {
-        if (this.nfh.nfc == null || !this.nfh.nfc.containsKey(str)) {
+        if (this.nfz.nfu == null || !this.nfz.nfu.containsKey(str)) {
             return false;
         }
-        return this.nfh.nfc.get(str).aVP();
+        return this.nfz.nfu.get(str).aVO();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String xg(String str) {
-        return (TextUtils.isEmpty(str) || !this.nfh.nfd.contains(str)) ? "0" : "1";
+    public boolean xg(String str) {
+        if (this.nfz.nfu == null || !this.nfz.nfu.containsKey(str)) {
+            return false;
+        }
+        return this.nfz.nfu.get(str).aVP();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String xh(String str) {
+        return (TextUtils.isEmpty(str) || !this.nfz.nfv.contains(str)) ? "0" : "1";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -208,16 +208,16 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean TA(String str) {
-        return this.nfh.nfe.contains(str);
+        return this.nfz.nfw.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean TB(String str) {
-        return this.nfh.neW.contains(str);
+        return this.nfz.nfo.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String TC(String str) {
-        return this.nfh.nff.containsKey(str) ? this.nfh.nff.get(str) : "";
+        return this.nfz.nfx.containsKey(str) ? this.nfz.nfx.get(str) : "";
     }
 }

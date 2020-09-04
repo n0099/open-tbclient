@@ -8,10 +8,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class d extends AlertDialog {
-    private TextView efj;
-    private CircleView1080 efl;
+    private TextView efn;
+    private CircleView1080 efp;
     private String mMessage;
     private int mPercent;
     private TextView mTextView;
@@ -32,17 +32,17 @@ public class d extends AlertDialog {
                 layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds50);
                 findViewById.setLayoutParams(layoutParams);
             }
-            this.efj = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-            if (this.efj.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.efj.getLayoutParams();
+            this.efn = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+            if (this.efn.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.efn.getLayoutParams();
                 layoutParams2.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds35);
-                this.efj.setLayoutParams(layoutParams2);
+                this.efn.setLayoutParams(layoutParams2);
             }
             if (!StringUtils.isNull(this.mMessage)) {
-                this.efj.setText(this.mMessage);
+                this.efn.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.efl = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+            this.efp = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -52,16 +52,16 @@ public class d extends AlertDialog {
             if (this.mTextView != null) {
                 this.mTextView.setText(i + "%");
             }
-            if (this.efl != null) {
-                this.efl.setProgress(i);
+            if (this.efp != null) {
+                this.efp.setProgress(i);
             }
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.efj != null) {
-            this.efj.setText(this.mMessage);
+        if (this.efn != null) {
+            this.efn.setText(this.mMessage);
         }
     }
 }

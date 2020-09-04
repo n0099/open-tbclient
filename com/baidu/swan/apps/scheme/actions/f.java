@@ -38,7 +38,7 @@ public class f extends aa {
                     File amq = com.baidu.swan.apps.swancore.b.a.amq();
                     File amo = com.baidu.swan.apps.swancore.b.a.amo();
                     if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
-                        com.baidu.swan.apps.ad.a.a.fh(true);
+                        com.baidu.swan.apps.ad.a.a.fi(true);
                         Toast.makeText(com.baidu.swan.apps.t.a.aoJ(), a.h.aiapps_debug_swan_core_download_success, 1).show();
                         return;
                     }

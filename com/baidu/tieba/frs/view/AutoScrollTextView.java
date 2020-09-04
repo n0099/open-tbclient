@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes16.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public boolean isStarting;
-    private float ixl;
-    private float ixm;
-    private float ixn;
-    private float ixo;
-    public boolean ixp;
-    private View.OnClickListener ixq;
+    private float ixr;
+    private float ixs;
+    private float ixt;
+    private float ixu;
+    public boolean ixv;
+    private View.OnClickListener ixw;
     private Paint paint;
     private float progress;
     private float step;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.ixl = 0.0f;
-        this.ixm = 0.0f;
+        this.ixr = 0.0f;
+        this.ixs = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.ixn = 0.0f;
-        this.ixo = 0.0f;
+        this.ixt = 0.0f;
+        this.ixu = 0.0f;
         this.isStarting = false;
-        this.ixp = false;
+        this.ixv = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ixl = 0.0f;
-        this.ixm = 0.0f;
+        this.ixr = 0.0f;
+        this.ixs = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.ixn = 0.0f;
-        this.ixo = 0.0f;
+        this.ixt = 0.0f;
+        this.ixu = 0.0f;
         this.isStarting = false;
-        this.ixp = false;
+        this.ixv = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.ixl = this.paint.measureText(this.text);
-        this.ixm = getWidth();
-        if (this.ixm == 0.0f && windowManager != null) {
-            this.ixm = windowManager.getDefaultDisplay().getWidth();
+        this.ixr = this.paint.measureText(this.text);
+        this.ixs = getWidth();
+        if (this.ixs == 0.0f && windowManager != null) {
+            this.ixs = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.ixl;
-        this.ixn = this.ixl;
-        this.ixo = this.ixl * 2.0f;
+        this.step = this.ixr;
+        this.ixt = this.ixr;
+        this.ixu = this.ixr * 2.0f;
         this.y = getTextSize();
     }
 
@@ -142,7 +142,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void coF() {
+    public void coG() {
         this.isStarting = true;
         invalidate();
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.ixn - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.ixt - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.ixn - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.ixt - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.ixo) {
-            this.step = this.ixl;
+        if (this.step > this.ixu) {
+            this.step = this.ixr;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ixq != null) {
-            this.ixq.onClick(view);
+        if (this.ixw != null) {
+            this.ixw.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.ixq = onClickListener;
+        this.ixw = onClickListener;
     }
 }

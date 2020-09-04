@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess.history;
 
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class HistoryEvent extends SerializableEvent {
     public String tid;
 

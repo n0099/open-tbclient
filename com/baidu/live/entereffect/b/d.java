@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class d {
-    private List<com.baidu.live.im.data.a> aMx;
-    private com.baidu.live.im.data.a aMy;
+    private com.baidu.live.im.data.a aMA;
+    private List<com.baidu.live.im.data.a> aMz;
 
     public static d Do() {
-        return a.aMz;
+        return a.aMB;
     }
 
     public void j(com.baidu.live.im.data.a aVar) {
-        if (this.aMx == null) {
-            this.aMx = new ArrayList();
+        if (this.aMz == null) {
+            this.aMz = new ArrayList();
         }
-        if (k(aVar) || this.aMx.size() < com.baidu.live.w.a.Nk().beH.aHc) {
-            this.aMx.add(aVar);
+        if (k(aVar) || this.aMz.size() < com.baidu.live.w.a.Nk().beJ.aHe) {
+            this.aMz.add(aVar);
         }
     }
 
@@ -27,30 +27,30 @@ public class d {
     }
 
     public boolean hasMsg() {
-        return (this.aMx == null || this.aMx.isEmpty()) ? false : true;
+        return (this.aMz == null || this.aMz.isEmpty()) ? false : true;
     }
 
     public boolean Dp() {
-        return this.aMy != null;
+        return this.aMA != null;
     }
 
     public com.baidu.live.im.data.a Dq() {
         if (hasMsg()) {
-            this.aMy = this.aMx.remove(0);
+            this.aMA = this.aMz.remove(0);
         } else {
-            this.aMy = null;
+            this.aMA = null;
         }
-        return this.aMy;
+        return this.aMA;
     }
 
     public com.baidu.live.im.data.a Dr() {
-        return this.aMy;
+        return this.aMA;
     }
 
     public void release() {
-        this.aMy = null;
-        if (this.aMx != null) {
-            this.aMx.clear();
+        this.aMA = null;
+        if (this.aMz != null) {
+            this.aMz.clear();
         }
     }
 
@@ -59,6 +59,6 @@ public class d {
 
     /* loaded from: classes7.dex */
     private static class a {
-        private static final d aMz = new d();
+        private static final d aMB = new d();
     }
 }

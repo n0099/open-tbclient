@@ -14,9 +14,9 @@ import com.baidu.swan.apps.res.widget.a.b;
 import java.util.List;
 /* loaded from: classes8.dex */
 public abstract class a {
-    protected d cPB;
-    protected b.a cPC;
-    private InterfaceC0427a cPD;
+    protected d cPF;
+    protected b.a cPG;
+    private InterfaceC0427a cPH;
     private float mBgDarkAlpha;
     protected Context mContext;
     private boolean mCurrentMode;
@@ -52,7 +52,7 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.cPC = aVar;
+        this.cPG = aVar;
     }
 
     public void show() {
@@ -108,14 +108,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.cPD != null) {
-            this.cPD.onMenuItemUpdated(list);
+        if (this.cPH != null) {
+            this.cPH.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.cPB != null) {
-            this.cPB.onShowMenu();
+        if (this.cPF != null) {
+            this.cPF.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -137,15 +137,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.cPB != null) {
-                        a.this.cPB.onDismissMenu();
+                    if (a.this.cPF != null) {
+                        a.this.cPF.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.cPB != null) {
-                this.cPB.onDismissMenu();
+            if (this.cPF != null) {
+                this.cPF.onDismissMenu();
                 return;
             }
             return;

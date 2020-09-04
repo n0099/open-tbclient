@@ -11,17 +11,17 @@ import com.baidu.tieba.R;
 /* loaded from: classes15.dex */
 public class r extends h {
     private static final int TOP_MARGIN = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-    private ItemCardView afA;
+    private ItemCardView afC;
 
     public r(Context context) {
         super(context);
-        this.afA = new ItemCardView(context);
+        this.afC = new ItemCardView(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afA;
+        return this.afC;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,17 +29,17 @@ public class r extends h {
     /* renamed from: b */
     public void F(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport != null && absThreadDataSupport.bce() != null && absThreadDataSupport.bce().bgH() != null) {
-            this.afA.setVisibility(0);
-            this.afA.setData(absThreadDataSupport.bce().bgH(), 13);
+            this.afC.setVisibility(0);
+            this.afC.setData(absThreadDataSupport.bce().bgH(), 13);
             return;
         }
-        this.afA.setVisibility(8);
+        this.afC.setVisibility(8);
     }
 
     public void tG() {
         setTopMargin(TOP_MARGIN);
         bn(0);
-        a(this.afA, TOP_MARGIN, 0);
+        a(this.afC, TOP_MARGIN, 0);
     }
 
     private void a(View view, int i, int i2) {
@@ -55,6 +55,6 @@ public class r extends h {
 
     @Override // com.baidu.card.p
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afA.onChangeSkinType();
+        this.afC.onChangeSkinType();
     }
 }

@@ -10,19 +10,19 @@ import java.util.TreeMap;
 /* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> cQM = null;
+    private Map<String, c> cQQ = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.cQM == null) {
-            this.cQM = new TreeMap();
+        if (this.cQQ == null) {
+            this.cQQ = new TreeMap();
         }
-        c cVar2 = this.cQM.get(str2);
+        c cVar2 = this.cQQ.get(str2);
         if (cVar2 == null) {
             c c = c(str, str2, cVar);
-            this.cQM.put(str2, c);
+            this.cQQ.put(str2, c);
             return c;
         }
         return cVar2;
@@ -31,7 +31,7 @@ public final class a {
     public c b(String str, @NonNull String str2, @NonNull c cVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             c c = c(str, str2, cVar);
-            this.cQM.put(str2, c);
+            this.cQQ.put(str2, c);
             return c;
         }
         return cVar;

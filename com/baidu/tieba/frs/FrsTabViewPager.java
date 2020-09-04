@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                ow(true);
+                oy(true);
                 break;
             case 1:
-                ow(false);
+                oy(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                ow(false);
+                oy(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void ow(boolean z) {
+    public void oy(boolean z) {
         a aVar = new a();
-        aVar.ox(cnX());
-        aVar.oy(z);
+        aVar.oz(cnY());
+        aVar.oA(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cnW() {
-        ow(false);
+    public void cnX() {
+        oy(false);
     }
 
-    private boolean cnX() {
+    private boolean cnY() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes16.dex */
     public static class a {
-        private boolean hXu;
-        private boolean hXv;
-
-        public boolean cnY() {
-            return this.hXu;
-        }
-
-        public void ox(boolean z) {
-            this.hXu = z;
-        }
+        private boolean hXA;
+        private boolean hXB;
 
         public boolean cnZ() {
-            return this.hXv;
+            return this.hXA;
         }
 
-        public void oy(boolean z) {
-            this.hXv = z;
+        public void oz(boolean z) {
+            this.hXA = z;
+        }
+
+        public boolean coa() {
+            return this.hXB;
+        }
+
+        public void oA(boolean z) {
+            this.hXB = z;
         }
     }
 }

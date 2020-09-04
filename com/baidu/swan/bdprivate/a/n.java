@@ -41,7 +41,7 @@ public class n extends com.baidu.swan.apps.setting.oauth.a.a {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.cVP));
+            jSONObject3.put("permit", Boolean.toString(this.cVT));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);

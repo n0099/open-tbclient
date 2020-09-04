@@ -2,12 +2,12 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ForumData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    private ForumData iAy;
+    private ForumData iAE;
 
     public o(ForumData forumData) {
-        this.iAy = forumData;
+        this.iAE = forumData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q

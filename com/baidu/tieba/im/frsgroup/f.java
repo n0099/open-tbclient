@@ -11,59 +11,59 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes17.dex */
 public class f extends af.a {
-    public int aiB;
+    public int aiD;
     public View dividerLine;
-    public GroupImageView jpi;
-    public TextView jpj;
-    public TextView jpk;
-    public TextView jpl;
-    public TextView jpm;
-    public ImageView jpn;
-    public ImageView jpo;
-    public ImageView jpp;
-    public ImageView[] jpq;
+    public GroupImageView jpo;
+    public TextView jpp;
+    public TextView jpq;
+    public TextView jpr;
+    public TextView jps;
+    public ImageView jpt;
+    public ImageView jpu;
+    public ImageView jpv;
+    public ImageView[] jpw;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.aiB = 3;
+        this.aiD = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.jpi = (GroupImageView) view.findViewById(R.id.item_head);
-        this.jpj = (TextView) view.findViewById(R.id.item_group_name);
-        this.jpk = (TextView) view.findViewById(R.id.item_group_meizi);
-        this.jpl = (TextView) view.findViewById(R.id.item_group_num);
-        this.jpm = (TextView) view.findViewById(R.id.item_introduce);
-        this.jpn = (ImageView) view.findViewById(R.id.item_grade1);
-        this.jpo = (ImageView) view.findViewById(R.id.item_grade2);
-        this.jpp = (ImageView) view.findViewById(R.id.item_grade3);
+        this.jpo = (GroupImageView) view.findViewById(R.id.item_head);
+        this.jpp = (TextView) view.findViewById(R.id.item_group_name);
+        this.jpq = (TextView) view.findViewById(R.id.item_group_meizi);
+        this.jpr = (TextView) view.findViewById(R.id.item_group_num);
+        this.jps = (TextView) view.findViewById(R.id.item_introduce);
+        this.jpt = (ImageView) view.findViewById(R.id.item_grade1);
+        this.jpu = (ImageView) view.findViewById(R.id.item_grade2);
+        this.jpv = (ImageView) view.findViewById(R.id.item_grade3);
         this.dividerLine = view.findViewById(R.id.divider_line);
-        this.jpq = new ImageView[4];
-        this.jpq[1] = this.jpn;
-        this.jpq[2] = this.jpo;
-        this.jpq[3] = this.jpp;
+        this.jpw = new ImageView[4];
+        this.jpw[1] = this.jpt;
+        this.jpw[2] = this.jpu;
+        this.jpw[3] = this.jpv;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.jpi.setTag(null);
-            this.jpi.setDrawBorder(true);
-            this.jpi.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.jpo.setTag(null);
+            this.jpo.setDrawBorder(true);
+            this.jpo.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.jpi.setTag(portrait);
-                this.jpi.startLoad(portrait, 10, false);
+                this.jpo.setTag(portrait);
+                this.jpo.startLoad(portrait, 10, false);
             }
-            this.jpj.setText(groupInfoData.getName());
-            this.jpk.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.jpl.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.jpm.setText(groupInfoData.getIntro().trim());
-            a(this.jpq, groupInfoData.getGrade());
+            this.jpp.setText(groupInfoData.getName());
+            this.jpq.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.jpr.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.jps.setText(groupInfoData.getIntro().trim());
+            a(this.jpw, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                ap.setViewTextColor(this.jpj, R.color.common_color_10009, 1);
-                ap.setImageResource(this.jpn, R.drawable.icon_vip_grade_big_small_s);
-                ap.setImageResource(this.jpo, R.drawable.icon_vip_grade_big_small_s);
-                ap.setImageResource(this.jpp, R.drawable.icon_vip_grade_big_small_s);
+                ap.setViewTextColor(this.jpp, R.color.common_color_10009, 1);
+                ap.setImageResource(this.jpt, R.drawable.icon_vip_grade_big_small_s);
+                ap.setImageResource(this.jpu, R.drawable.icon_vip_grade_big_small_s);
+                ap.setImageResource(this.jpv, R.drawable.icon_vip_grade_big_small_s);
             }
         }
     }

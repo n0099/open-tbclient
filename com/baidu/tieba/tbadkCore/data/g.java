@@ -1,5 +1,5 @@
 package com.baidu.tieba.tbadkCore.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
     private int isFromDecreaseGiftStepStrategy = 0;
     private String mTBeanNum;

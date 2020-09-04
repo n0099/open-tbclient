@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.g;
 /* loaded from: classes3.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d nwy;
+    private com.facebook.imagepipeline.animated.base.d nwQ;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.nwy = dVar;
+        this.nwQ = dVar;
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.nwy.dRy().getWidth();
+        return isClosed() ? 0 : this.nwQ.dRH().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.g.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.nwy.dRy().getHeight();
+        return isClosed() ? 0 : this.nwQ.dRH().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.g.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.nwy != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.nwy;
-                this.nwy = null;
+            if (this.nwQ != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.nwQ;
+                this.nwQ = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized boolean isClosed() {
-        return this.nwy == null;
+        return this.nwQ == null;
     }
 
     @Override // com.facebook.imagepipeline.g.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.nwy.dRy().getSizeInBytes();
+        return isClosed() ? 0 : this.nwQ.dRH().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.g.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d dUi() {
-        return this.nwy;
+    public synchronized com.facebook.imagepipeline.animated.base.d dUr() {
+        return this.nwQ;
     }
 }

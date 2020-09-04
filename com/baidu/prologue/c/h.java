@@ -9,12 +9,12 @@ public class h extends e {
     private static HashMap<String, e> mDynamicDispatchers = new HashMap<>();
 
     public static h VY() {
-        return a.bMg;
+        return a.bMk;
     }
 
     /* loaded from: classes9.dex */
     private static class a {
-        private static final h bMg = new h();
+        private static final h bMk = new h();
     }
 
     private h() {

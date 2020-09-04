@@ -18,8 +18,8 @@ public class e extends com.baidu.swan.apps.core.d.i {
     protected com.baidu.swan.apps.core.f.d abm() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.a.e.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean hu(String str) {
-                return super.hu(str);
+            public boolean hv(String str) {
+                return super.hv(str);
             }
         };
     }
@@ -27,15 +27,15 @@ public class e extends com.baidu.swan.apps.core.d.i {
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
     protected void ai(View view) {
         super.ai(view);
-        this.cho.setRightZoneVisibility(true);
+        this.chs.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
     protected void abt() {
         FragmentActivity aUT = aUT();
-        if (aUT != null && this.chp == null) {
-            this.chp = new com.baidu.swan.menu.h(aUT, this.cho, abu(), com.baidu.swan.apps.t.a.aoN(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.menu.a(this.chp, this).atP();
+        if (aUT != null && this.cht == null) {
+            this.cht = new com.baidu.swan.menu.h(aUT, this.chs, abu(), com.baidu.swan.apps.t.a.aoN(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.menu.a(this.cht, this).atP();
         }
     }
 
@@ -48,12 +48,12 @@ public class e extends com.baidu.swan.apps.core.d.i {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ai(inflate);
-        this.cix = aaL();
-        this.cix.a(abm());
-        this.bRR = this.cix.aaS();
-        this.cix.loadUrl(this.mUrl);
+        this.ciB = aaL();
+        this.ciB.a(abm());
+        this.bRV = this.ciB.aaS();
+        this.ciB.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.cix.a(frameLayout, this.bRR.covertToView());
+        this.ciB.a(frameLayout, this.bRV.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
@@ -65,8 +65,8 @@ public class e extends com.baidu.swan.apps.core.d.i {
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
     public boolean aaM() {
-        if (this.bRR != null && this.bRR.canGoBack()) {
-            this.bRR.goBack();
+        if (this.bRV != null && this.bRV.canGoBack()) {
+            this.bRV.goBack();
             return true;
         }
         abv();
@@ -81,7 +81,7 @@ public class e extends com.baidu.swan.apps.core.d.i {
 
     private void abv() {
         com.baidu.swan.apps.a.a abw;
-        if (!f.bTS.aby() && (abw = f.bTS.abw()) != null) {
+        if (!f.bTW.aby() && (abw = f.bTW.abw()) != null) {
             abw.onResult(-2);
         }
     }

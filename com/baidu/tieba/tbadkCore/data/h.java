@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import tbclient.ActBtn;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class h {
     private String text;
     private int type;

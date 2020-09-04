@@ -6,7 +6,7 @@ import android.view.View;
 /* loaded from: classes8.dex */
 public class h extends com.baidu.swan.apps.core.c.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private View dqQ;
+    private View dqU;
 
     public h(Context context) {
         super(context);
@@ -28,8 +28,8 @@ public class h extends com.baidu.swan.apps.core.c.d {
     private void aMQ() {
         a(new com.baidu.swan.apps.core.g() { // from class: com.baidu.swan.games.c.h.1
             @Override // com.baidu.swan.apps.core.g
-            public void hs(String str) {
-                super.hs(str);
+            public void ht(String str) {
+                super.ht(str);
                 if (h.DEBUG) {
                     Log.e("SwanGameConsoleManager", "onPageFinished");
                 }
@@ -40,7 +40,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void ag(View view) {
-        this.dqQ = view;
+        this.dqU = view;
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
@@ -50,24 +50,24 @@ public class h extends com.baidu.swan.apps.core.c.d {
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void aaI() {
-        i.dI(false);
-        this.dqQ = null;
+        i.dJ(false);
+        this.dqU = null;
         super.aaI();
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void dw(boolean z) {
+    public void dx(boolean z) {
         if (aaS().getVisibility() != (z ? 0 : 8)) {
             if (DEBUG) {
                 Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
             }
             if (z) {
-                com.baidu.swan.apps.v.f.arY().a("console", c.gC(true));
+                com.baidu.swan.apps.v.f.arY().a("console", c.gD(true));
             }
-            if (this.dqQ != null) {
-                this.dqQ.setVisibility(z ? 4 : 0);
+            if (this.dqU != null) {
+                this.dqU.setVisibility(z ? 4 : 0);
             }
-            super.dw(z);
+            super.dx(z);
         }
     }
 

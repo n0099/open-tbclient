@@ -315,7 +315,7 @@ public abstract class ProtoAdapter<E> {
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: e */
         public ByteString decode(c cVar) throws IOException {
-            return cVar.ecH();
+            return cVar.ecQ();
         }
     };
 
@@ -596,11 +596,11 @@ public abstract class ProtoAdapter<E> {
 
     /* loaded from: classes19.dex */
     private static final class b<K, V> extends ProtoAdapter<Map<K, V>> {
-        private final a<K, V> ohB;
+        private final a<K, V> ohT;
 
         b(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.ohB = new a<>(protoAdapter, protoAdapter2);
+            this.ohT = new a<>(protoAdapter, protoAdapter2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -619,7 +619,7 @@ public abstract class ProtoAdapter<E> {
             while (true) {
                 int i3 = i2;
                 if (it.hasNext()) {
-                    i2 = this.ohB.encodedSizeWithTag(i, it.next()) + i3;
+                    i2 = this.ohT.encodedSizeWithTag(i, it.next()) + i3;
                 } else {
                     return i3;
                 }
@@ -638,7 +638,7 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: a */
         public void encodeWithTag(d dVar, int i, Map<K, V> map) throws IOException {
             for (Map.Entry<K, V> entry : map.entrySet()) {
-                this.ohB.encodeWithTag(dVar, i, entry);
+                this.ohT.encodeWithTag(dVar, i, entry);
             }
         }
 
@@ -647,21 +647,21 @@ public abstract class ProtoAdapter<E> {
         /* renamed from: j */
         public Map<K, V> decode(c cVar) throws IOException {
             V v = null;
-            long ecE = cVar.ecE();
+            long ecN = cVar.ecN();
             K k = null;
             while (true) {
-                int ecF = cVar.ecF();
-                if (ecF != -1) {
-                    switch (ecF) {
+                int ecO = cVar.ecO();
+                if (ecO != -1) {
+                    switch (ecO) {
                         case 1:
-                            k = this.ohB.ohx.decode(cVar);
+                            k = this.ohT.ohP.decode(cVar);
                             break;
                         case 2:
-                            v = this.ohB.ohA.decode(cVar);
+                            v = this.ohT.ohS.decode(cVar);
                             break;
                     }
                 } else {
-                    cVar.gH(ecE);
+                    cVar.gJ(ecN);
                     if (k == null) {
                         throw new IllegalStateException("Map entry with null key");
                     }
@@ -684,28 +684,28 @@ public abstract class ProtoAdapter<E> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes19.dex */
     public static final class a<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
-        final ProtoAdapter<V> ohA;
-        final ProtoAdapter<K> ohx;
+        final ProtoAdapter<K> ohP;
+        final ProtoAdapter<V> ohS;
 
         a(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
             super(FieldEncoding.LENGTH_DELIMITED, null);
-            this.ohx = protoAdapter;
-            this.ohA = protoAdapter2;
+            this.ohP = protoAdapter;
+            this.ohS = protoAdapter2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public int encodedSize(Map.Entry<K, V> entry) {
-            return this.ohx.encodedSizeWithTag(1, entry.getKey()) + this.ohA.encodedSizeWithTag(2, entry.getValue());
+            return this.ohP.encodedSizeWithTag(1, entry.getKey()) + this.ohS.encodedSizeWithTag(2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
         /* renamed from: a */
         public void encode(d dVar, Map.Entry<K, V> entry) throws IOException {
-            this.ohx.encodeWithTag(dVar, 1, entry.getKey());
-            this.ohA.encodeWithTag(dVar, 2, entry.getValue());
+            this.ohP.encodeWithTag(dVar, 1, entry.getKey());
+            this.ohS.encodeWithTag(dVar, 2, entry.getValue());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

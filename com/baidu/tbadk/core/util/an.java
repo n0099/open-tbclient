@@ -6,10 +6,10 @@ import com.baidu.android.util.devices.RomUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class an {
-    private static String ekJ;
-    private static String ekK;
+    private static String ekN;
+    private static String ekO;
 
     public static boolean isEmui() {
         return bjh();
@@ -28,47 +28,47 @@ public class an {
     }
 
     public static boolean check(String str) {
-        if (ekJ != null) {
-            return ekJ.equals(str);
+        if (ekN != null) {
+            return ekN.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        ekK = prop;
+        ekO = prop;
         if (!TextUtils.isEmpty(prop)) {
-            ekJ = RomUtils.ROM_MIUI;
+            ekN = RomUtils.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            ekK = prop2;
+            ekO = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                ekJ = RomUtils.ROM_EMUI;
+                ekN = RomUtils.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                ekK = prop3;
+                ekO = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    ekJ = RomUtils.ROM_OPPO;
+                    ekN = RomUtils.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    ekK = prop4;
+                    ekO = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        ekJ = RomUtils.ROM_VIVO;
+                        ekN = RomUtils.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        ekK = prop5;
+                        ekO = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            ekJ = RomUtils.ROM_SMARTISAN;
+                            ekN = RomUtils.ROM_SMARTISAN;
                         } else {
-                            ekK = Build.DISPLAY;
-                            if (ekK.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                ekJ = RomUtils.ROM_FLYME;
+                            ekO = Build.DISPLAY;
+                            if (ekO.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                ekN = RomUtils.ROM_FLYME;
                             } else {
-                                ekK = "unknown";
-                                ekJ = Build.MANUFACTURER.toUpperCase();
+                                ekO = "unknown";
+                                ekN = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return ekJ.equals(str);
+        return ekN.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */

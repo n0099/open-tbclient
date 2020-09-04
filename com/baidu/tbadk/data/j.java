@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class j {
-    private boolean eJA;
+    private boolean eJE;
     private String method;
     private boolean open;
 
-    public boolean bqX() {
-        return this.eJA;
+    public boolean bqY() {
+        return this.eJE;
     }
 
-    public void iZ(boolean z) {
-        this.eJA = z;
+    public void jb(boolean z) {
+        this.eJE = z;
     }
 
-    public void bqY() {
-        this.eJA = false;
+    public void bqZ() {
+        this.eJE = false;
     }
 
     public boolean isOpen() {

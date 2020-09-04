@@ -97,7 +97,7 @@ public class a extends aa {
     public void a(@NonNull final Context context, @NonNull final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, @NonNull final String str) {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.b.a.a.2
             @Override // com.baidu.swan.apps.ab.b
-            public void iF(String str2) {
+            public void iG(String str2) {
                 if (a.DEBUG) {
                     Log.d("SwanAppAction", str2 + "");
                 }
@@ -121,13 +121,13 @@ public class a extends aa {
                 @Override // rx.functions.f
                 /* renamed from: E */
                 public File call(File file2) {
-                    String rH = com.baidu.swan.apps.storage.b.rH(com.baidu.swan.apps.runtime.e.azK());
-                    if (!TextUtils.isEmpty(rH) && file2.getPath().startsWith(rH)) {
+                    String rI = com.baidu.swan.apps.storage.b.rI(com.baidu.swan.apps.runtime.e.azK());
+                    if (!TextUtils.isEmpty(rI) && file2.getPath().startsWith(rI)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.ejU()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.ekd()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: D */

@@ -19,7 +19,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kg(String str) {
+    public com.baidu.swan.apps.api.c.b kh(String str) {
         if (DEBUG) {
             Log.d("PreviewImageApi", "params = " + str);
         }
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                         String optString3 = optJSONArray.optString(i);
                         jSONObject2.put("url", optString3);
                         String aEV = ab.aEV();
-                        if (ab.sC(optString3) && !TextUtils.isEmpty(aEV)) {
+                        if (ab.sD(optString3) && !TextUtils.isEmpty(aEV)) {
                             jSONObject2.put(Config.LAUNCH_REFERER, aEV);
                         }
                         String akq = com.baidu.swan.apps.core.turbo.d.ajS().akq();
@@ -154,7 +154,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
         if (jSONArray != null && jSONArray.length() > 0) {
             for (int i = 0; i < jSONArray.length(); i++) {
                 String a = a(jSONArray, str, i);
-                if (!TextUtils.isEmpty(a) && com.baidu.swan.apps.storage.b.rJ(a) == PathType.CLOUD) {
+                if (!TextUtils.isEmpty(a) && com.baidu.swan.apps.storage.b.rK(a) == PathType.CLOUD) {
                     arrayMap.put(a, a);
                 }
             }
@@ -215,10 +215,10 @@ public class c extends com.baidu.swan.apps.api.a.d {
             for (int i = 0; i < length; i++) {
                 try {
                     String optString = jSONArray.optString(i);
-                    PathType rJ = com.baidu.swan.apps.storage.b.rJ(optString);
-                    if (rJ == PathType.BD_FILE) {
+                    PathType rK = com.baidu.swan.apps.storage.b.rK(optString);
+                    if (rK == PathType.BD_FILE) {
                         optString = com.baidu.swan.apps.storage.b.cn(optString, azI.id);
-                    } else if (rJ == PathType.RELATIVE) {
+                    } else if (rK == PathType.RELATIVE) {
                         optString = com.baidu.swan.apps.storage.b.a(optString, azI, azI.getVersion());
                     }
                     if (!TextUtils.isEmpty(optString)) {
@@ -245,7 +245,7 @@ public class c extends com.baidu.swan.apps.api.a.d {
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("url");
                     String aEV = ab.aEV();
-                    if (ab.sC(optString) && !TextUtils.isEmpty(aEV)) {
+                    if (ab.sD(optString) && !TextUtils.isEmpty(aEV)) {
                         optJSONObject.put(Config.LAUNCH_REFERER, aEV);
                     }
                     String akq = com.baidu.swan.apps.core.turbo.d.ajS().akq();

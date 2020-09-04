@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String rH = b.rH(eVar.id);
-        if (rH != null) {
-            String str = rH + File.separator + StatisticConstants.SCREENSHOT;
+        String rI = b.rI(eVar.id);
+        if (rI != null) {
+            String str = rI + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();

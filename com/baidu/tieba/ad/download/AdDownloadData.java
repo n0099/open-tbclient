@@ -10,6 +10,7 @@ import java.util.Objects;
 public final class AdDownloadData implements IDownloadModel, Serializable {
     private final String mAdId;
     private String mDownloadUrl;
+    private String mExtInfo;
     private final AdDownloadExtra mExtra;
     private int mFakeDownloadPercent;
     private int mFakeDownloadTime;
@@ -83,6 +84,15 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return this.mPackageName;
     }
 
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public String getExtInfo() {
+        return this.mExtInfo;
+    }
+
+    public void setExtInfo(String str) {
+        this.mExtInfo = str;
+    }
+
     /* loaded from: classes15.dex */
     public static final class a {
         private final String mAdId;
@@ -98,7 +108,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData bBe() {
+        public AdDownloadData bBf() {
             return new AdDownloadData(this);
         }
     }

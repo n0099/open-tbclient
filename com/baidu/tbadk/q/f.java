@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.b.d {
     public f(int i) {
         super(i);

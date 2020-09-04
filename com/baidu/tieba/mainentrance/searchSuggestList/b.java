@@ -17,34 +17,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes18.dex */
 public class b extends BaseAdapter {
-    private String dBR;
-    private List<String> jWO;
+    private String dBV;
+    private List<String> jWV;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.jWO = arrayList;
+        this.jWV = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.jWO = list;
-        if (this.jWO != null) {
+        this.jWV = list;
+        if (this.jWV != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void LP(String str) {
+    public void LQ(String str) {
         if (!StringUtils.isNull(str)) {
-            this.dBR = str.trim();
+            this.dBV = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jWO == null) {
+        if (this.jWV == null) {
             return 0;
         }
-        return this.jWO.size();
+        return this.jWV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.jWO.get(i);
+        return this.jWV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(R.id.rootview);
-            aVar2.jWP = (TextView) view.findViewById(R.id.searchSuggestTitle);
-            aVar2.dDx = view.findViewById(R.id.searchItemSep);
+            aVar2.jWW = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.dDB = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,13 +78,13 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            c(aVar.jWP, item);
+            c(aVar.jWW, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
                 ap.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
-                ap.setViewTextColor(aVar.jWP, R.color.cp_cont_b);
-                ap.setBackgroundColor(aVar.dDx, R.color.cp_bg_line_c);
+                ap.setViewTextColor(aVar.jWW, R.color.cp_cont_b);
+                ap.setBackgroundColor(aVar.dDB, R.color.cp_bg_line_c);
             }
         }
         return view;
@@ -92,8 +92,8 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes18.dex */
     private class a {
-        View dDx;
-        TextView jWP;
+        View dDB;
+        TextView jWW;
         View mRootView;
         int mSkinType;
 
@@ -103,9 +103,9 @@ public class b extends BaseAdapter {
     }
 
     public void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBR)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBV)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.dBR.toLowerCase();
+            String lowerCase2 = this.dBV.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -113,7 +113,7 @@ public class b extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBR.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBV.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

@@ -2,9 +2,9 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class w {
-    public String eAE;
+    public String eAI;
     public boolean isShowRedDot;
     public String tabCode;
     public String tabName;
@@ -15,7 +15,7 @@ public class w {
             this.tabType = jSONObject.optInt("tab_type");
             this.tabName = jSONObject.optString("tab_name");
             this.tabCode = jSONObject.optString("tab_code");
-            this.eAE = jSONObject.optString("tab_version");
+            this.eAI = jSONObject.optString("tab_version");
         }
     }
 

@@ -5,10 +5,10 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.util.media.MimeType;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class z implements MediaScannerConnection.MediaScannerConnectionClient {
     private boolean completed;
-    private a ejN;
+    private a ejR;
     private int length;
     private MediaScannerConnection mConnection;
     private Context mContext;
@@ -17,7 +17,7 @@ public class z implements MediaScannerConnection.MediaScannerConnectionClient {
     private String mPath;
     private String[] mPaths;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onScanCompeted();
     }
@@ -85,8 +85,8 @@ public class z implements MediaScannerConnection.MediaScannerConnectionClient {
                 this.completed = false;
             }
         }
-        if (this.completed && this.ejN != null) {
-            this.ejN.onScanCompeted();
+        if (this.completed && this.ejR != null) {
+            this.ejR.onScanCompeted();
         }
     }
 }

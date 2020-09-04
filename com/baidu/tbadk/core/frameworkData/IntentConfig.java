@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class IntentConfig extends OrmObject {
     public static final String AB_TAG = "ab_tag";
     public static final String CALL_FROM = "call_from";
@@ -187,7 +187,7 @@ public class IntentConfig extends OrmObject {
                 bVar = ((com.baidu.tbadk.pageInfo.a) H).getTbPageInfo();
             }
             if (bVar != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.btW());
+                this.mIntent.putExtra("tb_page_tag_source_trace", bVar.btX());
             }
         }
     }
@@ -195,9 +195,9 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace() {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b ei = com.baidu.tbadk.l.c.ei(this.mContext);
-            ArrayList<String> btS = ei == null ? null : ei.btS();
-            if (!y.isEmpty(btS)) {
-                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", btS);
+            ArrayList<String> btT = ei == null ? null : ei.btT();
+            if (!y.isEmpty(btT)) {
+                this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", btT);
             }
         }
     }
@@ -205,7 +205,7 @@ public class IntentConfig extends OrmObject {
     public void addPreSourceTrace(String str) {
         if (this.mIntent != null && this.mContext != null) {
             com.baidu.tbadk.l.b ei = com.baidu.tbadk.l.c.ei(this.mContext);
-            ArrayList<String> d = com.baidu.tbadk.l.c.d(ei == null ? null : ei.btR(), str);
+            ArrayList<String> d = com.baidu.tbadk.l.c.d(ei == null ? null : ei.btS(), str);
             if (!y.isEmpty(d)) {
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", d);
             }
@@ -360,7 +360,7 @@ public class IntentConfig extends OrmObject {
                     com.baidu.adp.plugin.b.a.py().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cK(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -392,7 +392,7 @@ public class IntentConfig extends OrmObject {
                     com.baidu.adp.plugin.b.a.py().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cK(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -452,7 +452,7 @@ public class IntentConfig extends OrmObject {
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cK(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -481,7 +481,7 @@ public class IntentConfig extends OrmObject {
                     com.baidu.adp.plugin.b.a.py().E("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cK(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().cL(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }
@@ -513,7 +513,7 @@ public class IntentConfig extends OrmObject {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private class a extends Handler {
         private a() {
         }

@@ -1,16 +1,16 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import tbclient.LinkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private String dXy;
+    private String dXC;
     private String mDescription;
     private String mType;
 
     public void a(LinkInfo linkInfo) {
         if (linkInfo != null) {
             this.mDescription = linkInfo.desc;
-            this.dXy = linkInfo.link;
+            this.dXC = linkInfo.link;
             this.mType = linkInfo.type;
         }
     }

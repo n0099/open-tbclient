@@ -10,24 +10,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 class a {
-    final int dGM;
-    final int dGN;
-    final String dGO;
-    final Set<String> dGP;
-    final String dGQ;
-    final String daw;
+    final int dGQ;
+    final int dGR;
+    final String dGS;
+    final Set<String> dGT;
+    final String dGU;
+    final String daB;
     final String mContentType;
     final String mVersion;
 
     public a(String str, int i, int i2, String str2, String str3, String str4, Set<String> set, String str5) {
         this.mContentType = str;
-        this.dGN = i2;
-        this.dGM = i;
-        this.daw = str2;
-        this.dGO = str3;
+        this.dGR = i2;
+        this.dGQ = i;
+        this.daB = str2;
+        this.dGS = str3;
         this.mVersion = str4;
-        this.dGP = set;
-        this.dGQ = str5;
+        this.dGT = set;
+        this.dGU = str5;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

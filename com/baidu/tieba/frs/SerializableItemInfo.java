@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.ItemInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SerializableItemInfo implements Serializable {
     public String brief;
     public double icon_size;

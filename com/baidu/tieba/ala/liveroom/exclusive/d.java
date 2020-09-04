@@ -20,73 +20,73 @@ import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.tieba.ala.liveroom.exclusive.a;
 /* loaded from: classes7.dex */
 public class d extends com.baidu.live.view.f implements View.OnClickListener, com.baidu.live.view.web.f, a.InterfaceC0629a {
-    private o aEr;
-    private float bjp;
-    private RoundRectRelativeLayout fNM;
-    private int fNN;
-    private boolean gkP;
-    private BdGridView gyE;
-    private TextView gyF;
-    private a gyG;
-    private int gyH;
-    private f gyI;
+    private o aEt;
+    private float bjs;
+    private RoundRectRelativeLayout fNQ;
+    private int fNR;
+    private boolean gkT;
+    private BdGridView gyI;
+    private TextView gyJ;
+    private a gyK;
+    private int gyL;
+    private f gyM;
     private Activity mActivity;
     private View mRootView;
 
     public void a(f fVar) {
-        this.gyI = fVar;
+        this.gyM = fVar;
     }
 
     public d(Activity activity) {
         super(activity);
-        this.gyH = -1;
+        this.gyL = -1;
         this.mActivity = activity;
         init();
     }
 
     @Override // com.baidu.live.view.f, android.widget.PopupWindow
     public void dismiss() {
-        if (!bHn()) {
-            bHi();
+        if (!bHo()) {
+            bHj();
         }
     }
 
     public void a(o oVar, int i) {
         if (!this.mActivity.isFinishing() && oVar != null && oVar.Cw()) {
-            this.gyH = i;
-            this.aEr = oVar;
-            if (this.gyG != null) {
-                this.gyG.setDatas(this.aEr.Cx());
-                if (this.gyH >= 0) {
-                    md(false);
-                    this.gyG.tX(this.gyH);
+            this.gyL = i;
+            this.aEt = oVar;
+            if (this.gyK != null) {
+                this.gyK.setDatas(this.aEt.Cx());
+                if (this.gyL >= 0) {
+                    mf(false);
+                    this.gyK.tX(this.gyL);
                 } else {
-                    md(true);
-                    this.gyG.tX(-1);
+                    mf(true);
+                    this.gyK.tX(-1);
                 }
             }
             View findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290);
             if (findViewById != null) {
-                this.fNM.setCornerRadius(this.bjp, 0.0f, 0.0f, this.bjp);
-                this.fNN = 5;
-                int bHl = bHl();
+                this.fNQ.setCornerRadius(this.bjs, 0.0f, 0.0f, this.bjs);
+                this.fNR = 5;
                 int bHm = bHm();
-                setWidth(bHl);
-                setHeight(bHm);
+                int bHn = bHn();
+                setWidth(bHm);
+                setHeight(bHn);
                 showAtLocation(findViewById, 85, 0, 0);
-                aa(this.fNM);
+                aa(this.fNQ);
                 Kl();
             }
         }
     }
 
-    private void md(boolean z) {
-        if (this.aEr != null) {
-            c.a(this.mActivity, this.gyF, z, this.aEr.Cz(), this.aEr.Cy(), false);
+    private void mf(boolean z) {
+        if (this.aEt != null) {
+            c.a(this.mActivity, this.gyJ, z, this.aEt.Cz(), this.aEt.Cy(), false);
         }
     }
 
-    public void bHi() {
+    public void bHj() {
         super.dismiss();
     }
 
@@ -99,32 +99,32 @@ public class d extends com.baidu.live.view.f implements View.OnClickListener, co
     }
 
     private void initView() {
-        this.bjp = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds36);
-        this.fNM = new RoundRectRelativeLayout(this.mActivity);
+        this.bjs = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds36);
+        this.fNQ = new RoundRectRelativeLayout(this.mActivity);
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(a.h.ala_exclusive_scene_land_pop_layout, (ViewGroup) null);
-        this.gyF = (TextView) this.mRootView.findViewById(a.g.tv_land_allscene);
-        this.gyF.setOnClickListener(this);
-        this.gyE = (BdGridView) this.mRootView.findViewById(a.g.ala_live_land_scene_gridview);
-        this.gyG = new a(this.mActivity, false);
-        this.gyG.a(this);
-        this.gyE.setAdapter((ListAdapter) this.gyG);
-        this.fNM.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
-        setContentView(this.fNM);
+        this.gyJ = (TextView) this.mRootView.findViewById(a.g.tv_land_allscene);
+        this.gyJ.setOnClickListener(this);
+        this.gyI = (BdGridView) this.mRootView.findViewById(a.g.ala_live_land_scene_gridview);
+        this.gyK = new a(this.mActivity, false);
+        this.gyK.a(this);
+        this.gyI.setAdapter((ListAdapter) this.gyK);
+        this.fNQ.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
+        setContentView(this.fNQ);
         setClippingEnabled(false);
-    }
-
-    private int bHl() {
-        return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
     private int bHm() {
         return ScreenHelper.getRealScreenHeight(this.mActivity);
     }
 
+    private int bHn() {
+        return ScreenHelper.getRealScreenHeight(this.mActivity);
+    }
+
     private void Kl() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.fNN) {
+            switch (this.fNR) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -140,15 +140,15 @@ public class d extends com.baidu.live.view.f implements View.OnClickListener, co
         }
     }
 
-    private boolean bHn() {
+    private boolean bHo() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.gkP) {
+        if (this.gkT) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
-        switch (this.fNN) {
+        switch (this.fNR) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -166,8 +166,8 @@ public class d extends com.baidu.live.view.f implements View.OnClickListener, co
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.bHi();
-                    d.this.gkP = false;
+                    d.this.bHj();
+                    d.this.gkT = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -175,7 +175,7 @@ public class d extends com.baidu.live.view.f implements View.OnClickListener, co
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.gkP = true;
+            this.gkT = true;
             return true;
         }
         return false;
@@ -189,17 +189,17 @@ public class d extends com.baidu.live.view.f implements View.OnClickListener, co
     @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0629a
     public void a(View view, int i, x xVar) {
         dismiss();
-        if (this.gyI != null) {
-            this.gyI.a(false, view, i, xVar);
+        if (this.gyM != null) {
+            this.gyM.a(false, view, i, xVar);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gyF) {
+        if (view == this.gyJ) {
             dismiss();
-            if (this.gyI != null) {
-                this.gyI.a(true, this.gyF, -1, null);
+            if (this.gyM != null) {
+                this.gyM.a(true, this.gyJ, -1, null);
             }
         }
     }

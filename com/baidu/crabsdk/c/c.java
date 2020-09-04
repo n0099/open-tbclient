@@ -15,18 +15,18 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class c {
-    private static SimpleDateFormat anG;
-    private static PackageManager anH;
+    private static SimpleDateFormat anI;
+    private static PackageManager anJ;
 
     public static String R(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
     public static String a(Date date) {
-        if (anG == null) {
-            anG = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (anI == null) {
+            anI = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return anG.format(date);
+        return anI.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -135,7 +135,7 @@ public final class c {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static byte[] dv(String str) {
+    public static byte[] dw(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -152,11 +152,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (anH == null) {
-            anH = context.getPackageManager();
+        if (anJ == null) {
+            anJ = context.getPackageManager();
         }
         try {
-            return anH.checkPermission(str, context.getPackageName()) == 0;
+            return anJ.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

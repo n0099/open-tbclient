@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class p {
-    public static boolean eje = false;
+    public static boolean eji = false;
 }

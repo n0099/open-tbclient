@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.statistic.search;
 /* loaded from: classes8.dex */
 public class SearchFlowEvent {
-    public EventType cXO;
+    public EventType cXS;
     public String data;
     public String extData;
     public String id;
@@ -17,7 +17,7 @@ public class SearchFlowEvent {
     public SearchFlowEvent(String str) {
         this.id = str;
         this.timestamp = System.currentTimeMillis();
-        this.cXO = EventType.NORMAL;
+        this.cXS = EventType.NORMAL;
         this.data = "";
         this.extData = "";
     }
@@ -27,10 +27,10 @@ public class SearchFlowEvent {
         this.timestamp = j;
         this.data = str2;
         this.extData = str3;
-        this.cXO = eventType;
+        this.cXS = eventType;
     }
 
     public String toString() {
-        return "Event: id=" + this.id + ", timestamp=" + this.timestamp + ", data=" + this.data + ", extData=" + this.extData + ", eventType=" + this.cXO.toString();
+        return "Event: id=" + this.id + ", timestamp=" + this.timestamp + ", data=" + this.data + ", extData=" + this.extData + ", eventType=" + this.cXS.toString();
     }
 }

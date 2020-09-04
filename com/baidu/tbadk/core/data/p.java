@@ -4,45 +4,45 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class p {
-    private boolean dXn;
-    private int dXo;
-    private int dXp;
-    private int dXq = 25;
-    private int dXr = 25;
-    private int dXs = 10;
+    private boolean dXr;
+    private int dXs;
+    private int dXt;
+    private int dXu = 25;
+    private int dXv = 25;
+    private int dXw = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.dXq;
+        return this.dXu;
     }
 
     public int getErrRank() {
-        return this.dXr;
+        return this.dXv;
     }
 
     public int getSlowRank() {
-        return this.dXs;
+        return this.dXw;
     }
 
     public boolean ismSwitch() {
-        return this.dXn;
+        return this.dXr;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.dXn != z) {
+        if (this.dXr != z) {
             com.baidu.adp.lib.stats.a mN = com.baidu.tbadk.core.util.u.mN();
             mN.append("act", "fallback");
             mN.append("result", z ? "1" : "0");
             mN.append("type", "switch");
             BdStatisticsManager.getInstance().debug("img", mN);
         }
-        this.dXn = z;
+        this.dXr = z;
     }
 
     public int getSlowNumber() {
-        return this.dXo;
+        return this.dXs;
     }
 
     public int getTime() {
@@ -50,7 +50,7 @@ public class p {
     }
 
     public int getErrNumber() {
-        return this.dXp;
+        return this.dXt;
     }
 
     public void parseJson(String str) {
@@ -59,7 +59,7 @@ public class p {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.dXn = false;
+            this.dXr = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -68,30 +68,30 @@ public class p {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.dXn = true;
+                    this.dXr = true;
                 } else {
-                    this.dXn = false;
+                    this.dXr = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.dXp = optJSONObject.optInt("num");
+                    this.dXt = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.dXo = optJSONObject2.optInt("num");
+                    this.dXs = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.dXq = optJSONObject3.optInt("succ");
-                    this.dXr = optJSONObject3.optInt("err");
-                    this.dXs = optJSONObject3.optInt("slow");
+                    this.dXu = optJSONObject3.optInt("succ");
+                    this.dXv = optJSONObject3.optInt("err");
+                    this.dXw = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.dXo <= 0 || this.dXp <= 0) {
-                    this.dXn = false;
+                if (this.time <= 0 || this.dXs <= 0 || this.dXt <= 0) {
+                    this.dXr = false;
                 }
             } catch (Exception e) {
-                this.dXn = false;
+                this.dXr = false;
                 BdLog.e(e.getMessage());
             }
         }

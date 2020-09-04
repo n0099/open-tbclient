@@ -8,7 +8,7 @@ import tbclient.ActiveCenter;
 import tbclient.ActiveCenterMission;
 import tbclient.ActiveCenterStatus;
 import tbclient.ActiveConfig.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ActiveCenterData implements Serializable {
     public static final String PREF_KEY_ACTIVE_DIALOG_DAY_NUM = "pref_key_active_dialog_day_num";
     public int is_first_up;
@@ -80,7 +80,7 @@ public class ActiveCenterData implements Serializable {
         return this.mission.task_type;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ActiveCenterMissionData implements Serializable {
         public int active_id;
         public int cleartime;
@@ -105,7 +105,7 @@ public class ActiveCenterData implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class ActiveCenterStatusData implements Serializable {
         public int day;
         public String desc;

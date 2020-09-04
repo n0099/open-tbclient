@@ -15,35 +15,35 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class e {
-    private static e nhi;
-    private volatile com.baidu.q.a.a.c nhf;
-    private AtomicBoolean nhj = new AtomicBoolean(false);
-    private AtomicBoolean nhk = new AtomicBoolean(false);
+    private static e nhA;
+    private AtomicBoolean nhB = new AtomicBoolean(false);
+    private AtomicBoolean nhC = new AtomicBoolean(false);
+    private volatile com.baidu.q.a.a.c nhx;
     private static String TAG = "UnionIDHelper";
-    private static boolean DEBUG = com.baidu.q.a.a.dMO();
-    private static final String nhg = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-    private static final String nhh = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+    private static boolean DEBUG = com.baidu.q.a.a.dMX();
+    private static final String nhy = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+    private static final String nhz = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     private static final Object sLock = new Object();
 
     private e() {
     }
 
-    public static e dMR() {
-        if (nhi == null) {
+    public static e dNa() {
+        if (nhA == null) {
             synchronized (e.class) {
-                if (nhi == null) {
-                    nhi = new e();
+                if (nhA == null) {
+                    nhA = new e();
                 }
             }
         }
-        return nhi;
+        return nhA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dMS() {
-        this.nhf = this.nhf.dMV();
+    public void dNb() {
+        this.nhx = this.nhx.dNe();
         if (DEBUG) {
-            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.nhf.getOAID());
+            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.nhx.getOAID());
         }
     }
 
@@ -51,28 +51,28 @@ public class e {
         com.baidu.q.a.a.c cVar = null;
         synchronized (this) {
             if (DEBUG) {
-                Log.d(TAG, "syncRequest, isClosedByCC():" + dMT());
+                Log.d(TAG, "syncRequest, isClosedByCC():" + dNc());
             }
-            if (!dMT()) {
+            if (!dNc()) {
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest,  (mIUnionId == null):" + (this.nhf == null));
+                    Log.d(TAG, "syncRequest,  (mIUnionId == null):" + (this.nhx == null));
                 }
-                if (this.nhf == null) {
-                    this.nhf = new c(context).nhf;
+                if (this.nhx == null) {
+                    this.nhx = new c(context).nhx;
                 }
-                if (!(this.nhf instanceof com.baidu.q.a.b.b) && !this.nhj.get()) {
+                if (!(this.nhx instanceof com.baidu.q.a.b.b) && !this.nhB.get()) {
                     b(context, new Object());
                 }
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest, (mIUnionId instanceof UnSupportedUnionID):" + (this.nhf instanceof com.baidu.q.a.b.b));
+                    Log.d(TAG, "syncRequest, (mIUnionId instanceof UnSupportedUnionID):" + (this.nhx instanceof com.baidu.q.a.b.b));
                 }
                 if (DEBUG) {
-                    Log.d(TAG, "syncRequest, mIUnionId.getOAID：" + this.nhf.getOAID());
-                    Log.d(TAG, "syncRequest, mIUnionId.isTrackLimited：" + this.nhf.dML());
-                    Log.d(TAG, "syncRequest, mIUnionId.getStatusCode：" + this.nhf.getStatusCode());
+                    Log.d(TAG, "syncRequest, mIUnionId.getOAID：" + this.nhx.getOAID());
+                    Log.d(TAG, "syncRequest, mIUnionId.isTrackLimited：" + this.nhx.dMU());
+                    Log.d(TAG, "syncRequest, mIUnionId.getStatusCode：" + this.nhx.getStatusCode());
                 }
-                if (this.nhf.getStatusCode() != -200) {
-                    cVar = this.nhf;
+                if (this.nhx.getStatusCode() != -200) {
+                    cVar = this.nhx;
                 }
             }
         }
@@ -84,18 +84,18 @@ public class e {
             throw new NullPointerException("param looper not null");
         }
         final a aVar = new a(looper, bVar);
-        if (dMT()) {
+        if (dNc()) {
             aVar.obtainMessage(100, null).sendToTarget();
-        } else if (this.nhf != null && this.nhk.get()) {
+        } else if (this.nhx != null && this.nhC.get()) {
             if (DEBUG) {
-                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.nhf.getOAID());
-                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.nhf.dML());
-                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.nhf.getStatusCode());
+                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.nhx.getOAID());
+                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.nhx.dMU());
+                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.nhx.getStatusCode());
             }
-            aVar.obtainMessage(100, this.nhf).sendToTarget();
+            aVar.obtainMessage(100, this.nhx).sendToTarget();
         } else {
-            if (!this.nhk.get()) {
-                this.nhf = new c(context).nhf;
+            if (!this.nhC.get()) {
+                this.nhx = new c(context).nhx;
             }
             new Thread(new Runnable() { // from class: com.baidu.q.a.e.1
                 @Override // java.lang.Runnable
@@ -111,11 +111,11 @@ public class e {
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, requestFromManufacturer");
                         }
-                        e.this.dMS();
+                        e.this.dNb();
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles！");
                         }
-                        e.this.nhk.set(e.this.gf(context));
+                        e.this.nhC.set(e.this.gf(context));
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles done");
                         }
@@ -123,7 +123,7 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "asyncRequest, send  innerHandler message");
                     }
-                    aVar.obtainMessage(100, e.this.nhf).sendToTarget();
+                    aVar.obtainMessage(100, e.this.nhx).sendToTarget();
                 }
             }).start();
         }
@@ -136,7 +136,7 @@ public class e {
                 if (e.DEBUG) {
                     Log.d(e.TAG, "syncReadFromCache, thread runn:");
                 }
-                e.this.nhj.set(e.this.gg(context) != null);
+                e.this.nhB.set(e.this.gg(context) != null);
                 if (e.DEBUG) {
                     Log.d(e.TAG, "syncReadFromCache, cachJsonObject done:");
                 }
@@ -149,7 +149,7 @@ public class e {
             }
         }).start();
         synchronized (obj) {
-            if (!this.nhj.get()) {
+            if (!this.nhB.get()) {
                 try {
                     if (DEBUG) {
                         Log.d(TAG, "syncReadFromCache, waiter:");
@@ -196,16 +196,16 @@ public class e {
                 String optString = optJSONObject.optString(str5);
                 String optString2 = optJSONObject.optString(str6);
                 String optString3 = optJSONObject.optString(str7);
-                this.nhf.xK(optBoolean);
-                this.nhf.xL(optBoolean2);
-                this.nhf.KI(optInt);
-                this.nhf.Ua(optString);
-                this.nhf.Ub(optString2);
-                this.nhf.Uc(optString3);
-                aVar.nhp = this.nhf;
+                this.nhx.xM(optBoolean);
+                this.nhx.xN(optBoolean2);
+                this.nhx.KI(optInt);
+                this.nhx.Ua(optString);
+                this.nhx.Ub(optString2);
+                this.nhx.Uc(optString3);
+                aVar.nhH = this.nhx;
                 return true;
             }
-            aVar.nhp = null;
+            aVar.nhH = null;
             if (DEBUG) {
                 Log.d(TAG, "tryParseCacheJsonObject return cause null：");
                 return false;
@@ -222,7 +222,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull com.baidu.q.a.a.a aVar) {
-        if (Math.abs(System.currentTimeMillis() - aVar.time) > dMU()) {
+        if (Math.abs(System.currentTimeMillis() - aVar.time) > dNd()) {
             if (DEBUG) {
                 Log.d(TAG, "isExpireTime ：超过缓存有效期");
             }
@@ -237,7 +237,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean gf(Context context) {
         try {
-            if (this.nhf == null || TextUtils.isEmpty(this.nhf.getOAID())) {
+            if (this.nhx == null || TextUtils.isEmpty(this.nhx.getOAID())) {
                 return false;
             }
             File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
@@ -259,12 +259,12 @@ public class e {
             String str6 = new String(com.baidu.q.a.c.c.decode("b2FpZA==".getBytes()));
             String str7 = new String(com.baidu.q.a.c.c.decode("YWFpZA==".getBytes()));
             String str8 = new String(com.baidu.q.a.c.c.decode("dmFpZA==".getBytes()));
-            optJSONObject.put(str3, this.nhf.dML());
-            optJSONObject.put(str4, this.nhf.isSupport());
-            optJSONObject.put(str5, this.nhf.getStatusCode());
-            optJSONObject.put(str6, this.nhf.getOAID());
-            optJSONObject.put(str7, this.nhf.getAAID());
-            optJSONObject.put(str8, this.nhf.getVAID());
+            optJSONObject.put(str3, this.nhx.dMU());
+            optJSONObject.put(str4, this.nhx.isSupport());
+            optJSONObject.put(str5, this.nhx.getStatusCode());
+            optJSONObject.put(str6, this.nhx.getOAID());
+            optJSONObject.put(str7, this.nhx.getAAID());
+            optJSONObject.put(str8, this.nhx.getVAID());
             jSONObject.put(str2, optJSONObject);
             com.baidu.q.a.c.e.a(TY(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
@@ -336,7 +336,7 @@ public class e {
             return null;
         }
         try {
-            return com.baidu.q.a.c.c.encode(com.baidu.q.a.c.a.encrypt(nhg, nhh, str.getBytes()), "utf-8");
+            return com.baidu.q.a.c.c.encode(com.baidu.q.a.c.a.encrypt(nhy, nhz, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException | Exception e) {
             return "";
         }
@@ -347,7 +347,7 @@ public class e {
             return null;
         }
         try {
-            return new String(com.baidu.q.a.c.a.decrypt(nhg, nhh, com.baidu.q.a.c.c.decode(str.getBytes())));
+            return new String(com.baidu.q.a.c.a.decrypt(nhy, nhz, com.baidu.q.a.c.c.decode(str.getBytes())));
         } catch (Exception e) {
             if (DEBUG) {
                 Log.d(TAG, "getCacheObject ，decryptUnionID：" + e.getMessage());
@@ -358,14 +358,14 @@ public class e {
 
     /* loaded from: classes10.dex */
     private static class a extends Handler {
-        private com.baidu.q.a.a.b nho;
+        private com.baidu.q.a.a.b nhG;
 
         public a() {
         }
 
         public a(Looper looper, com.baidu.q.a.a.b bVar) {
             super(looper);
-            this.nho = bVar;
+            this.nhG = bVar;
         }
 
         @Override // android.os.Handler
@@ -377,8 +377,8 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "handleMessage ，what：" + (cVar == null ? "" : cVar.getOAID()));
                     }
-                    if (this.nho != null) {
-                        this.nho.a(cVar);
+                    if (this.nhG != null) {
+                        this.nhG.a(cVar);
                         return;
                     }
                     return;
@@ -388,11 +388,11 @@ public class e {
         }
     }
 
-    private boolean dMT() {
-        return com.baidu.q.a.a.KG(b.dMP());
+    private boolean dNc() {
+        return com.baidu.q.a.a.KG(b.dMY());
     }
 
-    private long dMU() {
-        return com.baidu.q.a.a.KH(b.dMP()) * 60 * 1000;
+    private long dNd() {
+        return com.baidu.q.a.a.KH(b.dMY()) * 60 * 1000;
     }
 }

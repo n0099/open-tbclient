@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.category.b.b;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
-    private b fPu;
+    private b fPy;
 
     public AlaCategoryResponseMessage() {
         super(1021187);
@@ -14,11 +14,11 @@ public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.fPu = new b();
-        this.fPu.di(jSONObject.optJSONObject("data"));
+        this.fPy = new b();
+        this.fPy.di(jSONObject.optJSONObject("data"));
     }
 
-    public b bIb() {
-        return this.fPu;
+    public b bIc() {
+        return this.fPy;
     }
 }

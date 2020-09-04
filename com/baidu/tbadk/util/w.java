@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class w {
     public static boolean isEMUI() {
         return G("ro.build.version.emui", "ro.build.hw_emui_api_level");
@@ -16,9 +16,9 @@ public final class w {
             return false;
         }
         try {
-            a bvC = a.bvC();
+            a bvD = a.bvD();
             for (String str : strArr) {
-                if (bvC.getProperty(str) != null) {
+                if (bvD.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -29,28 +29,28 @@ public final class w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class a {
-        private static a eVx;
-        private final Properties eVy = new Properties();
+        private static a eVB;
+        private final Properties eVC = new Properties();
 
         private a() throws IOException {
-            this.eVy.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.eVC.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a bvC() throws IOException {
-            if (eVx == null) {
+        public static a bvD() throws IOException {
+            if (eVB == null) {
                 synchronized (a.class) {
-                    if (eVx == null) {
-                        eVx = new a();
+                    if (eVB == null) {
+                        eVB = new a();
                     }
                 }
             }
-            return eVx;
+            return eVB;
         }
 
         public String getProperty(String str) {
-            return this.eVy.getProperty(str);
+            return this.eVC.getProperty(str);
         }
     }
 }

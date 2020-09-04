@@ -8,20 +8,20 @@ import java.nio.FloatBuffer;
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
     public static final float[] VERT_FLIP_MATRIX;
-    public static final float[] bQl;
-    public static final float[] bQm;
+    public static final float[] bQp;
+    public static final float[] bQq;
 
     static {
         Matrix.setIdentityM(IDENTITY_MATRIX, 0);
-        bQl = new float[16];
-        Matrix.setIdentityM(bQl, 0);
-        Matrix.scaleM(bQl, 0, -1.0f, 1.0f, 1.0f);
+        bQp = new float[16];
+        Matrix.setIdentityM(bQp, 0);
+        Matrix.scaleM(bQp, 0, -1.0f, 1.0f, 1.0f);
         VERT_FLIP_MATRIX = new float[16];
         Matrix.setIdentityM(VERT_FLIP_MATRIX, 0);
         Matrix.scaleM(VERT_FLIP_MATRIX, 0, 1.0f, -1.0f, 1.0f);
-        bQm = new float[16];
-        Matrix.setIdentityM(bQm, 0);
-        Matrix.scaleM(bQm, 0, -1.0f, -1.0f, 1.0f);
+        bQq = new float[16];
+        Matrix.setIdentityM(bQq, 0);
+        Matrix.scaleM(bQq, 0, -1.0f, -1.0f, 1.0f);
     }
 
     public static FloatBuffer createFloatBuffer(float[] fArr) {

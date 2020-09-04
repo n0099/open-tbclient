@@ -10,7 +10,7 @@ import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMsgInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class PushResponseMessage extends ResponsePullMessage {
     private at notificationData;
 

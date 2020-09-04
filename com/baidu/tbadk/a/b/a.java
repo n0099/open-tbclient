@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class a {
     public static void a(View view, AbsThreadDataSupport absThreadDataSupport) {
         if (view != null) {

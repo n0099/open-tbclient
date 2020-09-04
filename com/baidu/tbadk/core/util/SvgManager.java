@@ -19,18 +19,18 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SvgManager {
-    private b elb;
+    private b elf;
     private Resources mResources;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
-        static SvgManager elc = new SvgManager();
+        static SvgManager elg = new SvgManager();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public enum SvgResourceStateType {
         NORMAL(false, false, 1),
         NORMAL_PRESS(true, false, 2),
@@ -74,7 +74,7 @@ public class SvgManager {
     }
 
     private SvgManager() {
-        this.elb = new b();
+        this.elf = new b();
         try {
             this.mResources = (Resources) Class.forName("android.support.v7.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class SvgManager {
     public static synchronized SvgManager bjq() {
         SvgManager svgManager;
         synchronized (SvgManager.class) {
-            svgManager = a.elc;
+            svgManager = a.elg;
         }
         return svgManager;
     }
@@ -262,19 +262,19 @@ public class SvgManager {
                 }
                 switch (i2) {
                     case 1:
-                        VectorDrawableCompat nX = this.elb.nX(i3);
+                        VectorDrawableCompat nX = this.elf.nX(i3);
                         if (nX == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
                         return nX;
                     case 2:
-                        AnimatedVectorDrawableCompat nY = this.elb.nY(i3);
+                        AnimatedVectorDrawableCompat nY = this.elf.nY(i3);
                         if (nY == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
                         return nY;
                     case 3:
-                        StateListDrawable a2 = this.elb.a(i3, this.mResources);
+                        StateListDrawable a2 = this.elf.a(i3, this.mResources);
                         if (a2 == null) {
                             return ap.getDrawable(skinType, this.mResources, ap.getVectorToDefaultResId(this.mResources, i));
                         }
@@ -294,9 +294,9 @@ public class SvgManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b {
-        private LruCache<Integer, Drawable.ConstantState> eld = new LruCache<>(50);
+        private LruCache<Integer, Drawable.ConstantState> elh = new LruCache<>(50);
 
         b() {
         }
@@ -312,7 +312,7 @@ public class SvgManager {
             Throwable th;
             VectorDrawableCompat vectorDrawableCompat;
             Drawable.ConstantState constantState2;
-            Drawable.ConstantState constantState3 = this.eld.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState3 = this.elh.get(Integer.valueOf(i));
             if (constantState3 == null) {
                 try {
                     VectorDrawableCompat create = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
@@ -334,7 +334,7 @@ public class SvgManager {
                     }
                     if (constantState2 != null) {
                         try {
-                            this.eld.put(Integer.valueOf(i), constantState2);
+                            this.elh.put(Integer.valueOf(i), constantState2);
                         } catch (Throwable th3) {
                             th = th3;
                             constantState = constantState2;
@@ -377,7 +377,7 @@ public class SvgManager {
         public StateListDrawable a(int i, @NonNull Resources resources) {
             StateListDrawable stateListDrawable;
             StateListDrawable stateListDrawable2;
-            Drawable.ConstantState constantState = this.eld.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.elh.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     stateListDrawable2 = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
@@ -393,7 +393,7 @@ public class SvgManager {
                         }
                     }
                     if (constantState != null) {
-                        this.eld.put(Integer.valueOf(i), constantState);
+                        this.elh.put(Integer.valueOf(i), constantState);
                         Drawable newDrawable = constantState.newDrawable();
                         if (newDrawable instanceof StateListDrawable) {
                             return (StateListDrawable) newDrawable;
@@ -421,7 +421,7 @@ public class SvgManager {
         */
         public AnimatedVectorDrawableCompat nY(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-            Drawable.ConstantState constantState = this.eld.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.elh.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(TbadkCoreApplication.getInst(), i);
@@ -439,7 +439,7 @@ public class SvgManager {
                         }
                     }
                     if (constantState != null) {
-                        this.eld.put(Integer.valueOf(i), constantState);
+                        this.elh.put(Integer.valueOf(i), constantState);
                     }
                 } catch (Throwable th2) {
                     th = th2;

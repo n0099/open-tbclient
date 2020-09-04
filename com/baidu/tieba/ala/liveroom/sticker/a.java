@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
-    private AudienceStickerContainerView gIR;
-    private List<AlaLiveStickerInfo> gIS;
+    private AudienceStickerContainerView gIV;
+    private List<AlaLiveStickerInfo> gIW;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -21,32 +21,32 @@ public class a {
 
     public void aB(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.gIR == null) {
-                this.gIR = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.gIV == null) {
+                this.gIV = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.gIR.getParent() != null) {
-                ((ViewGroup) this.gIR.getParent()).removeView(this.gIR);
+            if (this.gIV.getParent() != null) {
+                ((ViewGroup) this.gIV.getParent()).removeView(this.gIV);
             }
-            viewGroup.addView(this.gIR, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.gIV, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public void cc(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.gIR.getWidth() > 0 && this.gIR.getHeight() > 0) {
-            if (this.gIS != null && list != null) {
-                if (this.gIS.size() != list.size()) {
-                    this.gIS = list;
+        if (this.gIV.getWidth() > 0 && this.gIV.getHeight() > 0) {
+            if (this.gIW != null && list != null) {
+                if (this.gIW.size() != list.size()) {
+                    this.gIW = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.gIS.get(i).equals(list.get(i))) {
+                            if (this.gIW.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.gIS = list;
+                                this.gIW = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.gIS != null && list == null) {
-                this.gIS = list;
-            } else if (this.gIS != null || list == null) {
+            } else if (this.gIW != null && list == null) {
+                this.gIW = list;
+            } else if (this.gIW != null || list == null) {
                 z2 = false;
             } else {
-                this.gIS = list;
+                this.gIW = list;
             }
             if (z2) {
-                this.gIR.removeAllViews();
-                if (this.gIS != null && this.gIS.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.gIS) {
+                this.gIV.removeAllViews();
+                if (this.gIW != null && this.gIW.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.gIW) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.gIR.b(alaLiveStickerInfo);
+                        a.this.gIV.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void bWv() {
-        this.gIR.setVisibility(8);
+    public void bWw() {
+        this.gIV.setVisibility(8);
     }
 
-    public void bWw() {
-        this.gIR.setVisibility(0);
+    public void bWx() {
+        this.gIV.setVisibility(0);
     }
 }

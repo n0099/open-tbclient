@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import com.baidu.tbadk.core.util.ae;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class y {
     public static boolean isInstalledPackage(Context context, String str) {
         try {

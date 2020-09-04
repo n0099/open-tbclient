@@ -46,12 +46,12 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
             this.selfData.By(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.qR(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.qS(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.qQ(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.qT(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.qU(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.qS(this.mResData.data.isJoin.intValue() != 0);
             this.selfData.Bx(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.qT(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.qV(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -142,7 +142,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.bhb().zw("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.bhb().zx("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
         }
     }
 }

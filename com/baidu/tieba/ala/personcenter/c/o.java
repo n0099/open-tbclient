@@ -3,14 +3,14 @@ package com.baidu.tieba.ala.personcenter.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class o {
-    public String gTM;
-    public String gTN;
-    public String gTO;
-    public String gTP;
     public String gTQ;
     public String gTR;
     public String gTS;
     public String gTT;
+    public String gTU;
+    public String gTV;
+    public String gTW;
+    public String gTX;
     public String location;
     public String portrait;
     public String sex;
@@ -18,18 +18,18 @@ public class o {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.gTM = jSONObject.optString("user_id");
+            this.gTQ = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.sex = jSONObject.optString("sex");
-            this.gTN = jSONObject.optString("description");
+            this.gTR = jSONObject.optString("description");
             this.portrait = jSONObject.optString("portrait");
-            this.gTO = jSONObject.optString("level_id");
+            this.gTS = jSONObject.optString("level_id");
             this.location = jSONObject.optString("location");
-            this.gTP = jSONObject.optString("follow_status");
-            this.gTR = jSONObject.optString("follow_count");
-            this.gTQ = jSONObject.optString("fans_count");
-            this.gTS = jSONObject.optString("live_count");
-            this.gTT = jSONObject.optString("record_count");
+            this.gTT = jSONObject.optString("follow_status");
+            this.gTV = jSONObject.optString("follow_count");
+            this.gTU = jSONObject.optString("fans_count");
+            this.gTW = jSONObject.optString("live_count");
+            this.gTX = jSONObject.optString("record_count");
         }
     }
 }

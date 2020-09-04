@@ -3,32 +3,32 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes13.dex */
 public class b {
-    private int bqk;
-    private int bql;
+    private int bqn;
+    private int bqo;
     private int column;
-    private EmotionGroupType hsT;
-    private int hsU;
-    private int hsV;
-    private com.baidu.tbadk.editortools.emotiontool.c hsW;
-    private int hsX;
-    private int hsY;
+    private EmotionGroupType hsZ;
+    private int hta;
+    private int htb;
+    private com.baidu.tbadk.editortools.emotiontool.c htc;
+    private int htd;
+    private int hte;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.hsW = cVar;
+        this.htc = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cef() {
-        return this.hsW;
+    public com.baidu.tbadk.editortools.emotiontool.c ceg() {
+        return this.htc;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.hsT = emotionGroupType;
+        this.hsZ = emotionGroupType;
     }
 
-    public EmotionGroupType ceg() {
-        return this.hsT;
+    public EmotionGroupType ceh() {
+        return this.hsZ;
     }
 
     public void qn(int i) {
@@ -43,44 +43,44 @@ public class b {
         this.column = i;
     }
 
-    public int ceh() {
+    public int cei() {
         return this.column;
     }
 
     public void vM(int i) {
-        this.hsY = i;
-    }
-
-    public int cei() {
-        return this.hsY;
-    }
-
-    public void vN(int i) {
-        this.hsX = i;
+        this.hte = i;
     }
 
     public int cej() {
-        return this.hsX;
+        return this.hte;
     }
 
-    public void vO(int i) {
-        this.hsU = i;
+    public void vN(int i) {
+        this.htd = i;
     }
 
     public int cek() {
-        return this.hsU;
+        return this.htd;
     }
 
-    public void vP(int i) {
-        this.bqk = i;
+    public void vO(int i) {
+        this.hta = i;
     }
 
     public int cel() {
-        return this.bqk;
+        return this.hta;
+    }
+
+    public void vP(int i) {
+        this.bqn = i;
+    }
+
+    public int cem() {
+        return this.bqn;
     }
 
     public void vQ(int i) {
-        this.bql = i;
+        this.bqo = i;
     }
 
     public void setIndex(int i) {
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void vR(int i) {
-        this.hsV = i;
+        this.htb = i;
     }
 
-    public int cem() {
-        return this.hsV;
+    public int cen() {
+        return this.htb;
     }
 }

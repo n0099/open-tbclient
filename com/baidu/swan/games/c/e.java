@@ -30,7 +30,7 @@ public class e extends aa {
                 } else {
                     d.aMC().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
                         @Override // com.baidu.swan.games.c.d.a
-                        public void dQ(boolean z) {
+                        public void dR(boolean z) {
                             Context appContext = AppRuntime.getAppContext();
                             if (z) {
                                 Toast.makeText(appContext, a.h.aiapps_debug_game_sconsole_download_success, 1).show();

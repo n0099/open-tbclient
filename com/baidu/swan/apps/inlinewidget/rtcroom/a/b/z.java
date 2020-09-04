@@ -18,9 +18,9 @@ public class z extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
         if (command.obj instanceof String) {
             String str = (String) command.obj;
             if (TextUtils.equals(str, "ear")) {
-                bVar.mR(str);
+                bVar.mS(str);
             } else if (TextUtils.equals(str, "speaker")) {
-                bVar.mR(str);
+                bVar.mS(str);
             }
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a<T> extends com.baidu.adp.lib.d.b<T> {
     public abstract T as(Object obj);
 

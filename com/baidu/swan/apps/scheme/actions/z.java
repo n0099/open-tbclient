@@ -58,8 +58,8 @@ public class z extends aa {
                 /* renamed from: c */
                 public void I(com.baidu.swan.apps.setting.oauth.e eVar2) {
                     String str = "";
-                    if (eVar2 != null && !eVar2.forbidden && eVar2.cVk == 1 && !TextUtils.isEmpty(eVar2.cVo.optString("web_url"))) {
-                        String optString2 = eVar2.cVo.optString("web_url");
+                    if (eVar2 != null && !eVar2.forbidden && eVar2.cVo == 1 && !TextUtils.isEmpty(eVar2.cVs.optString("web_url"))) {
+                        String optString2 = eVar2.cVs.optString("web_url");
                         String optString3 = b.optString("path");
                         if (!TextUtils.isEmpty(optString3)) {
                             if (!optString2.endsWith("/")) {

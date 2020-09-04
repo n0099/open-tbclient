@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.dragsort;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface d {
     void dispatchDraw(Canvas canvas);
 

@@ -27,11 +27,11 @@ public class ag {
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        List<b> f842a;
+        List<b> f841a;
         List<b> b;
 
         private a() {
-            this.f842a = new ArrayList();
+            this.f841a = new ArrayList();
             this.b = new ArrayList();
         }
     }
@@ -42,11 +42,11 @@ public class ag {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        Notification f843a;
+        Notification f842a;
 
         public b(int i, Notification notification) {
             this.a = i;
-            this.f843a = notification;
+            this.f842a = notification;
         }
 
         public String toString() {
@@ -110,10 +110,10 @@ public class ag {
                     if (m540a(notification)) {
                         value.b.add(bVar);
                     } else {
-                        value.f842a.add(bVar);
+                        value.f841a.add(bVar);
                     }
                 }
-                int size = value.f842a.size();
+                int size = value.f841a.size();
                 if (value.b.size() <= 0) {
                     if (size >= 2) {
                         a(context, a2, a4, key);
@@ -123,8 +123,8 @@ public class ag {
                 } else if (size >= 2 && !m541a(context)) {
                     b bVar2 = value.b.get(0);
                     com.xiaomi.channel.commonutils.logger.b.b("group refresh:" + bVar2);
-                    bVar2.f843a.when = System.currentTimeMillis();
-                    a2.notify(bVar2.a, bVar2.f843a);
+                    bVar2.f842a.when = System.currentTimeMillis();
+                    a2.notify(bVar2.a, bVar2.f842a);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class ag {
         if (m540a(statusBarNotification.getNotification())) {
             aVar.b.add(bVar);
         } else {
-            aVar.f842a.add(bVar);
+            aVar.f841a.add(bVar);
         }
     }
 

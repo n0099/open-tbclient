@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VcodeActivityConfig extends IntentConfig {
     public static final String SAVE_KEY = "model";
 

@@ -18,12 +18,12 @@ import java.util.List;
 public class a extends BaseAdapter {
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
-    private HotTopicChangeFourmActivity mPN;
     private ViewGroup mParent = null;
+    private HotTopicChangeFourmActivity mQf;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.mPN = hotTopicChangeFourmActivity;
-        this.mContext = this.mPN.getPageContext().getContext();
+        this.mQf = hotTopicChangeFourmActivity;
+        this.mContext = this.mQf.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -84,29 +84,29 @@ public class a extends BaseAdapter {
     private C0834a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0834a c0834a;
         if (obj == null) {
-            c0834a = dGB();
+            c0834a = dGK();
         } else {
             c0834a = (C0834a) obj;
         }
-        c0834a.mPP.setText(SH(hotTopicBussinessData.mForumName));
-        c0834a.mPO.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0834a.mQh.setText(SH(hotTopicBussinessData.mForumName));
+        c0834a.mQg.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         ap.setBackgroundResource(c0834a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0834a.mPP, R.color.cp_cont_b);
-        ap.setBackgroundColor(c0834a.ifo, R.color.cp_bg_line_e);
+        ap.setViewTextColor(c0834a.mQh, R.color.cp_cont_b);
+        ap.setBackgroundColor(c0834a.ifu, R.color.cp_bg_line_e);
         return c0834a;
     }
 
-    private C0834a dGB() {
+    private C0834a dGK() {
         C0834a c0834a = new C0834a();
         c0834a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         ap.setBackgroundResource(c0834a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0834a.mPP, R.color.cp_cont_b);
-        c0834a.mPP = (TextView) c0834a.mRootView.findViewById(R.id.fourm_tv);
-        c0834a.ifo = c0834a.mRootView.findViewById(R.id.line_view);
-        c0834a.mPO = (TbImageView) c0834a.mRootView.findViewById(R.id.icon_img);
-        c0834a.mPO.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0834a.mPO.setDefaultResource(R.drawable.transparent_bg);
-        c0834a.mPO.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        ap.setViewTextColor(c0834a.mQh, R.color.cp_cont_b);
+        c0834a.mQh = (TextView) c0834a.mRootView.findViewById(R.id.fourm_tv);
+        c0834a.ifu = c0834a.mRootView.findViewById(R.id.line_view);
+        c0834a.mQg = (TbImageView) c0834a.mRootView.findViewById(R.id.icon_img);
+        c0834a.mQg.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0834a.mQg.setDefaultResource(R.drawable.transparent_bg);
+        c0834a.mQg.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0834a.mRootView.setTag(c0834a);
         return c0834a;
     }
@@ -115,9 +115,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0834a {
-        public View ifo;
-        public TbImageView mPO;
-        public TextView mPP;
+        public View ifu;
+        public TbImageView mQg;
+        public TextView mQh;
         public View mRootView;
 
         private C0834a() {

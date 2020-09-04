@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.UpdateMaskInfo.DataReq;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
     private static final int FALSE = 0;
     public static final int SWITCH_PRIVATE_CHAT_SINGLE = 9;

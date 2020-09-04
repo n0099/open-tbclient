@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.util.TextHelper;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> fxd;
+    private ArrayList<com.baidu.tieba.ala.data.a> fxh;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.fxd == null) {
-            this.fxd = new ArrayList<>();
+        if (this.fxh == null) {
+            this.fxh = new ArrayList<>();
         } else {
-            this.fxd.clear();
+            this.fxh.clear();
         }
-        this.fxd.addAll(arrayList);
+        this.fxh.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.fxd);
+        return ListUtils.getCount(this.fxh);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fxd == null || i < 0 || i >= this.fxd.size()) {
+        if (this.fxh == null || i < 0 || i >= this.fxh.size()) {
             return null;
         }
-        return this.fxd.get(i);
+        return this.fxh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,52 +73,52 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     protected class C0584a {
-        private LinearLayout fxe;
-        private HeadImageView fxf;
-        private TextView fxg;
-        private RelativeLayout fxh;
-        private TextView fxi;
-        private ImageView fxj;
+        private LinearLayout fxi;
+        private HeadImageView fxj;
         private TextView fxk;
-        private LinearLayout fxl;
-        private HeadImageView fxm;
-        private TextView fxn;
+        private RelativeLayout fxl;
+        private TextView fxm;
+        private ImageView fxn;
+        private TextView fxo;
+        private LinearLayout fxp;
+        private HeadImageView fxq;
+        private TextView fxr;
 
         public C0584a(View view) {
-            this.fxe = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
-            this.fxf = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
-            this.fxg = (TextView) view.findViewById(a.g.text_challenge_history_left);
-            this.fxh = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
-            this.fxi = (TextView) view.findViewById(a.g.pk_history_anchor_score);
-            this.fxj = (ImageView) view.findViewById(a.g.pk_history_icon);
-            this.fxk = (TextView) view.findViewById(a.g.pk_history_rival_score);
-            this.fxl = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
-            this.fxm = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
-            this.fxn = (TextView) view.findViewById(a.g.text_challenge_history_right);
-            this.fxf.setIsRound(true);
-            this.fxf.setAutoChangeStyle(false);
-            this.fxm.setIsRound(true);
-            this.fxm.setAutoChangeStyle(false);
+            this.fxi = (LinearLayout) view.findViewById(a.g.item_challenge_history_left);
+            this.fxj = (HeadImageView) view.findViewById(a.g.img_challenge_history_left);
+            this.fxk = (TextView) view.findViewById(a.g.text_challenge_history_left);
+            this.fxl = (RelativeLayout) view.findViewById(a.g.challenge_center_layout);
+            this.fxm = (TextView) view.findViewById(a.g.pk_history_anchor_score);
+            this.fxn = (ImageView) view.findViewById(a.g.pk_history_icon);
+            this.fxo = (TextView) view.findViewById(a.g.pk_history_rival_score);
+            this.fxp = (LinearLayout) view.findViewById(a.g.item_challenge_history_right);
+            this.fxq = (HeadImageView) view.findViewById(a.g.img_challenge_history_right);
+            this.fxr = (TextView) view.findViewById(a.g.text_challenge_history_right);
+            this.fxj.setIsRound(true);
+            this.fxj.setAutoChangeStyle(false);
+            this.fxq.setIsRound(true);
+            this.fxq.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.fxf.startLoad(aVar.fTS.portrait, 12, false);
-                String name_show = aVar.fTS.getName_show();
+                this.fxj.startLoad(aVar.fTW.portrait, 12, false);
+                String name_show = aVar.fTW.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.fxg.setText(name_show);
-                this.fxm.startLoad(aVar.fTT.portrait, 12, false);
-                String name_show2 = aVar.fTT.getName_show();
+                this.fxk.setText(name_show);
+                this.fxq.startLoad(aVar.fTX.portrait, 12, false);
+                String name_show2 = aVar.fTX.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.fxn.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.fTR.fTX);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.fTR.fTY);
-                this.fxi.setText(numberUniformFormatExtra);
-                this.fxk.setText(numberUniformFormatExtra2);
+                this.fxr.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.fTV.fUb);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.fTV.fUc);
+                this.fxm.setText(numberUniformFormatExtra);
+                this.fxo.setText(numberUniformFormatExtra2);
             }
         }
     }

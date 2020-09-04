@@ -33,10 +33,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c extends BdBaseModel {
-    private HttpMessageListener aUj;
-    private a aUl;
-    private boolean aUm;
-    private BdUniqueId aUn;
+    private HttpMessageListener aUl;
+    private a aUn;
+    private boolean aUo;
+    private BdUniqueId aUp;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -45,9 +45,9 @@ public class c extends BdBaseModel {
 
     public c(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.aUm = false;
-        this.aUn = BdUniqueId.gen();
-        this.aUj = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.c.3
+        this.aUo = false;
+        this.aUp = BdUniqueId.gen();
+        this.aUl = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -58,8 +58,8 @@ public class c extends BdBaseModel {
                 }
             }
         };
-        this.aUj.setTag(bdPageContext.getUniqueId());
-        registerListener(this.aUj);
+        this.aUl.setTag(bdPageContext.getUniqueId());
+        registerListener(this.aUl);
     }
 
     public void a(final String str, final boolean z, final String str2, final String str3) {
@@ -90,11 +90,11 @@ public class c extends BdBaseModel {
             /* renamed from: b */
             public void onReturnDataInUI(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
                 if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.GY())) {
-                    c.this.aUm = false;
+                    c.this.aUo = false;
                     c.this.o(str, str2, str3);
                     return;
                 }
-                c.this.aUm = true;
+                c.this.aUo = true;
                 c.this.a(str, alaSdkGetGiftListHttpResponseMessage, true);
                 if (z) {
                     c.this.o(str, str2, str3);
@@ -108,7 +108,7 @@ public class c extends BdBaseModel {
             str = com.baidu.live.gift.b.b.GM().EW();
         }
         e eVar = new e(str, str2, str3);
-        eVar.setTag(this.aUn);
+        eVar.setTag(this.aUp);
         sendMessage(eVar);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_GIFT_LIST_REQ, UbcStatConstant.ContentType.UBC_TYPE_GIFT_NORMAL_LIST, "liveroom", ""));
     }
@@ -154,8 +154,8 @@ public class c extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
         com.baidu.live.gift.b.b.GM().e(str, alaSdkGetGiftListHttpResponseMessage.GY());
-        if (this.aUl != null) {
-            this.aUl.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.GY(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.GZ(), alaSdkGetGiftListHttpResponseMessage.LF());
+        if (this.aUn != null) {
+            this.aUn.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.GY(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.GZ(), alaSdkGetGiftListHttpResponseMessage.LF());
         }
     }
 
@@ -172,10 +172,10 @@ public class c extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.aUj);
+        MessageManager.getInstance().unRegisterListener(this.aUl);
     }
 
     public void a(a aVar) {
-        this.aUl = aVar;
+        this.aUn = aVar;
     }
 }

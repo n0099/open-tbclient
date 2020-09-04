@@ -9,15 +9,15 @@ public class p {
 
     /* loaded from: classes4.dex */
     public interface b {
-        public static final b npk = j.npt;
-        public static final b npl = i.npt;
-        public static final b npm = g.npt;
-        public static final b npn = h.npt;
-        public static final b npo = c.npt;
-        public static final b npp = e.npt;
-        public static final b npq = d.npt;
-        public static final b npr = k.npt;
-        public static final b nps = f.npt;
+        public static final b npC = j.npL;
+        public static final b npD = i.npL;
+        public static final b npE = g.npL;
+        public static final b npF = h.npL;
+        public static final b npG = c.npL;
+        public static final b npH = e.npL;
+        public static final b npI = d.npL;
+        public static final b npJ = k.npL;
+        public static final b npK = f.npL;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -40,8 +40,8 @@ public class p {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int dQh = aVar.dQh();
-            for (int i2 = 0; i2 < dQh; i2++) {
+            int dQq = aVar.dQq();
+            for (int i2 = 0; i2 < dQq; i2++) {
                 o l2 = l(aVar.getDrawable(i2));
                 if (l2 != null) {
                     return l2;
@@ -64,7 +64,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class j extends a {
-        public static final b npt = new j();
+        public static final b npL = new j();
 
         private j() {
         }
@@ -82,7 +82,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class i extends a {
-        public static final b npt = new i();
+        public static final b npL = new i();
 
         private i() {
         }
@@ -101,7 +101,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class f extends a {
-        public static final b npt = new f();
+        public static final b npL = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class g extends a {
-        public static final b npt = new g();
+        public static final b npL = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class h extends a {
-        public static final b npt = new h();
+        public static final b npL = new h();
 
         private h() {
         }
@@ -160,7 +160,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class c extends a {
-        public static final b npt = new c();
+        public static final b npL = new c();
 
         private c() {
         }
@@ -177,7 +177,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class e extends a {
-        public static final b npt = new e();
+        public static final b npL = new e();
 
         private e() {
         }
@@ -197,7 +197,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class d extends a {
-        public static final b npt = new d();
+        public static final b npL = new d();
 
         private d() {
         }
@@ -225,7 +225,7 @@ public class p {
 
     /* loaded from: classes4.dex */
     private static class k extends a {
-        public static final b npt = new k();
+        public static final b npL = new k();
 
         private k() {
         }

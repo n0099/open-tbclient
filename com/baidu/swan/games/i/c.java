@@ -4,7 +4,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
     public String digest;
-    public byte[] drB;
+    public byte[] drF;
     public int errCode;
     public String errMsg;
     public List<d> fileList;

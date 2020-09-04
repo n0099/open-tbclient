@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final org.b.b<?> onb;
-    final boolean ons;
+    final boolean onK;
+    final org.b.b<?> onu;
     final org.b.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.b.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.ons) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.onb));
+        if (this.onK) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.onu));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.onb));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.onu));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> ont;
+        final SamplePublisherSubscriber<T> onL;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.ont = samplePublisherSubscriber;
+            this.onL = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.b.c
         public void onSubscribe(org.b.d dVar) {
-            if (this.ont.setOther(dVar)) {
+            if (this.onL.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.b.c
         public void onNext(Object obj) {
-            this.ont.run();
+            this.onL.run();
         }
 
         @Override // org.b.c
         public void onError(Throwable th) {
-            this.ont.error(th);
+            this.onL.error(th);
         }
 
         @Override // org.b.c
         public void onComplete() {
-            this.ont.complete();
+            this.onL.complete();
         }
     }
 

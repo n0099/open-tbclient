@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.s;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    public boolean ejR;
-    private final g elv = new g();
+    public boolean ejV;
+    private final g elz = new g();
     public boolean mIsNeedTbs = false;
     public boolean mNeedBackgroundLogin = true;
     public boolean mIsUseCurrentBDUSS = true;
@@ -25,7 +25,7 @@ public class b {
     public int mImageType = 0;
 
     public g bjz() {
-        return this.elv;
+        return this.elz;
     }
 
     public void a(s sVar) {
@@ -105,17 +105,17 @@ public class b {
     }
 
     public String getApiName() {
-        if (this.elv.mUrl == null) {
+        if (this.elz.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.elv.mUrl.startsWith(str)) {
-            int indexOf = this.elv.mUrl.indexOf(63);
+        if (this.elz.mUrl.startsWith(str)) {
+            int indexOf = this.elz.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.elv.mUrl.length();
+                indexOf = this.elz.mUrl.length();
             }
-            return this.elv.mUrl.substring(str.length(), indexOf);
+            return this.elz.mUrl.substring(str.length(), indexOf);
         }
-        return this.elv.mUrl;
+        return this.elz.mUrl;
     }
 }

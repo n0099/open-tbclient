@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class ar {
     public String abTag;
     public int cardType;
-    private long dYW;
-    public int dYZ;
-    public JSONArray dZa;
-    public int dZb;
+    private long dZa;
+    public int dZd;
+    public JSONArray dZe;
+    public int dZf;
     public String extra;
     private String fid;
     private String nid;
@@ -19,8 +19,8 @@ public class ar {
     private String type;
     public String weight;
     public SparseArray<String> feedBackReasonMap = null;
-    public SparseArray<String> dYX = null;
-    public SparseArray<String> dYY = null;
+    public SparseArray<String> dZb = null;
+    public SparseArray<String> dZc = null;
 
     public String getTid() {
         return this.tid;
@@ -59,27 +59,27 @@ public class ar {
     }
 
     public void mT(int i) {
-        this.dYZ = i;
+        this.dZd = i;
     }
 
     public int bdb() {
-        return this.dYZ;
+        return this.dZd;
     }
 
     public void P(JSONArray jSONArray) {
-        this.dZa = jSONArray;
+        this.dZe = jSONArray;
     }
 
     public JSONArray bdc() {
-        return this.dZa;
+        return this.dZe;
     }
 
     public long bdd() {
-        return this.dYW;
+        return this.dZa;
     }
 
     public void cx(long j) {
-        this.dYW = j;
+        this.dZa = j;
     }
 
     public String getNid() {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.a.f;
 import com.baidu.tbadk.lcs.a;
 import org.apache.http.conn.params.ConnRoutePNames;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -20,7 +20,7 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (f.class) {
-                    f.elJ.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                    f.elN.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
                     f.proxyHost = null;
                 }
             }

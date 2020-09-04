@@ -3,7 +3,7 @@ package com.baidu.spswitch.b;
 import com.baidu.spswitch.emotion.EmotionType;
 /* loaded from: classes9.dex */
 public class a {
-    private static a bRe;
+    private static a bRi;
     private boolean isNightMode;
 
     /* renamed from: com.baidu.spswitch.b.a$a  reason: collision with other inner class name */
@@ -16,14 +16,14 @@ public class a {
     }
 
     public static a XK() {
-        if (bRe == null) {
+        if (bRi == null) {
             synchronized (a.class) {
-                if (bRe == null) {
-                    bRe = new a();
+                if (bRi == null) {
+                    bRi = new a();
                 }
             }
         }
-        return bRe;
+        return bRi;
     }
 
     public boolean isNightMode() {

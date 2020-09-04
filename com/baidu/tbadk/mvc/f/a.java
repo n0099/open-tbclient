@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.mvc.d.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public abstract class a<D, S extends com.baidu.tbadk.mvc.d.b> extends e<D, S> {
     protected int position;
 

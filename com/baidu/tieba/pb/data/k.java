@@ -4,15 +4,15 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes16.dex */
 public class k {
-    private boolean hdn;
-    private int kxI;
-    private int kxJ;
-    private List<String> kxK;
-    private List<String> kxL;
-    private List<String> kxM;
-    private String kxN;
-    private boolean kxO;
+    private boolean hdr;
     private int kxP;
+    private int kxQ;
+    private List<String> kxR;
+    private List<String> kxS;
+    private List<String> kxT;
+    private String kxU;
+    private boolean kxV;
+    private int kxW;
     private int status;
 
     public static k b(ManagerElection managerElection) {
@@ -20,16 +20,16 @@ public class k {
             return null;
         }
         k kVar = new k();
-        kVar.kxJ = managerElection.begin_vote_time.intValue();
-        kVar.hdn = managerElection.can_vote.intValue() == 1;
-        kVar.kxI = managerElection.vote_num.intValue();
-        kVar.kxO = managerElection.is_show_distribute.intValue() == 1;
-        kVar.kxP = managerElection.remainder_time.intValue();
+        kVar.kxQ = managerElection.begin_vote_time.intValue();
+        kVar.hdr = managerElection.can_vote.intValue() == 1;
+        kVar.kxP = managerElection.vote_num.intValue();
+        kVar.kxV = managerElection.is_show_distribute.intValue() == 1;
+        kVar.kxW = managerElection.remainder_time.intValue();
         kVar.status = managerElection.status.intValue();
-        kVar.kxN = managerElection.tail_text;
-        kVar.kxK = managerElection.vote_condition_pic;
-        kVar.kxL = managerElection.vote_condition_title;
-        kVar.kxM = managerElection.vote_condition;
+        kVar.kxU = managerElection.tail_text;
+        kVar.kxR = managerElection.vote_condition_pic;
+        kVar.kxS = managerElection.vote_condition_title;
+        kVar.kxT = managerElection.vote_condition;
         return kVar;
     }
 
@@ -37,36 +37,36 @@ public class k {
         return this.status;
     }
 
-    public boolean cVU() {
-        return this.kxO;
-    }
-
-    public int cVV() {
-        return this.kxP;
+    public boolean cVV() {
+        return this.kxV;
     }
 
     public int cVW() {
-        return this.kxI;
+        return this.kxW;
     }
 
-    public List<String> cVX() {
-        return this.kxL;
+    public int cVX() {
+        return this.kxP;
     }
 
     public List<String> cVY() {
-        return this.kxM;
+        return this.kxS;
     }
 
-    public String cVZ() {
-        return this.kxN;
+    public List<String> cVZ() {
+        return this.kxT;
     }
 
-    public boolean caP() {
-        return this.hdn;
+    public String cWa() {
+        return this.kxU;
     }
 
-    public void mZ(boolean z) {
-        this.hdn = z;
+    public boolean caQ() {
+        return this.hdr;
+    }
+
+    public void nb(boolean z) {
+        this.hdr = z;
     }
 
     public void setStatus(int i) {
@@ -74,6 +74,6 @@ public class k {
     }
 
     public void DQ(int i) {
-        this.kxI = i;
+        this.kxP = i;
     }
 }

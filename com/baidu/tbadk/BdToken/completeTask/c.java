@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.at;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static void aJ(int i, int i2) {
         new aq("c13317").ai("obj_source", i).ai("obj_type", i2).bjn();

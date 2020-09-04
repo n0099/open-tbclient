@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern dbf = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> dbg = new HashMap<>();
-    private static HashMap<String, Integer> dbh = new HashMap<>();
-    private static HashMap<String, String> dbi = new HashMap<>();
-    private static HashMap<String, String> dbj = new HashMap<>();
-    private static final Pattern dbk;
+    private static final Pattern dbj = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> dbk = new HashMap<>();
+    private static HashMap<String, Integer> dbl = new HashMap<>();
+    private static HashMap<String, String> dbm = new HashMap<>();
+    private static HashMap<String, String> dbn = new HashMap<>();
+    private static final Pattern dbo;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -341,19 +341,19 @@ public final class r {
         g("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        dbk = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dbo = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        dbg.put(str2, Integer.valueOf(i));
-        dbh.put(str, Integer.valueOf(i));
-        dbi.put(str2, str);
-        if (!dbj.containsKey(str)) {
-            dbj.put(str, str2);
+        dbk.put(str2, Integer.valueOf(i));
+        dbl.put(str, Integer.valueOf(i));
+        dbm.put(str2, str);
+        if (!dbn.containsKey(str)) {
+            dbn.put(str, str2);
         }
     }
 
-    public static String sw(String str) {
+    public static String sx(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -362,23 +362,23 @@ public final class r {
     }
 
     @Nullable
-    public static String sx(String str) {
+    public static String sy(String str) {
         if (str == null) {
             return null;
         }
-        return dbj.get(str);
-    }
-
-    public static String sy(String str) {
-        if (str == null || TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return dbi.get(str);
+        return dbn.get(str);
     }
 
     public static String sz(String str) {
+        if (str == null || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return dbm.get(str);
+    }
+
+    public static String sA(String str) {
         try {
-            Matcher matcher = dbf.matcher(str);
+            Matcher matcher = dbj.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

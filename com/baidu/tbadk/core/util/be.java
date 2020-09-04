@@ -20,38 +20,38 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class be {
-    private static be elk = new be() { // from class: com.baidu.tbadk.core.util.be.1
+    private static be elo = new be() { // from class: com.baidu.tbadk.core.util.be.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c ell;
+    private c elp;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void a(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface d {
     }
 
     private be() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.ell = null;
+        this.elp = null;
     }
 
     public static SpannableString an(Context context, String str) {
@@ -71,7 +71,7 @@ public class be {
     }
 
     public static be bju() {
-        return elk;
+        return elo;
     }
 
     public void a(final a aVar) {
@@ -95,7 +95,7 @@ public class be {
     }
 
     public void a(c cVar) {
-        this.ell = cVar;
+        this.elp = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -161,7 +161,7 @@ public class be {
                 break;
             }
         }
-        if (!z3 && this.ell != null) {
+        if (!z3 && this.elp != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
             } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
@@ -273,7 +273,7 @@ public class be {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.ell.a(tbPageContext, str, str2, z, dVar, z2);
+            this.elp.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -301,10 +301,10 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.elh.matcher(charSequence).find();
+        return aw.ell.matcher(charSequence).find();
     }
 
-    public String Ak(String str) {
+    public String Al(String str) {
         if (!k(str)) {
             return null;
         }
@@ -320,6 +320,6 @@ public class be {
         if (charSequence == null) {
             return false;
         }
-        return aw.elg.matcher(charSequence).find();
+        return aw.elk.matcher(charSequence).find();
     }
 }

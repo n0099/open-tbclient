@@ -2,7 +2,7 @@ package com.baidu.tbadk.p;
 
 import android.content.Context;
 import android.support.v4.app.NotificationManagerCompat;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
     public static boolean cM(Context context) {
         try {

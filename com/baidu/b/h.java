@@ -14,9 +14,9 @@ import org.json.JSONObject;
 /* loaded from: classes20.dex */
 public class h {
     private static boolean b = false;
-    c acZ;
-    private a.C0090a acp;
-    private com.baidu.b.b.c adc;
+    private a.C0090a acr;
+    c adb;
+    private com.baidu.b.b.c adf;
     private Context c;
 
     /* loaded from: classes20.dex */
@@ -94,9 +94,9 @@ public class h {
             throw new NullPointerException("context should not be null!!!");
         }
         this.c = context.getApplicationContext();
-        this.acp = aVar.sJ().cU("bohrium");
-        this.acp.a();
-        this.acZ = cVar;
+        this.acr = aVar.sJ().cV("bohrium");
+        this.acr.a();
+        this.adb = cVar;
         a(aVar);
     }
 
@@ -138,13 +138,13 @@ public class h {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
         a.C0088a c0088a = new a.C0088a();
         c0088a.a = this.c;
-        c0088a.aci = aVar;
+        c0088a.acm = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
             aVar2.a(c0088a);
             aVar2.a(cVar2);
         }
-        this.adc = cVar;
+        this.adf = cVar;
     }
 
     private static String c(String str) {
@@ -180,16 +180,16 @@ public class h {
     public a a() {
         a.d dVar = new a.d();
         dVar.a = true;
-        List<com.baidu.b.b.a> a2 = this.adc.a();
-        Collections.sort(a2, com.baidu.b.b.a.ach);
-        List<b> N = this.acZ.N(this.c);
+        List<com.baidu.b.b.a> a2 = this.adf.a();
+        Collections.sort(a2, com.baidu.b.b.a.acj);
+        List<b> N = this.adb.N(this.c);
         if (N != null) {
             for (b bVar : N) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.b.b.a aVar : a2) {
-                        a.e a3 = aVar.a(bVar.ace.packageName, dVar);
-                        if (a3 != null && a3.a() && a3.acm != null) {
-                            return a3.acm;
+                        a.e a3 = aVar.a(bVar.acg.packageName, dVar);
+                        if (a3 != null && a3.a() && a3.aco != null) {
+                            return a3.aco;
                         }
                     }
                     continue;

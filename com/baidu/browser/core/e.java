@@ -11,24 +11,24 @@ import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes19.dex */
 public final class e implements SharedPreferences, SharedPreferences.Editor {
-    private static final Map<String, e> adO = new HashMap();
-    private Context adP = b.ta().getBaseContext();
-    private ConcurrentHashMap<String, Object> adQ;
-    private ConcurrentHashMap<String, Object> adR;
+    private static final Map<String, e> adQ = new HashMap();
+    private Context adR = b.ta().getBaseContext();
+    private ConcurrentHashMap<String, Object> adS;
+    private ConcurrentHashMap<String, Object> adT;
     private String mName;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static synchronized e df(String str) {
+    public static synchronized e dg(String str) {
         e eVar;
         synchronized (e.class) {
             if (TextUtils.isEmpty(str)) {
                 str = b.ta().getPackageName() + "_preferences";
             }
-            if (adO.containsKey(str)) {
-                eVar = adO.get(str);
+            if (adQ.containsKey(str)) {
+                eVar = adQ.get(str);
             } else {
                 eVar = new e(str);
-                adO.put(str, eVar);
+                adQ.put(str, eVar);
             }
         }
         return eVar;
@@ -37,19 +37,19 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
     private e(String str) {
         this.mName = str;
         if (TextUtils.isEmpty(this.mName)) {
-            this.mName = this.adP.getPackageName() + "_preferences";
+            this.mName = this.adR.getPackageName() + "_preferences";
         }
-        this.adR = new ConcurrentHashMap<>();
+        this.adT = new ConcurrentHashMap<>();
         tc();
     }
 
     private void tc() {
-        this.adQ = new ConcurrentHashMap<>();
-        Map<String, ?> all = this.adP.getSharedPreferences(this.mName, 0).getAll();
+        this.adS = new ConcurrentHashMap<>();
+        Map<String, ?> all = this.adR.getSharedPreferences(this.mName, 0).getAll();
         if (all != null) {
             for (Map.Entry<String, ?> entry : all.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
-                    this.adQ.put(entry.getKey(), entry.getValue());
+                    this.adS.put(entry.getKey(), entry.getValue());
                 }
             }
         }
@@ -57,20 +57,20 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
 
     @Override // android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.adP.getSharedPreferences(this.mName, 0).registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.adR.getSharedPreferences(this.mName, 0).registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override // android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.adP.getSharedPreferences(this.mName, 0).unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.adR.getSharedPreferences(this.mName, 0).unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
-        if (this.adQ.containsKey(str)) {
+        if (this.adS.containsKey(str)) {
             return true;
         }
-        return this.adP.getSharedPreferences(this.mName, 0).contains(str);
+        return this.adR.getSharedPreferences(this.mName, 0).contains(str);
     }
 
     @Override // android.content.SharedPreferences
@@ -80,74 +80,74 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i) {
-        if (this.adQ.containsKey(str)) {
-            return ((Integer) this.adQ.get(str)).intValue();
+        if (this.adS.containsKey(str)) {
+            return ((Integer) this.adS.get(str)).intValue();
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getInt(str, i);
+        return this.adR.getSharedPreferences(this.mName, 0).getInt(str, i);
     }
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putInt(String str, int i) {
         if (str != null) {
-            this.adR.put(str, Integer.valueOf(i));
+            this.adT.put(str, Integer.valueOf(i));
         }
         return this;
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j) {
-        if (this.adQ.containsKey(str)) {
-            return ((Long) this.adQ.get(str)).longValue();
+        if (this.adS.containsKey(str)) {
+            return ((Long) this.adS.get(str)).longValue();
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getLong(str, j);
+        return this.adR.getSharedPreferences(this.mName, 0).getLong(str, j);
     }
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putLong(String str, long j) {
         if (str != null) {
-            this.adR.put(str, Long.valueOf(j));
+            this.adT.put(str, Long.valueOf(j));
         }
         return this;
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        if (this.adQ.containsKey(str)) {
-            return ((Float) this.adQ.get(str)).floatValue();
+        if (this.adS.containsKey(str)) {
+            return ((Float) this.adS.get(str)).floatValue();
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getFloat(str, f);
+        return this.adR.getSharedPreferences(this.mName, 0).getFloat(str, f);
     }
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putFloat(String str, float f) {
         if (str != null) {
-            this.adR.put(str, Float.valueOf(f));
+            this.adT.put(str, Float.valueOf(f));
         }
         return this;
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        if (this.adQ.containsKey(str)) {
-            return ((Boolean) this.adQ.get(str)).booleanValue();
+        if (this.adS.containsKey(str)) {
+            return ((Boolean) this.adS.get(str)).booleanValue();
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getBoolean(str, z);
+        return this.adR.getSharedPreferences(this.mName, 0).getBoolean(str, z);
     }
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
         if (str != null) {
-            this.adR.put(str, Boolean.valueOf(z));
+            this.adT.put(str, Boolean.valueOf(z));
         }
         return this;
     }
 
     @Override // android.content.SharedPreferences
     public String getString(String str, String str2) {
-        if (this.adQ.containsKey(str)) {
-            return (String) this.adQ.get(str);
+        if (this.adS.containsKey(str)) {
+            return (String) this.adS.get(str);
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getString(str, str2);
+        return this.adR.getSharedPreferences(this.mName, 0).getString(str, str2);
     }
 
     @Override // android.content.SharedPreferences.Editor
@@ -156,7 +156,7 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
             if (str2 == null) {
                 remove(str);
             } else {
-                this.adR.put(str, str2);
+                this.adT.put(str, str2);
             }
         }
         return this;
@@ -164,7 +164,7 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor clear() {
-        this.adQ.clear();
+        this.adS.clear();
         f.clear(this.mName);
         return this;
     }
@@ -183,15 +183,15 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
 
     @Override // android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return this.adQ;
+        return this.adS;
     }
 
     @Override // android.content.SharedPreferences
     public Set<String> getStringSet(String str, Set<String> set) {
-        if (this.adQ.containsKey(str)) {
-            return (Set) this.adQ.get(str);
+        if (this.adS.containsKey(str)) {
+            return (Set) this.adS.get(str);
         }
-        return this.adP.getSharedPreferences(this.mName, 0).getStringSet(str, set);
+        return this.adR.getSharedPreferences(this.mName, 0).getStringSet(str, set);
     }
 
     @Override // android.content.SharedPreferences.Editor
@@ -200,7 +200,7 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
             if (set == null) {
                 remove(str);
             } else {
-                this.adR.put(str, set);
+                this.adT.put(str, set);
             }
         }
         return this;
@@ -209,7 +209,7 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor remove(String str) {
         if (str != null) {
-            this.adQ.remove(str);
+            this.adS.remove(str);
             f.b(this.mName, str, null);
         }
         return this;
@@ -217,29 +217,29 @@ public final class e implements SharedPreferences, SharedPreferences.Editor {
 
     private void td() {
         synchronized (this) {
-            Log.d("BdPreferenceImpl", "modified size: " + this.adR.size());
-            for (Map.Entry<String, Object> entry : this.adR.entrySet()) {
+            Log.d("BdPreferenceImpl", "modified size: " + this.adT.size());
+            for (Map.Entry<String, Object> entry : this.adT.entrySet()) {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 Log.d("BdPreferenceImpl", "modified. key: " + key + " value: " + value);
                 if (key != null) {
                     if (value == null || value == this) {
-                        this.adQ.remove(key);
+                        this.adS.remove(key);
                         f.b(this.mName, key, null);
                     } else {
-                        if (this.adQ.containsKey(key)) {
-                            Object obj = this.adQ.get(key);
+                        if (this.adS.containsKey(key)) {
+                            Object obj = this.adS.get(key);
                             Log.d("BdPreferenceImpl", "cache. key: " + key + " value: " + obj);
                             if (obj != null && obj.equals(value)) {
                             }
                         }
-                        this.adQ.put(key, value);
+                        this.adS.put(key, value);
                         Log.d("BdPreferenceImpl", "write to file. key: " + key + " value: " + value);
                         f.b(this.mName, key, value);
                     }
                 }
             }
-            this.adR.clear();
+            this.adT.clear();
         }
     }
 }

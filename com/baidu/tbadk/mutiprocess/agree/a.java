@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mutiprocess.b;
 import com.baidu.tieba.tbadkCore.data.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a implements b<AgreeEvent> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mutiprocess.b

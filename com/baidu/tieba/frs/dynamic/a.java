@@ -61,7 +61,7 @@ public class a implements c {
                         bwVar.setUserMap(this.userMap);
                         bwVar.a(threadInfo);
                         bwVar.bfC();
-                        if (bwVar.getType() == bw.eaS || bwVar.getType() == bw.ebn || bwVar.getType() == bw.ebs || bwVar.getType() == bw.ebo || bwVar.getType() == bw.ebw || bwVar.getType() == bw.ebx) {
+                        if (bwVar.getType() == bw.eaW || bwVar.getType() == bw.ebr || bwVar.getType() == bw.ebw || bwVar.getType() == bw.ebs || bwVar.getType() == bw.ebA || bwVar.getType() == bw.ebB) {
                             this.threadList.add(bwVar);
                         }
                     }

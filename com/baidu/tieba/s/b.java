@@ -12,39 +12,39 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<aq>> mch;
-    private String[] mci = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
+    private Map<BdUniqueId, ArrayList<aq>> mcw;
+    private String[] mcx = {"obj_floor", "obj_isad", "obj_id", "tid", "pid", "thread_type", "fid", "post_type", "obj_isofficial", "obj_adlocate", "recom_weight", IntentConfig.RECOM_SOURCE, "recom_ab_tag", "recom_extra", "recom_type", "ugc_vid", "ugc_nid", "ori_ugc_type"};
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.mch == null) {
-            this.mch = new LinkedHashMap();
+        if (this.mcw == null) {
+            this.mcw = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void A(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.mch.put(bdUniqueId, null);
+            this.mcw.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void B(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.mch.remove(bdUniqueId);
+            this.mcw.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, aq aqVar) {
         if (aqVar != null && bdUniqueId != null) {
-            ArrayList<aq> arrayList = this.mch.get(bdUniqueId);
+            ArrayList<aq> arrayList = this.mcw.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.mch.put(bdUniqueId, arrayList);
+                this.mcw.put(bdUniqueId, arrayList);
             }
             arrayList.add(aqVar);
         }
@@ -52,13 +52,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean C(BdUniqueId bdUniqueId) {
-        return this.mch.containsKey(bdUniqueId);
+        return this.mcw.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dvD() {
-        if (this.mch.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<aq>> entry : this.mch.entrySet()) {
+    public void dvI() {
+        if (this.mcw.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<aq>> entry : this.mcw.entrySet()) {
                 ArrayList<aq> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -70,7 +70,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<aq> arrayList = this.mch.get(bdUniqueId);
+            ArrayList<aq> arrayList = this.mcw.get(bdUniqueId);
             if (y.getCount(arrayList) != 0) {
                 bd(arrayList);
                 arrayList.clear();
@@ -99,17 +99,17 @@ public class b {
                     List list = (List) entry.getValue();
                     if (y.getCount(list) != 0) {
                         aq aqVar2 = (aq) list.get(0);
-                        for (int i2 = 0; i2 < this.mci.length; i2++) {
+                        for (int i2 = 0; i2 < this.mcx.length; i2++) {
                             StringBuilder sb = new StringBuilder();
                             for (int i3 = 0; i3 < list.size(); i3++) {
-                                sb.append(m(((aq) list.get(i3)).getParams(), this.mci[i2]));
+                                sb.append(m(((aq) list.get(i3)).getParams(), this.mcx[i2]));
                                 sb.append("|");
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
                             }
-                            aqVar2.delete(this.mci[i2]);
-                            aqVar2.dD(this.mci[i2] + "s", sb.toString());
+                            aqVar2.delete(this.mcx[i2]);
+                            aqVar2.dD(this.mcx[i2] + "s", sb.toString());
                         }
                         TiebaStatic.log(aqVar2);
                     }

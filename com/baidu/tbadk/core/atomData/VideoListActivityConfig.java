@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.at;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
     public static final String KEY_SOURCE = "KEY_SOURCE";

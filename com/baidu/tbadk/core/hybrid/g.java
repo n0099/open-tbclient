@@ -8,24 +8,24 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class g {
-    private a ehf = null;
+    private a ehj = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     private static final class c {
-        private static final g ehr = new g();
+        private static final g ehv = new g();
     }
 
     public static g bhN() {
-        return c.ehr;
+        return c.ehv;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.ehf = new a(i, jVar);
-                this.ehf.bhO();
+                this.ehj = new a(i, jVar);
+                this.ehj.bhO();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -33,14 +33,14 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a ehf;
-        private final List<Long> ehp = new ArrayList(240);
-        private final List<Integer> ehq = new ArrayList(15);
+        protected a ehj;
+        private final List<Long> eht = new ArrayList(240);
+        private final List<Integer> ehu = new ArrayList(15);
 
         public b(a aVar) {
-            this.ehf = aVar;
+            this.ehj = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,47 +63,47 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.ehp.add(Long.valueOf(j));
-            this.ehf.bhO();
+            this.eht.add(Long.valueOf(j));
+            this.ehj.bhO();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ehf = null;
-            this.ehp.clear();
-            this.ehq.clear();
+            this.ehj = null;
+            this.eht.clear();
+            this.ehu.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> ehg;
-        private final Object ehh;
-        private final Class<?> ehi;
-        private final Method ehj;
-        private final Object ehk;
-        private final Method ehl;
-        private final b ehm;
-        private final j ehn;
+        private final Class<?> ehk;
+        private final Object ehl;
+        private final Class<?> ehm;
+        private final Method ehn;
+        private final Object eho;
+        private final Method ehp;
+        private final b ehq;
+        private final j ehr;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.ehi = Class.forName("android.view.Choreographer");
-            this.ehg = Class.forName("android.view.Choreographer$FrameCallback");
-            this.ehm = new b(this);
-            this.ehh = Proxy.newProxyInstance(this.ehg.getClassLoader(), new Class[]{this.ehg}, this.ehm);
-            this.ehj = this.ehi.getMethod("getInstance", new Class[0]);
-            this.ehk = this.ehj.invoke(null, new Object[0]);
-            this.ehl = this.ehi.getMethod("postFrameCallback", this.ehg);
+            this.ehm = Class.forName("android.view.Choreographer");
+            this.ehk = Class.forName("android.view.Choreographer$FrameCallback");
+            this.ehq = new b(this);
+            this.ehl = Proxy.newProxyInstance(this.ehk.getClassLoader(), new Class[]{this.ehk}, this.ehq);
+            this.ehn = this.ehm.getMethod("getInstance", new Class[0]);
+            this.eho = this.ehn.invoke(null, new Object[0]);
+            this.ehp = this.ehm.getMethod("postFrameCallback", this.ehk);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.ehn = jVar;
+            this.ehr = jVar;
         }
 
         private void kW() throws InvocationTargetException, IllegalAccessException {
-            this.ehl.invoke(this.ehk, this.ehh);
+            this.ehp.invoke(this.eho, this.ehl);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -112,8 +112,8 @@ public class g {
                 com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.ehn.aU(a.this.bhQ());
-                        a.this.ehm.destroy();
+                        a.this.ehr.aU(a.this.bhQ());
+                        a.this.ehq.destroy();
                         a.this.destroy();
                     }
                 });
@@ -128,12 +128,12 @@ public class g {
         }
 
         private List<Long> bhP() {
-            return this.ehm.ehp;
+            return this.ehq.eht;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ehm.destroy();
+            this.ehq.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
