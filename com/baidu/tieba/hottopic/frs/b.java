@@ -10,23 +10,23 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.frs.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         k kVar = (k) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_FRS_NO_LIST_ITEM_ADAPTER, k.class, tbPageContext).getData();
         if (kVar != null) {
-            this.bbw.add(kVar);
+            this.bdV.add(kVar);
         }
-        this.bbw.add(new c(tbPageContext, bw.ebB));
-        this.bbw.add(new a(tbPageContext, bw.ebC));
-        bdTypeRecyclerView.addAdapters(this.bbw);
+        this.bdV.add(new c(tbPageContext, bw.edL));
+        this.bdV.add(new a(tbPageContext, bw.edM));
+        bdTypeRecyclerView.addAdapters(this.bdV);
     }
 
     public void b(TbPageTag tbPageTag) {
-        if (!y.isEmpty(this.bbw)) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        if (!y.isEmpty(this.bdV)) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
                 if (aVar instanceof k) {
                     ((k) aVar).a(tbPageTag);
                 }

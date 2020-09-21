@@ -2,8 +2,8 @@ package io.reactivex.internal.subscriptions;
 
 import io.reactivex.internal.a.d;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.b.c;
-/* loaded from: classes7.dex */
+import org.a.c;
+/* loaded from: classes25.dex */
 public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
     static final int CANCELLED = 2;
     static final int NO_REQUEST = 0;
@@ -18,7 +18,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-    @Override // org.b.d
+    @Override // org.a.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j) && compareAndSet(0, 1)) {
             c<? super T> cVar = this.subscriber;
@@ -29,7 +29,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         }
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         lazySet(2);
     }

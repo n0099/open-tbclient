@@ -1,9 +1,9 @@
 package com.baidu.live.liveroom.d;
 
 import android.content.Context;
-import com.baidu.live.data.r;
-/* loaded from: classes7.dex */
+import com.baidu.live.data.u;
+/* loaded from: classes4.dex */
 public class b {
-    public r beb;
+    public u bgS;
     public Context context;
 }

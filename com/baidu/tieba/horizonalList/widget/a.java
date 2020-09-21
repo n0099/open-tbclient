@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> bmf = new ArrayList<>(5);
-    public int bmj;
-    public int bmk;
-    int bml;
+    private static ArrayList<a> boY = new ArrayList<>(5);
+    public int bpc;
+    public int bpd;
+    int bpe;
     public int type;
 
     private void resetState() {
-        this.bmj = 0;
-        this.bmk = 0;
-        this.bml = 0;
+        this.bpc = 0;
+        this.bpd = 0;
+        this.bpe = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long NX() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bmj, this.bmk) : ExpandableListView.getPackedPositionForGroup(this.bmj);
+    public long OA() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bpc, this.bpd) : ExpandableListView.getPackedPositionForGroup(this.bpc);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a Aj(int i) {
+    public static a AK(int i) {
         return C(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a C(int i, int i2, int i3, int i4) {
-        a czs = czs();
-        czs.type = i;
-        czs.bmj = i2;
-        czs.bmk = i3;
-        czs.bml = i4;
-        return czs;
+        a cCZ = cCZ();
+        cCZ.type = i;
+        cCZ.bpc = i2;
+        cCZ.bpd = i3;
+        cCZ.bpe = i4;
+        return cCZ;
     }
 
-    private static a czs() {
+    private static a cCZ() {
         a aVar;
-        synchronized (bmf) {
-            if (bmf.size() > 0) {
-                aVar = bmf.remove(0);
+        synchronized (boY) {
+            if (boY.size() > 0) {
+                aVar = boY.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (bmf) {
-            if (bmf.size() < 5) {
-                bmf.add(this);
+        synchronized (boY) {
+            if (boY.size() < 5) {
+                boY.add(this);
             }
         }
     }

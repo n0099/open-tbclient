@@ -10,10 +10,10 @@ import tv.chushou.zues.widget.sweetalert.b;
 /* loaded from: classes6.dex */
 public class d extends a {
     private String f;
-    private RoomInfo nIN;
+    private RoomInfo nSI;
 
     public void a(RoomInfo roomInfo, String str) {
-        this.nIN = roomInfo;
+        this.nSI = roomInfo;
         this.f = str;
     }
 
@@ -50,7 +50,7 @@ public class d extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final int i) {
-        tv.chushou.zues.widget.sweetalert.b B = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.d.3
+        tv.chushou.zues.widget.sweetalert.b z = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.d.3
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -58,11 +58,11 @@ public class d extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.d.2
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.emV();
-                com.kascend.chushou.c.c.dYv().c(d.this.nHJ, null, d.this.nIN.mRoomID, d.this.a(i) + "");
+                bVar.eqR();
+                com.kascend.chushou.c.c.ect().c(d.this.nRE, null, d.this.nSI.mRoomID, d.this.a(i) + "");
             }
-        }).Xf(this.c.getString(a.i.alert_dialog_cancel)).Xh(this.c.getString(a.i.alert_dialog_ok)).B(this.c.getString(a.i.alert_dialog_report_room, this.nIN.mName));
-        B.getWindow().setLayout(tv.chushou.zues.utils.a.gW(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        B.show();
+        }).XG(this.c.getString(a.i.alert_dialog_cancel)).XI(this.c.getString(a.i.alert_dialog_ok)).z(this.c.getString(a.i.alert_dialog_report_room, this.nSI.mName));
+        z.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        z.show();
     }
 }

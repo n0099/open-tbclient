@@ -3,139 +3,139 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.ListView.q {
-    public bw dUW;
-    public boolean eaC = false;
-    public boolean eaD = false;
-    public boolean eaE = false;
-    public boolean eaF = false;
-    public boolean eaG = false;
-    public boolean eaH = false;
-    public boolean eaI = false;
-    public boolean eaJ = false;
-    public boolean eaK = false;
-    public boolean eaL = false;
-    public boolean eaM = false;
-    public boolean eaN = false;
-    public boolean eaO = false;
-    public boolean eaP = false;
-    public boolean eaQ = false;
-    public boolean eaR = false;
-    public boolean eaS = false;
-    public int eaT = 0;
-    public int eaU = 0;
+    public bw dXg;
+    public boolean ecM = false;
+    public boolean ecN = false;
+    public boolean ecO = false;
+    public boolean ecP = false;
+    public boolean ecQ = false;
+    public boolean ecR = false;
+    public boolean ecS = false;
+    public boolean ecT = false;
+    public boolean ecU = false;
+    public boolean ecV = false;
+    public boolean ecW = false;
+    public boolean ecX = false;
+    public boolean ecY = false;
+    public boolean ecZ = false;
+    public boolean eda = false;
+    public boolean edb = false;
+    public boolean edc = false;
+    public int edd = 0;
+    public int ede = 0;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.dUW == null) {
+        if (this.dXg == null) {
             return null;
         }
-        if (this.dUW.bgt()) {
-            if (this.dUW.beW() != null) {
-                return bw.ebs;
+        if (this.dXg.bhn()) {
+            if (this.dXg.bfQ() != null) {
+                return bw.edC;
             }
-            return bw.eaW;
+            return bw.edg;
         }
-        int bez = this.dUW.bez();
-        if (this.dUW.threadType == 63) {
-            bw bwVar = this.dUW;
-            return bw.ebD;
-        } else if (this.dUW.threadType == 64) {
-            bw bwVar2 = this.dUW;
-            return bw.ebE;
-        } else if (this.dUW.threadType == 65) {
-            bw bwVar3 = this.dUW;
-            return bw.ebk;
-        } else if (this.dUW.beY() != null && this.dUW.threadType == 60) {
-            return bw.ebv;
+        int bft = this.dXg.bft();
+        if (this.dXg.threadType == 63) {
+            bw bwVar = this.dXg;
+            return bw.edN;
+        } else if (this.dXg.threadType == 64) {
+            bw bwVar2 = this.dXg;
+            return bw.edO;
+        } else if (this.dXg.threadType == 65) {
+            bw bwVar3 = this.dXg;
+            return bw.edu;
+        } else if (this.dXg.bfS() != null && this.dXg.threadType == 60) {
+            return bw.edF;
         } else {
-            if (this.dUW.beY() != null && this.dUW.threadType == 49) {
-                return bw.ebt;
+            if (this.dXg.bfS() != null && this.dXg.threadType == 49) {
+                return bw.edD;
             }
-            if (this.dUW.threadType == 51) {
-                return bw.ebu;
+            if (this.dXg.threadType == 51) {
+                return bw.edE;
             }
-            if (bez == 2 || bez == 1) {
-                return bw.eaV;
+            if (bft == 2 || bft == 1) {
+                return bw.edf;
             }
-            if (this.dUW.beW() != null && this.dUW.bfR() && !this.dUW.bfJ()) {
-                return bw.ebJ;
+            if (this.dXg.bfQ() != null && this.dXg.bgL() && !this.dXg.bgD()) {
+                return bw.edT;
             }
-            if (this.dUW.isShareThread && this.dUW.edI != null) {
-                if (this.dUW.edI.dZm) {
-                    if (this.dUW.edI.videoInfo != null) {
-                        return bw.ebz;
+            if (this.dXg.isShareThread && this.dXg.efS != null) {
+                if (this.dXg.efS.ebw) {
+                    if (this.dXg.efS.videoInfo != null) {
+                        return bw.edJ;
                     }
-                    if (this.dUW.edI.bdm()) {
-                        return bw.eby;
+                    if (this.dXg.efS.beg()) {
+                        return bw.edI;
                     }
-                    return bw.ebx;
+                    return bw.edH;
                 }
-                return bw.ebw;
-            } else if (this.dUW.bfL()) {
-                bw bwVar4 = this.dUW;
-                return bw.ebG.get() ? bw.ecV : bw.eaW;
-            } else if (this.dUW.bfs() && this.dUW.bfr() == 1) {
-                bw bwVar5 = this.dUW;
-                return bw.ebG.get() ? bw.edd : bw.eaW;
-            } else if (this.dUW.isLinkThread()) {
-                return bw.ebq;
+                return bw.edG;
+            } else if (this.dXg.bgF()) {
+                bw bwVar4 = this.dXg;
+                return bw.edQ.get() ? bw.eff : bw.edg;
+            } else if (this.dXg.bgm() && this.dXg.bgl() == 1) {
+                bw bwVar5 = this.dXg;
+                return bw.edQ.get() ? bw.efn : bw.edg;
+            } else if (this.dXg.isLinkThread()) {
+                return bw.edA;
             } else {
-                if (this.dUW.bgl()) {
-                    return this.dUW.bem() != null ? bw.ebC : bw.ebB;
-                } else if (this.eaS) {
-                    return bw.eba;
+                if (this.dXg.bhf()) {
+                    return this.dXg.bfg() != null ? bw.edM : bw.edL;
+                } else if (this.edc) {
+                    return bw.edk;
                 } else {
-                    if (this.eaC) {
-                        return bw.ebb;
+                    if (this.ecM) {
+                        return bw.edl;
                     }
-                    if (this.eaD) {
-                        return bw.ebc;
+                    if (this.ecN) {
+                        return bw.edm;
                     }
-                    if (this.eaE) {
-                        return bw.ebd;
+                    if (this.ecO) {
+                        return bw.edn;
                     }
-                    if (this.eaF) {
-                        return bw.ebe;
+                    if (this.ecP) {
+                        return bw.edo;
                     }
-                    if (this.eaG) {
-                        return bw.ebf;
+                    if (this.ecQ) {
+                        return bw.edp;
                     }
-                    if (this.eaH) {
-                        return bw.ebg;
+                    if (this.ecR) {
+                        return bw.edq;
                     }
-                    if (this.eaI) {
-                        return bw.ebh;
+                    if (this.ecS) {
+                        return bw.edr;
                     }
-                    if (this.eaJ) {
-                        return bw.ebi;
+                    if (this.ecT) {
+                        return bw.eds;
                     }
-                    if (this.eaK) {
-                        return bw.ebs;
+                    if (this.ecU) {
+                        return bw.edC;
                     }
-                    if (this.dUW.beH()) {
-                        if (this.eaL) {
-                            return bw.ebA;
+                    if (this.dXg.bfB()) {
+                        if (this.ecV) {
+                            return bw.edK;
                         }
-                        return bw.ebr;
-                    } else if (this.eaM) {
-                        return bw.ebF;
+                        return bw.edB;
+                    } else if (this.ecW) {
+                        return bw.edP;
                     } else {
-                        if (this.eaN) {
-                            return bw.ebl;
+                        if (this.ecX) {
+                            return bw.edv;
                         }
-                        if (this.eaO) {
-                            return bw.ebm;
+                        if (this.ecY) {
+                            return bw.edw;
                         }
-                        if (this.eaP) {
-                            return bw.ebn;
+                        if (this.ecZ) {
+                            return bw.edx;
                         }
-                        if (this.eaQ) {
-                            return bw.ebo;
+                        if (this.eda) {
+                            return bw.edy;
                         }
-                        if (this.eaR) {
-                            return bw.ebp;
+                        if (this.edb) {
+                            return bw.edz;
                         }
-                        return bw.eaW;
+                        return bw.edg;
                     }
                 }
             }
@@ -143,32 +143,32 @@ public class bv extends AbsThreadDataSupport implements com.baidu.adp.widget.Lis
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bce() {
-        return this.dUW;
+    public bw bcY() {
+        return this.dXg;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bcg() {
-        if (this.dUW == null || this.dUW.feedBackReasonMap == null || this.dUW.feedBackReasonMap.size() <= 0) {
+    public ar bda() {
+        if (this.dXg == null || this.dXg.feedBackReasonMap == null || this.dXg.feedBackReasonMap.size() <= 0) {
             return null;
         }
         ar arVar = new ar();
-        arVar.setTid(bce().getTid());
-        arVar.setFid(bce().getFid());
-        arVar.setNid(bce().getNid());
-        arVar.setFeedBackReasonMap(this.dUW.feedBackReasonMap);
-        arVar.dZb = this.dUW.dZb;
-        arVar.abTag = this.dUW.mRecomAbTag;
-        arVar.weight = this.dUW.mRecomWeight;
-        arVar.extra = this.dUW.mRecomExtra;
-        arVar.source = this.dUW.mRecomSource;
-        arVar.dZf = this.dUW.dZf;
-        arVar.cardType = this.dUW.bgD();
+        arVar.setTid(bcY().getTid());
+        arVar.setFid(bcY().getFid());
+        arVar.setNid(bcY().getNid());
+        arVar.setFeedBackReasonMap(this.dXg.feedBackReasonMap);
+        arVar.ebl = this.dXg.ebl;
+        arVar.abTag = this.dXg.mRecomAbTag;
+        arVar.weight = this.dXg.mRecomWeight;
+        arVar.extra = this.dXg.mRecomExtra;
+        arVar.source = this.dXg.mRecomSource;
+        arVar.ebp = this.dXg.ebp;
+        arVar.cardType = this.dXg.bhx();
         return arVar;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public String bcf() {
-        return this.dUW.edo;
+    public String bcZ() {
+        return this.dXg.efy;
     }
 }

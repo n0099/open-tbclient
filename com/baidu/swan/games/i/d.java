@@ -1,7 +1,7 @@
 package com.baidu.swan.games.i;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d {
     @V8JavascriptField
     public long createTime;

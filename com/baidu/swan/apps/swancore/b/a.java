@@ -8,36 +8,36 @@ import com.baidu.swan.c.d;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static File amo() {
+    public static File amY() {
         return new File(com.baidu.swan.apps.u.a.a.getStorageList().get(0).mPath, "/aiapps_debug_swan_core/");
     }
 
-    public static void amp() {
-        File amo = amo();
-        if (amo.exists()) {
-            d.deleteFile(amo);
+    public static void amZ() {
+        File amY = amY();
+        if (amY.exists()) {
+            d.deleteFile(amY);
         }
     }
 
-    public static File amq() {
-        File amo = amo();
-        if (!amo.exists()) {
-            amo.mkdirs();
+    public static File ana() {
+        File amY = amY();
+        if (!amY.exists()) {
+            amY.mkdirs();
         }
-        return new File(amo, "debugSwanCore.zip");
+        return new File(amY, "debugSwanCore.zip");
     }
 
-    public static long aDn() {
-        return h.aDf().getLong("aiapps_cur_debug_ver_key", 0L);
+    public static long aDX() {
+        return h.aDP().getLong("aiapps_cur_debug_ver_key", 0L);
     }
 
-    public static boolean aDo() {
+    public static boolean aDY() {
         JSONObject jSONObject;
-        File file = new File(amo().getPath(), "pkginfo.json");
+        File file = new File(amY().getPath(), "pkginfo.json");
         if (file.exists()) {
             try {
                 jSONObject = new JSONObject(d.readFileData(file));
@@ -50,7 +50,7 @@ public final class a {
             if (jSONObject != null) {
                 String optString = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
                 if (!TextUtils.isEmpty(optString)) {
-                    h.aDf().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.sc(optString));
+                    h.aDP().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.sw(optString));
                 }
                 return true;
             }

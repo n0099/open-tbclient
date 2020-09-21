@@ -1,15 +1,15 @@
 package com.baidu.helios.channels.csc;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static final byte[][] awb = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
+    private static final byte[][] awD = {new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
 
     /* renamed from: com.baidu.helios.channels.csc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public static class C0147a {
+    /* loaded from: classes15.dex */
+    public static class C0148a {
         private byte[] a;
         private int b;
 
-        public C0147a(byte[] bArr, int i) {
+        public C0148a(byte[] bArr, int i) {
             this.a = bArr;
             this.b = i;
         }
@@ -59,8 +59,8 @@ public class a {
             for (int i7 = 7; i7 >= 0; i7--) {
                 bArr2[i6] = (byte) ((bArr2[i6] << 1) | ((b2 >> i7) & 1));
                 if (i5 % 3 == 2) {
-                    bArr2[i6 + 1] = awb[bArr2[i6]][1];
-                    bArr2[i6] = awb[bArr2[i6]][0];
+                    bArr2[i6 + 1] = awD[bArr2[i6]][1];
+                    bArr2[i6] = awD[bArr2[i6]][0];
                     i6 += 2;
                 }
                 i5++;
@@ -74,8 +74,8 @@ public class a {
         }
         if (b > 0) {
             bArr2[i6] = (byte) (bArr2[i6] << b);
-            bArr2[i6 + 1] = awb[bArr2[i6]][1];
-            bArr2[i6] = awb[bArr2[i6]][0];
+            bArr2[i6 + 1] = awD[bArr2[i6]][1];
+            bArr2[i6] = awD[bArr2[i6]][0];
             bArr2[i6 + 2] = b;
         }
         return bArr2;
@@ -84,7 +84,7 @@ public class a {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v10, types: [int] */
     /* JADX WARN: Type inference failed for: r6v6, types: [int] */
-    public static C0147a x(byte[] bArr) {
+    public static C0148a x(byte[] bArr) {
         int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
         int i = length / 8;
         if (length % 8 > 0) {
@@ -112,6 +112,6 @@ public class a {
         if (b > 0 && i2 < i) {
             bArr2[i2] = (byte) (bArr2[i2] << b);
         }
-        return new C0147a(bArr2, length);
+        return new C0148a(bArr2, length);
     }
 }

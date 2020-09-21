@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b extends f<Integer> {
     public b(List<com.airbnb.lottie.e.a<Integer>> list) {
         super(list);
@@ -17,6 +17,6 @@ public class b extends f<Integer> {
         }
         int intValue = aVar.GX.intValue();
         int intValue2 = aVar.GY.intValue();
-        return (this.Dv == null || (num = (Integer) this.Dv.b(aVar.AX, aVar.Ha.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, jh(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
+        return (this.Dv == null || (num = (Integer) this.Dv.b(aVar.AX, aVar.Ha.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, ji(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

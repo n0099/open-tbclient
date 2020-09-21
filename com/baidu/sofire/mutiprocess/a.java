@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public interface a extends IInterface {
     Bundle a(Bundle bundle) throws RemoteException;
 
@@ -15,9 +15,9 @@ public interface a extends IInterface {
     Bundle b(Bundle bundle) throws RemoteException;
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static abstract class AbstractBinderC0325a extends Binder implements a {
-        public AbstractBinderC0325a() {
+    /* loaded from: classes12.dex */
+    public static abstract class AbstractBinderC0320a extends Binder implements a {
+        public AbstractBinderC0320a() {
             attachInterface(this, "com.baidu.sofire.mutiprocess.IMutiProcessHandler");
         }
 
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0326a(iBinder);
+            return new C0321a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -83,12 +83,12 @@ public interface a extends IInterface {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes20.dex */
-        public static class C0326a implements a {
+        /* loaded from: classes12.dex */
+        public static class C0321a implements a {
             public static a a;
             private IBinder b;
 
-            C0326a(IBinder iBinder) {
+            C0321a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -110,8 +110,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0325a.a() != null) {
-                        bundle2 = AbstractBinderC0325a.a().a(bundle);
+                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0320a.a() != null) {
+                        bundle2 = AbstractBinderC0320a.a().a(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -140,8 +140,8 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0325a.a() != null) {
-                        bundle2 = AbstractBinderC0325a.a().b(bundle);
+                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0320a.a() != null) {
+                        bundle2 = AbstractBinderC0320a.a().b(bundle);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -165,8 +165,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                     obtain.writeString(str);
-                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0325a.a() != null) {
-                        bundle = AbstractBinderC0325a.a().a(str);
+                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0320a.a() != null) {
+                        bundle = AbstractBinderC0320a.a().a(str);
                     } else {
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -184,7 +184,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0326a.a;
+            return C0321a.a;
         }
     }
 }

@@ -16,13 +16,13 @@ import com.baidu.tieba.tbadkCore.y;
 public class a {
     public static void a(ShareItem shareItem, final Context context, final int i, final DialogInterface.OnCancelListener onCancelListener) {
         if (shareItem != null && !TextUtils.isEmpty(shareItem.content) && !TextUtils.isEmpty(shareItem.title) && (context instanceof Activity)) {
-            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.eES);
+            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.eGY);
             Activity activity = (Activity) context;
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.zz(context.getString(R.string.command_share_tips));
-            aVar.zA(shareItem.eES);
+            aVar.zU(context.getString(R.string.command_share_tips));
+            aVar.zV(shareItem.eGY);
             aVar.setAutoNight(false);
-            aVar.ig(true);
+            aVar.id(true);
             aVar.setTitleShowCenter(true);
             aVar.a(j(i, context), new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -42,7 +42,7 @@ public class a {
             if (onCancelListener != null) {
                 aVar.c(onCancelListener);
             }
-            aVar.bhg();
+            aVar.bia();
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
         Intent intent = null;
         if (i == 3 || i == 2) {
             if (!v(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).bhm();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).big();
                 return;
             }
             intent = new Intent("android.intent.action.MAIN");
@@ -62,7 +62,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 8 || i == 4) {
             if (!v(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).bhm();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).big();
                 return;
             }
             intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
@@ -70,7 +70,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 6) {
             if (!v(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).bhm();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).big();
                 return;
             }
             intent = new Intent();

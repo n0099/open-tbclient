@@ -1,10 +1,10 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ep {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f301a;
+    private String f300a;
     private String b;
     private String c;
     private String d;
@@ -15,7 +15,7 @@ public class ep {
 
     /* renamed from: a  reason: collision with other method in class */
     public String m266a() {
-        return this.f301a;
+        return this.f300a;
     }
 
     public void a(int i) {
@@ -23,7 +23,7 @@ public class ep {
     }
 
     public void a(String str) {
-        this.f301a = str;
+        this.f300a = str;
     }
 
     public String b() {

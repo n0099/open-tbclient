@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class Utils {
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
     public static final int NET = 2;

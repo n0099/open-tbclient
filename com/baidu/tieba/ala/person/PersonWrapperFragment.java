@@ -17,20 +17,20 @@ import com.baidu.tieba.ala.person.playbacks.PersonPlayBacksListFragment;
 import com.baidu.tieba.ala.person.view.PersonPageIndicator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnPageChangeListener {
-    private int Zh;
-    private int gPA;
-    private ViewPager.OnPageChangeListener gPB;
-    private int gPC = 0;
-    private List<Fragment> gPD = new LinkedList();
-    private PersonListFragment gPE;
-    private boolean gPn;
-    private PersonViewPagerAdapter gPv;
-    private ViewPager gPw;
-    protected Object gPx;
-    protected Object gPy;
-    private PersonPageIndicator gPz;
+    private int Zz;
+    private boolean gSV;
+    private PersonViewPagerAdapter gTd;
+    private ViewPager gTe;
+    protected Object gTf;
+    protected Object gTg;
+    private PersonPageIndicator gTh;
+    private int gTi;
+    private ViewPager.OnPageChangeListener gTj;
+    private int gTk = 0;
+    private List<Fragment> gTl = new LinkedList();
+    private PersonListFragment gTm;
     private String metaKey;
     private int type;
     private String userId;
@@ -42,100 +42,100 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         this.userId = getArguments().getString("user_id");
         this.metaKey = getArguments().getString("meta_key");
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            this.gPA = getResources().getDimensionPixelSize(a.e.sdk_ds640) - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
+            this.gTi = getResources().getDimensionPixelSize(a.e.sdk_ds640) - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
         } else if (UtilHelper.getRealScreenOrientation(getActivity()) == 1) {
-            this.gPA = BdUtilHelper.getScreenDimensions(getActivity())[0] - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
+            this.gTi = BdUtilHelper.getScreenDimensions(getActivity())[0] - (getResources().getDimensionPixelSize(a.e.sdk_ds34) * 2);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.ala_fragment_person_wrapper, (ViewGroup) null);
-        ak(inflate);
+        am(inflate);
         initListener();
-        bYm();
-        uK(this.type);
+        cai();
+        vd(this.type);
         return inflate;
     }
 
-    private void bYm() {
-        this.gPz.setIndicatorMargin(getResources().getDimensionPixelSize(a.e.sdk_ds34));
+    private void cai() {
+        this.gTh.setIndicatorMargin(getResources().getDimensionPixelSize(a.e.sdk_ds34));
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gPz.setViewPager(this.gPw, this.gPA / 3);
+            this.gTh.setViewPager(this.gTe, this.gTi / 3);
         } else {
-            this.gPz.setViewPager(this.gPw, this.gPA / 2);
+            this.gTh.setViewPager(this.gTe, this.gTi / 2);
         }
-        this.gPz.setOnPageChangeListener(this);
+        this.gTh.setOnPageChangeListener(this);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gPD.add(PersonPlayBacksListFragment.z(this.userId, null));
-            this.gPz.GI(getString(a.i.ala_person_playbacks));
+            this.gTl.add(PersonPlayBacksListFragment.z(this.userId, null));
+            this.gTh.Hb(getString(a.i.ala_person_playbacks));
         }
-        this.gPD.add(PersonListFragment.a(0, this.userId, this.metaKey, this.gPx));
-        this.gPz.GI(getString(a.i.ala_person_fans));
-        this.gPE = PersonListFragment.a(1, this.userId, this.metaKey, this.gPy);
-        this.gPD.add(this.gPE);
-        this.gPz.GI(getString(a.i.ala_person_attentions));
-        this.gPv = new PersonViewPagerAdapter(getChildFragmentManager());
-        this.gPv.setData(this.gPD);
-        this.gPw.setAdapter(this.gPv);
+        this.gTl.add(PersonListFragment.a(0, this.userId, this.metaKey, this.gTf));
+        this.gTh.Hb(getString(a.i.ala_person_fans));
+        this.gTm = PersonListFragment.a(1, this.userId, this.metaKey, this.gTg);
+        this.gTl.add(this.gTm);
+        this.gTh.Hb(getString(a.i.ala_person_attentions));
+        this.gTd = new PersonViewPagerAdapter(getChildFragmentManager());
+        this.gTd.setData(this.gTl);
+        this.gTe.setAdapter(this.gTd);
     }
 
     private void initListener() {
-        this.gPw.setOnPageChangeListener(this);
+        this.gTe.setOnPageChangeListener(this);
     }
 
-    public void uK(int i) {
+    public void vd(int i) {
         this.type = i;
-        this.gPn = false;
-        bYn();
-        if (this.gPw != null) {
-            this.gPw.setCurrentItem(this.Zh);
+        this.gSV = false;
+        caj();
+        if (this.gTe != null) {
+            this.gTe.setCurrentItem(this.Zz);
         }
     }
 
-    private void bYn() {
+    private void caj() {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
             if (this.type == 2) {
-                this.Zh = 0;
+                this.Zz = 0;
             } else if (this.type == 0) {
-                this.Zh = 1;
+                this.Zz = 1;
             } else if (this.type == 1) {
-                this.Zh = 2;
+                this.Zz = 2;
             }
         } else if (this.type == 2) {
-            this.Zh = 2;
+            this.Zz = 2;
         } else if (this.type == 0) {
-            this.Zh = 0;
+            this.Zz = 0;
         } else if (this.type == 1) {
-            this.Zh = 1;
+            this.Zz = 1;
         }
     }
 
-    private void ak(View view) {
-        this.gPw = (ViewPager) view.findViewById(a.g.viewpager);
-        this.gPw.setLayoutParams(new LinearLayout.LayoutParams(-2, this.gPC));
-        this.gPz = (PersonPageIndicator) view.findViewById(a.g.page_indicator);
+    private void am(View view) {
+        this.gTe = (ViewPager) view.findViewById(a.g.viewpager);
+        this.gTe.setLayoutParams(new LinearLayout.LayoutParams(-2, this.gTk));
+        this.gTh = (PersonPageIndicator) view.findViewById(a.g.page_indicator);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.gPB != null) {
-            this.gPB.onPageScrolled(i, f, i2);
+        if (this.gTj != null) {
+            this.gTj.onPageScrolled(i, f, i2);
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (this.gPB != null) {
-            this.gPB.onPageSelected(i);
+        if (this.gTj != null) {
+            this.gTj.onPageSelected(i);
         }
-        this.Zh = i;
+        this.Zz = i;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (this.gPB != null) {
-            this.gPB.onPageScrollStateChanged(i);
+        if (this.gTj != null) {
+            this.gTj.onPageScrollStateChanged(i);
         }
     }
 }

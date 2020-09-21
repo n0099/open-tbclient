@@ -9,55 +9,70 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 import okio.BufferedSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class c<T> implements com.baidu.swan.pms.a.c<T> {
-    private com.baidu.swan.pms.a.c<T> dFJ;
+    private com.baidu.swan.pms.a.c<T> dHN;
     public int mRetryCount = 0;
 
     public c(com.baidu.swan.pms.a.c<T> cVar) {
-        this.dFJ = cVar;
+        this.dHN = cVar;
     }
 
     @Override // com.baidu.swan.pms.a.e
     @NonNull
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
-        return this.dFJ == null ? new Bundle() : this.dFJ.a(bundle, set);
+        return this.dHN == null ? new Bundle() : this.dHN.a(bundle, set);
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public String Q(T t) {
+    public String R(T t) {
         String str = null;
-        if (this.dFJ != null) {
-            str = this.dFJ.Q(t);
+        if (this.dHN != null) {
+            str = this.dHN.R(t);
         }
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("PMSDownStreamGuard", aTT() + ": getDownloadPath:" + str);
+            Log.d("PMSDownStreamGuard", aUF() + ": getDownloadPath:" + str);
         }
         if (str == null) {
             try {
-                str = com.baidu.swan.pms.utils.d.dH(AppRuntime.getAppContext()).getAbsolutePath();
+                str = com.baidu.swan.pms.utils.d.dG(AppRuntime.getAppContext()).getAbsolutePath();
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": getDownloadPath error: e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", aUF() + ": getDownloadPath error: e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
             if (com.baidu.swan.pms.d.DEBUG) {
-                Log.d("PMSDownStreamGuard", aTT() + ": getDownloadPath failed, using default path:" + str);
+                Log.d("PMSDownStreamGuard", aUF() + ": getDownloadPath failed, using default path:" + str);
             }
         }
         return str;
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void P(T t) {
-        if (this.dFJ != null) {
+    public void Q(T t) {
+        if (this.dHN != null) {
             try {
-                this.dFJ.P(t);
+                this.dHN.Q(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloading t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloading e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloading t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloading e=" + Log.getStackTraceString(e));
+                    throw e;
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void P(T t) {
+        if (this.dHN != null) {
+            try {
+                this.dHN.P(t);
+            } catch (Exception e) {
+                if (com.baidu.swan.pms.d.DEBUG) {
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadStart t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadStart e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -66,13 +81,28 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void O(T t) {
-        if (this.dFJ != null) {
+        if (this.dHN != null) {
             try {
-                this.dFJ.O(t);
+                this.dHN.O(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadStart t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadStart e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadProgress t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadProgress e=" + Log.getStackTraceString(e));
+                    throw e;
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.pms.a.c
+    public void af(T t) {
+        if (this.dHN != null) {
+            try {
+                this.dHN.af(t);
+            } catch (Exception e) {
+                if (com.baidu.swan.pms.d.DEBUG) {
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadStop t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadStop e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -81,44 +111,14 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void N(T t) {
-        if (this.dFJ != null) {
+        if (this.dHN != null) {
             try {
-                this.dFJ.N(t);
+                this.dHN.N(t);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadProgress t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadProgress e=" + Log.getStackTraceString(e));
-                    throw e;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.pms.a.c
-    public void ae(T t) {
-        if (this.dFJ != null) {
-            try {
-                this.dFJ.ae(t);
-            } catch (Exception e) {
-                if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadStop t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadStop e=" + Log.getStackTraceString(e));
-                    throw e;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.pms.a.c
-    public void M(T t) {
-        if (this.dFJ != null) {
-            try {
-                this.dFJ.M(t);
-            } catch (Exception e) {
-                if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadFinish: t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadFinish: cb=" + this.dFJ);
-                    Log.e("PMSDownStreamGuard", aTT() + ": Except onDownloadFinish: e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadFinish: t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadFinish: cb=" + this.dHN);
+                    Log.e("PMSDownStreamGuard", aUF() + ": Except onDownloadFinish: e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -127,13 +127,13 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
 
     @Override // com.baidu.swan.pms.a.c
     public void a(T t, com.baidu.swan.pms.model.a aVar) {
-        if (this.dFJ != null) {
+        if (this.dHN != null) {
             try {
-                this.dFJ.a((com.baidu.swan.pms.a.c<T>) t, aVar);
+                this.dHN.a((com.baidu.swan.pms.a.c<T>) t, aVar);
             } catch (Exception e) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.e("PMSDownStreamGuard", aTT() + ": notify onDownloadError t=" + t.toString());
-                    Log.e("PMSDownStreamGuard", aTT() + ": notify onDownloadError e=" + Log.getStackTraceString(e));
+                    Log.e("PMSDownStreamGuard", aUF() + ": notify onDownloadError t=" + t.toString());
+                    Log.e("PMSDownStreamGuard", aUF() + ": notify onDownloadError e=" + Log.getStackTraceString(e));
                     throw e;
                 }
             }
@@ -141,16 +141,16 @@ public class c<T> implements com.baidu.swan.pms.a.c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> aTp() {
-        return this.dFJ.aTp();
+    public Map<String, Object> aUb() {
+        return this.dHN.aUb();
     }
 
     @Override // com.baidu.swan.pms.a.c
     public com.baidu.swan.pms.model.a a(T t, BufferedSource bufferedSource, File file, long j) throws IOException {
-        return this.dFJ != null ? this.dFJ.a(t, bufferedSource, file, j) : new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
+        return this.dHN != null ? this.dHN.a(t, bufferedSource, file, j) : new com.baidu.swan.pms.model.a(2302, "业务层默认不处理下载流");
     }
 
-    private String aTT() {
-        return com.baidu.swan.pms.d.aTn().getProcessName();
+    private String aUF() {
+        return com.baidu.swan.pms.d.aTZ().getProcessName();
     }
 }

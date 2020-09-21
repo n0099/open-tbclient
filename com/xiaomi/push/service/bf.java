@@ -7,12 +7,12 @@ import com.xiaomi.push.ej;
 import com.xiaomi.push.service.be;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class bf extends al.b {
     final /* synthetic */ be a;
 
     /* renamed from: a  reason: collision with other field name */
-    boolean f888a = false;
+    boolean f887a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(be beVar) {
@@ -24,8 +24,8 @@ public class bf extends al.b {
         try {
             ej.a a = ej.a.a(Base64.decode(dd.a(com.xiaomi.push.t.m583a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.push.ay>) null), 10));
             if (a != null) {
-                this.a.f886a = a;
-                this.f888a = true;
+                this.a.f885a = a;
+                this.f887a = true;
                 this.a.e();
             }
         } catch (Exception e) {
@@ -40,15 +40,15 @@ public class bf extends al.b {
         List list2;
         be.a[] aVarArr;
         ej.a aVar;
-        this.a.f885a = null;
-        if (this.f888a) {
+        this.a.f884a = null;
+        if (this.f887a) {
             synchronized (this.a) {
-                list = this.a.f887a;
-                list2 = this.a.f887a;
+                list = this.a.f886a;
+                list2 = this.a.f886a;
                 aVarArr = (be.a[]) list.toArray(new be.a[list2.size()]);
             }
             for (be.a aVar2 : aVarArr) {
-                aVar = this.a.f886a;
+                aVar = this.a.f885a;
                 aVar2.a(aVar);
             }
         }

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     private Context mContext;
     private int mSkinType;
@@ -43,7 +43,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         setButtonDrawable((Drawable) null);
     }
 
-    public void bkF() {
+    public void blA() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ap.setBackgroundResource(this, R.drawable.btn_home_neg_feedback_reason_selector);

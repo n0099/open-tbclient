@@ -1,53 +1,24 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ae {
-    public int aHH;
-    public ArrayList<ad> aHI;
+    public int aFQ;
+    public int aFR;
+    public String mAppid;
+    public int mOpenType;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.aHH = jSONObject.optInt("received");
-        this.aHI = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    ad adVar = new ad();
-                    adVar.parseJson(optJSONObject);
-                    this.aHI.add(adVar);
-                }
-            }
+    public String toJsonString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt(UbcStatConstant.KEY_LIVE_TYPE, Integer.valueOf(this.aFQ));
+            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
+            jSONObject.putOpt("screen_direction", Integer.valueOf(this.aFR));
+            jSONObject.putOpt("appid", this.mAppid);
+            return jSONObject.toString();
+        } catch (Exception e) {
+            return "";
         }
-    }
-
-    public boolean CP() {
-        if (!ListUtils.isEmpty(this.aHI)) {
-            Iterator<ad> it = this.aHI.iterator();
-            while (it.hasNext()) {
-                if (it.next().CO()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public ad CQ() {
-        if (!ListUtils.isEmpty(this.aHI)) {
-            Iterator<ad> it = this.aHI.iterator();
-            while (it.hasNext()) {
-                ad next = it.next();
-                if (next.CM()) {
-                    return next;
-                }
-            }
-        }
-        return null;
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseEruptionStrategy implements IEruptionStrategy {
     protected Random mRandom = new Random();
 
@@ -36,7 +36,7 @@ public abstract class BaseEruptionStrategy implements IEruptionStrategy {
         ArrayList arrayList = new ArrayList();
         List<Integer> randomNoDuplicateList = randomNoDuplicateList(0, resourceCounts - 1, elementStrategyCounts);
         for (int i = 0; i < elementStrategyCounts; i++) {
-            BaseAnimatedElement createAndInitEruption = iHostCallback.createAndInitEruption(i, randomNoDuplicateList.get(i).intValue());
+            BaseAnimatedElement createAndInitEruption = iHostCallback.createAndInitEruption(i, randomNoDuplicateList.get(i).intValue(), iResourceProvider);
             if (createAndInitEruption != null) {
                 arrayList.add(createAndInitEruption);
             }

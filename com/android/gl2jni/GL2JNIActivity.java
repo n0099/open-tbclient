@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import com.baidu.android.glview.GL2RenderJNIView;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class GL2JNIActivity extends Activity {
     GL2RenderJNIView mView;
 

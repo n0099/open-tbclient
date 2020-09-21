@@ -7,7 +7,7 @@ public interface b {
 
     void e(String str, String str2, Throwable th);
 
-    boolean eme();
+    boolean eqc();
 
     void i(String str, String str2);
 
@@ -17,5 +17,5 @@ public interface b {
 
     void w(String str, String str2);
 
-    void zj(boolean z);
+    void zr(boolean z);
 }

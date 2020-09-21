@@ -7,7 +7,7 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FastJsonConfig {
     private Map<Class<?>, SerializeFilter> classSerializeFilters;
     private String dateFormat;

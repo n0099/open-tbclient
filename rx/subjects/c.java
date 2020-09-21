@@ -2,14 +2,14 @@ package rx.subjects;
 
 import rx.d;
 import rx.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class c<T, R> extends d<R> implements e<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(d.a<R> aVar) {
         super(aVar);
     }
 
-    public final b<T, R> elu() {
+    public final b<T, R> eps() {
         return getClass() == b.class ? (b) this : new b<>(this);
     }
 }

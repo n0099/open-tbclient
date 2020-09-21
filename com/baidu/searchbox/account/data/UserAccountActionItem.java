@@ -9,7 +9,7 @@ import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes23.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     private String mSubSrc;
     private String mType;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes23.dex */
     public enum UserAccountAction {
         LOGIN(OneKeyLoginSdkCall.k),
         LOGOUT("logout"),
@@ -52,7 +52,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes23.dex */
     public enum UserAccountType {
         NATIVE("native"),
         PLUGIN("plugin"),

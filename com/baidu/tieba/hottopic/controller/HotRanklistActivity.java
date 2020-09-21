@@ -22,27 +22,27 @@ import com.baidu.tieba.hottopic.data.j;
 import com.baidu.tieba.hottopic.data.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> implements HotRanklistModel.a {
-    private com.baidu.tieba.hottopic.view.b iYb;
-    private HotRanklistModel iYc;
-    private b iYd;
-    private List<j> iYh;
-    private List<p> iYi;
+    private com.baidu.tieba.hottopic.view.b jgH;
+    private HotRanklistModel jgI;
+    private b jgJ;
+    private List<j> jgN;
+    private List<p> jgO;
     private String callFrom = "";
-    private String iYe = "";
-    private long iYf = System.currentTimeMillis();
-    private boolean iYg = false;
-    private CustomMessageListener iYj = new CustomMessageListener(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistActivity.2
+    private String jgK = "";
+    private long jgL = System.currentTimeMillis();
+    private boolean jgM = false;
+    private CustomMessageListener jgP = new CustomMessageListener(CmdConfigCustom.CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof p) {
-                    int a = HotRanklistActivity.this.iYb.a((p) data);
+                    int a = HotRanklistActivity.this.jgH.a((p) data);
                     if (a >= 0) {
-                        HotRanklistActivity.this.iYb.setCurrentTab(a);
+                        HotRanklistActivity.this.jgH.setCurrentTab(a);
                     }
                 }
             }
@@ -55,113 +55,113 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
         super.onCreate(bundle);
         as(bundle);
         initUI();
-        bMh();
-        czA();
+        bNr();
+        cDh();
     }
 
     private void as(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
             this.callFrom = intent.getStringExtra("call_from");
-            this.iYe = intent.getStringExtra("list_type");
+            this.jgK = intent.getStringExtra("list_type");
         } else if (bundle != null) {
             this.callFrom = bundle.getString("call_from");
-            this.iYe = bundle.getString("list_type");
+            this.jgK = bundle.getString("list_type");
         }
     }
 
     private void initUI() {
-        this.iYb = new com.baidu.tieba.hottopic.view.b(this);
-        this.iYd = new b(this);
-        this.iYc = new HotRanklistModel(getPageContext());
-        this.iYc.a(this);
+        this.jgH = new com.baidu.tieba.hottopic.view.b(this);
+        this.jgJ = new b(this);
+        this.jgI = new HotRanklistModel(getPageContext());
+        this.jgI.a(this);
     }
 
-    private void bMh() {
-        registerListener(this.iYj);
-        this.iYb.g(new NoNetworkView.a() { // from class: com.baidu.tieba.hottopic.controller.HotRanklistActivity.1
+    private void bNr() {
+        registerListener(this.jgP);
+        this.jgH.g(new NoNetworkView.a() { // from class: com.baidu.tieba.hottopic.controller.HotRanklistActivity.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                if (z && HotRanklistActivity.this.iYc != null) {
-                    j jVar = (j) HotRanklistActivity.this.iYh.get(HotRanklistActivity.this.iYb.getCurrentTab());
-                    if (jVar == null || y.isEmpty(jVar.cAg())) {
-                        HotRanklistActivity.this.iYb.bFX();
-                        HotRanklistActivity.this.iYb.showLoadingView();
-                        HotRanklistActivity.this.czz();
+                if (z && HotRanklistActivity.this.jgI != null) {
+                    j jVar = (j) HotRanklistActivity.this.jgN.get(HotRanklistActivity.this.jgH.getCurrentTab());
+                    if (jVar == null || y.isEmpty(jVar.cDN())) {
+                        HotRanklistActivity.this.jgH.bHn();
+                        HotRanklistActivity.this.jgH.showLoadingView();
+                        HotRanklistActivity.this.cDg();
                     }
                 }
             }
         });
     }
 
-    public void czz() {
+    public void cDg() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            this.iYb.cAr();
-        } else if (this.iYc != null) {
-            String str = this.iYg ? "0" : "1";
-            if (!y.isEmpty(this.iYi)) {
-                this.iYe = this.iYi.get(this.iYb.getCurrentTab()).geQ;
+            this.jgH.cDY();
+        } else if (this.jgI != null) {
+            String str = this.jgM ? "0" : "1";
+            if (!y.isEmpty(this.jgO)) {
+                this.jgK = this.jgO.get(this.jgH.getCurrentTab()).gia;
             }
-            this.iYc.c(this.callFrom, this.iYe, str, 0L);
+            this.jgI.c(this.callFrom, this.jgK, str, 0L);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iYb.onChangeSkinType(i);
+        this.jgH.onChangeSkinType(i);
         changeSkinType(i);
     }
 
     @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.a
     public void a(boolean z, j jVar, int i, String str) {
         int i2;
-        this.iYb.cAr();
-        hideLoadingView(this.iYb.cAp());
+        this.jgH.cDY();
+        hideLoadingView(this.jgH.cDW());
         if (!z && !StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.iYb != null) {
-            if (!y.isEmpty(jVar.iZP) && !this.iYg) {
-                this.iYi = jVar.iZP;
-                this.iYh = new ArrayList();
-                for (p pVar : jVar.iZP) {
+        if (this.jgH != null) {
+            if (!y.isEmpty(jVar.jiv) && !this.jgM) {
+                this.jgO = jVar.jiv;
+                this.jgN = new ArrayList();
+                for (p pVar : jVar.jiv) {
                     j jVar2 = new j();
-                    jVar2.type = pVar.geQ;
-                    this.iYh.add(jVar2);
+                    jVar2.type = pVar.gia;
+                    this.jgN.add(jVar2);
                 }
             }
-            if (y.isEmpty(this.iYh)) {
-                this.iYh = new ArrayList();
+            if (y.isEmpty(this.jgN)) {
+                this.jgN = new ArrayList();
                 i2 = -1;
             } else if (jVar == null) {
                 i2 = -1;
             } else {
                 i2 = 0;
                 while (true) {
-                    if (i2 >= this.iYh.size()) {
+                    if (i2 >= this.jgN.size()) {
                         i2 = -1;
                         break;
-                    } else if (this.iYh.get(i2).type.equals(jVar.type)) {
+                    } else if (this.jgN.get(i2).type.equals(jVar.type)) {
                         break;
                     } else {
                         i2++;
                     }
                 }
                 if (i2 == 0) {
-                    jVar.iZP = this.iYi;
-                } else if (y.isEmpty(this.iYh.get(0).iZP)) {
-                    this.iYh.get(0).iZP = this.iYi;
+                    jVar.jiv = this.jgO;
+                } else if (y.isEmpty(this.jgN.get(0).jiv)) {
+                    this.jgN.get(0).jiv = this.jgO;
                 }
-                this.iYh.add(i2, jVar);
-                this.iYh.remove(i2 + 1);
+                this.jgN.add(i2, jVar);
+                this.jgN.remove(i2 + 1);
             }
-            this.iYb.du(this.iYh);
-            if (!this.iYg && !y.isEmpty(this.iYh) && !y.isEmpty(this.iYh.get(0).iZP) && !y.isEmpty(this.iYi)) {
-                this.iYg = true;
-                this.iYb.cAn();
+            this.jgH.dC(this.jgN);
+            if (!this.jgM && !y.isEmpty(this.jgN) && !y.isEmpty(this.jgN.get(0).jiv) && !y.isEmpty(this.jgO)) {
+                this.jgM = true;
+                this.jgH.cDU();
                 if (i2 >= 0) {
-                    this.iYb.setCurrentTab(i2);
+                    this.jgH.setCurrentTab(i2);
                 }
             }
         }
@@ -170,33 +170,33 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (!StringUtils.isNull(this.callFrom) || !StringUtils.isNull(this.iYe)) {
+        if (!StringUtils.isNull(this.callFrom) || !StringUtils.isNull(this.jgK)) {
             bundle.putString("call_from", this.callFrom);
-            bundle.putString("list_type", this.iYe);
+            bundle.putString("list_type", this.jgK);
         }
     }
 
-    private void czA() {
-        showLoadingView(this.iYb.cAp(), true);
+    private void cDh() {
+        showLoadingView(this.jgH.cDW(), true);
         if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            hideLoadingView(this.iYb.cAp());
-            showNetRefreshView(this.iYb.cAp(), getResources().getString(R.string.refresh_view_title_text), null, getResources().getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+            hideLoadingView(this.jgH.cDW());
+            showNetRefreshView(this.jgH.cDW(), getResources().getString(R.string.refresh_view_title_text), null, getResources().getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
             setNetRefreshViewEmotionMarginTop(l.getDimens(getActivity(), R.dimen.ds350));
-            this.iYb.As(0);
-            this.iYb.At(8);
-            this.iYb.Au(8);
+            this.jgH.AT(0);
+            this.jgH.AU(8);
+            this.jgH.AV(8);
             return;
         }
-        this.iYb.As(8);
-        this.iYb.At(0);
-        this.iYb.Au(0);
-        czz();
+        this.jgH.AT(8);
+        this.jgH.AU(0);
+        this.jgH.AV(0);
+        cDg();
     }
 
-    public void czB() {
+    public void cDi() {
         p pVar;
-        if (!y.isEmpty(this.iYi) && (pVar = this.iYi.get(this.iYb.getCurrentTab())) != null) {
-            this.iYd.b(null, pVar.shareTitle, pVar.shareUrl, pVar.iTn, pVar.jaf, false);
+        if (!y.isEmpty(this.jgO) && (pVar = this.jgO.get(this.jgH.getCurrentTab())) != null) {
+            this.jgJ.b(null, pVar.shareTitle, pVar.shareUrl, pVar.jbT, pVar.jiL, false);
         }
     }
 
@@ -204,8 +204,8 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            hideNetRefreshView(this.iYb.cAp());
-            czA();
+            hideNetRefreshView(this.jgH.cDW());
+            cDh();
         }
     }
 
@@ -214,16 +214,16 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_ACTIVITY_ON_DESTROY));
-        czC();
+        cDj();
     }
 
-    private void czC() {
-        if (this.iYb != null) {
-            this.iYb.cAq();
+    private void cDj() {
+        if (this.jgH != null) {
+            this.jgH.cDX();
         }
     }
 
-    private void czD() {
+    private void cDk() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
     }
 
@@ -237,7 +237,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        czD();
+        cDk();
         super.onPause();
     }
 
@@ -245,7 +245,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        TiebaStatic.log(new aq("c10818").dD("obj_duration", "" + (System.currentTimeMillis() - this.iYf)));
+        TiebaStatic.log(new aq("c10818").dF("obj_duration", "" + (System.currentTimeMillis() - this.jgL)));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
@@ -255,7 +255,7 @@ public class HotRanklistActivity extends BaseActivity<HotRanklistActivity> imple
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.iYb.onKeyBack()) {
+        if (i == 4 && this.jgH.onKeyBack()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

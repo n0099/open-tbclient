@@ -1,26 +1,26 @@
 package io.reactivex.processors;
 
 import io.reactivex.internal.util.NotificationLite;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> ory;
+    final a<T> oBf;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.ory = aVar;
+        this.oBf = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.ory.subscribe(cVar);
+        this.oBf.subscribe(cVar);
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         boolean z = true;
         if (!this.done) {
@@ -44,11 +44,11 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.ory.onSubscribe(dVar);
+        this.oBf.onSubscribe(dVar);
         emitLoop();
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         if (!this.done) {
             synchronized (this) {
@@ -63,14 +63,14 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.ory.onNext(t);
+                    this.oBf.onNext(t);
                     emitLoop();
                 }
             }
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         boolean z = true;
         if (this.done) {
@@ -86,7 +86,7 @@ final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bF(NotificationLite.error(th));
+                    aVar.bH(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -95,12 +95,12 @@ final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.ory.onError(th);
+                this.oBf.onError(th);
             }
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
         if (!this.done) {
             synchronized (this) {
@@ -116,7 +116,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.ory.onComplete();
+                    this.oBf.onComplete();
                 }
             }
         }
@@ -133,7 +133,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.ory);
+            aVar.b(this.oBf);
         }
     }
 }

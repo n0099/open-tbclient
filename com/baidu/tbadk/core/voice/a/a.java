@@ -9,7 +9,7 @@ public class a {
     public int error_code = 0;
     public String error_msg = null;
 
-    public static String pu(int i) {
+    public static String pH(int i) {
         switch (i) {
             case 0:
                 return "";

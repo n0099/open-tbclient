@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class WLocData implements Cloneable {
     private int a;
     public float accuracy;
@@ -29,7 +29,7 @@ public class WLocData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public WLocData m30clone() {
+    public WLocData m31clone() {
         WLocData wLocData = new WLocData();
         synchronized (this) {
             wLocData.accuracy = this.accuracy;

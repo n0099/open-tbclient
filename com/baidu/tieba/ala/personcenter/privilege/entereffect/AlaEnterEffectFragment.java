@@ -39,40 +39,38 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaEnterEffectFragment extends AbsFragment {
     private static final String TITLE = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_enter_effect_fragment_title);
-    private View cDw;
-    private BdTypeListView fCT;
-    private g fMR;
-    private ImageView gVF;
-    private AlaNetRefreshView gVH;
-    private HeadImageView gVW;
-    private TextView gVX;
-    private TextView gVY;
-    private TbImageView gVZ;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.b gWa;
-    private a gWb;
-    private TextView gWc;
-    private TextView gWd;
-    private RelativeLayout gWe;
-    private CustomMessageListener gWf = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_ENTER_EFFECT_BUY_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.1
+    private View cFw;
+    private BdTypeListView fGf;
+    private g fQf;
+    private HeadImageView gZD;
+    private TextView gZE;
+    private TextView gZF;
+    private TbImageView gZG;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.b gZH;
+    private a gZI;
+    private TextView gZJ;
+    private TextView gZK;
+    private RelativeLayout gZL;
+    private CustomMessageListener gZM = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_ENTER_EFFECT_BUY_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaEnterEffectFragment.this.gWa != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                AlaEnterEffectFragment.this.gWa.ay((String) customResponsedMessage.getData(), true);
+            if (AlaEnterEffectFragment.this.gZH != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                AlaEnterEffectFragment.this.gZH.ay((String) customResponsedMessage.getData(), true);
             }
         }
     };
-    private b.a gWg = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.2
+    private b.a gZN = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.2
     };
-    private a.InterfaceC0657a gWh = new a.InterfaceC0657a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.4
-        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.a.InterfaceC0657a
+    private a.InterfaceC0654a gZO = new a.InterfaceC0654a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.4
+        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.a.InterfaceC0654a
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             AlaEnterEffectFragment.this.hideLoadingView();
-            AlaEnterEffectFragment.this.bFX();
+            AlaEnterEffectFragment.this.bHn();
             if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
-                AlaEnterEffectFragment.this.GL(TbadkCoreApplication.getCurrentPortrait());
-                AlaEnterEffectFragment.this.gVY.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
-                AlaEnterEffectFragment.this.gVX.setText(TbadkCoreApplication.getCurrentAccountNameShow());
+                AlaEnterEffectFragment.this.He(TbadkCoreApplication.getCurrentPortrait());
+                AlaEnterEffectFragment.this.gZF.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
+                AlaEnterEffectFragment.this.gZE.setText(TbadkCoreApplication.getCurrentAccountNameShow());
                 if (j.isNetWorkAvailable()) {
                     AlaEnterEffectFragment.this.a(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                     return;
@@ -80,33 +78,33 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     AlaEnterEffectFragment.this.a(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.4.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            AlaEnterEffectFragment.this.bFX();
+                            AlaEnterEffectFragment.this.bHn();
                             AlaEnterEffectFragment.this.showLoadingView();
-                            AlaEnterEffectFragment.this.gWb.bZa();
+                            AlaEnterEffectFragment.this.gZI.caW();
                         }
                     });
                     return;
                 }
             }
-            AlaEnterEffectFragment.this.GL(alaGetEnterEffectResponsedMessage.getPortrait());
-            AlaEnterEffectFragment.this.gVX.setText(alaGetEnterEffectResponsedMessage.getUserName());
-            AlaEnterEffectFragment.this.gVY.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
+            AlaEnterEffectFragment.this.He(alaGetEnterEffectResponsedMessage.getPortrait());
+            AlaEnterEffectFragment.this.gZE.setText(alaGetEnterEffectResponsedMessage.getUserName());
+            AlaEnterEffectFragment.this.gZF.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
             List<q> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
-            AlaEnterEffectFragment.this.gWa.setData(effectList);
+            AlaEnterEffectFragment.this.gZH.setData(effectList);
             if (!y.isEmpty(effectList) && j.isWifiNet()) {
                 for (q qVar : effectList) {
                     if (qVar instanceof AlaEnterEffectData) {
                         AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) qVar;
                         if (alaEnterEffectData.type == 1 && alaEnterEffectData.downLoadStatus == 100) {
                             ResourceDownloader.checkAndDownloadResZipInMainThread(alaEnterEffectData.gift.giftId, alaEnterEffectData.gift.giftZip.zipDownloadUrl, alaEnterEffectData.gift.giftName, AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX, alaEnterEffectData.gift.giftZip.zipMD5, false);
-                            AlaEnterEffectFragment.this.gWa.aH(alaEnterEffectData.gift.giftId, 102);
+                            AlaEnterEffectFragment.this.gZH.aH(alaEnterEffectData.gift.giftId, 102);
                         }
                     }
                 }
             }
         }
     };
-    private CustomMessageListener gWi = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.5
+    private CustomMessageListener gZP = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -114,19 +112,21 @@ public class AlaEnterEffectFragment extends AbsFragment {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof WrapDownloadData)) {
                 WrapDownloadData wrapDownloadData = (WrapDownloadData) customResponsedMessage.getData();
                 if (wrapDownloadData.status == 4 && (downloadData = wrapDownloadData.data) != null && !StringUtils.isNull(downloadData.getId())) {
-                    AlaEnterEffectFragment.this.gWa.aH(downloadData.getId(), 101);
+                    AlaEnterEffectFragment.this.gZH.aH(downloadData.getId(), 101);
                 }
             }
         }
     };
+    private ImageView gZm;
+    private AlaNetRefreshView gZo;
     private View mEmptyView;
     private View mRootView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.gWi);
-        registerListener(this.gWf);
+        registerListener(this.gZP);
+        registerListener(this.gZM);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -134,71 +134,71 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.ala_enter_effect_fragment_layout, (ViewGroup) null);
         initView();
-        this.gWb = new a(getPageContext(), this.gWh);
+        this.gZI = new a(getPageContext(), this.gZO);
         showLoadingView();
-        this.gWb.bZa();
+        this.gZI.caW();
         return this.mRootView;
     }
 
     private void initView() {
         if (this.mRootView != null) {
-            this.gVW = (HeadImageView) this.mRootView.findViewById(R.id.ala_enter_effect_header);
-            this.gVW.setIsRound(true);
-            this.gVZ = (TbImageView) this.mRootView.findViewById(R.id.ala_enter_effect_header_container_bg);
-            this.gVX = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_name);
-            this.gVY = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_count);
-            this.gWc = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_description_txt);
-            this.cDw = this.mRootView.findViewById(R.id.ala_enter_effect_mask);
-            this.gVF = (ImageView) this.mRootView.findViewById(R.id.empty_image);
-            this.gWd = (TextView) this.mRootView.findViewById(R.id.empty_text);
-            this.gWe = (RelativeLayout) this.mRootView.findViewById(R.id.ala_enter_effect_list_layout);
-            this.fCT = (BdTypeListView) this.mRootView.findViewById(R.id.ala_enter_effect_list_view);
+            this.gZD = (HeadImageView) this.mRootView.findViewById(R.id.ala_enter_effect_header);
+            this.gZD.setIsRound(true);
+            this.gZG = (TbImageView) this.mRootView.findViewById(R.id.ala_enter_effect_header_container_bg);
+            this.gZE = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_name);
+            this.gZF = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_count);
+            this.gZJ = (TextView) this.mRootView.findViewById(R.id.ala_enter_effect_description_txt);
+            this.cFw = this.mRootView.findViewById(R.id.ala_enter_effect_mask);
+            this.gZm = (ImageView) this.mRootView.findViewById(R.id.empty_image);
+            this.gZK = (TextView) this.mRootView.findViewById(R.id.empty_text);
+            this.gZL = (RelativeLayout) this.mRootView.findViewById(R.id.ala_enter_effect_list_layout);
+            this.fGf = (BdTypeListView) this.mRootView.findViewById(R.id.ala_enter_effect_list_view);
             this.mEmptyView = this.mRootView.findViewById(R.id.emptyview);
-            this.fCT.setEmptyView(this.mEmptyView);
-            this.gWa = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.b(getPageContext(), this.fCT);
+            this.fGf.setEmptyView(this.mEmptyView);
+            this.gZH = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.b(getPageContext(), this.fGf);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GL(String str) {
+    public void He(String str) {
         if (!StringUtils.isNull(str)) {
-            this.gVW.startLoad(str, 25, false);
-            c.mM().a(str, 25, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.3
+            this.gZD.startLoad(str, 25, false);
+            c.mR().a(str, 25, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i) {
                     super.onLoaded((AnonymousClass3) aVar, str2, i);
                     if (aVar != null && aVar.getRawBitmap() != null) {
-                        AlaEnterEffectFragment.this.gVZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                        AlaEnterEffectFragment.this.gVZ.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
+                        AlaEnterEffectFragment.this.gZG.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        AlaEnterEffectFragment.this.gZG.setImageBitmap(BitmapHelper.fastblur(aVar.getRawBitmap(), 15, 0.75f));
                     }
                 }
             }, null);
             return;
         }
-        this.gVW.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
-        this.gVZ.startLoad(String.valueOf((int) R.drawable.icon_default_avatar100_bg), 24, false);
+        this.gZD.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+        this.gZG.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
     }
 
     public void a(int i, int i2, boolean z, View.OnClickListener onClickListener) {
-        if (this.gVH == null) {
-            this.gVH = new AlaNetRefreshView(getContext());
+        if (this.gZo == null) {
+            this.gZo = new AlaNetRefreshView(getContext());
         }
-        this.gVH.setImageResource(i);
-        this.gVH.setNetFailTipText(getContext().getString(i2));
-        this.gVH.onChangeSkinType();
-        this.gVH.setIsShowRefreshButton(z);
+        this.gZo.setImageResource(i);
+        this.gZo.setNetFailTipText(getContext().getString(i2));
+        this.gZo.onChangeSkinType();
+        this.gZo.setIsShowRefreshButton(z);
         if (z) {
-            this.gVH.setOnRefreshClickListener(onClickListener);
+            this.gZo.setOnRefreshClickListener(onClickListener);
         }
-        this.gVH.attachView(this.gWe);
+        this.gZo.attachView(this.gZL);
     }
 
-    public void bFX() {
-        if (this.gVH != null) {
-            this.gVH.dettachView(this.gWe);
+    public void bHn() {
+        if (this.gZo != null) {
+            this.gZo.dettachView(this.gZL);
         }
     }
 
@@ -214,48 +214,48 @@ public class AlaEnterEffectFragment extends AbsFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingView() {
-        if (this.fMR == null) {
-            this.fMR = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+        if (this.fQf == null) {
+            this.fQf = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
-        this.fMR.attachView(this.mRootView, false);
+        this.fQf.attachView(this.mRootView, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.fMR != null) {
-            this.fMR.dettachView(this.mRootView);
+        if (this.fQf != null) {
+            this.fQf.dettachView(this.mRootView);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.fMR != null) {
-            this.fMR.onChangeSkinType();
+        if (this.fQf != null) {
+            this.fQf.onChangeSkinType();
         }
-        if (this.gVH != null) {
-            this.gVH.onChangeSkinType();
+        if (this.gZo != null) {
+            this.gZo.onChangeSkinType();
         }
         ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.gVX, R.color.common_color_10310, 1, i);
-        ap.setViewTextColor(this.gVY, R.color.white_alpha70, 1, i);
-        ap.setViewTextColor(this.gWc, R.color.cp_cont_d, 1, i);
-        ap.setViewTextColor(this.gWd, R.color.cp_cont_f, 1, i);
+        ap.setViewTextColor(this.gZE, R.color.common_color_10310, 1, i);
+        ap.setViewTextColor(this.gZF, R.color.white_alpha70, 1, i);
+        ap.setViewTextColor(this.gZJ, R.color.cp_cont_d, 1, i);
+        ap.setViewTextColor(this.gZK, R.color.cp_cont_f, 1, i);
         if (i == 1) {
-            if (this.gVF != null) {
-                this.gVF.setAlpha(0.4f);
+            if (this.gZm != null) {
+                this.gZm.setAlpha(0.4f);
             }
-            if (this.cDw != null) {
-                this.cDw.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha60));
+            if (this.cFw != null) {
+                this.cFw.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha60));
                 return;
             }
             return;
         }
-        if (this.gVF != null) {
-            this.gVF.setAlpha(1.0f);
+        if (this.gZm != null) {
+            this.gZm.setAlpha(1.0f);
         }
-        if (this.cDw != null) {
-            this.cDw.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha30));
+        if (this.cFw != null) {
+            this.cFw.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha30));
         }
     }
 
@@ -263,7 +263,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1001 && i2 == -1 && intent != null) {
-            this.gWa.ax(intent.getStringExtra("key_selected_effect_id"), intent.getBooleanExtra("key_status_is_selected", false));
+            this.gZH.ax(intent.getStringExtra("key_selected_effect_id"), intent.getBooleanExtra("key_status_is_selected", false));
         }
     }
 
@@ -279,8 +279,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public void onDestroy() {
         super.onDestroy();
         hideLoadingView();
-        if (this.gWb != null) {
-            this.gWb.onDestory();
+        if (this.gZI != null) {
+            this.gZI.onDestory();
         }
     }
 }

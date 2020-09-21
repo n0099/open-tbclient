@@ -1,8 +1,14 @@
 package com.baidu.tbadk.a;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.a.a.f;
+import com.baidu.tbadk.a.a.h;
+import com.baidu.tbadk.a.a.i;
+import com.baidu.tbadk.a.a.j;
+import com.baidu.tbadk.a.a.k;
 import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,79 +18,84 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c dRm;
+    private static c dTw;
     private final HashMap<String, e> mSwitchs = new HashMap<>();
-    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> dRn = new HashMap<>();
-    private final HashMap<BdUniqueId, e> dRo = new HashMap<>();
+    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> dTx = new HashMap<>();
+    private final HashMap<BdUniqueId, e> dTy = new HashMap<>();
 
     private c() {
-        aZM();
-        A(aZL());
+        baB();
+        A(baA());
     }
 
-    private void aZM() {
-        a(new f());
+    private void baB() {
+        a(new k());
+        a(new h());
         a(new com.baidu.tbadk.a.a.e());
+        a(new f());
+        a(new com.baidu.tbadk.a.a.d());
+        a(new i());
+        a(new j());
         a(new com.baidu.tbadk.a.a.b());
         a(new com.baidu.tbadk.a.a.c());
     }
 
-    public static c aZN() {
-        if (dRm == null) {
+    public static c baC() {
+        if (dTw == null) {
             synchronized (c.class) {
-                if (dRm == null) {
-                    dRm = new c();
+                if (dTw == null) {
+                    dTw = new c();
                 }
             }
         }
-        return dRm;
+        return dTw;
     }
 
     protected void a(com.baidu.tbadk.a.a.a aVar) {
-        if (aVar != null && aVar.baj() != null) {
-            this.dRn.put(aVar.baj(), aVar);
+        if (aVar != null && aVar.bbd() != null) {
+            this.dTx.put(aVar.bbd(), aVar);
         }
     }
 
-    public Map<BdUniqueId, e> aZO() {
-        return this.dRo;
+    public Map<BdUniqueId, e> baD() {
+        return this.dTy;
     }
 
-    private void aZP() {
-        this.dRo.clear();
-        for (BdUniqueId bdUniqueId : this.dRn.keySet()) {
-            this.dRo.put(bdUniqueId, j(bdUniqueId));
+    private void baE() {
+        this.dTy.clear();
+        for (BdUniqueId bdUniqueId : this.dTx.keySet()) {
+            this.dTy.put(bdUniqueId, j(bdUniqueId));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e j(BdUniqueId bdUniqueId) {
-        com.baidu.tbadk.a.a.a aVar = this.dRn.get(bdUniqueId);
+        com.baidu.tbadk.a.a.a aVar = this.dTx.get(bdUniqueId);
         if (aVar == null) {
             return null;
         }
-        return aVar.bal();
+        return aVar.bbf();
     }
 
-    private void aZQ() {
-        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.dRn.entrySet()) {
+    private void baF() {
+        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.dTx.entrySet()) {
             com.baidu.tbadk.a.a.a value = entry.getValue();
             if (value != null) {
                 b(value);
             }
         }
-        aZP();
+        baE();
     }
 
     private void b(com.baidu.tbadk.a.a.a aVar) {
         e eVar = null;
         if (aVar != null) {
-            ArrayList<String> bak = aVar.bak();
-            if (y.isEmpty(bak)) {
+            ArrayList<String> bbe = aVar.bbe();
+            if (y.isEmpty(bbe)) {
                 aVar.a((e) null);
                 return;
             }
-            Iterator<String> it = bak.iterator();
+            Iterator<String> it = bbe.iterator();
             while (it.hasNext()) {
                 eVar = this.mSwitchs.get(it.next());
                 if (eVar != null) {
@@ -95,11 +106,11 @@ public class c {
         }
     }
 
-    private static String aZR() {
+    private static String baG() {
         return "ubs_abtest_config";
     }
 
-    public synchronized e ya(String str) {
+    public synchronized e yu(String str) {
         return this.mSwitchs.get(str);
     }
 
@@ -109,16 +120,16 @@ public class c {
             if (hashMap != null) {
                 this.mSwitchs.putAll(hashMap);
             }
-            aZQ();
+            baF();
         }
     }
 
     public void M(JSONArray jSONArray) {
         try {
-            String aZR = aZR();
+            String baG = baG();
             if (jSONArray == null) {
                 this.mSwitchs.clear();
-                com.baidu.tbadk.core.sharedPref.b.bik().remove(aZR);
+                com.baidu.tbadk.core.sharedPref.b.bjf().remove(baG);
                 return;
             }
             HashMap<String, e> hashMap = new HashMap<>();
@@ -130,17 +141,22 @@ public class c {
                 }
             }
             A(hashMap);
-            com.baidu.tbadk.core.sharedPref.b.bik().putString(aZR, jSONArray.toString());
+            com.baidu.tbadk.core.sharedPref.b.bjf().putString(baG, jSONArray.toString());
+            baH();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, e> aZL() {
+    private void baH() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921506, 1));
+    }
+
+    private HashMap<String, e> baA() {
         HashMap<String, e> hashMap = new HashMap<>();
         try {
-            aZR();
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bik().getString(aZR(), "[]"));
+            baG();
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bjf().getString(baG(), "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (jSONObject != null) {

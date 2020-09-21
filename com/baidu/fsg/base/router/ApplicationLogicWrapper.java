@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.router;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class ApplicationLogicWrapper {
     public BaseApplicationLogic instance;
     public Class<? extends BaseApplicationLogic> logicClass;

@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.apps.u.c.e;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a cXT;
+    public static a cZT;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.cXS) {
+                switch (searchFlowEvent.cZS) {
                     case START:
-                        aCL();
-                        if (cXT != null) {
-                            cXT.a(searchFlowEvent);
+                        aDv();
+                        if (cZT != null) {
+                            cZT.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (cXT != null) {
-                            cXT.a(searchFlowEvent);
+                        if (cZT != null) {
+                            cZT.a(searchFlowEvent);
                         }
-                        aea();
+                        aeK();
                         break;
                     case NORMAL:
-                        if (cXT != null) {
-                            cXT.a(searchFlowEvent);
+                        if (cZT != null) {
+                            cZT.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void p(com.baidu.swan.apps.u.c.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                f(bVar.aqS(), bVar.aqN());
-                if (cXT != null) {
-                    cXT.setAppId(bVar.getAppId());
-                    cXT.setSource(bVar.aqN());
+                f(bVar.arC(), bVar.arx());
+                if (cZT != null) {
+                    cZT.setAppId(bVar.getAppId());
+                    cZT.setSource(bVar.arx());
                 }
             }
         }
@@ -62,26 +62,26 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                f(eVar.aqT(), eVar.aqN());
-                if (cXT != null) {
-                    cXT.setAppId(eVar.getAppId());
-                    cXT.setSource(eVar.aqN());
+                f(eVar.arD(), eVar.arx());
+                if (cZT != null) {
+                    cZT.setAppId(eVar.getAppId());
+                    cZT.setSource(eVar.arx());
                 }
             }
         }
     }
 
-    private static void aCL() {
-        if (cXT != null) {
-            cXT.destroy();
-            cXT = null;
+    private static void aDv() {
+        if (cZT != null) {
+            cZT.destroy();
+            cZT = null;
         }
-        cXT = new a("772");
+        cZT = new a("772");
     }
 
-    private static void aea() {
-        if (cXT != null) {
-            cXT.send();
+    private static void aeK() {
+        if (cZT != null) {
+            cZT.send();
         }
     }
 
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (cXT != null) {
-                cXT.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                cXT.addExt("url", bundle.getString("search_url"));
+            if (cZT != null) {
+                cZT.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                cZT.addExt("url", bundle.getString("search_url"));
             }
         }
     }

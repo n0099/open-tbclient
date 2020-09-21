@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.swan.apps.core.b.a;
 import com.baidu.webkit.sdk.WebSettings;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0381a afM = a.b.afM();
-                codeCacheSetting.maxCount = afM.maxCount;
-                codeCacheSetting.sizeLimit = afM.sizeLimit;
+                a.C0376a agw = a.b.agw();
+                codeCacheSetting.maxCount = agw.maxCount;
+                codeCacheSetting.sizeLimit = agw.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

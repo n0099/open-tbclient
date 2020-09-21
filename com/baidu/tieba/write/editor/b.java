@@ -14,70 +14,76 @@ public class b extends m {
 
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.eLw = false;
+        this.eNN = false;
         this.context = context;
-        this.eLv = 3;
-        this.eKB = new EditorInfoContainer(context, str);
-        this.eLx = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.eNM = 3;
+        this.eMS = new EditorInfoContainer(context, str);
+        this.eNO = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dgC() {
+    public void dkh() {
         BaseActivity baseActivity = (BaseActivity) this.context;
-        e eVar = new e(baseActivity.getPageContext(), (View) this.eKB);
-        eVar.eL(R.drawable.bg_tip_blue_left_less_than_right_down);
-        eVar.eK(16);
-        eVar.nu(true);
+        e eVar = new e(baseActivity.getPageContext(), (View) this.eMS);
+        eVar.eW(R.drawable.bg_tip_blue_left_less_than_right_down);
+        eVar.eV(16);
+        eVar.nA(true);
         eVar.setAnchor(2);
         eVar.setUseDirectOffset(true);
-        eVar.vF(l.getDimens(baseActivity, R.dimen.ds32));
-        eVar.vC(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
-        eVar.vD(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
-        eVar.eM((int) IMConnection.RETRY_DELAY_TIMES);
-        eVar.nt(false);
+        eVar.we(l.getDimens(baseActivity, R.dimen.ds32));
+        eVar.wb(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds27));
+        eVar.wc(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds41));
+        eVar.eX((int) IMConnection.RETRY_DELAY_TIMES);
+        eVar.nz(false);
         if (eVar.y(baseActivity.getString(R.string.write_location_topic_hint_title), "write_hint_tip_key", true)) {
-            ((EditorInfoContainer) this.eKB).gb(IMConnection.RETRY_DELAY_TIMES);
+            ((EditorInfoContainer) this.eMS).gp(IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     public void setFrom(String str) {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).setFrom(str);
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).setFrom(str);
         }
     }
 
     public void bM(String str, int i) {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).bM(str, i);
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).bM(str, i);
         }
     }
 
-    public void xi(boolean z) {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).xi(z);
+    public void Kf(int i) {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).Kf(i);
         }
     }
 
-    public void cfQ() {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).cfQ();
+    public void xr(boolean z) {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).xr(z);
         }
     }
 
-    public void dGt() {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).dGt();
+    public void cjh() {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).cjh();
         }
     }
 
-    public void dGv() {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).hide();
+    public void dKn() {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).dKn();
         }
     }
 
-    public void xj(boolean z) {
-        if (this.eKB instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.eKB).xj(z);
+    public void dKp() {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).hide();
+        }
+    }
+
+    public void xs(boolean z) {
+        if (this.eMS instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.eMS).xs(z);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class LatLng implements Parcelable {
     public final double latitude;
     public final double latitudeE6;

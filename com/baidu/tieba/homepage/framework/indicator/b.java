@@ -1,23 +1,23 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import com.baidu.tieba.homepage.framework.e;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private int iJS = -1;
-    private boolean iJT = false;
-    private boolean iJU = false;
+    private int iSy = -1;
+    private boolean iSz = false;
+    private boolean iSA = false;
 
     public void a(e eVar) {
-        this.iJT = true;
-        if (this.iJS != -1 && this.iJU) {
-            eVar.zG(this.iJS);
+        this.iSz = true;
+        if (this.iSy != -1 && this.iSA) {
+            eVar.Ah(this.iSy);
         }
     }
 
     public void a(int i, e eVar) {
-        this.iJS = i;
-        if (this.iJT && this.iJU) {
-            eVar.zG(this.iJS);
+        this.iSy = i;
+        if (this.iSz && this.iSA) {
+            eVar.Ah(this.iSy);
         }
     }
 }

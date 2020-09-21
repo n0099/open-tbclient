@@ -6,7 +6,7 @@ import android.graphics.RectF;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RoundRectDrawableWithShadow;
 @RequiresApi(17)
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 class CardViewApi17Impl extends CardViewBaseImpl {
     @Override // android.support.v7.widget.CardViewBaseImpl, android.support.v7.widget.CardViewImpl
     public void initStatic() {

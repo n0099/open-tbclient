@@ -18,9 +18,9 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask nhR;
+    private AsyncTask nrS;
     private String a = null;
-    private a nhQ = null;
+    private a nrR = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -35,14 +35,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0854b {
+    public class C0851b {
         private String b;
         private int c;
-        private Exception nhU;
+        private Exception nrV;
 
-        public C0854b(String str, Exception exc, int i) {
+        public C0851b(String str, Exception exc, int i) {
             this.b = str;
-            this.nhU = exc;
+            this.nrV = exc;
             this.c = i;
         }
     }
@@ -89,7 +89,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0854b dNh() {
+    public C0851b dRf() {
         try {
             String b = b();
             if (j) {
@@ -113,7 +113,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0854b(sb.toString(), null, responseCode);
+                    return new C0851b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -121,12 +121,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0854b(null, e, -1);
+            return new C0851b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0854b dNi() {
+    public C0851b dRg() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -173,7 +173,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0854b(sb4, null, responseCode);
+                    return new C0851b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -181,55 +181,55 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0854b(null, e, -1);
+            return new C0851b(null, e, -1);
         }
     }
 
-    public static b gi(@NonNull Context context) {
+    public static b go(@NonNull Context context) {
         return new b(context);
     }
 
-    public b Ud(@NonNull String str) {
+    public b UF(@NonNull String str) {
         this.a = str;
         this.h = "POST";
         return this;
     }
 
     public b a(a aVar) {
-        this.nhQ = aVar;
+        this.nrR = aVar;
         return this;
     }
 
-    public b aN(Object obj) {
+    public b aP(Object obj) {
         this.d = obj;
         return this;
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b dNg() {
-        this.nhR = new AsyncTask<Void, Void, C0854b>() { // from class: com.bun.miitmdid.b.b.1
-            b nhS;
+    public b dRe() {
+        this.nrS = new AsyncTask<Void, Void, C0851b>() { // from class: com.bun.miitmdid.b.b.1
+            b nrT;
 
             {
-                this.nhS = b.this;
+                this.nrT = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0854b c0854b) {
-                super.onPostExecute(c0854b);
-                if (b.this.nhQ != null) {
-                    if (c0854b == null) {
-                        b.this.nhQ.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0854b.nhU != null) {
-                        b.this.nhQ.a(c0854b.nhU, -1, null);
+            public void onPostExecute(C0851b c0851b) {
+                super.onPostExecute(c0851b);
+                if (b.this.nrR != null) {
+                    if (c0851b == null) {
+                        b.this.nrR.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0851b.nrV != null) {
+                        b.this.nrR.a(c0851b.nrV, -1, null);
                     } else {
                         try {
-                            b.this.nhQ.a(null, c0854b.c, c0854b.b);
+                            b.this.nrR.a(null, c0851b.c, c0851b.b);
                         } catch (Exception e) {
-                            b.this.nhQ.a(e, -1, null);
+                            b.this.nrR.a(e, -1, null);
                         }
                     }
                 }
@@ -239,14 +239,14 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: q */
-            public C0854b doInBackground(Void... voidArr) {
-                return this.nhS.h.equalsIgnoreCase("GET") ? b.this.dNh() : b.this.dNi();
+            public C0851b doInBackground(Void... voidArr) {
+                return this.nrT.h.equalsIgnoreCase("GET") ? b.this.dRf() : b.this.dRg();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;
     }
 
-    public b gk(@NonNull String str, @NonNull String str2) {
+    public b gw(@NonNull String str, @NonNull String str2) {
         this.g.put(str, str2);
         return this;
     }

@@ -7,9 +7,9 @@ import android.util.Log;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.swan.game.ad.downloader.c.d {
-    private final com.baidu.swan.game.ad.downloader.c.a djR;
+    private final com.baidu.swan.game.ad.downloader.c.a dlT;
     private final Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.swan.game.ad.downloader.core.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -17,27 +17,27 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
             DownloadInfo downloadInfo = (DownloadInfo) message.obj;
             int status = downloadInfo.getStatus();
             if (downloadInfo.getDownloadListener() != null) {
-                switch (AnonymousClass2.djM[SwanAdDownloadState.convert(status).ordinal()]) {
+                switch (AnonymousClass2.dlO[SwanAdDownloadState.convert(status).ordinal()]) {
                     case 1:
-                        downloadInfo.getDownloadListener().s(downloadInfo.getProgress(), downloadInfo.getSize());
+                        downloadInfo.getDownloadListener().o(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
                     case 2:
                         downloadInfo.getDownloadListener().onStart();
                         return;
                     case 3:
-                        downloadInfo.getDownloadListener().aIv();
+                        downloadInfo.getDownloadListener().aJg();
                         return;
                     case 4:
-                        downloadInfo.getDownloadListener().r(downloadInfo.getProgress(), downloadInfo.getSize());
+                        downloadInfo.getDownloadListener().n(downloadInfo.getProgress(), downloadInfo.getSize());
                         return;
                     case 5:
-                        downloadInfo.getDownloadListener().aIx();
+                        downloadInfo.getDownloadListener().aJi();
                         return;
                     case 6:
                         downloadInfo.getDownloadListener().a(downloadInfo.getException());
                         return;
                     case 7:
-                        downloadInfo.getDownloadListener().aIw();
+                        downloadInfo.getDownloadListener().aJh();
                         return;
                     default:
                         return;
@@ -47,41 +47,41 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
     };
 
     public b(com.baidu.swan.game.ad.downloader.c.a aVar) {
-        this.djR = aVar;
+        this.dlT = aVar;
     }
 
     /* renamed from: com.baidu.swan.game.ad.downloader.core.b$2  reason: invalid class name */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] djM = new int[SwanAdDownloadState.values().length];
+        static final /* synthetic */ int[] dlO = new int[SwanAdDownloadState.values().length];
 
         static {
             try {
-                djM[SwanAdDownloadState.DOWNLOADING.ordinal()] = 1;
+                dlO[SwanAdDownloadState.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                djM[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+                dlO[SwanAdDownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                djM[SwanAdDownloadState.WAIT.ordinal()] = 3;
+                dlO[SwanAdDownloadState.WAIT.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                djM[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+                dlO[SwanAdDownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                djM[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
+                dlO[SwanAdDownloadState.DOWNLOADED.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                djM[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+                dlO[SwanAdDownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                djM[SwanAdDownloadState.DELETED.ordinal()] = 7;
+                dlO[SwanAdDownloadState.DELETED.ordinal()] = 7;
             } catch (NoSuchFieldError e7) {
             }
         }
@@ -90,7 +90,7 @@ public class b implements com.baidu.swan.game.ad.downloader.c.d {
     @Override // com.baidu.swan.game.ad.downloader.c.d
     public void l(DownloadInfo downloadInfo) {
         if (downloadInfo.getStatus() != SwanAdDownloadState.DELETED.value()) {
-            this.djR.m(downloadInfo);
+            this.dlT.m(downloadInfo);
         }
         Message obtainMessage = this.mHandler.obtainMessage(downloadInfo.getId().hashCode());
         obtainMessage.obj = downloadInfo;

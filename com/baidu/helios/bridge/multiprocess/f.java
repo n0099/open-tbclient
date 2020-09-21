@@ -5,21 +5,21 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes14.dex */
+/* loaded from: classes23.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes23.dex */
     public static abstract class a extends Binder implements f {
         static final int a = 1;
         static final int b = 2;
         private static final String c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
-        private static class C0142a implements f {
+        /* loaded from: classes23.dex */
+        private static class C0143a implements f {
             private IBinder a;
 
-            C0142a(IBinder iBinder) {
+            C0143a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -84,7 +84,7 @@ public interface f extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(c);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0142a(iBinder) : (f) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0143a(iBinder) : (f) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

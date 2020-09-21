@@ -16,7 +16,7 @@ import com.xiaomi.push.il;
 import com.xiaomi.push.iw;
 import com.xiaomi.push.ix;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static void a(Context context, Intent intent, Uri uri) {
         if (context == null) {
@@ -82,9 +82,9 @@ public class n {
         il ilVar = new il();
         ilVar.b(b.m94a(context).m95a());
         ilVar.d(context.getPackageName());
-        ilVar.c(hw.AwakeAppResponse.f477a);
+        ilVar.c(hw.AwakeAppResponse.f476a);
         ilVar.a(com.xiaomi.push.service.an.a());
-        ilVar.f618a = hashMap;
+        ilVar.f617a = hashMap;
         a(context, ilVar);
     }
 

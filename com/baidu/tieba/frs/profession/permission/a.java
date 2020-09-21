@@ -1,35 +1,35 @@
 package com.baidu.tieba.frs.profession.permission;
 
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import java.util.HashMap;
 import tbclient.ZoneRight.DataReq;
 import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes.dex */
 public class a implements h {
     public String forum_id;
-    public int ipL;
-    public int ipM;
-    public int ipN;
+    public int ixb;
+    public int ixc;
+    public int ixd;
     public long thread_id;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bts() {
+    public HashMap<String, Object> buw() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> btt() {
+    public HashMap<String, String> bux() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object jw(boolean z) {
+    public Object jx(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        t.a(builder, true, false, true);
+        u.a(builder, true, false, true);
         builder.forum_id = Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.forum_id, 0L));
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.req_type = Integer.valueOf(this.ipM == 1 ? 2 : 1);
+        builder.req_type = Integer.valueOf(this.ixc == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

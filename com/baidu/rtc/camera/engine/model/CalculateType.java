@@ -1,5 +1,5 @@
 package com.baidu.rtc.camera.engine.model;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public enum CalculateType {
     Min,
     Max,

@@ -3,7 +3,7 @@ package com.airbnb.lottie.model;
 import android.graphics.PointF;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a {
     private final PointF Ee;
     private final PointF Ef;
@@ -25,7 +25,7 @@ public class a {
         this.Ee.set(f, f2);
     }
 
-    public PointF js() {
+    public PointF jt() {
         return this.Ee;
     }
 
@@ -33,7 +33,7 @@ public class a {
         this.Ef.set(f, f2);
     }
 
-    public PointF jt() {
+    public PointF ju() {
         return this.Ef;
     }
 
@@ -41,7 +41,7 @@ public class a {
         this.Eg.set(f, f2);
     }
 
-    public PointF ju() {
+    public PointF jv() {
         return this.Eg;
     }
 }

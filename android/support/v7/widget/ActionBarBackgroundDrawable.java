@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.RequiresApi;
 @RequiresApi(9)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class ActionBarBackgroundDrawable extends Drawable {
     final ActionBarContainer mContainer;
 

@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class TbadkStatic {
     public static String Tag = "tag";
 

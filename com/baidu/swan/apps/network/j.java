@@ -7,67 +7,67 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class j extends com.baidu.swan.apps.runtime.f {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private NetworkBroadcastReceiver cEN;
-    private TelephonyManager cEO;
-    private a cEP;
+    private NetworkBroadcastReceiver cGN;
+    private TelephonyManager cGO;
+    private a cGP;
 
     public j(com.baidu.swan.apps.runtime.e eVar) {
         super(eVar);
     }
 
     public void b(CallbackHandler callbackHandler, String str) {
-        if (this.cEN == null) {
-            this.cEN = new NetworkBroadcastReceiver(callbackHandler, str);
+        if (this.cGN == null) {
+            this.cGN = new NetworkBroadcastReceiver(callbackHandler, str);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            registerReceiver(this.cEN, intentFilter);
-        } else if (this.cEN != null) {
-            this.cEN.updateCallback(callbackHandler, str);
+            registerReceiver(this.cGN, intentFilter);
+        } else if (this.cGN != null) {
+            this.cGN.updateCallback(callbackHandler, str);
         }
         c(callbackHandler, str);
     }
 
     public void c(CallbackHandler callbackHandler, String str) {
-        if (this.cEO == null) {
-            this.cEO = (TelephonyManager) getSystemService("phone");
-            this.cEP = new a(callbackHandler, str);
-            this.cEO.listen(this.cEP, 64);
-        } else if (this.cEP != null) {
-            this.cEP.updateCallback(callbackHandler, str);
+        if (this.cGO == null) {
+            this.cGO = (TelephonyManager) getSystemService("phone");
+            this.cGP = new a(callbackHandler, str);
+            this.cGO.listen(this.cGP, 64);
+        } else if (this.cGP != null) {
+            this.cGP.updateCallback(callbackHandler, str);
         }
     }
 
-    public void auR() {
-        if (this.cEO != null && this.cEP != null) {
-            this.cEO.listen(this.cEP, 0);
+    public void avA() {
+        if (this.cGO != null && this.cGP != null) {
+            this.cGO.listen(this.cGP, 0);
         }
     }
 
-    public void auS() {
-        if (this.cEN != null) {
-            unregisterReceiver(this.cEN);
+    public void avB() {
+        if (this.cGN != null) {
+            unregisterReceiver(this.cGN);
         }
-        auR();
+        avA();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class a extends PhoneStateListener {
-        private WeakReference<CallbackHandler> cEQ;
-        private String cER;
-        private String cES = "";
+        private WeakReference<CallbackHandler> cGQ;
+        private String cGR;
+        private String cGS = "";
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.cEQ = new WeakReference<>(callbackHandler);
-            this.cER = str;
+            this.cGQ = new WeakReference<>(callbackHandler);
+            this.cGR = str;
         }
 
         public void updateCallback(CallbackHandler callbackHandler, String str) {
-            this.cEQ = new WeakReference<>(callbackHandler);
-            this.cER = str;
+            this.cGQ = new WeakReference<>(callbackHandler);
+            this.cGR = str;
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -77,9 +77,9 @@ public class j extends com.baidu.swan.apps.runtime.f {
             }
             if (2 == i) {
                 String mobileNetworkType = SwanAppNetworkUtils.getMobileNetworkType(i2, null);
-                if (!TextUtils.isEmpty(mobileNetworkType) && !mobileNetworkType.equals(this.cES)) {
-                    this.cES = mobileNetworkType;
-                    SwanAppNetworkUtils.a(j.this, this.cEQ.get(), this.cER);
+                if (!TextUtils.isEmpty(mobileNetworkType) && !mobileNetworkType.equals(this.cGS)) {
+                    this.cGS = mobileNetworkType;
+                    SwanAppNetworkUtils.a(j.this, this.cGQ.get(), this.cGR);
                 }
             }
         }
@@ -88,6 +88,6 @@ public class j extends com.baidu.swan.apps.runtime.f {
     @Override // com.baidu.swan.apps.runtime.f
     public void onDestroy() {
         super.onDestroy();
-        auS();
+        avB();
     }
 }

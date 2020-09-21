@@ -20,7 +20,7 @@ import com.baidu.platform.comapi.location.CoordinateType;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private ArrayList<a> g;
     private static b f = null;
@@ -35,10 +35,10 @@ public class b {
     private BDLocation k = null;
     private boolean l = false;
     private boolean m = false;
-    private RunnableC0205b n = null;
+    private RunnableC0204b n = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public String a;
         public Messenger b;
@@ -347,8 +347,8 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private class RunnableC0205b implements Runnable {
+    /* loaded from: classes3.dex */
+    private class RunnableC0204b implements Runnable {
         final /* synthetic */ b a;
         private int b;
         private boolean c;

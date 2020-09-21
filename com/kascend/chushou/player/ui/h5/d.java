@@ -31,10 +31,10 @@ public class d extends RelativeLayout implements View.OnClickListener {
     private View g;
     private TextView h;
     private boolean j;
-    private FrameLayout nPX;
-    private CSWebView nVg;
-    private com.kascend.chushou.widget.cswebview.a nVh;
-    private com.kascend.chushou.widget.cswebview.d nVi;
+    private FrameLayout nZS;
+    private CSWebView ofa;
+    private com.kascend.chushou.widget.cswebview.a ofb;
+    private com.kascend.chushou.widget.cswebview.d ofc;
 
     public d(Context context, H5Options h5Options, com.kascend.chushou.widget.cswebview.a aVar) {
         super(context);
@@ -42,9 +42,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
         this.c = context;
         this.a = h5Options.a;
         this.b = h5Options.b;
-        this.nVh = aVar;
-        if (this.nVh != null) {
-            this.nVi = aVar.eaU();
+        this.ofb = aVar;
+        if (this.ofb != null) {
+            this.ofc = aVar.eeS();
         }
         a();
     }
@@ -52,19 +52,19 @@ public class d extends RelativeLayout implements View.OnClickListener {
     public void a() {
         View inflate = LayoutInflater.from(this.c).inflate(a.h.view_small_h5, (ViewGroup) this, true);
         inflate.setBackgroundColor(0);
-        this.nPX = (FrameLayout) inflate.findViewById(a.f.empty_loading_view);
+        this.nZS = (FrameLayout) inflate.findViewById(a.f.empty_loading_view);
         this.g = inflate.findViewById(a.f.ll_loading);
         this.e = inflate.findViewById(a.f.ll_error);
         this.f = (ImageView) inflate.findViewById(a.f.iv_empty);
         this.h = (TextView) inflate.findViewById(a.f.tv_refresh);
         this.h.setOnClickListener(this);
-        this.nVg = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.nVg.setBackgroundColor(0);
-        if (this.nVh == null) {
-            this.nVh = new com.kascend.chushou.widget.cswebview.a();
+        this.ofa = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.ofa.setBackgroundColor(0);
+        if (this.ofb == null) {
+            this.ofb = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.nVh.a(this.nVi);
-        CSWebView.a(this.nVg, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
+        this.ofb.a(this.ofc);
+        CSWebView.a(this.ofa, this.c, new com.kascend.chushou.widget.cswebview.c() { // from class: com.kascend.chushou.player.ui.h5.d.1
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -80,7 +80,7 @@ public class d extends RelativeLayout implements View.OnClickListener {
                 if (!d.this.c()) {
                     d.this.j = false;
                     String str2 = (String) webView.getTag();
-                    if (!tv.chushou.zues.utils.a.emq()) {
+                    if (!tv.chushou.zues.utils.a.eqo()) {
                         d.this.a(3);
                     } else if (str2 == null || !str2.equals(BdStatsConstant.StatsType.ERROR)) {
                         d.this.a(2);
@@ -104,9 +104,9 @@ public class d extends RelativeLayout implements View.OnClickListener {
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.nVh);
-        this.nVg.resumeTimers();
-        this.nVg.onResume();
+        }, this.ofb);
+        this.ofa.resumeTimers();
+        this.ofa.onResume();
         b();
     }
 
@@ -115,8 +115,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
         int id = view.getId();
         if (id == a.f.tv_refresh) {
             b();
-        } else if (id == a.f.iv_close && this.nVi != null) {
-            this.nVi.a((Object) null);
+        } else if (id == a.f.iv_close && this.ofc != null) {
+            this.ofc.a((Object) null);
         }
     }
 
@@ -129,11 +129,11 @@ public class d extends RelativeLayout implements View.OnClickListener {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         tv.chushou.zues.a.a.cm(this);
-        if (this.nVg != null) {
-            this.nVg.loadUrl("");
-            this.nVg.removeAllViews();
-            this.nVg.destroy();
-            this.nVg = null;
+        if (this.ofa != null) {
+            this.ofa.loadUrl("");
+            this.ofa.removeAllViews();
+            this.ofa.destroy();
+            this.ofa = null;
         }
         super.onDetachedFromWindow();
     }
@@ -147,8 +147,8 @@ public class d extends RelativeLayout implements View.OnClickListener {
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.nVg != null && this.b && this.nVg.canGoBack()) {
-            this.nVg.goBack();
+        if (i == 4 && this.ofa != null && this.b && this.ofa.canGoBack()) {
+            this.ofa.goBack();
             return true;
         }
         return false;
@@ -158,23 +158,23 @@ public class d extends RelativeLayout implements View.OnClickListener {
     public void a(int i) {
         switch (i) {
             case 1:
-                this.nVg.setVisibility(8);
-                this.nPX.setVisibility(0);
-                this.nPX.setBackgroundResource(a.c.transparent);
+                this.ofa.setVisibility(8);
+                this.nZS.setVisibility(0);
+                this.nZS.setBackgroundResource(a.c.transparent);
                 this.e.setVisibility(8);
                 this.g.setVisibility(0);
                 return;
             case 2:
-                this.nPX.setVisibility(8);
-                this.nVg.setVisibility(0);
+                this.nZS.setVisibility(8);
+                this.ofa.setVisibility(0);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nVg.setVisibility(8);
-                this.nPX.setVisibility(0);
-                this.nPX.setBackgroundResource(a.e.powindow_circle_bg);
+                this.ofa.setVisibility(8);
+                this.nZS.setVisibility(0);
+                this.nZS.setBackgroundResource(a.e.powindow_circle_bg);
                 this.g.setVisibility(8);
                 this.e.setVisibility(0);
                 this.f.setVisibility(0);
@@ -191,14 +191,14 @@ public class d extends RelativeLayout implements View.OnClickListener {
     }
 
     private void b() {
-        if (this.nVg != null) {
-            this.nVg.setTag(null);
-            if (tv.chushou.zues.utils.a.emq()) {
+        if (this.ofa != null) {
+            this.ofa.setTag(null);
+            if (tv.chushou.zues.utils.a.eqo()) {
                 if (this.a != null && this.a.length() > 0) {
-                    this.nVg.loadUrl(this.a);
+                    this.ofa.loadUrl(this.a);
                     return;
                 } else {
-                    this.nVg.loadUrl("");
+                    this.ofa.loadUrl("");
                     return;
                 }
             }

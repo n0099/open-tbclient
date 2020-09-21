@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g.c;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class t implements com.baidu.platform.comapi.walknavi.d.c {
     final /* synthetic */ String a;
     final /* synthetic */ c b;

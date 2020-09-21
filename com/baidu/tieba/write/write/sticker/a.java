@@ -6,37 +6,37 @@ import android.graphics.Matrix;
 /* loaded from: classes3.dex */
 public class a {
     private Matrix mMatrix = new Matrix();
-    private Bitmap mXS;
+    private Bitmap nhQ;
 
     public a(Bitmap bitmap) {
-        this.mXS = bitmap;
+        this.nhQ = bitmap;
     }
 
     public void draw(Canvas canvas) {
         if (canvas != null) {
-            canvas.drawBitmap(this.mXS, this.mMatrix, null);
+            canvas.drawBitmap(this.nhQ, this.mMatrix, null);
         }
     }
 
-    public int dJy() {
-        if (this.mXS == null) {
+    public int dNw() {
+        if (this.nhQ == null) {
             return 0;
         }
-        return this.mXS.getWidth();
+        return this.nhQ.getWidth();
     }
 
-    public int dJz() {
-        if (this.mXS == null) {
+    public int dNx() {
+        if (this.nhQ == null) {
             return 0;
         }
-        return this.mXS.getHeight();
+        return this.nhQ.getHeight();
     }
 
     public Matrix getMatrix() {
         return this.mMatrix;
     }
 
-    public Bitmap dJA() {
-        return this.mXS;
+    public Bitmap dNy() {
+        return this.nhQ;
     }
 }

@@ -3,16 +3,16 @@ package com.tencent.mm.sdk.b;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static int level = 6;
-    private static InterfaceC0939a n;
-    private static InterfaceC0939a o;
+    private static InterfaceC0936a n;
+    private static InterfaceC0936a o;
     private static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0939a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0936a {
         int b();
 
         void d(String str, String str2);
@@ -56,11 +56,11 @@ public final class a {
         if (format == null) {
             format = "";
         }
-        InterfaceC0939a interfaceC0939a = o;
+        InterfaceC0936a interfaceC0936a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0939a.f(str, format);
+        interfaceC0936a.f(str, format);
     }
 
     public static void b(String str, String str2) {
@@ -70,11 +70,11 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0939a interfaceC0939a = o;
+        InterfaceC0936a interfaceC0936a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0939a.d(str, str2);
+        interfaceC0936a.d(str, str2);
     }
 
     public static void c(String str, String str2) {
@@ -84,10 +84,10 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0939a interfaceC0939a = o;
+        InterfaceC0936a interfaceC0936a = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0939a.e(str, str2);
+        interfaceC0936a.e(str, str2);
     }
 }

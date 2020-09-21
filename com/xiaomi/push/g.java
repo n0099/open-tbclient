@@ -14,10 +14,10 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum a {
         UNKNOWN(0),
         ALLOWED(1),
@@ -25,14 +25,14 @@ public class g {
         
 
         /* renamed from: a  reason: collision with other field name */
-        private final int f382a;
+        private final int f381a;
 
         a(int i) {
-            this.f382a = i;
+            this.f381a = i;
         }
 
         public int a() {
-            return this.f382a;
+            return this.f381a;
         }
     }
 

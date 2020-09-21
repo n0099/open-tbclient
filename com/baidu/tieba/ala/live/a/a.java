@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.live.a;
 
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
     public String channel;
     public String iconUrl;

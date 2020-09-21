@@ -10,32 +10,32 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     private int mCmd = 2001154;
-    private com.baidu.tieba.im.db.l jzu = com.baidu.tieba.im.db.l.cEo();
+    private com.baidu.tieba.im.db.l jHW = com.baidu.tieba.im.db.l.cHU();
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        if (this.jzu == null) {
-            return BJ(this.mCmd);
+        if (this.jHW == null) {
+            return Ck(this.mCmd);
         }
-        List<com.baidu.tieba.im.db.pojo.a> cEq = com.baidu.tieba.im.db.l.cEq();
-        if (cEq == null || cEq.size() <= 0) {
-            return BJ(this.mCmd);
+        List<com.baidu.tieba.im.db.pojo.a> cHW = com.baidu.tieba.im.db.l.cHW();
+        if (cHW == null || cHW.size() <= 0) {
+            return Ck(this.mCmd);
         }
-        HashMap hashMap = new HashMap(cEq.size());
-        for (com.baidu.tieba.im.db.pojo.a aVar : cEq) {
+        HashMap hashMap = new HashMap(cHW.size());
+        for (com.baidu.tieba.im.db.pojo.a aVar : cHW) {
             hashMap.put(aVar.getGid(), aVar);
         }
-        LinkedList<ChatMessage> b = this.jzu.b(hashMap, 80);
+        LinkedList<ChatMessage> b = this.jHW.b(hashMap, 80);
         if (b == null) {
-            return BJ(this.mCmd);
+            return Ck(this.mCmd);
         }
         OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
         OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
-        aVar2.jwh = b;
-        aVar2.msgList = cEq;
+        aVar2.jEJ = b;
+        aVar2.msgList = cHW;
         try {
             officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
             return officialFeedHeadResponsedMessage;
@@ -45,7 +45,7 @@ public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         }
     }
 
-    private LoadHistoryResponsedMessage BJ(int i) {
+    private LoadHistoryResponsedMessage Ck(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

@@ -11,17 +11,17 @@ import android.view.View;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class VoteStatusView extends View {
-    private boolean hgU;
-    public int hgV;
-    public int hgW;
-    public int hgX;
-    private Path hgY;
-    private Path hgZ;
-    private Path hha;
-    private Path hhb;
-    private Path hhc;
+    private boolean hnY;
+    public int hnZ;
+    public int hoa;
+    public int hob;
+    private Path hoc;
+    private Path hod;
+    private Path hoe;
+    private Path hof;
+    private Path hog;
     private Paint mPaint;
     private Shader mShader;
     private int status;
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.hgU = true;
+        this.hnY = true;
         initUI();
     }
 
     private void initUI() {
-        this.hgX = ap.getColor(R.color.cp_bg_line_c);
-        this.hgV = ap.getColor(R.color.cp_link_tip_b);
-        this.hgW = ap.getColor(R.color.cp_link_tip_a);
+        this.hob = ap.getColor(R.color.cp_bg_line_c);
+        this.hnZ = ap.getColor(R.color.cp_link_tip_b);
+        this.hoa = ap.getColor(R.color.cp_link_tip_a);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.hgX);
-        this.hgY = new Path();
-        this.hgZ = new Path();
-        this.hha = new Path();
-        this.hhb = new Path();
-        this.hhc = new Path();
+        this.mPaint.setColor(this.hob);
+        this.hoc = new Path();
+        this.hod = new Path();
+        this.hoe = new Path();
+        this.hof = new Path();
+        this.hog = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.hgY.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.hgZ.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.hha.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.hhb.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.hhc.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.hgX);
+        this.hoc.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.hod.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.hoe.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.hof.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.hog.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.hob);
         this.mPaint.setShader(null);
-        if (this.mShader == null || this.hgU) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.hgV, this.hgW, Shader.TileMode.CLAMP);
-            this.hgU = false;
+        if (this.mShader == null || this.hnY) {
+            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.hnZ, this.hoa, Shader.TileMode.CLAMP);
+            this.hnY = false;
         }
-        if (this.status == d.hgg) {
+        if (this.status == d.hnh) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.hhc, this.mPaint);
-        canvas.drawPath(this.hha, this.mPaint);
-        if (this.status == d.hgf) {
+        canvas.drawPath(this.hog, this.mPaint);
+        canvas.drawPath(this.hoe, this.mPaint);
+        if (this.status == d.hng) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.hhb, this.mPaint);
-        canvas.drawPath(this.hgZ, this.mPaint);
-        if (this.status == d.hge) {
+        canvas.drawPath(this.hof, this.mPaint);
+        canvas.drawPath(this.hod, this.mPaint);
+        if (this.status == d.hnf) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.hgY, this.mPaint);
+        canvas.drawPath(this.hoc, this.mPaint);
     }
 
-    public void tl(int i) {
-        this.hgV = ap.getColor(i, R.color.cp_link_tip_b);
-        this.hgW = ap.getColor(i, R.color.cp_link_tip_a);
-        this.hgX = ap.getColor(i, R.color.cp_bg_line_c);
-        this.hgU = true;
+    public void tE(int i) {
+        this.hnZ = ap.getColor(i, R.color.cp_link_tip_b);
+        this.hoa = ap.getColor(i, R.color.cp_link_tip_a);
+        this.hob = ap.getColor(i, R.color.cp_bg_line_c);
+        this.hnY = true;
         invalidate();
     }
 }

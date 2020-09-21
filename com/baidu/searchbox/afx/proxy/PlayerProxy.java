@@ -2,7 +2,9 @@ package com.baidu.searchbox.afx.proxy;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
+import android.text.TextUtils;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
@@ -10,14 +12,16 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public abstract class PlayerProxy implements IPlayer {
+    protected OnReportListener mOnReportListener;
     protected OnVideoEndedListener mOnVideoEndedListener;
     protected OnVideoErrorListener mOnVideoErrorListener;
     protected OnVideoStartedListener mOnVideoStartedListener;
     protected PlayerState mPlayerState = PlayerState.NOT_PREPARED;
+    protected String mSourcePath;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes9.dex */
     public enum PlayerState {
         NOT_PREPARED,
         PREPARING,
@@ -30,75 +34,131 @@ public abstract class PlayerProxy implements IPlayer {
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public void setSourcePath(String str) {
+        this.mSourcePath = str;
+        if (TextUtils.isEmpty(str)) {
+            String sourcePath = getSourcePath();
+            String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+            if (this.mOnReportListener != null) {
+                this.mOnReportListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, sourcePath, valueOf));
+            }
+            if (this.mOnVideoErrorListener != null) {
+                this.mOnVideoErrorListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, sourcePath, valueOf));
+                return;
+            }
+            return;
+        }
         setSourceFile(new File(str));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00c3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setSourceFile(File file) {
         FileInputStream fileInputStream;
-        try {
-            fileInputStream = new FileInputStream(file);
+        IOException e;
+        if (file != null) {
+            this.mSourcePath = file.getPath();
             try {
+                FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
-                    setSourceFD(fileInputStream.getFD());
-                    if (fileInputStream != null) {
+                    setSourceFD(fileInputStream2.getFD());
+                    if (fileInputStream2 != null) {
                         try {
-                            fileInputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            fileInputStream2.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
-                } catch (IOException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (this.mOnVideoErrorListener != null) {
-                        this.mOnVideoErrorListener.onError(new ErrorInfo(1, "设置播放源（文件）时发生错误，srcFile: " + file, e));
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileInputStream != null) {
+                } catch (IOException e3) {
+                    e = e3;
+                    fileInputStream = fileInputStream2;
                     try {
-                        fileInputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                        e.printStackTrace();
+                        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                        String str = ErrorInfo.PARAMETER_ERROR_SRCFILE_ERRORMSG + file;
+                        if (this.mOnReportListener != null) {
+                            this.mOnReportListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
+                        }
+                        if (this.mOnVideoErrorListener != null) {
+                            this.mOnVideoErrorListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
+                        }
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
+                } catch (Throwable th2) {
+                    fileInputStream = fileInputStream2;
+                    th = th2;
+                    if (fileInputStream != null) {
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (IOException e6) {
+                fileInputStream = null;
+                e = e6;
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = null;
             }
-        } catch (IOException e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
+        } else {
+            String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
+            if (this.mOnReportListener != null) {
+                this.mOnReportListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
             }
-            throw th;
+            if (this.mOnVideoErrorListener != null) {
+                this.mOnVideoErrorListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
+            }
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public void setSourceAssets(Context context, String str) {
+        this.mSourcePath = str;
+        if (TextUtils.isEmpty(str)) {
+            String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+            if (this.mOnReportListener != null) {
+                this.mOnReportListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf));
+            }
+            if (this.mOnVideoErrorListener != null) {
+                this.mOnVideoErrorListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf));
+                return;
+            }
+            return;
+        }
         try {
             setSourceAfd(context.getAssets().openFd(str));
         } catch (IOException e) {
             e.printStackTrace();
+            String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
+            String str2 = ErrorInfo.PARAMETER_ERROR_ASSETS_ERRORMSG + str;
+            if (this.mOnReportListener != null) {
+                this.mOnReportListener.onError(new ErrorInfo(1, str2, e, "-1", null, getSourcePath(), valueOf2));
+            }
             if (this.mOnVideoErrorListener != null) {
-                this.mOnVideoErrorListener.onError(new ErrorInfo(1, "设置播放源（assets文件）时发生错误，assetsFileName: " + str, e));
+                this.mOnVideoErrorListener.onError(new ErrorInfo(1, str2, e, "-1", null, getSourcePath(), valueOf2));
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public String getSourcePath() {
+        return this.mSourcePath;
     }
 
     protected void setSourceFD(FileDescriptor fileDescriptor) {
@@ -203,6 +263,11 @@ public abstract class PlayerProxy implements IPlayer {
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final void setOnVideoErrorListener(OnVideoErrorListener onVideoErrorListener) {
         this.mOnVideoErrorListener = onVideoErrorListener;
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public final void setOnReportListener(OnReportListener onReportListener) {
+        this.mOnReportListener = onReportListener;
     }
 
     public PlayerState getState() {

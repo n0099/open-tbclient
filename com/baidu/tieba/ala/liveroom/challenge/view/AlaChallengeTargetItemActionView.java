@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeTargetItemActionView extends TextView {
     private int mStyle;
 
@@ -38,6 +38,11 @@ public class AlaChallengeTargetItemActionView extends TextView {
                     setBackgroundColor(0);
                     setText("未直播");
                     setTextColor(-2130706433);
+                    return;
+                case 4:
+                    setBackgroundColor(0);
+                    setText("PK中");
+                    setTextColor(getResources().getColor(a.d.ala_challenge_latest_primary));
                     return;
                 default:
                     setBackgroundColor(0);

@@ -15,7 +15,7 @@ import com.baidu.live.adp.base.db.BdDatabaseHelper;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.sql.SQLException;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class DatabaseManager {
     static final int ERR_SQLITE_ABORT = -11;
     static final int ERR_SQLITE_CONSTRAINT = -12;

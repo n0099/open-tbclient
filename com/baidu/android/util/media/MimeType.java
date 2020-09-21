@@ -1,8 +1,8 @@
 package com.baidu.android.util.media;
-/* loaded from: classes10.dex */
+/* loaded from: classes18.dex */
 public class MimeType {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public static final class Audio {
         public static final String AMR = "audio/amr";
         public static final String M4A = "audio/mp4";
@@ -10,16 +10,18 @@ public class MimeType {
         public static final String WAV = "audio/x-wav";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public static final class Image {
         public static final String GIF = "image/gif";
+        public static final String HEIC = "image/heic";
         public static final String HEIF = "image/heif";
         public static final String JPEG = "image/jpeg";
+        public static final String JPG = "image/jpg";
         public static final String PNG = "image/png";
         public static final String WEBP = "image/webp";
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes18.dex */
     public static final class Video {
         public static final String AVI = "video/avi";
         public static final String GP3 = "video/3gpp";

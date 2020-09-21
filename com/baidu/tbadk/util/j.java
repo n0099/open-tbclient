@@ -1,85 +1,96 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.util.DaemonServiceManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
+import android.os.Looper;
 /* loaded from: classes.dex */
 public class j {
-    private static j eVi = new j();
-    private b eVj;
-    private a eVk;
+    private long eXR;
+    private long eXS;
+    private long eXT;
+    private long eXU;
+    private long eXV;
+    private a eXW;
+    private long startTime;
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private boolean Vo = false;
+    private Runnable eXX = new Runnable() { // from class: com.baidu.tbadk.util.j.1
+        @Override // java.lang.Runnable
+        public void run() {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (j.this.eXV > j.this.eXU) {
+                j.this.eXU = currentTimeMillis - j.this.eXT;
+                j.this.eXV = j.this.eXU;
+            }
+            long j = currentTimeMillis - j.this.eXU;
+            j.this.eXS += j.this.eXT;
+            if (j.this.eXS < j.this.eXR) {
+                j.this.handler.postDelayed(j.this.eXX, (2 * j.this.eXT) - j);
+                if (j.this.eXW != null) {
+                    j.this.eXW.b(j.this.eXR, j.this.eXR - j.this.eXS);
+                }
+            } else {
+                j.this.eXS = j.this.eXR;
+                j.this.finish();
+            }
+            j.this.eXU = currentTimeMillis;
+        }
+    };
 
     /* loaded from: classes.dex */
     public interface a {
-        void onResult(boolean z);
+        void P(long j);
+
+        void b(long j, long j2);
     }
 
-    private j() {
+    public j(long j, long j2) {
+        this.eXR = j;
+        this.eXT = j2;
     }
 
-    public static j bvq() {
-        return eVi;
+    public void start() {
+        this.startTime = System.currentTimeMillis();
+        this.eXU = this.startTime;
+        if (this.eXW != null) {
+            this.eXW.b(this.eXR, this.eXR - this.eXS);
+        }
+        this.handler.postDelayed(this.eXX, this.eXT);
+    }
+
+    public void pause() {
+        if (!this.Vo) {
+            this.Vo = true;
+            this.eXV = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.eXX);
+        }
+    }
+
+    public void resume() {
+        if (this.Vo) {
+            this.Vo = false;
+            this.handler.postDelayed(this.eXX, this.eXT - (this.eXV - this.eXU));
+        }
+    }
+
+    public void stop() {
+        this.Vo = false;
+        this.eXU = this.startTime;
+        this.eXV = this.eXU;
+        this.handler.removeCallbacks(this.eXX);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void finish() {
+        if (this.eXW != null) {
+            this.eXW.P(this.eXR);
+        }
     }
 
     public void a(a aVar) {
-        this.eVk = aVar;
-        if (this.eVj != null) {
-            this.eVj.cancel();
-        }
-        this.eVj = new b();
-        this.eVj.setPriority(4);
-        this.eVj.execute(new String[0]);
+        this.eXW = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkCrashNumOverLimit() {
-        int i;
-        long j = 0;
-        byte[] GetFileData = com.baidu.tbadk.core.util.n.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + DaemonServiceManager.CRASH_HOUR_RECORD_FILE);
-        String str = null;
-        if (GetFileData != null) {
-            str = new String(GetFileData);
-        }
-        long j2 = StringUtils.getyyyyMMddHHTimeForNow();
-        if (TextUtils.isEmpty(str)) {
-            i = 0;
-        } else {
-            String[] split = str.split(":");
-            if (split == null || split.length != 2) {
-                i = 0;
-            } else {
-                i = com.baidu.adp.lib.f.b.toInt(split[0], 0);
-                j = com.baidu.adp.lib.f.b.toLong(split[1], j2);
-            }
-        }
-        if (j == j2 && i > 1) {
-            return true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private b() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(j.this.checkCrashNumOverLimit());
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            if (j.this.eVk != null && bool != null) {
-                j.this.eVk.onResult(bool.booleanValue());
-            }
-        }
+    public long bwy() {
+        return this.eXS;
     }
 }

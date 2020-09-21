@@ -6,12 +6,7 @@ import com.baidu.android.util.concurrent.UiThreadUtil;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.TimeUnit;
-import rx.a.b.a;
-import rx.d;
-import rx.functions.b;
-import rx.schedulers.Schedulers;
-/* loaded from: classes14.dex */
+/* loaded from: classes11.dex */
 public class MutexPopManager {
     public static final String TAG = "MutexPopManager";
     private static MutexPopManager sInstance;
@@ -23,7 +18,7 @@ public class MutexPopManager {
     private static boolean DEBUG = false;
     private static boolean isMutexRunning = false;
     private static long sDefaultInterval = 1000;
-    private static long sCloseThreadDelay = 10000;
+    private static long sCloseThreadDelay = 500;
 
     public static synchronized MutexPopManager ensureInstance() {
         MutexPopManager mutexPopManager;
@@ -80,10 +75,10 @@ public class MutexPopManager {
                         sInstance.mQueue.offer(sInstance.mCurrentRunningTask);
                     }
                     if (DEBUG) {
-                        Log.e(TAG, String.format("加入priority是%d的任务时候根据优先级抢占成功，可直接显示", Integer.valueOf(basePopTask.mPriority)));
+                        Log.e(TAG, String.format("加入priority是%d的任务时候根据优先级抢占成功，可直接显示\n堆栈信息：\n" + getThreadInfo(), Integer.valueOf(basePopTask.mPriority)));
                     }
                 } else if (DEBUG) {
-                    Log.e(TAG, String.format("加入priority是%d的任务时候没有任何任务，可直接显示", Integer.valueOf(basePopTask.mPriority)));
+                    Log.e(TAG, String.format("加入priority是%d的任务时候没有任何任务，可直接显示\n堆栈信息：\n" + getThreadInfo(), Integer.valueOf(basePopTask.mPriority)));
                 }
                 if (basePopTask.mutexFinalCheck()) {
                     sInstance.mCurrentRunningTask = basePopTask;
@@ -100,7 +95,7 @@ public class MutexPopManager {
                 ensureQueue();
                 z = sInstance.mQueue.offer(basePopTask);
                 if (DEBUG) {
-                    Log.e(TAG, String.format("加入priority是%d的任务时，因为已有相应的任务,需要加入队列进行等待", Integer.valueOf(basePopTask.mPriority)));
+                    Log.e(TAG, String.format("加入priority是%d的任务时，因为已有相应的任务,需要加入队列进行等待\n堆栈信息：\n" + getThreadInfo(), Integer.valueOf(basePopTask.mPriority)));
                 }
                 sInstance.start();
             }
@@ -152,10 +147,31 @@ public class MutexPopManager {
                                 e2.printStackTrace();
                             }
                         }
-                        if (MutexPopManager.this.mCurrentRunningTask != null && MutexPopManager.this.mCurrentRunningTask.mutexFinalCheck()) {
+                        if (MutexPopManager.this.mCurrentRunningTask == null || !MutexPopManager.this.mCurrentRunningTask.mutexFinalCheck()) {
+                            if (MutexPopManager.DEBUG) {
+                                Object[] objArr = new Object[1];
+                                objArr[0] = Integer.valueOf(MutexPopManager.this.mCurrentRunningTask == null ? -1 : MutexPopManager.this.mCurrentRunningTask.mPriority);
+                                Log.d(MutexPopManager.TAG, String.format("取出的priority是%d的任务！最终检查未通过", objArr));
+                            }
+                            if (MutexPopManager.this.mQueue != null && MutexPopManager.this.mQueue.isEmpty()) {
+                                MutexPopManager.doNextTask();
+                                synchronized (this) {
+                                    try {
+                                        wait();
+                                    } catch (InterruptedException e3) {
+                                        if (MutexPopManager.DEBUG) {
+                                            e3.printStackTrace();
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
                             UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.android.ext.manage.MutexPopManager.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
+                                    if (MutexPopManager.DEBUG) {
+                                        Log.w(MutexPopManager.TAG, "UiThreadUtil中执行了最终检测。");
+                                    }
                                     if (MutexPopManager.this.mCurrentRunningTask == null) {
                                         if (MutexPopManager.DEBUG) {
                                             Log.i(MutexPopManager.TAG, "UI线程中mCurrentRunningTask为空，异常情况了！");
@@ -167,25 +183,13 @@ public class MutexPopManager {
                                 }
                             });
                             MutexPopManager.this.isShowing = true;
-                            Log.d(MutexPopManager.TAG, String.format("取出的priority是%d的任务！检查通过,开始显示！", Integer.valueOf(MutexPopManager.this.mCurrentRunningTask.mPriority)));
-                        } else {
-                            Object[] objArr = new Object[1];
-                            objArr[0] = Integer.valueOf(MutexPopManager.this.mCurrentRunningTask == null ? -1 : MutexPopManager.this.mCurrentRunningTask.mPriority);
-                            Log.d(MutexPopManager.TAG, String.format("取出的priority是%d的任务！最终检查未通过", objArr));
-                            if (MutexPopManager.this.mQueue != null && MutexPopManager.this.mQueue.isEmpty()) {
-                                MutexPopManager.doNextTask();
-                                synchronized (this) {
-                                    try {
-                                        wait();
-                                    } catch (InterruptedException e3) {
-                                        e3.printStackTrace();
-                                    }
-                                }
+                            if (MutexPopManager.DEBUG) {
+                                Log.d(MutexPopManager.TAG, String.format("取出的priority是%d的任务！检查通过,开始显示！", Integer.valueOf(MutexPopManager.this.mCurrentRunningTask.mPriority)));
                             }
                         }
                     }
                     if (MutexPopManager.DEBUG) {
-                        Log.w(MutexPopManager.TAG, "循环任务线程死亡！");
+                        Log.w(MutexPopManager.TAG, "循环任务线程死亡！,释放mCurrentRunningTask 对象");
                     }
                     MutexPopManager.sInstance.mCurrentRunningTask = null;
                     boolean unused = MutexPopManager.isMutexRunning = false;
@@ -203,13 +207,15 @@ public class MutexPopManager {
     }
 
     public static void doNextTask(long j) {
-        d.b(j, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ekd()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(Long l) {
+        UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.android.ext.manage.MutexPopManager.2
+            @Override // java.lang.Runnable
+            public void run() {
+                if (MutexPopManager.DEBUG) {
+                    Log.w(MutexPopManager.TAG, "UiThreadUtil中执行了取下个任务操作。");
+                }
                 MutexPopManager.nextTask();
             }
-        });
+        }, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -229,48 +235,53 @@ public class MutexPopManager {
                 }
                 if (!isMutexRunning) {
                     if (DEBUG) {
-                        Log.i(TAG, "doNextTask()方法中isMutexRunning是false了。表明互斥时，截止目前只有一个互斥弹框，并且现已显示完!并未生成队列");
+                        Log.i(TAG, "doNextTask()方法中isMutexRunning是false了。表明互斥时，截止目前只有一个互斥弹框，并且现已显示完!并未生成队列,此时再将mCurrentRunningTask置空,防止内存泄漏");
                     }
+                    sInstance.mCurrentRunningTask = null;
                 } else if (sInstance.mQueue.isEmpty()) {
                     if (DEBUG) {
-                        Log.i(TAG, "doNextTask()方法中已经没有更多任务，此线程需要在10秒后结束自己!");
+                        Log.i(TAG, "doNextTask()方法中已经没有更多任务，此线程需要在" + sCloseThreadDelay + "ms后结束自己!");
                     }
-                    d.b(sCloseThreadDelay, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ekd()).c(new b<Long>() { // from class: com.baidu.android.ext.manage.MutexPopManager.3
-                        /* JADX DEBUG: Method merged with bridge method */
+                    UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.android.ext.manage.MutexPopManager.3
                         /* JADX WARN: Removed duplicated region for block: B:23:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-                        @Override // rx.functions.b
+                        @Override // java.lang.Runnable
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.
                         */
-                        public void call(Long l) {
+                        public void run() {
                             if (MutexPopManager.sInstance.mQueue == null || MutexPopManager.sInstance.mQueue.isEmpty()) {
                                 MutexPopManager unused = MutexPopManager.sInstance;
                                 if (MutexPopManager.isMutexRunning) {
                                     if (MutexPopManager.DEBUG) {
-                                        Log.i(MutexPopManager.TAG, "真的要关闭时，发现队列是为空的，所以要关闭线程啦！");
+                                        Log.i(MutexPopManager.TAG, "UiThreadUtil中真的要关闭时，发现队列是为空的，所以要关闭线程啦！");
                                     }
                                     MutexPopManager unused2 = MutexPopManager.sInstance;
                                     boolean unused3 = MutexPopManager.isMutexRunning = false;
                                     synchronized (MutexPopManager.sInstance.mRunnable) {
                                         MutexPopManager.sInstance.mCurrentRunningTask = null;
-                                        MutexPopManager.sInstance.mRunnable.notify();
+                                        MutexPopManager.sInstance.mRunnable.notifyAll();
                                     }
                                     return;
                                 }
                             }
                             if (MutexPopManager.DEBUG) {
-                                Log.i(MutexPopManager.TAG, "真的要关闭时的，才发现又加入了任务或线程已经关闭了，因此(不能/不用)关闭线程啦！");
+                                Log.i(MutexPopManager.TAG, "UiThreadUtil中真的要关闭时，才发现又加入了任务或线程已经关闭了，因此(不能/不用)关闭线程啦！");
                             }
                             synchronized (MutexPopManager.sInstance.mRunnable) {
                             }
                         }
-                    });
+                    }, sCloseThreadDelay);
                 } else {
                     synchronized (sInstance.mRunnable) {
-                        sInstance.mRunnable.notify();
+                        sInstance.mRunnable.notifyAll();
                     }
                 }
             }
         }
+    }
+
+    private static String getThreadInfo() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        return stackTrace[stackTrace.length < 5 ? stackTrace.length - 1 : 5].toString();
     }
 }

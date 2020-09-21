@@ -4,7 +4,7 @@ import io.reactivex.c.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableRetryPredicate<T> extends a<T, T> {
     final long count;
     final j<? super Throwable> predicate;
@@ -16,23 +16,23 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super T> cVar) {
+    public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.omT).subscribeNext();
+        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.owE).subscribeNext();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class RetrySubscriber<T> extends AtomicInteger implements io.reactivex.j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         final j<? super Throwable> predicate;
         long produced;
         long remaining;
         final SubscriptionArbiter sa;
-        final org.b.b<? extends T> source;
+        final org.a.b<? extends T> source;
 
-        RetrySubscriber(org.b.c<? super T> cVar, long j, j<? super Throwable> jVar, SubscriptionArbiter subscriptionArbiter, org.b.b<? extends T> bVar) {
+        RetrySubscriber(org.a.c<? super T> cVar, long j, j<? super Throwable> jVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
             this.actual = cVar;
             this.sa = subscriptionArbiter;
             this.source = bVar;
@@ -40,18 +40,18 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
             this.remaining = j;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             this.sa.setSubscription(dVar);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             this.produced++;
             this.actual.onNext(t);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             long j = this.remaining;
             if (j != Long.MAX_VALUE) {
@@ -73,7 +73,7 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.actual.onComplete();
         }

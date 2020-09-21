@@ -29,7 +29,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class Http2Codec implements HttpCodec {
     private final Interceptor.Chain chain;
     private final Http2Connection connection;
@@ -161,7 +161,7 @@ public final class Http2Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     class StreamFinishingSource extends ForwardingSource {
         long bytesRead;
         boolean completed;

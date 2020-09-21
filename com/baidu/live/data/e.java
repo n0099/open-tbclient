@@ -1,70 +1,106 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.db.TableDefine;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class e {
-    public String aDa;
-    public List<a> aDb = new ArrayList();
-    public boolean aDc;
-    public String mName;
+import com.baidu.live.adp.BdUniqueId;
+/* loaded from: classes4.dex */
+public class e implements Cloneable {
+    private String from;
+    private String mInLive;
+    private boolean mIsAttention;
+    private BdUniqueId mPageId;
+    private String mPortrait;
+    private String mUserId;
+    private String metaKey;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public String aDd;
-        public int aDe;
-        public String ip;
-        public String status;
+    public e() {
+        this.mInLive = "0";
+        this.from = "";
     }
 
-    private int fM(String str) {
-        if (str == null || str.length() == 0) {
-            return 0;
-        }
-        if (str.contains("联通")) {
-            return 1;
-        }
-        if (str.contains("移动")) {
-            return 2;
-        }
-        return str.contains("电信") ? 3 : 0;
+    public e(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
+        this(str, str2, "0", z, bdUniqueId);
     }
 
-    public void fN(String str) {
+    public e(String str, String str2, String str3, boolean z, BdUniqueId bdUniqueId) {
+        this.mInLive = "0";
+        this.from = "";
+        this.mPortrait = str;
+        this.mUserId = str2;
+        this.mIsAttention = z;
+        this.mInLive = str3;
+        this.mPageId = bdUniqueId;
+    }
+
+    public e(String str, String str2, String str3, String str4, boolean z, BdUniqueId bdUniqueId) {
+        this.mInLive = "0";
+        this.from = "";
+        this.mPortrait = str;
+        this.mUserId = str2;
+        this.metaKey = str3;
+        this.mIsAttention = z;
+        this.mInLive = str4;
+        this.mPageId = bdUniqueId;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: CG */
+    public e clone() {
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.aDc = jSONObject.optInt("switch", 1) == 1;
-            this.mName = jSONObject.optString("name");
-            this.aDa = jSONObject.optString("rname");
-            JSONArray optJSONArray = jSONObject.optJSONArray("ipInfo");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        a aVar = new a();
-                        aVar.aDd = jSONObject2.optString("idc");
-                        aVar.ip = jSONObject2.optString(TableDefine.UserInfoColumns.COLUMN_IP);
-                        aVar.aDe = fM(jSONObject2.optString("isp"));
-                        aVar.status = jSONObject2.optString("status");
-                        this.aDb.add(aVar);
-                    }
-                }
-            }
-        } catch (Exception e) {
+            return (e) super.clone();
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
-    public String toString() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format("mName:%s, mRanme:%s mIpList.size():%d\n", this.mName, this.aDa, Integer.valueOf(this.aDb.size())));
-        for (int i = 0; i < this.aDb.size(); i++) {
-            a aVar = this.aDb.get(i);
-            stringBuffer.append(String.format("ip:%s isp:%d status:%s idc:%s\n", aVar.ip, Integer.valueOf(aVar.aDe), aVar.status, aVar.aDd));
-        }
-        return stringBuffer.toString();
+    public String getPortrait() {
+        return this.mPortrait;
+    }
+
+    public void setPortrait(String str) {
+        this.mPortrait = str;
+    }
+
+    public String getUserId() {
+        return this.mUserId;
+    }
+
+    public void setUserId(String str) {
+        this.mUserId = str;
+    }
+
+    public boolean isAttention() {
+        return this.mIsAttention;
+    }
+
+    public void setIsAttention(boolean z) {
+        this.mIsAttention = z;
+    }
+
+    public String getInLive() {
+        return this.mInLive;
+    }
+
+    public void setInLive(String str) {
+        this.mInLive = str;
+    }
+
+    public BdUniqueId CH() {
+        return this.mPageId;
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.mPageId = bdUniqueId;
+    }
+
+    public void setFrom(String str) {
+        this.from = str;
+    }
+
+    public String getFrom() {
+        return this.from;
+    }
+
+    public String CI() {
+        return this.metaKey;
     }
 }

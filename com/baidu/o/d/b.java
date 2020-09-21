@@ -7,112 +7,112 @@ import android.view.ViewGroup;
 import com.baidu.rtc.RtcConfig;
 import com.baidu.swan.apps.ap.c;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private String dNb;
-    private com.baidu.o.b dNl;
+    private String dPe;
+    private com.baidu.o.b dPo;
 
     private b() {
-        this.dNl = null;
-        this.dNb = "";
+        this.dPo = null;
+        this.dPe = "";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     private static class a {
-        private static final b dNm = new b();
+        private static final b dPp = new b();
     }
 
-    public static b aXM() {
-        return a.dNm;
+    public static b aYy() {
+        return a.dPp;
     }
 
     public void a(Context context, RtcConfig rtcConfig, String str, String str2) {
-        if (this.dNl != null) {
-            this.dNl.stop();
-            this.dNl = null;
+        if (this.dPo != null) {
+            this.dPo.stop();
+            this.dPo = null;
         }
         if (context != null && rtcConfig != null && str != null && str2 != null) {
-            this.dNb = str;
-            this.dNl = new com.baidu.o.b(context, rtcConfig, str, str2);
+            this.dPe = str;
+            this.dPo = new com.baidu.o.b(context, rtcConfig, str, str2);
         }
     }
 
-    public void xF(String str) {
-        if (this.dNb.equals(str) && this.dNl != null) {
-            this.dNl.stop();
-            this.dNl = null;
+    public void xY(String str) {
+        if (this.dPe.equals(str) && this.dPo != null) {
+            this.dPo.stop();
+            this.dPo = null;
         }
     }
 
-    public boolean xG(String str) {
-        return (this.dNb == null || str == null || !this.dNb.equals(str)) ? false : true;
+    public boolean xZ(String str) {
+        return (this.dPe == null || str == null || !this.dPe.equals(str)) ? false : true;
     }
 
-    public void bq(String str) {
-        if (this.dNl != null) {
-            this.dNl.bq(str);
+    public void bs(String str) {
+        if (this.dPo != null) {
+            this.dPo.bs(str);
         }
     }
 
     public void stop() {
-        if (this.dNl.getPlayerView() != null && this.dNl.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.dNl.getPlayerView().getParent()).removeView(this.dNl.getPlayerView());
+        if (this.dPo.getPlayerView() != null && this.dPo.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.dPo.getPlayerView().getParent()).removeView(this.dPo.getPlayerView());
         }
-        if (this.dNl != null) {
-            this.dNl.stop();
+        if (this.dPo != null) {
+            this.dPo.stop();
         }
     }
 
     public void mute() {
-        if (this.dNl != null) {
-            this.dNl.mute();
+        if (this.dPo != null) {
+            this.dPo.mute();
         }
     }
 
     public void unMute() {
-        if (this.dNl != null) {
-            this.dNl.unMute();
+        if (this.dPo != null) {
+            this.dPo.unMute();
         }
     }
 
     public void switchCamera() {
-        if (this.dNl != null) {
-            this.dNl.switchCamera();
+        if (this.dPo != null) {
+            this.dPo.switchCamera();
         }
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.dNl != null) {
-            return this.dNl.updateRTCConfig(rtcConfig);
+        if (this.dPo != null) {
+            return this.dPo.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.dNl != null) {
-            this.dNl.resetPreview();
+        if (this.dPo != null) {
+            this.dPo.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.dNl != null) {
-            return this.dNl.getRecorderView();
+        if (this.dPo != null) {
+            return this.dPo.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.dNl != null) {
-            return this.dNl.getPlayerView();
+        if (this.dPo != null) {
+            return this.dPo.getPlayerView();
         }
         return null;
     }
 
-    public static boolean bE(Context context) {
+    public static boolean bD(Context context) {
         return !c.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 
-    public static boolean bD(Context context) {
+    public static boolean bC(Context context) {
         return !c.hasMarshMallow() || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 }

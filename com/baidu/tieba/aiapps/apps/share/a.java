@@ -6,10 +6,10 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class a extends ShareItem {
-    public void de(JSONObject jSONObject) throws JSONException {
-        this.eEM = true;
+    public void dh(JSONObject jSONObject) throws JSONException {
+        this.eGS = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.eEN = optJSONObject.optString("source2");
-            this.eEP = optJSONObject.optString("source3");
+            this.eGT = optJSONObject.optString("source2");
+            this.eGV = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.eEO = 2;
-            this.eET = optJSONObject2.optJSONArray("cmd_pannel");
-            this.eEU = optJSONObject2.optJSONObject("info");
-            if (this.eEU != null) {
-                this.eER = this.eEU.optString("key");
-                this.eES = this.eEU.optString("content");
+            this.eGU = 2;
+            this.eGZ = optJSONObject2.optJSONArray("cmd_pannel");
+            this.eHa = optJSONObject2.optJSONObject("info");
+            if (this.eHa != null) {
+                this.eGX = this.eHa.optString("key");
+                this.eGY = this.eHa.optString("content");
                 return;
             }
             return;
         }
-        this.eEO = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.eGU = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bDf() {
-        return this.eET;
+    public JSONArray bEr() {
+        return this.eGZ;
     }
 
-    public String bDg() {
-        return this.eER;
+    public String bEs() {
+        return this.eGX;
     }
 
-    public String bDh() {
-        return this.eES;
+    public String bEt() {
+        return this.eGY;
     }
 
     public String getMediaType() {

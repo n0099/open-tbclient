@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public abstract class FragmentHostCallback<E> extends FragmentContainer {
     private final Activity mActivity;
     final Context mContext;

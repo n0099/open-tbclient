@@ -3,12 +3,12 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.text.SimpleDateFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class cg {
 
     /* renamed from: a  reason: collision with other field name */
-    private static SimpleDateFormat f163a = new SimpleDateFormat("yyyy/MM/dd");
-    private static String a = f163a.format(Long.valueOf(System.currentTimeMillis()));
+    private static SimpleDateFormat f162a = new SimpleDateFormat("yyyy/MM/dd");
+    private static String a = f162a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hq a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {

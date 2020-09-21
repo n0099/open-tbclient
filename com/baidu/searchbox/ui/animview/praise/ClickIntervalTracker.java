@@ -2,7 +2,7 @@ package com.baidu.searchbox.ui.animview.praise;
 
 import android.util.Log;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ClickIntervalTracker {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String TAG = "ClickIntervalTracker";
@@ -11,7 +11,7 @@ public class ClickIntervalTracker {
     private long mLastIntervalTimeMs = 2147483647L;
     private long mTotalClickCounts;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public enum SpeedLevel {
         V0(-1, "NONE"),
         V1(1000, "V1"),
@@ -36,7 +36,7 @@ public class ClickIntervalTracker {
         }
 
         public static SpeedLevel instantiate(long j, long j2) {
-            if (j2 == 10 || j2 == 100 || j2 == 500 || j2 == 1000 || j2 == 1500) {
+            if (j2 == 1 || j2 % 10 == 0) {
                 return V3;
             }
             if (j < V2.getInterval()) {

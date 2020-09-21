@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.a;
 
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class l {
     public final int a;
     public final byte[] b;

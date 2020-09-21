@@ -17,7 +17,7 @@ import io.flutter.view.VsyncWaiter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class FlutterLoader {
     private static final String DEFAULT_AOT_SHARED_LIBRARY_NAME = "libapp.so";
     private static final String DEFAULT_FLUTTER_ASSETS_DIR = "flutter_assets";
@@ -179,7 +179,7 @@ public class FlutterLoader {
         return this.flutterAssetsDir + File.separator + str;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static class Settings {
         private String logTag;
 

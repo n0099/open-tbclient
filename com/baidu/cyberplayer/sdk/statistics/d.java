@@ -15,7 +15,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class d {
     private String a = null;
     private String b = null;

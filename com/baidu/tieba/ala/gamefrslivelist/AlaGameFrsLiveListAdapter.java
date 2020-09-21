@@ -12,7 +12,7 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public void bL(List<Fragment> list) {
+    public void bQ(List<Fragment> list) {
         this.list = list;
     }
 

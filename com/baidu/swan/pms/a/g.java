@@ -8,41 +8,41 @@ import com.baidu.swan.pms.model.i;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> aiB() {
+    public c<com.baidu.swan.pms.model.f> ajl() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> aiy() {
+    public c<com.baidu.swan.pms.model.g> aji() {
         return null;
     }
 
-    public c<i> alS() {
+    public c<i> amC() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> aiC() {
+    public c<com.baidu.swan.pms.model.d> ajm() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> aiD() {
+    public c<com.baidu.swan.pms.model.b> ajn() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> awD() {
+    public c<com.baidu.swan.pms.model.h> axm() {
         return null;
     }
 
-    public a<a.C0520a> aix() {
+    public a<a.C0515a> ajh() {
         return null;
     }
 
-    public f aiE() {
+    public f ajo() {
         return null;
     }
 
-    public com.baidu.swan.pms.node.d.c mt(String str) {
+    public com.baidu.swan.pms.node.d.c mM(String str) {
         return null;
     }
 
@@ -57,26 +57,26 @@ public abstract class g implements d {
         return bundle2;
     }
 
-    public void afD() {
+    public void agn() {
     }
 
     public void M(String str, int i) {
     }
 
-    public void aiw() {
+    public void ajg() {
     }
 
     public void b(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void afB() {
+    public void agl() {
     }
 
     public void a(com.baidu.swan.pms.utils.f fVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void air() {
+    public void ajb() {
     }
 
     @Override // com.baidu.swan.pms.a.d
@@ -86,15 +86,15 @@ public abstract class g implements d {
     public void b(String str, String str2, JSONObject jSONObject) {
     }
 
-    public Map<String, String> aTq() {
+    public Map<String, String> aUc() {
         return null;
     }
 
-    public Map<String, String> aTr() {
+    public Map<String, String> aUd() {
         return null;
     }
 
-    public Map<String, String> aTs() {
+    public Map<String, String> aUe() {
         return null;
     }
 }

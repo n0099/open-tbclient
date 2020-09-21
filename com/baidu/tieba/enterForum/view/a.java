@@ -18,48 +18,47 @@ import android.widget.TextView;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.util.k;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.data.h;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a extends PopupWindow {
-    private ViewGroup bqi;
-    private View.OnClickListener frt;
-    private InterfaceC0671a hCC;
-    private View hCD;
-    private TextView hCE;
-    private TextView hCF;
+    private ViewGroup bts;
+    private View.OnClickListener fuF;
+    private InterfaceC0668a hJE;
+    private View hJF;
+    private TextView hJG;
+    private TextView hJH;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
     private int mStatusBarHeight;
 
     /* renamed from: com.baidu.tieba.enterForum.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public interface InterfaceC0671a {
+    /* loaded from: classes21.dex */
+    public interface InterfaceC0668a {
         void onItemClick(int i);
     }
 
     public a(Context context) {
         super(context);
-        this.frt = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.fuF = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.hCE) {
-                    if (a.this.hCC != null) {
-                        a.this.hCC.onItemClick(1);
+                if (view == a.this.hJG) {
+                    if (a.this.hJE != null) {
+                        a.this.hJE.onItemClick(1);
                     }
-                } else if (view == a.this.hCF && a.this.hCC != null) {
-                    a.this.hCC.onItemClick(2);
+                } else if (view == a.this.hJH && a.this.hJE != null) {
+                    a.this.hJE.onItemClick(2);
                 }
-                a.this.Pb();
+                a.this.PE();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Pb();
+                a.this.PE();
             }
         };
         this.mContext = context;
@@ -72,58 +71,58 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View cgR() {
-        cgS();
+    private View ckg() {
+        ckh();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.bqi = frameLayout2;
+        this.bts = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.hCD);
-        this.bqi.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.hJF);
+        this.bts.setOnClickListener(this.mOnClickListener);
         ap.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.e.a.bjP().ou(R.color.cp_btn_a).op(l.getDimens(this.mContext, R.dimen.tbds10)).oq(R.color.cp_shadow_a_alpha16).or(l.getDimens(this.mContext, R.dimen.tbds21)).os(0).ot(l.getDimens(this.mContext, R.dimen.tbds5)).aZ(this.hCD);
+        com.baidu.tbadk.core.util.e.a.bkK().oG(R.color.cp_btn_a).oB(l.getDimens(this.mContext, R.dimen.tbds10)).oC(R.color.cp_shadow_a_alpha16).oD(l.getDimens(this.mContext, R.dimen.tbds21)).oE(0).oF(l.getDimens(this.mContext, R.dimen.tbds5)).bb(this.hJF);
         return frameLayout;
     }
 
-    private void cgS() {
-        this.hCD = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
-        this.hCE = (TextView) this.hCD.findViewById(R.id.sort_type_level_text);
-        this.mLine = this.hCD.findViewById(R.id.sort_select_line);
-        this.hCF = (TextView) this.hCD.findViewById(R.id.sort_type_update_text);
-        this.hCE.setOnClickListener(this.frt);
-        this.hCF.setOnClickListener(this.frt);
+    private void ckh() {
+        this.hJF = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+        this.hJG = (TextView) this.hJF.findViewById(R.id.sort_type_level_text);
+        this.mLine = this.hJF.findViewById(R.id.sort_select_line);
+        this.hJH = (TextView) this.hJF.findViewById(R.id.sort_type_update_text);
+        this.hJG.setOnClickListener(this.fuF);
+        this.hJH.setOnClickListener(this.fuF);
     }
 
     public void setData(List<h> list, int i) {
         if (list != null) {
-            View cgR = cgR();
+            View ckg = ckg();
             for (h hVar : list) {
                 if (hVar.sortType == 1) {
-                    this.hCE.setText(hVar.huw);
+                    this.hJG.setText(hVar.hBB);
                 } else {
-                    this.hCF.setText(hVar.huw);
+                    this.hJH.setText(hVar.hBB);
                 }
                 if (i == 1) {
-                    ap.setViewTextColor(this.hCE, R.color.cp_link_tip_a);
-                    ap.setViewTextColor(this.hCF, R.color.cp_cont_j);
+                    ap.setViewTextColor(this.hJG, R.color.cp_link_tip_a);
+                    ap.setViewTextColor(this.hJH, R.color.cp_cont_j);
                 } else {
-                    ap.setViewTextColor(this.hCF, R.color.cp_link_tip_a);
-                    ap.setViewTextColor(this.hCE, R.color.cp_cont_j);
+                    ap.setViewTextColor(this.hJH, R.color.cp_link_tip_a);
+                    ap.setViewTextColor(this.hJG, R.color.cp_cont_j);
                 }
             }
-            setContentView(cgR);
+            setContentView(ckg);
         }
     }
 
-    public void a(InterfaceC0671a interfaceC0671a) {
-        this.hCC = interfaceC0671a;
+    public void a(InterfaceC0668a interfaceC0668a) {
+        this.hJE = interfaceC0668a;
     }
 
     public void O(View view) {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
-                    Pd();
+                    PG();
                     return;
                 }
                 return;
@@ -131,42 +130,42 @@ public class a extends PopupWindow {
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
-                Pd();
+                PG();
             }
         }
     }
 
-    public void wm(int i) {
+    public void wL(int i) {
         this.mStatusBarHeight = i;
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        Pb();
+        PE();
     }
 
-    public void Pb() {
-        Pe();
+    public void PE() {
+        PH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pc() {
+    public void PF() {
         super.dismiss();
     }
 
-    private void Pd() {
+    private void PG() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.hCD.startAnimation(translateAnimation);
-        this.bqi.startAnimation(alphaAnimation);
+        this.hJF.startAnimation(translateAnimation);
+        this.bts.startAnimation(alphaAnimation);
     }
 
-    private void Pe() {
-        if (!k.isFastDoubleClick()) {
+    private void PH() {
+        if (!com.baidu.tbadk.util.l.isFastDoubleClick()) {
             TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
             translateAnimation.setDuration(350L);
             translateAnimation.setFillAfter(true);
@@ -185,18 +184,18 @@ public class a extends PopupWindow {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.Pc();
+                    a.this.PF();
                 }
             });
-            this.hCD.startAnimation(translateAnimation);
-            this.bqi.startAnimation(alphaAnimation);
+            this.hJF.startAnimation(translateAnimation);
+            this.bts.startAnimation(alphaAnimation);
         }
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        ap.setViewTextColor(this.hCE, R.color.cp_link_tip_a);
-        ap.setViewTextColor(this.hCF, R.color.cp_cont_j);
-        com.baidu.tbadk.core.util.e.a.bjP().ou(R.color.cp_btn_a).op(l.getDimens(this.mContext, R.dimen.tbds10)).oq(R.color.cp_shadow_a_alpha16).or(l.getDimens(this.mContext, R.dimen.tbds21)).os(0).ot(l.getDimens(this.mContext, R.dimen.tbds5)).aZ(this.hCD);
+        ap.setViewTextColor(this.hJG, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.hJH, R.color.cp_cont_j);
+        com.baidu.tbadk.core.util.e.a.bkK().oG(R.color.cp_btn_a).oB(l.getDimens(this.mContext, R.dimen.tbds10)).oC(R.color.cp_shadow_a_alpha16).oD(l.getDimens(this.mContext, R.dimen.tbds21)).oE(0).oF(l.getDimens(this.mContext, R.dimen.tbds5)).bb(this.hJF);
     }
 }

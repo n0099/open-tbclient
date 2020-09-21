@@ -4,7 +4,7 @@ import java.io.Serializable;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class Result<T> implements Serializable {
     public static final a Companion = new a(null);
     private final Object value;
@@ -97,7 +97,7 @@ public final class Result<T> implements Serializable {
     }
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -108,7 +108,7 @@ public final class Result<T> implements Serializable {
     }
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class Failure implements Serializable {
         public final Throwable exception;
 

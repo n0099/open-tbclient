@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private InterfaceC0538b efl;
+    private InterfaceC0533b ehA;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -49,7 +49,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0538b {
+    public interface InterfaceC0533b {
         void a(b bVar, int i, View view);
     }
 
@@ -66,38 +66,38 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b zB(String str) {
+    public b zW(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b nx(int i) {
-        return zB(this.mActivity.getResources().getString(i));
+    public b nJ(int i) {
+        return zW(this.mActivity.getResources().getString(i));
     }
 
-    public b a(CharSequence[] charSequenceArr, InterfaceC0538b interfaceC0538b) {
+    public b a(CharSequence[] charSequenceArr, InterfaceC0533b interfaceC0533b) {
         if (charSequenceArr != null && charSequenceArr.length > 0) {
-            return a(Arrays.asList(charSequenceArr), interfaceC0538b);
+            return a(Arrays.asList(charSequenceArr), interfaceC0533b);
         }
         return this;
     }
 
-    public b a(List<CharSequence> list, InterfaceC0538b interfaceC0538b) {
+    public b a(List<CharSequence> list, InterfaceC0533b interfaceC0533b) {
         if (list != null && list.size() > 0) {
             this.mItems = list;
-            if (interfaceC0538b != null) {
-                this.efl = interfaceC0538b;
+            if (interfaceC0533b != null) {
+                this.ehA = interfaceC0533b;
             }
         }
         return this;
     }
 
-    public b ny(int i) {
+    public b nK(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b nz(int i) {
+    public b nL(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -125,7 +125,7 @@ public class b {
         return this;
     }
 
-    public b bhi() {
+    public b bic() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -198,11 +198,11 @@ public class b {
         } else {
             ap.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.efl != null) {
+        if (this.ehA != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.efl.a(b.this, i, textView);
+                    b.this.ehA.a(b.this, i, textView);
                 }
             });
         }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.live;
 
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
     public AlaLiveInfoCoreData infoCoreData;
     public AlaLiveInfoListCoreData listCoreData;
@@ -63,8 +63,8 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         alaLiveInfoCoreData.userName = jSONObject.optString("user_name");
         alaLiveInfoCoreData.groupID = jSONObject.optLong("group_id");
         alaLiveInfoCoreData.sessionID = jSONObject.optString("session_id");
-        alaLiveInfoCoreData.liveType = jSONObject.optInt("live_type");
-        alaLiveInfoCoreData.screenDirection = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
+        alaLiveInfoCoreData.liveType = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE);
+        alaLiveInfoCoreData.screenDirection = jSONObject.optInt("screen_direction");
         alaLiveInfoCoreData.liveTitle = jSONObject.optString("description");
         alaLiveInfoCoreData.liveCover = jSONObject.optString("cover");
         JSONObject optJSONObject = jSONObject.optJSONObject("session_info_backup");

@@ -1,40 +1,31 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class p {
-    private o eAq;
-    private int mErrorCode;
-    private String mErrorString;
-    private boolean mIsSuccess;
+    private int mChunkNo;
+    private String mMd5;
+    private long mTotalLength;
 
-    public o bmL() {
-        return this.eAq;
+    public String getMd5() {
+        return this.mMd5;
     }
 
-    public void b(o oVar) {
-        this.eAq = oVar;
+    public void setMd5(String str) {
+        this.mMd5 = str;
     }
 
-    public boolean isSuccess() {
-        return this.mIsSuccess;
+    public long getTotalLength() {
+        return this.mTotalLength;
     }
 
-    public void setIsSuccess(boolean z) {
-        this.mIsSuccess = z;
+    public void setTotalLength(long j) {
+        this.mTotalLength = j;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
+    public int getChunkNo() {
+        return this.mChunkNo;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public void setChunkNo(int i) {
+        this.mChunkNo = i;
     }
 }

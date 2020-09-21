@@ -3,8 +3,8 @@ package com.baidu.platform.comapi.map.b;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.b.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
-public class c implements a.InterfaceC0243a {
+/* loaded from: classes3.dex */
+public class c implements a.InterfaceC0241a {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class c implements a.InterfaceC0243a {
         this.a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.map.b.a.a.InterfaceC0243a
+    @Override // com.baidu.platform.comapi.map.b.a.a.InterfaceC0241a
     public boolean a(com.baidu.platform.comapi.map.b.a.a aVar) {
         MapController mapController;
         MapController mapController2;

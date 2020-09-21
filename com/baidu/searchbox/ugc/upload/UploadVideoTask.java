@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.codec.digest4util.MD5Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class UploadVideoTask extends UploadFileTask {
     private static final String AUDIO_MIME = "audio/mp4a-latm";
     private static final String CONTENT_TYPE = "video/mp4";

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder {
     private final int minFragmentDurationSeconds;
     private Movie movie;
@@ -215,7 +215,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         return j;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class CacheTuple {
         Movie movie;
         Track track;

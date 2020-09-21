@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.bw;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public interface az {
-    void al(bw bwVar);
+    void am(bw bwVar);
 }

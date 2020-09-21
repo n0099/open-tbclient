@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static b a;
     private Context f;
@@ -79,7 +79,7 @@ public class b {
     private ExecutorService d = Executors.newSingleThreadExecutor();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public class a {
         private int b;
         private CyberPlayerManager.InstallListener c;

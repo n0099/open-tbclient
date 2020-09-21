@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.os.SystemClock;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class ConsumeTimeUtils {
     String mTAG = "ConsumeTime";
     TimeResult mTimeResult;
@@ -27,7 +27,7 @@ public class ConsumeTimeUtils {
         this.prefix = str;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public final class TimeResult {
         long startTime = 0;
         long endTime = 0;

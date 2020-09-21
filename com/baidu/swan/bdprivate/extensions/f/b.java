@@ -1,15 +1,15 @@
 package com.baidu.swan.bdprivate.extensions.f;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class b {
-    private static volatile a dgV;
+    private static volatile a diY;
 
-    public static synchronized a aGS() {
+    public static synchronized a aHC() {
         a aVar;
         synchronized (b.class) {
-            if (dgV == null) {
-                dgV = new a();
+            if (diY == null) {
+                diY = new a();
             }
-            aVar = dgV;
+            aVar = diY;
         }
         return aVar;
     }

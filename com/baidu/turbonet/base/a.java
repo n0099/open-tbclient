@@ -2,19 +2,19 @@ package com.baidu.turbonet.base;
 
 import android.util.Log;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class a {
     private a() {
     }
 
-    private static String j(String str, Object... objArr) {
+    private static String g(String str, Object... objArr) {
         if (objArr != null && objArr.length != 0) {
             return String.format(Locale.US, str, objArr);
         }
         return str;
     }
 
-    public static String Te(String str) {
+    public static String TD(String str) {
         if (!str.startsWith("cr_")) {
             int i = 0;
             if (str.startsWith("cr.")) {
@@ -25,17 +25,17 @@ public class a {
         return str;
     }
 
-    private static String k(String str, Object... objArr) {
-        return "[" + dJX() + "] " + j(str, objArr);
+    private static String h(String str, Object... objArr) {
+        return "[" + dNV() + "] " + g(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
-        String k = k(str2, objArr);
+        String h = h(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.d(Te(str), k, L);
+            Log.d(TD(str), h, L);
         } else {
-            Log.d(Te(str), k);
+            Log.d(TD(str), h);
         }
     }
 
@@ -44,22 +44,22 @@ public class a {
     }
 
     public static void f(String str, String str2, Object... objArr) {
-        String j = j(str2, objArr);
+        String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.i(Te(str), j, L);
+            Log.i(TD(str), g, L);
         } else {
-            Log.i(Te(str), j);
+            Log.i(TD(str), g);
         }
     }
 
     public static void g(String str, String str2, Object... objArr) {
-        String j = j(str2, objArr);
+        String g = g(str2, objArr);
         Throwable L = L(objArr);
         if (L != null) {
-            Log.e(Te(str), j, L);
+            Log.e(TD(str), g, L);
         } else {
-            Log.e(Te(str), j);
+            Log.e(TD(str), g);
         }
     }
 
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String dJX() {
+    private static String dNV() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

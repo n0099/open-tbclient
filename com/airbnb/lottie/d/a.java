@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends ValueAnimator {
     private final Set<ValueAnimator.AnimatorUpdateListener> GJ = new CopyOnWriteArraySet();
     private final Set<Animator.AnimatorListener> GK = new CopyOnWriteArraySet();
@@ -63,7 +63,7 @@ public abstract class a extends ValueAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aa(boolean z) {
+    public void Z(boolean z) {
         for (Animator.AnimatorListener animatorListener : this.GK) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationStart(this, z);
@@ -74,14 +74,14 @@ public abstract class a extends ValueAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kQ() {
+    public void kR() {
         for (Animator.AnimatorListener animatorListener : this.GK) {
             animatorListener.onAnimationRepeat(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ab(boolean z) {
+    public void aa(boolean z) {
         for (Animator.AnimatorListener animatorListener : this.GK) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationEnd(this, z);
@@ -92,14 +92,14 @@ public abstract class a extends ValueAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kR() {
+    public void kS() {
         for (Animator.AnimatorListener animatorListener : this.GK) {
             animatorListener.onAnimationCancel(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kS() {
+    public void kT() {
         for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.GJ) {
             animatorUpdateListener.onAnimationUpdate(this);
         }

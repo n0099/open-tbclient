@@ -9,14 +9,14 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class fa {
     private static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hw> f311a = null;
+    private static Map<String, hw> f310a = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void uploader(Context context, hq hqVar);
     }
@@ -105,17 +105,17 @@ public class fa {
     /* renamed from: a  reason: collision with other method in class */
     public static hw m270a(String str) {
         hw[] values;
-        if (f311a == null) {
+        if (f310a == null) {
             synchronized (hw.class) {
-                if (f311a == null) {
-                    f311a = new HashMap();
+                if (f310a == null) {
+                    f310a = new HashMap();
                     for (hw hwVar : hw.values()) {
-                        f311a.put(hwVar.f477a.toLowerCase(), hwVar);
+                        f310a.put(hwVar.f476a.toLowerCase(), hwVar);
                     }
                 }
             }
         }
-        hw hwVar2 = f311a.get(str.toLowerCase());
+        hw hwVar2 = f310a.get(str.toLowerCase());
         return hwVar2 != null ? hwVar2 : hw.Invalid;
     }
 

@@ -6,7 +6,7 @@ import com.xiaomi.push.bj;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public String clientInterfaceId;
     private String pkgName;

@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public interface af<FETCH_STATE extends t> {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         void E(Throwable th);
 
-        void dOD();
+        void dSB();
 
         void f(InputStream inputStream, int i) throws IOException;
     }

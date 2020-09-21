@@ -2,21 +2,22 @@ package com.baidu.mobads;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BaiduNativeH5AdView extends RelativeLayout {
-    IOAdEventListener bDa;
-    private BaiduNativeAdPlacement bDk;
-    private com.baidu.mobads.production.c.a bDl;
-    private BaiduNativeH5EventListner bDm;
-    private RequestParameters bDn;
+    IOAdEventListener a;
+    private BaiduNativeAdPlacement b;
+    private com.baidu.mobads.production.c.a c;
+    private BaiduNativeH5EventListner d;
+    private RequestParameters e;
     private boolean f;
     private boolean g;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface BaiduNativeH5EventListner {
         void onAdClick();
 
@@ -42,32 +43,50 @@ public class BaiduNativeH5AdView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduNativeH5AdView(Context context, int i) {
         super(context);
-        this.bDm = null;
+        this.d = null;
         this.f = false;
         this.g = false;
-        this.bDa = new h(this);
+        this.a = new h(this);
         a(context, i);
     }
 
+    protected BaiduNativeH5AdView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.d = null;
+        this.f = false;
+        this.g = false;
+        this.a = new h(this);
+        a(context, 0);
+    }
+
+    protected BaiduNativeH5AdView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.d = null;
+        this.f = false;
+        this.g = false;
+        this.a = new h(this);
+        a(context, 0);
+    }
+
     public BaiduNativeAdPlacement getAdPlacement() {
-        return this.bDk;
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setAdPlacement(BaiduNativeAdPlacement baiduNativeAdPlacement) {
-        this.bDk = baiduNativeAdPlacement;
+        this.b = baiduNativeAdPlacement;
     }
 
     public void makeRequest(RequestParameters requestParameters) {
-        if (this.bDk != null) {
-            if (this.bDk.hasValidResponse()) {
+        if (this.b != null) {
+            if (this.b.hasValidResponse()) {
                 if (this.f) {
                     return;
                 }
             } else {
                 this.f = false;
-                if (!this.bDk.Tn()) {
-                    this.bDk.dc(true);
+                if (!this.b.getRequestStarted()) {
+                    this.b.setRequestStarted(true);
                 } else {
                     return;
                 }
@@ -76,46 +95,46 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         if (requestParameters == null) {
             requestParameters = new RequestParameters.Builder().build();
         }
-        this.bDn = requestParameters;
-        if (this.bDl != null) {
+        this.e = requestParameters;
+        if (this.c != null) {
             b();
         }
-        this.bDl = new com.baidu.mobads.production.c.a(getContext(), this);
-        this.bDl.a(requestParameters);
-        this.bDl.addEventListener(IXAdEvent.AD_ERROR, this.bDa);
-        this.bDl.addEventListener(IXAdEvent.AD_STARTED, this.bDa);
-        this.bDl.addEventListener("AdUserClick", this.bDa);
-        this.bDl.addEventListener(IXAdEvent.AD_IMPRESSION, this.bDa);
-        this.bDl.addEventListener("AdLoadData", this.bDa);
-        if (this.bDk != null && this.bDk.Tp() != null) {
-            this.bDl.setAdResponseInfo(this.bDk.Tp());
+        this.c = new com.baidu.mobads.production.c.a(getContext(), this);
+        this.c.a(requestParameters);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.a);
+        this.c.addEventListener("AdUserClick", this.a);
+        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.a);
+        this.c.addEventListener("AdLoadData", this.a);
+        if (this.b != null && this.b.getAdResponse() != null) {
+            this.c.setAdResponseInfo(this.b.getAdResponse());
         }
-        this.bDl.b(this.bDk.Ts());
-        this.bDl.c(this.bDk.Tt());
-        this.bDl.d(this.bDk.getSequenceId());
-        this.bDl.request();
+        this.c.b(this.b.getSessionId());
+        this.c.c(this.b.getPosistionId());
+        this.c.d(this.b.getSequenceId());
+        this.c.request();
     }
 
     public void recordImpression() {
-        if (this.bDk != null && this.bDk.Tp() != null && !this.bDk.Tr()) {
-            this.bDl.a(this, this.bDk.Tp().getPrimaryAdInstanceInfo(), this.bDn);
+        if (this.b != null && this.b.getAdResponse() != null && !this.b.isWinSended()) {
+            this.c.a(this, this.b.getAdResponse().getPrimaryAdInstanceInfo(), this.e);
         }
     }
 
     private void a() {
-        if (this.bDl != null) {
-            this.bDl.q();
+        if (this.c != null) {
+            this.c.q();
         }
     }
 
     private void b() {
         a();
-        if (this.bDl != null) {
-            this.bDl.p();
+        if (this.c != null) {
+            this.c.p();
         }
     }
 
     public void setEventListener(BaiduNativeH5EventListner baiduNativeH5EventListner) {
-        this.bDm = baiduNativeH5EventListner;
+        this.d = baiduNativeH5EventListner;
     }
 }

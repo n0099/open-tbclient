@@ -92,12 +92,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -106,7 +106,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -656,7 +656,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class c {
         public final String a;
         public final int b;
@@ -703,7 +703,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class a extends SSLSocketFactory {
         private final SSLContext a;
 
@@ -730,7 +730,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class b implements X509TrustManager {
         X509TrustManager a;
 

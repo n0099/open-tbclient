@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ALAImMsgMoreChatView extends LinearLayout {
     public ALAImMsgMoreChatView(Context context) {
         super(context);

@@ -34,20 +34,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 public final class l extends k implements com.baidu.swan.support.v4.c.e {
     static final Interpolator ACCELERATE_CUBIC;
     static final Interpolator ACCELERATE_QUINT;
     static boolean DEBUG = false;
     static final Interpolator DECELERATE_CUBIC;
     static final Interpolator DECELERATE_QUINT;
-    static final boolean dHT;
-    j dHE;
-    Runnable[] dHU;
-    ArrayList<Fragment> dHV;
-    ArrayList<Integer> dHW;
-    h dHX;
-    Fragment dHY;
+    static final boolean dJX;
+    j dJI;
+    Runnable[] dJY;
+    ArrayList<Fragment> dJZ;
+    ArrayList<Integer> dKa;
+    h dKb;
+    Fragment dKc;
     ArrayList<Fragment> mAdded;
     ArrayList<Integer> mAvailBackStackIndices;
     ArrayList<e> mBackStack;
@@ -71,13 +71,13 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes24.dex */
     static class b {
         public static final int[] Fragment = {16842755, 16842960, 16842961};
     }
 
     static {
-        dHT = Build.VERSION.SDK_INT >= 11;
+        dJX = Build.VERSION.SDK_INT >= 11;
         DECELERATE_QUINT = new DecelerateInterpolator(2.5f);
         DECELERATE_CUBIC = new DecelerateInterpolator(1.5f);
         ACCELERATE_QUINT = new AccelerateInterpolator(2.5f);
@@ -85,9 +85,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes24.dex */
     public static class a implements Animation.AnimationListener {
-        private boolean dIb = false;
+        private boolean dKf = false;
         private View mView;
 
         public a(View view, Animation animation) {
@@ -99,8 +99,8 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         @Override // android.view.animation.Animation.AnimationListener
         @CallSuper
         public void onAnimationStart(Animation animation) {
-            this.dIb = l.a(this.mView, animation);
-            if (this.dIb) {
+            this.dKf = l.a(this.mView, animation);
+            if (this.dKf) {
                 this.mView.post(new Runnable() { // from class: com.baidu.swan.support.v4.app.l.a.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -113,7 +113,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         @Override // android.view.animation.Animation.AnimationListener
         @CallSuper
         public void onAnimationEnd(Animation animation) {
-            if (this.dIb) {
+            if (this.dKf) {
                 this.mView.post(new Runnable() { // from class: com.baidu.swan.support.v4.app.l.a.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -152,9 +152,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         Log.e("FragmentManager", runtimeException.getMessage());
         Log.e("FragmentManager", "Activity state:");
         PrintWriter printWriter = new PrintWriter(new com.baidu.swan.support.v4.b.d("FragmentManager"));
-        if (this.dHE != null) {
+        if (this.dJI != null) {
             try {
-                this.dHE.onDump("  ", null, printWriter, new String[0]);
+                this.dJI.onDump("  ", null, printWriter, new String[0]);
             } catch (Exception e) {
                 Log.e("FragmentManager", "Failed dumping state", e);
             }
@@ -176,7 +176,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     @Override // com.baidu.swan.support.v4.app.k
-    public m aUY() {
+    public m aVK() {
         return new e(this);
     }
 
@@ -189,7 +189,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     public boolean popBackStackImmediate() {
         checkStateLoss();
         executePendingTransactions();
-        return a(this.dHE.getHandler(), (String) null, -1, 0);
+        return a(this.dJI.getHandler(), (String) null, -1, 0);
     }
 
     public void a(Bundle bundle, String str, Fragment fragment) {
@@ -204,10 +204,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         if (i == -1) {
             return null;
         }
-        if (i >= this.dHV.size()) {
+        if (i >= this.dJZ.size()) {
             throwException(new IllegalStateException("Fragment no longer exists for key " + str + ": index " + i));
         }
-        Fragment fragment = this.dHV.get(i);
+        Fragment fragment = this.dJZ.get(i);
         if (fragment == null) {
             throwException(new IllegalStateException("Fragment no longer exists for key " + str + ": index " + i));
             return fragment;
@@ -217,7 +217,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
 
     @Override // com.baidu.swan.support.v4.app.k
     public List<Fragment> getFragments() {
-        return this.dHV;
+        return this.dJZ;
     }
 
     public String toString() {
@@ -225,10 +225,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         sb.append("FragmentManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");
-        if (this.dHY != null) {
-            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dHY, sb);
+        if (this.dKc != null) {
+            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dKc, sb);
         } else {
-            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dHE, sb);
+            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.dJI, sb);
         }
         sb.append("}}");
         return sb.toString();
@@ -243,13 +243,13 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         int size5;
         int size6;
         String str2 = str + "    ";
-        if (this.dHV != null && (size6 = this.dHV.size()) > 0) {
+        if (this.dJZ != null && (size6 = this.dJZ.size()) > 0) {
             printWriter.print(str);
             printWriter.print("Active Fragments in ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
             printWriter.println(":");
             for (int i = 0; i < size6; i++) {
-                Fragment fragment = this.dHV.get(i);
+                Fragment fragment = this.dJZ.get(i);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(i);
@@ -328,14 +328,14 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         printWriter.println("FragmentManager misc state:");
         printWriter.print(str);
         printWriter.print("  mHost=");
-        printWriter.println(this.dHE);
+        printWriter.println(this.dJI);
         printWriter.print(str);
         printWriter.print("  mContainer=");
-        printWriter.println(this.dHX);
-        if (this.dHY != null) {
+        printWriter.println(this.dKb);
+        if (this.dKc != null) {
             printWriter.print(str);
             printWriter.print("  mParent=");
-            printWriter.println(this.dHY);
+            printWriter.println(this.dKc);
         }
         printWriter.print(str);
         printWriter.print("  mCurState=");
@@ -354,10 +354,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             printWriter.print("  mNoTransactionsBecause=");
             printWriter.println(this.mNoTransactionsBecause);
         }
-        if (this.dHW != null && this.dHW.size() > 0) {
+        if (this.dKa != null && this.dKa.size() > 0) {
             printWriter.print(str);
             printWriter.print("  mAvailIndices: ");
-            printWriter.println(Arrays.toString(this.dHW.toArray()));
+            printWriter.println(Arrays.toString(this.dKa.toArray()));
         }
     }
 
@@ -386,24 +386,24 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         Animation loadAnimation;
         Animation onCreateAnimation = fragment.onCreateAnimation(i, z, fragment.mNextAnim);
         if (onCreateAnimation == null) {
-            if (fragment.mNextAnim == 0 || (loadAnimation = AnimationUtils.loadAnimation(this.dHE.getContext(), fragment.mNextAnim)) == null) {
+            if (fragment.mNextAnim == 0 || (loadAnimation = AnimationUtils.loadAnimation(this.dJI.getContext(), fragment.mNextAnim)) == null) {
                 if (i != 0 && (transitToStyleIndex = transitToStyleIndex(i, z)) >= 0) {
                     switch (transitToStyleIndex) {
                         case 1:
-                            return a(this.dHE.getContext(), 1.125f, 1.0f, 0.0f, 1.0f);
+                            return a(this.dJI.getContext(), 1.125f, 1.0f, 0.0f, 1.0f);
                         case 2:
-                            return a(this.dHE.getContext(), 1.0f, 0.975f, 1.0f, 0.0f);
+                            return a(this.dJI.getContext(), 1.0f, 0.975f, 1.0f, 0.0f);
                         case 3:
-                            return a(this.dHE.getContext(), 0.975f, 1.0f, 0.0f, 1.0f);
+                            return a(this.dJI.getContext(), 0.975f, 1.0f, 0.0f, 1.0f);
                         case 4:
-                            return a(this.dHE.getContext(), 1.0f, 1.075f, 1.0f, 0.0f);
+                            return a(this.dJI.getContext(), 1.0f, 1.075f, 1.0f, 0.0f);
                         case 5:
-                            return a(this.dHE.getContext(), 0.0f, 1.0f);
+                            return a(this.dJI.getContext(), 0.0f, 1.0f);
                         case 6:
-                            return a(this.dHE.getContext(), 1.0f, 0.0f);
+                            return a(this.dJI.getContext(), 1.0f, 0.0f);
                         default:
-                            if (i2 == 0 && this.dHE.onHasWindowAnimations()) {
-                                i2 = this.dHE.onGetWindowAnimations();
+                            if (i2 == 0 && this.dJI.onHasWindowAnimations()) {
+                                i2 = this.dJI.onGetWindowAnimations();
                             }
                             return i2 == 0 ? null : null;
                     }
@@ -462,10 +462,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                             Log.v("FragmentManager", "moveto CREATED: " + fragment);
                         }
                         if (fragment.mSavedFragmentState != null) {
-                            fragment.mSavedFragmentState.setClassLoader(this.dHE.getContext().getClassLoader());
+                            fragment.mSavedFragmentState.setClassLoader(this.dJI.getContext().getClassLoader());
                             fragment.mSavedViewState = fragment.mSavedFragmentState.getSparseParcelableArray("android:view_state");
-                            fragment.dHC = h(fragment.mSavedFragmentState, "android:target_state");
-                            if (fragment.dHC != null) {
+                            fragment.dJG = h(fragment.mSavedFragmentState, "android:target_state");
+                            if (fragment.dJG != null) {
                                 fragment.mTargetRequestCode = fragment.mSavedFragmentState.getInt("android:target_req_state", 0);
                             }
                             fragment.mUserVisibleHint = fragment.mSavedFragmentState.getBoolean("android:user_visible_hint", true);
@@ -476,16 +476,16 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                                 }
                             }
                         }
-                        fragment.dHE = this.dHE;
-                        fragment.dHG = this.dHY;
-                        fragment.dHD = this.dHY != null ? this.dHY.dHF : this.dHE.aUX();
+                        fragment.dJI = this.dJI;
+                        fragment.dJK = this.dKc;
+                        fragment.dJH = this.dKc != null ? this.dKc.dJJ : this.dJI.aVJ();
                         fragment.mCalled = false;
-                        fragment.onAttach(this.dHE.getContext());
+                        fragment.onAttach(this.dJI.getContext());
                         if (!fragment.mCalled) {
                             throw new SuperNotCalledException("Fragment " + fragment + " did not call through to super.onAttach()");
                         }
-                        if (fragment.dHG == null) {
-                            this.dHE.f(fragment);
+                        if (fragment.dJK == null) {
+                            this.dJI.f(fragment);
                         }
                         if (!fragment.mRetaining) {
                             fragment.performCreate(fragment.mSavedFragmentState);
@@ -498,7 +498,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                                 if (Build.VERSION.SDK_INT >= 11) {
                                     com.baidu.swan.support.v4.c.f.setSaveFromParentEnabled(fragment.mView, false);
                                 } else {
-                                    fragment.mView = q.aU(fragment.mView);
+                                    fragment.mView = q.aW(fragment.mView);
                                 }
                                 if (fragment.mHidden) {
                                     fragment.mView.setVisibility(8);
@@ -515,7 +515,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                             }
                             if (!fragment.mFromLayout) {
                                 if (fragment.mContainerId != 0) {
-                                    viewGroup = (ViewGroup) this.dHX.onFindViewById(fragment.mContainerId);
+                                    viewGroup = (ViewGroup) this.dKb.onFindViewById(fragment.mContainerId);
                                     if (viewGroup == null && !fragment.mRestored) {
                                         throwException(new IllegalArgumentException("No view found for id 0x" + Integer.toHexString(fragment.mContainerId) + " (" + fragment.getResources().getResourceName(fragment.mContainerId) + ") for fragment " + fragment));
                                     }
@@ -529,7 +529,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                                     if (Build.VERSION.SDK_INT >= 11) {
                                         com.baidu.swan.support.v4.c.f.setSaveFromParentEnabled(fragment.mView, false);
                                     } else {
-                                        fragment.mView = q.aU(fragment.mView);
+                                        fragment.mView = q.aW(fragment.mView);
                                     }
                                     if (viewGroup != null) {
                                         Animation a2 = a(fragment, i2, true, i3);
@@ -608,10 +608,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                                     l(fragment);
                                     break;
                                 } else {
-                                    fragment.dHE = null;
-                                    fragment.dHG = null;
-                                    fragment.dHD = null;
-                                    fragment.dHF = null;
+                                    fragment.dJI = null;
+                                    fragment.dJK = null;
+                                    fragment.dJH = null;
+                                    fragment.dJJ = null;
                                     break;
                                 }
                             }
@@ -623,7 +623,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                         if (DEBUG) {
                             Log.v("FragmentManager", "movefrom ACTIVITY_CREATED: " + fragment);
                         }
-                        if (fragment.mView != null && this.dHE.g(fragment) && fragment.mSavedViewState == null) {
+                        if (fragment.mView != null && this.dJI.g(fragment) && fragment.mSavedViewState == null) {
                             m(fragment);
                         }
                         fragment.performDestroyView();
@@ -711,20 +711,20 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, int i2, int i3, boolean z) {
-        if (this.dHE == null && i != 0) {
+        if (this.dJI == null && i != 0) {
             throw new IllegalStateException("No host");
         }
         if (z || this.mCurState != i) {
             this.mCurState = i;
-            if (this.dHV != null) {
+            if (this.dJZ != null) {
                 int i4 = 0;
                 boolean z2 = false;
-                while (i4 < this.dHV.size()) {
-                    Fragment fragment = this.dHV.get(i4);
+                while (i4 < this.dJZ.size()) {
+                    Fragment fragment = this.dJZ.get(i4);
                     if (fragment != null) {
                         a(fragment, i, i2, i3, false);
-                        if (fragment.dHH != null) {
-                            z2 |= fragment.dHH.hasRunningLoaders();
+                        if (fragment.dJL != null) {
+                            z2 |= fragment.dJL.hasRunningLoaders();
                         }
                     }
                     i4++;
@@ -733,8 +733,8 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 if (!z2) {
                     startPendingDeferredFragments();
                 }
-                if (this.mNeedMenuInvalidate && this.dHE != null && this.mCurState == 5) {
-                    this.dHE.onSupportInvalidateOptionsMenu();
+                if (this.mNeedMenuInvalidate && this.dJI != null && this.mCurState == 5) {
+                    this.dJI.onSupportInvalidateOptionsMenu();
                     this.mNeedMenuInvalidate = false;
                 }
             }
@@ -742,12 +742,12 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     void startPendingDeferredFragments() {
-        if (this.dHV != null) {
+        if (this.dJZ != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.dHV.size()) {
-                    Fragment fragment = this.dHV.get(i2);
+                if (i2 < this.dJZ.size()) {
+                    Fragment fragment = this.dJZ.get(i2);
                     if (fragment != null) {
                         i(fragment);
                     }
@@ -761,15 +761,15 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
 
     void k(Fragment fragment) {
         if (fragment.mIndex < 0) {
-            if (this.dHW == null || this.dHW.size() <= 0) {
-                if (this.dHV == null) {
-                    this.dHV = new ArrayList<>();
+            if (this.dKa == null || this.dKa.size() <= 0) {
+                if (this.dJZ == null) {
+                    this.dJZ = new ArrayList<>();
                 }
-                fragment.b(this.dHV.size(), this.dHY);
-                this.dHV.add(fragment);
+                fragment.b(this.dJZ.size(), this.dKc);
+                this.dJZ.add(fragment);
             } else {
-                fragment.b(this.dHW.remove(this.dHW.size() - 1).intValue(), this.dHY);
-                this.dHV.set(fragment.mIndex, fragment);
+                fragment.b(this.dKa.remove(this.dKa.size() - 1).intValue(), this.dKc);
+                this.dJZ.set(fragment.mIndex, fragment);
             }
             if (DEBUG) {
                 Log.v("FragmentManager", "Allocated fragment index " + fragment);
@@ -782,12 +782,12 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             if (DEBUG) {
                 Log.v("FragmentManager", "Freeing fragment index " + fragment);
             }
-            this.dHV.set(fragment.mIndex, null);
-            if (this.dHW == null) {
-                this.dHW = new ArrayList<>();
+            this.dJZ.set(fragment.mIndex, null);
+            if (this.dKa == null) {
+                this.dKa = new ArrayList<>();
             }
-            this.dHW.add(Integer.valueOf(fragment.mIndex));
-            this.dHE.wS(fragment.mWho);
+            this.dKa.add(Integer.valueOf(fragment.mIndex));
+            this.dJI.xl(fragment.mWho);
             fragment.initState();
         }
     }
@@ -924,7 +924,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         }
     }
 
-    public Fragment ma(int i) {
+    public Fragment ml(int i) {
         if (this.mAdded != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -933,9 +933,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 }
             }
         }
-        if (this.dHV != null) {
-            for (int size2 = this.dHV.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = this.dHV.get(size2);
+        if (this.dJZ != null) {
+            for (int size2 = this.dJZ.size() - 1; size2 >= 0; size2--) {
+                Fragment fragment2 = this.dJZ.get(size2);
                 if (fragment2 != null && fragment2.mFragmentId == i) {
                     return fragment2;
                 }
@@ -944,7 +944,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         return null;
     }
 
-    public Fragment wT(String str) {
+    public Fragment xm(String str) {
         if (this.mAdded != null && str != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -953,9 +953,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 }
             }
         }
-        if (this.dHV != null && str != null) {
-            for (int size2 = this.dHV.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = this.dHV.get(size2);
+        if (this.dJZ != null && str != null) {
+            for (int size2 = this.dJZ.size() - 1; size2 >= 0; size2--) {
+                Fragment fragment2 = this.dJZ.get(size2);
                 if (fragment2 != null && str.equals(fragment2.mTag)) {
                     return fragment2;
                 }
@@ -978,7 +978,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             checkStateLoss();
         }
         synchronized (this) {
-            if (this.mDestroyed || this.dHE == null) {
+            if (this.mDestroyed || this.dJI == null) {
                 throw new IllegalStateException("Activity has been destroyed");
             }
             if (this.mPendingActions == null) {
@@ -986,8 +986,8 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             }
             this.mPendingActions.add(runnable);
             if (this.mPendingActions.size() == 1) {
-                this.dHE.getHandler().removeCallbacks(this.mExecCommit);
-                this.dHE.getHandler().post(this.mExecCommit);
+                this.dJI.getHandler().removeCallbacks(this.mExecCommit);
+                this.dJI.getHandler().post(this.mExecCommit);
             }
         }
     }
@@ -1067,8 +1067,8 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         if (r1 >= r3) goto L26;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x008e, code lost:
-        r6.dHU[r1].run();
-        r6.dHU[r1] = null;
+        r6.dJY[r1].run();
+        r6.dJY[r1] = null;
         r1 = r1 + 1;
      */
     /*
@@ -1078,7 +1078,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         if (this.mExecutingActions) {
             throw new IllegalStateException("Recursive entry to executePendingTransactions");
         }
-        if (Looper.myLooper() != this.dHE.getHandler().getLooper()) {
+        if (Looper.myLooper() != this.dJI.getHandler().getLooper()) {
             throw new IllegalStateException("Must be called from main thread of process");
         }
         boolean z = false;
@@ -1088,22 +1088,22 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                     break;
                 }
                 int size = this.mPendingActions.size();
-                if (this.dHU == null || this.dHU.length < size) {
-                    this.dHU = new Runnable[size];
+                if (this.dJY == null || this.dJY.length < size) {
+                    this.dJY = new Runnable[size];
                 }
-                this.mPendingActions.toArray(this.dHU);
+                this.mPendingActions.toArray(this.dJY);
                 this.mPendingActions.clear();
-                this.dHE.getHandler().removeCallbacks(this.mExecCommit);
+                this.dJI.getHandler().removeCallbacks(this.mExecCommit);
             }
             this.mExecutingActions = false;
             z = true;
         }
         if (this.mHavePendingDeferredStart) {
             boolean z2 = false;
-            for (int i = 0; i < this.dHV.size(); i++) {
-                Fragment fragment = this.dHV.get(i);
-                if (fragment != null && fragment.dHH != null) {
-                    z2 |= fragment.dHH.hasRunningLoaders();
+            for (int i = 0; i < this.dJZ.size(); i++) {
+                Fragment fragment = this.dJZ.get(i);
+                if (fragment != null && fragment.dJL != null) {
+                    z2 |= fragment.dJL.hasRunningLoaders();
                 }
             }
             if (!z2) {
@@ -1207,23 +1207,23 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<Fragment> aUZ() {
+    public ArrayList<Fragment> aVL() {
         ArrayList<Fragment> arrayList = null;
-        if (this.dHV != null) {
+        if (this.dJZ != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.dHV.size()) {
+                if (i2 >= this.dJZ.size()) {
                     break;
                 }
-                Fragment fragment = this.dHV.get(i2);
+                Fragment fragment = this.dJZ.get(i2);
                 if (fragment != null && fragment.mRetainInstance) {
                     if (arrayList == null) {
                         arrayList = new ArrayList<>();
                     }
                     arrayList.add(fragment);
                     fragment.mRetaining = true;
-                    fragment.mTargetIndex = fragment.dHC != null ? fragment.dHC.mIndex : -1;
+                    fragment.mTargetIndex = fragment.dJG != null ? fragment.dJG.mIndex : -1;
                     if (DEBUG) {
                         Log.v("FragmentManager", "retainNonConfig: keeping retained " + fragment);
                     }
@@ -1287,18 +1287,18 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         boolean z;
         BackStackState[] backStackStateArr = null;
         execPendingActions();
-        if (dHT) {
+        if (dJX) {
             this.mStateSaved = true;
         }
-        if (this.dHV == null || this.dHV.size() <= 0) {
+        if (this.dJZ == null || this.dJZ.size() <= 0) {
             return null;
         }
-        int size3 = this.dHV.size();
+        int size3 = this.dJZ.size();
         FragmentState[] fragmentStateArr = new FragmentState[size3];
         int i = 0;
         boolean z2 = false;
         while (i < size3) {
-            Fragment fragment = this.dHV.get(i);
+            Fragment fragment = this.dJZ.get(i);
             if (fragment != null) {
                 if (fragment.mIndex < 0) {
                     throwException(new IllegalStateException("Failure saving state: active " + fragment + " has cleared index: " + fragment.mIndex));
@@ -1307,14 +1307,14 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 fragmentStateArr[i] = fragmentState;
                 if (fragment.mState > 0 && fragmentState.mSavedFragmentState == null) {
                     fragmentState.mSavedFragmentState = n(fragment);
-                    if (fragment.dHC != null) {
-                        if (fragment.dHC.mIndex < 0) {
-                            throwException(new IllegalStateException("Failure saving state: " + fragment + " has target not in fragment manager: " + fragment.dHC));
+                    if (fragment.dJG != null) {
+                        if (fragment.dJG.mIndex < 0) {
+                            throwException(new IllegalStateException("Failure saving state: " + fragment + " has target not in fragment manager: " + fragment.dJG));
                         }
                         if (fragmentState.mSavedFragmentState == null) {
                             fragmentState.mSavedFragmentState = new Bundle();
                         }
-                        a(fragmentState.mSavedFragmentState, "android:target_state", fragment.dHC);
+                        a(fragmentState.mSavedFragmentState, "android:target_state", fragment.dJG);
                         if (fragment.mTargetRequestCode != 0) {
                             fragmentState.mSavedFragmentState.putInt("android:target_req_state", fragment.mTargetRequestCode);
                         }
@@ -1363,9 +1363,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             }
         }
         FragmentManagerState fragmentManagerState = new FragmentManagerState();
-        fragmentManagerState.dId = fragmentStateArr;
+        fragmentManagerState.dKh = fragmentStateArr;
         fragmentManagerState.mAdded = iArr;
-        fragmentManagerState.dIe = backStackStateArr;
+        fragmentManagerState.dKi = backStackStateArr;
         return fragmentManagerState;
     }
 
@@ -1373,60 +1373,60 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
         if (parcelable != null) {
             FragmentManagerState fragmentManagerState = (FragmentManagerState) parcelable;
-            if (fragmentManagerState.dId != null) {
+            if (fragmentManagerState.dKh != null) {
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
                         Fragment fragment = list.get(i);
                         if (DEBUG) {
                             Log.v("FragmentManager", "restoreAllState: re-attaching retained " + fragment);
                         }
-                        FragmentState fragmentState = fragmentManagerState.dId[fragment.mIndex];
-                        fragmentState.dIf = fragment;
+                        FragmentState fragmentState = fragmentManagerState.dKh[fragment.mIndex];
+                        fragmentState.dKj = fragment;
                         fragment.mSavedViewState = null;
                         fragment.mBackStackNesting = 0;
                         fragment.mInLayout = false;
                         fragment.mAdded = false;
-                        fragment.dHC = null;
+                        fragment.dJG = null;
                         if (fragmentState.mSavedFragmentState != null) {
-                            fragmentState.mSavedFragmentState.setClassLoader(this.dHE.getContext().getClassLoader());
+                            fragmentState.mSavedFragmentState.setClassLoader(this.dJI.getContext().getClassLoader());
                             fragment.mSavedViewState = fragmentState.mSavedFragmentState.getSparseParcelableArray("android:view_state");
                             fragment.mSavedFragmentState = fragmentState.mSavedFragmentState;
                         }
                     }
                 }
-                this.dHV = new ArrayList<>(fragmentManagerState.dId.length);
-                if (this.dHW != null) {
-                    this.dHW.clear();
+                this.dJZ = new ArrayList<>(fragmentManagerState.dKh.length);
+                if (this.dKa != null) {
+                    this.dKa.clear();
                 }
-                for (int i2 = 0; i2 < fragmentManagerState.dId.length; i2++) {
-                    FragmentState fragmentState2 = fragmentManagerState.dId[i2];
+                for (int i2 = 0; i2 < fragmentManagerState.dKh.length; i2++) {
+                    FragmentState fragmentState2 = fragmentManagerState.dKh[i2];
                     if (fragmentState2 != null) {
-                        Fragment a2 = fragmentState2.a(this.dHE, this.dHY);
+                        Fragment a2 = fragmentState2.a(this.dJI, this.dKc);
                         if (DEBUG) {
                             Log.v("FragmentManager", "restoreAllState: active #" + i2 + ": " + a2);
                         }
-                        this.dHV.add(a2);
-                        fragmentState2.dIf = null;
+                        this.dJZ.add(a2);
+                        fragmentState2.dKj = null;
                     } else {
-                        this.dHV.add(null);
-                        if (this.dHW == null) {
-                            this.dHW = new ArrayList<>();
+                        this.dJZ.add(null);
+                        if (this.dKa == null) {
+                            this.dKa = new ArrayList<>();
                         }
                         if (DEBUG) {
                             Log.v("FragmentManager", "restoreAllState: avail #" + i2);
                         }
-                        this.dHW.add(Integer.valueOf(i2));
+                        this.dKa.add(Integer.valueOf(i2));
                     }
                 }
                 if (list != null) {
                     for (int i3 = 0; i3 < list.size(); i3++) {
                         Fragment fragment2 = list.get(i3);
                         if (fragment2.mTargetIndex >= 0) {
-                            if (fragment2.mTargetIndex < this.dHV.size()) {
-                                fragment2.dHC = this.dHV.get(fragment2.mTargetIndex);
+                            if (fragment2.mTargetIndex < this.dJZ.size()) {
+                                fragment2.dJG = this.dJZ.get(fragment2.mTargetIndex);
                             } else {
                                 Log.w("FragmentManager", "Re-attaching retained fragment " + fragment2 + " target no longer exists: " + fragment2.mTargetIndex);
-                                fragment2.dHC = null;
+                                fragment2.dJG = null;
                             }
                         }
                     }
@@ -1434,7 +1434,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 if (fragmentManagerState.mAdded != null) {
                     this.mAdded = new ArrayList<>(fragmentManagerState.mAdded.length);
                     for (int i4 = 0; i4 < fragmentManagerState.mAdded.length; i4++) {
-                        Fragment fragment3 = this.dHV.get(fragmentManagerState.mAdded[i4]);
+                        Fragment fragment3 = this.dJZ.get(fragmentManagerState.mAdded[i4]);
                         if (fragment3 == null) {
                             throwException(new IllegalStateException("No instantiated fragment for index #" + fragmentManagerState.mAdded[i4]));
                         }
@@ -1450,10 +1450,10 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 } else {
                     this.mAdded = null;
                 }
-                if (fragmentManagerState.dIe != null) {
-                    this.mBackStack = new ArrayList<>(fragmentManagerState.dIe.length);
-                    for (int i5 = 0; i5 < fragmentManagerState.dIe.length; i5++) {
-                        e a3 = fragmentManagerState.dIe[i5].a(this);
+                if (fragmentManagerState.dKi != null) {
+                    this.mBackStack = new ArrayList<>(fragmentManagerState.dKi.length);
+                    for (int i5 = 0; i5 < fragmentManagerState.dKi.length; i5++) {
+                        e a3 = fragmentManagerState.dKi[i5].a(this);
                         if (DEBUG) {
                             Log.v("FragmentManager", "restoreAllState: back stack #" + i5 + " (index " + a3.mIndex + "): " + a3);
                             a3.dump("  ", new PrintWriter(new com.baidu.swan.support.v4.b.d("FragmentManager")), false);
@@ -1471,12 +1471,12 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     public void a(j jVar, h hVar, Fragment fragment) {
-        if (this.dHE != null) {
+        if (this.dJI != null) {
             throw new IllegalStateException("Already attached");
         }
-        this.dHE = jVar;
-        this.dHX = hVar;
-        this.dHY = fragment;
+        this.dJI = jVar;
+        this.dKb = hVar;
+        this.dKc = fragment;
     }
 
     public void noteStateNotSaved() {
@@ -1524,9 +1524,9 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         this.mDestroyed = true;
         execPendingActions();
         moveToState(0, false);
-        this.dHE = null;
-        this.dHX = null;
-        this.dHY = null;
+        this.dJI = null;
+        this.dKb = null;
+        this.dKc = null;
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
@@ -1692,41 +1692,41 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
             int resourceId = obtainStyledAttributes.getResourceId(1, -1);
             String string2 = obtainStyledAttributes.getString(2);
             obtainStyledAttributes.recycle();
-            if (Fragment.isSupportFragmentClass(this.dHE.getContext(), string)) {
+            if (Fragment.isSupportFragmentClass(this.dJI.getContext(), string)) {
                 int id = view != null ? view.getId() : 0;
                 if (id == -1 && resourceId == -1 && string2 == null) {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + string);
                 }
-                Fragment ma = resourceId != -1 ? ma(resourceId) : null;
-                if (ma == null && string2 != null) {
-                    ma = wT(string2);
+                Fragment ml = resourceId != -1 ? ml(resourceId) : null;
+                if (ml == null && string2 != null) {
+                    ml = xm(string2);
                 }
-                if (ma == null && id != -1) {
-                    ma = ma(id);
+                if (ml == null && id != -1) {
+                    ml = ml(id);
                 }
                 if (DEBUG) {
-                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + string + " existing=" + ma);
+                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + string + " existing=" + ml);
                 }
-                if (ma == null) {
-                    Fragment aj = Fragment.aj(context, string);
-                    aj.mFromLayout = true;
-                    aj.mFragmentId = resourceId != 0 ? resourceId : id;
-                    aj.mContainerId = id;
-                    aj.mTag = string2;
-                    aj.mInLayout = true;
-                    aj.dHD = this;
-                    aj.dHE = this.dHE;
-                    aj.onInflate(this.dHE.getContext(), attributeSet, aj.mSavedFragmentState);
-                    c(aj, true);
-                    fragment = aj;
-                } else if (ma.mInLayout) {
+                if (ml == null) {
+                    Fragment am = Fragment.am(context, string);
+                    am.mFromLayout = true;
+                    am.mFragmentId = resourceId != 0 ? resourceId : id;
+                    am.mContainerId = id;
+                    am.mTag = string2;
+                    am.mInLayout = true;
+                    am.dJH = this;
+                    am.dJI = this.dJI;
+                    am.onInflate(this.dJI.getContext(), attributeSet, am.mSavedFragmentState);
+                    c(am, true);
+                    fragment = am;
+                } else if (ml.mInLayout) {
                     throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string2 + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + string);
                 } else {
-                    ma.mInLayout = true;
-                    if (!ma.mRetaining) {
-                        ma.onInflate(this.dHE.getContext(), attributeSet, ma.mSavedFragmentState);
+                    ml.mInLayout = true;
+                    if (!ml.mRetaining) {
+                        ml.onInflate(this.dJI.getContext(), attributeSet, ml.mSavedFragmentState);
                     }
-                    fragment = ma;
+                    fragment = ml;
                 }
                 if (this.mCurState < 1 && fragment.mFromLayout) {
                     a(fragment, 1, 0, 0, false);
@@ -1750,7 +1750,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.c.e aVa() {
+    public com.baidu.swan.support.v4.c.e aVM() {
         return this;
     }
 }

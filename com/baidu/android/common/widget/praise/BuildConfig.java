@@ -1,5 +1,5 @@
 package com.baidu.android.common.widget.praise;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.common.widget.praise";
     public static final String BUILD_TYPE = "release";

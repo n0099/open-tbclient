@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 import com.baidu.platform.comapi.walknavi.g.c.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class s implements c.b {
     final /* synthetic */ String a;
     final /* synthetic */ c.d b;

@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 class f implements View.OnFocusChangeListener {
     final /* synthetic */ SafeKeyBoardPopupWindow a;
 

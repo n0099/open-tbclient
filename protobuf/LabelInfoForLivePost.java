@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class LabelInfoForLivePost extends Message {
     public static final String DEFAULT_LABELCONTENT = "";
     public static final Integer DEFAULT_LABELHOT = 0;
@@ -40,7 +40,7 @@ public final class LabelInfoForLivePost extends Message {
         this.labelId = builder.labelId;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<LabelInfoForLivePost> {
         public String labelContent;
         public Integer labelHot;

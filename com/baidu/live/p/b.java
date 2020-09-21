@@ -1,5 +1,18 @@
 package com.baidu.live.p;
-/* loaded from: classes7.dex */
+
+import android.view.ViewGroup;
+import com.baidu.live.data.u;
+/* loaded from: classes4.dex */
 public interface b {
-    void dD(int i);
+    void IT();
+
+    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, u uVar);
+
+    void a(u uVar);
+
+    boolean isShowing();
+
+    void onDestroy();
+
+    void setVisible(int i);
 }

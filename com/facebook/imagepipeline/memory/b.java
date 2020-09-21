@@ -2,27 +2,27 @@ package com.facebook.imagepipeline.memory;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.facebook.infer.annotation.ThreadSafe;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class b {
-    private static final Class<?> njM = b.class;
-    public static final int nxn = dUQ();
-    private static int nxo = 384;
-    private static volatile a nxp;
+    private static volatile a nHm;
+    private static final Class<?> ntL = b.class;
+    public static final int nHk = dYO();
+    private static int nHl = 384;
 
-    private static int dUQ() {
+    private static int dYO() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return ((long) min) > AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH ? (min / 4) * 3 : min / 2;
     }
 
     @ThreadSafe
-    public static a dUR() {
-        if (nxp == null) {
+    public static a dYP() {
+        if (nHm == null) {
             synchronized (b.class) {
-                if (nxp == null) {
-                    nxp = new a(nxo, nxn);
+                if (nHm == null) {
+                    nHm = new a(nHl, nHk);
                 }
             }
         }
-        return nxp;
+        return nHm;
     }
 }

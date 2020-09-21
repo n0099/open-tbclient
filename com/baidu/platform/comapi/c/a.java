@@ -8,13 +8,13 @@ import com.baidu.platform.comapi.util.k;
 import com.baidu.platform.comjni.base.networkdetect.NANetworkDetect;
 import com.baidu.platform.comjni.engine.NAEngine;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private NANetworkDetect a;
 
     /* renamed from: com.baidu.platform.comapi.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static final class C0241a {
+    /* loaded from: classes3.dex */
+    private static final class C0239a {
         private static final a a = new a(null);
     }
 
@@ -26,7 +26,7 @@ public class a {
     }
 
     public static a a() {
-        return C0241a.a;
+        return C0239a.a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -7,14 +7,14 @@ import android.support.annotation.NonNull;
 import com.airbnb.lottie.model.content.j;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e extends a {
     private final com.airbnb.lottie.a.a.c Dn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(com.airbnb.lottie.g gVar, Layer layer) {
         super(gVar, layer);
-        this.Dn = new com.airbnb.lottie.a.a.c(gVar, this, new j("__container", layer.jx()));
+        this.Dn = new com.airbnb.lottie.a.a.c(gVar, this, new j("__container", layer.jy()));
         this.Dn.b(Collections.emptyList(), Collections.emptyList());
     }
 

@@ -5,16 +5,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class f {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a bTT;
-    private static com.baidu.swan.apps.a.c bTU;
-    private static boolean bTV;
-    public static final f bTW = new f();
+    private static com.baidu.swan.apps.a.a bVU;
+    private static com.baidu.swan.apps.a.c bVV;
+    private static boolean bVW;
+    public static final f bVX = new f();
 
     static {
-        String simpleName = bTW.getClass().getSimpleName();
+        String simpleName = bVX.getClass().getSimpleName();
         q.l((Object) simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -22,46 +22,46 @@ public final class f {
     private f() {
     }
 
-    public final com.baidu.swan.apps.a.a abw() {
-        return bTT;
+    public final com.baidu.swan.apps.a.a acf() {
+        return bVU;
     }
 
-    public final com.baidu.swan.apps.a.c abx() {
-        return bTU;
+    public final com.baidu.swan.apps.a.c acg() {
+        return bVV;
     }
 
-    public final boolean aby() {
-        return bTV;
+    public final boolean ach() {
+        return bVW;
     }
 
-    public final void dB(boolean z) {
-        bTV = z;
+    public final void dz(boolean z) {
+        bVW = z;
     }
 
-    public final void abz() {
-        d.bTR.abs();
-        h.bTZ.abD();
-        ds(false);
+    public final void aci() {
+        d.bVS.acb();
+        h.bWa.acm();
+        dq(false);
     }
 
-    public final boolean abA() {
-        if (g.abC() == null) {
-            abB();
+    public final boolean acj() {
+        if (g.acl() == null) {
+            ack();
         }
-        Boolean abC = g.abC();
-        if (abC == null) {
-            q.egs();
+        Boolean acl = g.acl();
+        if (acl == null) {
+            q.ekp();
         }
-        return abC.booleanValue();
+        return acl.booleanValue();
     }
 
-    public final void ds(boolean z) {
+    public final void dq(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void abB() {
+    private final void ack() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

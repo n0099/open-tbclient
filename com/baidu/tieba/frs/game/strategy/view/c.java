@@ -6,33 +6,33 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
-    private final List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
-    private com.baidu.adp.base.e efO;
-    private BdTypeListView fCT;
-    private b iin;
+    private final List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
+    private com.baidu.adp.base.e eid;
+    private BdTypeListView fGf;
+    private b ipp;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.efO = eVar;
-        this.fCT = bdTypeListView;
-        Jv();
+        this.eid = eVar;
+        this.fGf = bdTypeListView;
+        JZ();
     }
 
-    private void Jv() {
-        this.iin = new b((TbPageContext) this.efO, com.baidu.tieba.frs.game.strategy.data.b.ihv);
-        this.bbw.add(this.iin);
-        this.fCT.addAdapters(this.bbw);
+    private void JZ() {
+        this.ipp = new b((TbPageContext) this.eid, com.baidu.tieba.frs.game.strategy.data.b.iox);
+        this.bdV.add(this.ipp);
+        this.fGf.addAdapters(this.bdV);
     }
 
     public void setData(List<q> list) {
-        if (this.fCT != null) {
-            this.fCT.setData(list);
+        if (this.fGf != null) {
+            this.fGf.setData(list);
         }
     }
 
     public void b(ab abVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
             if (aVar != null) {
                 aVar.a(abVar);
             }
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.fCT.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.fCT.getAdapter().notifyDataSetChanged();
+        if (this.fGf.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.fGf.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -8,7 +8,7 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.TintAwareDrawable;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 abstract class VectorDrawableCommon extends Drawable implements TintAwareDrawable {
     Drawable mDelegateDrawable;
 

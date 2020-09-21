@@ -1,10 +1,10 @@
 package com.facebook.datasource;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> dPr() {
+    public static <T> g<T> dTp() {
         return new g<>();
     }
 
@@ -17,7 +17,7 @@ public class g<T> extends AbstractDataSource<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.facebook.datasource.g<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean aW(T t) {
+    public boolean aY(T t) {
         return super.b(com.facebook.common.internal.g.checkNotNull(t), true);
     }
 

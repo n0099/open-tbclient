@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.statics;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaStaticKeys {
     public static final String ALA_STATIC_KEY = "817";
     public static final String ALA_STATIC_KEY_EXT = "ext";

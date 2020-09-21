@@ -1,7 +1,30 @@
 package com.baidu.d.b;
-/* loaded from: classes14.dex */
+
+import android.text.TextUtils;
+/* loaded from: classes11.dex */
 public class a {
-    public static d ux() {
-        return com.baidu.tieba.write.b.a.b.dGA();
+    private static a amC;
+    private String mAppName;
+
+    private a() {
+    }
+
+    public static a uJ() {
+        if (amC == null) {
+            synchronized (a.class) {
+                if (amC == null) {
+                    amC = new a();
+                }
+            }
+        }
+        return amC;
+    }
+
+    public void setAppName(String str) {
+        this.mAppName = str;
+    }
+
+    public String getAppName() {
+        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.uK().getAppName();
     }
 }

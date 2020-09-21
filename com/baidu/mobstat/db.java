@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class db {
     static final /* synthetic */ boolean a;
     private static final byte[] b;
@@ -270,7 +270,7 @@ public class db {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class a extends FilterOutputStream {
         private boolean a;
         private int b;

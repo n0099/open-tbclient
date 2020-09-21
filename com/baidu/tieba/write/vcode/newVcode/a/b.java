@@ -10,7 +10,7 @@ public interface b {
 
     void d(NewWriteModel.d dVar);
 
-    void dFX();
+    void dJR();
 
     void onDestroy();
 

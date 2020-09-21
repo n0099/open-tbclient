@@ -3,58 +3,58 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class o {
-    private View hVj;
-    private int hVk = -1;
-    private int hVl = -1;
+    private View icj;
+    private int ick = -1;
+    private int icl = -1;
 
     public o(View view) {
-        this.hVj = view;
+        this.icj = view;
     }
 
     public int getOriginHeight() {
-        return this.hVk;
+        return this.ick;
     }
 
     public void setOriginHeight(int i) {
-        this.hVk = i;
+        this.ick = i;
     }
 
-    public void wX(int i) {
-        this.hVl = i;
+    public void xw(int i) {
+        this.icl = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.hVj != null && (layoutParams = this.hVj.getLayoutParams()) != null) {
+        if (this.icj != null && (layoutParams = this.icj.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.hVl = i;
-            this.hVj.setLayoutParams(layoutParams);
+            this.icl = i;
+            this.icj.setLayoutParams(layoutParams);
         }
     }
 
     public void x(double d) {
-        if (this.hVj != null) {
-            int i = (int) (this.hVk + (PullRefreshFrameLayout.esq * d));
-            ViewGroup.LayoutParams layoutParams = this.hVj.getLayoutParams();
+        if (this.icj != null) {
+            int i = (int) (this.ick + (PullRefreshFrameLayout.euv * d));
+            ViewGroup.LayoutParams layoutParams = this.icj.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.hVl = layoutParams.height;
-                this.hVj.setLayoutParams(layoutParams);
+                this.icl = layoutParams.height;
+                this.icj.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.hVj == null || (layoutParams = this.hVj.getLayoutParams()) == null) {
+        if (this.icj == null || (layoutParams = this.icj.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cmK() {
-        return this.hVl;
+    public int cpW() {
+        return this.icl;
     }
 }

@@ -1,54 +1,48 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+import android.text.Html;
+import android.text.ParcelableSpan;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.URLSpan;
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
 public class g {
-    public static final int bqw = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds32);
-
-    public static int ay(Context context) {
-        int aD = aD(context);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return aD + UtilHelper.getStatusBarHeight();
+    public static SpannableStringBuilder E(String str, int i) {
+        SpannableStringBuilder valueOf;
+        try {
+            valueOf = (SpannableStringBuilder) Html.fromHtml(str);
+        } catch (Exception e) {
+            valueOf = SpannableStringBuilder.valueOf(str);
         }
-        return aD;
-    }
-
-    public static int az(Context context) {
-        int aA = aA(context);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return aA + UtilHelper.getStatusBarHeight();
+        SpannableStringBuilder valueOf2 = SpannableStringBuilder.valueOf(valueOf.toString());
+        ParcelableSpan[] parcelableSpanArr = (ParcelableSpan[]) valueOf.getSpans(0, valueOf.length(), ParcelableSpan.class);
+        ArrayList arrayList = new ArrayList();
+        for (int i2 = 0; i2 < parcelableSpanArr.length; i2++) {
+            if ((parcelableSpanArr[i2] instanceof URLSpan) && i2 - 1 >= 0 && (parcelableSpanArr[i2 - 1] instanceof ForegroundColorSpan)) {
+                c cVar = new c((ForegroundColorSpan) parcelableSpanArr[i2 - 1]);
+                cVar.a((URLSpan) parcelableSpanArr[i2]);
+                cVar.btx = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                cVar.bty = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                arrayList.add(cVar);
+            } else if ((parcelableSpanArr[i2] instanceof ForegroundColorSpan) && ((i2 + 1 < parcelableSpanArr.length && !(parcelableSpanArr[i2 + 1] instanceof URLSpan)) || i2 == parcelableSpanArr.length - 1)) {
+                c cVar2 = new c((ForegroundColorSpan) parcelableSpanArr[i2]);
+                cVar2.btx = valueOf.getSpanStart(parcelableSpanArr[i2]);
+                cVar2.bty = valueOf.getSpanEnd(parcelableSpanArr[i2]);
+                arrayList.add(cVar2);
+            }
         }
-        return aA;
-    }
-
-    public static int aA(Context context) {
-        return aD(context) + bqw;
-    }
-
-    public static int aB(Context context) {
-        return fv(BdUtilHelper.getScreenDimensions(context)[0] / 2);
-    }
-
-    public static int aC(Context context) {
-        return BdUtilHelper.getScreenDimensions(context)[0] / 2;
-    }
-
-    public static int fv(int i) {
-        return (i * 16) / 10;
-    }
-
-    public static int j(Context context, boolean z) {
-        return aB(context) + az(context);
-    }
-
-    private static int aD(Context context) {
-        if (context == null) {
-            context = TbadkCoreApplication.getInst().getContext();
+        valueOf2.setSpan(new ForegroundColorSpan(i), 0, valueOf.length(), 33);
+        for (int i3 = 0; i3 < arrayList.size(); i3++) {
+            c cVar3 = (c) arrayList.get(i3);
+            if (cVar3 != null) {
+                if (cVar3.btA) {
+                    valueOf2.setSpan(new a(cVar3.mUrl, cVar3.btz), cVar3.btx, cVar3.bty, 33);
+                } else {
+                    valueOf2.setSpan(new ForegroundColorSpan(cVar3.btz), cVar3.btx, cVar3.bty, 33);
+                }
+            }
         }
-        return context.getResources().getDimensionPixelSize(a.e.sdk_ds220);
+        return valueOf2;
     }
 }

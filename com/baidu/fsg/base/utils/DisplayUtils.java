@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public final class DisplayUtils {
     private static final float a = 0.5f;
     private static DisplayMetrics b;

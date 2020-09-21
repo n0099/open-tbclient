@@ -6,9 +6,9 @@ import com.baidu.swan.apps.performance.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b implements a<JSONObject> {
-    private JSONArray cWN = new JSONArray();
+    private JSONArray cYN = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -23,7 +23,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            bM(jSONObject);
+            bP(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -31,24 +31,24 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void bM(JSONObject jSONObject) {
+    public void bP(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cWN.put(jSONObject);
+            this.cYN.put(jSONObject);
         }
     }
 
-    public JSONObject aCm() {
+    public JSONObject aCW() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.cWN);
-            jSONObject.put("performance", e.avQ());
+            jSONObject.put("launchLog", this.cYN);
+            jSONObject.put("performance", e.awz());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.t.a.aoM().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.apx().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));
@@ -58,6 +58,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.cWN = new JSONArray();
+        this.cYN = new JSONArray();
     }
 }

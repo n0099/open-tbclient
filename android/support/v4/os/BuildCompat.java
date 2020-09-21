@@ -1,7 +1,7 @@
 package android.support.v4.os;
 
 import android.os.Build;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public class BuildCompat {
     private BuildCompat() {
     }

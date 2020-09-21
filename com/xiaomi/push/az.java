@@ -30,13 +30,13 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class az {
     public static final Pattern a = Pattern.compile("([^\\s;]+)(.*)");
     public static final Pattern b = Pattern.compile("(.*?charset\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
     public static final Pattern c = Pattern.compile("(\\<\\?xml\\s+.*?encoding\\s*=[^a-zA-Z0-9]*)([-a-zA-Z0-9]+)(.*)", 2);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends FilterInputStream {
         private boolean a;
 
@@ -55,15 +55,15 @@ public class az {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map<String, String> f118a;
+        public Map<String, String> f117a;
 
         public String toString() {
-            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f118a.toString());
+            return String.format("resCode = %1$d, headers = %2$s", Integer.valueOf(this.a), this.f117a.toString());
         }
     }
 
@@ -161,7 +161,7 @@ public class az {
                                 bufferedReader = new BufferedReader(new InputStreamReader(new a(m141a.getErrorStream())));
                             }
                         } else {
-                            axVar.f117a.put(headerFieldKey, headerField);
+                            axVar.f116a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
@@ -183,7 +183,7 @@ public class az {
                 stringBuffer.append(readLine);
                 stringBuffer.append(property);
             }
-            axVar.f116a = stringBuffer.toString();
+            axVar.f115a = stringBuffer.toString();
             bufferedReader.close();
             y.a((Closeable) null);
             y.a((Closeable) null);
@@ -236,8 +236,8 @@ public class az {
             }
             if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
                 bVar.a = m141a.getResponseCode();
-                if (bVar.f118a == null) {
-                    bVar.f118a = new HashMap();
+                if (bVar.f117a == null) {
+                    bVar.f117a = new HashMap();
                 }
                 int i = 0;
                 while (true) {
@@ -247,7 +247,7 @@ public class az {
                         break;
                     }
                     if (!TextUtils.isEmpty(headerFieldKey) && !TextUtils.isEmpty(headerField)) {
-                        bVar.f118a.put(headerFieldKey, headerField);
+                        bVar.f117a.put(headerFieldKey, headerField);
                     }
                     i++;
                 }

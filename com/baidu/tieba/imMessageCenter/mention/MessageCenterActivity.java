@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private MessageCenterFragment jEU;
+    private MessageCenterFragment jNw;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,9 +20,9 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             finish();
             return;
         }
-        this.jEU = new MessageCenterFragment();
+        this.jNw = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.jEU);
+        beginTransaction.add(16908290, this.jNw);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -37,8 +37,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.jEU != null) {
-            this.jEU.onActivityResult(i, i2, intent);
+        if (this.jNw != null) {
+            this.jNw.onActivityResult(i, i2, intent);
         }
     }
 
@@ -46,8 +46,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.jEU != null) {
-            this.jEU.onNewIntent(intent);
+        if (this.jNw != null) {
+            this.jNw.onNewIntent(intent);
         }
     }
 
@@ -55,13 +55,13 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.jEU.onChangeSkinType(i);
+            this.jNw.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.jEU.getVoiceManager();
+        return this.jNw.getVoiceManager();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c

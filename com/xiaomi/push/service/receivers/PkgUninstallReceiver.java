@@ -8,7 +8,7 @@ import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ax;
 import com.xiaomi.push.service.bb;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PkgUninstallReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

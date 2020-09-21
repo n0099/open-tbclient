@@ -8,14 +8,14 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b implements a {
     @Override // com.yanzhenjie.permission.a.a
     public boolean e(@NonNull Context context, @NonNull String... strArr) {
-        return d(context, Arrays.asList(strArr));
+        return e(context, Arrays.asList(strArr));
     }
 
-    public boolean d(@NonNull Context context, @NonNull List<String> list) {
+    public boolean e(@NonNull Context context, @NonNull List<String> list) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

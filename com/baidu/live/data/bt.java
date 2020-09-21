@@ -1,15 +1,17 @@
 package com.baidu.live.data;
-/* loaded from: classes7.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class bt {
-    public boolean aLo;
-    public boolean aLp = false;
-    public boolean aLq;
-    public boolean aLr;
-    public boolean aLs;
-    public boolean aLt;
-    public boolean aLu;
-    public boolean aLv;
-    public boolean aLw;
-    public boolean aLx;
-    public boolean aLy;
+    public long aLR = 2000;
+    public float aLS = 1.0f;
+    public long aLT = 2000;
+
+    public void parse(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aLR = jSONObject.optLong("player_cache_duration", 2000L);
+            this.aLS = (float) jSONObject.optDouble("player_speed", 1.0d);
+            this.aLT = jSONObject.optLong("change_speed_cache_duration", 2000L);
+        }
+    }
 }

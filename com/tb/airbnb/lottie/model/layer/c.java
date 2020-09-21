@@ -11,11 +11,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.p;
 import com.tb.airbnb.lottie.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> oiu;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> ose;
     private final Paint paint;
     private final Rect src;
 
@@ -31,15 +31,15 @@ public class c extends a {
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float kZ = com.tb.airbnb.lottie.d.f.kZ();
+            float la = com.tb.airbnb.lottie.d.f.la();
             this.paint.setAlpha(i);
-            if (this.oiu != null) {
-                this.paint.setColorFilter(this.oiu.getValue());
+            if (this.ose != null) {
+                this.paint.setColorFilter(this.ose.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * kZ), (int) (kZ * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * la), (int) (la * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -57,7 +57,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.bf(this.okd.getRefId());
+        return this.lottieDrawable.bf(this.otN.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
@@ -65,9 +65,9 @@ public class c extends a {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
         if (t == j.Cb) {
             if (cVar == null) {
-                this.oiu = null;
+                this.ose = null;
             } else {
-                this.oiu = new p(cVar);
+                this.ose = new p(cVar);
             }
         }
     }

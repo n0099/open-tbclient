@@ -11,64 +11,64 @@ import com.baidu.swan.apps.am.c;
 import com.baidu.swan.apps.am.e;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File dxd;
+    private File dze;
     private SharedPreferences mPref;
 
     public b() {
-        String aPr = aPr();
+        String aQc = aQc();
         if (DEBUG) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + aPr);
+            Log.i("SwanGameStorageManager", "preferencesName:" + aQc);
         }
-        if (aPr != null) {
-            this.mPref = com.baidu.swan.apps.t.a.aoJ().getSharedPreferences(aPr, 0);
-            this.dxd = new File(aPv(), aPr + ".xml");
+        if (aQc != null) {
+            this.mPref = com.baidu.swan.apps.t.a.apu().getSharedPreferences(aQc, 0);
+            this.dze = new File(aQg(), aQc + ".xml");
         }
-        e.dam.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
+        e.dco.a(new c.a<Long>() { // from class: com.baidu.swan.games.w.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.am.c.a
-            /* renamed from: aCT */
-            public Long aCU() throws IllegalStateException {
-                return Long.valueOf(b.this.aCR());
+            /* renamed from: aDD */
+            public Long aDE() throws IllegalStateException {
+                return Long.valueOf(b.this.aDB());
             }
         });
     }
 
     @Nullable
-    private String aPr() {
-        String azK = com.baidu.swan.apps.runtime.e.azK();
-        if (TextUtils.isEmpty(azK)) {
+    private String aQc() {
+        String aAt = com.baidu.swan.apps.runtime.e.aAt();
+        if (TextUtils.isEmpty(aAt)) {
             return null;
         }
-        return String.format("aigame_storage_%s_anonymous", azK);
+        return String.format("aigame_storage_%s_anonymous", aAt);
     }
 
-    private boolean aPs() {
+    private boolean aQd() {
         return this.mPref != null;
     }
 
-    public long aCR() {
-        if (this.dxd != null) {
-            return this.dxd.length();
+    public long aDB() {
+        if (this.dze != null) {
+            return this.dze.length();
         }
         return 0L;
     }
 
-    public long aCS() {
+    public long aDC() {
         return 10485760L;
     }
 
     public String getString(String str, String str2) {
-        if (aPs()) {
+        if (aQd()) {
             return this.mPref.getString(str, str2);
         }
         return null;
     }
 
-    public String[] aPt() {
-        if (!aPs()) {
+    public String[] aQe() {
+        if (!aQd()) {
             return new String[0];
         }
         Set<String> keySet = this.mPref.getAll().keySet();
@@ -79,35 +79,35 @@ public class b {
 
     @SuppressLint({"ApplySharedPref"})
     public boolean putString(String str, String str2) {
-        return aPs() && this.mPref.edit().putString(str, str2).commit();
+        return aQd() && this.mPref.edit().putString(str, str2).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
     public boolean remove(String str) {
-        return aPs() && this.mPref.edit().remove(str).commit();
+        return aQd() && this.mPref.edit().remove(str).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public boolean aPu() {
-        return aPs() && this.mPref.edit().clear().commit();
+    public boolean aQf() {
+        return aQd() && this.mPref.edit().clear().commit();
     }
 
     @NonNull
-    public static File aPv() {
+    public static File aQg() {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
-    public static void vR(String str) {
-        vS(String.format("aigame_storage_%s_anonymous", str, ""));
+    public static void wk(String str) {
+        wl(String.format("aigame_storage_%s_anonymous", str, ""));
     }
 
-    public static void aPw() {
-        vS("aigame_storage_");
+    public static void aQh() {
+        wl("aigame_storage_");
     }
 
-    private static void vS(String str) {
+    private static void wl(String str) {
         File[] listFiles;
-        if (str != null && str.startsWith("aigame_storage_") && (listFiles = aPv().listFiles()) != null) {
+        if (str != null && str.startsWith("aigame_storage_") && (listFiles = aQg().listFiles()) != null) {
             for (File file : listFiles) {
                 if (file.getName().startsWith(str)) {
                     file.delete();

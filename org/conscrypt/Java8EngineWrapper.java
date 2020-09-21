@@ -11,7 +11,7 @@ import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class Java8EngineWrapper extends AbstractConscryptEngine {
     private final ConscryptEngine delegate;
     private BiFunction<SSLEngine, List<String>, String> selector;

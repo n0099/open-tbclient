@@ -13,7 +13,7 @@ import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.c.h;
 import com.baidu.pano.platform.c.i;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AppFunctionProcessor {
     public static Object doGetSync(Object obj, String str) {
         if (obj == null) {

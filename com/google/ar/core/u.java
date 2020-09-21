@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
-/* loaded from: classes11.dex */
+/* loaded from: classes24.dex */
 final class u extends com.google.a.b.a.a.a.e {
     private final /* synthetic */ aa a;
 
@@ -19,21 +19,21 @@ final class u extends com.google.a.b.a.a.a.e {
         switch (i) {
             case -5:
                 Log.e("ARCore-InstallService", "The device is not supported.");
-                this.a.nCQ.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
+                this.a.nMM.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
                 return;
             case -4:
             case -2:
             case -1:
             default:
                 Log.e("ARCore-InstallService", new StringBuilder(33).append("requestInfo returned: ").append(i).toString());
-                this.a.nCQ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.a.nMM.a(ArCoreApk.Availability.UNKNOWN_ERROR);
                 return;
             case -3:
                 Log.e("ARCore-InstallService", "The Google Play application must be updated.");
-                this.a.nCQ.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.a.nMM.a(ArCoreApk.Availability.UNKNOWN_ERROR);
                 return;
             case 0:
-                this.a.nCQ.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                this.a.nMM.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
                 return;
         }
     }

@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class e {
     private static final int a = Runtime.getRuntime().availableProcessors();
     private static final int b = Math.max(2, Math.min(a - 1, 4));

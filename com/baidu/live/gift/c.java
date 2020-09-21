@@ -7,41 +7,34 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public b aMN;
-    public String aMO;
+    public b aOF;
+    public String aOG;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
     public String videoPath;
 
     public String getDynamicGiftId() {
-        if (this.aMN == null) {
+        if (this.aOF == null) {
             return null;
         }
-        return this.aMN.giftId;
+        return this.aOF.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.aMN == null || this.aMN.aML == null) {
+        if (this.aOF == null || this.aOF.aOD == null) {
             return false;
         }
-        return this.aMN.aML.isLandScape();
+        return this.aOF.aOD.isLandScape();
     }
 
-    public boolean Dz() {
-        if (this.aMN == null || this.aMN.aML == null) {
-            return false;
-        }
-        return this.aMN.aML.Dz();
-    }
-
-    public String DA() {
+    public String DQ() {
         File[] listFiles;
         if (!TextUtils.isEmpty(this.videoPath)) {
             return this.videoPath;
         }
-        if (TextUtils.isEmpty(this.aMO) || (listFiles = new File(this.aMO).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
+        if (TextUtils.isEmpty(this.aOG) || (listFiles = new File(this.aOG).listFiles()) == null || listFiles.length == 0 || listFiles[0] == null) {
             return null;
         }
         this.videoPath = listFiles[0].getAbsolutePath();

@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.MapController;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ah extends GestureDetector.SimpleOnGestureListener {
     private MapController a;
     private OnLongPressListener b;

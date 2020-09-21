@@ -12,7 +12,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.stats.AlaStatManager;
 import com.baidu.live.adp.lib.stats.AlaStatsItem;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.sdk.goods.message.GetVideoGoodsListHttpResponseMessage;
 import com.baidu.live.sdk.goods.message.HasGoodsAuthResponseMessage;
 import com.baidu.live.sdk.goods.message.LiveGoodsIntroduceHttpResponseMessage;
@@ -26,39 +26,39 @@ import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private boolean biU;
-    private List<com.baidu.live.sdk.goods.a.a> biV;
-    private int biW;
-    private HttpMessageListener biX;
-    private HttpMessageListener biY;
-    private HttpMessageListener biZ;
-    private a bib;
+    private a bkY;
+    private boolean blO;
+    private List<com.baidu.live.sdk.goods.a.a> blP;
+    private int blQ;
+    private HttpMessageListener blR;
+    private HttpMessageListener blS;
+    private HttpMessageListener blT;
     private int mCount;
     private Handler mHandler;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.biU = false;
-        this.biV = null;
+        this.blO = false;
+        this.blP = null;
         this.mCount = 0;
-        this.biW = 0;
-        this.biX = new HttpMessageListener(1021143) { // from class: com.baidu.live.sdk.goods.b.b.1
+        this.blQ = 0;
+        this.blR = new HttpMessageListener(1021143) { // from class: com.baidu.live.sdk.goods.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 b.this.a(httpResponsedMessage);
             }
         };
-        this.biY = new HttpMessageListener(1021144) { // from class: com.baidu.live.sdk.goods.b.b.2
+        this.blS = new HttpMessageListener(1021144) { // from class: com.baidu.live.sdk.goods.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 b.this.b(httpResponsedMessage);
             }
         };
-        this.biZ = new HttpMessageListener(1021208) { // from class: com.baidu.live.sdk.goods.b.b.3
+        this.blT = new HttpMessageListener(1021208) { // from class: com.baidu.live.sdk.goods.b.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -69,51 +69,51 @@ public class b extends BdBaseModel {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.biX);
-        MessageManager.getInstance().registerListener(this.biY);
-        MessageManager.getInstance().registerListener(this.biZ);
+        MessageManager.getInstance().registerListener(this.blR);
+        MessageManager.getInstance().registerListener(this.blS);
+        MessageManager.getInstance().registerListener(this.blT);
     }
 
     public void a(a aVar) {
-        this.bib = aVar;
+        this.bkY = aVar;
     }
 
-    public void KM() {
+    public void Lt() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021143));
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1533", UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH, UbcStatConstant.Page.AUTHOR_LIVE_ROOM, ""));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HttpResponsedMessage httpResponsedMessage) {
-        be beVar;
+        bj bjVar;
         boolean z = false;
         if (!(httpResponsedMessage instanceof HasGoodsAuthResponseMessage)) {
             a(httpResponsedMessage, "data_error", UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
         } else if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             if (httpResponsedMessage.getError() == 1001) {
-                this.biW = 0;
+                this.blQ = 0;
                 a(httpResponsedMessage, ETAG.KEY_NET_ERROR, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
                 return;
             }
             a(httpResponsedMessage, ETAG.KEY_NET_ERROR, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH);
-            this.biW++;
-            if (this.biW < 3) {
+            this.blQ++;
+            if (this.blQ < 3) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.sdk.goods.b.b.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.KM();
+                        b.this.Lt();
                     }
                 }, 2000L);
             }
         } else {
-            this.biW = 0;
+            this.blQ = 0;
             HasGoodsAuthResponseMessage hasGoodsAuthResponseMessage = (HasGoodsAuthResponseMessage) httpResponsedMessage;
-            this.biU = hasGoodsAuthResponseMessage.biT;
-            if (hasGoodsAuthResponseMessage.biT && (beVar = com.baidu.live.w.a.Nk().bkd) != null && beVar.aJE != null && !TextUtils.isEmpty(beVar.aJE.aLB)) {
+            this.blO = hasGoodsAuthResponseMessage.blN;
+            if (hasGoodsAuthResponseMessage.blN && (bjVar = com.baidu.live.x.a.NN().bmW) != null && bjVar.aKU != null && !TextUtils.isEmpty(bjVar.aKU.aNk)) {
                 z = true;
             }
-            if (this.bib != null) {
-                this.bib.a(hasGoodsAuthResponseMessage.getError(), hasGoodsAuthResponseMessage.getErrorString(), hasGoodsAuthResponseMessage.biT, z);
+            if (this.bkY != null) {
+                this.bkY.a(hasGoodsAuthResponseMessage.getError(), hasGoodsAuthResponseMessage.getErrorString(), hasGoodsAuthResponseMessage.blN, z);
             }
             a(httpResponsedMessage, null, UbcStatConstant.ContentType.UBC_TYPE_GOODS_AUTH_SUCC);
         }
@@ -136,9 +136,9 @@ public class b extends BdBaseModel {
     public void a(String str, long j, long j2, String str2, String str3, String str4) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
             com.baidu.live.sdk.goods.message.c cVar = new com.baidu.live.sdk.goods.message.c();
-            cVar.aOb = str;
+            cVar.aPZ = str;
             cVar.liveId = j;
-            cVar.biR = false;
+            cVar.blL = false;
             cVar.authorId = j2;
             cVar.tab = str2;
             cVar.tag = str3;
@@ -158,7 +158,7 @@ public class b extends BdBaseModel {
         GetVideoGoodsListHttpResponseMessage getVideoGoodsListHttpResponseMessage = (GetVideoGoodsListHttpResponseMessage) httpResponsedMessage;
         com.baidu.live.sdk.goods.message.c cVar = (com.baidu.live.sdk.goods.message.c) httpResponsedMessage.getOrginalMessage();
         long j = cVar.liveId;
-        String str = cVar.aOb;
+        String str = cVar.aPZ;
         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             b(httpResponsedMessage, ETAG.KEY_NET_ERROR, "goods_list");
             AlaStatsItem alaStatsItem = new AlaStatsItem();
@@ -170,11 +170,11 @@ public class b extends BdBaseModel {
             AlaStatManager.getInstance().debug("livegoodlist_getfail", alaStatsItem);
             return;
         }
-        this.biV = getVideoGoodsListHttpResponseMessage.biS;
+        this.blP = getVideoGoodsListHttpResponseMessage.blM;
         this.mCount = getVideoGoodsListHttpResponseMessage.count;
         b(httpResponsedMessage, null, UbcStatConstant.ContentType.UBC_TYPE_GOODS_LIST_SUCC);
-        if (this.bib != null) {
-            this.bib.a(getVideoGoodsListHttpResponseMessage.getError(), getVideoGoodsListHttpResponseMessage.getErrorString(), cVar.biR, j, getVideoGoodsListHttpResponseMessage.count, getVideoGoodsListHttpResponseMessage.biS);
+        if (this.bkY != null) {
+            this.bkY.a(getVideoGoodsListHttpResponseMessage.getError(), getVideoGoodsListHttpResponseMessage.getErrorString(), cVar.blL, j, getVideoGoodsListHttpResponseMessage.count, getVideoGoodsListHttpResponseMessage.blM);
         }
     }
 
@@ -182,7 +182,7 @@ public class b extends BdBaseModel {
     public void c(HttpResponsedMessage httpResponsedMessage) {
         int i;
         boolean z = false;
-        if ((httpResponsedMessage instanceof LiveGoodsIntroduceHttpResponseMessage) && this.bib != null) {
+        if ((httpResponsedMessage instanceof LiveGoodsIntroduceHttpResponseMessage) && this.bkY != null) {
             LiveGoodsIntroduceHttpResponseMessage liveGoodsIntroduceHttpResponseMessage = (LiveGoodsIntroduceHttpResponseMessage) httpResponsedMessage;
             String str = "";
             String str2 = "";
@@ -194,7 +194,7 @@ public class b extends BdBaseModel {
             } else {
                 i = 0;
             }
-            a aVar = this.bib;
+            a aVar = this.bkY;
             if (!liveGoodsIntroduceHttpResponseMessage.hasError() && liveGoodsIntroduceHttpResponseMessage.getError() == 0) {
                 z = true;
             }
@@ -218,7 +218,7 @@ public class b extends BdBaseModel {
 
     public void a(String str, String str2, int i, String str3, String str4, String str5) {
         com.baidu.live.sdk.goods.message.d dVar = new com.baidu.live.sdk.goods.message.d();
-        dVar.gc(str);
+        dVar.gi(str);
         dVar.setGid(str2);
         dVar.setType(i);
         dVar.addParam("room_id", str3);
@@ -227,8 +227,8 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public boolean MU() {
-        return this.biU;
+    public boolean Ny() {
+        return this.blO;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -243,9 +243,9 @@ public class b extends BdBaseModel {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.biX);
-        MessageManager.getInstance().unRegisterListener(this.biY);
-        MessageManager.getInstance().unRegisterListener(this.biZ);
+        MessageManager.getInstance().unRegisterListener(this.blR);
+        MessageManager.getInstance().unRegisterListener(this.blS);
+        MessageManager.getInstance().unRegisterListener(this.blT);
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

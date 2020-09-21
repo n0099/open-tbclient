@@ -10,28 +10,28 @@ public class AdExtParam {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void appendCommonParams() {
-        this.iadex = c.bve();
+        this.iadex = c.bwi();
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        private AdExtParam eUK;
+        private AdExtParam eXA;
 
-        public static a buX() {
+        public static a bwb() {
             a aVar = new a();
-            aVar.eUK = new AdExtParam();
-            aVar.eUK.appendCommonParams();
+            aVar.eXA = new AdExtParam();
+            aVar.eXA.appendCommonParams();
             return aVar;
         }
 
-        public a qI(int i) {
-            this.eUK.requestType = i;
+        public a qZ(int i) {
+            this.eXA.requestType = i;
             return this;
         }
 
-        public String buY() {
+        public String bwc() {
             try {
-                return new Gson().toJson(this.eUK);
+                return new Gson().toJson(this.eXA);
             } catch (Exception e) {
                 return "";
             }

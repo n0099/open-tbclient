@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class BiometricsManager implements NoProguard {
     public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
     public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
@@ -46,7 +46,7 @@ public class BiometricsManager implements NoProguard {
     private static BiometricsManager d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class a extends PassFaceRecogCallback {
         final /* synthetic */ PassFaceRecogCallback a;
 
@@ -73,7 +73,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class b extends ClickableSpan {
         final /* synthetic */ Activity a;
         final /* synthetic */ String b;
@@ -91,7 +91,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class c implements View.OnClickListener {
         final /* synthetic */ PassBiometric a;
         final /* synthetic */ PassFaceOperation b;
@@ -118,7 +118,7 @@ public class BiometricsManager implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class d implements View.OnClickListener {
         final /* synthetic */ PassFaceRecogCallback a;
         final /* synthetic */ String b;
@@ -137,7 +137,7 @@ public class BiometricsManager implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class e {
         public static final String p = "bduss";
         public static final String q = "certinfo";

@@ -6,7 +6,7 @@ import android.view.OrientationEventListener;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class k extends OrientationEventListener {
     final /* synthetic */ ArBridge a;
 

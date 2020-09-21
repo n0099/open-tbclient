@@ -7,15 +7,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.b.e;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.tieba.card.b<e> {
-    private View hAr;
+    private View hHt;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.hAr = getView().findViewById(R.id.card_recommend_list_placeholder);
+        this.hHt = getView().findViewById(R.id.card_recommend_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -35,9 +35,9 @@ public class d extends com.baidu.tieba.card.b<e> {
     @Override // com.baidu.tieba.card.b
     public void a(e eVar) {
         if (eVar != null) {
-            ViewGroup.LayoutParams layoutParams = this.hAr.getLayoutParams();
-            layoutParams.height = l.getDimens(this.mContext, eVar.hyR);
-            this.hAr.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.hHt.getLayoutParams();
+            layoutParams.height = l.getDimens(this.mContext, eVar.hFT);
+            this.hHt.setLayoutParams(layoutParams);
         }
     }
 

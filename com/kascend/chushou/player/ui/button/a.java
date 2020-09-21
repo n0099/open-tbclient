@@ -11,12 +11,12 @@ public class a {
         this.b = i2;
     }
 
-    public a Va(String str) {
+    public a VC(String str) {
         this.d = str;
         return this;
     }
 
-    public a yA(boolean z) {
+    public a yI(boolean z) {
         this.c = z;
         return this;
     }

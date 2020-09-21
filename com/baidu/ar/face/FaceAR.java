@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FaceAR extends com.baidu.ar.c implements IFace {
     private static final String TAG = FaceAR.class.getSimpleName();
     private LuaMsgListener bZ;
@@ -35,7 +35,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     private e mg;
     private FaceListener na;
     private int[] nf;
-    private a.C0082a nj;
+    private a.C0083a nj;
     private com.baidu.ar.face.attributes.a nk;
     private List<String> nb = new ArrayList();
     private String nc = null;
@@ -197,7 +197,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str2 = this.ni.pI;
             String str3 = this.ni.pJ;
             com.baidu.ar.g.b.c(TAG, "classification result：" + this.ni.pQ);
-            a.C0082a a = this.nh.a(this.ni);
+            a.C0083a a = this.nh.a(this.ni);
             if (a != null) {
                 this.nj = a;
                 this.ng = c.a(a.py, str, str2, str3);

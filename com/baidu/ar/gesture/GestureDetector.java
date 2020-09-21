@@ -11,7 +11,8 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes11.dex */
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
+/* loaded from: classes10.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = GestureDetector.class.getSimpleName();
     private int oE = 1;
@@ -44,8 +45,8 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
         if (bundle == null) {
             return 1;
         }
-        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, "gesture");
-        if ("gesture".equals(string)) {
+        String string = bundle.getString(HttpConstants.FUNCTION_TYPE, AppFrameworkConstants.VALUE_GESTURE_BACK);
+        if (AppFrameworkConstants.VALUE_GESTURE_BACK.equals(string)) {
             return 1;
         }
         return "fingertip".equals(string) ? 2 : 0;

@@ -1,5 +1,5 @@
 package com.facebook.common.util;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class ExceptionWithNoStacktrace extends Exception {
     @Override // java.lang.Throwable
     public synchronized Throwable fillInStackTrace() {

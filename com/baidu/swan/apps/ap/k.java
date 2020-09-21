@@ -4,10 +4,10 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.ap.af;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class k {
     @Nullable
-    public static File aEJ() {
+    public static File aFt() {
         List<af.a> storageList = com.baidu.swan.apps.u.a.a.getStorageList();
         if (storageList == null || storageList.size() <= 0) {
             return null;

@@ -6,11 +6,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseService extends Service {
     private a a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Handler {
         private WeakReference<BaseService> a;
 

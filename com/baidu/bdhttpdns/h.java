@@ -2,14 +2,14 @@ package com.baidu.bdhttpdns;
 
 import android.util.LruCache;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 class h {
     private final String a;
-    private final LruCache<String, a> adz = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+    private final LruCache<String, a> adR = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public static class a {
         private ArrayList<String> a;
         private ArrayList<String> b;
@@ -62,7 +62,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.adz.evictAll();
+        this.adR.evictAll();
         l.a("Clear %s cache", this.a);
     }
 
@@ -73,7 +73,7 @@ class h {
         if ((b == null || b.isEmpty()) && (c == null || c.isEmpty())) {
             return;
         }
-        this.adz.put(str, aVar);
+        this.adR.put(str, aVar);
         Object[] objArr = new Object[5];
         objArr[0] = this.a;
         objArr[1] = str;
@@ -91,7 +91,7 @@ class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (String str : this.adz.snapshot().keySet()) {
+        for (String str : this.adR.snapshot().keySet()) {
             arrayList.add(str);
         }
         return arrayList;
@@ -99,19 +99,19 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(String str) {
-        a df = df(str);
-        if (df == null || !df.a()) {
+        a dh = dh(str);
+        if (dh == null || !dh.a()) {
             return;
         }
-        this.adz.remove(str);
+        this.adR.remove(str);
         l.a("Remove expired entry from %s cache, host(%s)", this.a, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a df(String str) {
-        a aVar = this.adz.get(str);
+    public a dh(String str) {
+        a aVar = this.adR.get(str);
         if (aVar != null && aVar.a() && this.c) {
-            this.adz.remove(str);
+            this.adR.remove(str);
             l.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
             return null;
         }

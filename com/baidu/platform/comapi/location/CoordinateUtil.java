@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.basestruct.a;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class CoordinateUtil {
     public static native Point bd09llTobd09mc(double d, double d2);
 

@@ -16,7 +16,7 @@ import tv.chushou.zues.utils.g;
 @h
 /* loaded from: classes6.dex */
 public final class b {
-    public static final b ocX = new b();
+    public static final b omI = new b();
 
     private b() {
     }
@@ -42,11 +42,11 @@ public final class b {
             q.m(str, "responseString");
             JSONObject optJSONObject2 = (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) ? null : optJSONObject.optJSONObject("shareInfo");
             if (optJSONObject2 != null) {
-                ShareInfo ei = com.kascend.chushou.c.a.ei(optJSONObject2);
-                b bVar = b.ocX;
+                ShareInfo eq = com.kascend.chushou.c.a.eq(optJSONObject2);
+                b bVar = b.omI;
                 Context context = this.a;
-                q.l((Object) ei, "shareInfo");
-                bVar.a(context, ei, this.b);
+                q.l((Object) eq, "shareInfo");
+                bVar.a(context, eq, this.b);
                 return;
             }
             a(-1, "");
@@ -54,13 +54,13 @@ public final class b {
 
         @Override // com.kascend.chushou.c.b
         public void a(int i, String str) {
-            g.y(f.b(str, a.i.share_failed));
+            g.w(f.b(str, a.i.share_failed));
         }
     }
 
     public final void a(Context context, String str, String str2, ShareInfo shareInfo, String str3, boolean z) {
         q.m(context, "context");
-        c.dYv().c(new a(context, str3), str, str2);
+        c.ect().c(new a(context, str3), str, str2);
     }
 
     public final void a(Context context, ShareInfo shareInfo, String str) {
@@ -72,27 +72,27 @@ public final class b {
         shareParam.setThumbnail(shareInfo.mThumbnail);
         shareParam.setUrl(shareInfo.mUrl);
         shareParam.setPic(shareInfo.mPic);
-        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.elU().S(ThirdParty.class);
+        ThirdParty thirdParty = (ThirdParty) tv.chushou.basis.d.b.epS().S(ThirdParty.class);
         if (thirdParty != null) {
-            thirdParty.share(context, shareParam, new C0918b(shareParam, str));
+            thirdParty.share(context, shareParam, new C0915b(shareParam, str));
         }
     }
 
     @h
     /* renamed from: com.kascend.cstvsdk.utils.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0918b implements ShareListener {
+    public static final class C0915b implements ShareListener {
         final /* synthetic */ String b;
-        final /* synthetic */ ShareParam ocY;
+        final /* synthetic */ ShareParam omJ;
 
-        C0918b(ShareParam shareParam, String str) {
-            this.ocY = shareParam;
+        C0915b(ShareParam shareParam, String str) {
+            this.omJ = shareParam;
             this.b = str;
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener
         public void onSuccess(int i) {
-            com.kascend.chushou.toolkit.a.a.a(b.ocX.a(i), this.ocY.getUrl(), this.b, "1009");
+            com.kascend.chushou.toolkit.a.a.a(b.omI.a(i), this.omJ.getUrl(), this.b, "1009");
         }
 
         @Override // com.kascend.cstvsdk.interfaces.ShareListener

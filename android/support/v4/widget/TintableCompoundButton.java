@@ -3,7 +3,7 @@ package android.support.v4.widget;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public interface TintableCompoundButton {
     @Nullable
     ColorStateList getSupportButtonTintList();

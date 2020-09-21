@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.y.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
-    protected boolean cDH;
-    protected int cEt;
-    protected String cEu;
-    protected long cEv;
+    protected boolean cFH;
+    protected int cGt;
+    protected String cGu;
+    protected long cGv;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.cDH = false;
-        this.cEt = i;
-        this.cEu = str;
+        this.cFH = false;
+        this.cGt = i;
+        this.cGu = str;
     }
 
     public c(int i, String str, long j) {
-        this.cDH = false;
-        this.cEt = i;
-        this.cEu = str;
-        this.cEv = j;
+        this.cFH = false;
+        this.cGt = i;
+        this.cGu = str;
+        this.cGv = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.cDH = false;
-        this.cEt = i;
-        this.cEu = str;
-        this.cEv = j;
-        this.cDH = z;
+        this.cFH = false;
+        this.cGt = i;
+        this.cGu = str;
+        this.cGv = j;
+        this.cFH = z;
     }
 
     public int getId() {
-        return this.cEt;
+        return this.cGt;
     }
 
-    public String auM() {
-        return this.cEu;
+    public String avv() {
+        return this.cGu;
     }
 
-    public long auN() {
-        return this.cEv;
+    public long avw() {
+        return this.cGv;
     }
 
-    public boolean auO() {
-        return this.cDH;
+    public boolean avx() {
+        return this.cFH;
     }
 }

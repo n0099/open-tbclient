@@ -1,5 +1,5 @@
 package com.baidu.ar.ihttp;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IProgressCallback {
     void onProgress(int i, int i2);
 }

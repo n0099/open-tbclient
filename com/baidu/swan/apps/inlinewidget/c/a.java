@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.scheme.j;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     public a(j jVar) {
         super(jVar, "/swanAPI/addComponentToFullScreenSync");
@@ -17,7 +17,7 @@ public class a extends b {
             @Override // java.lang.Runnable
             public void run() {
                 for (String str : list) {
-                    bVar.mV(str);
+                    bVar.no(str);
                 }
             }
         });

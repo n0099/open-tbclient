@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.share;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class LocationShareURLOption {
     public LatLng mLocation = null;
     public String mName = null;

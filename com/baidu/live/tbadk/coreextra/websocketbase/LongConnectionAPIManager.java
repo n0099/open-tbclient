@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.client.socket.SocketLog;
 import com.baidu.live.adp.framework.listener.SocketMessageListener;
 import com.baidu.live.adp.framework.message.SocketResponsedMessage;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LongConnectionAPIManager extends SocketMessageListener {
     private static final String MODULE_NAME = "lcapimgr";
     private static final long PING_INTERVAL_FLOATING_VALUE = 20000;
@@ -123,7 +123,7 @@ public class LongConnectionAPIManager extends SocketMessageListener {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     private static class CommandErrorRecord {
         public int errorCount;
         public boolean startBlockOnErrorCount;

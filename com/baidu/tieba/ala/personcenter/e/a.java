@@ -9,27 +9,27 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c.b> {
-    private View gXf;
-    private TextView gXg;
-    private HeadImageView gXh;
-    private HeadImageView gXi;
-    private HeadImageView gXj;
-    private ImageView gXk;
+    private View haM;
+    private TextView haN;
+    private HeadImageView haO;
+    private HeadImageView haP;
+    private HeadImageView haQ;
+    private ImageView haR;
     private TextView mTitle;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        ak(getView());
+        am(getView());
     }
 
-    private void ak(View view) {
-        this.gXf = view.findViewById(R.id.ala_person_center_list_item_sep);
+    private void am(View view) {
+        this.haM = view.findViewById(R.id.ala_person_center_list_item_sep);
         this.mTitle = (TextView) view.findViewById(R.id.ala_person_center_list_item_title_txt);
-        this.gXg = (TextView) view.findViewById(R.id.ala_person_center_list_item_desc_txt);
-        this.gXk = (ImageView) view.findViewById(R.id.ala_person_center_list_item_arrow_img);
-        this.gXh = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img1);
-        this.gXi = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img2);
-        this.gXj = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img3);
+        this.haN = (TextView) view.findViewById(R.id.ala_person_center_list_item_desc_txt);
+        this.haR = (ImageView) view.findViewById(R.id.ala_person_center_list_item_arrow_img);
+        this.haO = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img1);
+        this.haP = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img2);
+        this.haQ = (HeadImageView) view.findViewById(R.id.ala_person_center_list_item_contribution_img3);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -48,27 +48,27 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
         }
     }
 
-    public void uU(int i) {
-        if (this.gXf != null) {
-            this.gXf.setVisibility(i);
+    public void vn(int i) {
+        if (this.haM != null) {
+            this.haM.setVisibility(i);
         }
     }
 
-    public void uV(int i) {
-        if (this.gXk != null) {
-            this.gXk.setVisibility(i);
+    public void vo(int i) {
+        if (this.haR != null) {
+            this.haR.setVisibility(i);
         }
     }
 
-    public void GO(String str) {
-        if (this.gXg != null) {
-            this.gXg.setText(str);
+    public void Hh(String str) {
+        if (this.haN != null) {
+            this.haN.setText(str);
         }
     }
 
-    public TextView bZd() {
-        if (this.gXg != null) {
-            return this.gXg;
+    public TextView caZ() {
+        if (this.haN != null) {
+            return this.haN;
         }
         return null;
     }
@@ -76,13 +76,13 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i == 1) {
-            this.gXk.setAlpha(0.7f);
+            this.haR.setAlpha(0.7f);
         } else {
-            this.gXk.setAlpha(1);
+            this.haR.setAlpha(1);
         }
-        this.gXf.setBackgroundColor(ap.getColor(i, R.color.cp_bg_line_c));
-        ap.setViewTextColor(this.mTitle, (int) R.color.cp_cont_f);
-        ap.setViewTextColor(this.gXg, (int) R.color.cp_cont_d);
+        this.haM.setBackgroundColor(ap.getColor(i, R.color.cp_bg_line_c));
+        ap.setViewTextColor(this.mTitle, R.color.cp_cont_f);
+        ap.setViewTextColor(this.haN, R.color.cp_cont_d);
     }
 
     @Override // android.view.View.OnClickListener

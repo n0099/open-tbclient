@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public final class b {
     public static byte[] a() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 85, 45, 110, -64, -77, -20, 34, 18, -33, -20, -8, 111, -117, 98, -24, 88, 33, -35, 29, -6, 7, 53, -7, 88, -118, 83};
@@ -19,15 +19,15 @@ public final class b {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 80, 3, 38, -31, 110, 68, 115, 105, -16, -85, 110};
     }
 
-    public static byte[] sA() {
+    public static byte[] sF() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 65, 45, 110, -64, -77, -20, 34, 18, -33, -20, -8, 111};
     }
 
-    public static byte[] sB() {
+    public static byte[] sG() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 71, 5, 32, -55, 123, 89, 110, 102};
     }
 
-    public static byte[] sC() {
+    public static byte[] sH() {
         return new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, 37, 0, -124, 69, 39, 119, -83, -66, -32, 59, 25, -60, -89, -2, 126, -94, Constants.SHORT_PING_CMD_TYPE, -26, 73, 99, -56, 21, -36, 5, 40, -29, 31, -73, 64, 53, 107, 85, 18, 53, -44, 104, 113, 121, 107, -16, -87, 126, 79, -109};
     }
 }

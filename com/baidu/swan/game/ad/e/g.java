@@ -9,49 +9,49 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class g implements com.baidu.swan.apps.adlanding.download.a.a {
-    private SwanAdDownloadState bTt = SwanAdDownloadState.NOT_START;
-    AdElementInfo djj;
-    com.baidu.swan.game.ad.a.b dmr;
-    a dms;
+    private SwanAdDownloadState bVt = SwanAdDownloadState.NOT_START;
+    AdElementInfo dll;
+    com.baidu.swan.game.ad.a.b dou;
+    a dov;
     String mClickId;
     Context mContext;
 
     public g(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         this.mContext = context;
-        this.djj = adElementInfo;
-        this.dmr = bVar;
+        this.dll = adElementInfo;
+        this.dou = bVar;
     }
 
-    public void pq(String str) {
+    public void pJ(String str) {
         this.mClickId = str;
-        ud("1");
+        uw("1");
         if (this.mContext != null) {
             com.baidu.swan.apps.res.widget.b.d.k(this.mContext, c.g.gdt_ad_start_download).showToastBottom();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ud(String str) {
+    public void uw(String str) {
         com.baidu.swan.game.ad.c.b bVar = new com.baidu.swan.game.ad.c.b();
         bVar.mClickId = this.mClickId;
-        bVar.dlG = str;
-        com.baidu.swan.game.ad.c.d.a(bVar, this.djj, this.dmr);
+        bVar.dnI = str;
+        com.baidu.swan.game.ad.c.d.a(bVar, this.dll, this.dou);
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public void dA(boolean z) {
+    public void dy(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
     public void a(SwanAdDownloadState swanAdDownloadState, int i) {
-        if (this.bTt != swanAdDownloadState) {
+        if (this.bVt != swanAdDownloadState) {
             if (swanAdDownloadState == SwanAdDownloadState.DOWNLOADED) {
-                ud("2");
-                aHt();
+                uw("2");
+                aId();
             }
-            this.bTt = swanAdDownloadState;
+            this.bVt = swanAdDownloadState;
         }
     }
 
@@ -60,31 +60,31 @@ public class g implements com.baidu.swan.apps.adlanding.download.a.a {
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public void iO(String str) {
+    public void jh(String str) {
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public void abo() {
-        aHt();
+    public void abX() {
+        aId();
     }
 
     @Override // com.baidu.swan.apps.adlanding.download.a.a
-    public String abp() {
+    public String abY() {
         return null;
     }
 
-    private void aHt() {
-        if (this.dms == null) {
-            this.dms = new a();
+    private void aId() {
+        if (this.dov == null) {
+            this.dov = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
             intentFilter.addDataScheme("package");
-            this.mContext.registerReceiver(this.dms, intentFilter);
+            this.mContext.registerReceiver(this.dov, intentFilter);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class a extends BroadcastReceiver {
         private long time;
 
@@ -95,18 +95,18 @@ public class g implements com.baidu.swan.apps.adlanding.download.a.a {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null && intent.getData() != null && "android.intent.action.PACKAGE_ADDED".equals(intent.getAction())) {
-                if (TextUtils.equals(g.this.djj.getPackageName(), intent.getData().getSchemeSpecificPart()) && System.currentTimeMillis() - this.time >= TimeUnit.SECONDS.toMillis(10L)) {
+                if (TextUtils.equals(g.this.dll.getPackageName(), intent.getData().getSchemeSpecificPart()) && System.currentTimeMillis() - this.time >= TimeUnit.SECONDS.toMillis(10L)) {
                     this.time = System.currentTimeMillis();
-                    g.this.ud("3");
+                    g.this.uw("3");
                 }
             }
         }
     }
 
     public void release() {
-        if (this.dms != null) {
-            this.mContext.unregisterReceiver(this.dms);
-            this.dms = null;
+        if (this.dov != null) {
+            this.mContext.unregisterReceiver(this.dov);
+            this.dov = null;
         }
     }
 }

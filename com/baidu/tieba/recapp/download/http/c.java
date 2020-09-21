@@ -9,28 +9,28 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class c {
-    private static String Mc;
-    private static String Md;
-    private static boolean Me;
-    private static String Mf;
+    private static String Mn;
+    private static String Mo;
+    private static boolean Mp;
+    private static String Mq;
     private static String sUid;
-    private long Ml;
-    private g lDG;
-    private d lDH;
+    private long Mw;
+    private g lMA;
+    private d lMB;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.Ml = BdStatisticsManager.getInstance().getClientLogId();
+        this.Mw = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void bN(String str) {
-        Mc = str;
+    public static void bP(String str) {
+        Mn = str;
     }
 
     public static void setUserAgent(String str) {
-        Md = str;
+        Mo = str;
     }
 
     public static void setUid(String str) {
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.lDG = new g();
-        a(this.lDG, z);
-        this.lDG.dnA().setUrl(str);
-        this.lDH = new d(this.lDG);
-        this.lDH.d(i, i3, i4);
-        return this.lDG.dnB();
+        this.lMA = new g();
+        a(this.lMA, z);
+        this.lMA.drj().setUrl(str);
+        this.lMB = new d(this.lMA);
+        this.lMB.d(i, i3, i4);
+        return this.lMA.drk();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.lDG = new g();
-        a(this.lDG, z);
-        this.lDG.dnA().setUrl(str);
+        this.lMA = new g();
+        a(this.lMA, z);
+        this.lMA.drj().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.lDG.dnA().addPostData(basicNameValuePair);
+                this.lMA.drj().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.lDG.dnA().u(next.getName(), next.getValue());
+                this.lMA.drj().u(next.getName(), next.getValue());
             }
         }
-        this.lDH = new d(this.lDG);
-        this.lDH.f(i, i2, -1);
-        return this.lDG.dnB();
+        this.lMB = new d(this.lMA);
+        this.lMB.f(i, i2, -1);
+        return this.lMA.drk();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.lDG = new g();
-        b(this.lDG);
-        this.lDG.dnA().setUrl(str);
-        this.lDH = new d(this.lDG);
-        return this.lDH.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.lMA = new g();
+        b(this.lMA);
+        this.lMA.drj().setUrl(str);
+        this.lMB = new d(this.lMA);
+        return this.lMB.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.lDH != null) {
-            this.lDH.cancel();
+        if (this.lMB != null) {
+            this.lMB.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.lDH != null) {
-            return this.lDH.isCancel();
+        if (this.lMB != null) {
+            return this.lMB.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.lDH != null) {
-            this.lDH.setCancel();
+        if (this.lMB != null) {
+            this.lMB.setCancel();
         }
     }
 
-    public g dnz() {
-        return this.lDG;
+    public g dri() {
+        return this.lMA;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
-            if (!TextUtils.isEmpty(Mc)) {
-                gVar.dnA().u(SM.COOKIE, Mc);
+            if (!TextUtils.isEmpty(Mn)) {
+                gVar.drj().u(SM.COOKIE, Mn);
             } else {
-                gVar.dnA().u(SM.COOKIE, "");
+                gVar.drj().u(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.dnA().u("client_user_token", sUid);
+                gVar.drj().u("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(Md)) {
-                gVar.dnA().u("User-Agent", Md);
+            if (!TextUtils.isEmpty(Mo)) {
+                gVar.drj().u("User-Agent", Mo);
             }
             if (z) {
-                gVar.dnA().u(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.drj().u(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.dnA().u(Headers.ACCEPT_ENCODING, "");
+                gVar.drj().u(Headers.ACCEPT_ENCODING, "");
             }
-            if (Me) {
-                gVar.dnA().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (Mp) {
+                gVar.drj().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.dnA().u(HTTP.CONN_DIRECTIVE, "close");
+                gVar.drj().u(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.dnA().u("client_logid", String.valueOf(this.Ml));
-            if (!TextUtils.isEmpty(Mf)) {
-                gVar.dnA().u("cuid", Mf);
+            gVar.drj().u("client_logid", String.valueOf(this.Mw));
+            if (!TextUtils.isEmpty(Mq)) {
+                gVar.drj().u("cuid", Mq);
             }
         }
     }

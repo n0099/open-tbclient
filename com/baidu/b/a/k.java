@@ -1,5 +1,5 @@
 package com.baidu.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class k {
     private final byte[] a;
     private final int[] b;
@@ -21,6 +21,10 @@ class k {
         b();
     }
 
+    private static int a(byte[] bArr, int i) {
+        return (int) (j(bArr, i, 4) & 4294967295L);
+    }
+
     private void b() {
         this.b[0] = (this.d - 1640531535) - 2048144777;
         this.b[1] = this.d - 2048144777;
@@ -28,19 +32,15 @@ class k {
         this.b[3] = this.d - (-1640531535);
     }
 
-    private static int e(byte[] bArr, int i) {
-        return (int) (j(bArr, i, 4) & 4294967295L);
-    }
-
-    private void f(byte[] bArr, int i) {
+    private void e(byte[] bArr, int i) {
         int i2 = this.b[0];
         int i3 = this.b[1];
         int i4 = this.b[2];
         int i5 = this.b[3];
-        this.b[0] = Integer.rotateLeft(i2 + (e(bArr, i) * (-2048144777)), 13) * (-1640531535);
-        this.b[1] = Integer.rotateLeft(i3 + (e(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
-        this.b[2] = Integer.rotateLeft(i4 + (e(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
-        this.b[3] = Integer.rotateLeft(i5 + (e(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
+        this.b[0] = Integer.rotateLeft(i2 + (a(bArr, i) * (-2048144777)), 13) * (-1640531535);
+        this.b[1] = Integer.rotateLeft(i3 + (a(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
+        this.b[2] = Integer.rotateLeft(i4 + (a(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
+        this.b[3] = Integer.rotateLeft(i5 + (a(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
         this.f = 0;
     }
 
@@ -62,7 +62,7 @@ class k {
         int i2 = rotateLeft;
         int i3 = 0;
         while (i3 <= i) {
-            i2 = Integer.rotateLeft(i2 + (e(this.c, i3) * (-1028477379)), 17) * 668265263;
+            i2 = Integer.rotateLeft(i2 + (a(this.c, i3) * (-1028477379)), 17) * 668265263;
             i3 += 4;
         }
         int i4 = i2;
@@ -90,12 +90,12 @@ class k {
         if (this.f > 0) {
             int i4 = 16 - this.f;
             System.arraycopy(bArr, i, this.c, this.f, i4);
-            f(this.c, 0);
+            e(this.c, 0);
             i += i4;
         }
         int i5 = i3 - 16;
         while (i <= i5) {
-            f(bArr, i);
+            e(bArr, i);
             i += 16;
         }
         if (i < i3) {

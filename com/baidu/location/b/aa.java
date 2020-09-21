@@ -10,18 +10,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class aa {
     private b a;
     private long b = 0;
     private long c = 0;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static aa a = new aa();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     class b extends com.baidu.location.e.f {
         private boolean d = false;
         private String e = null;

@@ -2,19 +2,19 @@ package com.baidu.swan.apps.extcore.model.b;
 
 import android.support.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface a {
     @NonNull
-    String amr();
+    String anb();
 
     @NonNull
-    File ams();
+    File anc();
 
     @NonNull
-    String amt();
+    String and();
 
     @NonNull
-    String amu();
+    String ane();
 
-    int amv();
+    int anf();
 }

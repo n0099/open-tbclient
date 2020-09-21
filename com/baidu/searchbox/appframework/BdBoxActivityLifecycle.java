@@ -3,22 +3,21 @@ package com.baidu.searchbox.appframework;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.util.Log;
-import com.baidu.android.app.event.EventBusWrapper;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCallbacks {
-    private static final boolean DEBUG = LibAppFrameworkConfig.GLOBAL_DEBUG;
+    private static final boolean DEBUG = false;
     private static final String TAG = "BdBoxActivityLifecycle";
+    private static boolean hasGlobalLifecycle = false;
     private int mActivityCount;
     private LinkedList<WeakReference<Activity>> mActivityStack = new LinkedList<>();
     private boolean mIsForeground = false;
     private CopyOnWriteArrayList<IActivityLifecycle> mCustomActivityLifeCycles = new CopyOnWriteArrayList<>();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes10.dex */
     public interface IActivityLifecycle {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -39,18 +38,20 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         void onForegroundToBackground(Activity activity);
     }
 
-    /* loaded from: classes18.dex */
-    public static class BackForegroundEvent {
-        public boolean isForeground;
-
-        BackForegroundEvent(boolean z) {
-            this.isForeground = z;
+    public void registerGlobalLifeCycle(IActivityLifecycle iActivityLifecycle) {
+        if (iActivityLifecycle != null && !this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
+            hasGlobalLifecycle = true;
+            this.mCustomActivityLifeCycles.add(iActivityLifecycle);
         }
     }
 
     public void registerLifeCycle(IActivityLifecycle iActivityLifecycle) {
         if (iActivityLifecycle != null && !this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
-            this.mCustomActivityLifeCycles.add(iActivityLifecycle);
+            if (hasGlobalLifecycle && this.mCustomActivityLifeCycles.size() > 0) {
+                this.mCustomActivityLifeCycles.add(this.mCustomActivityLifeCycles.size() - 1, iActivityLifecycle);
+            } else {
+                this.mCustomActivityLifeCycles.add(iActivityLifecycle);
+            }
         }
     }
 
@@ -63,20 +64,10 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         this.mActivityStack.add(new WeakReference<>(activity));
-        if (DEBUG) {
-            String simpleName = activity.getClass().getSimpleName();
-            Log.i(TAG, "--------------------------------------------------");
-            Log.d(TAG, "Add [" + simpleName + "] into activity stack, this = " + this);
-            dump();
-        }
         if (this.mCustomActivityLifeCycles != null && this.mCustomActivityLifeCycles.size() > 0) {
             Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
             while (it.hasNext()) {
-                IActivityLifecycle next = it.next();
-                if (DEBUG) {
-                    Log.d(TAG, "\tDispatch lifecycle on [" + activity.getClass().getSimpleName() + "] created: " + next);
-                }
-                next.onActivityCreated(activity, bundle);
+                it.next().onActivityCreated(activity, bundle);
             }
         }
     }
@@ -159,13 +150,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             }
             if (i != -1) {
                 this.mActivityStack.remove(i);
-                if (DEBUG) {
-                    Log.d(TAG, "Remove [" + activity.getClass().getSimpleName() + "] from activity stack, this = " + this);
-                }
             }
-        }
-        if (DEBUG) {
-            dump();
         }
         if (this.mCustomActivityLifeCycles != null && this.mCustomActivityLifeCycles.size() > 0) {
             Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
@@ -176,9 +161,6 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     }
 
     public void onBackgroundToForeground(Activity activity) {
-        if (DEBUG) {
-            Log.d(TAG, "Switch to foreground: null --> activity: " + activity.getClass().getSimpleName());
-        }
         this.mIsForeground = true;
         if (this.mCustomActivityLifeCycles != null && this.mCustomActivityLifeCycles.size() > 0) {
             Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
@@ -186,13 +168,9 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 it.next().onBackgroundToForeground(activity);
             }
         }
-        EventBusWrapper.post(new BackForegroundEvent(true));
     }
 
     public void onForegroundToBackground(Activity activity) {
-        if (DEBUG) {
-            Log.d(TAG, "Switch to background: activity --> null, last activity: " + activity.getClass().getSimpleName());
-        }
         this.mIsForeground = false;
         if (this.mCustomActivityLifeCycles != null && this.mCustomActivityLifeCycles.size() > 0) {
             Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
@@ -200,14 +178,14 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 it.next().onForegroundToBackground(activity);
             }
         }
-        EventBusWrapper.post(new BackForegroundEvent(false));
     }
 
     public Activity getTopActivity() {
-        if (this.mActivityStack.isEmpty()) {
+        WeakReference<Activity> last;
+        if (this.mActivityStack.isEmpty() || (last = this.mActivityStack.getLast()) == null) {
             return null;
         }
-        return this.mActivityStack.getLast().get();
+        return last.get();
     }
 
     public Activity getPenultimateActivity() {
@@ -283,25 +261,26 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     }
 
     private String dump() {
-        if (this.mActivityStack != null && !this.mActivityStack.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("[");
-            for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
-                Activity activity = this.mActivityStack.get(size).get();
-                if (activity != null) {
-                    sb.append(size + 1).append(": ").append(activity.getClass().getSimpleName()).append(" ");
-                }
-            }
-            String sb2 = sb.append("], this = ").append(this).toString();
-            if (DEBUG) {
-                Log.d(TAG, "Dump Activity Stack [Top <== Bottom]: " + sb2);
-                return sb2;
-            }
-            return sb2;
+        if (this.mActivityStack == null || this.mActivityStack.isEmpty()) {
+            return "";
         }
-        if (DEBUG) {
-            Log.d(TAG, "Dump Activity Stack: null");
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
+            Activity activity = this.mActivityStack.get(size).get();
+            if (activity != null) {
+                sb.append(size + 1).append(": ").append(activity.getClass().getSimpleName()).append(" ");
+            }
         }
-        return "";
+        return sb.append("], this = ").append(this).toString();
+    }
+
+    /* loaded from: classes10.dex */
+    public static class BackForegroundEvent {
+        public boolean isForeground;
+
+        public BackForegroundEvent(boolean z) {
+            this.isForeground = z;
+        }
     }
 }

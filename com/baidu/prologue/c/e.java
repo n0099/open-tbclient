@@ -2,7 +2,7 @@ package com.baidu.prologue.c;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class e {
     public abstract boolean c(Context context, g gVar, a aVar);
 

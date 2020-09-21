@@ -1,10 +1,8 @@
 package com.baidu.tieba.pb.pb.main.b;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,56 +22,51 @@ import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.data.m;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
-    public a kQc = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a kYE = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
-        public void a(f fVar, bw bwVar, PostData postData, View view) {
+        public void a(f fVar, bw bwVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
             String shareImageUrl;
             String tid;
             String str;
-            if ((fVar != null || bwVar != null) && postData != null && view != null && c.this.mPageContext != null) {
+            if ((fVar != null || bwVar != null) && postData != null && c.this.mPageContext != null) {
                 if (fVar == null) {
                     shareImageUrl = c.this.getShareImageUrl(bwVar);
                 } else {
-                    shareImageUrl = fVar.q(c.this.mPageContext.getPageActivity(), false)[0];
+                    shareImageUrl = fVar.r(c.this.mPageContext.getPageActivity(), false)[0];
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    bwVar = fVar.cVm();
+                    bwVar = fVar.cYR();
                     if (bwVar == null) {
                         return;
                     }
                 }
-                Bitmap cV = c.this.cV(view);
                 m mVar = new m();
-                mVar.E(cV);
                 mVar.setContent(bwVar.getAbstract());
-                if (bwVar.beW() != null) {
-                    mVar.sD(true);
-                    mVar.Nn(StringUtils.translateSecondsToString(bwVar.beW().video_duration.intValue()));
-                } else {
-                    mVar.sD(false);
-                }
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    mVar.No(shareImageUrl);
+                    mVar.NP(shareImageUrl);
                 }
+                mVar.setThreadType(bwVar.getThreadType());
+                mVar.b(aVar);
+                mVar.g(postData);
                 String title = bwVar.getTitle();
                 if (StringUtils.isNull(title)) {
                     title = bwVar.getAbstract();
                 }
                 mVar.setContent(title);
-                if (bwVar.bdo()) {
+                if (bwVar.bei()) {
                     tid = bwVar.getBaijiahaoData().oriUgcTid;
                     str = "?share=9105&fr=dshare&dtype=" + bwVar.getBaijiahaoData().oriUgcType + "&dvid=" + bwVar.getBaijiahaoData().oriUgcVid + "&nid=" + bwVar.getBaijiahaoData().oriUgcNid;
                 } else {
                     tid = bwVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                mVar.F(c.this.NV("http://tieba.baidu.com/p/" + tid + str));
+                mVar.E(c.this.Ow("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
-                shareItem.eEn = true;
+                shareItem.eGt = true;
                 shareItem.extData = tid;
                 shareItem.pid = postData.getId();
                 Bundle bundle = new Bundle();
@@ -86,13 +79,13 @@ public class c {
                 pbPostShareDialogConfig.setHideMode(pbPostShareDialogConfig.hideMode | 32);
                 c.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, pbPostShareDialogConfig));
                 aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                aqVar.dD("tid", tid);
-                aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
-                if (bwVar.bgs() != null) {
-                    aqVar.dD("fid", bwVar.bgs().forumId);
+                aqVar.dF("tid", tid);
+                aqVar.dF("uid", TbadkCoreApplication.getCurrentAccount());
+                if (bwVar.bhm() != null) {
+                    aqVar.dF("fid", bwVar.bhm().forumId);
                 }
-                if (bwVar.bgh() != null) {
-                    aqVar.dD("pid", postData.getId());
+                if (bwVar.bhb() != null) {
+                    aqVar.dF("pid", postData.getId());
                 }
                 aqVar.ai("obj_locate", 21);
                 TiebaStatic.log(aqVar);
@@ -101,9 +94,9 @@ public class c {
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void a(f fVar, bw bwVar, PostData postData, View view);
+        void a(f fVar, bw bwVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar);
     }
 
     public c(TbPageContext tbPageContext) {
@@ -111,14 +104,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap cV(View view) {
-        Bitmap createBitmap = Bitmap.createBitmap((view.getWidth() - view.getPaddingLeft()) - view.getPaddingRight(), (view.getHeight() - view.getPaddingTop()) - view.getPaddingBottom(), Bitmap.Config.ARGB_8888);
-        view.draw(new Canvas(createBitmap));
-        return createBitmap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap NV(String str) {
+    public Bitmap Ow(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;
@@ -132,21 +118,21 @@ public class c {
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.beY() != null && !TextUtils.isEmpty(bwVar.beY().cover)) {
-            return bwVar.beY().cover;
+        if (bwVar.bfS() != null && !TextUtils.isEmpty(bwVar.bfS().cover)) {
+            return bwVar.bfS().cover;
         }
-        if (bwVar.beN() == null) {
+        if (bwVar.bfH() == null) {
             return null;
         }
-        ArrayList<MediaData> beN = bwVar.beN();
-        int size = beN.size();
+        ArrayList<MediaData> bfH = bwVar.bfH();
+        int size = bfH.size();
         int i = 0;
         while (true) {
             if (i >= size) {
                 str = null;
                 break;
             }
-            MediaData mediaData = beN.get(i);
+            MediaData mediaData = bfH.get(i);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -158,8 +144,8 @@ public class c {
             }
             i++;
         }
-        if (str == null && bwVar.beW() != null && !TextUtils.isEmpty(bwVar.beW().thumbnail_url)) {
-            return bwVar.beW().thumbnail_url;
+        if (str == null && bwVar.bfQ() != null && !TextUtils.isEmpty(bwVar.bfQ().thumbnail_url)) {
+            return bwVar.bfQ().thumbnail_url;
         }
         return str;
     }

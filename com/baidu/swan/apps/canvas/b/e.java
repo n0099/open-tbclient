@@ -3,27 +3,27 @@ package com.baidu.swan.apps.canvas.b;
 import com.baidu.swan.apps.canvas.a.a.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
-    private List<com.baidu.swan.apps.canvas.a.a.a> cae;
-    private j cah;
+    private List<com.baidu.swan.apps.canvas.a.a.a> ccf;
+    private j cci;
 
     public e(String str) {
         super(str);
-        this.cae = new ArrayList();
-        this.cah = new j(str);
-        this.cae.add(this.cah);
+        this.ccf = new ArrayList();
+        this.cci = new j(str);
+        this.ccf.add(this.cci);
     }
 
-    public int acO() {
-        return this.cah.acO();
+    public int adx() {
+        return this.cci.adx();
     }
 
-    public List<com.baidu.swan.apps.canvas.a.a.a> acP() {
-        return this.cae;
+    public List<com.baidu.swan.apps.canvas.a.a.a> ady() {
+        return this.ccf;
     }
 
-    public boolean acQ() {
+    public boolean adz() {
         return true;
     }
 }

@@ -3,7 +3,7 @@ package com.xiaomi.clientreport.manager;
 import com.xiaomi.push.ai;
 import java.util.concurrent.ExecutorService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class f extends ai.a {
     final /* synthetic */ a a;
 
@@ -24,7 +24,7 @@ public class f extends ai.a {
         ExecutorService executorService;
         b = this.a.b();
         if (b > 0) {
-            executorService = this.a.f18a;
+            executorService = this.a.f17a;
             executorService.execute(new g(this));
         }
     }

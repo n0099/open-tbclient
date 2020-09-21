@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f {
     public String a;
     public String b;
@@ -35,11 +35,11 @@ public class f {
         return TextUtils.isEmpty(str);
     }
 
-    public static f cW(String str) {
-        return cX(e(str));
+    public static f cY(String str) {
+        return cZ(e(str));
     }
 
-    private static f cX(String str) {
+    private static f cZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

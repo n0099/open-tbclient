@@ -5,7 +5,7 @@ import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.constraint.solver.widgets.ConstraintWidget;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class LinearSystem {
     private static final boolean DEBUG = false;
     public static final boolean FULL_DEBUG = false;
@@ -29,7 +29,7 @@ public class LinearSystem {
     private ArrayRow[] tempClientsCopy = new ArrayRow[this.TABLE_SIZE];
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public interface Row {
         void addError(SolverVariable solverVariable);
 

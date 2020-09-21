@@ -8,7 +8,7 @@ import com.baidu.tieba.view.AdapterLinearLayout;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SelectRuleRowItem extends AdapterLinearLayout {
-    private a eWW;
+    private a eZN;
     private int mType;
 
     public SelectRuleRowItem(Context context) {
@@ -29,20 +29,20 @@ public class SelectRuleRowItem extends AdapterLinearLayout {
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.eWW = new a(getContext());
-        setAdapter(this.eWW);
+        this.eZN = new a(getContext());
+        setAdapter(this.eZN);
     }
 
     public void setData(List<String> list, List<String> list2) {
-        this.eWW.setData(list, list2);
+        this.eZN.setData(list, list2);
     }
 
     public void setData(List<String> list, List<String> list2, List<String> list3) {
-        this.eWW.setData(list, list2, list3);
+        this.eZN.setData(list, list2, list3);
     }
 
     public void setType(int i) {
         this.mType = i;
-        this.eWW.setType(i);
+        this.eZN.setType(i);
     }
 }

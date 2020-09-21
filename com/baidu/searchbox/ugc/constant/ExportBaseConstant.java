@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.constant;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class ExportBaseConstant {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";

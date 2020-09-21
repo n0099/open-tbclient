@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ec extends ed {
     public static String a = "";
     public static String b = "";
@@ -47,7 +47,7 @@ public class ec extends ed {
     public String mo166a() {
         String str = "";
         if (!TextUtils.isEmpty(a)) {
-            str = "" + a(dv.f230a, a);
+            str = "" + a(dv.f229a, a);
             a = "";
         }
         if (TextUtils.isEmpty(b)) {

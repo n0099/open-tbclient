@@ -3,24 +3,24 @@ package com.baidu.live.message;
 import com.baidu.live.gift.o;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetQuickGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    private o beT;
+    private o bhG;
 
     public GetQuickGiftHttpResponseMessage() {
         super(1021124);
     }
 
-    public o LK() {
-        return this.beT;
+    public o Ml() {
+        return this.bhG;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.beT = new o();
-            this.beT.parseJson(jSONObject);
+            this.bhG = new o();
+            this.bhG.parseJson(jSONObject);
         }
     }
 }

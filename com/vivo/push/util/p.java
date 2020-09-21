@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class p {
     public static final o a = new n();
     private static boolean b = z.b("persist.sys.log.ctrl", "no").equals("yes");

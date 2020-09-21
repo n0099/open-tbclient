@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alaar.sticker.download.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface f {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, f fVar);
     }

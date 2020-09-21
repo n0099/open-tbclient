@@ -5,16 +5,16 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    public static final b osH;
+    public static final b oCo;
 
     static {
         b bVar;
         Object newInstance;
         Object newInstance2;
-        int egp = egp();
-        if (egp >= 65544) {
+        int ekm = ekm();
+        if (ekm >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.b.a").newInstance();
                 q.l(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -47,9 +47,9 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance;
-            osH = bVar;
+            oCo = bVar;
         }
-        if (egp >= 65543) {
+        if (ekm >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
                 q.l(newInstance2, "Class.forName(\"kotlin.in…entations\").newInstance()");
@@ -76,7 +76,7 @@ public final class c {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                 }
                 bVar = (b) newInstance2;
-                osH = bVar;
+                oCo = bVar;
             } catch (ClassCastException e8) {
                 ClassLoader classLoader4 = newInstance2.getClass().getClassLoader();
                 Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader4 + ", base type classloader: " + b.class.getClassLoader()).initCause(e8);
@@ -85,10 +85,10 @@ public final class c {
             }
         }
         bVar = new b();
-        osH = bVar;
+        oCo = bVar;
     }
 
-    private static final int egp() {
+    private static final int ekm() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {

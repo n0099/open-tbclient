@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.map;
 
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class w {
     static boolean a = false;
 

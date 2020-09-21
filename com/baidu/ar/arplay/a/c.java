@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.OrientationEventListener;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends OrientationEventListener {
     private ARPEngine.e dk;
     private boolean dl;

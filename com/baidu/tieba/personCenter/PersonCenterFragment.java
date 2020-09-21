@@ -25,33 +25,32 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.l;
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.R;
-import com.baidu.tieba.personCenter.b.b;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class PersonCenterFragment extends BaseFragment {
-    private b lev;
-    private String lew;
-    private String lex;
+    private com.baidu.tieba.personCenter.b.b lnm;
+    private String lnn;
+    private String lno;
     private long userId;
     private boolean isSelf = true;
     @Deprecated
     private boolean isBigV = false;
-    private boolean leu = false;
-    private long kDm = 0;
-    private boolean hpv = false;
+    private boolean lnl = false;
+    private long kLK = 0;
+    private boolean hwz = false;
     private CustomMessageListener checkFeedBackListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP) { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2016560) {
-                PersonCenterFragment.this.uu(false);
+                PersonCenterFragment.this.uC(false);
             }
         }
     };
-    private CustomMessageListener hUI = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.2
+    private CustomMessageListener ibI = new CustomMessageListener(CmdConfigCustom.CMD_MODIFY_NICKNAME_SUCCEED) { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -60,28 +59,28 @@ public class PersonCenterFragment extends BaseFragment {
                 if (data instanceof String) {
                     String str = (String) data;
                     if (!TextUtils.isEmpty(str)) {
-                        PersonCenterFragment.this.lew = str;
+                        PersonCenterFragment.this.lnn = str;
                     }
                 }
             }
         }
     };
-    private CustomMessageListener ley = new CustomMessageListener(2921378) { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.3
+    private CustomMessageListener lnp = new CustomMessageListener(2921378) { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && PersonCenterFragment.this.isSelf) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof String) {
-                    PersonCenterFragment.this.lex = (String) data;
+                    PersonCenterFragment.this.lno = (String) data;
                 }
             }
         }
     };
-    private MessageQueue.IdleHandler lez = new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.6
+    private MessageQueue.IdleHandler lnq = new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.6
         @Override // android.os.MessageQueue.IdleHandler
         public boolean queueIdle() {
-            PersonCenterFragment.this.dgw();
+            PersonCenterFragment.this.djZ();
             return false;
         }
     };
@@ -89,12 +88,12 @@ public class PersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a.dgx().setCreateTime(System.currentTimeMillis() - a.dgx().aVY());
+        a.dka().setCreateTime(System.currentTimeMillis() - a.dka().aWK());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
-        a.dgx().cq(System.currentTimeMillis());
+        a.dka().cr(System.currentTimeMillis());
         super.onCreate(bundle);
     }
 
@@ -103,51 +102,51 @@ public class PersonCenterFragment extends BaseFragment {
         super.onAttach(context);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (getArguments() != null) {
-            this.leu = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
+            this.lnl = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
         }
         getPageStayDurationItem().objParam1 = "1";
-        uu(true);
+        uC(true);
         MessageManager.getInstance().registerListener(this.checkFeedBackListener);
-        MessageManager.getInstance().registerListener(this.hUI);
-        MessageManager.getInstance().registerListener(this.ley);
+        MessageManager.getInstance().registerListener(this.ibI);
+        MessageManager.getInstance().registerListener(this.lnp);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgw() {
-        long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong(SharedPrefConfig.KEY_FEEDBACK_TIP, 0L);
+    public void djZ() {
+        long j = com.baidu.tbadk.core.sharedPref.b.bjf().getLong(SharedPrefConfig.KEY_FEEDBACK_TIP, 0L);
         if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > 4 * at.MS_TO_HOUR) {
-            ad.a(new ac<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.4
+            ae.a(new ad<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ac
+                @Override // com.baidu.tbadk.util.ad
                 public Boolean doInBackground() {
                     aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP);
                     aaVar.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                     String postNetData = aaVar.postNetData();
                     com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b();
-                    bVar.On(postNetData);
-                    return bVar.getErrorCode() == 0 && bVar.btN() > 0;
+                    bVar.OO(postNetData);
+                    return bVar.getErrorCode() == 0 && bVar.buR() > 0;
                 }
-            }, new l<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.5
+            }, new m<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.5
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.l
+                @Override // com.baidu.tbadk.util.m
                 public void onReturnDataInUI(Boolean bool) {
                     if (bool.booleanValue()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_POLYMERIC_CHECK_FEEDBACK_RED_TIP_SHOW, true));
                     }
                 }
             });
-            com.baidu.tbadk.core.sharedPref.b.bik().putLong(SharedPrefConfig.KEY_FEEDBACK_TIP, System.currentTimeMillis());
+            com.baidu.tbadk.core.sharedPref.b.bjf().putLong(SharedPrefConfig.KEY_FEEDBACK_TIP, System.currentTimeMillis());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uu(boolean z) {
+    public void uC(boolean z) {
         if (!z) {
-            dgw();
+            djZ();
         } else if (getPageContext() != null && getPageContext().getPageActivity() != null) {
-            Looper.myQueue().removeIdleHandler(this.lez);
-            Looper.myQueue().addIdleHandler(this.lez);
+            Looper.myQueue().removeIdleHandler(this.lnq);
+            Looper.myQueue().addIdleHandler(this.lnq);
         }
     }
 
@@ -155,19 +154,19 @@ public class PersonCenterFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         aE(bundle);
         View inflate = layoutInflater.inflate(R.layout.fragment_my_tab_layout, (ViewGroup) null);
-        this.lev = new b(inflate, getPageContext(), getUniqueId());
-        this.lev.initView();
-        this.hpv = false;
+        this.lnm = new com.baidu.tieba.personCenter.b.b(inflate, getPageContext(), getUniqueId());
+        this.lnm.initView();
+        this.hwz = false;
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.lev.refreshView();
-            this.hpv = true;
+            this.lnm.refreshView();
+            this.hwz = true;
         }
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
-        if (this.leu) {
+        if (this.lnl) {
             return null;
         }
         return PageStayDurationConstants.PageName.PERSON;
@@ -176,52 +175,52 @@ public class PersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        this.lev.uv(isPrimary());
+        this.lnm.uD(isPrimary());
         if (isPrimary()) {
-            if (!this.hpv) {
-                this.hpv = true;
-                this.lev.refreshView();
+            if (!this.hwz) {
+                this.hwz = true;
+                this.lnm.refreshView();
             }
-            if (!StringUtils.isNull(this.lew)) {
-                this.lev.Ol(this.lew);
-                this.lew = null;
+            if (!StringUtils.isNull(this.lnn)) {
+                this.lnm.OM(this.lnn);
+                this.lnn = null;
             }
-            if (!StringUtils.isNull(this.lex)) {
-                this.lev.Om(this.lex);
-                this.lex = null;
+            if (!StringUtils.isNull(this.lno)) {
+                this.lnm.ON(this.lno);
+                this.lno = null;
             } else {
-                this.lev.refreshView();
+                this.lnm.refreshView();
             }
-            this.lev.dgC();
-            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+            this.lnm.dkh();
+            com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
             if (TbSingleton.getInstance().isShowShoubaiDynamicGuide()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921423));
             }
         } else {
-            this.lev.dgD();
+            this.lnm.dki();
         }
         if (isAdded()) {
-            com.baidu.tieba.p.a.doT().doZ();
+            com.baidu.tieba.p.a.dsD().dsJ();
         }
-        com.baidu.tieba.p.a.doT().vx(isPrimary());
+        com.baidu.tieba.p.a.dsD().vF(isPrimary());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (!this.isSelf && this.isBigV) {
-            this.kDm = System.currentTimeMillis();
+            this.kLK = System.currentTimeMillis();
         } else {
-            this.kDm = -1L;
+            this.kLK = -1L;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.kDm > 0) {
-            TiebaStatic.log(new aq("c12263").dD("obj_duration", String.valueOf((System.currentTimeMillis() - this.kDm) / 1000)).ai("obj_type", 2));
-            this.kDm = 0L;
+        if (this.kLK > 0) {
+            TiebaStatic.log(new aq("c12263").dF("obj_duration", String.valueOf((System.currentTimeMillis() - this.kLK) / 1000)).ai("obj_type", 2));
+            this.kLK = 0L;
         }
     }
 
@@ -241,16 +240,16 @@ public class PersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.lev != null) {
-            this.lev.onDestroy();
+        if (this.lnm != null) {
+            this.lnm.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
         MessageManager.getInstance().unRegisterListener(this.checkFeedBackListener);
-        MessageManager.getInstance().unRegisterListener(this.hUI);
-        MessageManager.getInstance().unRegisterListener(this.ley);
+        MessageManager.getInstance().unRegisterListener(this.ibI);
+        MessageManager.getInstance().unRegisterListener(this.lnp);
         super.onDetach();
     }
 
@@ -267,8 +266,8 @@ public class PersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lev != null) {
-            this.lev.onChangeSkinType(i);
+        if (this.lnm != null) {
+            this.lnm.onChangeSkinType(i);
         }
     }
 }

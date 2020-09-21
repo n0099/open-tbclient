@@ -22,36 +22,36 @@ import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class EnterForumFragment extends BaseFragment {
-    private static List<String> hvi = new ArrayList();
-    private RelativeLayout bpx;
-    private NoNetworkView fCq;
-    private com.baidu.tieba.enterForum.data.c htu;
-    private a hvd;
-    private c hve;
-    private PluginErrorTipView hvf;
-    private ObservedChangeLinearLayout hvg;
-    private RelativeLayout hvh;
-    private CustomMessageListener hvj = new CustomMessageListener(2001629) { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.1
+    private static List<String> hCn = new ArrayList();
+    private RelativeLayout bsG;
+    private NoNetworkView fFC;
+    private com.baidu.tieba.enterForum.data.c hAz;
+    private a hCi;
+    private c hCj;
+    private PluginErrorTipView hCk;
+    private ObservedChangeLinearLayout hCl;
+    private RelativeLayout hCm;
+    private CustomMessageListener hCo = new CustomMessageListener(2001629) { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && EnterForumFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == EnterForumFragment.this.getActivity() && EnterForumFragment.this.hvd != null) {
-                EnterForumFragment.this.hvd.cfG();
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && EnterForumFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == EnterForumFragment.this.getActivity() && EnterForumFragment.this.hCi != null) {
+                EnterForumFragment.this.hCi.ciX();
             }
         }
     };
-    private CustomMessageListener hvk = new CustomMessageListener(2001631) { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.2
+    private CustomMessageListener hCp = new CustomMessageListener(2001631) { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && EnterForumFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == EnterForumFragment.this.getActivity()) {
-                if (EnterForumFragment.this.hvd != null) {
-                    EnterForumFragment.this.hvd.nB(true);
+                if (EnterForumFragment.this.hCi != null) {
+                    EnterForumFragment.this.hCi.nH(true);
                 }
-                if (EnterForumFragment.this.hve != null) {
-                    EnterForumFragment.this.hve.bGn();
+                if (EnterForumFragment.this.hCj != null) {
+                    EnterForumFragment.this.hCj.bHD();
                 }
             }
         }
@@ -60,62 +60,62 @@ public class EnterForumFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && com.baidu.tieba.enterForum.model.b.cgg()) {
-                com.baidu.tieba.enterForum.model.b.cgh();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && com.baidu.tieba.enterForum.model.b.cjx()) {
+                com.baidu.tieba.enterForum.model.b.cjy();
             }
         }
     };
 
-    public ObservedChangeLinearLayout cfw() {
-        return this.hvg;
+    public ObservedChangeLinearLayout ciN() {
+        return this.hCl;
     }
 
-    private void bY(View view) {
-        this.bpx = (RelativeLayout) view.findViewById(R.id.enter_root_layout);
-        this.fCq = (NoNetworkView) view.findViewById(R.id.view_no_network);
-        this.hvf = (PluginErrorTipView) view.findViewById(R.id.view_plugin_error_tip);
-        this.hvg = (ObservedChangeLinearLayout) view.findViewById(R.id.tab_layout);
-        this.hvd = new a(this);
-        this.hvd.setPageUniqueId(getUniqueId());
-        this.fCq.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.3
+    private void ch(View view) {
+        this.bsG = (RelativeLayout) view.findViewById(R.id.enter_root_layout);
+        this.fFC = (NoNetworkView) view.findViewById(R.id.view_no_network);
+        this.hCk = (PluginErrorTipView) view.findViewById(R.id.view_plugin_error_tip);
+        this.hCl = (ObservedChangeLinearLayout) view.findViewById(R.id.tab_layout);
+        this.hCi = new a(this);
+        this.hCi.setPageUniqueId(getUniqueId());
+        this.fFC.a(new NoNetworkView.a() { // from class: com.baidu.tieba.enterForum.home.EnterForumFragment.3
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void onNetworkChange(boolean z) {
-                EnterForumFragment.this.hvd.nB(z);
-                if (EnterForumFragment.this.cfx() != null) {
-                    EnterForumFragment.this.cfx().cfM();
+                EnterForumFragment.this.hCi.nH(z);
+                if (EnterForumFragment.this.ciO() != null) {
+                    EnterForumFragment.this.ciO().cjd();
                 }
             }
         });
-        this.bpx.addView(this.hvd.getView(), 0);
-        this.hvd.aJE();
-        View findViewById = this.bpx.findViewById(R.id.enter_forum_ad);
+        this.bsG.addView(this.hCi.getView(), 0);
+        this.hCi.aKp();
+        View findViewById = this.bsG.findViewById(R.id.enter_forum_ad);
         if (findViewById != null) {
-            this.bpx.removeView(findViewById);
-            this.bpx.addView(findViewById, 0);
+            this.bsG.removeView(findViewById);
+            this.bsG.addView(findViewById, 0);
         }
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.hvd.loadData();
+            this.hCi.loadData();
         }
     }
 
     public void setTabViewController(c cVar) {
-        this.hve = cVar;
+        this.hCj = cVar;
     }
 
-    public c cfx() {
-        return this.hve;
+    public c ciO() {
+        return this.hCj;
     }
 
-    public void cfy() {
-        cfz();
-        if (this.hvd != null) {
-            this.hvd.loadData();
+    public void ciP() {
+        ciQ();
+        if (this.hCi != null) {
+            this.hCi.loadData();
         }
     }
 
-    private void cfz() {
-        if (this.hvd != null) {
-            this.hvd.nC(true);
+    private void ciQ() {
+        if (this.hCi != null) {
+            this.hCi.nI(true);
         }
     }
 
@@ -123,17 +123,17 @@ public class EnterForumFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            cfy();
-            if (this.hvd != null) {
-                refreshImage(this.hvd.getView());
+            ciP();
+            if (this.hCi != null) {
+                refreshImage(this.hCi.getView());
             }
-            com.baidu.tieba.s.c.dvJ().b(getUniqueId(), false);
+            com.baidu.tieba.s.c.dzC().b(getUniqueId(), false);
         }
-        if (this.hvd != null) {
-            this.hvd.onPrimary();
+        if (this.hCi != null) {
+            this.hCi.onPrimary();
         }
-        if (cfx() != null) {
-            cfx().cfM();
+        if (ciO() != null) {
+            ciO().cjd();
         }
     }
 
@@ -141,27 +141,27 @@ public class EnterForumFragment extends BaseFragment {
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.bpx, R.color.cp_bg_line_d);
-        if (this.hvd != null) {
-            this.hvd.onChangeSkinType(i);
+        ap.setBackgroundColor(this.bsG, R.color.cp_bg_line_d);
+        if (this.hCi != null) {
+            this.hCi.onChangeSkinType(i);
         }
-        if (this.fCq != null) {
-            this.fCq.onChangeSkinType(getPageContext(), i);
+        if (this.fFC != null) {
+            this.fFC.onChangeSkinType(getPageContext(), i);
         }
-        if (this.hvf != null) {
-            this.hvf.onChangeSkinType(getPageContext(), i);
+        if (this.hCk != null) {
+            this.hCk.onChangeSkinType(getPageContext(), i);
         }
-        if (this.hvh != null) {
-            com.baidu.tbadk.r.a.a(getPageContext(), this.hvh);
+        if (this.hCm != null) {
+            com.baidu.tbadk.r.a.a(getPageContext(), this.hCm);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.fragment_enter_forum, viewGroup, false);
-        bY(inflate);
+        ch(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.s.c.dvJ().A(getUniqueId());
+        com.baidu.tieba.s.c.dzC().z(getUniqueId());
         return inflate;
     }
 
@@ -170,48 +170,48 @@ public class EnterForumFragment extends BaseFragment {
         super.onCreate(bundle);
         this.mSyncFinishListener.setPriority(101);
         registerListener(this.mSyncFinishListener);
-        registerListener(this.hvj);
-        registerListener(this.hvk);
-        com.baidu.tieba.s.c.dvJ().A(getUniqueId());
+        registerListener(this.hCo);
+        registerListener(this.hCp);
+        com.baidu.tieba.s.c.dzC().z(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        com.baidu.tieba.s.c.dvJ().B(getUniqueId());
+        com.baidu.tieba.s.c.dzC().A(getUniqueId());
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.hvd != null) {
-            this.hvd.onDestroy();
+        if (this.hCi != null) {
+            this.hCi.onDestroy();
         }
-        this.hve = null;
-        MessageManager.getInstance().unRegisterListener(this.hvj);
-        MessageManager.getInstance().unRegisterListener(this.hvk);
+        this.hCj = null;
+        MessageManager.getInstance().unRegisterListener(this.hCo);
+        MessageManager.getInstance().unRegisterListener(this.hCp);
         MessageManager.getInstance().unRegisterListener(this.mSyncFinishListener);
-        com.baidu.tieba.s.c.dvJ().B(getUniqueId());
+        com.baidu.tieba.s.c.dzC().A(getUniqueId());
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.hvd != null) {
-            this.hvd.onPause();
+        if (this.hCi != null) {
+            this.hCi.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.fCq != null && this.fCq.getVisibility() == 0 && j.isNetWorkAvailable()) {
-            this.fCq.update(false);
+        if (this.fFC != null && this.fFC.getVisibility() == 0 && j.isNetWorkAvailable()) {
+            this.fFC.update(false);
         }
     }
 
-    public RelativeLayout cfA() {
-        return this.bpx;
+    public RelativeLayout ciR() {
+        return this.bsG;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -220,14 +220,14 @@ public class EnterForumFragment extends BaseFragment {
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.c cVar) {
-        this.htu = cVar;
-        this.hve.setAdState(cVar);
+        this.hAz = cVar;
+        this.hCj.setAdState(cVar);
     }
 
-    public boolean cfB() {
-        if (this.hvd == null || this.hvd.cfH() == null) {
+    public boolean ciS() {
+        if (this.hCi == null || this.hCi.ciY() == null) {
             return true;
         }
-        return this.hvd.cfH().cgU();
+        return this.hCi.ciY().ckj();
     }
 }

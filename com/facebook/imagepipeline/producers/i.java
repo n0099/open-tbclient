@@ -1,39 +1,39 @@
 package com.facebook.imagepipeline.producers;
 
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class i implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nyd;
-    private final int nyl;
-    private final int nym;
-    private final boolean nyn;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> nIa;
+    private final int nIi;
+    private final int nIj;
+    private final boolean nIk;
 
     public i(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar, int i, int i2, boolean z) {
         com.facebook.common.internal.g.checkArgument(i <= i2);
-        this.nyd = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.nyl = i;
-        this.nym = i2;
-        this.nyn = z;
+        this.nIa = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.nIi = i;
+        this.nIj = i2;
+        this.nIk = z;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
-        if (akVar.dVA() && !this.nyn) {
-            this.nyd.c(kVar, akVar);
+        if (akVar.dZy() && !this.nIk) {
+            this.nIa.c(kVar, akVar);
         } else {
-            this.nyd.c(new a(kVar, this.nyl, this.nym), akVar);
+            this.nIa.c(new a(kVar, this.nIi, this.nIj), akVar);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes25.dex */
     private static class a extends n<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-        private final int nyl;
-        private final int nym;
+        private final int nIi;
+        private final int nIj;
 
         a(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, int i, int i2) {
             super(kVar);
-            this.nyl = i;
-            this.nym = i2;
+            this.nIi = i;
+            this.nIj = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,15 +42,15 @@ public class i implements aj<com.facebook.common.references.a<com.facebook.image
         /* renamed from: a */
         public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             l(aVar);
-            dVJ().h(aVar, i);
+            dZH().h(aVar, i);
         }
 
         private void l(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
             com.facebook.imagepipeline.g.c cVar;
-            Bitmap dUs;
+            Bitmap dYq;
             int rowBytes;
-            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dUs = ((com.facebook.imagepipeline.g.d) cVar).dUs()) != null && (rowBytes = dUs.getRowBytes() * dUs.getHeight()) >= this.nyl && rowBytes <= this.nym) {
-                dUs.prepareToDraw();
+            if (aVar != null && aVar.isValid() && (cVar = aVar.get()) != null && !cVar.isClosed() && (cVar instanceof com.facebook.imagepipeline.g.d) && (dYq = ((com.facebook.imagepipeline.g.d) cVar).dYq()) != null && (rowBytes = dYq.getRowBytes() * dYq.getHeight()) >= this.nIi && rowBytes <= this.nIj) {
+                dYq.prepareToDraw();
             }
         }
     }

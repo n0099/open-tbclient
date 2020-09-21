@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import android.app.Activity;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class q implements Runnable {
     final /* synthetic */ a a;
 

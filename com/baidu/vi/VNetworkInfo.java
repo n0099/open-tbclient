@@ -1,7 +1,7 @@
 package com.baidu.vi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class VNetworkInfo {
     public int state;
     public int type;

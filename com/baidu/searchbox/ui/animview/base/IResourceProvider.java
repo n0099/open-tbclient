@@ -1,7 +1,9 @@
 package com.baidu.searchbox.ui.animview.base;
 
 import android.text.TextUtils;
+import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +12,7 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface IResourceProvider extends IResourcePackage {
     boolean containPackage(String str);
 
@@ -24,7 +26,7 @@ public interface IResourceProvider extends IResourcePackage {
 
     void setCurrentPackage(String str);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class PraiseConfigInfo {
         public Set<PraiseLevelConfig> mLevelConfigSet;
 
@@ -45,7 +47,7 @@ public interface IResourceProvider extends IResourcePackage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class PraiseLevelConfig {
         private static final String JSON_KEY_BOUND = "bound";
         private static final String JSON_KEY_LEVEL_IMG_INDEX = "android_img_index";
@@ -73,7 +75,7 @@ public interface IResourceProvider extends IResourcePackage {
         }
 
         public int hashCode() {
-            return Objects.hash(Integer.valueOf(this.mTextCount), Long.valueOf(this.mBound), Integer.valueOf(this.mLevelImgIndex));
+            return DeviceUtil.OSInfo.hasKitKat() ? Objects.hash(Integer.valueOf(this.mTextCount), Long.valueOf(this.mBound), Integer.valueOf(this.mLevelImgIndex)) : Arrays.hashCode(new Object[]{Integer.valueOf(this.mTextCount), Long.valueOf(this.mBound), Integer.valueOf(this.mLevelImgIndex)});
         }
 
         public static PraiseLevelConfig valueOf(JSONObject jSONObject) {
@@ -112,7 +114,7 @@ public interface IResourceProvider extends IResourcePackage {
             return treeSet;
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes11.dex */
         public static class DefaultComparator implements Comparator<PraiseLevelConfig> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -131,7 +133,7 @@ public interface IResourceProvider extends IResourcePackage {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class PackageInfo {
         public String mPkgPath;
         public String mPkgTag;

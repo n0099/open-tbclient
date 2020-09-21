@@ -7,20 +7,20 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<g> dBS;
-    private e dBT;
-    private boolean dBU;
-    private String dBV;
+    private List<g> dDT;
+    private e dDU;
+    private boolean dDV;
+    private String dDW;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
     public b(Context context, RecyclerView recyclerView, e eVar, boolean z) {
         this.mRecyclerView = recyclerView;
         this.mContext = context;
-        this.dBT = eVar;
-        this.dBU = z;
+        this.dDU = eVar;
+        this.dDV = z;
     }
 
     public b(Context context, RecyclerView recyclerView, e eVar) {
@@ -33,7 +33,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 101:
                 return new d(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_footer, viewGroup, false));
             default:
-                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.dBT);
+                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.dDU);
         }
     }
 
@@ -41,15 +41,15 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         switch (viewHolder.getItemViewType()) {
             case 101:
-                ((d) viewHolder).setVisibility(aSb());
+                ((d) viewHolder).setVisibility(aSN());
                 return;
             default:
-                ((c) viewHolder).a(this.dBS.get(i), this.dBV, aSc());
+                ((c) viewHolder).a(this.dDT.get(i), this.dDW, aSO());
                 return;
         }
     }
 
-    private boolean aSb() {
+    private boolean aSN() {
         return this.mRecyclerView != null && this.mRecyclerView.computeVerticalScrollOffset() > 0;
     }
 
@@ -59,31 +59,31 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void b(List<g> list, String str) {
         if (list != null) {
-            this.dBS = list;
-            this.dBV = str;
+            this.dDT = list;
+            this.dDW = str;
             notifyDataSetChanged();
         }
     }
 
-    private boolean aSc() {
-        return !TextUtils.isEmpty(this.dBV);
+    private boolean aSO() {
+        return !TextUtils.isEmpty(this.dDW);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dBS == null) {
+        if (this.dDT == null) {
             return 0;
         }
-        return (this.dBU ? 1 : 0) + this.dBS.size();
+        return (this.dDV ? 1 : 0) + this.dDT.size();
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return (!this.dBU || i < getItemCount() + (-1)) ? 100 : 101;
+        return (!this.dDV || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
-    public void aSd() {
-        for (g gVar : this.dBS) {
+    public void aSP() {
+        for (g gVar : this.dDT) {
             gVar.isSelected = false;
         }
     }

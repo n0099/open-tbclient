@@ -39,7 +39,7 @@ public class c {
         ap.setViewTextColor(textView3, R.color.cp_link_tip_d);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.bjq().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.bkl().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -56,12 +56,12 @@ public class c {
     public static void a(aa aaVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             aaVar.addPostData("is_location", "2");
-            Address address = com.baidu.adp.lib.c.a.mf().getAddress(false);
+            Address address = com.baidu.adp.lib.c.a.mj().getAddress(false);
             if (address != null) {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dxn().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dBg().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

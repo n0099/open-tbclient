@@ -10,11 +10,11 @@ import android.support.multidex.MultiDex;
 import com.baidu.turbonet.base.BuildConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static void install(Context context) {
         if (BuildConfig.isMultidexEnabled()) {
-            if (Build.VERSION.SDK_INT < 21 && !fU(context)) {
+            if (Build.VERSION.SDK_INT < 21 && !ga(context)) {
                 com.baidu.turbonet.base.a.f("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
                 return;
             }
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    private static boolean fU(Context context) {
+    private static boolean ga(Context context) {
         try {
             Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
             if (invoke != null && (invoke instanceof Boolean)) {

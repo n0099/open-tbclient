@@ -4,13 +4,13 @@ import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import com.baidubce.http.Headers;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean noK = false;
+    private boolean nyI = false;
     private ColorFilter mColorFilter = null;
-    private int noL = -1;
-    private int noM = -1;
+    private int nyJ = -1;
+    private int nyK = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -18,15 +18,15 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.noK = true;
+        this.nyI = true;
     }
 
     public void setDither(boolean z) {
-        this.noL = z ? 1 : 0;
+        this.nyJ = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.noM = z ? 1 : 0;
+        this.nyK = z ? 1 : 0;
     }
 
     @SuppressLint({Headers.RANGE})
@@ -35,14 +35,14 @@ public class d {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.noK) {
+            if (this.nyI) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.noL != -1) {
-                drawable.setDither(this.noL != 0);
+            if (this.nyJ != -1) {
+                drawable.setDither(this.nyJ != 0);
             }
-            if (this.noM != -1) {
-                drawable.setFilterBitmap(this.noM != 0);
+            if (this.nyK != -1) {
+                drawable.setFilterBitmap(this.nyK != 0);
             }
         }
     }

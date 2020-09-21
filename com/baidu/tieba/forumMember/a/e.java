@@ -4,11 +4,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.User;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class e implements q {
-    public static final BdUniqueId hON = BdUniqueId.gen();
+    public static final BdUniqueId hVN = BdUniqueId.gen();
     private int fansNum;
-    private String hxK;
+    private String hEM;
     private String intro;
     private String name;
     private String nameShow;
@@ -16,7 +16,7 @@ public class e implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hON;
+        return hVN;
     }
 
     public String getUserId() {
@@ -28,11 +28,11 @@ public class e implements q {
     }
 
     public String getHeadUrl() {
-        return this.hxK;
+        return this.hEM;
     }
 
     public void setHeadUrl(String str) {
-        this.hxK = str;
+        this.hEM = str;
     }
 
     public String getName() {

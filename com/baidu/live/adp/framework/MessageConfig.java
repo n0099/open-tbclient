@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface MessageConfig {
     public static final int BASE_CMD_START = 1000;
     public static final int BASE_COMMON_ERROR = -1000;

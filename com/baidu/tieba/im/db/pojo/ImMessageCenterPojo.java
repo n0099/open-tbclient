@@ -26,6 +26,7 @@ public class ImMessageCenterPojo implements Serializable {
     private boolean isSelf;
     int is_delete;
     int is_hidden;
+    private String lastServiceId;
     private String lastTaskId;
     String last_content;
     String last_content_raw_data;
@@ -40,6 +41,7 @@ public class ImMessageCenterPojo implements Serializable {
     private long read_msgId;
     int send_status;
     private long sent_msgId;
+    private String serviceId;
     private long sid;
     private String taskId;
     int type;
@@ -68,6 +70,22 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setTaskId(String str) {
         this.taskId = str;
+    }
+
+    public String getServiceId() {
+        return this.serviceId;
+    }
+
+    public String getLastServiceId() {
+        return this.lastServiceId;
+    }
+
+    public void setLastServiceId(String str) {
+        this.lastServiceId = str;
+    }
+
+    public void setServiceId(String str) {
+        this.serviceId = str;
     }
 
     public void setLastTaskId(String str) {
@@ -287,7 +305,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(e.bh(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(e.bl(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getName_show());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

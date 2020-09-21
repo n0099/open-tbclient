@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class j {
     private static UserData mUserData;
 
-    public static UserData clD() {
+    public static UserData coP() {
         return mUserData;
     }
 
@@ -29,9 +29,9 @@ public class j {
     public static void a(com.baidu.card.b bVar, FrsViewData frsViewData) {
         if (bVar != null) {
             if (frsViewData != null && a(a(frsViewData))) {
-                bVar.bk(4);
+                bVar.bo(4);
             } else {
-                bVar.bl(4);
+                bVar.bp(4);
             }
         }
     }
@@ -51,12 +51,12 @@ public class j {
         }
     }
 
-    public static boolean clE() {
-        UserData clD = clD();
-        if (clD == null) {
+    public static boolean coQ() {
+        UserData coP = coP();
+        if (coP == null) {
             return false;
         }
-        switch (clD.getIs_manager()) {
+        switch (coP.getIs_manager()) {
             case 1:
                 return true;
             default:
@@ -64,8 +64,8 @@ public class j {
         }
     }
 
-    public static boolean clF() {
-        UserData clD = clD();
-        return clD != null && clD.getIs_manager() == 3;
+    public static boolean coR() {
+        UserData coP = coP();
+        return coP != null && coP.getIs_manager() == 3;
     }
 }

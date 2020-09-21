@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class LoginActivity extends BaseActivity {
     private static final int A = 2005;
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
@@ -127,8 +127,8 @@ public class LoginActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         int intExtra;
         super.onActivityResult(i, i2, intent);
-        new b().a(new b.AbstractC0302b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
-            @Override // com.baidu.sapi2.share.b.AbstractC0302b
+        new b().a(new b.AbstractC0300b() { // from class: com.baidu.sapi2.activity.LoginActivity.7
+            @Override // com.baidu.sapi2.share.b.AbstractC0300b
             public void onSuccess() {
                 LoginActivity.this.a(AccountType.NORMAL, false);
             }

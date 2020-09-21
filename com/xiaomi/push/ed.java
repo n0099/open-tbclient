@@ -9,16 +9,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class ed extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f232a;
+    protected Context f231a;
 
     public ed(Context context, int i) {
         this.a = i;
-        this.f232a = context;
+        this.f231a = context;
     }
 
     public static void a(Context context, hu huVar) {
@@ -144,7 +144,7 @@ public abstract class ed extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo166a() {
-        return du.a(this.f232a, String.valueOf(mo166a()), this.a);
+        return du.a(this.f231a, String.valueOf(mo166a()), this.a);
     }
 
     protected boolean b() {
@@ -170,6 +170,6 @@ public abstract class ed extends ai.a {
         huVar.a(mo166a);
         huVar.a(System.currentTimeMillis());
         huVar.a(mo166a());
-        a(this.f232a, huVar, a);
+        a(this.f231a, huVar, a);
     }
 }

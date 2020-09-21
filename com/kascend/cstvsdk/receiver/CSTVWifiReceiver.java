@@ -39,16 +39,16 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.dYs().a;
-            boolean z2 = b.dYs().b;
+            boolean z = b.ecq().a;
+            boolean z2 = b.ecq().b;
             if (networkInfo != null) {
-                b.dYs().a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.ecq().a = q.l(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.dYs().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.ecq().b = q.l(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.ocU.a(b.dYs().b ? 1 : 2);
-            if (z != b.dYs().a || z2 != b.dYs().b) {
+            com.kascend.cstvsdk.utils.a.omF.a(b.ecq().b ? 1 : 2);
+            if (z != b.ecq().a || z2 != b.ecq().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }
         }

@@ -8,25 +8,25 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes7.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j njm;
+    private static j ntm;
     private Context a;
 
     public static void a(Context context) {
-        njm = new j(context);
+        ntm = new j(context);
     }
 
     private j(Context context) {
         this.a = context;
     }
 
-    public static j dNx() {
-        return njm;
+    public static j dRv() {
+        return ntm;
     }
 
     public String b() {
         try {
-            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-            return dNp.KJ(dNp.f());
+            b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+            return dRn.Lo(dRn.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -38,9 +38,9 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-        String KL = dNp.KL(dNp.f());
-        if (TextUtils.isEmpty(KL) && n.a(this.a) && (telephonyManager = (TelephonyManager) this.a.getSystemService("phone")) != null) {
+        b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+        String Lq = dRn.Lq(dRn.f());
+        if (TextUtils.isEmpty(Lq) && n.a(this.a) && (telephonyManager = (TelephonyManager) this.a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
             if (TextUtils.isEmpty(simOperator) && g.a(this.a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 try {
@@ -55,7 +55,7 @@ public class j {
             }
             str = simOperator;
         } else {
-            str = KL;
+            str = Lq;
         }
         c.b("SIMUtils", "operator: " + str);
         if (TextUtils.isEmpty(str)) {
@@ -154,19 +154,19 @@ public class j {
     }
 
     @SuppressLint({"MissingPermission"})
-    public String xO(boolean z) {
+    public String xX(boolean z) {
         try {
             if (n.d()) {
-                b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-                String KK = dNp.KK(dNp.f());
-                if (TextUtils.isEmpty(KK) && z) {
-                    KK = ((TelephonyManager) this.a.getSystemService("phone")).getDeviceId();
+                b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+                String Lp = dRn.Lp(dRn.f());
+                if (TextUtils.isEmpty(Lp) && z) {
+                    Lp = ((TelephonyManager) this.a.getSystemService("phone")).getDeviceId();
                 }
-                c.b("SIMUtils", "imei is " + KK);
-                if (TextUtils.isEmpty(KK)) {
+                c.b("SIMUtils", "imei is " + Lp);
+                if (TextUtils.isEmpty(Lp)) {
                     return "none";
                 }
-                return KK;
+                return Lp;
             }
         } catch (Exception e) {
             c.a("SIMUtils", e.getMessage());
@@ -176,12 +176,12 @@ public class j {
 
     public String c() {
         try {
-            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-            String KJ = dNp.KJ((dNp.f() + 1) % 2);
-            if (KJ == null) {
+            b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+            String Lo = dRn.Lo((dRn.f() + 1) % 2);
+            if (Lo == null) {
                 return "";
             }
-            return KJ;
+            return Lo;
         } catch (Exception e) {
             return "";
         }
@@ -189,12 +189,12 @@ public class j {
 
     public String d() {
         try {
-            b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-            String KK = dNp.KK((dNp.f() + 1) % 2);
-            if (KK == null) {
+            b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+            String Lp = dRn.Lp((dRn.f() + 1) % 2);
+            if (Lp == null) {
                 return "";
             }
-            return KK;
+            return Lp;
         } catch (Exception e) {
             return "";
         }
@@ -202,8 +202,8 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C0856b dNp = com.cmic.sso.sdk.a.b.dNo().dNp();
-        return dNp.a(dNp.f());
+        b.C0853b dRn = com.cmic.sso.sdk.a.b.dRm().dRn();
+        return dRn.a(dRn.f());
     }
 
     public String f() {

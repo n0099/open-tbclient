@@ -30,7 +30,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PullViewHelper {
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 2000;
     private static final int IMAGE_COLORFILTER_NIGHT = -5000269;
@@ -51,12 +51,12 @@ public class PullViewHelper {
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     private int[] defaultResources = {a.f.sdk_listview_pull_refresh01, a.f.sdk_listview_pull_refresh02};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class PullViewDrawable {
         public Drawable dayDrawable;
         public Drawable nightDrawable;

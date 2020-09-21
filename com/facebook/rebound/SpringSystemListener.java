@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes4.dex */
+/* loaded from: classes17.dex */
 public interface SpringSystemListener {
     void onAfterIntegrate(BaseSpringSystem baseSpringSystem);
 

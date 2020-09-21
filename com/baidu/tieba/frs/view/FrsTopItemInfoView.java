@@ -34,40 +34,40 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class FrsTopItemInfoView extends LinearLayout {
-    private RankStarView eqt;
-    private View.OnClickListener iAa;
-    private ItemInfo icb;
-    private ForumWriteData ifV;
-    private TextView izC;
-    private View izD;
-    private TextView izE;
-    private ImageView izF;
-    private TextView izG;
-    private TextView izH;
-    private ItemTableView izI;
-    private TextView izJ;
-    private RoundRelativeLayout izK;
-    private HeadImageView izL;
-    private TextView izM;
-    private ImageView izN;
-    private double izO;
-    private double izP;
-    private View.OnClickListener izZ;
+    private RankStarView esy;
+    private TextView iGX;
+    private View iGY;
+    private TextView iGZ;
+    private ImageView iHa;
+    private TextView iHb;
+    private TextView iHc;
+    private ItemTableView iHd;
+    private TextView iHe;
+    private RoundRelativeLayout iHf;
+    private HeadImageView iHg;
+    private TextView iHh;
+    private ImageView iHi;
+    private double iHj;
+    private double iHk;
+    private View.OnClickListener iHu;
+    private View.OnClickListener iHv;
+    private ItemInfo ijf;
+    private ForumWriteData imW;
     private View mBottomLine;
     private Context mContext;
-    private static final String izQ = TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_point);
-    private static final String izR = TbadkCoreApplication.getInst().getString(R.string.frs_last_seven_days);
-    private static final int izS = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-    private static final int feK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12);
-    private static final int izT = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds14);
-    private static final int izU = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    private static final int izV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
-    private static final int izW = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
-    private static final int izX = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30);
-    private static final int hlV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
-    private static final int izY = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds124);
+    private static final String iHl = TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_point);
+    private static final String iHm = TbadkCoreApplication.getInst().getString(R.string.frs_last_seven_days);
+    private static final int iHn = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+    private static final int afZ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12);
+    private static final int iHo = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds14);
+    private static final int iHp = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    private static final int iHq = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24);
+    private static final int iHr = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
+    private static final int iHs = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30);
+    private static final int hsY = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    private static final int iHt = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds124);
 
     public FrsTopItemInfoView(Context context) {
         this(context, null);
@@ -79,33 +79,33 @@ public class FrsTopItemInfoView extends LinearLayout {
 
     public FrsTopItemInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.izZ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.1
+        this.iHu = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (bg.checkUpIsLogin(FrsTopItemInfoView.this.mContext)) {
                     UniversityEvaluationConfig universityEvaluationConfig = new UniversityEvaluationConfig(FrsTopItemInfoView.this.mContext, RequestResponseCode.REQUEST_WRITE_NEW);
-                    universityEvaluationConfig.setWriteData(FrsTopItemInfoView.this.ifV);
-                    if (FrsTopItemInfoView.this.icb != null) {
-                        universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(FrsTopItemInfoView.this.icb));
-                        universityEvaluationConfig.setItemIsSchool(FrsTopItemInfoView.this.icb.is_school.intValue() == 1);
+                    universityEvaluationConfig.setWriteData(FrsTopItemInfoView.this.imW);
+                    if (FrsTopItemInfoView.this.ijf != null) {
+                        universityEvaluationConfig.setScoreItemInfo(new SerializableItemInfo(FrsTopItemInfoView.this.ijf));
+                        universityEvaluationConfig.setItemIsSchool(FrsTopItemInfoView.this.ijf.is_school.intValue() == 1);
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921460, universityEvaluationConfig));
                 }
             }
         };
-        this.iAa = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2
+        this.iHv = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FrsTopItemInfoView.this.mContext instanceof FrsActivity) {
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((FrsActivity) FrsTopItemInfoView.this.mContext);
-                    aVar.zA(FrsTopItemInfoView.this.mContext.getString(R.string.comment_tab_dialog_info));
+                    aVar.zV(FrsTopItemInfoView.this.mContext.getString(R.string.comment_tab_dialog_info));
                     aVar.a(R.string.comment_tab_dialog_botton_text, new a.b() { // from class: com.baidu.tieba.frs.view.FrsTopItemInfoView.2.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar.dismiss();
                         }
                     });
-                    aVar.b(((FrsActivity) FrsTopItemInfoView.this.mContext).getPageContext()).bhg();
+                    aVar.b(((FrsActivity) FrsTopItemInfoView.this.mContext).getPageContext()).bia();
                 }
             }
         };
@@ -116,42 +116,42 @@ public class FrsTopItemInfoView extends LinearLayout {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.frs_top_item_info_view, this);
         setOrientation(1);
-        this.izC = (TextView) findViewById(R.id.item_title_name);
-        this.izD = findViewById(R.id.item_split);
-        this.izE = (TextView) findViewById(R.id.item_title_value);
-        this.izF = (ImageView) findViewById(R.id.icon_question);
-        this.izF.setOnClickListener(this.iAa);
-        this.izG = (TextView) findViewById(R.id.big_score);
-        this.izH = (TextView) findViewById(R.id.people_num);
-        this.izI = (ItemTableView) findViewById(R.id.item_table);
-        this.izJ = (TextView) findViewById(R.id.time_score);
-        this.izK = (RoundRelativeLayout) findViewById(R.id.evaluate_container);
-        this.izL = (HeadImageView) findViewById(R.id.user_head);
-        this.izM = (TextView) findViewById(R.id.click_tip);
-        this.eqt = (RankStarView) findViewById(R.id.star_view);
-        this.izN = (ImageView) findViewById(R.id.right_arrow);
+        this.iGX = (TextView) findViewById(R.id.item_title_name);
+        this.iGY = findViewById(R.id.item_split);
+        this.iGZ = (TextView) findViewById(R.id.item_title_value);
+        this.iHa = (ImageView) findViewById(R.id.icon_question);
+        this.iHa.setOnClickListener(this.iHv);
+        this.iHb = (TextView) findViewById(R.id.big_score);
+        this.iHc = (TextView) findViewById(R.id.people_num);
+        this.iHd = (ItemTableView) findViewById(R.id.item_table);
+        this.iHe = (TextView) findViewById(R.id.time_score);
+        this.iHf = (RoundRelativeLayout) findViewById(R.id.evaluate_container);
+        this.iHg = (HeadImageView) findViewById(R.id.user_head);
+        this.iHh = (TextView) findViewById(R.id.click_tip);
+        this.esy = (RankStarView) findViewById(R.id.star_view);
+        this.iHi = (ImageView) findViewById(R.id.right_arrow);
         this.mBottomLine = findViewById(R.id.bottom_line);
-        this.izC.setText(R.string.frs_evaluate_item_title);
-        this.izM.setText(R.string.frs_evaluate_click_tip);
-        this.izG.setTextSize(0, hlV);
-        this.izG.setText(R.string.frs_evaluate_exception);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.izG.getLayoutParams();
-        layoutParams.topMargin = izW;
-        layoutParams.height = hlV;
-        this.izG.setLayoutParams(layoutParams);
+        this.iGX.setText(R.string.frs_evaluate_item_title);
+        this.iHh.setText(R.string.frs_evaluate_click_tip);
+        this.iHb.setTextSize(0, hsY);
+        this.iHb.setText(R.string.frs_evaluate_exception);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iHb.getLayoutParams();
+        layoutParams.topMargin = iHr;
+        layoutParams.height = hsY;
+        this.iHb.setLayoutParams(layoutParams);
         if (com.baidu.tbadk.core.util.g.isXiaoMi()) {
-            this.izG.setPadding(0, -izS, 0, 0);
+            this.iHb.setPadding(0, -iHn, 0, 0);
         }
-        this.izK.setRoundLayoutRadius(new float[]{izX, izX, izX, izX, izX, izX, izX, izX});
-        this.izL.setPlaceHolder(1);
-        this.eqt.setStarSpacing(izV);
-        this.izK.setOnClickListener(this.izZ);
+        this.iHf.setRoundLayoutRadius(new float[]{iHs, iHs, iHs, iHs, iHs, iHs, iHs, iHs});
+        this.iHg.setPlaceHolder(1);
+        this.esy.setStarSpacing(iHq);
+        this.iHf.setOnClickListener(this.iHu);
     }
 
     public void setData(ItemInfo itemInfo) {
-        this.icb = itemInfo;
+        this.ijf = itemInfo;
         if (itemInfo != null && itemInfo.score != null) {
-            this.izE.setText(itemInfo.name);
+            this.iGZ.setText(itemInfo.name);
             ItemTable itemTable = itemInfo.score;
             int intValue = itemTable.total_point_num.intValue();
             List<ItemPoint> list = itemTable.item_point;
@@ -159,58 +159,58 @@ public class FrsTopItemInfoView extends LinearLayout {
                 for (ItemPoint itemPoint : list) {
                     if (itemPoint != null) {
                         if ("all".equals(itemPoint.time_intval)) {
-                            this.izO = itemPoint.point.doubleValue();
+                            this.iHj = itemPoint.point.doubleValue();
                         } else if ("days".equals(itemPoint.time_intval)) {
-                            this.izP = itemPoint.point.doubleValue();
+                            this.iHk = itemPoint.point.doubleValue();
                         }
                     }
                 }
             }
             String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
             if (currentPortrait != null) {
-                this.izL.startLoad(currentPortrait, 12, false);
+                this.iHg.startLoad(currentPortrait, 12, false);
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.izG.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.izH.getLayoutParams();
-            if (this.izO <= 0.0d || this.izO > 10.0d) {
-                this.izG.setText(R.string.frs_evaluate_exception);
-                this.izG.setTextSize(0, hlV);
-                layoutParams.topMargin = izW;
-                layoutParams.height = hlV;
-                this.izG.setLayoutParams(layoutParams);
-                layoutParams2.topMargin = izU;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iHb.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.iHc.getLayoutParams();
+            if (this.iHj <= 0.0d || this.iHj > 10.0d) {
+                this.iHb.setText(R.string.frs_evaluate_exception);
+                this.iHb.setTextSize(0, hsY);
+                layoutParams.topMargin = iHr;
+                layoutParams.height = hsY;
+                this.iHb.setLayoutParams(layoutParams);
+                layoutParams2.topMargin = iHp;
                 layoutParams2.addRule(5, R.id.big_score);
-                this.izH.setGravity(17);
-                this.izH.setLayoutParams(layoutParams2);
-                this.izH.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{"0"}));
-                this.eqt.setStarCount(0);
-                this.izJ.setVisibility(8);
-                this.izI.clear();
+                this.iHc.setGravity(17);
+                this.iHc.setLayoutParams(layoutParams2);
+                this.iHc.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{"0"}));
+                this.esy.setStarCount(0);
+                this.iHe.setVisibility(8);
+                this.iHd.clear();
                 return;
             }
-            this.izG.setText(this.izO + "");
-            this.izG.setTextSize(0, izY);
-            layoutParams.topMargin = feK;
-            layoutParams.height = izY;
-            this.izG.setLayoutParams(layoutParams);
-            layoutParams2.topMargin = izT;
+            this.iHb.setText(this.iHj + "");
+            this.iHb.setTextSize(0, iHt);
+            layoutParams.topMargin = afZ;
+            layoutParams.height = iHt;
+            this.iHb.setLayoutParams(layoutParams);
+            layoutParams2.topMargin = iHo;
             layoutParams2.addRule(5, R.id.big_score);
-            this.izH.setGravity(17);
-            this.izH.setLayoutParams(layoutParams2);
-            this.izH.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{at.cR(intValue)}));
+            this.iHc.setGravity(17);
+            this.iHc.setLayoutParams(layoutParams2);
+            this.iHc.setText(TbadkCoreApplication.getInst().getString(R.string.frs_evaluate_people, new Object[]{at.cS(intValue)}));
             if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
-                this.eqt.setStarCount(itemTable.comment_star.intValue());
+                this.esy.setStarCount(itemTable.comment_star.intValue());
             }
-            this.izJ.setVisibility(0);
-            this.izJ.setText(y(this.izP), TextView.BufferType.SPANNABLE);
-            this.izI.setData(itemTable.item_plot, intValue);
+            this.iHe.setVisibility(0);
+            this.iHe.setText(y(this.iHk), TextView.BufferType.SPANNABLE);
+            this.iHd.setData(itemTable.item_plot, intValue);
         }
     }
 
     private SpannableStringBuilder y(double d) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(izR);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(iHm);
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_cont_b)), 0, spannableStringBuilder.length(), 33);
-        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(d + izQ);
+        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(d + iHl);
         spannableStringBuilder2.setSpan(new ForegroundColorSpan(ap.getColor(R.color.cp_cont_b)), 0, spannableStringBuilder2.length(), 33);
         spannableStringBuilder2.setSpan(new StyleSpan(1), 0, spannableStringBuilder2.length(), 33);
         spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
@@ -219,22 +219,22 @@ public class FrsTopItemInfoView extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ap.setViewTextColor(this.izC, R.color.cp_cont_b, 1);
-        ap.setBackgroundColor(this.izD, R.color.cp_cont_d);
-        ap.setViewTextColor(this.izE, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.izG, R.color.cp_cont_b, 1);
-        ap.setViewTextColor(this.izH, R.color.cp_cont_b, 1);
-        this.izI.onChangeSkinType();
-        this.izJ.setText(y(this.izP));
-        ap.setBackgroundColor(this.izK, R.color.cp_bg_line_g);
-        ap.setViewTextColor(this.izM, R.color.cp_cont_j, 1);
-        this.eqt.blq();
-        SvgManager.bjq().a(this.izN, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(this.iGX, R.color.cp_cont_b, 1);
+        ap.setBackgroundColor(this.iGY, R.color.cp_cont_d);
+        ap.setViewTextColor(this.iGZ, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.iHb, R.color.cp_cont_b, 1);
+        ap.setViewTextColor(this.iHc, R.color.cp_cont_b, 1);
+        this.iHd.onChangeSkinType();
+        this.iHe.setText(y(this.iHk));
+        ap.setBackgroundColor(this.iHf, R.color.cp_bg_line_g);
+        ap.setViewTextColor(this.iHh, R.color.cp_cont_j, 1);
+        this.esy.bml();
+        SvgManager.bkl().a(this.iHi, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
         ap.setBackgroundColor(this.mBottomLine, R.color.cp_bg_line_b);
-        SvgManager.bjq().a(this.izF, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bkl().a(this.iHa, R.drawable.ic_icon_pure_use_unknown_n_svg, R.color.cp_cont_c, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setForumWriteData(ForumWriteData forumWriteData) {
-        this.ifV = forumWriteData;
+        this.imW = forumWriteData;
     }
 }

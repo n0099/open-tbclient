@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String ffA;
-    private int ffB;
+    private String fit;
+    private int fiu;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void rr(int i) {
-        this.ffB = i;
+    public void rI(int i) {
+        this.fiu = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void rs(int i) {
+    public void rJ(int i) {
         this.urlType = i;
     }
 
-    public void CT(String str) {
-        this.ffA = str;
+    public void Dp(String str) {
+        this.fit = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(ap.getColor(this.textColor));
-        } else if (bxZ()) {
+        } else if (bzi()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.ffB == 1 && bya()) {
+        } else if (this.fiu == 1 && bzj()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = ap.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.ffB == 2) {
+        } else if (this.fiu == 2) {
             textPaint.bgColor = ap.getColor(R.color.transparent);
         }
     }
 
-    private boolean bxZ() {
+    private boolean bzi() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean bya() {
+    public boolean bzj() {
         switch (this.mType) {
             case 16:
             case 18:
@@ -115,7 +115,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.ffA));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.fit));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -137,25 +137,25 @@ public class f extends ClickableSpan {
                     iVar.f(context, str, false);
                     return;
                 case 16:
-                    iVar.aq(context, str);
+                    iVar.at(context, str);
                     return;
                 case 18:
                     iVar.f(context, str, true);
                     return;
                 case 32:
-                    iVar.ar(context, str);
+                    iVar.au(context, str);
                     return;
                 case 64:
-                    iVar.as(context, str);
+                    iVar.av(context, str);
                     return;
                 case 128:
-                    iVar.at(context, str);
+                    iVar.aw(context, str);
                     return;
                 case 256:
                     iVar.r(context, str, str2);
                     return;
                 case 1024:
-                    iVar.au(context, str);
+                    iVar.ax(context, str);
                     return;
                 default:
                     return;

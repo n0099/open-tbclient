@@ -9,7 +9,7 @@ import com.baidu.ar.gesture.GestureAR;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class i {
     private int mColor;
     private Shader mShader;
@@ -27,7 +27,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean acM() {
+    public boolean adv() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -35,7 +35,7 @@ public class i {
         return this.mColor;
     }
 
-    public Shader acN() {
+    public Shader adw() {
         return this.mShader;
     }
 

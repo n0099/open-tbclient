@@ -1,13 +1,13 @@
 package com.baidu.tieba.videoEasterEgg;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public interface b {
-    void Sg(String str);
+    void SG(String str);
 
-    void Sh(String str);
+    void SH(String str);
 
-    void ajN();
+    void akx();
 
     void finishActivity();
 
-    void ge(String str, String str2);
+    void gq(String str, String str2);
 }

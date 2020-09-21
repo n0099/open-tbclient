@@ -6,13 +6,13 @@ import tbclient.BirthdayInfo;
 public class cc {
     public int age;
     public String constellation;
-    public long eeQ;
-    public int eeR;
+    public long ehe;
+    public int ehf;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.eeQ = jSONObject.optLong("birthday_time", 0L);
-            this.eeR = jSONObject.optInt("birthday_show_status", 0);
+            this.ehe = jSONObject.optLong("birthday_time", 0L);
+            this.ehf = jSONObject.optInt("birthday_show_status", 0);
             this.constellation = jSONObject.optString("constellation", "");
             this.age = jSONObject.optInt("age", 0);
         }
@@ -20,8 +20,8 @@ public class cc {
 
     public void a(BirthdayInfo birthdayInfo) {
         if (birthdayInfo != null) {
-            this.eeQ = birthdayInfo.birthday_time.longValue();
-            this.eeR = birthdayInfo.birthday_show_status.intValue();
+            this.ehe = birthdayInfo.birthday_time.longValue();
+            this.ehf = birthdayInfo.birthday_show_status.intValue();
             this.constellation = birthdayInfo.constellation;
             this.age = birthdayInfo.age.intValue();
         }

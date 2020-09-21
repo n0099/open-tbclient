@@ -1,9 +1,10 @@
 package com.baidu.live.liveroom.middleware;
 
-import com.baidu.live.data.r;
-/* loaded from: classes7.dex */
+import com.baidu.live.data.n;
+import com.baidu.live.data.u;
+/* loaded from: classes4.dex */
 public interface c {
-    void b(com.baidu.live.data.k kVar);
+    void b(n nVar);
 
-    void k(r rVar);
+    void l(u uVar);
 }

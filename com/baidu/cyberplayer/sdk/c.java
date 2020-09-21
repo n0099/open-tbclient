@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk;
 
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static c a;
     private boolean b = true;

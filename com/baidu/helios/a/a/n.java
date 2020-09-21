@@ -12,18 +12,18 @@ import android.util.DisplayMetrics;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 class n implements j {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class a {
-        private static a awF;
+        private static a axh;
         private static HashMap<String, Integer> b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C0134a {
+        /* loaded from: classes12.dex */
+        public static class C0135a {
             private String a;
             private String b;
             private String c;
@@ -32,7 +32,7 @@ class n implements j {
             private int f;
             private String g;
 
-            public C0134a(Context context) {
+            public C0135a(Context context) {
                 c(context);
             }
 
@@ -116,20 +116,20 @@ class n implements j {
             b.put("CMWAP", 41);
             b.put("UNIWAP", 42);
             b.put("CTWAP", 43);
-            awF = new a();
+            axh = new a();
         }
 
         private a() {
         }
 
-        public static a Aa() {
-            return awF;
+        public static a Ao() {
+            return axh;
         }
 
         public String a(Context context) {
-            C0134a c0134a = new C0134a(context);
-            String g = c0134a.g();
-            int e = c0134a.e();
+            C0135a c0135a = new C0135a(context);
+            String g = c0135a.g();
+            int e = c0135a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
@@ -141,17 +141,17 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class b {
-        private static b awG = new b();
+        private static b axi = new b();
         private String b;
         private DisplayMetrics c;
 
         private b() {
         }
 
-        public static b Ab() {
-            return awG;
+        public static b Ap() {
+            return axi;
         }
 
         private String b(Context context) {
@@ -221,9 +221,9 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     private static class c {
-        private static c awH = new c();
+        private static c axj = new c();
         private String a;
         private String b;
         private String c;
@@ -233,8 +233,8 @@ class n implements j {
             c();
         }
 
-        public static c Ac() {
-            return awH;
+        public static c Aq() {
+            return axj;
         }
 
         private void c() {
@@ -273,12 +273,12 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String a() {
-        return c.Ac().b();
+        return c.Aq().b();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String a(Context context) {
-        return b.Ab().a(context);
+        return b.Ap().a(context);
     }
 
     @Override // com.baidu.helios.a.a.j
@@ -293,11 +293,11 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String c(Context context) {
-        return com.baidu.helios.b.ag(context).zC();
+        return com.baidu.helios.b.ag(context).zQ();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String d(Context context) {
-        return a.Aa().a(context);
+        return a.Ao().a(context);
     }
 }

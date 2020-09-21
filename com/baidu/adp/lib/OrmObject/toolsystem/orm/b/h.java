@@ -15,13 +15,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Element JM;
+    private Element JU;
     private Set<String> keySet = new HashSet();
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.JM = element;
+        this.JU = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.JM.getAttribute(str);
+        Object attribute = this.JU.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.JM.getChildNodes();
+            NodeList childNodes = this.JU.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -74,9 +74,9 @@ public class h implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h v = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.v(object);
-            if (v != null) {
-                return v.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h w = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.w(object);
+            if (w != null) {
+                return w.g(cVar);
             }
             return object;
         }
@@ -87,23 +87,23 @@ public class h implements c {
     public void f(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.JM.setAttribute(str, String.valueOf(obj));
+                this.JU.setAttribute(str, String.valueOf(obj));
             } else {
                 if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), SparseArray.class)) {
                 }

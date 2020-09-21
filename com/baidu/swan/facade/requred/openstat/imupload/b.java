@@ -25,16 +25,16 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static b dhP;
+    private static b djS;
     private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b aHy() {
-        if (dhP == null) {
-            dhP = new b();
+    public static b aIi() {
+        if (djS == null) {
+            djS = new b();
         }
-        return dhP;
+        return djS;
     }
 
     private b() {
@@ -93,9 +93,9 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        Bimlog.LogRequest.AuthInfo build = newBuilder.tz(str).build();
+        Bimlog.LogRequest.AuthInfo build = newBuilder.tS(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return Bimlog.LogRequest.newBuilder().bT(1L).tA("smart_app").b(build).bU(currentTimeMillis).tB(com.baidu.swan.facade.requred.openstat.imupload.a.s("smart_app", currentTimeMillis)).b(ByteString.copyFrom(bArr)).build().toByteArray();
+        return Bimlog.LogRequest.newBuilder().bU(1L).tT("smart_app").b(build).bV(currentTimeMillis).tU(com.baidu.swan.facade.requred.openstat.imupload.a.s("smart_app", currentTimeMillis)).b(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
@@ -112,7 +112,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a implements Interceptor {
         public a() {
         }

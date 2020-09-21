@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.mc;
 
 import com.baidu.tieba.frs.q;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public interface l {
-    void bFE();
+    void bGU();
 
-    FrsModelController clO();
+    FrsModelController cpa();
 
-    c clP();
+    c cpb();
 
-    com.baidu.tieba.frs.vc.h clQ();
+    com.baidu.tieba.frs.vc.h cpc();
 
-    q clT();
+    q cpf();
 }

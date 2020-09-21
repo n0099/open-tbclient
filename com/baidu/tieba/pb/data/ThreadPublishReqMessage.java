@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.ThreadPublish.DataReq;
 import tbclient.ThreadPublish.ThreadPublishReqIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ThreadPublishReqMessage extends NetMessage {
     public long fid;
     public long tid;
@@ -20,7 +20,7 @@ public class ThreadPublishReqMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.fid);
         builder.thread_id = Long.valueOf(this.tid);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         ThreadPublishReqIdl.Builder builder2 = new ThreadPublishReqIdl.Builder();
         builder2.data = builder.build(false);

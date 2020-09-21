@@ -3,22 +3,22 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements j<T>, d {
     static final long COMPLETE_MASK = Long.MIN_VALUE;
     static final long REQUEST_MASK = Long.MAX_VALUE;
     private static final long serialVersionUID = 7917814472626990048L;
-    protected final org.b.c<? super R> actual;
+    protected final org.a.c<? super R> actual;
     protected long produced;
     protected d s;
     protected R value;
 
-    public SinglePostCompleteSubscriber(org.b.c<? super R> cVar) {
+    public SinglePostCompleteSubscriber(org.a.c<? super R> cVar) {
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
@@ -56,7 +56,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
     }
 
     /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: R, ? super R */
-    @Override // org.b.d
+    @Override // org.a.d
     public final void request(long j) {
         long j2;
         if (SubscriptionHelper.validate(j)) {
@@ -70,12 +70,12 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j2, io.reactivex.internal.util.b.P(j2, j)));
+            } while (!compareAndSet(j2, io.reactivex.internal.util.b.M(j2, j)));
             this.s.request(j);
         }
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         this.s.cancel();
     }

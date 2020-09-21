@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.ItemPlot;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ItemTableView extends LinearLayout {
-    private static final int iAA = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds15);
-    private ItemTableRowView iAu;
-    private ItemTableRowView iAv;
-    private ItemTableRowView iAw;
-    private ItemTableRowView iAx;
-    private ItemTableRowView iAy;
-    private SparseArray<ItemTableRowView> iAz;
+    private static final int iHV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds15);
+    private ItemTableRowView iHP;
+    private ItemTableRowView iHQ;
+    private ItemTableRowView iHR;
+    private ItemTableRowView iHS;
+    private ItemTableRowView iHT;
+    private SparseArray<ItemTableRowView> iHU;
 
     public ItemTableView(Context context) {
         this(context, null);
@@ -35,17 +35,17 @@ public class ItemTableView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        this.iAy = b(context, 0, 0);
-        this.iAx = b(context, 1, iAA);
-        this.iAw = b(context, 2, iAA);
-        this.iAv = b(context, 3, iAA);
-        this.iAu = b(context, 4, iAA);
-        this.iAz = new SparseArray<>();
-        this.iAz.put(5, this.iAy);
-        this.iAz.put(4, this.iAx);
-        this.iAz.put(3, this.iAw);
-        this.iAz.put(2, this.iAv);
-        this.iAz.put(1, this.iAu);
+        this.iHT = b(context, 0, 0);
+        this.iHS = b(context, 1, iHV);
+        this.iHR = b(context, 2, iHV);
+        this.iHQ = b(context, 3, iHV);
+        this.iHP = b(context, 4, iHV);
+        this.iHU = new SparseArray<>();
+        this.iHU.put(5, this.iHT);
+        this.iHU.put(4, this.iHS);
+        this.iHU.put(3, this.iHR);
+        this.iHU.put(2, this.iHQ);
+        this.iHU.put(1, this.iHP);
     }
 
     private ItemTableRowView b(Context context, int i, int i2) {
@@ -64,7 +64,7 @@ public class ItemTableView extends LinearLayout {
                 if (itemPlot != null) {
                     int intValue = itemPlot.level.intValue();
                     float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
-                    ItemTableRowView itemTableRowView = this.iAz.get(intValue);
+                    ItemTableRowView itemTableRowView = this.iHU.get(intValue);
                     if (itemTableRowView != null) {
                         itemTableRowView.setData(intValue2);
                     }
@@ -75,18 +75,18 @@ public class ItemTableView extends LinearLayout {
     }
 
     public void clear() {
-        this.iAu.clear();
-        this.iAv.clear();
-        this.iAw.clear();
-        this.iAx.clear();
-        this.iAy.clear();
+        this.iHP.clear();
+        this.iHQ.clear();
+        this.iHR.clear();
+        this.iHS.clear();
+        this.iHT.clear();
     }
 
     public void onChangeSkinType() {
-        this.iAu.onChangeSkinType();
-        this.iAv.onChangeSkinType();
-        this.iAw.onChangeSkinType();
-        this.iAx.onChangeSkinType();
-        this.iAy.onChangeSkinType();
+        this.iHP.onChangeSkinType();
+        this.iHQ.onChangeSkinType();
+        this.iHR.onChangeSkinType();
+        this.iHS.onChangeSkinType();
+        this.iHT.onChangeSkinType();
     }
 }

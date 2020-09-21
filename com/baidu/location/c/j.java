@@ -4,7 +4,7 @@ import com.baidu.location.b.ac;
 import com.baidu.location.b.o;
 import com.baidu.location.b.x;
 import com.baidu.location.c.i;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class j implements Runnable {
     final /* synthetic */ boolean a;
     final /* synthetic */ i.a b;

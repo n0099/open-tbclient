@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public final class bu {
     public static boolean a(InputStream inputStream, OutputStream outputStream) {
         if (inputStream == null || outputStream == null) {

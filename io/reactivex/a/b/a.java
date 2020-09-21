@@ -4,26 +4,26 @@ import android.os.Handler;
 import android.os.Looper;
 import io.reactivex.v;
 import java.util.concurrent.Callable;
-/* loaded from: classes5.dex */
+/* loaded from: classes17.dex */
 public final class a {
-    private static final v omq = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
+    private static final v owb = io.reactivex.a.a.a.d(new Callable<v>() { // from class: io.reactivex.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        /* renamed from: eff */
+        /* renamed from: ejc */
         public v call() throws Exception {
-            return C0959a.omr;
+            return C0956a.owc;
         }
     });
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: io.reactivex.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0959a {
-        static final v omr = new b(new Handler(Looper.getMainLooper()));
+    /* loaded from: classes17.dex */
+    public static final class C0956a {
+        static final v owc = new b(new Handler(Looper.getMainLooper()));
     }
 
-    public static v efe() {
-        return io.reactivex.a.a.a.e(omq);
+    public static v ejb() {
+        return io.reactivex.a.a.a.e(owb);
     }
 
     public static v c(Looper looper) {

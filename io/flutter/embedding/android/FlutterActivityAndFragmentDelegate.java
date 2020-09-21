@@ -20,7 +20,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 final class FlutterActivityAndFragmentDelegate {
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
     @Nullable
@@ -48,7 +48,7 @@ final class FlutterActivityAndFragmentDelegate {
     private PlatformPlugin platformPlugin;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine);

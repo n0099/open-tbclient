@@ -11,9 +11,9 @@ import com.airbnb.lottie.g;
 import com.airbnb.lottie.k;
 import com.airbnb.lottie.model.e;
 import com.baidu.android.common.ui.R;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public final class PorterDuffModeHelper {
-    private static final int COLOR_FF = 255;
+    public static final int COLOR_FF = 255;
     private static final boolean DEBUG = false;
     private static final String TAG = "PorterDuffModeHelper";
 
@@ -27,8 +27,15 @@ public final class PorterDuffModeHelper {
 
     public static void decorateSpecificMode(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         if (context != null && drawable != null) {
-            int uiCoverLayerColor = getUiCoverLayerColor(context);
-            int argb = (i < 0 || i >= 255) ? uiCoverLayerColor : Color.argb((Color.alpha(uiCoverLayerColor) * i) / 255, Color.red(uiCoverLayerColor), Color.green(uiCoverLayerColor), Color.blue(uiCoverLayerColor));
+            decorateSpecificMode(context, drawable, mode, i, getUiCoverLayerColor(context));
+        }
+    }
+
+    public static void decorateSpecificMode(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
+        if (context != null && drawable != null) {
+            if (i >= 0 && i < 255) {
+                i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
+            }
             if (drawable instanceof g) {
                 ((g) drawable).addValueCallback(new e("**"), (e) k.Cb, (com.airbnb.lottie.e.e<e>) new com.airbnb.lottie.e.e<ColorFilter>() { // from class: com.baidu.searchbox.ui.util.PorterDuffModeHelper.1
                     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +45,7 @@ public final class PorterDuffModeHelper {
                         return null;
                     }
                 });
-                final PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(argb, mode);
+                final PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(i2, mode);
                 ((g) drawable).addValueCallback(new e("**"), (e) k.Cb, (com.airbnb.lottie.e.e<e>) new com.airbnb.lottie.e.e<ColorFilter>() { // from class: com.baidu.searchbox.ui.util.PorterDuffModeHelper.2
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
@@ -49,7 +56,7 @@ public final class PorterDuffModeHelper {
                 });
                 return;
             }
-            drawable.setColorFilter(argb, mode);
+            drawable.setColorFilter(i2, mode);
         }
     }
 

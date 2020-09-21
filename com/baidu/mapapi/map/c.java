@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.InfoWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c implements InfoWindow.a {
     final /* synthetic */ BaiduMap a;
 

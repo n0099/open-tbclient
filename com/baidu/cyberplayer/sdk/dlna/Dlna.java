@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class Dlna {
     private static String a = "com.baidu.media.dlna.DlnaProviderImpl";
     private static DlnaProvider b = null;
@@ -26,7 +26,7 @@ public class Dlna {
     public static int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         private static final Dlna a = new Dlna();
     }

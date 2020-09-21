@@ -1,9 +1,9 @@
 package com.baidu.b.c.d;
 
 import java.math.BigInteger;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface d {
-    BigInteger sH();
+    BigInteger sM();
 
-    BigInteger sI();
+    BigInteger sN();
 }

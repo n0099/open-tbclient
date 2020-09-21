@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.data.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeHistoryHeaderView extends LinearLayout {
-    private TextView gZT;
-    private TextView gZU;
+    private TextView hdT;
+    private TextView hdU;
 
     public AlaChallengeHistoryHeaderView(Context context) {
         super(context);
@@ -31,14 +31,14 @@ public class AlaChallengeHistoryHeaderView extends LinearLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.h.ala_challenge_list_header_layout, this);
-        this.gZT = (TextView) inflate.findViewById(a.g.challenge_success_rate);
-        this.gZU = (TextView) inflate.findViewById(a.g.challenge_success_num);
+        this.hdT = (TextView) inflate.findViewById(a.g.challenge_success_rate);
+        this.hdU = (TextView) inflate.findViewById(a.g.challenge_success_num);
     }
 
     public void setData(l lVar) {
         if (lVar != null) {
-            this.gZT.setText(String.format("%s%s", lVar.fUS, "%"));
-            this.gZU.setText(lVar.fUR);
+            this.hdT.setText(String.format("%s%s", lVar.fYg, "%"));
+            this.hdU.setText(lVar.fYf);
         }
     }
 }

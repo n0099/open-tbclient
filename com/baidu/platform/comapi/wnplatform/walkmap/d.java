@@ -10,7 +10,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.inner.MapBound;
 import java.lang.ref.SoftReference;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private e b;
     private a c = null;

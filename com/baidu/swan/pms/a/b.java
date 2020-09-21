@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import okio.BufferedSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public abstract class b<T> implements c<T> {
+    @Override // com.baidu.swan.pms.a.c
+    public void Q(T t) {
+    }
+
     @Override // com.baidu.swan.pms.a.c
     public void P(T t) {
     }
@@ -20,15 +24,11 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void M(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
     public void a(T t, com.baidu.swan.pms.model.a aVar) {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void ae(T t) {
+    public void af(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.c
@@ -37,7 +37,7 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> aTp() {
+    public Map<String, Object> aUb() {
         HashMap hashMap = new HashMap();
         hashMap.put("queue_priority", Integer.valueOf(getPriority()));
         return hashMap;

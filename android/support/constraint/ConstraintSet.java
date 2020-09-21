@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class ConstraintSet {
     private static final int ALPHA = 43;
     private static final int BARRIER_ALLOWS_GONE_WIDGETS = 74;
@@ -208,7 +208,7 @@ public class ConstraintSet {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static class Constraint {
         static final int UNSET = -1;
         public float alpha;

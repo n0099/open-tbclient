@@ -8,18 +8,18 @@ import io.reactivex.j;
 import io.reactivex.parallel.a;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLongArray;
-import org.b.b;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.b;
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int opb;
+    final int oyK;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int efo() {
-        return this.opb;
+    public int ejl() {
+        return this.oyK;
     }
 
     @Override // io.reactivex.parallel.a
@@ -29,7 +29,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ParallelDispatcher<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -4470634016609963609L;
         volatile boolean cancelled;
@@ -57,7 +57,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
             this.emissions = new long[length];
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -95,7 +95,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         public final class a implements d {
             final int j;
             final int m;
@@ -105,7 +105,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                 this.m = i2;
             }
 
-            @Override // org.b.d
+            @Override // org.a.d
             public void request(long j) {
                 long j2;
                 if (SubscriptionHelper.validate(j)) {
@@ -116,14 +116,14 @@ public final class ParallelFromPublisher<T> extends a<T> {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.P(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.M(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
                 }
             }
 
-            @Override // org.b.d
+            @Override // org.a.d
             public void cancel() {
                 if (ParallelDispatcher.this.requests.compareAndSet(this.m + this.j, 0L, 1L)) {
                     ParallelDispatcher.this.cancel(this.m + this.m);
@@ -131,7 +131,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (this.sourceMode == 0 && !this.queue.offer(t)) {
                 this.s.cancel();
@@ -141,14 +141,14 @@ public final class ParallelFromPublisher<T> extends a<T> {
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             drain();

@@ -2,7 +2,7 @@ package protobuf.DelGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public final class DelGroupReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class DelGroupReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder extends Message.Builder<DelGroupReqIdl> {
         public DataReq data;
 

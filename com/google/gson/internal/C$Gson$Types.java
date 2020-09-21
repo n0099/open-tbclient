@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class C$Gson$Types {
-    static final Type[] nCS = new Type[0];
+    static final Type[] nMO = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -28,7 +28,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, nCS);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, nMO);
     }
 
     public static WildcardType d(Type type) {
@@ -123,7 +123,7 @@ public final class C$Gson$Types {
         }
     }
 
-    static int bu(Object obj) {
+    static int bw(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -310,7 +310,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static final class ParameterizedTypeImpl implements Serializable, ParameterizedType {
         private static final long serialVersionUID = 0;
         private final Type ownerType;
@@ -353,7 +353,7 @@ public final class C$Gson$Types {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bu(this.ownerType);
+            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.bw(this.ownerType);
         }
 
         public String toString() {
@@ -372,7 +372,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static final class GenericArrayTypeImpl implements Serializable, GenericArrayType {
         private static final long serialVersionUID = 0;
         private final Type componentType;
@@ -401,7 +401,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static final class WildcardTypeImpl implements Serializable, WildcardType {
         private static final long serialVersionUID = 0;
         private final Type lowerBound;
@@ -431,7 +431,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.nCS;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.nMO;
         }
 
         public boolean equals(Object obj) {

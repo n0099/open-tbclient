@@ -21,10 +21,10 @@ public interface g {
 
         void m(byte[] bArr);
 
+        void oC();
+
         void onOpen(Map<String, String> map);
 
         void onTextMessage(String str);
-
-        void ox();
     }
 }

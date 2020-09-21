@@ -8,26 +8,26 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c extends BdBaseModel {
-    private HttpMessageListener gtj;
+    private HttpMessageListener gwQ;
 
     public c(BdPageContext<?> bdPageContext) {
         super(bdPageContext);
-        this.gtj = new HttpMessageListener(1021104) { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.c.1
+        this.gwQ = new HttpMessageListener(1021104) { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaChallengeRewardResponseMessage)) {
                     AlaChallengeRewardResponseMessage alaChallengeRewardResponseMessage = (AlaChallengeRewardResponseMessage) httpResponsedMessage;
                     if (c.this.mLoadDataCallBack != null) {
-                        c.this.mLoadDataCallBack.callback(alaChallengeRewardResponseMessage.gtl);
+                        c.this.mLoadDataCallBack.callback(alaChallengeRewardResponseMessage.gwS);
                     }
                 }
             }
         };
         initTasks();
-        registerListener(this.gtj);
+        registerListener(this.gwQ);
     }
 
     private void initTasks() {

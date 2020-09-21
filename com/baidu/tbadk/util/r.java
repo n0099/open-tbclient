@@ -1,84 +1,38 @@
 package com.baidu.tbadk.util;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 /* loaded from: classes.dex */
 public class r {
-    public static final boolean bvz() {
-        Message message;
-        int i = 0;
-        Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
-        if (valueForField == null || !(valueForField instanceof Message)) {
-            return false;
-        }
-        Message message2 = (Message) valueForField;
-        boolean z = false;
-        while (message2 != null && message2.obj != null && !z && i < 10) {
-            i++;
-            boolean Q = Q(message2);
-            Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-            if (valueForField2 != null && (valueForField2 instanceof Message)) {
-                message = (Message) valueForField2;
-            } else {
-                message = null;
-            }
-            message2 = message;
-            z = Q;
-        }
-        return z;
-    }
+    private static String alA;
+    private static String mPid;
+    private static String eYj = "";
+    private static int mThreadType = 0;
+    public static String eYk = "floor";
+    public static String eYl = "pbPage";
 
-    private static final boolean Q(Message message) {
-        Object valueForField;
-        ComponentName component;
-        if (message == null) {
-            return false;
-        }
-        Object obj = message.obj;
-        return (obj == null || (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) == null || !(valueForField instanceof Intent) || (component = ((Intent) valueForField).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
-    }
-
-    public static final boolean jP(boolean z) {
-        Message message;
-        Object valueForField;
-        Intent intent;
-        ComponentName component;
-        Object valueForField2 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
-        if (valueForField2 != null && (valueForField2 instanceof Message)) {
-            Message message2 = (Message) valueForField2;
-            int i = 0;
-            while (message2 != null && message2.obj != null && i < 10) {
-                int i2 = i + 1;
-                Object obj = message2.obj;
-                if (obj != null && (valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(obj, "intent")) != null && (valueForField instanceof Intent) && (component = (intent = (Intent) valueForField).getComponent()) != null) {
-                    try {
-                        Class.forName(component.getClassName());
-                    } catch (Throwable th) {
-                        TiebaStatic.log(new aq("check_change_intent_tologo").dD("obj_param1", (i2 == 1) + "").dD(TiebaInitialize.Params.OBJ_PARAM2, component.getClassName()));
-                        if (z && i2 == 1) {
-                            intent.setClassName(TbadkCoreApplication.getInst(), "com.baidu.tieba.LogoActivity");
-                            return false;
-                        }
-                        return false;
-                    }
-                }
-                Object valueForField3 = com.baidu.adp.lib.OrmObject.a.a.getValueForField(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-                if (valueForField3 != null && (valueForField3 instanceof Message)) {
-                    message = (Message) valueForField3;
-                } else {
-                    message = null;
-                }
-                message2 = message;
-                i = i2;
+    public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar, BaijiahaoData baijiahaoData) {
+        alA = str;
+        mPid = str2;
+        eYj = str3;
+        mThreadType = i;
+        if (!StringUtils.isNull(eYj) && eVar != null && eVar.getPageActivity() != null) {
+            if (eYk.equals(eYj)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(alA, mPid, "search_post", true);
+                createSubPbActivityConfig.setKeyPageStartFrom(8);
+                createSubPbActivityConfig.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
+                return;
             }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(alA, mPid, "search_post");
+            createNormalCfg.setStartFrom(8);
+            createNormalCfg.setBjhData(baijiahaoData);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
         }
-        return true;
     }
 }

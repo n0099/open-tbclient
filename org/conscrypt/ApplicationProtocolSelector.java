@@ -3,7 +3,7 @@ package org.conscrypt;
 import java.util.List;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public abstract class ApplicationProtocolSelector {
     public abstract String selectApplicationProtocol(SSLEngine sSLEngine, List<String> list);
 

@@ -10,7 +10,7 @@ import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
     private final List<a> AW;
     @Nullable
@@ -29,9 +29,9 @@ public class b extends a {
         this.AW = new ArrayList();
         this.rect = new RectF();
         this.FP = new RectF();
-        com.airbnb.lottie.model.a.b kI = layer.kI();
-        if (kI != null) {
-            this.FO = kI.jB();
+        com.airbnb.lottie.model.a.b kJ = layer.kJ();
+        if (kJ != null) {
+            this.FO = kJ.jC();
             a(this.FO);
             this.FO.b(this);
         } else {
@@ -45,13 +45,13 @@ public class b extends a {
             if (a == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a.kr().getId(), a);
+                longSparseArray.put(a.ks().getId(), a);
                 if (aVar3 != null) {
                     aVar3.b(a);
                     aVar2 = null;
                 } else {
                     this.AW.add(0, a);
-                    switch (r0.kC()) {
+                    switch (r0.kD()) {
                         case Add:
                         case Invert:
                             aVar2 = a;
@@ -67,7 +67,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.kr().kD())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.ks().kE())) != null) {
                 aVar4.c(aVar);
             }
         }
@@ -77,7 +77,7 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("CompositionLayer#draw");
         int save = canvas.save();
-        this.FP.set(0.0f, 0.0f, this.FE.kz(), this.FE.kA());
+        this.FP.set(0.0f, 0.0f, this.FE.kA(), this.FE.kB());
         matrix.mapRect(this.FP);
         for (int size = this.AW.size() - 1; size >= 0; size--) {
             boolean z = true;
@@ -114,12 +114,12 @@ public class b extends a {
         if (this.FO != null) {
             f = (this.FO.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().iu();
         }
-        if (this.FE.kw() != 0.0f) {
-            f /= this.FE.kw();
+        if (this.FE.kx() != 0.0f) {
+            f /= this.FE.kx();
         }
-        float kx = f - this.FE.kx();
+        float ky = f - this.FE.ky();
         for (int size = this.AW.size() - 1; size >= 0; size--) {
-            this.AW.get(size).setProgress(kx);
+            this.AW.get(size).setProgress(ky);
         }
     }
 
@@ -128,7 +128,7 @@ public class b extends a {
             for (int size = this.AW.size() - 1; size >= 0; size--) {
                 a aVar = this.AW.get(size);
                 if (aVar instanceof e) {
-                    if (aVar.ku()) {
+                    if (aVar.kv()) {
                         this.FR = true;
                         return true;
                     }
@@ -144,12 +144,12 @@ public class b extends a {
 
     public boolean hasMatte() {
         if (this.FQ == null) {
-            if (ks()) {
+            if (kt()) {
                 this.FQ = true;
                 return true;
             }
             for (int size = this.AW.size() - 1; size >= 0; size--) {
-                if (this.AW.get(size).ks()) {
+                if (this.AW.get(size).kt()) {
                     this.FQ = true;
                     return true;
                 }

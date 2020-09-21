@@ -4,7 +4,7 @@ import kotlin.h;
 import kotlin.internal.b;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     @Override // kotlin.internal.b
     public void addSuppressed(Throwable th, Throwable th2) {

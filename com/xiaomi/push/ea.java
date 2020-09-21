@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ea extends ed {
     private String a;
 
@@ -44,7 +44,7 @@ public class ea extends ed {
         if (a == null || a.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f232a.getPackageManager();
+        PackageManager packageManager = this.f231a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a) {
             try {

@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public final class a {
     private EGLConfig mEGLConfig;
     private EGLContext mEGLContext;

@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.sticker.model;
 import android.graphics.Bitmap;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PicStickerItem extends FuFaceItem {
     public Bitmap bitmap;
     public String client_type;

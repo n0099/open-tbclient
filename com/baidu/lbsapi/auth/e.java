@@ -6,14 +6,14 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class e {
     private Context a;
     private List<HashMap<String, String>> b = null;
     private a<String> c = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a<Result> {
         void a(Result result);
     }

@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 final class FilesKt__FileReadWriteKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, l> {
     final /* synthetic */ ArrayList $result;
 
@@ -21,7 +21,7 @@ final class FilesKt__FileReadWriteKt$readLines$1 extends Lambda implements kotli
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ l invoke(String str) {
         invoke2(str);
-        return l.osf;
+        return l.oBM;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

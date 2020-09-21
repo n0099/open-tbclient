@@ -1,7 +1,7 @@
 package com.baidu.vi;
 
 import android.media.MediaPlayer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AudioFilePlayer {
     private MediaPlayer a = new MediaPlayer();
 

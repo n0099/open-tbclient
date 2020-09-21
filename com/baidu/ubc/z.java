@@ -8,11 +8,11 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.IRemoteUBCService;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class z {
     private static final String TAG = z.class.getSimpleName();
 
-    public static void dMh() {
+    public static void dQf() {
         IPCServiceManager.addService(UBC.UBC_REMOTE_SERVICE_NAME, new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
             @Override // com.baidu.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
@@ -102,6 +102,16 @@ public class z {
                         Log.d(str, " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
                     }
                 }
+            }
+
+            @Override // com.baidu.ubc.IRemoteUBCService
+            public void uploadLocalDatas() throws RemoteException {
+                UBC.uploadLocalDatas();
+            }
+
+            @Override // com.baidu.ubc.IRemoteUBCService
+            public String getUploadType(String str) throws RemoteException {
+                return UBC.getUploadType(str);
             }
         }, false);
     }

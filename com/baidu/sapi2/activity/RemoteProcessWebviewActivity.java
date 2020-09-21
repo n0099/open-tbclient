@@ -28,7 +28,7 @@ import com.baidu.sapi2.utils.g;
 import com.baidu.sapi2.views.ViewUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class RemoteProcessWebviewActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_EXTERNAL_TITLE = "external_title";
     public static final String EXTRA_EXTERNAL_URL = "external_url";
@@ -213,12 +213,12 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void a(boolean z) {
-        int i = a.C0160a.sapi_sdk_slide_right_in;
-        int i2 = a.C0160a.sapi_sdk_slide_right_out;
+        int i = a.C0161a.sapi_sdk_slide_right_in;
+        int i2 = a.C0161a.sapi_sdk_slide_right_out;
         if (z) {
-            overridePendingTransition(i, a.C0160a.sapi_sdk_slide_left_out);
+            overridePendingTransition(i, a.C0161a.sapi_sdk_slide_left_out);
         } else {
-            overridePendingTransition(a.C0160a.sapi_sdk_slide_left_in, i2);
+            overridePendingTransition(a.C0161a.sapi_sdk_slide_left_in, i2);
         }
     }
 }

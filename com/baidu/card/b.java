@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes15.dex */
-public abstract class b<T extends AbsThreadDataSupport> implements o<T>, p {
-    protected aj aeT;
-    private Boolean aeU = false;
-    private com.baidu.tieba.card.aa<T> aeV;
-    public a aeW;
+/* loaded from: classes20.dex */
+public abstract class b<T extends AbsThreadDataSupport> implements p<T>, q {
+    protected ak afl;
+    private Boolean afm = false;
+    private com.baidu.tieba.card.aa<T> afn;
+    public a afo;
     protected Context mContext;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface a {
         void a(AbsThreadDataSupport absThreadDataSupport);
     }
@@ -26,33 +26,33 @@ public abstract class b<T extends AbsThreadDataSupport> implements o<T>, p {
         this.mContext = context;
     }
 
-    public void a(aj ajVar) {
-        this.aeT = ajVar;
+    public void a(ak akVar) {
+        this.afl = akVar;
     }
 
-    public void bk(int i) {
+    public void bo(int i) {
     }
 
-    public void bl(int i) {
+    public void bp(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tv() {
+    public void tA() {
     }
 
-    public com.baidu.tieba.card.aa<T> tw() {
-        return this.aeV;
+    public com.baidu.tieba.card.aa<T> tB() {
+        return this.afn;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<T> aaVar) {
-        this.aeV = aaVar;
+        this.afn = aaVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.aeT.a(i, bVar);
+        this.afl.a(i, bVar);
     }
 
-    public void bm(int i) {
+    public void bq(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends AbsThreadDataSupport> implements o<T>, p {
         }
     }
 
-    public Boolean tx() {
-        return this.aeU;
+    public Boolean tC() {
+        return this.afm;
     }
 
     public void b(Boolean bool) {
-        this.aeU = bool;
+        this.afm = bool;
     }
 }

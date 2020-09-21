@@ -94,11 +94,11 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
         public View a;
         public TextView c;
         public TextView d;
-        public FrescoThumbnailView nTU;
+        public FrescoThumbnailView odO;
 
         public a(View view, FrescoThumbnailView frescoThumbnailView, TextView textView, TextView textView2) {
             this.a = view;
-            this.nTU = frescoThumbnailView;
+            this.odO = frescoThumbnailView;
             this.c = textView;
             this.d = textView2;
         }
@@ -118,7 +118,7 @@ public class AchievementView extends RelativeLayout implements View.OnClickListe
                     e.a(a.this.a.getContext(), listItem, (JSONObject) null);
                 }
             });
-            this.nTU.h(medal.icon, a.e.icon_achievement_default, 0, 0);
+            this.odO.h(medal.icon, a.e.icon_achievement_default, 0, 0);
             this.c.setText(medal.name);
             this.d.setText(medal.desc);
         }

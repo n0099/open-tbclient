@@ -25,7 +25,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class j implements e {
     protected JSONObject a(JSONObject jSONObject, a aVar) {
         String gg = aVar.gg();

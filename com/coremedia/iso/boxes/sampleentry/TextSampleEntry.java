@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -196,7 +196,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.backgroundColorRgba = iArr;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class BoxRecord {
         int bottom;
         int left;
@@ -247,7 +247,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class StyleRecord {
         int endChar;
         int faceStyleFlags;

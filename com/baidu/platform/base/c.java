@@ -2,7 +2,7 @@ package com.baidu.platform.base;
 
 import com.baidu.mapapi.search.core.SearchResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c implements Runnable {
     final /* synthetic */ d a;
     final /* synthetic */ SearchResult b;

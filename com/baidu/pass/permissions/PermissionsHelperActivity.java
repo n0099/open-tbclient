@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.pass.common.Log;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.pass.view.ConfirmDialog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PermissionsHelperActivity extends Activity {
     private static final int a = 8000;
     private static final int b = 8001;

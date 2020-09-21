@@ -2,18 +2,21 @@ package com.baidu.searchbox.afx.proxy;
 
 import android.content.Context;
 import android.view.Surface;
+import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import java.io.File;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public interface IPlayer {
     void destroy();
 
     long getDuration();
 
     int getFps();
+
+    String getSourcePath();
 
     boolean isDestroyed();
 
@@ -40,6 +43,8 @@ public interface IPlayer {
     void setLoopSection(long j, long j2);
 
     void setLooping(boolean z);
+
+    void setOnReportListener(OnReportListener onReportListener);
 
     void setOnVideoEndedListener(OnVideoEndedListener onVideoEndedListener);
 

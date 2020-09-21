@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     private c d;
     private int b = 1;
@@ -20,7 +20,7 @@ public class d {
     private ExecutorService a = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
         private File b;
 
@@ -55,14 +55,14 @@ public class d {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
 
         void b(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
 

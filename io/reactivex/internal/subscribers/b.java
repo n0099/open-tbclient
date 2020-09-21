@@ -3,37 +3,37 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class b<T, R> implements d<R>, j<T> {
-    protected final org.b.c<? super R> actual;
+    protected final org.a.c<? super R> actual;
     protected boolean done;
     protected d<T> qs;
-    protected org.b.d s;
+    protected org.a.d s;
     protected int sourceMode;
 
-    public b(org.b.c<? super R> cVar) {
+    public b(org.a.c<? super R> cVar) {
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.j, org.b.c
-    public final void onSubscribe(org.b.d dVar) {
+    @Override // io.reactivex.j, org.a.c
+    public final void onSubscribe(org.a.d dVar) {
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (efj()) {
+            if (ejg()) {
                 this.actual.onSubscribe(this);
-                efk();
+                ejh();
             }
         }
     }
 
-    protected boolean efj() {
+    protected boolean ejg() {
         return true;
     }
 
-    protected void efk() {
+    protected void ejh() {
     }
 
     public void onError(Throwable th) {
@@ -60,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int NM(int i) {
+    public final int Or(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;
@@ -73,12 +73,12 @@ public abstract class b<T, R> implements d<R>, j<T> {
         return requestFusion;
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void request(long j) {
         this.s.request(j);
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         this.s.cancel();
     }

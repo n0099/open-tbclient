@@ -10,7 +10,7 @@ import com.baidu.platform.comapi.walknavi.a.c;
 import com.baidu.platform.comapi.wnplatform.p.e;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
     public int a;
     public String b;
@@ -21,7 +21,7 @@ public class b extends c {
         this.a = -1;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         private int b;
 
@@ -54,12 +54,12 @@ public class b extends c {
             return null;
         }
         if (view == null) {
-            view = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, R.layout.abc_action_bar_title_item, null);
+            view = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, R.mipmap.ufo_add_pic_icon, null);
             view.setClickable(false);
             c.a aVar2 = new c.a();
-            aVar2.c = (TextView) view.findViewById(R.raw.ala_play);
-            aVar2.a = view.findViewById(R.raw.ala_live2);
-            aVar2.b = (ImageView) view.findViewById(R.raw.bottom_bar_bg);
+            aVar2.c = (TextView) view.findViewById(R.xml.null_network_security_config);
+            aVar2.a = view.findViewById(R.xml.nfc_tech_filter);
+            aVar2.b = (ImageView) view.findViewById(R.xml.pass_sdk_file_provider);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {

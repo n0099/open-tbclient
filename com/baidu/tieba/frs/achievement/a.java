@@ -16,59 +16,59 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ac;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a implements ac.a {
     private TbPageContext context;
-    private ImageView dTZ;
-    private View.OnClickListener eFG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.a.1
+    private ImageView dWj;
+    private View.OnClickListener eHN = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == a.this.hYy.getId()) {
+            if (view.getId() == a.this.ifC.getId()) {
                 a.this.context.getPageActivity().finish();
             }
         }
     };
-    private View hXe;
-    private TextView hYA;
-    private View hYB;
-    private TextView hYt;
-    private TextView hYu;
-    private TextView hYv;
-    private b hYw;
-    private ac hYx;
-    private ImageView hYy;
-    private ImageView hYz;
+    private View iei;
+    private b ifA;
+    private ac ifB;
+    private ImageView ifC;
+    private ImageView ifD;
+    private TextView ifE;
+    private View ifF;
+    private TextView ifx;
+    private TextView ify;
+    private TextView ifz;
     private View rootView;
 
     public a(TbPageContext tbPageContext, View view) {
         this.context = tbPageContext;
         this.rootView = view;
-        this.hYt = (TextView) view.findViewById(R.id.to_user_name);
-        this.hYu = (TextView) view.findViewById(R.id.content);
-        this.hYv = (TextView) view.findViewById(R.id.sender);
-        this.hXe = view.findViewById(R.id.share_view);
-        this.dTZ = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
-        this.hYy = (ImageView) view.findViewById(R.id.close_button);
-        this.hYy.setOnClickListener(this.eFG);
-        this.hYz = (ImageView) view.findViewById(R.id.img_top);
-        ViewGroup.LayoutParams layoutParams = this.hYz.getLayoutParams();
+        this.ifx = (TextView) view.findViewById(R.id.to_user_name);
+        this.ify = (TextView) view.findViewById(R.id.content);
+        this.ifz = (TextView) view.findViewById(R.id.sender);
+        this.iei = view.findViewById(R.id.share_view);
+        this.dWj = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
+        this.ifC = (ImageView) view.findViewById(R.id.close_button);
+        this.ifC.setOnClickListener(this.eHN);
+        this.ifD = (ImageView) view.findViewById(R.id.img_top);
+        ViewGroup.LayoutParams layoutParams = this.ifD.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(tbPageContext.getPageActivity()) - (l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
         layoutParams.height = (int) (((layoutParams.width * 364) * 1.0f) / 980.0f);
-        this.hYz.setLayoutParams(layoutParams);
-        this.hYA = (TextView) view.findViewById(R.id.qr_view_intro);
-        this.hYB = view.findViewById(R.id.layout_content);
-        this.hYB.setBackground(cop());
-        this.hXe.setBackground(cop());
-        this.hYw = new b(tbPageContext);
-        this.hYw.cor();
-        coq();
-        this.hYx = new ac(tbPageContext);
-        this.hYx.a(view, this.hXe, this);
-        this.hYx.setData(this.hYw.url, this.hYw.fname);
-        this.hYx.setFrom(5);
+        this.ifD.setLayoutParams(layoutParams);
+        this.ifE = (TextView) view.findViewById(R.id.qr_view_intro);
+        this.ifF = view.findViewById(R.id.layout_content);
+        this.ifF.setBackground(crC());
+        this.iei.setBackground(crC());
+        this.ifA = new b(tbPageContext);
+        this.ifA.crE();
+        crD();
+        this.ifB = new ac(tbPageContext);
+        this.ifB.a(view, this.iei, this);
+        this.ifB.setData(this.ifA.url, this.ifA.fname);
+        this.ifB.setFrom(5);
     }
 
-    private GradientDrawable cop() {
+    private GradientDrawable crC() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{ap.getColor(R.color.cp_bg_line_d), ap.getColor(R.color.cp_bg_line_d)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
@@ -80,37 +80,37 @@ public class a implements ac.a {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    private void coq() {
-        this.hYt.setText("你好，朋友！");
-        this.hYu.setText(this.hYw.cot());
-        this.hYv.setText(this.hYw.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
-        yL(this.hYw.shareUrl);
+    private void crD() {
+        this.ifx.setText("你好，朋友！");
+        this.ify.setText(this.ifA.crG());
+        this.ifz.setText(this.ifA.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
+        zg(this.ifA.shareUrl);
     }
 
-    private void yL(String str) {
+    private void zg(String str) {
         CustomResponsedMessage runTask;
         if (str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
-            this.dTZ.setImageBitmap((Bitmap) runTask.getData());
+            this.dWj.setImageBitmap((Bitmap) runTask.getData());
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.hYy, R.drawable.icon_popup_shut_n);
-        ap.setViewTextColor(this.hYt, R.color.cp_cont_b);
-        ap.setViewTextColor(this.hYu, R.color.cp_cont_b);
-        ap.setViewTextColor(this.hYv, R.color.cp_cont_d);
-        ap.setViewTextColor(this.hYA, R.color.cp_cont_d);
+        ap.setImageResource(this.ifC, R.drawable.icon_popup_shut_n);
+        ap.setViewTextColor(this.ifx, R.color.cp_cont_b);
+        ap.setViewTextColor(this.ify, R.color.cp_cont_b);
+        ap.setViewTextColor(this.ifz, R.color.cp_cont_d);
+        ap.setViewTextColor(this.ifE, R.color.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.frs.ac.a
-    public void cnL() {
-        this.hXe.setBackground(cop());
-        this.hYz.setImageResource(R.drawable.pic_yaoqinghan_980x364);
+    public void cqY() {
+        this.iei.setBackground(crC());
+        this.ifD.setImageResource(R.drawable.pic_yaoqinghan_980x364);
     }
 
     @Override // com.baidu.tieba.frs.ac.a
-    public void cnM() {
-        this.hXe.setBackground(new ColorDrawable(ap.getColor(R.color.cp_bg_line_d)));
-        this.hYz.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
+    public void cqZ() {
+        this.iei.setBackground(new ColorDrawable(ap.getColor(R.color.cp_bg_line_d)));
+        this.ifD.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
     }
 }

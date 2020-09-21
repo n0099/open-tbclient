@@ -1,29 +1,22 @@
 package com.baidu.tieba.pb.data;
 
 import android.graphics.Bitmap;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 public class m {
     private String content;
-    private String duringTime;
-    private Bitmap kyb;
-    private Bitmap kyc;
-    private String kyd;
-    private boolean kye;
+    private PostData jds;
+    private String kGA;
+    private com.baidu.tbadk.widget.richText.a kGB;
+    private Bitmap kGz;
+    private int threadType;
 
-    public Bitmap cWb() {
-        return this.kyb;
+    public Bitmap cZG() {
+        return this.kGz;
     }
 
     public void E(Bitmap bitmap) {
-        this.kyb = bitmap;
-    }
-
-    public Bitmap cWc() {
-        return this.kyc;
-    }
-
-    public void F(Bitmap bitmap) {
-        this.kyc = bitmap;
+        this.kGz = bitmap;
     }
 
     public String getContent() {
@@ -34,27 +27,35 @@ public class m {
         this.content = str;
     }
 
-    public String cWd() {
-        return this.duringTime;
-    }
-
-    public void Nn(String str) {
-        this.duringTime = str;
-    }
-
     public String getThreadImgUrl() {
-        return this.kyd;
+        return this.kGA;
     }
 
-    public void No(String str) {
-        this.kyd = str;
+    public void NP(String str) {
+        this.kGA = str;
     }
 
-    public boolean cWe() {
-        return this.kye;
+    public void g(PostData postData) {
+        this.jds = postData;
     }
 
-    public void sD(boolean z) {
-        this.kye = z;
+    public PostData cZH() {
+        return this.jds;
+    }
+
+    public com.baidu.tbadk.widget.richText.a cZI() {
+        return this.kGB;
+    }
+
+    public void b(com.baidu.tbadk.widget.richText.a aVar) {
+        this.kGB = aVar;
+    }
+
+    public int getThreadType() {
+        return this.threadType;
+    }
+
+    public void setThreadType(int i) {
+        this.threadType = i;
     }
 }

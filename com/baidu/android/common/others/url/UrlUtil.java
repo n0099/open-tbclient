@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public class UrlUtil {
     private static final boolean DEBUG = false;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";
@@ -159,6 +159,21 @@ public class UrlUtil {
                 return str + "?" + mapToString;
             }
             return str;
+        }
+        return str;
+    }
+
+    public static String deleteParamAllowAll(String str, Set<String> set) {
+        if (!TextUtils.isEmpty(str) && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME) && set != null && set.size() != 0) {
+            String str2 = null;
+            try {
+                str2 = new URL(str).getQuery();
+            } catch (MalformedURLException e) {
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return str;
+            }
+            return str != null ? str.replace(str2, deleteQueryParam(str2, set)) : str;
         }
         return str;
     }

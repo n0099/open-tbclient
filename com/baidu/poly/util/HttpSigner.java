@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class HttpSigner {
     static {
         System.loadLibrary("hs");
@@ -35,7 +35,7 @@ public class HttpSigner {
             }
             bVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
             sb.append(nativeGetCommissionSk()).append(ETAG.ITEM_SEPARATOR).append(bVar.get("timestamp"));
-            bVar.g("sign", com.baidu.poly.a.g.b.dD(sb.toString()));
+            bVar.g("sign", com.baidu.poly.a.g.b.dF(sb.toString()));
         }
     }
 
@@ -54,6 +54,6 @@ public class HttpSigner {
             }
         }
         sb.append(str).append(ETAG.EQUAL).append(nativeGetStatisticsKey(i));
-        return com.baidu.poly.a.g.b.dD(sb.toString());
+        return com.baidu.poly.a.g.b.dF(sb.toString());
     }
 }

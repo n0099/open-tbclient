@@ -1,13 +1,13 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean Hw;
+    private boolean HE;
 
-    public boolean le() {
-        return this.Hw;
+    public boolean li() {
+        return this.HE;
     }
 
     public void start() {
-        this.Hw = true;
+        this.HE = true;
     }
 }

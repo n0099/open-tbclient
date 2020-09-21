@@ -7,7 +7,7 @@ import android.view.animation.Interpolator;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f extends c {
     private Animator a = null;
     private long b = 0;

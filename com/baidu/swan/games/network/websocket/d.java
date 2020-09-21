@@ -1,7 +1,7 @@
 package com.baidu.swan.games.network.websocket;
 
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d {
-    static final String dvt = String.format(Locale.CHINA, "invalid code, the code must be either %d, or between %d and %d", 1000, 3000, 4999);
+    static final String dxu = String.format(Locale.CHINA, "invalid code, the code must be either %d, or between %d and %d", 1000, 3000, 4999);
 }

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class r extends q {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
         kotlin.jvm.internal.q.m(iterable, "receiver$0");

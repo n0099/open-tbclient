@@ -5,7 +5,7 @@ import com.heytap.openid.a.c;
 /* loaded from: classes11.dex */
 public class a {
     public static void a(Context context) {
-        b.b = c.b.nHb.a(b.gB(context));
+        b.b = c.b.nQX.a(b.gH(context));
         b.a = true;
     }
 
@@ -18,21 +18,21 @@ public class a {
 
     public static String b(Context context) {
         if (b.a) {
-            return c.b.nHb.a(b.gB(context), "OUID");
+            return c.b.nQX.a(b.gH(context), "OUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String c(Context context) {
         if (b.a) {
-            return c.b.nHb.a(b.gB(context), "DUID");
+            return c.b.nQX.a(b.gH(context), "DUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }
 
     public static String d(Context context) {
         if (b.a) {
-            return c.b.nHb.a(b.gB(context), "AUID");
+            return c.b.nQX.a(b.gH(context), "AUID");
         }
         throw new RuntimeException("SDK Need Init First!");
     }

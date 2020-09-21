@@ -22,13 +22,13 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private InterfaceC0071b cl;
+    private InterfaceC0072b cl;
     private HandlerThread cm;
 
     /* renamed from: cn  reason: collision with root package name */
-    private a f957cn;
+    private a f956cn;
     private boolean cp;
     private FramePixels cj = null;
     private byte[] ck = null;
@@ -36,7 +36,7 @@ public class b {
     private AlgoHandleController bY = null;
     private ArrayList<String> cq = new ArrayList<>();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static final class a extends Handler {
         private boolean cx;
 
@@ -69,20 +69,20 @@ public class b {
     }
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0071b {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0072b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0071b interfaceC0071b) {
+    public b(InterfaceC0072b interfaceC0072b) {
         this.cl = null;
-        this.cl = interfaceC0071b;
+        this.cl = interfaceC0072b;
         if (this.cm == null) {
             this.cm = new HandlerThread("AnimeHandlerThread");
             this.cm.start();
         }
-        if (this.f957cn == null) {
-            this.f957cn = new a(this.cm.getLooper());
+        if (this.f956cn == null) {
+            this.f956cn = new a(this.cm.getLooper());
         }
     }
 
@@ -240,10 +240,10 @@ public class b {
         final String str = String.valueOf(this.cj.getTimestamp()) + String.valueOf(System.currentTimeMillis());
         if (this.cq != null) {
             this.cq.add(str);
-            if (this.cm == null || !this.cm.isAlive() || this.f957cn == null) {
+            if (this.cm == null || !this.cm.isAlive() || this.f956cn == null) {
                 return;
             }
-            this.f957cn.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.2
+            this.f956cn.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.2
                 @Override // java.lang.Runnable
                 public void run() {
                     final long currentTimeMillis = System.currentTimeMillis();
@@ -268,13 +268,13 @@ public class b {
         if (this.cq != null) {
             this.cq.clear();
         }
-        if (this.f957cn != null) {
-            this.f957cn.removeMessages(1001);
+        if (this.f956cn != null) {
+            this.f956cn.removeMessages(1001);
         }
     }
 
     public void d(final FramePixels framePixels) {
-        if (this.cm == null || !this.cm.isAlive() || this.f957cn == null) {
+        if (this.cm == null || !this.cm.isAlive() || this.f956cn == null) {
             return;
         }
         final String valueOf = String.valueOf(framePixels.getTimestamp());
@@ -282,7 +282,7 @@ public class b {
             return;
         }
         this.cq.add(valueOf);
-        this.f957cn.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.1
+        this.f956cn.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.cj = framePixels;
@@ -328,15 +328,15 @@ public class b {
             this.cq.clear();
             this.cq = null;
         }
-        if (this.cm == null || !this.cm.isAlive() || this.f957cn == null) {
+        if (this.cm == null || !this.cm.isAlive() || this.f956cn == null) {
             return;
         }
-        this.f957cn.removeMessages(1001);
-        this.f957cn.a(1002, new Runnable() { // from class: com.baidu.ar.anime.b.3
+        this.f956cn.removeMessages(1001);
+        this.f956cn.a(1002, new Runnable() { // from class: com.baidu.ar.anime.b.3
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.f957cn != null) {
-                    b.this.f957cn = null;
+                if (b.this.f956cn != null) {
+                    b.this.f956cn = null;
                 }
                 if (b.this.cm != null) {
                     b.this.cm.quit();

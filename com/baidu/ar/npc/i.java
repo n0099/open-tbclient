@@ -1,5 +1,5 @@
 package com.baidu.ar.npc;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class i implements Runnable {
     final /* synthetic */ ArBridge a;
 

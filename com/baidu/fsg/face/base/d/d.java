@@ -1,7 +1,7 @@
 package com.baidu.fsg.face.base.d;
 
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class d {
     private static final String a = "SAPI_BIOMETRIC";
     private static final String b = "%1$s\n%2$s";

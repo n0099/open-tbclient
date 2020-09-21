@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.security.spec.ECPoint;
 import org.conscrypt.NativeRef;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class OpenSSLECPointContext {
     private final OpenSSLECGroupContext group;
     private final NativeRef.EC_POINT pointCtx;

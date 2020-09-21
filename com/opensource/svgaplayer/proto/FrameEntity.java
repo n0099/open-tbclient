@@ -10,21 +10,21 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(ecV = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(egS = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(ecV = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", ecW = WireField.Label.REPEATED, tag = 5)
+    @WireField(egS = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", egT = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(ecV = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(egS = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -97,12 +97,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         return sb.replace(0, 2, "FrameEntity{").append('}').toString();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.ecY();
+        public List<ShapeEntity> shapes = a.egV();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -126,7 +126,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
 
         public Builder shapes(List<ShapeEntity> list) {
-            a.fS(list);
+            a.gb(list);
             this.shapes = list;
             return this;
         }
@@ -139,7 +139,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     private static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         ProtoAdapter_FrameEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, FrameEntity.class);
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long ecN = cVar.ecN();
+            long egK = cVar.egK();
             while (true) {
-                int ecO = cVar.ecO();
-                if (ecO != -1) {
-                    switch (ecO) {
+                int egL = cVar.egL();
+                if (egL != -1) {
+                    switch (egL) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding ecP = cVar.ecP();
-                            builder.addUnknownField(ecO, ecP, ecP.rawProtoAdapter().decode(cVar));
+                            FieldEncoding egM = cVar.egM();
+                            builder.addUnknownField(egL, egM, egM.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gJ(ecN);
+                    cVar.gX(egK);
                     return builder.build();
                 }
             }

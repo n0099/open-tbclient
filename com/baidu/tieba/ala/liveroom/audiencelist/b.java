@@ -9,17 +9,17 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.utils.i;
-/* loaded from: classes7.dex */
+import com.baidu.live.utils.j;
+/* loaded from: classes4.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b gmW;
-    private TextView gpi;
-    private ImageView gpj;
+    private com.baidu.tieba.ala.liveroom.operation.b gqe;
+    private TextView gsw;
+    private ImageView gsx;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean fOr = true;
+    private boolean fRC = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,18 +32,18 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.gpi = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.gpj = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.gsw = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.gsx = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gpj.setVisibility(4);
+            this.gsx.setVisibility(4);
         } else {
-            this.gpj.setVisibility(8);
+            this.gsx.setVisibility(8);
         }
-        this.gpi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+        this.gsw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.gmW != null) {
-                    b.this.gmW.m(view, 14);
+                if (b.this.gqe != null) {
+                    b.this.gqe.n(view, 14);
                 }
             }
         });
@@ -53,7 +53,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        dO(j);
+        dP(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -62,27 +62,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.fOr) {
+        if (this.fRC) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void lS(boolean z) {
+    public void lU(boolean z) {
         if (z) {
-            this.gpj.setVisibility(4);
+            this.gsx.setVisibility(4);
         } else {
-            this.gpj.setVisibility(8);
+            this.gsx.setVisibility(8);
         }
     }
 
-    public void dO(long j) {
+    public void dP(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.gpi.setText(i.numFormatOverWanNaForAudienceNum(j));
+        this.gsw.setText(j.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -90,12 +90,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.gmW = bVar;
+        this.gqe = bVar;
     }
 
-    public void lT(boolean z) {
-        if (this.gpi != null) {
-            this.gpi.setEnabled(z);
+    public void lV(boolean z) {
+        if (this.gsw != null) {
+            this.gsw.setEnabled(z);
         }
     }
 }

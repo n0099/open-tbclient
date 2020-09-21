@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.operators.observable.a<T, T> {
     final t<? extends U> other;
 
@@ -19,7 +19,7 @@ public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.opera
         this.source.subscribe(takeUntilObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TakeUntilObserver<T> extends AtomicBoolean implements u<T> {
         private static final long serialVersionUID = 3451719290311127173L;
         final u<? super T> actual;
@@ -57,14 +57,14 @@ public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.opera
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     final class a implements u<U> {
         private final ArrayCompositeDisposable frc;
-        private final io.reactivex.observers.b<T> ooN;
+        private final io.reactivex.observers.b<T> oyw;
 
         a(ArrayCompositeDisposable arrayCompositeDisposable, io.reactivex.observers.b<T> bVar) {
             this.frc = arrayCompositeDisposable;
-            this.ooN = bVar;
+            this.oyw = bVar;
         }
 
         @Override // io.reactivex.u
@@ -75,19 +75,19 @@ public final class ObservableTakeUntil<T, U> extends io.reactivex.internal.opera
         @Override // io.reactivex.u
         public void onNext(U u) {
             this.frc.dispose();
-            this.ooN.onComplete();
+            this.oyw.onComplete();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.frc.dispose();
-            this.ooN.onError(th);
+            this.oyw.onError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.frc.dispose();
-            this.ooN.onComplete();
+            this.oyw.onComplete();
         }
     }
 }

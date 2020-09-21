@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes18.dex */
+/* loaded from: classes10.dex */
 public class BdBoxActivityManager {
     private static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
 
@@ -79,6 +79,12 @@ public class BdBoxActivityManager {
 
     public static boolean isForeground() {
         return sMainGlobalActivityLifecycle != null && sMainGlobalActivityLifecycle.isForeground();
+    }
+
+    public static void registerGlobalLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
+        if (iActivityLifecycle != null && sMainGlobalActivityLifecycle != null) {
+            sMainGlobalActivityLifecycle.registerGlobalLifeCycle(iActivityLifecycle);
+        }
     }
 
     public static void registerLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {

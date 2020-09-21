@@ -2,7 +2,7 @@ package com.baidu.searchbox.common.runtime;
 
 import android.app.Application;
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class AppRuntime {
     static Application sApplication;
 

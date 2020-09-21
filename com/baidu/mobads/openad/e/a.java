@@ -4,7 +4,7 @@ import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a implements IOAdTimer {
     private static String c = "OAdTimer";
     protected int a;

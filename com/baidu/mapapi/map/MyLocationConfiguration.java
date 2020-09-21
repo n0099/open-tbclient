@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.Color;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MyLocationConfiguration {
     public int accuracyCircleFillColor;
     public int accuracyCircleStrokeColor;
@@ -9,7 +9,7 @@ public class MyLocationConfiguration {
     public final boolean enableDirection;
     public final LocationMode locationMode;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum LocationMode {
         NORMAL,
         FOLLOWING,

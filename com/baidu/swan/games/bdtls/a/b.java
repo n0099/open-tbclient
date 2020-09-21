@@ -2,26 +2,26 @@ package com.baidu.swan.games.bdtls.a;
 
 import com.baidu.swan.games.bdtls.model.h;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static byte[] a(h hVar) {
         if (hVar == null) {
             return null;
         }
-        ByteBuffer allocate = ByteBuffer.allocate(hVar.aMh() + 12 + hVar.aMi());
+        ByteBuffer allocate = ByteBuffer.allocate(hVar.aMS() + 12 + hVar.aMT());
         allocate.put((byte) -27);
         allocate.put((byte) -89);
-        if (hVar.aMd() == null || hVar.aMd().length != 2) {
+        if (hVar.aMO() == null || hVar.aMO().length != 2) {
             return null;
         }
-        allocate.put(hVar.aMd()[0]);
-        allocate.put(hVar.aMd()[1]);
-        allocate.put(hVar.aMf());
-        allocate.put(hVar.aMg());
-        if (hVar.aMj() == null || hVar.aMj().length == 0) {
+        allocate.put(hVar.aMO()[0]);
+        allocate.put(hVar.aMO()[1]);
+        allocate.put(hVar.aMQ());
+        allocate.put(hVar.aMR());
+        if (hVar.aMU() == null || hVar.aMU().length == 0) {
             return null;
         }
-        int length = hVar.aMj().length;
+        int length = hVar.aMU().length;
         allocate.put((byte) ((length >> 8) & 255));
         allocate.put((byte) (length & 255));
         if (hVar.getContent() == null || hVar.getContent().length == 0) {
@@ -29,8 +29,8 @@ public class b {
         } else {
             allocate.putInt(hVar.getContent().length);
         }
-        if (hVar.aMj() != null) {
-            allocate.put(hVar.aMj());
+        if (hVar.aMU() != null) {
+            allocate.put(hVar.aMU());
         }
         if (hVar.getContent() != null) {
             allocate.put(hVar.getContent());
@@ -55,7 +55,7 @@ public class b {
                 int i = wrap.getShort();
                 hVar.c((short) i);
                 int i2 = wrap.getInt();
-                hVar.kX(i2);
+                hVar.li(i2);
                 byte[] bArr2 = new byte[i];
                 wrap.get(bArr2, 0, i);
                 hVar.T(bArr2);

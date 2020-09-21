@@ -5,10 +5,10 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.yanzhenjie.permission.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class e {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static List<String> c(Context context, List<String> list) {
+    public static List<String> d(Context context, List<String> list) {
         char c;
         ArrayList arrayList = new ArrayList();
         for (String str : list) {

@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.live.utils.k;
-/* loaded from: classes7.dex */
+import com.baidu.live.utils.l;
+/* loaded from: classes4.dex */
 public class AlaGraffitiGiftInfoView extends LinearLayout {
-    private TbImageView aVj;
-    private HeadImageView aVk;
+    private TbImageView aXC;
+    private HeadImageView aXD;
     private TextView mTitle;
 
     public AlaGraffitiGiftInfoView(Context context) {
@@ -33,21 +33,21 @@ public class AlaGraffitiGiftInfoView extends LinearLayout {
     private void init() {
         View.inflate(getContext(), a.h.popup_graffiti_gift_info_layout, this);
         setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.aVj = (TbImageView) findViewById(a.g.graffiti_sender_img);
-        this.aVj.setIsNight(false);
-        this.aVj.setAutoChangeStyle(false);
-        this.aVk = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
-        this.aVk.setIsRound(true);
-        this.aVk.setAutoChangeStyle(false);
-        this.aVk.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aVk.setIsNight(false);
-        this.aVk.setAutoChangeStyle(false);
+        this.aXC = (TbImageView) findViewById(a.g.graffiti_sender_img);
+        this.aXC.setIsNight(false);
+        this.aXC.setAutoChangeStyle(false);
+        this.aXD = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
+        this.aXD.setIsRound(true);
+        this.aXD.setAutoChangeStyle(false);
+        this.aXD.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aXD.setIsNight(false);
+        this.aXD.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(a.g.graffiti_sender_info_txt);
     }
 
     public void setGiftInfo(String str, String str2, String str3) {
-        this.aVk.setUrl(str);
-        k.a(this.aVk, str, false, false);
+        this.aXD.setUrl(str);
+        l.a(this.aXD, str, false, false);
         this.mTitle.setText(str3);
     }
 }

@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d {
-    private RecommendForumLayout hEk;
+    private RecommendForumLayout hLm;
     private TbPageContext<?> mPageContext;
-    private View.OnClickListener hBU = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
+    private View.OnClickListener hIW = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private PullLeftRefreshLayout.a akA = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.d.d.2
+    private PullLeftRefreshLayout.a akZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.d.d.2
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bwU() {
+        public void byd() {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private com.baidu.tbadk.h.f ahY = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.enterForum.d.d.3
+    private com.baidu.tbadk.h.f ait = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.enterForum.d.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
         public void a(View view, bi biVar, int i, long j) {
@@ -48,21 +48,21 @@ public class d {
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.hEk = new RecommendForumLayout(tbPageContext);
-        this.hEk.setShowMore(true);
-        this.hEk.setSquareEntranceAtStart(true);
-        this.hEk.setTabName(null);
-        this.hEk.setFrom(0);
-        this.hEk.setOnClickRightArrowListener(this.hBU);
-        this.hEk.setOnRullOkCallbackr(this.akA);
-        this.hEk.setOnItemCoverListener(this.ahY);
+        this.hLm = new RecommendForumLayout(tbPageContext);
+        this.hLm.setShowMore(true);
+        this.hLm.setSquareEntranceAtStart(true);
+        this.hLm.setTabName(null);
+        this.hLm.setFrom(0);
+        this.hLm.setOnClickRightArrowListener(this.hIW);
+        this.hLm.setOnRullOkCallbackr(this.akZ);
+        this.hLm.setOnItemCoverListener(this.ait);
     }
 
-    public RecommendForumLayout cht() {
-        return this.hEk;
+    public RecommendForumLayout ckI() {
+        return this.hLm;
     }
 
     public void d(bj bjVar) {
-        this.hEk.b(bjVar);
+        this.hLm.b(bjVar);
     }
 }

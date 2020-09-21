@@ -7,18 +7,18 @@ import io.reactivex.j;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
-    final org.b.b<U> onu;
+    final org.a.b<U> oxd;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.onu.subscribe(new OtherSubscriber(yVar, this.source));
+        this.oxd.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class OtherSubscriber<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;
@@ -31,7 +31,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             this.source = aaVar;
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -40,13 +40,13 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(U u) {
             this.s.cancel();
             onComplete();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -56,7 +56,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;

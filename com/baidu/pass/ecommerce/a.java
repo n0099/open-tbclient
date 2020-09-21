@@ -8,17 +8,17 @@ import com.baidu.pass.permissions.PermissionsCallback;
 import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static a b;
     private com.baidu.pass.ecommerce.b.a a;
 
     /* renamed from: com.baidu.pass.ecommerce.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    class C0235a implements com.baidu.pass.ecommerce.b.a {
+    /* loaded from: classes6.dex */
+    class C0233a implements com.baidu.pass.ecommerce.b.a {
         final /* synthetic */ com.baidu.pass.ecommerce.b.a a;
 
-        C0235a(com.baidu.pass.ecommerce.b.a aVar) {
+        C0233a(com.baidu.pass.ecommerce.b.a aVar) {
             this.a = aVar;
         }
 
@@ -29,7 +29,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class b extends PermissionsCallback {
         final /* synthetic */ Context a;
 
@@ -77,7 +77,7 @@ public class a {
     }
 
     public void a(Context context, com.baidu.pass.ecommerce.b.a aVar) {
-        this.a = new C0235a(aVar);
+        this.a = new C0233a(aVar);
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = context;
         permissionsDTO.permissions = new String[]{"android.permission.READ_CONTACTS"};

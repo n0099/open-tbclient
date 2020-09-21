@@ -16,28 +16,28 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
     public t(Activity activity, String str, String str2, boolean z, boolean z2) {
         super(activity, str, str2, z);
         this.mIsLogin = z2;
-        aBY();
+        aCI();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aBv() {
+    protected boolean aCf() {
         a(new a());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public JSONObject aBU() {
-        JSONObject aBU = super.aBU();
+    public JSONObject aCE() {
+        JSONObject aCE = super.aCE();
         if (!TextUtils.isEmpty(this.mStoken)) {
             try {
-                aBU.put("stoken", this.mStoken);
+                aCE.put("stoken", this.mStoken);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return aBU;
+        return aCE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aBB() throws Exception {
+        protected boolean aCl() throws Exception {
             if (!t.this.mIsLogin) {
                 t.this.mStoken = null;
                 if (t.DEBUG) {
@@ -60,7 +60,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: B */
-                public void I(Bundle bundle) {
+                public void J(Bundle bundle) {
                     if (bundle == null) {
                         a.this.w(new OAuthException("null stoken", 10001));
                         return;
@@ -68,7 +68,7 @@ public class t extends com.baidu.swan.apps.setting.oauth.a.g {
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         t.this.mStoken = string;
-                        a.this.aBD();
+                        a.this.aCn();
                         return;
                     }
                     a.this.w(new OAuthException("empty stoken", 10001));

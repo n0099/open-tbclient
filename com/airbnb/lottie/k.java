@@ -2,7 +2,7 @@ package com.airbnb.lottie;
 
 import android.graphics.ColorFilter;
 import android.graphics.PointF;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public interface k {
     public static final Integer BE = 1;
     public static final Integer BF = 2;

@@ -3,23 +3,21 @@ package com.baidu.card;
 import android.content.Context;
 import android.view.View;
 import com.baidu.card.a.a;
-import com.baidu.card.view.MultiImgLayout;
+import com.baidu.card.view.MutiImgMutiPicLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class v extends b<AbsThreadDataSupport> {
-    private AbsThreadDataSupport aeY;
-    private MultiImgLayout afT;
+    private AbsThreadDataSupport afq;
+    private MutiImgMutiPicLayout agl;
     private String mFrom;
     private int mSkinType;
 
     public v(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.afT = new MultiImgLayout(context);
+        this.agl = new MutiImgMutiPicLayout(context);
     }
 
     public void setFrom(String str) {
@@ -29,69 +27,51 @@ public class v extends b<AbsThreadDataSupport> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.afT;
+        return this.agl;
     }
 
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
-        this.afT.setSubClickListener(aaVar);
+        this.agl.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     /* renamed from: b */
-    public void F(AbsThreadDataSupport absThreadDataSupport) {
-        this.aeY = absThreadDataSupport;
-        this.afT.setFrom(this.mFrom);
-        this.afT.F(absThreadDataSupport);
+    public void G(AbsThreadDataSupport absThreadDataSupport) {
+        this.afq = absThreadDataSupport;
+        this.agl.setFrom(this.mFrom);
+        this.agl.G(absThreadDataSupport);
     }
 
-    @Override // com.baidu.card.p
+    @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.afT.ajG.onChangeSkinType();
         }
         this.mSkinType = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void tv() {
+    public void tA() {
         a(1, new a.b() { // from class: com.baidu.card.v.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0095a c0095a) {
-                if (v.this.aeY != null && v.this.aeY.bce() != null) {
-                    com.baidu.tieba.card.m.GZ(v.this.aeY.bce().getId());
-                    com.baidu.tieba.card.m.a(v.this.afT.mTitle, v.this.aeY.bce().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
-                    com.baidu.tieba.card.m.a(v.this.afT.afB, v.this.aeY.bce().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+            public boolean a(a.C0096a c0096a) {
+                if (v.this.afq != null && v.this.afq.bcY() != null) {
+                    com.baidu.tieba.card.m.Hw(v.this.afq.bcY().getId());
+                    com.baidu.tieba.card.m.a(v.this.agl.mTitle, v.this.afq.bcY().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
+                    com.baidu.tieba.card.m.a(v.this.agl.afT, v.this.afq.bcY().getId(), R.color.cp_cont_b, R.color.cp_cont_d);
                 }
                 return false;
             }
         });
     }
 
-    public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        if (this.afT != null) {
-            this.afT.setConstrainLayoutPool(bVar);
-        }
-    }
-
-    public void setConstrainImagePool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        if (this.afT != null) {
-            this.afT.setConstrainImagePool(bVar);
-        }
-    }
-
     public void setFromCDN(boolean z) {
-        this.afT.setFromCDN(z);
-    }
-
-    public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.afT.setPreloadSizeReadyCallback(bVar);
+        this.agl.setFromCDN(z);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.afT.setNeedFrsTabName(z);
+        this.agl.setNeedFrsTabName(z);
     }
 }

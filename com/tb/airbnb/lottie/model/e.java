@@ -6,11 +6,11 @@ import android.support.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class e {
     private final List<String> Er;
     @Nullable
-    private f ojo;
+    private f osY;
 
     public e(String... strArr) {
         this.Er = Arrays.asList(strArr);
@@ -18,12 +18,12 @@ public class e {
 
     private e(e eVar) {
         this.Er = new ArrayList(eVar.Er);
-        this.ojo = eVar.ojo;
+        this.osY = eVar.osY;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e VE(String str) {
+    public e Wg(String str) {
         e eVar = new e(this);
         eVar.Er.add(str);
         return eVar;
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.ojo = fVar;
+        eVar.osY = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f edm() {
-        return this.ojo;
+    public f ehj() {
+        return this.osY;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -72,10 +72,10 @@ public class e {
         boolean z = i == this.Er.size() + (-1);
         String str2 = this.Er.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Er.size() + (-2) && jz())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Er.size() + (-2) && jA())) && (str2.equals(str) || str2.equals("*"));
         }
         if (!z && this.Er.get(i + 1).equals(str)) {
-            return i == this.Er.size() + (-2) || (i == this.Er.size() + (-3) && jz());
+            return i == this.Er.size() + (-2) || (i == this.Er.size() + (-3) && jA());
         } else if (z) {
             return true;
         } else {
@@ -98,11 +98,11 @@ public class e {
         return str.equals("__container");
     }
 
-    private boolean jz() {
+    private boolean jA() {
         return this.Er.get(this.Er.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.Er + ",resolved=" + (this.ojo != null) + '}';
+        return "KeyPath{keys=" + this.Er + ",resolved=" + (this.osY != null) + '}';
     }
 }

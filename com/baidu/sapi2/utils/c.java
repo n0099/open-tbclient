@@ -3,14 +3,14 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.FH;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class c {
     private static final String a = "SafeService";
     public static final int b = 120;
     public static final int c = 122;
     public static final int d = 1;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     private static class b {
         public static c a = new c();
 

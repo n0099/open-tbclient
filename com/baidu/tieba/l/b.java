@@ -5,27 +5,27 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.k.e;
 import java.io.File;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b implements e {
-    private String kin;
-    private boolean kio = false;
-    private boolean kip = false;
-    private e.a kiq;
+    private String kqM;
+    private boolean kqN = false;
+    private boolean kqO = false;
+    private e.a kqP;
 
     public b(String str) {
-        this.kin = str;
+        this.kqM = str;
     }
 
     @Override // com.baidu.tieba.k.e
     public void a(e.a aVar) {
-        this.kiq = aVar;
+        this.kqP = aVar;
     }
 
     @Override // com.baidu.tieba.k.e
-    public void cRc() {
-        if (StringUtils.isNull(this.kin)) {
-            if (this.kiq != null) {
-                this.kiq.Dd(2);
+    public void cUI() {
+        if (StringUtils.isNull(this.kqM)) {
+            if (this.kqP != null) {
+                this.kqP.DE(2);
                 return;
             }
             return;
@@ -37,17 +37,17 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int ML = a.ML(str);
-                    publishProgress(new c(1, ML));
-                    if (ML == 1) {
-                        boolean fl = a.fl(str, str + "_moov_head_suffix");
+                    int Nn = a.Nn(str);
+                    publishProgress(new c(1, Nn));
+                    if (Nn == 1) {
+                        boolean fy = a.fy(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
-                        cVarArr[0] = new c(2, fl ? 1 : 0);
+                        cVarArr[0] = new c(2, fy ? 1 : 0);
                         publishProgress(cVarArr);
-                        if (fl) {
-                            boolean fm = b.fm(str + "_moov_head_suffix", str);
+                        if (fy) {
+                            boolean fz = b.fz(str + "_moov_head_suffix", str);
                             c[] cVarArr2 = new c[1];
-                            cVarArr2[0] = new c(3, fm ? 1 : 0);
+                            cVarArr2[0] = new c(3, fz ? 1 : 0);
                             publishProgress(cVarArr2);
                         }
                     }
@@ -64,23 +64,23 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.kiq != null) {
-                            b.this.kiq.Dd(cVar.value);
+                        if (b.this.kqP != null) {
+                            b.this.kqP.DE(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.kiq != null) {
-                            b.this.kiq.onChange(cVar.value == 1);
+                        if (b.this.kqP != null) {
+                            b.this.kqP.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.kiq != null) {
-                        b.this.kiq.rV(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.kqP != null) {
+                        b.this.kqP.sd(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.kin);
+        }.execute(this.kqM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean fm(String str, String str2) {
+    public static boolean fz(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2) || TextUtils.equals(str, str2) || !new File(str).exists() || !new File(str2).exists()) {
             return false;
         }

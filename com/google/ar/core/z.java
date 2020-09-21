@@ -4,22 +4,22 @@ import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes24.dex */
 public final class z implements ServiceConnection {
-    private final /* synthetic */ w nCP;
+    private final /* synthetic */ w nML;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(w wVar) {
-        this.nCP = wVar;
+        this.nML = wVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        this.nCP.a(iBinder);
+        this.nML.a(iBinder);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.nCP.d();
+        this.nML.d();
     }
 }

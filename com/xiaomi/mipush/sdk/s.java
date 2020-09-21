@@ -5,18 +5,18 @@ import android.text.TextUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class s {
     private static volatile s a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Object f80a = new Object();
+    private static final Object f79a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f81a;
+    private Context f80a;
 
     private s(Context context) {
-        this.f81a = context;
+        this.f80a = context;
     }
 
     public static s a(Context context) {
@@ -31,7 +31,7 @@ public class s {
     }
 
     private File a(String str) {
-        File file = new File(this.f81a.getFilesDir() + "/crash");
+        File file = new File(this.f80a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return null;
@@ -55,7 +55,7 @@ public class s {
 
     public ArrayList<File> a() {
         ArrayList<File> arrayList = new ArrayList<>();
-        File file = new File(this.f81a.getFilesDir() + "/crash");
+        File file = new File(this.f80a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return arrayList;
@@ -76,17 +76,17 @@ public class s {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (f80a) {
+        synchronized (f79a) {
             File a2 = a(str2);
             if (a2 != null) {
                 if (a2.getName().split(":").length < 2) {
                     return;
                 }
-                a2.renameTo(new File(this.f81a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
+                a2.renameTo(new File(this.f80a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
             } else {
                 FileOutputStream fileOutputStream2 = null;
                 try {
-                    fileOutputStream = new FileOutputStream(new File(this.f81a.getFilesDir() + "/crash/" + str2 + ":1"));
+                    fileOutputStream = new FileOutputStream(new File(this.f80a.getFilesDir() + "/crash/" + str2 + ":1"));
                     try {
                         try {
                             fileOutputStream.write(str.getBytes());

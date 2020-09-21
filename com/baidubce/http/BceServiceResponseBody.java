@@ -10,7 +10,7 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     private BceProgressCallback<T> bceProgressCallback;
     private BufferedSource bceRespBufferedSource;

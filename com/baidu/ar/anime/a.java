@@ -7,17 +7,17 @@ import com.baidu.ar.arplay.core.engine.pixel.PixelType;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private int cf = 720;
     private int cg = PlatformPlugin.DEFAULT_SYSTEM_UI;
     private boolean ch = true;
-    private InterfaceC0069a ci = null;
+    private InterfaceC0070a ci = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0069a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0070a {
         void b(FramePixels framePixels);
     }
 
@@ -27,8 +27,8 @@ public class a extends j {
         this.mU.setOutputHeight(this.cg);
     }
 
-    public void a(InterfaceC0069a interfaceC0069a) {
-        this.ci = interfaceC0069a;
+    public void a(InterfaceC0070a interfaceC0070a) {
+        this.ci = interfaceC0070a;
     }
 
     public void al() {

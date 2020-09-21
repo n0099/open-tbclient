@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class h implements Runnable {
-    private final i drH;
-    private AtomicBoolean dsE = new AtomicBoolean(false);
-    private List<h> dsF = Collections.synchronizedList(new ArrayList());
+    private final i dtK;
+    private AtomicBoolean duG = new AtomicBoolean(false);
+    private List<h> duH = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.drH = iVar;
+        this.dtK = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aNq();
+            aOb();
         } finally {
-            this.drH.c(this);
+            this.dtK.c(this);
         }
     }
 
-    public void aNq() {
+    public void aOb() {
         this.mRunnable.run();
     }
 
-    public void aNr() {
+    public void aOc() {
         p.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class h implements Runnable {
         return this.mTag;
     }
 
-    public String[] aNs() {
+    public String[] aOd() {
         return this.mPaths;
     }
 
-    public boolean aNt() {
-        return this.dsE.get();
+    public boolean aOe() {
+        return this.duG.get();
     }
 
-    public void aNu() {
-        this.dsE.set(true);
+    public void aOf() {
+        this.duG.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.dsF.contains(hVar)) {
-            this.dsF.add(hVar);
+        if (!this.duH.contains(hVar)) {
+            this.duH.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.dsF.remove(hVar);
+        this.duH.remove(hVar);
     }
 
-    public boolean aNv() {
-        return this.dsF.isEmpty();
+    public boolean aOg() {
+        return this.duH.isEmpty();
     }
 }

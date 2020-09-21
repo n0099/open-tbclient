@@ -1,12 +1,12 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class f {
     private static boolean ak = true;
     private static boolean al = false;
     private static long am = 30000;
     private static boolean ap = false;
-    private static long ngs;
-    private static long ngt;
+    private static long nqu;
+    private static long nqv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -14,18 +14,18 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dMz() {
+    public static long dQx() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long dMA() {
-        return ngs;
+    public static long dQy() {
+        return nqu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        ngs = j;
+        nqu = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        ngt = j;
+        nqv = j;
     }
 
-    public static long dMB() {
-        return ngt;
+    public static long dQz() {
+        return nqv;
     }
 }

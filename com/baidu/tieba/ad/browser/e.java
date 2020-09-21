@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 class e implements com.baidu.tieba.tbadkCore.e.b {
     private final TbPageContext<?> mTbPageContext;
 
@@ -18,7 +18,7 @@ class e implements com.baidu.tieba.tbadkCore.e.b {
         this.mTbPageContext = tbPageContext;
     }
 
-    private String bAY() {
+    private String bCk() {
         TbadkCoreApplication.getInst().login(this.mTbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
@@ -32,7 +32,7 @@ class e implements com.baidu.tieba.tbadkCore.e.b {
         if ("CommonJSBridge".equals(str) && "startLoginModule".equals(str2)) {
             try {
                 new JSONObject(str3);
-                jsPromptResult.confirm(bAY());
+                jsPromptResult.confirm(bCk());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

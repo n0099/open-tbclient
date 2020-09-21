@@ -6,9 +6,9 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservableSampleTimed<T> extends a<T, T> {
-    final boolean onK;
+    final boolean oxt;
     final long period;
     final v scheduler;
     final TimeUnit unit;
@@ -16,14 +16,14 @@ public final class ObservableSampleTimed<T> extends a<T, T> {
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         io.reactivex.observers.b bVar = new io.reactivex.observers.b(uVar);
-        if (this.onK) {
+        if (this.oxt) {
             this.source.subscribe(new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
             this.source.subscribe(new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static abstract class SampleTimedObserver<T> extends AtomicReference<T> implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = -3517602651313910099L;
         final u<? super T> actual;
@@ -91,7 +91,7 @@ public final class ObservableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class SampleTimedNoLast<T> extends SampleTimedObserver<T> {
         private static final long serialVersionUID = -7139995637533111443L;
 
@@ -110,7 +110,7 @@ public final class ObservableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class SampleTimedEmitLast<T> extends SampleTimedObserver<T> {
         private static final long serialVersionUID = -7139995637533111443L;
         final AtomicInteger wip;

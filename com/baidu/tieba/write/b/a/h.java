@@ -1,11 +1,10 @@
 package com.baidu.tieba.write.b.a;
 
-import android.content.Context;
-import com.baidu.searchbox.suspensionball.ioc.ISuspensionBallDispatcher;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 /* loaded from: classes3.dex */
-public class h implements ISuspensionBallDispatcher {
-    @Override // com.baidu.searchbox.suspensionball.ioc.ISuspensionBallDispatcher
-    public boolean invoke(Context context, String str) {
-        return false;
+public class h extends UnitedSchemeBaseInterceptor {
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        return h.class.getSimpleName();
     }
 }

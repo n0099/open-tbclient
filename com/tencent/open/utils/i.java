@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public final class i {
     private static Handler c;
     private static HandlerThread d;
@@ -58,7 +58,7 @@ public final class i {
         return new a();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     private static class a implements Executor {
         final Queue<Runnable> a;
         Runnable b;

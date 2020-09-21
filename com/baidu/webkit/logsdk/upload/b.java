@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public String a;
     public ConcurrentHashMap<Long, a> b = new ConcurrentHashMap<>();

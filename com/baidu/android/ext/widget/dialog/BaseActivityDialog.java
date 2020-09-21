@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.android.a.a.a;
+import com.android.support.appcompat.b;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.android.ActivityUtils;
@@ -25,8 +25,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.ioc.SkinResourcesRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import rx.functions.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
     private static final boolean DEBUG = false;
     private static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
@@ -37,6 +36,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     private LinearLayout mBtnPanelLayout;
     private Builder mBuilder;
     private FrameLayout mDialogContent;
+    private FrameLayout mDialogCustomPanel;
     protected RelativeLayout mDialogLayout;
     private View mDivider2;
     private View mDivider3;
@@ -50,13 +50,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     private TextView mPositiveButton;
     private BoxScrollView mScrollView;
     private TextView mTitle;
+    public LinearLayout mTitlePanel;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = a.releaseFixedOrientation(this);
+        int releaseFixedOrientation = b.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        a.fixedOrientation(this, releaseFixedOrientation);
+        b.fixedOrientation(this, releaseFixedOrientation);
         setContentView(R.layout.searchbox_alert_dialog);
         getWindow().setLayout(-1, -1);
         this.mBuilder = Builder.getBuilder(getIntent().getStringExtra(KEY_FOR_BUILDER));
@@ -64,14 +65,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             finish();
             return;
         }
-        EventBusWrapper.register(this.mBuilder, Builder.EventObject.class, new b<Builder.EventObject>() { // from class: com.baidu.android.ext.widget.dialog.BaseActivityDialog.1
+        EventBusWrapper.register(this.mBuilder, Builder.EventObject.class, new rx.functions.b<Builder.EventObject>() { // from class: com.baidu.android.ext.widget.dialog.BaseActivityDialog.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Builder.EventObject eventObject) {
                 BaseActivityDialog.this.mBuilder.onEvent(eventObject);
             }
         });
-        EventBusWrapper.register(this.mBuilder, Builder.DismissEventObject.class, new b<Builder.DismissEventObject>() { // from class: com.baidu.android.ext.widget.dialog.BaseActivityDialog.2
+        EventBusWrapper.register(this.mBuilder, Builder.DismissEventObject.class, new rx.functions.b<Builder.DismissEventObject>() { // from class: com.baidu.android.ext.widget.dialog.BaseActivityDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Builder.DismissEventObject dismissEventObject) {
@@ -81,8 +82,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
         });
         initViews();
-        setupViews();
         show();
+        setupViews();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -109,8 +110,16 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.app.Activity
     public void onBackPressed() {
+        DialogInterface.OnCancelListener onCancelListener;
+        if (this.mBuilder != null && (onCancelListener = this.mBuilder.cancelListener) != null) {
+            onCancelListener.onCancel(this);
+        }
         onDismiss();
         super.onBackPressed();
+    }
+
+    protected void hideTitle(boolean z) {
+        this.mTitlePanel.setVisibility(z ? 8 : 0);
     }
 
     protected void onDismiss() {
@@ -124,6 +133,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     protected void initViews() {
+        this.mTitlePanel = (LinearLayout) findViewById(R.id.title_panel);
         this.mTitle = (TextView) findViewById(R.id.dialog_title);
         this.mMessage = (TextView) findViewById(R.id.dialog_message);
         this.mMessageContent = (LinearLayout) findViewById(R.id.dialog_message_content);
@@ -138,6 +148,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mDivider2 = findViewById(R.id.divider2);
         this.mScrollView = (BoxScrollView) findViewById(R.id.message_scrollview);
         this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.btn_panel);
+        this.mDialogCustomPanel = (FrameLayout) findViewById(R.id.dialog_customPanel);
         this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.dialog_btns_height);
         if (this.mBuilder.mScrollViewHeight > 0) {
             this.mScrollView.getLayoutParams().height = this.mBuilder.mScrollViewHeight;
@@ -160,6 +171,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             setPositiveButton(builder.positiveText);
             setNegativeButton(builder.negativeText);
             setBtnsPanlVisible(builder.hideBtnsPanel);
+            hideTitle(builder.hideTitle);
+            if (builder.customPanelMarginLayoutParams != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mDialogCustomPanel.getLayoutParams();
+                layoutParams.setMargins(builder.customPanelMarginLayoutParams[0], builder.customPanelMarginLayoutParams[1], builder.customPanelMarginLayoutParams[2], builder.customPanelMarginLayoutParams[3]);
+                this.mDialogCustomPanel.setLayoutParams(layoutParams);
+            }
+            if (builder.mDialogBackGroundDrawable != null) {
+                this.mDialogLayout.setBackground(builder.mDialogBackGroundDrawable);
+            }
+            if (builder.mPositiveBackGroundDrawable != null) {
+                this.mPositiveButton.setBackground(builder.mPositiveBackGroundDrawable);
+            }
+            if (builder.mNegativeBackGroundDrawable != null) {
+                this.mNegativeButton.setBackground(builder.mNegativeBackGroundDrawable);
+            }
         }
     }
 
@@ -245,7 +271,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     protected void setPositiveTextColor(int i) {
-        this.mPositiveButton.setTextColor(i);
+        if (i != 0) {
+            this.mPositiveButton.setTextColor(i);
+        }
     }
 
     protected void setPositiveButton(String str) {
@@ -327,7 +355,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         return skinResources != null ? skinResources : super.getResources();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class Builder {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = R.string.dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = R.string.dialog_positive_title_ok;
@@ -335,13 +363,18 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         private static ArrayList sDialogList = new ArrayList();
         private DialogInterface.OnCancelListener cancelListener;
         private View contentView;
+        private int[] customPanelMarginLayoutParams;
         private DialogInterface.OnDismissListener dismissListener;
         private Bundle extras;
         private String from;
         private boolean hideBtnsPanel;
+        private boolean hideTitle;
         private Drawable icon;
         private Context mContext;
+        private Drawable mDialogBackGroundDrawable;
         private Class<? extends Activity> mDialogClass;
+        public Drawable mNegativeBackGroundDrawable;
+        public Drawable mPositiveBackGroundDrawable;
         private int mScrollViewHeight;
         private Object mTag;
         private CharSequence message;
@@ -472,6 +505,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             return this;
         }
 
+        public Builder setCustomPanelMargin(int i, int i2, int i3, int i4) {
+            this.customPanelMarginLayoutParams = new int[]{i, i2, i3, i4};
+            return this;
+        }
+
+        public Builder setDialogBackGroundDrawable(Drawable drawable) {
+            this.mDialogBackGroundDrawable = drawable;
+            return this;
+        }
+
+        public Builder setPositiveBackGroundDrawable(Drawable drawable) {
+            this.mPositiveBackGroundDrawable = drawable;
+            return this;
+        }
+
+        public Builder setNegativeBackGroundDrawable(Drawable drawable) {
+            this.mNegativeBackGroundDrawable = drawable;
+            return this;
+        }
+
         public Builder setBundle(Bundle bundle) {
             this.extras = bundle;
             return this;
@@ -498,6 +551,11 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
         public boolean isShowing(Object obj) {
             return sDialogList.contains(obj);
+        }
+
+        public Builder hideTitle(boolean z) {
+            this.hideTitle = z;
+            return this;
         }
 
         void release() {
@@ -564,7 +622,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes19.dex */
         public static class EventObject {
             private DialogInterface dialog;
             private int which;
@@ -576,7 +634,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes19.dex */
         public static class DismissEventObject {
             private Object tag;
 

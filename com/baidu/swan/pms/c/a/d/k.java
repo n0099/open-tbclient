@@ -1,36 +1,36 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class k extends com.baidu.swan.pms.c.a.b {
-    private f dGa;
+    private f dIe;
     private boolean mIsAttached;
 
     public k(f fVar, boolean z) {
-        this.dGa = fVar;
+        this.dIe = fVar;
         this.mIsAttached = z;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public void hb(boolean z) {
+    public void gZ(boolean z) {
         if (!this.mIsAttached) {
             if (z) {
-                this.dGa.dFO.dFN.currentSize = 0L;
-                this.dGa.lS(0);
+                this.dIe.dHS.dHR.currentSize = 0L;
+                this.dIe.md(0);
             }
-            d.aTU().j(this.dGa);
+            d.aUG().j(this.dIe);
         }
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public f aTO() {
-        return this.dGa;
+    public f aUA() {
+        return this.dIe;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
     public boolean a(f fVar) {
-        if (this.dGa == fVar) {
+        if (this.dIe == fVar) {
             return true;
         }
-        return this.dGa.k(fVar);
+        return this.dIe.k(fVar);
     }
 
     @Override // com.baidu.swan.pms.c.a.b

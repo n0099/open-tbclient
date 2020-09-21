@@ -6,13 +6,13 @@ import com.baidu.location.Jni;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class m {
     private IvParameterSpec a;
     private SecretKeySpec b;
     private boolean c;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static m a = new m();
     }

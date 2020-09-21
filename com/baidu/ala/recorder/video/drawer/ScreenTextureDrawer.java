@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class ScreenTextureDrawer {
     public static final String TAG = ScreenTextureDrawer.class.getSimpleName();
     private static final boolean mVideoModelFit = false;
@@ -22,6 +22,7 @@ public class ScreenTextureDrawer {
     private int mSurfaceHeight;
     private int mSurfaceWidth;
     private float[] mIdentityMatrix = new float[16];
+    private int mDropFrames = 0;
     private EglCore mEglCore = null;
     private WindowSurface mSurface = null;
     private AFullFrameRect mFullScreen = null;
@@ -73,6 +74,7 @@ public class ScreenTextureDrawer {
         this.mSurfaceWidth = i;
         this.mSurfaceHeight = i2;
         resetVertexMatrix();
+        this.mDropFrames = 1;
     }
 
     public void onInputSize(int i, int i2) {
@@ -92,10 +94,6 @@ public class ScreenTextureDrawer {
         return this.mCreateSucc;
     }
 
-    public void drawFrame(int i) {
-        drawFrame(i, this.mIdentityMatrix);
-    }
-
     public void makeContext() {
         if (this.mSurface != null) {
             try {
@@ -104,6 +102,10 @@ public class ScreenTextureDrawer {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void drawFrame(int i) {
+        drawFrame(i, this.mIdentityMatrix);
     }
 
     public void drawFrame(int i, float[] fArr) {
@@ -119,6 +121,13 @@ public class ScreenTextureDrawer {
                 GLES20.glBindFramebuffer(36160, 0);
                 GlUtil.checkGlError("glBindFramebuffer");
                 GLES20.glViewport(0, 0, this.mSurfaceWidth, this.mSurfaceHeight);
+                if (this.mDropFrames > 0) {
+                    Log.e(TAG, "drawFrame => mDropFrames " + this.mDropFrames);
+                    this.mSurface.swapBuffers();
+                    this.mSurface.makeCurrent();
+                    this.mDropFrames--;
+                    return;
+                }
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                 this.mFullScreen.drawFrame2(i, fArr);
                 GlUtil.checkGlError("drawFrame2 done");

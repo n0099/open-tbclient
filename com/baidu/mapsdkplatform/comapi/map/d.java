@@ -37,7 +37,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     private static int D;
     private static int E;
@@ -87,7 +87,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     public List<ag> h = new ArrayList();
     private MapController S = new MapController();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public Bundle a;
 

@@ -1,31 +1,31 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.coreExtra.data.w;
+import com.baidu.tbadk.coreExtra.data.x;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private int iJr = 1;
-    private final List<w> iJs = new ArrayList();
+    private int iRR = 1;
+    private final List<x> iRS = new ArrayList();
 
     public a() {
-        List<w> cwF = cwF();
-        if (!y.isEmpty(cwF)) {
-            this.iJs.addAll(cwF);
+        List<x> cAm = cAm();
+        if (!y.isEmpty(cAm)) {
+            this.iRS.addAll(cAm);
         }
     }
 
-    private List<w> cwF() {
+    private List<x> cAm() {
         ArrayList arrayList = new ArrayList();
         try {
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bik().getString("key_index_tab_info_list", "[]"));
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_index_tab_info_list", "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
-                w wVar = new w();
-                wVar.parserJson(jSONArray.getJSONObject(i));
-                if (!wVar.isDirtyData()) {
-                    arrayList.add(wVar);
+                x xVar = new x();
+                xVar.parserJson(jSONArray.getJSONObject(i));
+                if (!xVar.isDirtyData()) {
+                    arrayList.add(xVar);
                 }
             }
         } catch (Exception e) {
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<w> cwG() {
-        return this.iJs;
+    public List<x> cAn() {
+        return this.iRS;
     }
 
-    public int cwH() {
-        return this.iJr;
+    public int cAo() {
+        return this.iRR;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.swan.games.m.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e implements com.baidu.swan.games.m.b.e {
     @Override // com.baidu.swan.games.m.b.e
     public void a(com.baidu.swan.games.screenrecord.a.d dVar, com.baidu.swan.games.screenrecord.a.c cVar) {

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class l {
     public static String c = null;
     public com.baidu.location.c.h a = null;
@@ -26,7 +26,7 @@ public abstract class l {
     private String i = null;
     private boolean j = false;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public a() {
         }
@@ -50,7 +50,7 @@ public abstract class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b extends com.baidu.location.e.f {
         String a = null;
         String b = null;

@@ -25,7 +25,7 @@ import com.baidu.searchbox.player.stat.UniversalStatDispatcherImp;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes23.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     private static final String TAG = "UniversalPlayer";
     protected static boolean sIsOrientationLock = false;
@@ -304,7 +304,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         this.mContextMap.clear();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes23.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         private static final int DELAY_TIME = 1000;
         private long mChangedTime = 0;

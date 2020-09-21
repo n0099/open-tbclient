@@ -1,43 +1,43 @@
 package com.baidu.live.videochat.b;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private long brA;
-    private long brB;
-    private long brC;
-    private long brx;
-    private int bry;
-    private long brz;
+    private long buM;
+    private int buN;
+    private long buO;
+    private long buP;
+    private long buQ;
+    private long buR;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.brx = jSONObject.optLong("chat_id");
-            this.bry = jSONObject.optInt("chat_status");
-            this.brz = jSONObject.optLong("user_id1");
-            this.brA = jSONObject.optLong("live_id1");
-            this.brB = jSONObject.optLong("user_id2");
-            this.brC = jSONObject.optLong("live_id2");
+            this.buM = jSONObject.optLong("chat_id");
+            this.buN = jSONObject.optInt("chat_status");
+            this.buO = jSONObject.optLong("user_id1");
+            this.buP = jSONObject.optLong("live_id1");
+            this.buQ = jSONObject.optLong("user_id2");
+            this.buR = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean PS() {
-        return this.bry == 2;
+    public boolean QA() {
+        return this.buN == 2;
     }
 
-    public boolean PT() {
-        return this.bry == 3 || this.bry == 4;
+    public boolean QB() {
+        return this.buN == 3 || this.buN == 4;
     }
 
-    public long PU() {
-        return this.brx;
+    public long QC() {
+        return this.buM;
     }
 
-    public int PV() {
-        return this.bry;
+    public int QD() {
+        return this.buN;
     }
 
-    public long PW() {
-        return this.brz;
+    public long QE() {
+        return this.buO;
     }
 }

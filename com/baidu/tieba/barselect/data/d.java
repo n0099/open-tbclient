@@ -2,13 +2,14 @@ package com.baidu.tieba.barselect.data;
 
 import tbclient.ElectionList;
 import tbclient.Myrecord;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int hdi;
-    private int hdj;
-    private boolean hdk = false;
+    private int hki;
+    private int hkj;
+    private boolean hkk = false;
+    private int hkl;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +19,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int caF() {
+    public int cdS() {
         return this.agree_num;
     }
 
-    public int caG() {
-        return this.hdi;
+    public int cdT() {
+        return this.hki;
     }
 
-    public int caH() {
-        return this.hdj;
+    public int cdU() {
+        return this.hkj;
     }
 
     public int getPost_num() {
@@ -46,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int caI() {
+    public int cdV() {
         return this.vote_num;
     }
 
-    public String caJ() {
+    public String cdW() {
         return this.apply_declaration;
     }
 
@@ -66,8 +67,16 @@ public class d {
         return this.tid;
     }
 
-    public boolean caK() {
-        return this.hdk;
+    public boolean cdX() {
+        return this.hkk;
+    }
+
+    public int cdY() {
+        return this.hkl;
+    }
+
+    public void vD(int i) {
+        this.hkl = i;
     }
 
     public static d a(ElectionList electionList) {
@@ -75,19 +84,20 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.vh(electionList.vote_num.intValue());
+        dVar.vG(electionList.vote_num.intValue());
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
-        dVar.vg(electionList.forum_level.intValue());
-        dVar.GU(electionList.apply_declaration);
+        dVar.vF(electionList.forum_level.intValue());
+        dVar.Hr(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
-        dVar.vf(electionList.apply_id.intValue());
+        dVar.vE(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
         dVar.setThread_num(electionList.thread_num.intValue());
         dVar.setAgree_num(electionList.agree_num.intValue());
         dVar.setUid(electionList.uid.longValue());
         dVar.setTid(electionList.tid.longValue());
-        dVar.na(electionList.is_cheat.intValue() == 1);
+        dVar.ng(electionList.is_cheat.intValue() == 1);
+        dVar.vD(electionList.is_pass_audit.intValue());
         return dVar;
     }
 
@@ -96,13 +106,13 @@ public class d {
             return null;
         }
         d dVar = new d();
-        dVar.vh(myrecord.vote_num.intValue());
+        dVar.vG(myrecord.vote_num.intValue());
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
-        dVar.vg(myrecord.forum_level.intValue());
-        dVar.GU(myrecord.apply_declaration);
+        dVar.vF(myrecord.forum_level.intValue());
+        dVar.Hr(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
-        dVar.vf(myrecord.apply_id.intValue());
+        dVar.vE(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
         dVar.setThread_num(myrecord.thread_num.intValue());
         dVar.setAgree_num(myrecord.agree_num.intValue());
@@ -115,16 +125,16 @@ public class d {
         this.agree_num = i;
     }
 
-    public void vf(int i) {
-        this.hdi = i;
+    public void vE(int i) {
+        this.hki = i;
     }
 
-    public void GU(String str) {
+    public void Hr(String str) {
         this.apply_declaration = str;
     }
 
-    public void vg(int i) {
-        this.hdj = i;
+    public void vF(int i) {
+        this.hkj = i;
     }
 
     public void setNickname(String str) {
@@ -151,12 +161,12 @@ public class d {
         this.uid = j;
     }
 
-    public void vh(int i) {
+    public void vG(int i) {
         this.vote_num = i;
     }
 
-    public void na(boolean z) {
-        this.hdk = z;
+    public void ng(boolean z) {
+        this.hkk = z;
     }
 
     public void setTid(long j) {

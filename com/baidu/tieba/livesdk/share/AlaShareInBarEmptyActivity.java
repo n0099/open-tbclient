@@ -15,15 +15,15 @@ import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
-    private ArrayList<TransmitForumData> jUE;
-    private AlaShareInBarModel jUF;
+    private ArrayList<TransmitForumData> kdh;
+    private AlaShareInBarModel kdi;
     private String mLiveId = "";
-    private final AlaShareInBarModel.a jUG = new AlaShareInBarModel.a() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.2
+    private final AlaShareInBarModel.a kdj = new AlaShareInBarModel.a() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.2
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.a
         public void a(int i, String str, com.baidu.tieba.livesdk.share.b.a aVar) {
             AlaShareInBarEmptyActivity.this.closeLoadingDialog();
             if (i == 0 && aVar != null) {
-                BdToast.a(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(b.C0735b.share_alert_success), b.a.icon_pure_toast_succeed40_svg, 3000, true).bhm();
+                BdToast.a(AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity(), AlaShareInBarEmptyActivity.this.getPageContext().getPageActivity().getString(b.C0732b.share_alert_success), b.a.icon_pure_toast_succeed40_svg, 3000, true).big();
             } else {
                 AlaShareInBarEmptyActivity.this.showToast(str);
             }
@@ -37,38 +37,38 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         initData(bundle);
-        cNW();
+        cRB();
     }
 
     private void initData(Bundle bundle) {
-        this.jUF = new AlaShareInBarModel();
-        this.jUF.a(this.jUG);
+        this.kdi = new AlaShareInBarModel();
+        this.kdi.a(this.kdj);
         Intent intent = getIntent();
         if (intent != null) {
             this.mLiveId = intent.getStringExtra("extra_key_live_id");
-            this.jUE = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+            this.kdh = intent.getParcelableArrayListExtra(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
         } else if (bundle != null) {
             this.mLiveId = bundle.getString("extra_key_live_id");
-            this.jUE = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
+            this.kdh = bundle.getParcelableArrayList(AlaWriteShareInBarActivityConfig.EXTRA_KEY_FORUM_LIST);
         }
     }
 
-    private void cNW() {
+    private void cRB() {
         if (!j.isNetWorkAvailable()) {
-            showToast(b.C0735b.neterror);
+            showToast(b.C0732b.neterror);
             finish();
-        } else if (StringUtils.isNull(this.mLiveId) || y.isEmpty(this.jUE)) {
+        } else if (StringUtils.isNull(this.mLiveId) || y.isEmpty(this.kdh)) {
             finish();
         } else {
             showLoadingDialog((String) null, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    AlaShareInBarEmptyActivity.this.jUF.cancelLoadData();
+                    AlaShareInBarEmptyActivity.this.kdi.cancelLoadData();
                 }
             });
-            TransmitForumData transmitForumData = this.jUE.get(0);
+            TransmitForumData transmitForumData = this.kdh.get(0);
             if (transmitForumData != null) {
-                this.jUF.au(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
+                this.kdi.au(this.mLiveId, String.valueOf(transmitForumData.forumId), "");
             }
         }
     }
@@ -82,8 +82,8 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jUF != null) {
-            this.jUF.onDestroy();
+        if (this.kdi != null) {
+            this.kdi.onDestroy();
         }
     }
 }

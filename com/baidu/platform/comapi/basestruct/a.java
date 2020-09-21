@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.basestruct;
 
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public int a;
     public Point b;

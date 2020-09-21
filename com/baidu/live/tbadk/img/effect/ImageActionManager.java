@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ImageActionManager {
     private static ImageActionManager _instance = new ImageActionManager();
     private final HashMap<String, Class<? extends ImageAction>> imageActions = new HashMap<>();

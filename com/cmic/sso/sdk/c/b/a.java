@@ -19,10 +19,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject niU;
+    private JSONObject nsU;
 
     public void a(JSONObject jSONObject) {
-        this.niU = jSONObject;
+        this.nsU = jSONObject;
     }
 
     public void a(long j) {
@@ -101,20 +101,20 @@ public class a extends g {
             jSONObject.put(UgcConstant.SOURCE_ID, this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.niU);
+            jSONObject.put("rcData", this.nsU);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String Ue(String str) {
-        return dG(this.a + this.c + str + this.d);
+    public String UG(String str) {
+        return dI(this.a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0859a {
+    public static class C0856a {
         private String a;
         private String b;
         private String c;

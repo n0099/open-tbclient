@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public interface e {
     public static final String A = "/static/appsapi/img/default_portrait.png";
     public static final String B = "/phoenix/account/guidetouristnormalize";

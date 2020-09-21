@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private View lcK;
-    private HeadImageView lcL;
-    private TextView lcM;
-    private TextView lcN;
-    private ImageView lcO;
+    private View llB;
+    private HeadImageView llC;
+    private TextView llD;
+    private TextView llE;
+    private ImageView llF;
 
     public static b b(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.lcK = null;
-        this.lcL = null;
-        this.lcM = null;
-        this.lcN = null;
-        this.lcO = null;
-        this.lcK = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.lcL = (HeadImageView) this.lcK.findViewById(R.id.zan_list_item_head);
-        this.lcM = (TextView) this.lcK.findViewById(R.id.zan_list_item_name);
-        this.lcN = (TextView) this.lcK.findViewById(R.id.zan_list_item_time);
-        this.lcO = (ImageView) this.lcK.findViewById(R.id.zan_list_item_line_bottom);
-        this.lcO.setVisibility(0);
-        this.lcK.setTag(this);
+        this.llB = null;
+        this.llC = null;
+        this.llD = null;
+        this.llE = null;
+        this.llF = null;
+        this.llB = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.llC = (HeadImageView) this.llB.findViewById(R.id.zan_list_item_head);
+        this.llD = (TextView) this.llB.findViewById(R.id.zan_list_item_name);
+        this.llE = (TextView) this.llB.findViewById(R.id.zan_list_item_time);
+        this.llF = (ImageView) this.llB.findViewById(R.id.zan_list_item_line_bottom);
+        this.llF.setVisibility(0);
+        this.llB.setTag(this);
     }
 
     public View getView() {
-        return this.lcK;
+        return this.llB;
     }
 
-    public void a(String str, String str2, long j, boolean z) {
-        this.lcM.setText(str);
-        this.lcL.setImageDrawable(null);
-        this.lcN.setText(at.getFormatTime(j));
-        this.lcL.startLoad(str2, 28, false);
+    public void b(String str, String str2, long j, boolean z) {
+        this.llD.setText(str);
+        this.llC.setImageDrawable(null);
+        this.llE.setText(at.getFormatTime(j));
+        this.llC.startLoad(str2, 28, false);
     }
 }

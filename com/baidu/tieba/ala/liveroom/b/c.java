@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private TextView gmd;
+    private TextView gpk;
     private TbPageContext mContext;
     private View mView;
 
@@ -20,13 +20,13 @@ public class c {
 
     private void initUI() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_id_view_layout, (ViewGroup) null);
-        this.gmd = (TextView) this.mView.findViewById(a.g.ala_id_txt);
+        this.gpk = (TextView) this.mView.findViewById(a.g.ala_id_txt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ec(long j) {
-        if (this.gmd != null) {
-            this.gmd.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
+    public void ee(long j) {
+        if (this.gpk != null) {
+            this.gpk.setText(String.format(this.mContext.getString(a.i.sdk_live_id), String.valueOf(j)));
         }
     }
 

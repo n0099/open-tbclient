@@ -1,13 +1,12 @@
 package com.baidu.searchbox.ui.animview.praise.element;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class PraiseLevelAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SCALE_OUT = 0.82f;
@@ -15,30 +14,28 @@ public class PraiseLevelAnimElement extends BaseAnimatedElement {
     public static final int TYPE_SCALE_IN = 0;
     public static final int TYPE_SCALE_OUT = 2;
     public static final int TYPE_VIBRATION = 1;
-    private Context mCtx;
-    private g[] mLottieArray;
-    private int mMaxLevel;
+    protected g[] mLottieArray;
+    protected int mMaxLevel;
     private int mShowType;
 
-    public PraiseLevelAnimElement(Context context, Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
+    public PraiseLevelAnimElement(Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
         super(callback, scaleType);
         this.mShowType = -1;
-        this.mCtx = context;
     }
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement
     protected void onInit(Object... objArr) {
         this.mMaxLevel = this.mResourceProvider.getResourceCounts("level");
         if (this.mMaxLevel > 0) {
-            this.mLottieArray = new g[this.mMaxLevel];
-            for (int i = 1; i <= this.mMaxLevel; i++) {
+            this.mLottieArray = new g[this.mMaxLevel + 1];
+            for (int i = 0; i <= this.mMaxLevel; i++) {
                 IResourcePackage.LottieResource lottie = this.mResourceProvider.getLottie("level", Integer.valueOf(i));
                 if (lottie != null) {
                     g gVar = new g();
                     gVar.setImageAssetDelegate(lottie.mImageAssetDelegate);
                     gVar.a(lottie.mLottieComposition);
                     gVar.setCallback(this.mDrawableCallback);
-                    this.mLottieArray[i - 1] = gVar;
+                    this.mLottieArray[i] = gVar;
                 }
             }
         }
@@ -49,9 +46,6 @@ public class PraiseLevelAnimElement extends BaseAnimatedElement {
     protected void onDispatchAnimate(Canvas canvas, float f, long j) {
         g levelLottieView = getLevelLottieView(j);
         if (levelLottieView != null) {
-            if (this.mInterpolator != null) {
-                f = this.mInterpolator.getInterpolation(f);
-            }
             levelLottieView.setProgress(getTransformFraction(this.mShowType, f));
             levelLottieView.draw(canvas);
         }
@@ -78,14 +72,14 @@ public class PraiseLevelAnimElement extends BaseAnimatedElement {
         if (i < 0) {
             return 0;
         }
-        return i >= this.mMaxLevel ? this.mMaxLevel - 1 : i;
+        return i > this.mMaxLevel ? this.mMaxLevel : i;
     }
 
     private g getLevelLottieView(long j) {
-        if (this.mLottieArray == null || this.mMaxLevel <= 0 || this.mLottieArray.length != this.mMaxLevel) {
+        if (this.mLottieArray == null || this.mMaxLevel <= 0 || this.mLottieArray.length != this.mMaxLevel + 1) {
             return null;
         }
-        g gVar = this.mLottieArray[getSafetyIndex(PraiseLevelUtil.matchPraiseLevel(j).mLevelImgIndex - 1)];
+        g gVar = this.mLottieArray[getSafetyIndex(PraiseLevelUtil.matchPraiseLevel(j).mLevelImgIndex)];
         setScaleType(gVar);
         return gVar;
     }

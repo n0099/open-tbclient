@@ -15,13 +15,13 @@ import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.VideoInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class t implements o {
-    private List<AppData> lCz;
+    private List<AppData> lLt;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && bdUniqueId == AdvertAppInfo.dVS) {
+        if (nVar != null && bdUniqueId == AdvertAppInfo.dYc) {
             return new com.baidu.tieba.recapp.b.e(nVar, bdUniqueId);
         }
         return null;
@@ -32,10 +32,10 @@ public class t implements o {
         if (baseFragmentActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.dWb) {
+        if (bdUniqueId == AdvertAppInfo.dYl) {
             return new com.baidu.tieba.recapp.b.k(baseFragmentActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.dVX) {
+        if (bdUniqueId == AdvertAppInfo.dYh) {
             return new com.baidu.tieba.recapp.b.i(baseFragmentActivity, bdUniqueId);
         }
         return null;
@@ -43,7 +43,7 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (bdUniqueId == AdvertAppInfo.dVY) {
+        if (bdUniqueId == AdvertAppInfo.dYi) {
             return new com.baidu.tieba.recapp.b.a(tbPageContext, bdUniqueId);
         }
         if (bdUniqueId != null) {
@@ -63,36 +63,36 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j dne() {
-        return a.dmV();
+    public j dqO() {
+        return a.dqF();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l dnf() {
-        return a.dmV();
+    public l dqP() {
+        return a.dqF();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.r.a dng() {
-        return com.baidu.tieba.ad.statis.a.bBs();
+    public com.baidu.tieba.r.a dqQ() {
+        return com.baidu.tieba.ad.statis.a.bCE();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public g dnh() {
-        return com.baidu.tieba.ad.a.bAU();
+    public g dqR() {
+        return com.baidu.tieba.ad.a.bCg();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> dni() {
-        if (this.lCz == null) {
-            this.lCz = new ArrayList();
+    public List<AppData> dqS() {
+        if (this.lLt == null) {
+            this.lLt = new ArrayList();
         }
-        return this.lCz;
+        return this.lLt;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void dnj() {
-        AdDebugService.updateFloatView(this.lCz != null ? StringUtils.string(Integer.valueOf(this.lCz.size())) : "0");
+    public void dqT() {
+        AdDebugService.updateFloatView(this.lLt != null ? StringUtils.string(Integer.valueOf(this.lLt.size())) : "0");
     }
 
     @Override // com.baidu.tieba.recapp.o
@@ -110,7 +110,7 @@ public class t implements o {
             }
             if (adCard != null && videoInfo != null) {
                 NewWebVideoActivity.a(advertAppInfo, 0, "DETAIL");
-                NewWebVideoActivityConfig newWebVideoActivityConfig = new NewWebVideoActivityConfig(context, "", s.Pm(adCard.getScheme()), true, true, true, videoInfo.video_url, videoInfo.thumbnail_url, videoInfo.video_width.intValue() / videoInfo.video_height.intValue(), videoInfo.video_duration.intValue(), advertAppInfo.dWj);
+                NewWebVideoActivityConfig newWebVideoActivityConfig = new NewWebVideoActivityConfig(context, "", s.PM(adCard.getScheme()), true, true, true, videoInfo.video_url, videoInfo.thumbnail_url, videoInfo.video_width.intValue() / videoInfo.video_height.intValue(), videoInfo.video_duration.intValue(), advertAppInfo.dYt);
                 if (adCard.tailFrame != null) {
                     adCard.tailFrame.buttonText = adCard.buttonText;
                     newWebVideoActivityConfig.setTailFrame(adCard.tailFrame.toJsonString());

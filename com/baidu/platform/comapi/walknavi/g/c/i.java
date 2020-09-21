@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class i implements Runnable {
     final /* synthetic */ h a;
 
@@ -22,7 +22,7 @@ public class i implements Runnable {
         context = this.a.a.l;
         if (context != null) {
             context2 = this.a.a.l;
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context2, R.anim.abc_grow_fade_in_from_bottom);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context2, R.layout.abc_action_menu_item_layout);
             view = this.a.a.ah;
             view.startAnimation(c);
             c.setAnimationListener(new j(this));

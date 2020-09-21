@@ -5,7 +5,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class h implements aj<com.airbnb.lottie.model.b> {
     public static final h Gx = new h();
 

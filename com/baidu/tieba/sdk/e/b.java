@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.sdk.b.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
@@ -16,16 +16,16 @@ public class b implements CustomMessageTask.CustomRunnable {
             Intent intent = new Intent();
             intent.putExtra("live_id", alaLiveRoomActivityConfig.getIntent().getLongExtra("live_id", 0L));
             intent.putExtra("user_name", alaLiveRoomActivityConfig.getIntent().getStringExtra("user_name"));
-            intent.putExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE));
-            intent.putExtra(AlaLiveRoomActivityConfig.LAST_LIVE_INFO, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LAST_LIVE_INFO));
+            intent.putExtra("live_broadcast_gift_toast_queue", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_broadcast_gift_toast_queue"));
+            intent.putExtra("last_live_info", alaLiveRoomActivityConfig.getIntent().getStringExtra("last_live_info"));
             intent.putExtra("room_id", alaLiveRoomActivityConfig.getIntent().getStringExtra("room_id"));
             intent.putExtra("params", alaLiveRoomActivityConfig.getIntent().getStringExtra("params"));
             if (!(alaLiveRoomActivityConfig.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            e dpv = com.baidu.tieba.sdk.d.a.dpr().dpv();
-            if (dpv != null) {
-                dpv.g(alaLiveRoomActivityConfig.getContext(), intent);
+            e dtf = com.baidu.tieba.sdk.d.a.dtb().dtf();
+            if (dtf != null) {
+                dtf.g(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

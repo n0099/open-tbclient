@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PanoramaRequest {
     private static PanoramaRequest b;
     private Context a;

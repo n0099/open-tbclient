@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GiftInfo;
 import tbclient.User;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId lmP = BdUniqueId.gen();
-    public String MY;
+    public static final BdUniqueId lvM = BdUniqueId.gen();
+    public String Nj;
     public int giftNum = 0;
-    public boolean lmQ;
-    public String lmR;
-    public List<com.baidu.adp.widget.ListView.q> lmS;
+    public boolean lvN;
+    public String lvO;
+    public List<com.baidu.adp.widget.ListView.q> lvP;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -22,8 +22,8 @@ public class g extends com.baidu.tieba.card.data.b {
     public void parserProtoBuf(User user) {
         if (user != null && !y.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.MY = user.name;
-            this.lmR = user.name_show;
+            this.Nj = user.name;
+            this.lvO = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.lmQ = false;
+                this.lvN = false;
             } else {
-                this.lmQ = true;
+                this.lvN = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.lmS = new ArrayList();
+            this.lvP = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.lmS.add(oVar);
+                    this.lvP.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !y.isEmpty(this.lmS);
+        return !y.isEmpty(this.lvP);
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lmP;
+        return lvM;
     }
 }

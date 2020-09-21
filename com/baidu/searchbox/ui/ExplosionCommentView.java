@@ -25,7 +25,7 @@ import com.baidu.android.util.android.VibrateUtils;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.NightModeHelper;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class ExplosionCommentView extends FrameLayout implements View.OnClickListener {
     private static final boolean DEBUG = false;
     private static final int DEFAULT_VIBRATE_AMPLITUDE = 30;
@@ -44,7 +44,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
     private FrameLayout mLottieContainer;
     private RelativeLayout mRoot;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public interface ExplosionAnimListener {
         void onAnimEnd();
 
@@ -72,11 +72,19 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
         this.mRoot = (RelativeLayout) LayoutInflater.from(context).inflate(com.baidu.android.common.ui.R.layout.explosion_comment_layout, (ViewGroup) this, false);
         this.mExplosionView = (ImageView) this.mRoot.findViewById(com.baidu.android.common.ui.R.id.explosion_image);
         this.mExplosionText = (TextView) this.mRoot.findViewById(com.baidu.android.common.ui.R.id.explosion_text);
-        this.mExplosionText.setTextColor(getContext().getApplicationContext().getResources().getColor(com.baidu.android.common.ui.R.color.bomb_comment_text_color));
-        this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.android.common.ui.R.drawable.explosion_comment_icon));
+        setUI();
         this.mRoot.setOnTouchListener(new TouchStateListener());
         this.mRoot.setOnClickListener(this);
         addView(this.mRoot);
+    }
+
+    public void setUI() {
+        if (this.mExplosionText != null) {
+            this.mExplosionText.setTextColor(getContext().getApplicationContext().getResources().getColor(com.baidu.android.common.ui.R.color.bomb_comment_text_color));
+        }
+        if (this.mExplosionView != null) {
+            this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.android.common.ui.R.drawable.explosion_comment_icon));
+        }
     }
 
     public void setExplosionCommentRes(Drawable drawable) {
@@ -203,7 +211,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public class LottieAnimPopup extends PopupWindow {
         private FrameLayout mContent;
 
@@ -213,12 +221,12 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
         }
 
         private void initPopup() {
+            setClippingEnabled(false);
             setBackgroundDrawable(new ColorDrawable(0));
             setWidth(-1);
             setHeight(-1);
             this.mContent = new FrameLayout(ExplosionCommentView.this.mContext);
             this.mContent.setClickable(true);
-            boolean isFullScreen = ExplosionCommentView.this.isFullScreen();
             ExplosionCommentView.this.mCommentItemCover = new FrameLayout(ExplosionCommentView.this.mContext);
             ExplosionCommentView.this.mCommentItemCover.setBackgroundColor(SupportMenu.CATEGORY_MASK);
             ExplosionCommentView.this.mCommentItemCover.setAlpha(0.0f);
@@ -227,13 +235,11 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(rect.width(), rect.height());
             int[] iArr = new int[2];
             ExplosionCommentView.this.mCommentItemLayout.getLocationOnScreen(iArr);
-            calculateY(isFullScreen, iArr);
             layoutParams.leftMargin = iArr[0];
             layoutParams.topMargin = iArr[1];
             this.mContent.addView(ExplosionCommentView.this.mCommentItemCover, layoutParams);
             int[] iArr2 = new int[2];
             ExplosionCommentView.this.mExplosionView.getLocationOnScreen(iArr2);
-            calculateY(isFullScreen, iArr2);
             int width = iArr2[0] + (ExplosionCommentView.this.mExplosionView.getWidth() / 2);
             int height = iArr2[1] + (ExplosionCommentView.this.mExplosionView.getHeight() / 2);
             ExplosionCommentView.this.mLottieContainer = new FrameLayout(ExplosionCommentView.this.mContext);
@@ -244,14 +250,8 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
             setContentView(this.mContent);
         }
 
-        private void calculateY(boolean z, int[] iArr) {
-            if (!z) {
-                iArr[1] = iArr[1] - DeviceUtil.ScreenInfo.getStatusBarHeight();
-            }
-        }
-
         public void show() {
-            showAtLocation(((Activity) ExplosionCommentView.this.mContext).getWindow().getDecorView(), 17, 0, 0);
+            showAtLocation(((Activity) ExplosionCommentView.this.mContext).getWindow().getDecorView(), 51, 0, 0);
         }
 
         public void startExplodingAnimPhase() {
@@ -309,11 +309,6 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
         private void vibrate() {
             new VibrateUtils.Builder((Vibrator) ExplosionCommentView.this.mContext.getSystemService("vibrator"), new long[]{90}, ExplosionCommentView.this.mContext).amplitudes(new int[]{30}).build().vibrateStart();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isFullScreen() {
-        return (((Activity) this.mContext).getWindow().getAttributes().flags & 1024) != 0;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {

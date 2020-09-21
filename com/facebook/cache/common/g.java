@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class g implements b {
     final String mKey;
 
@@ -29,12 +29,12 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public boolean G(Uri uri) {
+    public boolean I(Uri uri) {
         return this.mKey.contains(uri.toString());
     }
 
     @Override // com.facebook.cache.common.b
-    public String dNS() {
+    public String dRQ() {
         return this.mKey;
     }
 }

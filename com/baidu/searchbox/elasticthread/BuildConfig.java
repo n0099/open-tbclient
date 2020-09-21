@@ -1,5 +1,5 @@
 package com.baidu.searchbox.elasticthread;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.elasticthread";
     public static final String BUILD_TYPE = "release";

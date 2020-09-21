@@ -4,108 +4,108 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class o {
     private final Matrix matrix = new Matrix();
-    private final a<PointF, PointF> ojd;
-    private final a<?, PointF> oje;
-    private final a<com.tb.airbnb.lottie.e.d, com.tb.airbnb.lottie.e.d> ojf;
-    private final a<Float, Float> ojg;
-    private final a<Integer, Integer> ojh;
+    private final a<PointF, PointF> osN;
+    private final a<?, PointF> osO;
+    private final a<com.tb.airbnb.lottie.e.d, com.tb.airbnb.lottie.e.d> osP;
+    private final a<Float, Float> osQ;
+    private final a<Integer, Integer> osR;
     @Nullable
-    private final a<?, Float> oji;
+    private final a<?, Float> osS;
     @Nullable
-    private final a<?, Float> ojj;
+    private final a<?, Float> osT;
 
     public o(com.tb.airbnb.lottie.model.a.l lVar) {
-        this.ojd = lVar.edq().edo();
-        this.oje = lVar.edr().edo();
-        this.ojf = lVar.eds().edo();
-        this.ojg = lVar.edt().edo();
-        this.ojh = lVar.edu().edo();
-        if (lVar.edv() != null) {
-            this.oji = lVar.edv().edo();
+        this.osN = lVar.ehn().ehl();
+        this.osO = lVar.eho().ehl();
+        this.osP = lVar.ehp().ehl();
+        this.osQ = lVar.ehq().ehl();
+        this.osR = lVar.ehr().ehl();
+        if (lVar.ehs() != null) {
+            this.osS = lVar.ehs().ehl();
         } else {
-            this.oji = null;
+            this.osS = null;
         }
-        if (lVar.edw() != null) {
-            this.ojj = lVar.edw().edo();
+        if (lVar.eht() != null) {
+            this.osT = lVar.eht().ehl();
         } else {
-            this.ojj = null;
+            this.osT = null;
         }
     }
 
     public void a(com.tb.airbnb.lottie.model.layer.a aVar) {
-        aVar.a(this.ojd);
-        aVar.a(this.oje);
-        aVar.a(this.ojf);
-        aVar.a(this.ojg);
-        aVar.a(this.ojh);
-        if (this.oji != null) {
-            aVar.a(this.oji);
+        aVar.a(this.osN);
+        aVar.a(this.osO);
+        aVar.a(this.osP);
+        aVar.a(this.osQ);
+        aVar.a(this.osR);
+        if (this.osS != null) {
+            aVar.a(this.osS);
         }
-        if (this.ojj != null) {
-            aVar.a(this.ojj);
+        if (this.osT != null) {
+            aVar.a(this.osT);
         }
     }
 
-    public void a(a.InterfaceC0932a interfaceC0932a) {
-        this.ojd.b(interfaceC0932a);
-        this.oje.b(interfaceC0932a);
-        this.ojf.b(interfaceC0932a);
-        this.ojg.b(interfaceC0932a);
-        this.ojh.b(interfaceC0932a);
-        if (this.oji != null) {
-            this.oji.b(interfaceC0932a);
+    public void a(a.InterfaceC0929a interfaceC0929a) {
+        this.osN.b(interfaceC0929a);
+        this.osO.b(interfaceC0929a);
+        this.osP.b(interfaceC0929a);
+        this.osQ.b(interfaceC0929a);
+        this.osR.b(interfaceC0929a);
+        if (this.osS != null) {
+            this.osS.b(interfaceC0929a);
         }
-        if (this.ojj != null) {
-            this.ojj.b(interfaceC0932a);
+        if (this.osT != null) {
+            this.osT.b(interfaceC0929a);
         }
     }
 
     public void setProgress(float f) {
-        this.ojd.setProgress(f);
-        this.oje.setProgress(f);
-        this.ojf.setProgress(f);
-        this.ojg.setProgress(f);
-        this.ojh.setProgress(f);
-        if (this.oji != null) {
-            this.oji.setProgress(f);
+        this.osN.setProgress(f);
+        this.osO.setProgress(f);
+        this.osP.setProgress(f);
+        this.osQ.setProgress(f);
+        this.osR.setProgress(f);
+        if (this.osS != null) {
+            this.osS.setProgress(f);
         }
-        if (this.ojj != null) {
-            this.ojj.setProgress(f);
+        if (this.osT != null) {
+            this.osT.setProgress(f);
         }
     }
 
-    public a<?, Integer> edj() {
-        return this.ojh;
+    public a<?, Integer> ehg() {
+        return this.osR;
     }
 
     @Nullable
-    public a<?, Float> edk() {
-        return this.oji;
+    public a<?, Float> ehh() {
+        return this.osS;
     }
 
     @Nullable
-    public a<?, Float> edl() {
-        return this.ojj;
+    public a<?, Float> ehi() {
+        return this.osT;
     }
 
     public Matrix getMatrix() {
         this.matrix.reset();
-        PointF value = this.oje.getValue();
+        PointF value = this.osO.getValue();
         if (value.x != 0.0f || value.y != 0.0f) {
             this.matrix.preTranslate(value.x, value.y);
         }
-        float floatValue = this.ojg.getValue().floatValue();
+        float floatValue = this.osQ.getValue().floatValue();
         if (floatValue != 0.0f) {
             this.matrix.preRotate(floatValue);
         }
-        com.tb.airbnb.lottie.e.d value2 = this.ojf.getValue();
+        com.tb.airbnb.lottie.e.d value2 = this.osP.getValue();
         if (value2.getScaleX() != 1.0f || value2.getScaleY() != 1.0f) {
             this.matrix.preScale(value2.getScaleX(), value2.getScaleY());
         }
-        PointF value3 = this.ojd.getValue();
+        PointF value3 = this.osN.getValue();
         if (value3.x != 0.0f || value3.y != 0.0f) {
             this.matrix.preTranslate(-value3.x, -value3.y);
         }
@@ -113,10 +113,10 @@ public class o {
     }
 
     public Matrix i(float f) {
-        PointF value = this.oje.getValue();
-        PointF value2 = this.ojd.getValue();
-        com.tb.airbnb.lottie.e.d value3 = this.ojf.getValue();
-        float floatValue = this.ojg.getValue().floatValue();
+        PointF value = this.osO.getValue();
+        PointF value2 = this.osN.getValue();
+        com.tb.airbnb.lottie.e.d value3 = this.osP.getValue();
+        float floatValue = this.osQ.getValue().floatValue();
         this.matrix.reset();
         this.matrix.preTranslate(value.x * f, value.y * f);
         this.matrix.preScale((float) Math.pow(value3.getScaleX(), f), (float) Math.pow(value3.getScaleY(), f));
@@ -126,19 +126,19 @@ public class o {
 
     public <T> boolean b(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.BI) {
-            this.ojd.a(cVar);
+            this.osN.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.BJ) {
-            this.oje.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.oim) {
-            this.ojf.a(cVar);
+            this.osO.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.orW) {
+            this.osP.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.BN) {
-            this.ojg.a(cVar);
+            this.osQ.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.BG) {
-            this.ojh.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.BY && this.oji != null) {
-            this.oji.a(cVar);
-        } else if (t == com.tb.airbnb.lottie.j.BZ && this.ojj != null) {
-            this.ojj.a(cVar);
+            this.osR.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.BY && this.osS != null) {
+            this.osS.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.BZ && this.osT != null) {
+            this.osT.a(cVar);
         } else {
             return false;
         }

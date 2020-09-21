@@ -1,7 +1,7 @@
 package com.baidu.android.ext.widget.menu;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BdMenuItemCheck extends BdMenuItem {
     public BdMenuItemCheck(Context context, int i, CharSequence charSequence) {
         super(context, i, charSequence);

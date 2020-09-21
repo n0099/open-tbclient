@@ -3,7 +3,7 @@ package com.baidu.media.recorder;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class a {
     private static Map<Integer, Integer> a = new HashMap();
     private int b = 4;

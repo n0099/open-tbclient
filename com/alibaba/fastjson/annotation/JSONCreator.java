@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public @interface JSONCreator {
 }

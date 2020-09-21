@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String Ps;
-    private int Qh;
-    private int Qi;
-    private boolean Qj;
-    private boolean Qk;
-    private int Ql;
-    private int Qm;
-    private boolean Qn;
-    private boolean Qo;
+    private String PP;
+    private int QB;
+    private boolean QC;
+    private boolean QD;
+    private int QE;
+    private int QF;
+    private boolean QG;
+    private boolean QH;
+    private int Qz;
 
     public l() {
-        this.Ps = null;
-        this.Qh = 32768;
-        this.Qi = 131072;
-        this.Qj = false;
-        this.Qk = true;
-        this.Ql = 30000;
-        this.Qm = 30000;
-        this.Qn = true;
-        this.Qo = true;
-        this.Ps = null;
+        this.PP = null;
+        this.Qz = 32768;
+        this.QB = 131072;
+        this.QC = false;
+        this.QD = true;
+        this.QE = 30000;
+        this.QF = 30000;
+        this.QG = true;
+        this.QH = true;
+        this.PP = null;
     }
 
     public l(l lVar) {
-        this.Ps = null;
-        this.Qh = lVar.Qh;
-        this.Qi = lVar.Qi;
-        this.Qj = lVar.Qj;
-        this.Qk = lVar.Qk;
-        this.Ql = lVar.Ql;
-        this.Qm = lVar.Qm;
-        this.Qn = lVar.Qn;
-        this.Qo = lVar.Qo;
-        this.Ps = lVar.Ps;
-    }
-
-    public boolean oL() {
-        return this.Qj;
-    }
-
-    public int oM() {
-        return this.Qh;
-    }
-
-    public int oN() {
-        return this.Qi;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.Qk;
-    }
-
-    public int oO() {
-        return this.Ql;
-    }
-
-    public int oP() {
-        return this.Qm;
+        this.PP = null;
+        this.Qz = lVar.Qz;
+        this.QB = lVar.QB;
+        this.QC = lVar.QC;
+        this.QD = lVar.QD;
+        this.QE = lVar.QE;
+        this.QF = lVar.QF;
+        this.QG = lVar.QG;
+        this.QH = lVar.QH;
+        this.PP = lVar.PP;
     }
 
     public boolean oQ() {
-        return this.Qn;
+        return this.QC;
     }
 
-    public boolean oR() {
-        return this.Qo;
+    public int oR() {
+        return this.Qz;
     }
 
-    public String oS() {
-        return this.Ps;
+    public int oS() {
+        return this.QB;
     }
 
-    public void ci(String str) {
-        this.Ps = str;
+    public boolean getTcpNoDelay() {
+        return this.QD;
+    }
+
+    public int oT() {
+        return this.QE;
+    }
+
+    public int oU() {
+        return this.QF;
+    }
+
+    public boolean oV() {
+        return this.QG;
+    }
+
+    public boolean oW() {
+        return this.QH;
+    }
+
+    public String oX() {
+        return this.PP;
+    }
+
+    public void ck(String str) {
+        this.PP = str;
     }
 }

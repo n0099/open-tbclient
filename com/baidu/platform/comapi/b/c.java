@@ -4,12 +4,12 @@ import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidu.platform.comjni.base.logstatistics.NALogStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     private NALogStatistics a;
     private ArrayList<b> b;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static final c a = new c();
     }

@@ -11,7 +11,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class f {
     protected static final boolean a = true;
     public static final String b = "video/avc";

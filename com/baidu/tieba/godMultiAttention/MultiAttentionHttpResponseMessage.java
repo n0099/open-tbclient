@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.MFollow.MFollowResIdl;
 import tbclient.MFollow.MFollowResult;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class MultiAttentionHttpResponseMessage extends TbHttpResponsedMessage {
     private List<MFollowResult> followResults;
     private boolean isAttentionAll;

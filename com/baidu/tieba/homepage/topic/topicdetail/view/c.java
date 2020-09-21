@@ -4,21 +4,21 @@ import android.content.Context;
 import android.widget.EditText;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends m {
-    private EditText eMK;
+    private EditText ePB;
 
     public c(Context context) {
         super(context, (String) null, 29);
-        this.eLw = false;
-        this.eLv = 3;
-        this.eKB = new TopicDetaiInputContainer(context);
-        this.eMK = ((TopicDetaiInputContainer) this.eKB).getInputView();
-        ((TopicDetaiInputContainer) this.eKB).setHint(context.getString(R.string.say_your_point));
-        this.eLx = new int[]{4, 13, 24, 3, 9, 6, 12};
+        this.eNN = false;
+        this.eNM = 3;
+        this.eMS = new TopicDetaiInputContainer(context);
+        this.ePB = ((TopicDetaiInputContainer) this.eMS).getInputView();
+        ((TopicDetaiInputContainer) this.eMS).setHint(context.getString(R.string.say_your_point));
+        this.eNO = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 
     public EditText getInputView() {
-        return this.eMK;
+        return this.ePB;
     }
 }

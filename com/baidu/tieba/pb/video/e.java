@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class e extends com.baidu.tbadk.core.view.userLike.c {
     public e(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
         super(tbPageContext, bVar);
@@ -13,8 +13,8 @@ public class e extends com.baidu.tbadk.core.view.userLike.c {
     @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.eyc != null) {
-            TiebaStatic.log(new aq("c11924").dD("obj_id", this.eyc.getUserId()));
+        if (this.eAi != null) {
+            TiebaStatic.log(new aq("c11924").dF("obj_id", this.eAi.getUserId()));
         }
     }
 }

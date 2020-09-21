@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.notification.model.styleenum;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum InnerStyleLayout {
     EXPANDABLE_STANDARD(0),
     EXPANDABLE_TEXT(1),

@@ -1,10 +1,10 @@
 package com.baidu.live.gift.dynamicGift;
 
 import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public int aUg = 1;
-    public boolean aUh = false;
+    public int aWv = 1;
+    public boolean aWw = false;
     public Bitmap bitmap;
     public String filePath;
 

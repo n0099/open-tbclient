@@ -1,118 +1,118 @@
 package tv.chushou.common;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a oMp;
-    private static final a oMq;
-    private static volatile a oMr;
+    private static final a oVT;
+    private static final a oVU;
+    private static volatile a oVV;
     private String ad;
     private String city;
-    private String iEY;
-    private String oLZ;
-    private String oMa;
-    private String oMb;
-    private String oMc;
-    private String oMd;
-    private String oMe;
-    private String oMf;
-    private String oMg;
-    private String oMh;
-    private String oMi;
-    private String oMj;
-    private String oMk;
-    private String oMl;
-    private String oMm;
-    private int oMn;
-    private String oMo;
+    private String iMt;
+    private String oVD;
+    private String oVE;
+    private String oVF;
+    private String oVG;
+    private String oVH;
+    private String oVI;
+    private String oVJ;
+    private String oVK;
+    private String oVL;
+    private String oVM;
+    private String oVN;
+    private String oVO;
+    private String oVP;
+    private String oVQ;
+    private int oVR;
+    private String oVS;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.oLZ = "https://api.chushou.tv/";
-        aVar.oMa = "https://bee.kascend.com/";
-        aVar.iEY = "https://chushou.tv/";
-        aVar.oMb = "https://chat.chushou.tv/";
-        aVar.oMc = "https://qos-stat.chushou.tv/";
-        aVar.oMd = "im.chushou.tv";
-        aVar.oMe = "https://imapi.chushou.tv/";
-        aVar.oMf = "https://pay.chushou.tv/kaspay/";
-        aVar.oMg = "https://gemini.chushou.tv/";
-        aVar.oMh = "https://mic.chushou.tv/";
+        aVar.oVD = "https://api.chushou.tv/";
+        aVar.oVE = "https://bee.kascend.com/";
+        aVar.iMt = "https://chushou.tv/";
+        aVar.oVF = "https://chat.chushou.tv/";
+        aVar.oVG = "https://qos-stat.chushou.tv/";
+        aVar.oVH = "im.chushou.tv";
+        aVar.oVI = "https://imapi.chushou.tv/";
+        aVar.oVJ = "https://pay.chushou.tv/kaspay/";
+        aVar.oVK = "https://gemini.chushou.tv/";
+        aVar.oVL = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.oMi = "https://playground.chushou.tv/";
-        aVar.oMj = "https://appstat.chushou.tv/";
-        aVar.oMk = "https://luck.chushou.tv/";
-        aVar.oMl = "https://gmapi.chushou.tv/";
-        aVar.oMm = "https://gm.chushou.tv/";
+        aVar.oVM = "https://playground.chushou.tv/";
+        aVar.oVN = "https://appstat.chushou.tv/";
+        aVar.oVO = "https://luck.chushou.tv/";
+        aVar.oVP = "https://gmapi.chushou.tv/";
+        aVar.oVQ = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.oMn = 8178;
-        aVar.oMo = "rc";
-        oMp = aVar;
+        aVar.oVR = 8178;
+        aVar.oVS = "rc";
+        oVT = aVar;
         a aVar2 = new a();
-        aVar2.oLZ = "https://api.vchushou.com/";
-        aVar2.oMa = "https://bee.vchushou.com/";
-        aVar2.iEY = "https://vchushou.com/";
-        aVar2.oMb = "https://chat.vchushou.com/";
-        aVar2.oMc = "https://qos-stat.vchushou.com/";
-        aVar2.oMd = "im.vchushou.com";
-        aVar2.oMe = "https://imapi.vchushou.com/";
-        aVar2.oMf = "https://pay.vchushou.com/";
-        aVar2.oMg = "https://gemini.vchushou.com/";
-        aVar2.oMh = "https://mic.vchushou.com/";
+        aVar2.oVD = "https://api.vchushou.com/";
+        aVar2.oVE = "https://bee.vchushou.com/";
+        aVar2.iMt = "https://vchushou.com/";
+        aVar2.oVF = "https://chat.vchushou.com/";
+        aVar2.oVG = "https://qos-stat.vchushou.com/";
+        aVar2.oVH = "im.vchushou.com";
+        aVar2.oVI = "https://imapi.vchushou.com/";
+        aVar2.oVJ = "https://pay.vchushou.com/";
+        aVar2.oVK = "https://gemini.vchushou.com/";
+        aVar2.oVL = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.oMi = "https://open-game.vchushou.com/";
-        aVar2.oMj = "https://vchushou.com/";
-        aVar2.oMk = "https://luck.vchushou.com/";
-        aVar2.oMl = "https://gamemate.vchushou.com/";
-        aVar2.oMm = "https://gamemate.vchushou.com/";
+        aVar2.oVM = "https://open-game.vchushou.com/";
+        aVar2.oVN = "https://vchushou.com/";
+        aVar2.oVO = "https://luck.vchushou.com/";
+        aVar2.oVP = "https://gamemate.vchushou.com/";
+        aVar2.oVQ = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.oMn = 8178;
-        aVar2.oMo = "https";
-        oMq = aVar2;
-        oMr = oMp;
+        aVar2.oVR = 8178;
+        aVar2.oVS = "https";
+        oVU = aVar2;
+        oVV = oVT;
     }
 
     private a() {
     }
 
-    public static void WM(String str) {
+    public static void Xo(String str) {
         if ("beta".equals(str)) {
-            oMr = oMq;
+            oVV = oVU;
         } else {
-            oMr = oMp;
+            oVV = oVT;
         }
     }
 
-    public static String elV() {
-        return oMr.oLZ;
+    public static String epT() {
+        return oVV.oVD;
     }
 
-    public static String elW() {
-        return oMr.oMa;
+    public static String epU() {
+        return oVV.oVE;
     }
 
-    public static String cvE() {
-        return oMr.iEY;
+    public static String cyX() {
+        return oVV.iMt;
     }
 
-    public static String elX() {
-        return oMr.oMb;
+    public static String epV() {
+        return oVV.oVF;
     }
 
-    public static String elY() {
-        return oMr.oMh;
+    public static String epW() {
+        return oVV.oVL;
     }
 
-    public static String elZ() {
-        return oMr.ad;
+    public static String epX() {
+        return oVV.ad;
     }
 
-    public static String ema() {
-        return oMr.oMk;
+    public static String epY() {
+        return oVV.oVO;
     }
 
-    public static String emb() {
-        return oMr.sdk;
+    public static String epZ() {
+        return oVV.sdk;
     }
 }

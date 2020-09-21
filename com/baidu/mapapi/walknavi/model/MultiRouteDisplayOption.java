@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.model;
 
 import com.baidu.mapapi.map.BitmapDescriptor;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MultiRouteDisplayOption {
     private BitmapDescriptor a;
     private BitmapDescriptor b;

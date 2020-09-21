@@ -2,48 +2,48 @@ package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class c {
-    private boolean nuE;
-    private boolean nuF;
-    private boolean nuG;
-    private boolean nuH;
+    private boolean nEB;
+    private boolean nEC;
+    private boolean nED;
+    private boolean nEE;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b nuI;
-    private int nuD = 100;
+    private com.facebook.imagepipeline.decoder.b nEF;
+    private int nEA = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dSq() {
-        return this.nuD;
+    public int dWo() {
+        return this.nEA;
     }
 
-    public boolean dSr() {
-        return this.nuE;
+    public boolean dWp() {
+        return this.nEB;
     }
 
-    public boolean dSs() {
-        return this.nuF;
+    public boolean dWq() {
+        return this.nEC;
     }
 
-    public boolean dSt() {
-        return this.nuG;
+    public boolean dWr() {
+        return this.nED;
     }
 
-    public c yc(boolean z) {
-        this.nuH = z;
+    public c yl(boolean z) {
+        this.nEE = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dSu() {
-        return this.nuI;
+    public com.facebook.imagepipeline.decoder.b dWs() {
+        return this.nEF;
     }
 
-    public boolean dSv() {
-        return this.nuH;
+    public boolean dWt() {
+        return this.nEE;
     }
 
-    public Bitmap.Config dSw() {
+    public Bitmap.Config dWu() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dSx() {
+    public b dWv() {
         return new b(this);
     }
 }

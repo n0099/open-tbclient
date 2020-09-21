@@ -11,15 +11,15 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> jFm = new ArrayList<>();
+    protected ArrayList<FeedData> jNO = new ArrayList<>();
     protected av page = new av();
-    protected h jFn = new h();
+    protected h jNP = new h();
 
-    public ArrayList<FeedData> cJT() {
-        return this.jFm;
+    public ArrayList<FeedData> cNz() {
+        return this.jNO;
     }
 
     public av getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.jFm.add(feedData);
+                    this.jNO.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                        this.jFm.remove(feedData);
+                        this.jNO.remove(feedData);
                     }
                 }
             }
-            this.jFn.parserJson(jSONObject.optJSONObject("message"));
+            this.jNP.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.jFm.add(feedData);
+                        this.jNO.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && y.getCount(feedData.getPraiseList()) == 0) {
-                            this.jFm.remove(feedData);
+                            this.jNO.remove(feedData);
                         }
                     }
                 }

@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ScreenTopToast extends LinearLayout {
-    private TextView cjo;
-    private TBSpecificationBtn hza;
+    private TextView clp;
+    private TBSpecificationBtn hGc;
+    private Animation iBn;
+    private Animation iBo;
     private boolean isShow;
-    private Animation itR;
-    private Animation itS;
     private Runnable mHideRunnable;
-    private ShadowLinearLayout mKc;
+    private ShadowLinearLayout mTS;
     private TextView mTitleView;
 
     public ScreenTopToast(Context context) {
@@ -45,19 +45,19 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.mKc = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.mTS = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.cjo = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.hza = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.hza.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.clp = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.hGc = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.hGc.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
         initAnimation();
         onChangeSkinType();
     }
 
     private void initAnimation() {
-        this.itR = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-        this.itS = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-        this.itS.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
+        this.iBn = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.iBo = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
+        this.iBo.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.ScreenTopToast.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -83,59 +83,59 @@ public class ScreenTopToast extends LinearLayout {
         };
     }
 
-    public ScreenTopToast St(String str) {
+    public ScreenTopToast ST(String str) {
         this.mTitleView.setText(str);
         return this;
     }
 
-    public ScreenTopToast Su(String str) {
-        this.cjo.setText(str);
+    public ScreenTopToast SU(String str) {
+        this.clp.setText(str);
         return this;
     }
 
-    public ScreenTopToast Sv(String str) {
-        this.hza.setText(str);
+    public ScreenTopToast SV(String str) {
+        this.hGc.setText(str);
         return this;
     }
 
     public ScreenTopToast ak(View.OnClickListener onClickListener) {
-        this.hza.setOnClickListener(onClickListener);
+        this.hGc.setOnClickListener(onClickListener);
         return this;
     }
 
-    public void aE(ViewGroup viewGroup) {
+    public void aF(ViewGroup viewGroup) {
         if (viewGroup != null) {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
             release();
-            if (TextUtils.isEmpty(this.cjo.getText())) {
-                this.cjo.setVisibility(8);
+            if (TextUtils.isEmpty(this.clp.getText())) {
+                this.clp.setVisibility(8);
             }
             viewGroup.addView(this, -1, -2);
             this.isShow = true;
-            startAnimation(this.itR);
-            com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, 5000L);
+            startAnimation(this.iBn);
+            com.baidu.adp.lib.f.e.mX().postDelayed(this.mHideRunnable, 5000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         release();
-        startAnimation(this.itS);
+        startAnimation(this.iBo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
-        com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
+        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
         clearAnimation();
     }
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitleView, R.color.cp_link_tip_a);
-        ap.setViewTextColor(this.cjo, R.color.cp_link_tip_a);
-        this.hza.bkF();
-        this.mKc.onChangeSkinType();
+        ap.setViewTextColor(this.clp, R.color.cp_link_tip_a);
+        this.hGc.blA();
+        this.mTS.onChangeSkinType();
     }
 
     public boolean isShow() {

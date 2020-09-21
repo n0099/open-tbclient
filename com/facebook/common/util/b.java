@@ -4,9 +4,9 @@ import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class b {
-    static final byte[] nlM = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+    static final byte[] nvM = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
 
     public static String am(byte[] bArr) {
         try {

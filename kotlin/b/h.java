@@ -2,20 +2,20 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class h extends f {
-    public static final a otq = new a(null);
-    private static final h otp = new h(1, 0);
+    public static final a oCX = new a(null);
+    private static final h oCW = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer egE() {
+    public Integer ekB() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer egF() {
+    public Integer ekC() {
         return Integer.valueOf(getLast());
     }
 
@@ -43,7 +43,7 @@ public final class h extends f {
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -52,8 +52,8 @@ public final class h extends f {
             this();
         }
 
-        public final h egH() {
-            return h.otp;
+        public final h ekE() {
+            return h.oCW;
         }
     }
 }

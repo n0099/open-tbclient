@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.armor;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class RimArmor {
     private static RimArmor a;
 

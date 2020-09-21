@@ -8,19 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    public bw dUW;
-    public long fJm;
+    public bw dXg;
+    public long fMB;
     public boolean isFollow;
     public List<a> tagList;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.isFollow = jSONObject.optInt("is_follow") == 1;
-            this.fJm = jSONObject.optLong("last_watch_time");
+            this.fMB = jSONObject.optLong("last_watch_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
             if (optJSONObject != null) {
-                this.dUW = new bw();
-                this.dUW.parserJson(optJSONObject);
+                this.dXg = new bw();
+                this.dXg.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null) {
@@ -40,13 +40,13 @@ public class b {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public int aCT;
-        public String fJn;
+        public int aDD;
+        public String fMC;
 
         public void parse(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aCT = jSONObject.optInt("tag_type");
-                this.fJn = jSONObject.optString("tag_word");
+                this.aDD = jSONObject.optInt("tag_type");
+                this.fMC = jSONObject.optString("tag_word");
             }
         }
     }

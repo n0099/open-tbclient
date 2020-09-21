@@ -6,12 +6,12 @@ import kotlin.jvm.internal.l;
 import kotlin.jvm.internal.q;
 import kotlin.reflect.c;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
         q.m(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).egq();
+        Class<T> cls = (Class<T>) ((l) cVar).ekn();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

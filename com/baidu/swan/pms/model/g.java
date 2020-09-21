@@ -1,15 +1,15 @@
 package com.baidu.swan.pms.model;
 
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class g extends e {
     public String appId;
-    public int dFr;
-    public boolean dFs;
+    public int dHv;
+    public boolean dHw;
     public String pkgName;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean ajo() {
-        return super.ajo() && !TextUtils.isEmpty(this.pkgName);
+    public boolean ajY() {
+        return super.ajY() && !TextUtils.isEmpty(this.pkgName);
     }
 }

@@ -11,30 +11,30 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d extends BdBaseModel {
-    private a ghn;
-    private HttpMessageListener gho = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
+    private a gky;
+    private HttpMessageListener gkz = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.ghn != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.gky != null) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    d.this.ghn.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    d.this.gky.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     return;
                 }
-                AlaLivePersonData LD = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).LD();
-                if (LD == null || LD.mUserData == null) {
-                    d.this.ghn.onFail(901, "");
+                AlaLivePersonData Me = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).Me();
+                if (Me == null || Me.mUserData == null) {
+                    d.this.gky.onFail(901, "");
                 } else {
-                    d.this.ghn.b(LD);
+                    d.this.gky.b(Me);
                 }
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void b(AlaLivePersonData alaLivePersonData);
 
@@ -43,12 +43,12 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.ghn = aVar;
-        bLB();
-        registerListener(this.gho);
+        this.gky = aVar;
+        bML();
+        registerListener(this.gkz);
     }
 
-    private void bLB() {
+    private void bML() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -57,7 +57,7 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void LW() {
+    public void Mz() {
         HttpMessage httpMessage = new HttpMessage(1021039);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("meta_key", "");
@@ -76,6 +76,6 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021039);
-        MessageManager.getInstance().unRegisterListener(this.gho);
+        MessageManager.getInstance().unRegisterListener(this.gkz);
     }
 }

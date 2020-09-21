@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
 import com.baidu.tieba.q.b;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class DataProcessors {
     private HashMap<String, ICloudControlProcessor> mDataProcessors = new HashMap<>();
 
@@ -41,6 +41,6 @@ public class DataProcessors {
     }
 
     private ICloudControlRegister getCloudControlRegister() {
-        return b.dtv();
+        return b.dxo();
     }
 }

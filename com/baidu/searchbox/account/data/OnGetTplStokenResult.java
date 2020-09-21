@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account.data;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes23.dex */
 public class OnGetTplStokenResult {
     public int mErrCode;
     public String mErrMsg;

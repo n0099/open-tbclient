@@ -11,7 +11,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends t<? extends R>> mapper;
@@ -23,7 +23,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         this.source.subscribe(new ConcatMapEagerMainObserver(uVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, c<R>, u<T> {
         private static final long serialVersionUID = 8080567949447303262L;
         int activeCount;

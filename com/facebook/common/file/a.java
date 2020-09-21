@@ -1,9 +1,9 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class a {
-    public static String nkW = null;
+    public static String nuW = null;
 
     public static void a(File file, b bVar) {
         File[] b;
@@ -22,10 +22,10 @@ public class a {
                     bVar.ah(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (nkW == null) {
-                            nkW = path;
-                        } else if (path.length() > nkW.length()) {
-                            nkW = path;
+                        if (nuW == null) {
+                            nuW = path;
+                        } else if (path.length() > nuW.length()) {
+                            nuW = path;
                         }
                     }
                 }
@@ -68,19 +68,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(gl(path, strArr[i]));
+            fileArr[i] = new File(gx(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String gl(String str, String str2) {
+    private static String gx(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : gm(str, str2);
+        return str2.isEmpty() ? str : gy(str, str2);
     }
 
-    private static String gm(String str, String str2) {
+    private static String gy(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

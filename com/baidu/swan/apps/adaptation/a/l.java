@@ -2,21 +2,21 @@ package com.baidu.swan.apps.adaptation.a;
 
 import com.baidu.swan.apps.core.container.a.a;
 import com.baidu.webkit.sdk.VideoPlayerFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface l {
-    int Ys();
+    int Zb();
 
-    boolean Yt();
+    boolean Zc();
 
-    boolean Yu();
+    boolean Zd();
 
-    int Yv();
+    int Ze();
 
-    VideoPlayerFactory Yw();
+    VideoPlayerFactory Zf();
 
-    void a(a.InterfaceC0382a interfaceC0382a);
+    void a(a.InterfaceC0377a interfaceC0377a);
 
-    void dt(boolean z);
+    void dr(boolean z);
 
-    void gq(int i);
+    void gz(int i);
 }

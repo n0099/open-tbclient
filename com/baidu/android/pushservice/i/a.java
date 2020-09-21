@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.i;
 
 import android.content.Intent;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(int i, Intent intent);
 }

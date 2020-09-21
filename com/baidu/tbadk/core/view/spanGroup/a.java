@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.spanGroup.a;
 /* loaded from: classes.dex */
 public abstract class a<T extends a> {
-    private static int exA = 1;
-    protected Editable exB;
-    private InterfaceC0544a exC;
+    private static int ezG = 1;
+    protected Editable ezH;
+    private InterfaceC0539a ezI;
     private int mEnd;
     private int mFontSize;
     private final int mId;
@@ -17,7 +17,7 @@ public abstract class a<T extends a> {
 
     /* renamed from: com.baidu.tbadk.core.view.spanGroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0544a {
+    public interface InterfaceC0539a {
         void E(int i, boolean z);
     }
 
@@ -26,13 +26,13 @@ public abstract class a<T extends a> {
     public abstract void a(Editable editable, int i);
 
     public a() {
-        int i = exA;
-        exA = i + 1;
+        int i = ezG;
+        ezG = i + 1;
         this.mId = i;
     }
 
     public void a(Editable editable, int i, int i2, int i3) {
-        this.exB = editable;
+        this.ezH = editable;
         this.mStart = i;
         this.mEnd = i2;
         this.mFontSize = i3;
@@ -49,17 +49,17 @@ public abstract class a<T extends a> {
     public void setValid(boolean z) {
         boolean z2 = this.mIsValid;
         this.mIsValid = z;
-        if (z2 != z && this.exC != null) {
-            this.exC.E(this.mId, z);
+        if (z2 != z && this.ezI != null) {
+            this.ezI.E(this.mId, z);
         }
     }
 
-    public Editable blr() {
-        return this.exB;
+    public Editable bmm() {
+        return this.ezH;
     }
 
     public void b(Editable editable) {
-        this.exB = editable;
+        this.ezH = editable;
     }
 
     public int getStart() {
@@ -74,7 +74,7 @@ public abstract class a<T extends a> {
         return this.mEnd;
     }
 
-    public void pg(int i) {
+    public void pu(int i) {
         this.mEnd = i;
     }
 
@@ -85,7 +85,7 @@ public abstract class a<T extends a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(T t) {
         this.mIsValid = t.isValid();
-        this.exB = t.blr();
+        this.ezH = t.bmm();
         this.mStart = t.getStart();
         this.mEnd = t.getEnd();
         this.mFontSize = t.getFontSize();
@@ -93,16 +93,16 @@ public abstract class a<T extends a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(Object obj, int i, int i2, int i3) {
-        if (this.exB != null) {
-            this.exB.setSpan(obj, i, i2, i3);
+        if (this.ezH != null) {
+            this.ezH.setSpan(obj, i, i2, i3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void m(@NonNull CharSequence charSequence) {
-        if (this.exB != null && charSequence != null) {
+        if (this.ezH != null && charSequence != null) {
             try {
-                this.exB.replace(this.mStart, this.mEnd, charSequence);
+                this.ezH.replace(this.mStart, this.mEnd, charSequence);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -110,7 +110,7 @@ public abstract class a<T extends a> {
         }
     }
 
-    public void a(InterfaceC0544a interfaceC0544a) {
-        this.exC = interfaceC0544a;
+    public void a(InterfaceC0539a interfaceC0539a) {
+        this.ezI = interfaceC0539a;
     }
 }

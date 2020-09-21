@@ -14,118 +14,118 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class d extends com.facebook.drawee.controller.a<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.imagepipeline.g.f> {
-    private static final Class<?> njM = d.class;
+    private static final Class<?> ntL = d.class;
     private final Resources mResources;
-    private com.facebook.cache.common.b nkF;
-    private final com.facebook.imagepipeline.f.a nmD;
+    private com.facebook.cache.common.b nuF;
+    private final com.facebook.imagepipeline.f.a nwD;
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.f.a> nmE;
+    private final ImmutableList<com.facebook.imagepipeline.f.a> nwE;
     @Nullable
-    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> nmF;
-    private j<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nmG;
-    private boolean nmH;
+    private final p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> nwF;
+    private j<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> nwG;
+    private boolean nwH;
     @Nullable
-    private com.facebook.drawee.a.a.a.g nmI;
+    private com.facebook.drawee.a.a.a.g nwI;
     @GuardedBy("this")
     @Nullable
-    private Set<com.facebook.imagepipeline.h.c> nmJ;
+    private Set<com.facebook.imagepipeline.h.c> nwJ;
     @GuardedBy("this")
     @Nullable
-    private com.facebook.drawee.a.a.a.b nmK;
+    private com.facebook.drawee.a.a.a.b nwK;
     @Nullable
-    private ImmutableList<com.facebook.imagepipeline.f.a> nmw;
+    private ImmutableList<com.facebook.imagepipeline.f.a> nww;
 
     public d(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.f.a aVar2, Executor executor, @Nullable p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList) {
         super(aVar, executor, null, null);
         this.mResources = resources;
-        this.nmD = new a(resources, aVar2);
-        this.nmE = immutableList;
-        this.nmF = pVar;
+        this.nwD = new a(resources, aVar2);
+        this.nwE = immutableList;
+        this.nwF = pVar;
     }
 
     public void a(j<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> jVar, String str, com.facebook.cache.common.b bVar, Object obj, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList, @Nullable com.facebook.drawee.a.a.a.b bVar2) {
         super.H(str, obj);
         a(jVar);
-        this.nkF = bVar;
+        this.nuF = bVar;
         a(immutableList);
-        dPB();
+        dTz();
         a(bVar2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(@Nullable com.facebook.drawee.a.a.a.f fVar) {
-        if (this.nmI != null) {
-            this.nmI.reset();
+        if (this.nwI != null) {
+            this.nwI.reset();
         }
         if (fVar != null) {
-            if (this.nmI == null) {
-                this.nmI = new com.facebook.drawee.a.a.a.g(RealtimeSinceBootClock.get(), this);
+            if (this.nwI == null) {
+                this.nwI = new com.facebook.drawee.a.a.a.g(RealtimeSinceBootClock.get(), this);
             }
-            this.nmI.b(fVar);
-            this.nmI.setEnabled(true);
+            this.nwI.b(fVar);
+            this.nwI.setEnabled(true);
         }
     }
 
-    public void xP(boolean z) {
-        this.nmH = z;
+    public void xY(boolean z) {
+        this.nwH = z;
     }
 
     public void a(@Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList) {
-        this.nmw = immutableList;
+        this.nww = immutableList;
     }
 
     public synchronized void a(com.facebook.imagepipeline.h.c cVar) {
-        if (this.nmJ == null) {
-            this.nmJ = new HashSet();
+        if (this.nwJ == null) {
+            this.nwJ = new HashSet();
         }
-        this.nmJ.add(cVar);
+        this.nwJ.add(cVar);
     }
 
     public synchronized void b(com.facebook.imagepipeline.h.c cVar) {
-        if (this.nmJ != null) {
-            this.nmJ.remove(cVar);
+        if (this.nwJ != null) {
+            this.nwJ.remove(cVar);
         }
     }
 
     public synchronized void a(com.facebook.drawee.a.a.a.b bVar) {
-        if (this.nmK instanceof com.facebook.drawee.a.a.a.a) {
-            ((com.facebook.drawee.a.a.a.a) this.nmK).a(bVar);
-        } else if (this.nmK != null) {
-            this.nmK = new com.facebook.drawee.a.a.a.a(this.nmK, bVar);
+        if (this.nwK instanceof com.facebook.drawee.a.a.a.a) {
+            ((com.facebook.drawee.a.a.a.a) this.nwK).a(bVar);
+        } else if (this.nwK != null) {
+            this.nwK = new com.facebook.drawee.a.a.a.a(this.nwK, bVar);
         } else {
-            this.nmK = bVar;
+            this.nwK = bVar;
         }
     }
 
     public synchronized void b(com.facebook.drawee.a.a.a.b bVar) {
-        if (this.nmK instanceof com.facebook.drawee.a.a.a.a) {
-            ((com.facebook.drawee.a.a.a.a) this.nmK).b(bVar);
-        } else if (this.nmK != null) {
-            this.nmK = new com.facebook.drawee.a.a.a.a(this.nmK, bVar);
+        if (this.nwK instanceof com.facebook.drawee.a.a.a.a) {
+            ((com.facebook.drawee.a.a.a.a) this.nwK).b(bVar);
+        } else if (this.nwK != null) {
+            this.nwK = new com.facebook.drawee.a.a.a.a(this.nwK, bVar);
         } else {
-            this.nmK = bVar;
+            this.nwK = bVar;
         }
     }
 
-    protected void dPB() {
+    protected void dTz() {
         synchronized (this) {
-            this.nmK = null;
+            this.nwK = null;
         }
     }
 
     private void a(j<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>>> jVar) {
-        this.nmG = jVar;
+        this.nwG = jVar;
         c(null);
     }
 
     @Nullable
-    public synchronized com.facebook.imagepipeline.h.c dPC() {
+    public synchronized com.facebook.imagepipeline.h.c dTA() {
         com.facebook.imagepipeline.h.c cVar;
-        com.facebook.imagepipeline.h.c cVar2 = this.nmK != null ? new com.facebook.drawee.a.a.a.c(getId(), this.nmK) : null;
-        if (this.nmJ != null) {
-            com.facebook.imagepipeline.h.b bVar = new com.facebook.imagepipeline.h.b(this.nmJ);
+        com.facebook.imagepipeline.h.c cVar2 = this.nwK != null ? new com.facebook.drawee.a.a.a.c(getId(), this.nwK) : null;
+        if (this.nwJ != null) {
+            com.facebook.imagepipeline.h.b bVar = new com.facebook.imagepipeline.h.b(this.nwJ);
             cVar = bVar;
             if (cVar2 != null) {
                 bVar.a(cVar2);
@@ -138,30 +138,30 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     }
 
     @Override // com.facebook.drawee.controller.a
-    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dPD() {
+    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> dTB() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(njM, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
+            com.facebook.common.c.a.a(ntL, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
         }
-        return this.nmG.get();
+        return this.nwG.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
     /* renamed from: d */
-    public Drawable ba(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
+    public Drawable bc(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         com.facebook.common.internal.g.checkState(com.facebook.common.references.a.a(aVar));
         com.facebook.imagepipeline.g.c cVar = aVar.get();
         c(cVar);
-        Drawable a = a(this.nmw, cVar);
+        Drawable a = a(this.nww, cVar);
         if (a != null) {
             return a;
         }
-        Drawable a2 = a(this.nmE, cVar);
+        Drawable a2 = a(this.nwE, cVar);
         if (a2 != null) {
             return a2;
         }
-        Drawable b = this.nmD.b(cVar);
+        Drawable b = this.nwD.b(cVar);
         if (b != null) {
             return b;
         }
@@ -192,23 +192,23 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     private void c(@Nullable com.facebook.imagepipeline.g.c cVar) {
         o l;
         p.b bVar = null;
-        if (this.nmH) {
-            if (dPZ() == null) {
+        if (this.nwH) {
+            if (dTX() == null) {
                 com.facebook.drawee.b.a aVar = new com.facebook.drawee.b.a();
                 a(new com.facebook.drawee.b.a.a(aVar));
                 j(aVar);
             }
-            if (dPZ() instanceof com.facebook.drawee.b.a) {
-                com.facebook.drawee.b.a aVar2 = (com.facebook.drawee.b.a) dPZ();
-                aVar2.Uz(getId());
+            if (dTX() instanceof com.facebook.drawee.b.a) {
+                com.facebook.drawee.b.a aVar2 = (com.facebook.drawee.b.a) dTX();
+                aVar2.Vb(getId());
                 com.facebook.drawee.d.b hierarchy = getHierarchy();
                 if (hierarchy != null && (l = com.facebook.drawee.drawable.p.l(hierarchy.getTopLevelDrawable())) != null) {
-                    bVar = l.dQC();
+                    bVar = l.dUA();
                 }
                 aVar2.a(bVar);
                 if (cVar != null) {
                     aVar2.setDimensions(cVar.getWidth(), cVar.getHeight());
-                    aVar2.Ld(cVar.getSizeInBytes());
+                    aVar2.LI(cVar.getSizeInBytes());
                     return;
                 }
                 aVar2.reset();
@@ -220,7 +220,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
     /* renamed from: e */
-    public com.facebook.imagepipeline.g.f aZ(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
+    public com.facebook.imagepipeline.g.f bb(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         com.facebook.common.internal.g.checkState(com.facebook.common.references.a.a(aVar));
         return aVar.get();
     }
@@ -229,9 +229,9 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
     /* renamed from: f */
-    public int aY(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
+    public int ba(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         if (aVar != null) {
-            return aVar.dOT();
+            return aVar.dSR();
         }
         return 0;
     }
@@ -240,30 +240,30 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
     /* renamed from: g */
-    public void aX(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
+    public void aZ(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         com.facebook.common.references.a.c(aVar);
     }
 
     @Override // com.facebook.drawee.controller.a
     protected void i(@Nullable Drawable drawable) {
         if (drawable instanceof com.facebook.b.a.a) {
-            ((com.facebook.b.a.a) drawable).dPs();
+            ((com.facebook.b.a.a) drawable).dTq();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
-    /* renamed from: dPE */
-    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dPF() {
-        if (this.nmF == null || this.nkF == null) {
+    /* renamed from: dTC */
+    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> dTD() {
+        if (this.nwF == null || this.nuF == null) {
             return null;
         }
-        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bl = this.nmF.bl(this.nkF);
-        if (bl == null || bl.get().dUt().dUH()) {
-            return bl;
+        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bn = this.nwF.bn(this.nuF);
+        if (bn == null || bn.get().dYr().dYF()) {
+            return bn;
         }
-        bl.close();
+        bn.close();
         return null;
     }
 
@@ -274,14 +274,14 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     public void G(String str, com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
         super.G(str, aVar);
         synchronized (this) {
-            if (this.nmK != null) {
-                this.nmK.g(str, 3, true);
+            if (this.nwK != null) {
+                this.nwK.g(str, 3, true);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.a
     public String toString() {
-        return com.facebook.common.internal.f.aQ(this).E("super", super.toString()).E("dataSourceSupplier", this.nmG).toString();
+        return com.facebook.common.internal.f.aS(this).E("super", super.toString()).E("dataSourceSupplier", this.nwG).toString();
     }
 }

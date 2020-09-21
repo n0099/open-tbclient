@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View lEX;
-    private LoopADView lEY;
+    private View lNR;
+    private LoopADView lNS;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,45 +29,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void di(View view) {
-        this.lEX = view.findViewById(R.id.advert_loop_ad_container);
-        this.lEY = (LoopADView) view.findViewById(R.id.loop_view);
+    protected void dq(View view) {
+        this.lNR = view.findViewById(R.id.advert_loop_ad_container);
+        this.lNS = (LoopADView) view.findViewById(R.id.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean isShowImages = k.bbM().isShowImages();
-        this.lEY.setBussinessType(getBusinessType());
+        boolean isShowImages = k.bcG().isShowImages();
+        this.lNS.setBussinessType(getBusinessType());
         if (!isShowImages) {
-            this.lEX.setVisibility(8);
+            this.lNR.setVisibility(8);
             return;
         }
-        this.lEX.setVisibility(0);
-        v(this.lEX, 0);
-        this.lEY.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.lNR.setVisibility(0);
+        w(this.lNR, 0);
+        this.lNS.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String Pw(String str) {
-                return AdCardLoopPicView.this.Pt(at.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
+            public String PW(String str) {
+                return AdCardLoopPicView.this.PT(at.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.lEX != null) {
-                    AdCardLoopPicView.this.lEX.setScrollX(0);
+                if (AdCardLoopPicView.this.lNR != null) {
+                    AdCardLoopPicView.this.lNR.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds92);
         if (!adCard.needResize) {
-            this.lEY.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+            this.lNS.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         } else {
-            this.lEY.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.lNS.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         }
     }
 
@@ -81,12 +81,12 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.lEY != null && this.lEY.getVisibility() == 0) {
-            this.lEY.changeSkin();
+        if (this.lNS != null && this.lNS.getVisibility() == 0) {
+            this.lNS.changeSkin();
         }
     }
 
-    private void v(View view, int i) {
+    private void w(View view, int i) {
         if (view != null && view.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {

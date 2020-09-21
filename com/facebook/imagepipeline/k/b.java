@@ -1,14 +1,14 @@
 package com.facebook.imagepipeline.k;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class b {
-    public static final a nAq = new C0874b();
-    private static volatile c nAr = null;
+    public static final a nKn = new C0871b();
+    private static volatile c nKo = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes12.dex */
     public interface a {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes12.dex */
     public interface c {
         void beginSection(String str);
 
@@ -19,28 +19,28 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        dWB().beginSection(str);
+        eaz().beginSection(str);
     }
 
     public static void endSection() {
-        dWB().endSection();
+        eaz().endSection();
     }
 
-    private static c dWB() {
-        if (nAr == null) {
+    private static c eaz() {
+        if (nKo == null) {
             synchronized (b.class) {
-                if (nAr == null) {
-                    nAr = new com.facebook.imagepipeline.k.a();
+                if (nKo == null) {
+                    nKo = new com.facebook.imagepipeline.k.a();
                 }
             }
         }
-        return nAr;
+        return nKo;
     }
 
     /* renamed from: com.facebook.imagepipeline.k.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private static final class C0874b implements a {
-        private C0874b() {
+    /* loaded from: classes12.dex */
+    private static final class C0871b implements a {
+        private C0871b() {
         }
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.ac.c.c;
 
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private com.baidu.swan.apps.event.a.b cIo;
+    private com.baidu.swan.apps.event.a.b cKo;
 
     public b(String str, String str2, String str3) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("functionPagePath", str);
         treeMap.put("paymentArgs", str2);
         treeMap.put("slaveId", str3);
-        this.cIo = new com.baidu.swan.apps.event.a.b("beforeRequestPayment", treeMap);
+        this.cKo = new com.baidu.swan.apps.event.a.b("beforeRequestPayment", treeMap);
     }
 
-    public com.baidu.swan.apps.event.a.b awH() {
-        return this.cIo;
+    public com.baidu.swan.apps.event.a.b axq() {
+        return this.cKo;
     }
 }

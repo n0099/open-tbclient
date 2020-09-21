@@ -3,7 +3,7 @@ package com.baidu.sofire.n;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a {
     Object a;
     Class<?> b;

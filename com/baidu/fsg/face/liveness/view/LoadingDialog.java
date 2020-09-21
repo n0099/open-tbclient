@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class LoadingDialog extends Dialog {
     private TextView a;
 

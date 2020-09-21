@@ -2,7 +2,7 @@ package com.tencent.open.web.security;
 
 import com.tencent.open.a;
 import com.tencent.open.a.f;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class SecureJsInterface extends a.b {
     public static boolean isPWDEdit = false;
     private String a;

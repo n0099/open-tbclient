@@ -2,7 +2,7 @@ package com.baidubce;
 
 import com.baidu.android.imsdk.internal.Constants;
 import org.apache.http.HttpHost;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public enum Protocol {
     HTTP(HttpHost.DEFAULT_SCHEME_NAME, 80),
     HTTPS("https", Constants.SOCKET_PORT_SSL);

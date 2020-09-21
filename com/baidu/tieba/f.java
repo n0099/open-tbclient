@@ -1,83 +1,148 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.s;
-import com.baidu.adp.lib.util.u;
+import android.content.Intent;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.adp.widget.design.TbTabLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.aq;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
-/* loaded from: classes.dex */
-public class f {
-    public static boolean o(String str, File file) {
-        if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            TiebaStatic.log(new aq("c10836").dD("obj_type", "checkRSA input args is null"));
-            return false;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+/* loaded from: classes21.dex */
+public class f implements View.OnClickListener, TbTabLayout.b, com.baidu.tbadk.suspended.a {
+    private BdBaseViewPager eAA;
+    private String fpi = "key_select_forum_tab_index";
+    private ImageView fpj;
+    private TbTabLayout fpk;
+    private SelectForumPagerAdapter fpl;
+    private Intent fpm;
+    private boolean fpn;
+    private LinearLayout mContentView;
+    private NavigationBar mNavigationBar;
+    private TbPageContext<SelectForumActivity> mPageContext;
+
+    public f(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+        this.mPageContext = tbPageContext;
+        this.mContentView = linearLayout;
+        this.mNavigationBar = navigationBar;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (!StringUtils.isNull(currentAccount)) {
+            this.fpi += currentAccount;
         }
-        try {
-            PublicKey loadRSAPublicKey = u.loadRSAPublicKey(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (loadRSAPublicKey == null) {
-                TiebaStatic.log(new aq("c10836").dD("obj_type", "publicKeyCode is null").dD("obj_source", file.getName()));
-                return false;
+        bvT();
+        Wq();
+        bBz();
+        initViewPager();
+    }
+
+    private void bvT() {
+        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.activity_select_forum_title));
+        this.fpj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fpj.getLayoutParams();
+        layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
+        this.fpj.setLayoutParams(layoutParams);
+        this.fpj.setOnClickListener(this);
+        this.fpj.setVisibility(8);
+    }
+
+    private void Wq() {
+        LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.mContentView, true);
+        this.fpk = (TbTabLayout) this.mContentView.findViewById(R.id.activity_select_forum_tab_layout);
+        this.eAA = (BdBaseViewPager) this.mContentView.findViewById(R.id.activity_select_forum_viewpager);
+    }
+
+    private void bBz() {
+        this.fpk.setSelectedTabTextBlod(true);
+        this.fpk.setSelectedTabIndicatorColor(0);
+        TbTabLayout.e b = this.fpk.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_recently));
+        TbTabLayout.e b2 = this.fpk.rj().b(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_attention));
+        this.fpk.a(b, false);
+        this.fpk.a(b2, false);
+    }
+
+    private void initViewPager() {
+        this.fpl = new SelectForumPagerAdapter(this.mPageContext);
+        this.eAA.setAdapter(this.fpl);
+        this.fpk.setupWithViewPager(this.eAA);
+        sn(com.baidu.tbadk.core.sharedPref.b.bjf().getInt(this.fpi, 0));
+        this.fpk.setOnTabSelectedListener(this);
+        this.eAA.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.f.1
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageScrolled(int i, float f, int i2) {
             }
-            byte[] decodeHex = decodeHex(str);
-            if (decodeHex == null || decodeHex.length <= 0) {
-                TiebaStatic.log(new aq("c10836").dD("obj_type", "server_data is null").dD("obj_source", file.getName()));
-                return false;
+
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageSelected(int i) {
             }
-            byte[] decryptWithRSA = u.decryptWithRSA(loadRSAPublicKey, decodeHex);
-            if (decryptWithRSA == null || decryptWithRSA.length <= 0) {
-                TiebaStatic.log(new aq("c10836").dD("obj_type", "des is null").dD("obj_source", file.getName()));
-                return false;
+
+            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            public void onPageScrollStateChanged(int i) {
+                f.this.fpn = i == 0;
             }
-            String trim = new String(decryptWithRSA, "UTF-8").trim();
-            String md5 = s.toMd5(new FileInputStream(file));
-            if (md5 != null) {
-                md5 = md5.trim();
-            }
-            if (TextUtils.isEmpty(md5) || TextUtils.isEmpty(trim)) {
-                TiebaStatic.log(new aq("c10836").dD("obj_type", "apkMd5 or serverMD5 is null").dD("obj_source", file.getName()));
-                return false;
-            } else if (md5.equalsIgnoreCase(trim)) {
-                return true;
-            } else {
-                TiebaStatic.log(new aq("c10836").dD("obj_type", "apkMd5 != serverMD5").dD("obj_source", file.getName()));
-                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                return false;
-            }
-        } catch (Exception e) {
-            TiebaStatic.log(new aq("c10836").dD("obj_type", "exception:" + e.getMessage()).dD("obj_source", file.getName()));
-            BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
-            return false;
+        });
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.fpj) {
         }
     }
 
-    private static int e(char c) {
-        int digit = Character.digit(c, 16);
-        if (digit == -1) {
-            throw new RuntimeException("Illegal hexadecimal character " + c);
-        }
-        return digit;
+    @Override // com.baidu.adp.widget.design.TbTabLayout.b
+    public void h(TbTabLayout.e eVar) {
+        TiebaStatic.log(new aq("c13994").ai("obj_type", eVar.getPosition() + 1));
+        com.baidu.tbadk.core.sharedPref.b.bjf().putInt(this.fpi, eVar.getPosition());
     }
 
-    public static byte[] decodeHex(String str) {
-        int i = 0;
-        if (str == null) {
-            throw new IllegalArgumentException("binary string is null");
+    @Override // com.baidu.adp.widget.design.TbTabLayout.b
+    public void i(TbTabLayout.e eVar) {
+    }
+
+    @Override // com.baidu.adp.widget.design.TbTabLayout.b
+    public void j(TbTabLayout.e eVar) {
+    }
+
+    public boolean sn(int i) {
+        if (i < 0 || i > 1) {
+            return false;
         }
-        char[] charArray = str.toCharArray();
-        byte[] bArr = new byte[charArray.length / 2];
-        if (charArray.length % 2 != 0) {
-            return null;
+        TbTabLayout.e aU = this.fpk.aU(i);
+        if (aU == null || aU.isSelected()) {
+            return true;
         }
-        for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
-            int i3 = i + 1;
-            int e = e(charArray[i]) << 4;
-            i = i3 + 1;
-            bArr[i2] = (byte) (e(charArray[i3]) | e);
-        }
-        return bArr;
+        aU.select();
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.suspended.a
+    public boolean bvP() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.suspended.a
+    public boolean bvQ() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.suspended.a
+    public void qV(int i) {
+        SvgManager.bkl().a(this.fpj, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.fpk.setTabTextColors(ap.getColor(R.color.cp_cont_c), ap.getColor(R.color.cp_cont_b));
+        this.fpl.bBx();
+    }
+
+    @Override // com.baidu.tbadk.suspended.a
+    public Intent bvR() {
+        return this.fpm;
     }
 }

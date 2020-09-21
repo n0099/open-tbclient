@@ -1,5 +1,5 @@
 package com.baidu.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class j extends g {
     public j(int i, int i2) {
         this.a = 4294967295L;

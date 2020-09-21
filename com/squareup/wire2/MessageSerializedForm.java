@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 final class MessageSerializedForm<M extends Message<M, B>, B extends Message.a<M, B>> implements Serializable {
     private static final long serialVersionUID = 0;
     private final byte[] bytes;

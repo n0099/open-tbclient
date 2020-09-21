@@ -1,59 +1,30 @@
 package com.baidu.tieba.aiapps.apps.k;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.ap.p;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.process.messaging.service.e;
-import com.baidu.swan.veloce.c;
-/* loaded from: classes19.dex */
-public class a implements com.baidu.swan.veloce.a {
-    @Override // com.baidu.swan.veloce.a
-    public Bundle g(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.swan.apps.t.b.g;
+import com.baidu.swan.apps.view.SwanAppErrorDialog;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.R;
+/* loaded from: classes24.dex */
+public class a implements g {
+    @Override // com.baidu.swan.apps.t.b.g
+    public boolean a(Context context, String str, com.baidu.swan.apps.am.a aVar) {
+        aq aqVar = new aq("c13607");
+        aqVar.dF("uid", com.baidu.tieba.aiapps.apps.a.a.bDK().getUid() == null ? "" : com.baidu.tieba.aiapps.apps.a.a.bDK().getUid());
+        aqVar.u("obj_param1", aVar.aEI());
+        aqVar.dF(TiebaInitialize.Params.OBJ_PARAM2, aVar.aEJ());
+        TiebaStatic.log(aqVar);
+        if (aVar.aEH() == 10 && aVar.aEI() == 1013) {
+            bEB();
+            return true;
         }
-        char c = 65535;
-        switch (str.hashCode()) {
-            case -504534151:
-                if (str.equals("veloce_sync_account_info")) {
-                    c = 0;
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-                return ai(bundle);
-            default:
-                return c.i(str, bundle);
-        }
+        return false;
     }
 
-    private Bundle ai(Bundle bundle) {
-        if (bundle == null) {
-        }
-        return null;
-    }
-
-    @Override // com.baidu.swan.veloce.a
-    public void aWH() {
-        p.aEN();
-        p.aEM();
-        p.aEO();
-        try {
-            new UnitedSchemeMainDispatcher();
-            SwanLauncher.alu();
-            e.ayg();
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // com.baidu.swan.veloce.a
-    public void xC(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.tt(str);
-        }
+    private void bEB() {
+        SwanAppErrorDialog.aGB().jc(R.string.swan_app_update_title).jd(R.string.swan_app_update_msg).a(R.string.swan_app_update_btn, (DialogInterface.OnClickListener) null).show();
     }
 }

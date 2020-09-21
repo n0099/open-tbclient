@@ -12,7 +12,7 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BitmapDescriptorFactory {
     static final /* synthetic */ boolean a;
     private static final String b;

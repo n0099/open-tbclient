@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     private final List<Pair> possibleLeftPairs = new ArrayList();
     private final List<Pair> possibleRightPairs = new ArrayList();

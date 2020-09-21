@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import com.baidu.vi.VIContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private int a = -1;
     private int b = -1;

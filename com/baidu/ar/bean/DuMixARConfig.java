@@ -1,5 +1,5 @@
 package com.baidu.ar.bean;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DuMixARConfig {
     private static String mAPIKey;
     private static String mAipAppId;

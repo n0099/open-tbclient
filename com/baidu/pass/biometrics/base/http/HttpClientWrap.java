@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class HttpClientWrap {
     private static final String a = "encode";
     private static final String b = "ua";

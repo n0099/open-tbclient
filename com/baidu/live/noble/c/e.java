@@ -11,26 +11,26 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private a bgc;
-    private HttpMessageListener bgd = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
+    private a biU;
+    private HttpMessageListener biV = new HttpMessageListener(1021190) { // from class: com.baidu.live.noble.c.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.bgc != null) {
-                com.baidu.live.noble.data.b LU = ((AlaNobleUserListResponseMessage) httpResponsedMessage).LU();
-                if (LU != null) {
-                    e.this.bgc.a(LU);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaNobleUserListResponseMessage) && e.this.biU != null) {
+                com.baidu.live.noble.data.b Mx = ((AlaNobleUserListResponseMessage) httpResponsedMessage).Mx();
+                if (Mx != null) {
+                    e.this.biU.a(Mx);
                 } else {
-                    e.this.bgc.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    e.this.biU.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(com.baidu.live.noble.data.b bVar);
 
@@ -39,12 +39,12 @@ public class e extends BdBaseModel {
 
     public e(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.bgc = aVar;
-        Ma();
-        MessageManager.getInstance().registerListener(this.bgd);
+        this.biU = aVar;
+        MD();
+        MessageManager.getInstance().registerListener(this.biV);
     }
 
-    private void Ma() {
+    private void MD() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021190, TbConfig.SERVER_HOST + "liveserver/noble/ulist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -56,7 +56,7 @@ public class e extends BdBaseModel {
     public void ax(String str, String str2) {
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             HttpMessage httpMessage = new HttpMessage(1021190);
-            httpMessage.addParam("scene_from", p.EZ());
+            httpMessage.addParam("scene_from", p.Fz());
             httpMessage.addParam("anchor_id", str);
             httpMessage.addParam("live_id", str2);
             MessageManager.getInstance().sendMessage(httpMessage);
@@ -75,6 +75,6 @@ public class e extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021190);
-        MessageManager.getInstance().unRegisterListener(this.bgd);
+        MessageManager.getInstance().unRegisterListener(this.biV);
     }
 }

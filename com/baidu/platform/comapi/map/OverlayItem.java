@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class OverlayItem {
     public static final int ALIGN_BOTTON = 2;
     public static final int ALIGN_TOP = 3;
@@ -28,7 +28,7 @@ public class OverlayItem {
     private float k = 1.0f;
     private ArrayList<Bundle> l = new ArrayList<>();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum AnimEffect {
         NONE,
         GROWTH,
@@ -42,7 +42,7 @@ public class OverlayItem {
         ALPHA
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum CoordType {
         CoordType_BD09LL,
         CoordType_BD09

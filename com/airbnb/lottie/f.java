@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class f {
     private static final Map<String, m<e>> Bb = new HashMap();
 
@@ -33,7 +33,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() {
                 return f.u(applicationContext, str);
             }
@@ -61,7 +61,7 @@ public class f {
         return a(U(i), new Callable<l<e>>() { // from class: com.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() {
                 return f.e(applicationContext, i);
             }
@@ -85,7 +85,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() {
                 return f.c(inputStream, str);
             }
@@ -112,7 +112,7 @@ public class f {
         return a(str2, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() {
                 return f.o(str, str2);
             }
@@ -128,7 +128,7 @@ public class f {
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() {
                 return f.b(jsonReader, str);
             }
@@ -139,7 +139,7 @@ public class f {
     public static l<e> b(JsonReader jsonReader, @Nullable String str) {
         try {
             e d = t.d(jsonReader);
-            com.airbnb.lottie.model.g.jA().a(str, d);
+            com.airbnb.lottie.model.g.jB().a(str, d);
             return new l<>(d);
         } catch (Exception e) {
             return new l<>(e);
@@ -193,7 +193,7 @@ public class f {
                     return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.airbnb.lottie.model.g.jA().a(str, eVar2);
+            com.airbnb.lottie.model.g.jB().a(str, eVar2);
             return new l<>(eVar2);
         } catch (IOException e) {
             return new l<>(e);
@@ -211,12 +211,12 @@ public class f {
     }
 
     private static m<e> a(@Nullable final String str, Callable<l<e>> callable) {
-        final e bm = com.airbnb.lottie.model.g.jA().bm(str);
+        final e bm = com.airbnb.lottie.model.g.jB().bm(str);
         if (bm != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.f.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: iD */
+                /* renamed from: iE */
                 public l<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new l<>(e.this);
@@ -232,7 +232,7 @@ public class f {
             @Override // com.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.airbnb.lottie.model.g.jA().a(str, eVar);
+                    com.airbnb.lottie.model.g.jB().a(str, eVar);
                 }
                 f.Bb.remove(str);
             }

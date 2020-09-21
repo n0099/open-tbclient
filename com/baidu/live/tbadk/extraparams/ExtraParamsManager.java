@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ExtraParamsManager {
     public static final String KEY_BUY_TBEAN_RESULT_CALLBACK = "buy_tbean_result_callback";
     public static final String KEY_CMD = "cmd";
@@ -34,6 +34,10 @@ public class ExtraParamsManager {
     public static final String KEY_PARAMS_JSON = "params_json";
     public static final String KEY_PROCESS_PLUGIN_ASYNC_CALLBACK = "process_plugin_async_callback";
     public static final String KEY_RESULT = "result";
+    public static final String KEY_SHOW_MODIFY_NICKNAME_DIALOG = "showModifyNickNameDialog";
+    public static final String KEY_STORAGE_CLEAN_SPACE_CLEANABLE = "storage_clean_space_cleanable";
+    public static final String KEY_STORAGE_FETCH_SPACE_CLEANABLE = "storage_fetch_space_cleanable";
+    public static final String KEY_STORAGE_FETCH_SPACE_TOTAL = "storage_fetch_space_total";
     public static final String KEY_SYNC_WEB_COOKIE = "sync_web_cookie";
     public static final String PARAM_LOG_DATA = "log_data";
     public static final String PARAM_LOG_ISPACKAGE = "log_isPackageLog";
@@ -371,7 +375,7 @@ public class ExtraParamsManager {
         Log.i("ExtraParamsManager", "syncWebCookie");
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class InstanceHolder {
         private static final ExtraParamsManager sInst = new ExtraParamsManager();
     }

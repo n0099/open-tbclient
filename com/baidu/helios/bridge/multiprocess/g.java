@@ -1,7 +1,7 @@
 package com.baidu.helios.bridge.multiprocess;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes23.dex */
 public class g {
     private Context a;
 
@@ -9,7 +9,7 @@ public class g {
         this.a = context;
     }
 
-    public com.baidu.helios.bridge.a zK() {
+    public com.baidu.helios.bridge.a zY() {
         return com.baidu.helios.a.af(this.a);
     }
 }

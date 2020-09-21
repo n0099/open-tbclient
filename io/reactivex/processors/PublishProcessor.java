@@ -4,12 +4,12 @@ import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class PublishProcessor<T> extends a<T> {
-    static final PublishSubscription[] ort = new PublishSubscription[0];
-    static final PublishSubscription[] oru = new PublishSubscription[0];
+    static final PublishSubscription[] oBa = new PublishSubscription[0];
+    static final PublishSubscription[] oBb = new PublishSubscription[0];
     Throwable error;
     final AtomicReference<PublishSubscription<T>[]> subscribers;
 
@@ -37,7 +37,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr == ort) {
+            if (publishSubscriptionArr == oBa) {
                 return false;
             }
             int length = publishSubscriptionArr.length;
@@ -53,7 +53,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr != ort && publishSubscriptionArr != oru) {
+            if (publishSubscriptionArr != oBa && publishSubscriptionArr != oBb) {
                 int length = publishSubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -69,7 +69,7 @@ public final class PublishProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishSubscriptionArr2 = oru;
+                        publishSubscriptionArr2 = oBb;
                     } else {
                         publishSubscriptionArr2 = new PublishSubscription[length - 1];
                         System.arraycopy(publishSubscriptionArr, 0, publishSubscriptionArr2, 0, i);
@@ -84,49 +84,49 @@ public final class PublishProcessor<T> extends a<T> {
         } while (!this.subscribers.compareAndSet(publishSubscriptionArr, publishSubscriptionArr2));
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == ort) {
+        if (this.subscribers.get() == oBa) {
             dVar.cancel();
         } else {
             dVar.request(Long.MAX_VALUE);
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.k(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != ort) {
+        if (this.subscribers.get() != oBa) {
             for (PublishSubscription<T> publishSubscription : this.subscribers.get()) {
                 publishSubscription.onNext(t);
             }
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.k(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == ort) {
+        if (this.subscribers.get() == oBa) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(ort)) {
+        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(oBa)) {
             publishSubscription.onError(th);
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
-        if (this.subscribers.get() != ort) {
-            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(ort)) {
+        if (this.subscribers.get() != oBa) {
+            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(oBa)) {
                 publishSubscription.onComplete();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class PublishSubscription<T> extends AtomicLong implements d {
         private static final long serialVersionUID = 3562861878281475070L;
         final c<? super T> actual;
@@ -164,14 +164,14 @@ public final class PublishProcessor<T> extends a<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.b(this, j);
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.b(this);

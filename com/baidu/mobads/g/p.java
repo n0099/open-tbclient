@@ -1,7 +1,7 @@
 package com.baidu.mobads.g;
 
 import android.content.SharedPreferences;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class p implements SharedPreferences.OnSharedPreferenceChangeListener {
     final /* synthetic */ o a;
 

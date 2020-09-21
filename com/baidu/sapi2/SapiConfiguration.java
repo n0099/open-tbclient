@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class SapiConfiguration implements NoProguard {
     public static final int JOIN_LOGIN = 4;
     public static final int QUICK_LOGIN_VIEW_BTN_ACTION_CHINA_MOBILE_OAUTH = 5;
@@ -215,7 +215,7 @@ public final class SapiConfiguration implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class Builder implements NoProguard {
         private String A;
         private String B;
@@ -668,7 +668,7 @@ public final class SapiConfiguration implements NoProguard {
         this.supportMultipleAccounts = builder.j0;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class SmsLoginConfig implements NoProguard {
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;

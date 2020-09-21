@@ -27,7 +27,7 @@ import com.heytap.mcssdk.mode.SubscribeResult;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static Handler i;
     private static ConnectivityManager.NetworkCallback m;
@@ -44,7 +44,7 @@ public class f {
     private static long l = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
         public a(Context context) {
             super(context.getMainLooper());
@@ -60,7 +60,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
         private Context a;
 

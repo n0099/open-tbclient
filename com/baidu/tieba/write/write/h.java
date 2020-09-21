@@ -27,22 +27,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class h extends BaseAdapter {
-    private com.baidu.tbadk.img.b eLP;
-    private n eLZ;
+    private com.baidu.tbadk.img.b eOh;
+    private n eOr;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private a mWH;
-    private int mWI;
+    private a ngG;
+    private int ngH;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean mNR = false;
+    private boolean mXO = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void JI(int i);
+        void Kn(int i);
 
-        void JS(int i);
+        void Kx(int i);
 
-        void dIX();
+        void dMV();
     }
 
     private String getString(int i) {
@@ -50,22 +50,22 @@ public class h extends BaseAdapter {
     }
 
     public h(Context context, com.baidu.tbadk.img.b bVar, n nVar, a aVar) {
-        this.eLZ = nVar;
+        this.eOr = nVar;
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
-        this.eLP = bVar;
-        this.mWH = aVar;
+        this.eOh = bVar;
+        this.ngG = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
         if (writeImagesInfo != null) {
-            this.mWI = writeImagesInfo.getMaxImagesAllowed();
+            this.ngH = writeImagesInfo.getMaxImagesAllowed();
             int count = y.getCount(writeImagesInfo.getChosedFiles());
             this.mDataList.clear();
             if (count > 0) {
                 this.mDataList.addAll(writeImagesInfo.getChosedFiles());
             }
-            if (count < this.mWI && this.mNR) {
+            if (count < this.ngH && this.mXO) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath("FLAG_ADD_ICON");
                 this.mDataList.add(imageFileInfo);
@@ -118,15 +118,15 @@ public class h extends BaseAdapter {
         if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
             tbImageView.setVisibility(8);
             linearLayout.setVisibility(8);
-            inflate.setBackgroundDrawable(SvgManager.bjq().a(R.drawable.ic_icon_pure_post_add_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS));
+            inflate.setBackgroundDrawable(SvgManager.bkl().a(R.drawable.ic_icon_pure_post_add_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS));
             inflate.invalidate();
             frameLayout.setForeground(null);
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.h.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (h.this.mWH != null) {
+                    if (h.this.ngG != null) {
                         TiebaStatic.log(new aq("c12612").ai("obj_locate", 13));
-                        h.this.mWH.dIX();
+                        h.this.ngG.dMV();
                     }
                 }
             });
@@ -167,11 +167,11 @@ public class h extends BaseAdapter {
                             com.baidu.adp.lib.util.l.showLongToast(h.this.mContext, R.string.editor_mutiiamge_image_error);
                             return;
                         }
-                        if (h.this.eLZ != null) {
-                            h.this.eLZ.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
+                        if (h.this.eOr != null) {
+                            h.this.eOr.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                         }
-                        if (h.this.mWH != null) {
-                            h.this.mWH.JS(i);
+                        if (h.this.ngG != null) {
+                            h.this.ngG.Kx(i);
                         }
                     }
                 }
@@ -180,8 +180,8 @@ public class h extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.h.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (h.this.mWH != null) {
-                    h.this.mWH.JI(i);
+                if (h.this.ngG != null) {
+                    h.this.ngG.Kn(i);
                 }
             }
         });
@@ -196,12 +196,12 @@ public class h extends BaseAdapter {
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
             ((FrameLayout) view.findViewById(R.id.item_root)).setForeground(ap.getDrawable(R.drawable.new_frame_add_photo_foreground_selector));
             if (imageFileInfo.getImageType() == 0) {
-                com.baidu.adp.widget.ImageView.a a2 = this.eLP.a(imageFileInfo, true);
+                com.baidu.adp.widget.ImageView.a a2 = this.eOh.a(imageFileInfo, true);
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
                     tbImageView.invalidate();
                 } else {
-                    this.eLP.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.h.4
+                    this.eOh.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.h.4
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                             TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -215,9 +215,9 @@ public class h extends BaseAdapter {
             } else if (imageFileInfo.getImageType() == 1) {
                 String filePath = imageFileInfo.getFilePath();
                 if (!at.isEmpty(filePath) && filePath.startsWith("#(")) {
-                    final String genCacheKey = com.baidu.adp.lib.e.c.mM().genCacheKey(filePath, 20);
+                    final String genCacheKey = com.baidu.adp.lib.e.c.mR().genCacheKey(filePath, 20);
                     tbImageView.setTag(genCacheKey);
-                    com.baidu.adp.lib.e.c.mM().a(filePath, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.write.write.h.5
+                    com.baidu.adp.lib.e.c.mR().a(filePath, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.write.write.h.5
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
@@ -234,7 +234,7 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void xg(boolean z) {
-        this.mNR = z;
+    public void xp(boolean z) {
+        this.mXO = z;
     }
 }

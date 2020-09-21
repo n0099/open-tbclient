@@ -1,15 +1,25 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-/* loaded from: classes7.dex */
+import android.text.style.ForegroundColorSpan;
+import android.text.style.URLSpan;
+/* loaded from: classes4.dex */
 public class c {
-    private static int bqt = 0;
-    private static boolean bqu = false;
-    private static boolean bqv = false;
+    public boolean btA = false;
+    private ForegroundColorSpan btB;
+    private URLSpan btC;
+    public int btx;
+    public int bty;
+    public int btz;
+    public String mUrl;
 
-    public static boolean ax(Context context) {
-        return new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null;
+    public c(ForegroundColorSpan foregroundColorSpan) {
+        this.btB = foregroundColorSpan;
+        this.btz = foregroundColorSpan.getForegroundColor();
+    }
+
+    public void a(URLSpan uRLSpan) {
+        this.btC = uRLSpan;
+        this.mUrl = uRLSpan.getURL();
+        this.btA = true;
     }
 }

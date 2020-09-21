@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m extends c {
     protected String d;
 

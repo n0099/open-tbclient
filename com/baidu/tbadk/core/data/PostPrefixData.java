@@ -70,6 +70,33 @@ public class PostPrefixData extends OrmObject implements Serializable {
         }
     }
 
+    public void parserProtobuf(tbclient.PostPrefix postPrefix) {
+        if (postPrefix != null) {
+            int intValue = postPrefix.mode.intValue();
+            if (intValue == 0) {
+                String str = postPrefix.text;
+                if (!TextUtils.isEmpty(str)) {
+                    this.prefixs.add(str);
+                }
+            } else if (intValue == 1) {
+                String str2 = postPrefix.text;
+                if (!TextUtils.isEmpty(str2)) {
+                    String str3 = postPrefix.type;
+                    if (!TextUtils.isEmpty(str3)) {
+                        String[] split = str3.split(" ");
+                        for (int i = 0; i < split.length; i++) {
+                            if (!TextUtils.isEmpty(split[i].trim())) {
+                                this.prefixs.add(str2.replace("#type#", split[i]));
+                            }
+                        }
+                        return;
+                    }
+                    this.prefixs.add(str2);
+                }
+            }
+        }
+    }
+
     public String getImplicitTitle() {
         return this.implicitTitle;
     }

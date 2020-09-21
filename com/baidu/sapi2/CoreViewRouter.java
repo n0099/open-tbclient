@@ -84,7 +84,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class CoreViewRouter implements NoProguard {
     private static CoreViewRouter y;
     private static LoginStatusChangeCallback z;
@@ -114,7 +114,7 @@ public class CoreViewRouter implements NoProguard {
     private Context x = SapiAccountManager.getInstance().getSapiConfiguration().context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class a extends GetTplStokenCallback {
         final /* synthetic */ Activity a;
         final /* synthetic */ String b;
@@ -160,12 +160,12 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public class b extends b.AbstractC0302b {
+    /* loaded from: classes25.dex */
+    public class b extends b.AbstractC0300b {
         b() {
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0302b
+        @Override // com.baidu.sapi2.share.b.AbstractC0300b
         public void onFailed(int i, String str) {
             super.onFailed(i, str);
             WebAuthResult webAuthResult = new WebAuthResult();
@@ -177,7 +177,7 @@ public class CoreViewRouter implements NoProguard {
             CoreViewRouter.getInstance().release();
         }
 
-        @Override // com.baidu.sapi2.share.b.AbstractC0302b
+        @Override // com.baidu.sapi2.share.b.AbstractC0300b
         public void onSuccess() {
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.accountType = AccountType.NORMAL;
@@ -190,7 +190,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class c extends QrLoginCallback {
         final /* synthetic */ QrLoginCallback a;
         final /* synthetic */ List b;
@@ -215,7 +215,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class d extends WebAuthListener {
         final /* synthetic */ List a;
         final /* synthetic */ String b;
@@ -240,7 +240,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     class e extends AuthWidgetCallback {
         final /* synthetic */ Activity a;
         final /* synthetic */ RegisterUserFaceIDCallback b;
@@ -267,7 +267,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     class f extends GetTplStokenCallback {
         final /* synthetic */ Activity a;
         final /* synthetic */ FaceIDVerifyDTO b;
@@ -315,7 +315,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class g extends PassFaceRecogCallback {
         final /* synthetic */ RealNameFaceIDResult a;
         final /* synthetic */ VerifyUserFaceIDCallback b;
@@ -349,7 +349,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class h extends PassFaceRecogCallback {
         final /* synthetic */ UnRealNameFaceIDResult a;
         final /* synthetic */ String b;
@@ -390,7 +390,7 @@ public class CoreViewRouter implements NoProguard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     class i implements SapiCallback<SapiResult> {
         final /* synthetic */ int a;
         final /* synthetic */ Activity b;
@@ -465,7 +465,7 @@ public class CoreViewRouter implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class j extends PassFaceRecogCallback {
         final /* synthetic */ ExtendSysWebViewMethodResult a;
         final /* synthetic */ ExtendSysWebViewMethodCallback b;
@@ -867,7 +867,7 @@ public class CoreViewRouter implements NoProguard {
             new OneKeyLoginSdkCall().b(SapiAccountManager.getInstance().getSapiConfiguration(), new OneKeyLoginSdkCall.TokenListener() { // from class: com.baidu.sapi2.CoreViewRouter.11
 
                 /* renamed from: com.baidu.sapi2.CoreViewRouter$11$a */
-                /* loaded from: classes12.dex */
+                /* loaded from: classes25.dex */
                 class a implements com.baidu.sapi2.callback.a.b {
                     a() {
                     }

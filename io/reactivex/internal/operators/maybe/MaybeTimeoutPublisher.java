@@ -7,21 +7,21 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     final o<? extends T> fallback;
-    final org.b.b<U> onu;
+    final org.a.b<U> oxd;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TimeoutMainMaybeObserver timeoutMainMaybeObserver = new TimeoutMainMaybeObserver(mVar, this.fallback);
         mVar.onSubscribe(timeoutMainMaybeObserver);
-        this.onu.subscribe(timeoutMainMaybeObserver.other);
+        this.oxd.subscribe(timeoutMainMaybeObserver.other);
         this.source.a(timeoutMainMaybeObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimeoutMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -5955289211445418871L;
         final m<? super T> actual;
@@ -100,7 +100,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimeoutOtherMaybeObserver<T, U> extends AtomicReference<d> implements j<Object> {
         private static final long serialVersionUID = 8663801314800248617L;
         final TimeoutMainMaybeObserver<T, U> parent;
@@ -109,32 +109,32 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
             this.parent = timeoutMainMaybeObserver;
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(Object obj) {
             get().cancel();
             this.parent.otherComplete();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.otherError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.parent.otherComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class TimeoutFallbackMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = 8663801314800248617L;
         final m<? super T> actual;

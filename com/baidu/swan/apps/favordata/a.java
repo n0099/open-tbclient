@@ -2,7 +2,7 @@ package com.baidu.swan.apps.favordata;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Map<String, String> C(String str, String str2, String str3) {
         HashMap hashMap = new HashMap();

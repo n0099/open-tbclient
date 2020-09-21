@@ -9,16 +9,16 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends TBSpecificationButtonConfig {
     public a() {
-        this.ewF = R.color.cp_cont_a;
-        this.ewH = R.color.cp_link_tip_a;
+        this.eyM = R.color.cp_cont_a;
+        this.eyO = R.color.cp_link_tip_a;
     }
 
-    public void pb(@ColorRes int i) {
-        this.ewH = i;
-        this.ewF = R.color.cp_cont_a;
-        this.ewR = true;
-        if (this.ewT != null) {
-            this.ewT.bll();
+    public void pp(@ColorRes int i) {
+        this.eyO = i;
+        this.eyM = R.color.cp_cont_a;
+        this.eyY = true;
+        if (this.eza != null) {
+            this.eza.bmg();
         }
     }
 
@@ -30,17 +30,17 @@ public class a extends TBSpecificationButtonConfig {
 
     private Drawable ab(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.ewR) {
-            this.ewF = ap.getColor(this.aiD, R.color.cp_cont_a);
+        if (!this.eyY) {
+            this.eyM = ap.getColor(this.aiX, R.color.cp_cont_a);
         }
-        int color = this.ewR ? ap.getColor(this.aiD, this.ewH) : this.ewH;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.HF(color), color};
+        int color = this.eyY ? ap.getColor(this.aiX, this.eyO) : this.eyO;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.Ii(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(this.ewS);
+            gradientDrawable.setOrientation(this.eyZ);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(this.ewS, iArr);
+            gradientDrawable = new GradientDrawable(this.eyZ, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

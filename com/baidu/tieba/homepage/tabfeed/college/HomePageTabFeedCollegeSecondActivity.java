@@ -22,9 +22,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
-    private f<SpecialColumnItemData> iLq = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
+    private f<SpecialColumnItemData> iTW = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
@@ -53,8 +53,8 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
             }
         }
     };
-    private BdRecyclerView iSg;
-    private a iSh;
+    private BdRecyclerView jaM;
+    private a jaN;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,42 +65,42 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_college_petrol_station);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.iSg = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
+        this.jaM = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
-            final List<SpecialColumnItemData> bGj = specialColumnListData.bGj();
-            if (bGj != null && bGj.size() > 0) {
-                SpecialColumnItemData specialColumnItemData = bGj.get(0);
+            final List<SpecialColumnItemData> bHz = specialColumnListData.bHz();
+            if (bHz != null && bHz.size() > 0) {
+                SpecialColumnItemData specialColumnItemData = bHz.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
-                    this.iSg.setLayoutManager(new LinearLayoutManager(this));
+                    this.jaM.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
                         @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
                         public int getSpanSize(int i) {
-                            return i == bGj.size() ? 2 : 1;
+                            return i == bHz.size() ? 2 : 1;
                         }
                     });
-                    this.iSg.setLayoutManager(gridLayoutManager);
+                    this.jaM.setLayoutManager(gridLayoutManager);
                     int dimens = l.getDimens(this, R.dimen.tbds44);
                     int dimens2 = l.getDimens(this, R.dimen.tbds44);
-                    this.iSg.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
+                    this.jaM.addItemDecoration(new p(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.iSh = new a(this, bGj);
+            this.jaN = new a(this, bHz);
         }
-        this.iSh.a(this.iLq);
-        this.iSg.setAdapter(this.iSh);
+        this.jaN.a(this.iTW);
+        this.jaM.setAdapter(this.jaN);
         View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_homepage_tabfeed_footer_view_layout, (ViewGroup) null);
         ap.setViewTextColor(inflate.findViewById(R.id.tv_footer_content), R.color.cp_cont_d, 1);
-        this.iSg.addFooterView(inflate);
+        this.jaM.addFooterView(inflate);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iSh.notifyDataSetChanged();
+        this.jaN.notifyDataSetChanged();
     }
 }

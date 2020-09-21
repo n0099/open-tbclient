@@ -10,12 +10,12 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.util.Log;
 import android.view.View;
-import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.manage.MutexPopManager;
 import com.baidu.android.ext.manage.PopItem;
 import com.baidu.android.ext.manage.PopItemMethodConstant;
+import com.baidu.android.toast.R;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class UniversalToast implements PopItem {
     public static final int BOTTOM_ICON_STYLE_RECT = 2;
     public static final int BOTTOM_ICON_STYLE_ROUND = 1;
@@ -26,6 +26,7 @@ public class UniversalToast implements PopItem {
     public static final int BUTTON_STYLE_LINE_TEXT_ICON = 1;
     private static final String TAG = "UniversalToast";
     private static boolean mIsDebug = false;
+    private int mBottomMargin;
     private CharSequence mBtnText;
     private int mBtnTextSize;
     private Drawable mButtonIcon;
@@ -48,17 +49,17 @@ public class UniversalToast implements PopItem {
     private int mDuration = 2;
     private int mTextSize = 14;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface OnDismissListener {
         void onDismiss();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ToastCallback {
         void onToastClick();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ToastCallbackWithAction extends ToastCallback {
         public static final int ACTION_CANCEL = -1;
         public static final int ACTION_CONFIRM = 0;
@@ -160,6 +161,11 @@ public class UniversalToast implements PopItem {
         } else {
             this.mDuration = i;
         }
+        return this;
+    }
+
+    public UniversalToast setBottomMargin(int i) {
+        this.mBottomMargin = i;
         return this;
     }
 
@@ -483,19 +489,19 @@ public class UniversalToast implements PopItem {
         if (checkToastParams()) {
             cancelToast();
             if (z) {
-                SingleToast.showIconTitleMsgBtnToast(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.mToastCallback);
+                SingleToast.showIconTitleMsgBtnToast(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.mBottomMargin, this.mToastCallback);
             } else if (this.mContext instanceof Activity) {
                 if (this.mOnDismissListener != null) {
                     ViewToast.setOnDismissListener(this.mOnDismissListener);
                     this.mOnDismissListener = null;
                 }
-                ViewToast.showIconTitleMsgBtnToast((Activity) this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mBottomShowAnimationType, this.mDuration, this.mToastCallback);
+                ViewToast.showIconTitleMsgBtnToast((Activity) this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mBottomShowAnimationType, this.mDuration, this.mBottomMargin, this.mToastCallback);
             } else {
                 if (this.mOnDismissListener != null) {
                     SingleToast.setOnDismissListener(this.mOnDismissListener);
                     this.mOnDismissListener = null;
                 }
-                SingleToast.showIconTitleMsgBtnToast(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.mToastCallback);
+                SingleToast.showIconTitleMsgBtnToast(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.mBottomMargin, this.mToastCallback);
             }
         }
     }

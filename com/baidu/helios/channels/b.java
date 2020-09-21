@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private a avT;
+    private a awv;
     private Map<String, com.baidu.helios.channels.a> b = new HashMap();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        List<com.baidu.helios.channels.a> zQ();
+        List<com.baidu.helios.channels.a> Ae();
     }
 
     public b(a aVar) {
-        this.avT = aVar;
-        for (com.baidu.helios.channels.a aVar2 : aVar.zQ()) {
+        this.awv = aVar;
+        for (com.baidu.helios.channels.a aVar2 : aVar.Ae()) {
             this.b.put(aVar2.getName(), aVar2);
         }
     }
 
-    public List<com.baidu.helios.channels.a> zP() {
+    public List<com.baidu.helios.channels.a> Ad() {
         return new ArrayList(this.b.values());
     }
 }

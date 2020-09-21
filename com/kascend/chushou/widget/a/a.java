@@ -12,7 +12,7 @@ public class a implements d<ParserRet> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kascend.chushou.widget.a.d
     /* renamed from: c */
-    public long E(ParserRet parserRet) {
+    public long F(ParserRet parserRet) {
         boolean z;
         if (!d(parserRet)) {
             this.b = 1L;
@@ -39,7 +39,7 @@ public class a implements d<ParserRet> {
 
     @Override // com.kascend.chushou.widget.a.d
     public long a() {
-        return E(null);
+        return F(null);
     }
 
     @Override // com.kascend.chushou.widget.a.d

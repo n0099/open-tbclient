@@ -12,48 +12,48 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.k.a bGy;
+        final /* synthetic */ com.baidu.poly.a.k.a bIz;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.bGy = aVar;
+            this.bIz = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            a.C0270a c0270a = new a.C0270a();
+            a.C0268a c0268a = new a.C0268a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
-                    c0270a.statusCode = 0;
-                    c0270a.message = jSONObject.optString("msg");
+                    c0268a.statusCode = 0;
+                    c0268a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0270a.bGv = optJSONObject.optLong("totalAmount");
-                    c0270a.bGw = optJSONObject.optLong("userPayAmount");
-                    c0270a.bGx = optJSONObject.optString("usedhostMarketingDetail");
+                    c0268a.bIw = optJSONObject.optLong("totalAmount");
+                    c0268a.bIx = optJSONObject.optLong("userPayAmount");
+                    c0268a.bIy = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0270a.statusCode = jSONObject.optInt("errorLevel", 2);
-                    c0270a.message = jSONObject.optString("msg");
+                    c0268a.statusCode = jSONObject.optInt("errorLevel", 2);
+                    c0268a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
-                c0270a.statusCode = 2;
-                c0270a.message = g.Us().getResources().getString(b.g.calculate_price_default_error);
+                c0268a.statusCode = 2;
+                c0268a.message = g.Vb().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.bGy.a(c0270a);
+            this.bIz.a(c0268a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            a.C0270a c0270a = new a.C0270a();
-            c0270a.statusCode = 2;
-            c0270a.message = g.Us().getResources().getString(b.g.calculate_price_default_error);
-            this.bGy.a(c0270a);
+            a.C0268a c0268a = new a.C0268a();
+            c0268a.statusCode = 2;
+            c0268a.message = g.Vb().getResources().getString(b.g.calculate_price_default_error);
+            this.bIz.a(c0268a);
         }
     }
 

@@ -1,8 +1,8 @@
 package com.baidu.h.a.a;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class b {
     private String bduss;
-    private String bwA;
+    private String bzY;
     private String displayname;
     private String uid;
 
@@ -30,11 +30,11 @@ public class b {
         this.bduss = str;
     }
 
-    public String Rc() {
-        return this.bwA;
+    public String RT() {
+        return this.bzY;
     }
 
-    public void hA(String str) {
-        this.bwA = str;
+    public void hW(String str) {
+        this.bzY = str;
     }
 }

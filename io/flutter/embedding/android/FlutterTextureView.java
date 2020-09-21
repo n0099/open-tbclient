@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class FlutterTextureView extends TextureView implements RenderSurface {
     private static final String TAG = "FlutterTextureView";
     @Nullable

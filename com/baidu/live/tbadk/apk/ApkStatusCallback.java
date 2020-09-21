@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.apk;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface ApkStatusCallback {
     void onApkDownloadFailed(ApkData apkData, int i, String str);
 

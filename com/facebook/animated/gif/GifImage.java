@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GifImage implements c, b {
-    private static volatile boolean njI;
+    private static volatile boolean ntH;
     @d
     private long mNativeContext;
 
@@ -52,24 +52,24 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void dNM() {
+    private static synchronized void dRK() {
         synchronized (GifImage.class) {
-            if (!njI) {
-                njI = true;
+            if (!ntH) {
+                ntH = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
-    public static GifImage y(long j, int i) {
-        dNM();
+    public static GifImage B(long j, int i) {
+        dRK();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b z(long j, int i) {
-        return y(j, i);
+    public b C(long j, int i) {
+        return B(j, i);
     }
 
     @d
@@ -101,7 +101,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] dNN() {
+    public int[] dRL() {
         return nativeGetFrameDurations();
     }
 
@@ -120,13 +120,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: KN */
-    public GifFrame KQ(int i) {
+    /* renamed from: Ls */
+    public GifFrame Lv(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dNO() {
+    public boolean dRM() {
         return false;
     }
 
@@ -136,16 +136,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo KO(int i) {
-        GifFrame KQ = KQ(i);
+    public AnimatedDrawableFrameInfo Lt(int i) {
+        GifFrame Lv = Lv(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, KQ.getXOffset(), KQ.getYOffset(), KQ.getWidth(), KQ.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, KP(KQ.dNL()));
+            return new AnimatedDrawableFrameInfo(i, Lv.getXOffset(), Lv.getYOffset(), Lv.getWidth(), Lv.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Lu(Lv.dRJ()));
         } finally {
-            KQ.dispose();
+            Lv.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod KP(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod Lu(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

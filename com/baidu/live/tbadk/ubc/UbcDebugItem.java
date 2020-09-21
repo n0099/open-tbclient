@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UbcDebugItem {
     public JSONObject otherExt;
     public String page;

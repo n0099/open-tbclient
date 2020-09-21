@@ -1,67 +1,52 @@
 package com.baidu.tieba.ala;
 
-import android.content.Context;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.r;
-import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer;
-/* loaded from: classes7.dex */
-public class d implements com.baidu.live.y.d {
-    private LiveFreeTaskLayer fwW;
-    private CustomMessageListener fwX = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.d.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.live.y.e eVar = null;
-            if (customResponsedMessage.getData() instanceof com.baidu.live.y.e) {
-                eVar = (com.baidu.live.y.e) customResponsedMessage.getData();
-            }
-            if (eVar != null) {
-                d.this.p(d.this.mTbPageContext.getPageActivity(), eVar.bks);
-            } else {
-                d.this.p(d.this.mTbPageContext.getPageActivity(), false);
-            }
-        }
-    };
-    private TbPageContext mTbPageContext;
+import android.os.CountDownTimer;
+/* loaded from: classes4.dex */
+public class d extends CountDownTimer {
+    private a fAh;
+    private boolean isRunning;
 
-    public d(TbPageContext tbPageContext) {
-        this.mTbPageContext = tbPageContext;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onFinish();
+
+        void onTick(long j);
     }
 
-    public void p(Context context, boolean z) {
-        if (this.fwW == null) {
-            this.fwW = new LiveFreeTaskLayer(context);
-            this.fwW.setNeedHideAnim(true);
-            this.fwW.setNeedShowAnim(true);
-            this.fwW.setCanceledOnTouchOutside(true);
-        }
-        this.fwW.setIsFromFlowerGuide(z);
-        if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
-            BdUtilHelper.showToast(context, a.i.ala_task_page_not_support_landscape);
-        } else {
-            com.baidu.live.core.layer.b.Cl().d(this.fwW);
+    public d(long j, long j2) {
+        super(j, j2);
+        this.isRunning = false;
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        if (this.fAh != null) {
+            this.fAh.onTick(j);
         }
     }
 
-    @Override // com.baidu.live.y.d
-    public void h(r rVar) {
-        this.fwX.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fwX);
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        if (this.fAh != null) {
+            this.fAh.onFinish();
+        }
     }
 
-    @Override // com.baidu.live.y.d
-    public void KP() {
-        MessageManager.getInstance().unRegisterListener(this.fwX);
+    public void startTimer() {
+        this.isRunning = true;
+        start();
     }
 
-    @Override // com.baidu.live.y.d
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fwX);
+    public void cancelTimer() {
+        this.isRunning = false;
+        cancel();
+    }
+
+    public boolean isRunning() {
+        return this.isRunning;
+    }
+
+    public void a(a aVar) {
+        this.fAh = aVar;
     }
 }

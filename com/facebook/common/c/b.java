@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class b implements c {
-    public static final b nlf = new b();
-    private String nlg = "unknown";
-    private int nlh = 5;
+    public static final b nvf = new b();
+    private String nvg = "unknown";
+    private int nvh = 5;
 
-    public static b dOK() {
-        return nlf;
+    public static b dSI() {
+        return nvf;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.nlh <= i;
+        return this.nvh <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -62,16 +62,16 @@ public class b implements c {
     }
 
     private void println(int i, String str, String str2) {
-        Log.println(i, Ur(str), str2);
+        Log.println(i, UT(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Ur(str), j(str2, th));
+        Log.println(i, UT(str), j(str2, th));
     }
 
-    private String Ur(String str) {
-        if (this.nlg != null) {
-            return this.nlg + ":" + str;
+    private String UT(String str) {
+        if (this.nvg != null) {
+            return this.nvg + ":" + str;
         }
         return str;
     }

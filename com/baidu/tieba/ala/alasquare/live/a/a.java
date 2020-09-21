@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, com.baidu.tieba.ala.alasquare.b.a> {
-    private IAlaSquareTabController fCM;
+    private IAlaSquareTabController fFY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,8 +28,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: F */
-    public com.baidu.tieba.ala.alasquare.b.a b(ViewGroup viewGroup) {
+    /* renamed from: G */
+    public com.baidu.tieba.ala.alasquare.b.a c(ViewGroup viewGroup) {
         return new com.baidu.tieba.ala.alasquare.b.a(LayoutInflater.from(this.mContext).inflate(R.layout.square_live_category_layout, viewGroup, false));
     }
 
@@ -48,17 +48,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         }
         ap.setBackgroundColor(findViewById, R.color.cp_bg_line_e);
         ap.setBackgroundColor(aVar.mView, R.color.cp_bg_line_d);
-        ap.setViewTextColor(textView, (int) R.color.cp_cont_f);
-        ap.setViewTextColor(textView2, (int) R.color.cp_cont_d);
+        ap.setViewTextColor(textView, R.color.cp_cont_f);
+        ap.setViewTextColor(textView2, R.color.cp_cont_d);
         ap.setImageResource(imageView, R.drawable.icon_arrow_tab);
         textView.setText(!TextUtils.isEmpty(bVar.labelName) ? bVar.labelName : bVar.entryName);
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.fCM != null) {
-                    int tabIndex = a.this.fCM.getTabIndex(bVar.tabId);
+                if (a.this.fFY != null) {
+                    int tabIndex = a.this.fFY.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.fCM.goToTab(tabIndex);
+                        a.this.fFY.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -73,10 +73,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.fCZ == null || !(bVar.fCZ instanceof ArrayList)) ? null : (ArrayList) bVar.fCZ)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.fGl == null || !(bVar.fGl instanceof ArrayList)) ? null : (ArrayList) bVar.fGl)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.fCM = iAlaSquareTabController;
+        this.fFY = iAlaSquareTabController;
     }
 }

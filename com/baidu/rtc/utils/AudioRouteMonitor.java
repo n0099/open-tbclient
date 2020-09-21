@@ -8,17 +8,17 @@ import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class AudioRouteMonitor extends BroadcastReceiver {
     private int mBluetoothOpSeq;
     private a mCallback;
     private Context mContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface a {
-        void gg(int i);
+        void gq(int i);
 
-        void gh(int i);
+        void gr(int i);
     }
 
     public AudioRouteMonitor(a aVar) {
@@ -39,17 +39,17 @@ public class AudioRouteMonitor extends BroadcastReceiver {
         this.mContext.registerReceiver(this, intentFilter);
         try {
             if (BluetoothAdapter.getDefaultAdapter().getProfileConnectionState(1) == 2) {
-                this.mCallback.gh(1);
+                this.mCallback.gr(1);
             } else {
-                this.mCallback.gh(0);
+                this.mCallback.gr(0);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         if (((AudioManager) this.mContext.getSystemService("audio")).isWiredHeadsetOn()) {
-            this.mCallback.gg(1);
+            this.mCallback.gq(1);
         } else {
-            this.mCallback.gg(0);
+            this.mCallback.gq(0);
         }
         return 0;
     }
@@ -68,12 +68,12 @@ public class AudioRouteMonitor extends BroadcastReceiver {
         String action = intent.getAction();
         if ("android.intent.action.HEADSET_PLUG".equals(action)) {
             if (intent.hasExtra("state")) {
-                this.mCallback.gg(intent.getIntExtra("state", 0));
+                this.mCallback.gq(intent.getIntExtra("state", 0));
             }
         } else if ("android.bluetooth.adapter.action.STATE_CHANGED".equals(action)) {
             if (intent.getIntExtra("android.bluetooth.adapter.extra.STATE", Integer.MIN_VALUE) == 10) {
                 this.mBluetoothOpSeq++;
-                this.mCallback.gh(0);
+                this.mCallback.gr(0);
             }
         } else if ("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED".equals(action)) {
             int intExtra = intent.getIntExtra("android.bluetooth.profile.extra.STATE", Integer.MIN_VALUE);
@@ -89,13 +89,13 @@ public class AudioRouteMonitor extends BroadcastReceiver {
                             e.printStackTrace();
                         }
                         if (AudioRouteMonitor.this.mBluetoothOpSeq == i) {
-                            AudioRouteMonitor.this.mCallback.gh(1);
+                            AudioRouteMonitor.this.mCallback.gr(1);
                         }
                     }
                 }, 1000L);
             } else if (intExtra == 0) {
                 this.mBluetoothOpSeq++;
-                this.mCallback.gh(0);
+                this.mCallback.gr(0);
             }
         }
     }

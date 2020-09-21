@@ -9,7 +9,7 @@ import android.widget.PopupWindow;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class f extends PopupWindow {
     public f(Context context) {
         super(context);
@@ -44,17 +44,17 @@ public class f extends PopupWindow {
             i("mLastHeight", Integer.valueOf(i4));
             setHeight(i4);
         }
-        Object hq = hq("mContentView");
-        View view = hq instanceof View ? (View) hq : null;
+        Object hO = hO("mContentView");
+        View view = hO instanceof View ? (View) hO : null;
         if (isShowing() && view != null) {
-            Object hq2 = hq("mDecorView");
-            View view2 = hq2 instanceof View ? (View) hq2 : null;
+            Object hO2 = hO("mDecorView");
+            View view2 = hO2 instanceof View ? (View) hO2 : null;
             if (view2 != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
-                Object hq3 = hq("mWidthMode");
-                int intValue = hq3 != null ? ((Integer) hq3).intValue() : 0;
-                Object hq4 = hq("mLastWidth");
-                int intValue2 = hq4 != null ? ((Integer) hq4).intValue() : 0;
+                Object hO3 = hO("mWidthMode");
+                int intValue = hO3 != null ? ((Integer) hO3).intValue() : 0;
+                Object hO4 = hO("mLastWidth");
+                int intValue2 = hO4 != null ? ((Integer) hO4).intValue() : 0;
                 if (intValue >= 0) {
                     intValue = intValue2;
                 }
@@ -63,10 +63,10 @@ public class f extends PopupWindow {
                     i("mLastWidth", Integer.valueOf(intValue));
                     z = true;
                 }
-                Object hq5 = hq("mHeightMode");
-                int intValue3 = hq5 != null ? ((Integer) hq5).intValue() : 0;
-                Object hq6 = hq("mLastHeight");
-                int intValue4 = hq6 != null ? ((Integer) hq6).intValue() : 0;
+                Object hO5 = hO("mHeightMode");
+                int intValue3 = hO5 != null ? ((Integer) hO5).intValue() : 0;
+                Object hO6 = hO("mLastHeight");
+                int intValue4 = hO6 != null ? ((Integer) hO6).intValue() : 0;
                 if (intValue3 >= 0) {
                     intValue3 = intValue4;
                 }
@@ -98,8 +98,8 @@ public class f extends PopupWindow {
                 }
                 if (z2) {
                     c("setLayoutDirectionFromAnchor", null, null);
-                    Object hq7 = hq("mWindowManager");
-                    WindowManager windowManager = hq7 instanceof WindowManager ? (WindowManager) hq7 : null;
+                    Object hO7 = hO("mWindowManager");
+                    WindowManager windowManager = hO7 instanceof WindowManager ? (WindowManager) hO7 : null;
                     if (windowManager != null) {
                         windowManager.updateViewLayout(view2, layoutParams);
                     }
@@ -108,7 +108,7 @@ public class f extends PopupWindow {
         }
     }
 
-    private Object hq(String str) {
+    private Object hO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

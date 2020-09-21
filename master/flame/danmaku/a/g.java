@@ -5,11 +5,11 @@ import android.content.Context;
 public interface g {
     void clear();
 
-    boolean ehw();
+    boolean elt();
 
-    long ehx();
+    long elu();
 
-    boolean ehy();
+    boolean elv();
 
     Context getContext();
 

@@ -16,10 +16,10 @@ import com.baidu.swan.apps.ap.ak;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d extends c {
-    private ForbiddenInfo bRR;
-    private String bRS;
+    private ForbiddenInfo bTR;
+    private String bTS;
 
     public static d a(String str, ForbiddenInfo forbiddenInfo) {
         d dVar = new d();
@@ -35,16 +35,16 @@ public class d extends c {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.bRS = arguments.getString("swan_error_type");
-            this.bRR = (ForbiddenInfo) arguments.getParcelable("key_forbidden_info");
+            this.bTS = arguments.getString("swan_error_type");
+            this.bTR = (ForbiddenInfo) arguments.getParcelable("key_forbidden_info");
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_error_fragment, viewGroup, false);
+        am(inflate);
         ak(inflate);
-        ai(inflate);
         if (immersionEnabled()) {
             return initImmersion(inflate);
         }
@@ -53,14 +53,14 @@ public class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void ai(View view) {
-        super.ai(view);
-        gV(-1);
-        gW(ViewCompat.MEASURED_STATE_MASK);
-        dW(false);
+    public void ak(View view) {
+        super.ak(view);
+        he(-1);
+        hf(ViewCompat.MEASURED_STATE_MASK);
+        dU(false);
         setRightZoneVisibility(true);
-        this.chs.setRightMenuOnClickListener(null);
-        this.chs.setRightExitOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.d.1
+        this.cju.setRightMenuOnClickListener(null);
+        this.cju.setRightExitOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (d.this.mActivity != null) {
@@ -68,8 +68,8 @@ public class d extends c {
                 }
             }
         });
-        if (this.bRR != null && !TextUtils.isEmpty(this.bRR.appTitle)) {
-            lh(this.bRR.appTitle);
+        if (this.bTR != null && !TextUtils.isEmpty(this.bTR.appTitle)) {
+            lA(this.bTR.appTitle);
         }
     }
 
@@ -81,17 +81,17 @@ public class d extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ak(View view) {
+    public void am(View view) {
         String str;
-        final com.baidu.swan.apps.u.c.b Yl;
+        final com.baidu.swan.apps.u.c.b YU;
         final String str2 = null;
         if (view != null) {
             ImageView imageView = (ImageView) view.findViewById(a.f.ai_apps_error_image);
             TextView textView = (TextView) view.findViewById(a.f.ai_apps_emptyview_btn);
             TextView textView2 = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
             TextView textView3 = (TextView) view.findViewById(a.f.ai_apps_error_feedback);
-            if (this.bRS != null) {
-                String str3 = this.bRS;
+            if (this.bTS != null) {
+                String str3 = this.bTS;
                 char c = 65535;
                 switch (str3.hashCode()) {
                     case -1242268664:
@@ -154,33 +154,33 @@ public class d extends c {
                     str = getContext().getString(a.h.swanapp_normal_error);
                 }
                 textView4.setText(str);
-                Yl = !(this.mActivity instanceof SwanAppErrorActivity) ? ((SwanAppErrorActivity) this.mActivity).Yl() : null;
-                com.baidu.swan.apps.runtime.e azJ = com.baidu.swan.apps.runtime.e.azJ();
-                if (Yl == null) {
-                    str2 = Yl.getAppId();
-                } else if (azJ != null) {
-                    str2 = azJ.getAppKey();
+                YU = !(this.mActivity instanceof SwanAppErrorActivity) ? ((SwanAppErrorActivity) this.mActivity).YU() : null;
+                com.baidu.swan.apps.runtime.e aAs = com.baidu.swan.apps.runtime.e.aAs();
+                if (YU == null) {
+                    str2 = YU.getAppId();
+                } else if (aAs != null) {
+                    str2 = aAs.getAppKey();
                 }
-                if (this.bRR != null && !TextUtils.isEmpty(this.bRR.forbiddenDetail)) {
-                    textView2.setText("(" + this.bRR.forbiddenDetail + ")");
+                if (this.bTR != null && !TextUtils.isEmpty(this.bTR.forbiddenDetail)) {
+                    textView2.setText("(" + this.bTR.forbiddenDetail + ")");
                     textView2.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
                 }
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.d.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (d.this.mActivity != null && SwanAppNetworkUtils.isNetworkConnected(d.this.mActivity)) {
-                            SwanLauncher.alu().a(Yl, (Bundle) null);
+                            SwanLauncher.ame().a(YU, (Bundle) null);
                             d.this.mActivity.finish();
                         }
                     }
                 });
-                if (!ak.aFn() && !TextUtils.equals(this.bRS, "type_network_error")) {
+                if (!ak.aFX() && !TextUtils.equals(this.bTS, "type_network_error")) {
                     textView3.setVisibility(0);
                     textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.d.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (d.this.bRR != null && !TextUtils.isEmpty(d.this.bRR.forbiddenDetail)) {
-                                com.baidu.swan.apps.t.a.aoS().d(d.this.aUT(), str2, d.this.bRR.appTitle, d.this.bRR.forbiddenDetail);
+                            if (d.this.bTR != null && !TextUtils.isEmpty(d.this.bTR.forbiddenDetail)) {
+                                com.baidu.swan.apps.t.a.apD().d(d.this.aVF(), str2, d.this.bTR.appTitle, d.this.bTR.forbiddenDetail);
                             }
                         }
                     });
@@ -194,60 +194,60 @@ public class d extends c {
             textView42.setText(str);
             if (!(this.mActivity instanceof SwanAppErrorActivity)) {
             }
-            com.baidu.swan.apps.runtime.e azJ2 = com.baidu.swan.apps.runtime.e.azJ();
-            if (Yl == null) {
+            com.baidu.swan.apps.runtime.e aAs2 = com.baidu.swan.apps.runtime.e.aAs();
+            if (YU == null) {
             }
-            if (this.bRR != null) {
-                textView2.setText("(" + this.bRR.forbiddenDetail + ")");
+            if (this.bTR != null) {
+                textView2.setText("(" + this.bTR.forbiddenDetail + ")");
                 textView2.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
             }
             textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (d.this.mActivity != null && SwanAppNetworkUtils.isNetworkConnected(d.this.mActivity)) {
-                        SwanLauncher.alu().a(Yl, (Bundle) null);
+                        SwanLauncher.ame().a(YU, (Bundle) null);
                         d.this.mActivity.finish();
                     }
                 }
             });
-            if (!ak.aFn()) {
+            if (!ak.aFX()) {
             }
         }
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aga() {
+    protected void agK() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean abn() {
+    protected boolean abW() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean agb() {
+    public boolean agL() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aaM() {
+    public boolean abv() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void abt() {
+    protected void acc() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        return agP();
+        return ahz();
     }
 
-    private boolean agP() {
-        if (this.bRR == null) {
+    private boolean ahz() {
+        if (this.bTR == null) {
             return false;
         }
-        return this.bRR.agP();
+        return this.bTR.ahz();
     }
 }

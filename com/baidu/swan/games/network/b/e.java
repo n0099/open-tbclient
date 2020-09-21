@@ -5,31 +5,31 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dvi;
+    private a dxj;
     private final Object mLock = new Object();
-    private boolean dvg = true;
-    private List<b> dvh = new ArrayList(3);
+    private boolean dxh = true;
+    private List<b> dxi = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.dvi = aVar;
+        this.dxj = aVar;
     }
 
-    public void aOF() {
+    public void aPq() {
         synchronized (this.mLock) {
-            this.dvg = false;
-            aOG();
+            this.dxh = false;
+            aPr();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.dvg) {
+            if (this.dxh) {
                 f(1, obj);
             } else {
-                this.dvi.a(new b(1, obj));
+                this.dxj.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.dvg) {
+            if (this.dxh) {
                 f(2, bVar);
             } else {
-                this.dvi.a(new b(2, bVar));
+                this.dxj.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.dvg) {
+            if (this.dxh) {
                 f(3, jSEvent);
             } else {
-                this.dvi.a(new b(3, jSEvent));
+                this.dxj.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
-    private void aOG() {
-        for (b bVar : this.dvh) {
-            this.dvi.a(bVar);
+    private void aPr() {
+        for (b bVar : this.dxi) {
+            this.dxj.a(bVar);
         }
-        this.dvh.clear();
+        this.dxi.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.dvh.add(new b(i, obj));
+            this.dxi.add(new b(i, obj));
         }
     }
 }

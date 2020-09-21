@@ -1,19 +1,19 @@
 package com.baidu.pano.platform.a;
 
 import com.baidu.pano.platform.a.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class q<T> {
     public final T a;
     public final b.a b;
     public final v c;
     public boolean d;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(v vVar);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface b<T> {
         void a(T t);
     }

@@ -2,7 +2,7 @@ package com.tencent.connect.auth;
 
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class b {
     public static b a;
     static final /* synthetic */ boolean d;
@@ -10,7 +10,7 @@ public class b {
     public HashMap<String, a> b = new HashMap<>();
     public final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class a {
         public IUiListener a;
         public com.tencent.connect.auth.a b;

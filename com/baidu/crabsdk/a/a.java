@@ -5,27 +5,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a amw = null;
+    static a amY = null;
     private long Z;
     private long aa;
     private long ab;
-    private long amt;
-    private StringBuilder amu = new StringBuilder();
-    public ArrayList<String> amv = new ArrayList<>();
+    private long amV;
+    private StringBuilder amW = new StringBuilder();
+    public ArrayList<String> amX = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.amv.iterator();
+        Iterator<String> it = this.amX.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.amu.append(next);
+            this.amW.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -43,30 +43,30 @@ public final class a {
         return W * 0.6f;
     }
 
-    public static a uH() {
-        if (amw == null) {
+    public static a uV() {
+        if (amY == null) {
             synchronized (a.class) {
-                if (amw == null) {
-                    amw = new a();
+                if (amY == null) {
+                    amY = new a();
                 }
             }
         }
-        return amw;
+        return amY;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
-        this.amt = j2 - j;
+        this.amV = j2 - j;
         this.Z = j4 - j3;
         this.aa = j;
         this.ab = j2;
         return this;
     }
 
-    public final Map<String, Object> uI() {
+    public final Map<String, Object> uW() {
         HashMap hashMap = new HashMap();
         long j = this.aa;
         long j2 = this.ab;
-        long j3 = this.amt;
+        long j3 = this.amV;
         long j4 = this.Z;
         String g = g();
         if (TextUtils.isEmpty(g)) {
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.amu.toString());
+        hashMap.put("errorTrace", this.amW.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.amu.setLength(0);
+        this.amW.setLength(0);
         return hashMap;
     }
 }

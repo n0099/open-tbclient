@@ -13,6 +13,6 @@ public class c extends a {
     @Override // com.baidu.swan.bdprivate.extensions.g.a.a
     @NonNull
     protected String getUrl() {
-        return com.baidu.swan.apps.i.a.adr();
+        return com.baidu.swan.apps.i.a.aeb();
     }
 }

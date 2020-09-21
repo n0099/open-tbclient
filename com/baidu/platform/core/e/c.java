@@ -2,7 +2,7 @@ package com.baidu.platform.core.e;
 
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.base.e {
     public c(PoiDetailShareURLOption poiDetailShareURLOption) {
         a(poiDetailShareURLOption);

@@ -14,14 +14,14 @@ import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.ft;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l {
     private static k a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f917a;
+    private static a f916a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }
@@ -99,11 +99,11 @@ public class l {
             com.xiaomi.channel.commonutils.logger.b.m54a("account register:" + a4);
             treeMap.put("devid", a4);
             treeMap.put("devid1", com.xiaomi.push.i.a(context));
-            if (a != null && !TextUtils.isEmpty(a.f916a)) {
-                treeMap.put("uuid", a.f916a);
-                int lastIndexOf = a.f916a.lastIndexOf("/");
+            if (a != null && !TextUtils.isEmpty(a.f915a)) {
+                treeMap.put("uuid", a.f915a);
+                int lastIndexOf = a.f915a.lastIndexOf("/");
                 if (lastIndexOf != -1) {
-                    str4 = a.f916a.substring(lastIndexOf + 1);
+                    str4 = a.f915a.substring(lastIndexOf + 1);
                     com.xiaomi.push.au.a(context).a(treeMap);
                     c = com.xiaomi.push.i.c(context);
                     if (c != null) {
@@ -233,8 +233,8 @@ public class l {
     }
 
     public static void a() {
-        if (f917a != null) {
-            f917a.a();
+        if (f916a != null) {
+            f916a.a();
         }
     }
 
@@ -247,7 +247,7 @@ public class l {
 
     public static void a(Context context, k kVar) {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString("uuid", kVar.f916a);
+        edit.putString("uuid", kVar.f915a);
         edit.putString("security", kVar.c);
         edit.putString("token", kVar.b);
         edit.putString("app_id", kVar.d);
@@ -260,7 +260,7 @@ public class l {
     }
 
     public static void a(a aVar) {
-        f917a = aVar;
+        f916a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

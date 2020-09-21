@@ -1,19 +1,19 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class e implements al {
     @Override // com.facebook.imagepipeline.producers.al
-    public void dRP() {
+    public void dVN() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dVE() {
+    public void dZC() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dVF() {
+    public void dZD() {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void dVG() {
+    public void dZE() {
     }
 }

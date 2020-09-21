@@ -1,61 +1,216 @@
 package com.baidu.tieba.homepage.concern;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bw;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes16.dex */
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.f.g;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.util.l;
+import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
+/* loaded from: classes21.dex */
 public class b {
-    public static void a(View view, AbsThreadDataSupport absThreadDataSupport, int i) {
-        if (view != null && absThreadDataSupport != null && absThreadDataSupport.bce() != null && !StringUtils.isNull(absThreadDataSupport.bce().getTid())) {
-            aq aqVar = new aq("c12352");
-            bw bce = absThreadDataSupport.bce();
-            if (bce.isLinkThread()) {
-                aqVar.ai("obj_type", 4);
-            } else if (bce.isShareThread) {
-                aqVar.ai("obj_type", 5);
-            } else if (bce.bdm()) {
-                aqVar.ai("obj_type", 6);
-            } else if (bce.bgz()) {
-                aqVar.ai("obj_type", 7);
-            } else if (bce.bdn()) {
-                aqVar.ai("obj_type", 8);
-            } else if (bce.bgA()) {
-                aqVar.ai("obj_type", 9);
-            } else if (bce.getType() == bw.eaW) {
-                aqVar.ai("obj_type", 1);
-            } else if (bce.bdk()) {
-                aqVar.ai("obj_type", 2);
+    private View iNR;
+    private LinearLayout iNS;
+    private FrameLayout iNT;
+    private TBSpecificationBtn iNU;
+    private TBSpecificationBtn iNV;
+    private com.baidu.tbadk.core.view.commonBtn.b iNW;
+    private com.baidu.tbadk.core.view.commonBtn.b iNX;
+    private PopupWindow iNZ;
+    private Context mContext;
+    private LinearLayout mRootView;
+    private View rootView;
+    private boolean iNY = true;
+    public View.OnClickListener iOa = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+        }
+    };
+    public View.OnClickListener iOb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.2
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (!b.this.iNY) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 0));
+                b.this.iNY = true;
+                b.this.czt();
             }
-            aqVar.ai("obj_locate", i);
-            aqVar.dD("tid", absThreadDataSupport.bce().getTid());
-            aqVar.u("fid", absThreadDataSupport.bce().getFid());
-            aqVar.ai("obj_source", 1);
-            if (absThreadDataSupport instanceof com.baidu.tieba.card.data.c) {
-                aqVar.ai("obj_param1", ((com.baidu.tieba.card.data.c) absThreadDataSupport).ccp() ? 2 : 1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
+        }
+    };
+    public View.OnClickListener iOc = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (b.this.iNY) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 1));
+                b.this.iNY = false;
+                b.this.czt();
             }
-            if (absThreadDataSupport.bce().beE() != null) {
-                aqVar.dD("uid", absThreadDataSupport.bce().beE().getUserId());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
+        }
+    };
+
+    public b(Context context) {
+        this.mContext = context;
+        init();
+    }
+
+    private void init() {
+        this.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.home_page_concern_dialog_thread, (ViewGroup) null);
+        this.mRootView = (LinearLayout) this.rootView.findViewById(R.id.root_main);
+        this.iNT = (FrameLayout) this.rootView.findViewById(R.id.type_container);
+        this.iNS = (LinearLayout) this.rootView.findViewById(R.id.ll_btn);
+        this.iNR = this.rootView.findViewById(R.id.mask_view);
+        this.iNU = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_all_concern);
+        this.iNV = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_person_concern);
+        this.iNU.setTextSize(R.dimen.tbds34);
+        this.iNU.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+        this.iNV.setTextSize(R.dimen.tbds34);
+        this.iNV.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
+        this.iNV.setOnClickListener(this.iOc);
+        this.iNU.setOnClickListener(this.iOb);
+        this.iNT.setOnClickListener(this.iOa);
+        this.iNW = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.iNW.pp(R.color.cp_link_tip_a);
+        this.iNX = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.iNX.bb(R.color.cp_bg_line_j, R.color.cp_cont_c);
+        this.iNY = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("key_home_concern_all_status", 0) != 1;
+        czt();
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void a(StickyAppBarLayout stickyAppBarLayout) {
+        b(stickyAppBarLayout);
+    }
+
+    private void b(StickyAppBarLayout stickyAppBarLayout) {
+        if (this.iNZ == null) {
+            this.iNZ = new PopupWindow(this.rootView, -1, -1, true);
+            this.iNZ.setContentView(this.rootView);
+            this.iNZ.setOutsideTouchable(true);
+            this.iNZ.setBackgroundDrawable(new ColorDrawable(0));
+            this.iNZ.setFocusable(true);
+            this.iNZ.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.4
+                @Override // android.view.View.OnTouchListener
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    b.this.PH();
+                    return false;
+                }
+            });
+            this.iNZ.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.concern.b.5
+                @Override // android.widget.PopupWindow.OnDismissListener
+                public void onDismiss() {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921501, 0));
+                }
+            });
+            this.iNZ.setAnimationStyle(0);
+        }
+        int[] iArr = new int[2];
+        stickyAppBarLayout.getLocationInWindow(iArr);
+        int height = iArr[1] + stickyAppBarLayout.getHeight();
+        int dimensionPixelOffset = iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        int statusBarHeight = UtilHelper.canUseStyleImmersiveSticky() ? height - UtilHelper.getStatusBarHeight() : height;
+        this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.6
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.this.PH();
             }
-            if (bce.getBaijiahaoData() != null) {
-                aqVar.dD("obj_id", bce.getBaijiahaoData().oriUgcNid);
-            } else {
-                aqVar.dD("obj_id", bce.getTid());
+        });
+        this.iNS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.7
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
             }
-            TiebaStatic.log(aqVar);
-            d(bce, i);
+        });
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iNT.getLayoutParams();
+        layoutParams.topMargin = statusBarHeight;
+        this.iNT.setLayoutParams(layoutParams);
+        if (g.showPopupWindowAtLocation(this.iNZ, stickyAppBarLayout, 0, dimensionPixelOffset, statusBarHeight)) {
+            auR();
         }
     }
 
-    private static void d(bw bwVar, int i) {
-        aq aqVar = null;
-        switch (i) {
-            case 1:
-                aqVar = com.baidu.tieba.s.a.a("c13692", bwVar, 3);
-                break;
+    private void auR() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
+        translateAnimation.setDuration(200L);
+        translateAnimation.setInterpolator(new DecelerateInterpolator());
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+        alphaAnimation.setDuration(200L);
+        alphaAnimation.setInterpolator(new LinearInterpolator());
+        this.iNS.startAnimation(translateAnimation);
+        this.iNR.startAnimation(alphaAnimation);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void PH() {
+        if (!l.isFastDoubleClick()) {
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
+            translateAnimation.setDuration(200L);
+            translateAnimation.setFillAfter(true);
+            translateAnimation.setInterpolator(new AccelerateInterpolator());
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            alphaAnimation.setInterpolator(new LinearInterpolator());
+            alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.homepage.concern.b.8
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    if (b.this.iNZ != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921501, 0));
+                        if (b.this.iNZ.isShowing()) {
+                            b.this.iNZ.dismiss();
+                        }
+                    }
+                }
+            });
+            this.iNS.startAnimation(translateAnimation);
+            this.iNR.startAnimation(alphaAnimation);
         }
-        TiebaStatic.log(aqVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void czt() {
+        if (this.iNU != null && this.iNV != null) {
+            if (this.iNY) {
+                this.iNU.setConfig(this.iNW);
+                this.iNV.setConfig(this.iNX);
+                return;
+            }
+            this.iNU.setConfig(this.iNX);
+            this.iNV.setConfig(this.iNW);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.rootView != null) {
+            this.iNU.changeSkinType(i);
+            this.iNV.changeSkinType(i);
+            ap.setBackgroundColor(this.iNS, R.color.cp_bg_line_h);
+            ap.setBackgroundColor(this.iNR, R.color.cp_mask_b_alpha33);
+        }
     }
 }

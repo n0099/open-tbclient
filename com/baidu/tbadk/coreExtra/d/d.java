@@ -8,47 +8,47 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    private c eIK;
-    private b eIL;
-    private a eIM;
+    private c eKR;
+    private b eKS;
+    private a eKT;
 
     /* loaded from: classes.dex */
     public interface b {
-        void ja(boolean z);
+        void iX(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<d> eIP;
+        private final WeakReference<d> eKW;
 
         c(d dVar) {
-            this.eIP = new WeakReference<>(dVar);
+            this.eKW = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             d dVar;
             super.handleMessage(message);
-            if (message.what == 0 && (dVar = this.eIP.get()) != null) {
-                dVar.acD();
+            if (message.what == 0 && (dVar = this.eKW.get()) != null) {
+                dVar.adm();
             }
         }
     }
 
     public d(String str, b bVar) {
-        this.eIK = null;
-        this.eIL = null;
-        this.eIM = null;
-        this.eIK = new c(this);
-        this.eIL = bVar;
-        this.eIK.sendEmptyMessageDelayed(0, 50000L);
-        this.eIM = new a();
-        this.eIM.setSelfExecute(true);
-        this.eIM.execute(bqB() + str);
+        this.eKR = null;
+        this.eKS = null;
+        this.eKT = null;
+        this.eKR = new c(this);
+        this.eKS = bVar;
+        this.eKR.sendEmptyMessageDelayed(0, 50000L);
+        this.eKT = new a();
+        this.eKT.setSelfExecute(true);
+        this.eKT.execute(brv() + str);
     }
 
-    private String bqB() {
+    private String brv() {
         switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -62,22 +62,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acD() {
-        if (this.eIM != null) {
-            this.eIM.cancel(true);
+    public void adm() {
+        if (this.eKT != null) {
+            this.eKT.cancel(true);
         }
-        if (this.eIK != null) {
-            this.eIK.removeMessages(0);
+        if (this.eKR != null) {
+            this.eKR.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process eIN;
+        Process eKU;
 
         private a() {
-            this.eIN = null;
+            this.eKU = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,19 +88,19 @@ public class d {
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.eIN = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.eIN.waitFor() == 0;
-                        this.eIN.destroy();
+                        this.eKU = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.eKU.waitFor() == 0;
+                        this.eKU.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.eIN.destroy();
+                        this.eKU.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.eIN.destroy();
+                        this.eKU.destroy();
                     }
                 } catch (Throwable th) {
-                    this.eIN.destroy();
+                    this.eKU.destroy();
                     throw th;
                 }
             }
@@ -111,18 +111,18 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.eIN != null) {
+            if (this.eKU != null) {
                 try {
-                    this.eIN.destroy();
+                    this.eKU.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (d.this.eIL != null) {
-                d.this.eIL.ja(false);
+            if (d.this.eKS != null) {
+                d.this.eKS.iX(false);
             }
-            if (d.this.eIK != null) {
-                d.this.eIK.removeMessages(0);
+            if (d.this.eKR != null) {
+                d.this.eKR.removeMessages(0);
             }
         }
 
@@ -130,11 +130,11 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.eIL != null) {
-                d.this.eIL.ja(bool == null ? false : bool.booleanValue());
+            if (d.this.eKS != null) {
+                d.this.eKS.iX(bool == null ? false : bool.booleanValue());
             }
-            if (d.this.eIK != null) {
-                d.this.eIK.removeMessages(0);
+            if (d.this.eKR != null) {
+                d.this.eKR.removeMessages(0);
             }
         }
     }

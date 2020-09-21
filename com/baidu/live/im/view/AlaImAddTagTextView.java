@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaImAddTagTextView extends TextView {
     public AlaImAddTagTextView(Context context) {
         this(context, null);

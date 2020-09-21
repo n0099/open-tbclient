@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.a.g;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
-import com.baidu.tbadk.data.l;
+import com.baidu.tbadk.data.m;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.p.a;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
@@ -31,7 +31,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -67,11 +67,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.doT().doP()) {
+                if (a.dsD().dsz()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.doT().doQ()) {
+                } else if (a.dsD().dsA()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -248,7 +248,7 @@ public class NativeListeners {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof l)) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof m)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("uniqueKey", "ChangeUserProfile");
                 NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);

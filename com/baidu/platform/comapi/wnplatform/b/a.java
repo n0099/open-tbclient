@@ -9,7 +9,7 @@ import com.baidu.platform.comjni.bikenavi.JNIGuidanceControl;
 import com.google.protobuf.micro.MessageMicro;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.platform.comapi.walknavi.a {
     int a;
     private JNIGuidanceControl b;

@@ -1,5 +1,5 @@
 package android.support.v4.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 class ContainerHelpers {
     static final int[] EMPTY_INTS = new int[0];
     static final long[] EMPTY_LONGS = new long[0];

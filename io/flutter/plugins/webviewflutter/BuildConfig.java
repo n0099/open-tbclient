@@ -1,5 +1,5 @@
 package io.flutter.plugins.webviewflutter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "io.flutter.plugins.webviewflutter";
     public static final String BUILD_TYPE = "release";

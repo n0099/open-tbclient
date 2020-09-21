@@ -8,7 +8,7 @@ import protobuf.ActivityInfo;
 import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.UserInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 12)
     public final ActivityInfo activity;
@@ -116,7 +116,7 @@ public final class DataRes extends Message {
         this.activity = builder.activity;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public ActivityInfo activity;
         public Integer alreadyCreateNum;

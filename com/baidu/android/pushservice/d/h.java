@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class h extends c {
     protected String d;
 

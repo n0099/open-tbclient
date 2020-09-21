@@ -19,60 +19,60 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.sdk.login.message.GetLoginTbsResponsedMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static volatile a lNk;
-    private c aUD;
-    private int lNl;
-    private com.baidu.tieba.sdk.b.a lNm;
-    private CustomMessageTask.CustomRunnable<Object> lNn = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
+    private static volatile a lWm;
+    private c aWS;
+    private int lWn;
+    private com.baidu.tieba.sdk.b.a lWo;
+    private CustomMessageTask.CustomRunnable<Object> lWp = new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sdk.login.a.1
         @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            a.this.cNQ();
+            a.this.cRv();
             return null;
         }
     };
-    private final HttpMessageListener lNo = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
+    private final HttpMessageListener lWq = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.sdk.login.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetLoginTbsResponsedMessage)) {
                 if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                    if (a.this.lNl < 3) {
+                    if (a.this.lWn < 3) {
                         a.b(a.this);
-                        a.this.a(a.this.lNm.cNP());
+                        a.this.a(a.this.lWo.cRu());
                         return;
                     }
                     return;
                 }
-                a.this.lNl = 0;
+                a.this.lWn = 0;
             }
         }
     };
 
     static /* synthetic */ int b(a aVar) {
-        int i = aVar.lNl;
-        aVar.lNl = i + 1;
+        int i = aVar.lWn;
+        aVar.lWn = i + 1;
         return i;
     }
 
-    public static a dpC() {
-        if (lNk == null) {
+    public static a dtp() {
+        if (lWm == null) {
             synchronized (a.class) {
-                if (lNk == null) {
-                    lNk = new a();
+                if (lWm == null) {
+                    lWm = new a();
                 }
             }
         }
-        return lNk;
+        return lWm;
     }
 
     private a() {
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.sdk.login.a.a(0));
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.lNn);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN, this.lWp);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(this.lNo);
+        MessageManager.getInstance().registerListener(this.lWq);
         registerTask();
     }
 
@@ -86,32 +86,32 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cNQ() {
-        if (this.lNm != null) {
-            this.lNm.cNQ();
+    public void cRv() {
+        if (this.lWo != null) {
+            this.lWo.cRv();
         }
     }
 
     public void b(com.baidu.tieba.sdk.b.a aVar) {
-        this.lNm = aVar;
+        this.lWo = aVar;
     }
 
-    public void dpD() {
-        if (this.lNm != null) {
-            dpG();
-            if (this.aUD == null) {
-                this.aUD = new c();
+    public void dtq() {
+        if (this.lWo != null) {
+            dtt();
+            if (this.aWS == null) {
+                this.aWS = new c();
             }
-            this.aUD.initListener();
-            this.aUD.a(new d() { // from class: com.baidu.tieba.sdk.login.a.3
+            this.aWS.initListener();
+            this.aWS.a(new d() { // from class: com.baidu.tieba.sdk.login.a.3
                 @Override // com.baidu.live.d
-                public void AE() {
-                    if (a.this.aUD != null) {
-                        a.this.aUD.onDestroy();
+                public void AS() {
+                    if (a.this.aWS != null) {
+                        a.this.aWS.onDestroy();
                     }
                 }
             });
-            this.aUD.refreshCurUserScores();
+            this.aWS.refreshCurUserScores();
             Intent intent = new Intent("action_callback_live_login_result");
             intent.putExtra("status", TbadkCoreApplication.isLogin());
             ExtraParamsManager.getInstance();
@@ -119,96 +119,96 @@ public class a {
         }
     }
 
-    public void ND() {
-        if (this.lNm != null) {
-            dpG();
+    public void Og() {
+        if (this.lWo != null) {
+            dtt();
         }
     }
 
-    public boolean dpE() {
-        if (this.lNm == null) {
+    public boolean dtr() {
+        if (this.lWo == null) {
             return false;
         }
-        boolean dpG = dpG();
-        if (!dpG) {
-            this.lNm.cNQ();
-            return dpG;
+        boolean dtt = dtt();
+        if (!dtt) {
+            this.lWo.cRv();
+            return dtt;
         }
-        return dpG;
+        return dtt;
     }
 
-    public com.baidu.tieba.sdk.c.a dpF() {
-        if (this.lNm != null) {
-            return this.lNm.cNP();
+    public com.baidu.tieba.sdk.c.a dts() {
+        if (this.lWo != null) {
+            return this.lWo.cRu();
         }
         return null;
     }
 
-    private boolean dpG() {
-        com.baidu.tieba.sdk.c.a cNP = this.lNm.cNP();
-        if (cNP != null && cNP.isValid()) {
-            dpH();
+    private boolean dtt() {
+        com.baidu.tieba.sdk.c.a cRu = this.lWo.cRu();
+        if (cRu != null && cRu.isValid()) {
+            dtu();
             if (AccountHelper.getOnSyncAccountCallback() != null) {
                 AccountHelper.getOnSyncAccountCallback().onSyncAccount(true);
                 return true;
             }
             return true;
         }
-        dpJ();
-        dpI();
+        dtw();
+        dtv();
         if (AccountHelper.getOnSyncAccountCallback() != null) {
             AccountHelper.getOnSyncAccountCallback().onSyncAccount(false);
         }
         return false;
     }
 
-    private void dpH() {
+    private void dtu() {
         boolean z = true;
-        com.baidu.tieba.sdk.c.a cNP = this.lNm.cNP();
-        if (cNP != null) {
-            String string = com.baidu.live.c.AD().getString("ala_account_user_id", "");
-            String string2 = com.baidu.live.c.AD().getString("ala_account_user_bduss", "");
-            boolean z2 = !StringUtils.isNull(cNP.userId) && cNP.userId.equals(string);
-            if (StringUtils.isNull(cNP.bduss) || !cNP.bduss.equals(string2)) {
+        com.baidu.tieba.sdk.c.a cRu = this.lWo.cRu();
+        if (cRu != null) {
+            String string = com.baidu.live.c.AR().getString("ala_account_user_id", "");
+            String string2 = com.baidu.live.c.AR().getString("ala_account_user_bduss", "");
+            boolean z2 = !StringUtils.isNull(cRu.userId) && cRu.userId.equals(string);
+            if (StringUtils.isNull(cRu.bduss) || !cRu.bduss.equals(string2)) {
                 z = false;
             }
             if (z2 && z) {
                 AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                C0796a c0796a = new C0796a(currentAccountInfo);
-                String string3 = com.baidu.live.c.AD().getString("ala_account_user_bduss", "");
+                C0793a c0793a = new C0793a(currentAccountInfo);
+                String string3 = com.baidu.live.c.AR().getString("ala_account_user_bduss", "");
                 if (!StringUtils.isNull(string3)) {
-                    c0796a.PT(string3);
+                    c0793a.Qt(string3);
                 } else {
-                    c0796a.PT(cNP.bduss);
+                    c0793a.Qt(cRu.bduss);
                 }
-                String string4 = com.baidu.live.c.AD().getString("ala_account_user_tbs", "");
+                String string4 = com.baidu.live.c.AR().getString("ala_account_user_tbs", "");
                 if (!StringUtils.isNull(string4)) {
-                    c0796a.PU(string4);
+                    c0793a.Qu(string4);
                 }
-                c0796a.PQ(cNP.userId);
-                c0796a.PR(cNP.userName);
-                c0796a.PS(cNP.nickName);
-                c0796a.PV(cNP.portrait);
+                c0793a.Qq(cRu.userId);
+                c0793a.Qr(cRu.userName);
+                c0793a.Qs(cRu.nickName);
+                c0793a.Qv(cRu.portrait);
                 if (currentAccountInfo == null) {
-                    TbadkCoreApplication.setCurrentAccount(c0796a.dpK(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+                    TbadkCoreApplication.setCurrentAccount(c0793a.dtx(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     return;
                 } else {
-                    c0796a.dpK();
+                    c0793a.dtx();
                     return;
                 }
             }
-            this.lNl = 0;
-            dpI();
-            C0796a c0796a2 = new C0796a();
-            c0796a2.PT(cNP.bduss);
-            c0796a2.PR(cNP.userName);
-            c0796a2.PS(cNP.nickName);
-            c0796a2.PQ(cNP.userId);
-            c0796a2.PV(cNP.portrait);
-            com.baidu.live.c.AD().putString("ala_account_user_id", cNP.userId);
-            com.baidu.live.c.AD().putString("ala_account_user_bduss", cNP.bduss);
-            TbadkCoreApplication.setCurrentAccount(c0796a2.dpK(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
-            a(cNP);
+            this.lWn = 0;
+            dtv();
+            C0793a c0793a2 = new C0793a();
+            c0793a2.Qt(cRu.bduss);
+            c0793a2.Qr(cRu.userName);
+            c0793a2.Qs(cRu.nickName);
+            c0793a2.Qq(cRu.userId);
+            c0793a2.Qv(cRu.portrait);
+            com.baidu.live.c.AR().putString("ala_account_user_id", cRu.userId);
+            com.baidu.live.c.AR().putString("ala_account_user_bduss", cRu.bduss);
+            TbadkCoreApplication.setCurrentAccount(c0793a2.dtx(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            a(cRu);
         }
     }
 
@@ -225,22 +225,22 @@ public class a {
         }
     }
 
-    private void dpI() {
-        com.baidu.live.c.AD().remove("ala_account_user_id");
-        com.baidu.live.c.AD().remove("ala_account_user_bduss");
-        com.baidu.live.c.AD().remove("ala_account_user_tbs");
+    private void dtv() {
+        com.baidu.live.c.AR().remove("ala_account_user_id");
+        com.baidu.live.c.AR().remove("ala_account_user_bduss");
+        com.baidu.live.c.AR().remove("ala_account_user_tbs");
     }
 
-    private void dpJ() {
+    private void dtw() {
         TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
     }
 
     /* renamed from: com.baidu.tieba.sdk.login.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0796a {
+    /* loaded from: classes4.dex */
+    public static class C0793a {
         private String BDUSS;
-        private int lNq;
-        private AccountData lNr;
+        private int lWs;
+        private AccountData lWt;
         private String nickName;
         private String portrait;
         private int sex;
@@ -248,68 +248,68 @@ public class a {
         private String userId;
         private String userName;
 
-        public C0796a() {
-            this.lNr = new AccountData();
+        public C0793a() {
+            this.lWt = new AccountData();
         }
 
-        public C0796a(AccountData accountData) {
+        public C0793a(AccountData accountData) {
             if (accountData == null) {
-                this.lNr = new AccountData();
+                this.lWt = new AccountData();
             } else {
-                this.lNr = accountData;
+                this.lWt = accountData;
             }
         }
 
-        public C0796a PQ(String str) {
+        public C0793a Qq(String str) {
             this.userId = str;
             return this;
         }
 
-        public C0796a PR(String str) {
+        public C0793a Qr(String str) {
             this.userName = str;
             return this;
         }
 
-        public C0796a PS(String str) {
+        public C0793a Qs(String str) {
             this.nickName = str;
             return this;
         }
 
-        public C0796a PT(String str) {
+        public C0793a Qt(String str) {
             this.BDUSS = str;
             return this;
         }
 
-        public C0796a PU(String str) {
+        public C0793a Qu(String str) {
             this.tbs = str;
             return this;
         }
 
-        public C0796a PV(String str) {
+        public C0793a Qv(String str) {
             this.portrait = str;
             return this;
         }
 
-        public C0796a GF(int i) {
+        public C0793a Hg(int i) {
             this.sex = i;
             return this;
         }
 
-        public C0796a GG(int i) {
-            this.lNq = i;
+        public C0793a Hh(int i) {
+            this.lWs = i;
             return this;
         }
 
-        public AccountData dpK() {
-            this.lNr.setBDUSS(this.BDUSS);
-            this.lNr.setAccount(this.userName);
-            this.lNr.setDisplayName(this.nickName);
-            this.lNr.setID(this.userId);
-            this.lNr.setPortrait(this.portrait);
-            this.lNr.setTbs(this.tbs);
-            this.lNr.setSex(this.sex);
-            this.lNr.setIsActive(this.lNq);
-            return this.lNr;
+        public AccountData dtx() {
+            this.lWt.setBDUSS(this.BDUSS);
+            this.lWt.setAccount(this.userName);
+            this.lWt.setDisplayName(this.nickName);
+            this.lWt.setID(this.userId);
+            this.lWt.setPortrait(this.portrait);
+            this.lWt.setTbs(this.tbs);
+            this.lWt.setSex(this.sex);
+            this.lWt.setIsActive(this.lWs);
+            return this.lWt;
         }
     }
 }

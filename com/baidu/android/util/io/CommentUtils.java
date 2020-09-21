@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public class CommentUtils {
     public static String readComment(File file) {
         try {

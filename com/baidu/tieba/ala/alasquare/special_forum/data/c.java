@@ -5,7 +5,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public List<b> fKl;
+    public List<b> fNz;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {

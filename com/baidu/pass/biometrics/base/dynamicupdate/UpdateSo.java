@@ -36,7 +36,7 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class UpdateSo {
     public static String TAG = "UpdateSo";
     private Application a;
@@ -47,7 +47,7 @@ public class UpdateSo {
     private PassBiometricConfiguration f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes6.dex */
     public interface LoadModuleEventListener {
         void onFailure(SdkConfigOptions.DistributedFile distributedFile);
 
@@ -55,7 +55,7 @@ public class UpdateSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes6.dex */
     public class StatService {
         public static final String HOST_VERSION = "host_version";
         public static final String STAT_NAME_LIVENESS_FACE = "sapi_bio_dynamic_update_so";

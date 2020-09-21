@@ -6,16 +6,16 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class a implements d {
-    private final d osv;
-    private final d.b osw;
+    private final d oCc;
+    private final d.b oCd;
 
     public a(d dVar, d.b bVar) {
         q.m(dVar, "left");
         q.m(bVar, "element");
-        this.osv = dVar;
-        this.osw = bVar;
+        this.oCc = dVar;
+        this.oCd = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -23,9 +23,9 @@ public final class a implements d {
         q.m(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.osw.a(cVar);
+            E e = (E) aVar.oCd.a(cVar);
             if (e == null) {
-                d dVar = aVar.osv;
+                d dVar = aVar.oCc;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -40,33 +40,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
         q.m(mVar, "operation");
-        return mVar.invoke((Object) this.osv.fold(r, mVar), this.osw);
+        return mVar.invoke((Object) this.oCc.fold(r, mVar), this.oCd);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         q.m(cVar, "key");
-        if (this.osw.a(cVar) != null) {
-            return this.osv;
+        if (this.oCd.a(cVar) != null) {
+            return this.oCc;
         }
-        d b = this.osv.b(cVar);
-        return b == this.osv ? this : b == e.osz ? this.osw : new a(b, this.osw);
+        d b = this.oCc.b(cVar);
+        return b == this.oCc ? this : b == e.oCg ? this.oCd : new a(b, this.oCd);
     }
 
     private final int size() {
-        if (this.osv instanceof a) {
-            return ((a) this.osv).size() + 1;
+        if (this.oCc instanceof a) {
+            return ((a) this.oCc).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return q.l(a((d.c<d.b>) bVar.egl()), bVar);
+        return q.l(a((d.c<d.b>) bVar.eki()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.osw)) {
-            d dVar = aVar.osv;
+        while (a(aVar.oCd)) {
+            d dVar = aVar.oCc;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -83,7 +83,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.osv.hashCode() + this.osw.hashCode();
+        return this.oCc.hashCode() + this.oCd.hashCode();
     }
 
     public String toString() {

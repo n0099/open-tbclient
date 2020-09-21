@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.t.b;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface e {
     boolean a(Context context, com.baidu.swan.apps.w.a.a aVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar);
 

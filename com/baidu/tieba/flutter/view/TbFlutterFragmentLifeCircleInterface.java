@@ -1,5 +1,5 @@
 package com.baidu.tieba.flutter.view;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 interface TbFlutterFragmentLifeCircleInterface {
     void onPrimary();
 }

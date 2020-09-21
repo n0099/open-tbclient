@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public interface INotificationSideChannel extends IInterface {
     void cancel(String str, int i, String str2) throws RemoteException;
 
@@ -14,7 +14,7 @@ public interface INotificationSideChannel extends IInterface {
 
     void notify(String str, int i, String str2, Notification notification) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static abstract class Stub extends Binder implements INotificationSideChannel {
         private static final String DESCRIPTOR = "android.support.v4.app.INotificationSideChannel";
         static final int TRANSACTION_cancel = 2;
@@ -73,7 +73,7 @@ public interface INotificationSideChannel extends IInterface {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes23.dex */
         private static class Proxy implements INotificationSideChannel {
             private IBinder mRemote;
 

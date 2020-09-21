@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.basestruct;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class GeoPoint {
     private double a;
     private double b;

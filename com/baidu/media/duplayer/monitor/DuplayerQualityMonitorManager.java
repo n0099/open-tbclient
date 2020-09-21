@@ -10,10 +10,10 @@ import com.baidu.platform.comapi.UIMsg;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class DuplayerQualityMonitorManager {
     private static final int[] b = {480, UIMsg.MsgDefine.MSG_NETWORK_CHANNEL, 720, 1080};
-    private static DuplayerQualityMonitorManager bAM;
+    private static DuplayerQualityMonitorManager bEj;
     private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
     private int d = -1;
 
@@ -65,10 +65,10 @@ public class DuplayerQualityMonitorManager {
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (bAM == null) {
-                bAM = new DuplayerQualityMonitorManager();
+            if (bEj == null) {
+                bEj = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = bAM;
+            duplayerQualityMonitorManager = bEj;
         }
         return duplayerQualityMonitorManager;
     }

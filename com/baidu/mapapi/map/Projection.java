@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.map.w;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class Projection {
     private com.baidu.mapsdkplatform.comapi.map.d a;
 

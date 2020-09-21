@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class i {
     public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
         return b(context, str, str2, z, z2);

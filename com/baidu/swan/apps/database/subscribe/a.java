@@ -8,7 +8,7 @@ import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
 import com.baidu.swan.apps.console.c;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static void x(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -20,8 +20,8 @@ public final class a {
 
     @WorkerThread
     public static void p(@Nullable String... strArr) {
-        Application aoJ;
-        if (com.baidu.swan.apps.t.a.aoJ() == null || strArr == null) {
+        Application apu;
+        if (com.baidu.swan.apps.t.a.apu() == null || strArr == null) {
             c.w("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
             return;
         }
@@ -36,6 +36,6 @@ public final class a {
                 }
             }
         }
-        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + aoJ.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
+        c.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + apu.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()}) + ", appKey=" + sb.toString());
     }
 }

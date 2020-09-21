@@ -4,7 +4,7 @@ import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaUserAuthenInfoData implements Serializable {
     public String bank_card;
     public String card_portrait;

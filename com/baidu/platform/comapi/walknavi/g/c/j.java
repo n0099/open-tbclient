@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g.c;
 
 import android.view.View;
 import android.view.animation.Animation;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class j implements Animation.AnimationListener {
     final /* synthetic */ i a;
 

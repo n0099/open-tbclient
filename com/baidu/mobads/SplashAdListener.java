@@ -1,7 +1,7 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface SplashAdListener {
     void onAdClick();
 

@@ -5,5 +5,5 @@ import master.flame.danmaku.danmaku.model.a.c;
 public interface b<T extends c<T>> {
     void c(T t);
 
-    T eiG();
+    T emD();
 }

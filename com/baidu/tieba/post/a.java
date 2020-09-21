@@ -17,54 +17,55 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a loh;
-    private static String loi;
-    public TextView aiH;
-    public TextView etz;
-    public TextView euw;
-    private final LinearLayout jCg;
-    private final LinearLayout kkg;
-    protected final LinearLayout lod;
-    protected final ColumnLayout loe;
-    protected final ColumnLayout lof;
-    private int loj;
-    public LinearLayout lok;
-    public HeadImageView lol;
-    public TextView lom;
-    private InterfaceC0783a lwB;
+    private static com.baidu.adp.widget.ImageView.a lxb;
+    private static String lxc;
+    public TextView ajb;
+    public TextView evD;
+    public TextView ewA;
+    private final LinearLayout jKI;
+    private final LinearLayout ksF;
+    private InterfaceC0780a lFs;
+    protected final LinearLayout lwY;
+    protected final ColumnLayout lwZ;
+    protected final ColumnLayout lxa;
+    private int lxd;
+    public LinearLayout lxe;
+    public HeadImageView lxf;
+    public TextView lxg;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public interface InterfaceC0783a {
-        void dg(View view);
+    /* loaded from: classes23.dex */
+    public interface InterfaceC0780a {
+        /* renamed from: do  reason: not valid java name */
+        void mo42do(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.lok = (LinearLayout) view.findViewById(R.id.top_line);
-        this.lol = (HeadImageView) view.findViewById(R.id.portrait);
-        this.aiH = (TextView) view.findViewById(R.id.username);
-        this.etz = (TextView) view.findViewById(R.id.reply_time);
-        this.euw = (TextView) view.findViewById(R.id.forum_name);
-        this.lom = (TextView) view.findViewById(R.id.reply_count);
-        this.kkg = (LinearLayout) view.findViewById(R.id.item_content);
-        this.loe = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.lof = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.jCg = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.lod = (LinearLayout) view.findViewById(R.id.person_child);
-        this.loj = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
-        if (this.kkg != null) {
-            this.kkg.setOnClickListener(this);
+        this.lxe = (LinearLayout) view.findViewById(R.id.top_line);
+        this.lxf = (HeadImageView) view.findViewById(R.id.portrait);
+        this.ajb = (TextView) view.findViewById(R.id.username);
+        this.evD = (TextView) view.findViewById(R.id.reply_time);
+        this.ewA = (TextView) view.findViewById(R.id.forum_name);
+        this.lxg = (TextView) view.findViewById(R.id.reply_count);
+        this.ksF = (LinearLayout) view.findViewById(R.id.item_content);
+        this.lwZ = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.lxa = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.jKI = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.lwY = (LinearLayout) view.findViewById(R.id.person_child);
+        this.lxd = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
+        if (this.ksF != null) {
+            this.ksF.setOnClickListener(this);
         }
-        this.lol.setOnClickListener(this);
-        this.aiH.setOnClickListener(this);
-        this.euw.setOnClickListener(this);
-        this.lom.setOnClickListener(this);
-        this.loe.setOnClickListener(this);
-        this.lof.setOnClickListener(this);
+        this.lxf.setOnClickListener(this);
+        this.ajb.setOnClickListener(this);
+        this.ewA.setOnClickListener(this);
+        this.lxg.setOnClickListener(this);
+        this.lwZ.setOnClickListener(this);
+        this.lxa.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -73,13 +74,13 @@ public class a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.lwB != null) {
-            this.lwB.dg(view);
+        } else if (this.lFs != null) {
+            this.lFs.mo42do(view);
         }
     }
 
-    public void a(InterfaceC0783a interfaceC0783a) {
-        this.lwB = interfaceC0783a;
+    public void a(InterfaceC0780a interfaceC0780a) {
+        this.lFs = interfaceC0780a;
     }
 
     public void a(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
@@ -114,47 +115,47 @@ public class a implements View.OnClickListener {
             z2 = false;
         }
         if (z2) {
-            this.aiH.setText(str2);
-            this.etz.setText(str3);
-            this.euw.setText(str4);
-            this.euw.setTag(str4);
-            this.lom.setText(str5);
-            this.lom.setTag(strArr);
-            this.euw.setOnClickListener(this);
+            this.ajb.setText(str2);
+            this.evD.setText(str3);
+            this.ewA.setText(str4);
+            this.ewA.setTag(str4);
+            this.lxg.setText(str5);
+            this.lxg.setTag(strArr);
+            this.ewA.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                OC(postInfoList.mBaijiahaoInfo.avatar);
+                Pd(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                OC(str);
+                Pd(str);
             }
-            if (this.kkg != null) {
-                this.kkg.setTag(strArr);
+            if (this.ksF != null) {
+                this.ksF.setTag(strArr);
             }
-            this.loe.setTag(strArr);
-            this.lof.setTag(strArr);
+            this.lwZ.setTag(strArr);
+            this.lxa.setTag(strArr);
         }
     }
 
-    private void OC(String str) {
-        if (loi != null && !loi.equals(str)) {
-            loh = null;
+    private void Pd(String str) {
+        if (lxc != null && !lxc.equals(str)) {
+            lxb = null;
         }
-        if (loh != null) {
-            this.lol.setImageBitmap(loh.getRawBitmap());
-            loi = str;
+        if (lxb != null) {
+            this.lxf.setImageBitmap(lxb.getRawBitmap());
+            lxc = str;
             return;
         }
-        this.lol.a(str, 12, this.loj, this.loj, false);
+        this.lxf.a(str, 12, this.lxd, this.lxd, false);
     }
 
     public void changeSkin(int i) {
-        ap.setViewTextColor(this.euw, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(this.etz, R.color.cp_cont_d, 1);
-        ap.setViewTextColor(this.aiH, R.color.cp_cont_f, 1);
-        ap.setBackgroundResource(this.jCg, R.color.cp_bg_line_c);
-        ap.setBackgroundResource(this.lod, R.color.cp_bg_line_d);
+        ap.setViewTextColor(this.ewA, R.color.cp_cont_d, 1);
+        ap.setViewTextColor(this.evD, R.color.cp_cont_d, 1);
+        ap.setViewTextColor(this.ajb, R.color.cp_cont_f, 1);
+        ap.setBackgroundResource(this.jKI, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.lwY, R.color.cp_bg_line_d);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
         }
-        this.lom.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        ap.setViewTextColor(this.lom, R.color.cp_link_tip_c, 1);
+        this.lxg.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this.lxg, R.color.cp_link_tip_c, 1);
     }
 }

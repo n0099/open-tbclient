@@ -13,12 +13,12 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import com.baidu.tbadk.BdToken.completeTask.d;
-import com.baidu.tbadk.BdToken.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
+import com.baidu.tbadk.core.atomData.UserTropicGiftBagActivityConfig;
 import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.mutiprocess.share.ShareEvent;
@@ -27,8 +27,8 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a ehZ;
-    private static CustomMessageListener eie = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
+    private static a eko;
+    private static CustomMessageListener ekt = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,20 +38,20 @@ public class a {
         }
     };
     private int activityId;
-    private int eia;
-    private int eib;
-    private int eic;
-    private CustomMessageListener eid = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
+    private int ekp;
+    private int ekq;
+    private int ekr;
+    private CustomMessageListener eks = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
-                f.pJ(((ShareEvent) customResponsedMessage.getData()).channel);
-                a.this.bij();
+                f.pW(((ShareEvent) customResponsedMessage.getData()).channel);
+                a.this.bje();
             }
         }
     };
-    private final b<com.baidu.adp.widget.ImageView.a> eif = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.f.a.3
+    private final b<com.baidu.adp.widget.ImageView.a> eku = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.f.a.3
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
@@ -59,7 +59,7 @@ public class a {
             Activity currentActivity;
             TbPageContext o;
             if (aVar != null && a.this.mNewUserRedPackageData != null && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (o = a.this.o(currentActivity)) != null) {
-                if (!com.baidu.adp.base.a.lb().bo("MainTabActivity")) {
+                if (!com.baidu.adp.base.a.lf().bq("MainTabActivity")) {
                     TbSingleton.getInstance().setNewUserRedPackageData(a.this.mNewUserRedPackageData);
                 } else {
                     o.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewUserRedPackageActivityConfig(o.getPageActivity(), a.this.mNewUserRedPackageData)));
@@ -70,27 +70,37 @@ public class a {
     private NewUserRedPackageData mNewUserRedPackageData;
     private int missionId;
 
-    public static a bih() {
-        if (ehZ == null) {
+    public static a bjb() {
+        if (eko == null) {
             synchronized (a.class) {
-                if (ehZ == null) {
-                    ehZ = new a();
+                if (eko == null) {
+                    eko = new a();
                 }
             }
         }
-        return ehZ;
+        return eko;
     }
 
     public void d(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
         Activity currentActivity;
         TbPageContext o;
-        if (!q.aYY().aZd() && aVar != null) {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_task_system_new_user_popup_show_number", false);
-            if (aVar.isNewUser && !StringUtils.isNull(aVar.dQF) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (o = o(currentActivity)) != null) {
-                this.mNewUserRedPackageData = aVar.dQI;
-                c.mM().a(this.mNewUserRedPackageData.topPicUrl, 10, this.eif, 0, 0, o.getUniqueId(), new Object[0]);
-                com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_task_system_new_user_popup_show_number", true);
+        if (aVar != null) {
+            if (aVar.dSQ == null || !aVar.dSQ.is_new_window) {
+                boolean z = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean("key_task_system_new_user_popup_show_number", false);
+                if (aVar.isNewUser && !StringUtils.isNull(aVar.dSM) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (o = o(currentActivity)) != null) {
+                    this.mNewUserRedPackageData = aVar.dSP;
+                    c.mR().a(this.mNewUserRedPackageData.topPicUrl, 10, this.eku, 0, 0, o.getUniqueId(), new Object[0]);
+                    com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean("key_task_system_new_user_popup_show_number", true);
+                }
             }
+        }
+    }
+
+    public void bjc() {
+        TbPageContext o;
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity != null && (o = o(currentActivity)) != null && com.baidu.adp.base.a.lf().bq("MainTabActivity")) {
+            o.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UserTropicGiftBagActivityConfig(o.getPageActivity())));
         }
     }
 
@@ -109,38 +119,38 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.eia = missionInfo.total_limit.intValue();
-            this.eic = missionInfo.cleartype.intValue();
-            this.eib = missionInfo.cleartime.intValue();
+            this.ekp = missionInfo.total_limit.intValue();
+            this.ekr = missionInfo.cleartype.intValue();
+            this.ekq = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.ct(this.eib);
-            bVar.mA(this.eic);
-            com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_total_limit", this.eia);
-            com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_mission_id", this.missionId);
-            com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_action_id", this.activityId);
-            com.baidu.tbadk.core.sharedPref.b.bik().putLong("task_share_thread_success_data_specific_clear_time", bVar.aYa());
+            bVar.cu(this.ekq);
+            bVar.mL(this.ekr);
+            com.baidu.tbadk.core.sharedPref.b.bjf().putInt("task_share_thread_success_data_total_limit", this.ekp);
+            com.baidu.tbadk.core.sharedPref.b.bjf().putInt("task_share_thread_success_data_mission_id", this.missionId);
+            com.baidu.tbadk.core.sharedPref.b.bjf().putInt("task_share_thread_success_data_action_id", this.activityId);
+            com.baidu.tbadk.core.sharedPref.b.bjf().putLong("task_share_thread_success_data_specific_clear_time", bVar.aYM());
         }
     }
 
-    private void bii() {
-        com.baidu.tbadk.core.sharedPref.b.bik().remove("task_share_thread_success_data_total_limit");
-        com.baidu.tbadk.core.sharedPref.b.bik().remove("task_share_thread_success_data_mission_id");
-        com.baidu.tbadk.core.sharedPref.b.bik().remove("task_share_thread_success_data_action_id");
-        com.baidu.tbadk.core.sharedPref.b.bik().remove("task_share_thread_success_data_specific_clear_time");
+    private void bjd() {
+        com.baidu.tbadk.core.sharedPref.b.bjf().remove("task_share_thread_success_data_total_limit");
+        com.baidu.tbadk.core.sharedPref.b.bjf().remove("task_share_thread_success_data_mission_id");
+        com.baidu.tbadk.core.sharedPref.b.bjf().remove("task_share_thread_success_data_action_id");
+        com.baidu.tbadk.core.sharedPref.b.bjf().remove("task_share_thread_success_data_specific_clear_time");
     }
 
-    public void bij() {
+    public void bje() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
-            int i2 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("task_share_thread_success_data_mission_id", 0);
-            int i3 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("task_share_thread_success_data_action_id", 0);
-            long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong("task_share_thread_success_data_specific_clear_time", 0L);
+            int i2 = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("task_share_thread_success_data_mission_id", 0);
+            int i3 = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("task_share_thread_success_data_action_id", 0);
+            long j = com.baidu.tbadk.core.sharedPref.b.bjf().getLong("task_share_thread_success_data_specific_clear_time", 0L);
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.cu(j);
-            if (bVar.aXZ()) {
-                bii();
-            } else if (i3 != 0 && i2 != 0 && (i = com.baidu.tbadk.core.sharedPref.b.bik().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
-                com.baidu.tbadk.core.sharedPref.b.bik().putInt("task_share_thread_success_data_total_limit", i - 1);
+            bVar.cv(j);
+            if (bVar.aYL()) {
+                bjd();
+            } else if (i3 != 0 && i2 != 0 && (i = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
+                com.baidu.tbadk.core.sharedPref.b.bjf().putInt("task_share_thread_success_data_total_limit", i - 1);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(String.valueOf(i3), String.valueOf(i2));
@@ -161,7 +171,7 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.eid);
-        MessageManager.getInstance().registerListener(eie);
+        MessageManager.getInstance().registerListener(this.eks);
+        MessageManager.getInstance().registerListener(ekt);
     }
 }

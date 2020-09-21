@@ -12,14 +12,14 @@ import com.baidu.swan.apps.statistic.i;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.f.a cdW;
-    private String drr = "";
+    private com.baidu.swan.games.f.a cfX;
+    private String dtv = "";
 
     public c(com.baidu.swan.games.f.a aVar) {
-        this.cdW = aVar;
+        this.cfX = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
@@ -28,58 +28,58 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         if (v8ExceptionInfo != null) {
             String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
             String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-            Log.e("V8Exception", this.cdW.getLogTag() + "msg: " + str + " ,stack: " + str2);
-            this.cdW.aNd().error(str);
-            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.drr.equals(str)) {
-                this.drr = str;
+            Log.e("V8Exception", this.cfX.getLogTag() + "msg: " + str + " ,stack: " + str2);
+            this.cfX.aNO().error(str);
+            if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.dtv.equals(str)) {
+                this.dtv = str;
                 cK(str, str2);
-                com.baidu.swan.games.v.c.vN(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+                com.baidu.swan.games.v.c.wg(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
                 i.a(v8ExceptionInfo);
-                DuMixGameSurfaceView aNE = com.baidu.swan.games.j.a.aNC().aNE();
-                if (aNE != null) {
-                    aNE.d(v8ExceptionInfo);
+                DuMixGameSurfaceView aOp = com.baidu.swan.games.j.a.aOn().aOp();
+                if (aOp != null) {
+                    aOp.d(v8ExceptionInfo);
                 }
             }
         }
     }
 
     private void cK(String str, String str2) {
-        if (this.cdW.aNb() != null) {
-            this.cdW.aNb().dispatchEvent(new a().uX(str + "\n" + str2).uY("").aNk());
+        if (this.cfX.aNM() != null) {
+            this.cfX.aNM().dispatchEvent(new a().vq(str + "\n" + str2).vr("").aNV());
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String drr;
-        private JSEvent drt = new JSEvent(BdStatsConstant.StatsType.ERROR);
-        private String dru;
+        private String dtv;
+        private JSEvent dtw = new JSEvent(BdStatsConstant.StatsType.ERROR);
+        private String dtx;
 
-        public a uX(String str) {
-            this.drr = str;
+        public a vq(String str) {
+            this.dtv = str;
             return this;
         }
 
-        public a uY(String str) {
-            this.dru = str;
+        public a vr(String str) {
+            this.dtx = str;
             return this;
         }
 
-        public JSEvent aNk() {
+        public JSEvent aNV() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.drr);
-                jSONObject.put("stack", this.dru);
+                jSONObject.put("message", this.dtv);
+                jSONObject.put("stack", this.dtx);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.drt.data = jSONObject;
+                this.dtw.data = jSONObject;
             }
-            return this.drt;
+            return this.dtw;
         }
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.live.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaInfoData implements Serializable {
     public static final int LIVE_STATUS_LIVE_ON = 1;
     public static final int LIVE_STATUS_RECORD = 3;
@@ -67,8 +67,8 @@ public class AlaInfoData implements Serializable {
                 this.live_status = jSONObject.optInt("live_status");
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
-                this.live_type = jSONObject.optInt("live_type");
-                this.screen_direction = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
+                this.live_type = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE);
+                this.screen_direction = jSONObject.optInt("screen_direction");
                 this.label_name = jSONObject.optString("label_name");
                 this.distance = jSONObject.optDouble("distance");
                 this.appId = jSONObject.optString("third_app_id");

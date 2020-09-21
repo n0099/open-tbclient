@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public int type;
     public float x;

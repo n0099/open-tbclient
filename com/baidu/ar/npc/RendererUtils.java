@@ -7,12 +7,12 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class RendererUtils {
     private static final float[] a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final float[] b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private int a;
         private int b;

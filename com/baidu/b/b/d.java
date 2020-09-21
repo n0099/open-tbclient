@@ -9,19 +9,19 @@ import com.baidu.b.h;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.b.b.a {
-    a.C0090a acr;
-    private a acs;
+    a.C0091a acK;
+    private a acL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a {
-        private h.a acu;
+        private h.a acN;
         private long c;
         private boolean e;
         private int g;
-        private com.baidu.b.f.b act = new com.baidu.b.f.b();
+        private com.baidu.b.f.b acM = new com.baidu.b.f.b();
         private boolean f = true;
 
         a() {
@@ -34,7 +34,7 @@ public class d extends com.baidu.b.b.a {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.c = jSONObject.getLong("pub_lst_ts");
-                this.acu = h.a(jSONObject.getString("pub_info"));
+                this.acN = h.a(jSONObject.getString("pub_info"));
                 this.g = jSONObject.getInt("d_form_ver");
                 this.e = false;
                 return true;
@@ -48,17 +48,17 @@ public class d extends com.baidu.b.b.a {
         }
 
         public boolean a(PackageInfo packageInfo) {
-            String a = d.this.acr.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
+            String a = d.this.acK.i(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
             this.f = false;
             return a(a);
         }
 
         public h.a b() {
-            return this.acu;
+            return this.acN;
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     class b extends a.b {
         private int b;
         private String c;
@@ -68,7 +68,7 @@ public class d extends com.baidu.b.b.a {
         private h.a g;
 
         public b(String str) {
-            super(d.this.acr, str);
+            super(d.this.acK, str);
         }
 
         public boolean Q(long j) {
@@ -149,14 +149,14 @@ public class d extends com.baidu.b.b.a {
             return this.f;
         }
 
-        public h.a sE() {
+        public h.a sJ() {
             return this.g;
         }
     }
 
     public d() {
         super("isc", 8000000L);
-        this.acs = new a();
+        this.acL = new a();
     }
 
     @Override // com.baidu.b.b.a
@@ -164,18 +164,18 @@ public class d extends com.baidu.b.b.a {
         PackageInfo packageInfo;
         b bVar = null;
         try {
-            packageInfo = this.ach.a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.acC.a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
-            return a.e.bf(-2);
+            return a.e.bj(-2);
         }
         if (dVar.a) {
             bVar = new b(str);
             bVar.a();
             if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
-                return a.e.a(bVar.sE());
+                return a.e.a(bVar.sJ());
             }
         }
         a aVar = new a();
@@ -189,11 +189,11 @@ public class d extends com.baidu.b.b.a {
             }
             return a.e.a(aVar.b());
         }
-        return a.e.bf(-2);
+        return a.e.bj(-2);
     }
 
     @Override // com.baidu.b.b.a
     public void a(a.c cVar) {
-        this.acr = this.aci.cV("isc");
+        this.acK = this.acD.cX("isc");
     }
 }

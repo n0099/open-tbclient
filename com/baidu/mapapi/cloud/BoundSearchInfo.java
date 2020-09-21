@@ -8,7 +8,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BoundSearchInfo extends BaseCloudSearchInfo {
     public String bound;
 

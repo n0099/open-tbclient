@@ -12,7 +12,7 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     public long a;
     public String b;
@@ -28,20 +28,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0226a o;
+    private C0224a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0226a {
+    /* loaded from: classes3.dex */
+    public static class C0224a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0226a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0224a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -59,9 +59,9 @@ public abstract class a {
         }
     }
 
-    public a(C0226a c0226a) {
-        this(c0226a.a, c0226a.b, c0226a.c);
-        this.o = c0226a;
+    public a(C0224a c0224a) {
+        this(c0224a.a, c0224a.b, c0224a.c);
+        this.o = c0224a;
     }
 
     @Deprecated

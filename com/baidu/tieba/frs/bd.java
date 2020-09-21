@@ -5,6 +5,6 @@ public class bd extends ba {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean arE = true;
-    public boolean hXU = true;
+    public boolean asg = true;
+    public boolean ieY = true;
 }

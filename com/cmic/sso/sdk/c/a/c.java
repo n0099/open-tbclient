@@ -3,9 +3,9 @@ package com.cmic.sso.sdk.c.a;
 import android.text.TextUtils;
 /* loaded from: classes7.dex */
 public class c implements b {
-    private b niI;
-    private com.cmic.sso.sdk.c.d.c niJ;
-    private com.cmic.sso.sdk.c.a niK = new com.cmic.sso.sdk.c.a();
+    private b nsI;
+    private com.cmic.sso.sdk.c.d.c nsJ;
+    private com.cmic.sso.sdk.c.a nsK = new com.cmic.sso.sdk.c.a();
 
     @Override // com.cmic.sso.sdk.c.a.b
     public void a(com.cmic.sso.sdk.c.c.c cVar, com.cmic.sso.sdk.c.d.c cVar2, com.cmic.sso.sdk.a aVar) {
@@ -13,18 +13,18 @@ public class c implements b {
     }
 
     public void a(b bVar) {
-        this.niI = bVar;
+        this.nsI = bVar;
     }
 
     public void b(final com.cmic.sso.sdk.c.c.c cVar, final com.cmic.sso.sdk.c.d.c cVar2, final com.cmic.sso.sdk.a aVar) {
-        if (this.niI != null) {
-            this.niJ = new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.c.1
+        if (this.nsI != null) {
+            this.nsJ = new com.cmic.sso.sdk.c.d.c() { // from class: com.cmic.sso.sdk.c.a.c.1
                 @Override // com.cmic.sso.sdk.c.d.c
                 public void a(com.cmic.sso.sdk.c.d.b bVar) {
                     if (bVar.d()) {
-                        c.this.b(c.this.niK.a(cVar, bVar, aVar), c.this.niJ, aVar);
-                    } else if (!TextUtils.isEmpty(c.this.niK.a())) {
-                        c.this.b(c.this.niK.b(cVar, bVar, aVar), c.this.niJ, aVar);
+                        c.this.b(c.this.nsK.a(cVar, bVar, aVar), c.this.nsJ, aVar);
+                    } else if (!TextUtils.isEmpty(c.this.nsK.a())) {
+                        c.this.b(c.this.nsK.b(cVar, bVar, aVar), c.this.nsJ, aVar);
                     } else {
                         cVar2.a(bVar);
                     }
@@ -41,9 +41,9 @@ public class c implements b {
                 }
             };
             if (cVar.g()) {
-                this.niI.a(cVar, this.niJ, aVar);
+                this.nsI.a(cVar, this.nsJ, aVar);
             } else {
-                cVar2.a(com.cmic.sso.sdk.c.d.a.KM(200025));
+                cVar2.a(com.cmic.sso.sdk.c.d.a.Lr(200025));
             }
         }
     }

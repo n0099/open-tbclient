@@ -13,7 +13,7 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class BlurDrawable {
     private static boolean enabled;
     public Bitmap mBitmapToBlur;

@@ -11,7 +11,7 @@ import kotlin.TypeCastException;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public final class DefaultFloatViewAnimator implements FloatViewAnimator {
     private final long mDuration = 325;
 

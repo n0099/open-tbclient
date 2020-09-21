@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class TNWebViewClient extends WebViewClient {
-    private final TurbonetEngine ncT;
+    private final TurbonetEngine nmS;
 
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
@@ -49,9 +49,9 @@ public class TNWebViewClient extends WebViewClient {
         } catch (Exception e3) {
             Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e3.toString());
         }
-        if (webResourceRequest.getMethod().equals("GET") && !this.ncT.dKE()) {
+        if (webResourceRequest.getMethod().equals("GET") && !this.nmS.dOC()) {
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.ncT);
+            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.nmS);
             dVar.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {

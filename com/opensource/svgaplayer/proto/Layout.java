@@ -9,16 +9,16 @@ import com.squareup.wire2.d;
 import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class Layout extends Message<Layout, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float height;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float width;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float x;
-    @WireField(ecV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(egS = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
     public static final ProtoAdapter<Layout> ADAPTER = new ProtoAdapter_Layout();
     public static final Float DEFAULT_X = Float.valueOf(0.0f);
@@ -91,7 +91,7 @@ public final class Layout extends Message<Layout, Builder> {
         return sb.replace(0, 2, "Layout{").append('}').toString();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     public static final class Builder extends Message.a<Layout, Builder> {
         public Float height;
         public Float width;
@@ -126,7 +126,7 @@ public final class Layout extends Message<Layout, Builder> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     private static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         ProtoAdapter_Layout() {
             super(FieldEncoding.LENGTH_DELIMITED, Layout.class);
@@ -161,11 +161,11 @@ public final class Layout extends Message<Layout, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Layout decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long ecN = cVar.ecN();
+            long egK = cVar.egK();
             while (true) {
-                int ecO = cVar.ecO();
-                if (ecO != -1) {
-                    switch (ecO) {
+                int egL = cVar.egL();
+                if (egL != -1) {
+                    switch (egL) {
                         case 1:
                             builder.x(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class Layout extends Message<Layout, Builder> {
                             builder.height(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding ecP = cVar.ecP();
-                            builder.addUnknownField(ecO, ecP, ecP.rawProtoAdapter().decode(cVar));
+                            FieldEncoding egM = cVar.egM();
+                            builder.addUnknownField(egL, egM, egM.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gJ(ecN);
+                    cVar.gX(egK);
                     return builder.build();
                 }
             }

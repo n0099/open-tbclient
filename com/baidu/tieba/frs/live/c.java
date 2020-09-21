@@ -6,28 +6,28 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
-    private a inS;
-    private HttpMessageListener inX = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
+    private a ivi;
+    private HttpMessageListener ivn = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.inS != null) {
-                c.this.inS.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.ivi != null) {
+                c.this.ivi.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage);
     }
 
     public c(a aVar) {
-        this.inS = aVar;
+        this.ivi = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.inX);
+        MessageManager.getInstance().registerListener(this.ivn);
     }
 
     private void registerTask() {
@@ -39,7 +39,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void ym(int i) {
+    public void yL(int i) {
         HttpMessage httpMessage = new HttpMessage(1001713);
         httpMessage.addParam("forum_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -47,6 +47,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(1001713);
-        MessageManager.getInstance().unRegisterListener(this.inX);
+        MessageManager.getInstance().unRegisterListener(this.ivn);
     }
 }

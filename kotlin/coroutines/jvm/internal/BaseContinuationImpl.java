@@ -7,7 +7,7 @@ import kotlin.i;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseContinuationImpl implements Serializable, kotlin.coroutines.a<Object>, b {
     private final kotlin.coroutines.a<Object> completion;
 
@@ -29,7 +29,7 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
         while (true) {
             kotlin.coroutines.a<Object> aVar = baseContinuationImpl.completion;
             if (aVar == null) {
-                q.egs();
+                q.ekp();
             }
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
@@ -37,7 +37,7 @@ public abstract class BaseContinuationImpl implements Serializable, kotlin.corou
                 Result.a aVar2 = Result.Companion;
                 obj = Result.m592constructorimpl(i.P(th));
             }
-            if (invokeSuspend != kotlin.coroutines.intrinsics.a.egm()) {
+            if (invokeSuspend != kotlin.coroutines.intrinsics.a.ekj()) {
                 Result.a aVar3 = Result.Companion;
                 obj = Result.m592constructorimpl(invokeSuspend);
                 baseContinuationImpl.releaseIntercepted();

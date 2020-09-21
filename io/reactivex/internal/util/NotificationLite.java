@@ -2,11 +2,11 @@ package io.reactivex.internal.util;
 
 import io.reactivex.u;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public enum NotificationLite {
     COMPLETE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ErrorNotification implements Serializable {
         private static final long serialVersionUID = -8759979445933046293L;
         final Throwable e;
@@ -31,12 +31,12 @@ public enum NotificationLite {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class SubscriptionNotification implements Serializable {
         private static final long serialVersionUID = -1322257508628817540L;
-        final org.b.d s;
+        final org.a.d s;
 
-        SubscriptionNotification(org.b.d dVar) {
+        SubscriptionNotification(org.a.d dVar) {
             this.s = dVar;
         }
 
@@ -45,7 +45,7 @@ public enum NotificationLite {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class DisposableNotification implements Serializable {
         private static final long serialVersionUID = -7482590109178395495L;
         final io.reactivex.disposables.b d;
@@ -71,7 +71,7 @@ public enum NotificationLite {
         return new ErrorNotification(th);
     }
 
-    public static Object subscription(org.b.d dVar) {
+    public static Object subscription(org.a.d dVar) {
         return new SubscriptionNotification(dVar);
     }
 
@@ -105,7 +105,7 @@ public enum NotificationLite {
         return ((ErrorNotification) obj).e;
     }
 
-    public static org.b.d getSubscription(Object obj) {
+    public static org.a.d getSubscription(Object obj) {
         return ((SubscriptionNotification) obj).s;
     }
 
@@ -113,7 +113,7 @@ public enum NotificationLite {
         return ((DisposableNotification) obj).d;
     }
 
-    public static <T> boolean accept(Object obj, org.b.c<? super T> cVar) {
+    public static <T> boolean accept(Object obj, org.a.c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;
@@ -139,7 +139,7 @@ public enum NotificationLite {
         }
     }
 
-    public static <T> boolean acceptFull(Object obj, org.b.c<? super T> cVar) {
+    public static <T> boolean acceptFull(Object obj, org.a.c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;

@@ -5,7 +5,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class aa {
     public static long a() {
         File externalStorageDirectory;

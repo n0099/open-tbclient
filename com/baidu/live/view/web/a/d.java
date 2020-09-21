@@ -9,9 +9,9 @@ import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.live.view.web.a {
-    private AlaLastLiveroomInfo bvv;
+    private AlaLastLiveroomInfo byI;
     private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
@@ -20,22 +20,22 @@ public class d extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hr(String str) {
+    public void hP(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
             try {
                 long parseLong = Long.parseLong(str);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_EXTRA_RECOMMEND_TYPE, 0);
-                    jSONObject.put(AlaLiveRoomActivityConfig.LIVE_SHOW_GITE_PANEL, 0);
+                    jSONObject.put("recommend_type", 0);
+                    jSONObject.put("open_giftlist", 0);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 String jSONObject2 = jSONObject.toString();
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
                 alaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
-                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bvv);
+                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.byI);
                 alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
                 alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
@@ -50,6 +50,6 @@ public class d extends com.baidu.live.view.web.a {
     }
 
     public void b(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bvv = alaLastLiveroomInfo;
+        this.byI = alaLastLiveroomInfo;
     }
 }

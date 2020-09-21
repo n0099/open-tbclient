@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sofire.j.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class b implements com.baidu.sofire.j.b {
     private Context a;
     private a b;

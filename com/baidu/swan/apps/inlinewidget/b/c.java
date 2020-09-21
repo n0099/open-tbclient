@@ -3,12 +3,12 @@ package com.baidu.swan.apps.inlinewidget.b;
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c implements ZeusPluginFactory {
-    private String bTN;
+    private String bVN;
 
     public c(@NonNull String str) {
-        this.bTN = str;
+        this.bVN = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -18,6 +18,6 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        return new b(com.baidu.swan.apps.t.a.apy().e(invoker, this.bTN));
+        return new b(com.baidu.swan.apps.t.a.aqi().e(invoker, this.bVN));
     }
 }

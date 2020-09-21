@@ -7,30 +7,30 @@ import android.support.annotation.NonNull;
 import com.tb.airbnb.lottie.model.content.j;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class e extends a {
-    private final com.tb.airbnb.lottie.a.a.c oiQ;
+    private final com.tb.airbnb.lottie.a.a.c osA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(com.tb.airbnb.lottie.f fVar, Layer layer) {
         super(fVar, layer);
-        this.oiQ = new com.tb.airbnb.lottie.a.a.c(fVar, this, new j("__container", layer.jx()));
-        this.oiQ.b(Collections.emptyList(), Collections.emptyList());
+        this.osA = new com.tb.airbnb.lottie.a.a.c(fVar, this, new j("__container", layer.jy()));
+        this.osA.b(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.oiQ.a(canvas, matrix, i);
+        this.osA.a(canvas, matrix, i);
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.oiQ.a(rectF, this.FD);
+        this.osA.a(rectF, this.FD);
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     protected void b(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
-        this.oiQ.a(eVar, i, list, eVar2);
+        this.osA.a(eVar, i, list, eVar2);
     }
 }

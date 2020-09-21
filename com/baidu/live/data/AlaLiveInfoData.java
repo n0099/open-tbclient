@@ -2,14 +2,15 @@ package com.baidu.live.data;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.p;
+import com.baidu.live.data.s;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveInfoData implements Serializable {
     public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -34,6 +35,7 @@ public class AlaLiveInfoData implements Serializable {
     public int ai_robot_num;
     public String anchorTitle;
     public String appId;
+    public int apply_count;
     public int audience_count;
     public int backstage_type;
     public String call_path_android;
@@ -90,7 +92,9 @@ public class AlaLiveInfoData implements Serializable {
     public String qrcodeUrl;
     public RedPacketCharmInfo redpacketCharmInfo;
     public int rewardUserCount;
+    public String roomName;
     public long room_id;
+    public String room_name;
     public int screen_direction;
     public String session_id;
     public AlaLiveStreamSessionInfo session_info;
@@ -98,15 +102,18 @@ public class AlaLiveInfoData implements Serializable {
     public String share_url;
     public long start_time;
     public long thread_id;
+    public String user_avatar;
     public long user_id;
     public String user_name;
     public String user_nickname;
+    public String user_uk;
     public int zan_count;
-    public p.a mCastIds = null;
+    public s.a mCastIds = null;
     public int goodsList = 0;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
     public AlaLiveCloseData mLiveCloseData = new AlaLiveCloseData();
+    public boolean hasLogShow = false;
 
     public long getLiveID() {
         return this.live_id;
@@ -170,6 +177,8 @@ public class AlaLiveInfoData implements Serializable {
             this.room_id = jSONObject.optLong("room_id");
             this.user_id = jSONObject.optLong("user_id");
             this.user_name = jSONObject.optString("user_name");
+            this.room_name = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
+            this.user_avatar = jSONObject.optString("user_avatar");
             this.user_nickname = jSONObject.optString("user_nickname");
             this.group_id = jSONObject.optLong("group_id");
             this.last_msg_id = jSONObject.optLong("last_msg_id");
@@ -199,6 +208,8 @@ public class AlaLiveInfoData implements Serializable {
             this.close_type = jSONObject.optInt("close_type");
             this.close_reason = jSONObject.optString("close_reason");
             this.backstage_type = jSONObject.optInt("backstage_type");
+            this.user_uk = jSONObject.optString("user_uk");
+            this.apply_count = jSONObject.optInt("apply_count", 0);
             this.share_url = jSONObject.optString(PbChosenActivityConfig.KEY_SHARE_URL);
             this.forum_id = jSONObject.optLong("forum_id");
             this.forum_name = jSONObject.optString("forum_name");
@@ -225,7 +236,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
-            this.screen_direction = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
+            this.screen_direction = jSONObject.optInt("screen_direction");
             if (DEBUG) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("debug_force_landscape", false);
@@ -234,7 +245,7 @@ public class AlaLiveInfoData implements Serializable {
                     this.screen_direction = 2;
                 }
             }
-            this.live_type = jSONObject.optInt("live_type", 1);
+            this.live_type = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
             if (this.live_type != 2) {
                 this.live_type = 1;
             }
@@ -273,7 +284,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject4 != null) {
-                this.mCastIds = new p.a();
+                this.mCastIds = new s.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
@@ -398,6 +409,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("close_type", this.close_type);
             jSONObject.put("close_reason", this.close_reason);
             jSONObject.put("backstage_type", this.backstage_type);
+            jSONObject.put("user_uk", this.user_uk);
             jSONObject.put(PbChosenActivityConfig.KEY_SHARE_URL, this.share_url);
             jSONObject.put("forum_id", this.forum_id);
             jSONObject.put("forum_name", this.forum_name);
@@ -410,7 +422,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("session_info_backup", AlaLiveStreamSessionInfo.toJson(this.session_info_backup));
             jSONObject.put("thread_id", this.thread_id);
             jSONObject.put("comment_count", this.comment_count);
-            jSONObject.put("live_type", this.live_type);
+            jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, this.live_type);
             jSONObject.put("session_default", this.session_default);
             jSONObject.put("clarity", this.clarity);
             jSONObject.put("game_id", this.game_id);

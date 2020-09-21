@@ -1,5 +1,5 @@
 package com.heytap.mcssdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static final boolean a = false;
     public static final String b = "com.heytap.mcssdk";

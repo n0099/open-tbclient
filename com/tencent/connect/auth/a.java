@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class a extends Dialog {
     private String a;
     private b b;
@@ -119,7 +119,7 @@ public class a extends Dialog {
         super.onStop();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     private class c extends Handler {
         private b b;
 
@@ -146,7 +146,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     private class b implements IUiListener {
         String a;
         String b;
@@ -211,9 +211,9 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    public class C0934a extends WebViewClient {
-        private C0934a() {
+    /* loaded from: classes24.dex */
+    public class C0931a extends WebViewClient {
+        private C0931a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -383,7 +383,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     class d implements Runnable {
         String a;
 
@@ -467,7 +467,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0934a());
+        this.j.setWebViewClient(new C0931a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();

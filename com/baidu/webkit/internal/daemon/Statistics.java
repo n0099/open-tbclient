@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal.daemon;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class Statistics implements INoProGuard {
     private static boolean mIsInited;
 

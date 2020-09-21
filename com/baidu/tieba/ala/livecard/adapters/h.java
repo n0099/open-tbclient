@@ -16,14 +16,14 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class h extends k<bv, com.baidu.tieba.ala.livecard.a.e> implements com.baidu.tieba.a.f, y {
-    private String agJ;
-    private aa<bw> giQ;
-    private com.baidu.tieba.ala.livecard.b.e giV;
+    private String ahc;
+    private aa<bw> glX;
+    private com.baidu.tieba.ala.livecard.b.e gmc;
     private String mForumName;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.giQ = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.h.1
+        this.glX = new aa<bw>() { // from class: com.baidu.tieba.ala.livecard.adapters.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
@@ -52,16 +52,16 @@ public class h extends k<bv, com.baidu.tieba.ala.livecard.a.e> implements com.ba
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public com.baidu.tieba.ala.livecard.a.e b(ViewGroup viewGroup) {
+    /* renamed from: ar */
+    public com.baidu.tieba.ala.livecard.a.e c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.giV = new com.baidu.tieba.ala.livecard.b.e(this.mPageContext, this.mPageId);
-        this.giV.p(this.mPageId);
-        this.giV.setForumName(this.mForumName);
-        this.giV.c(this.giQ);
-        return new com.baidu.tieba.ala.livecard.a.e(this.giV);
+        this.gmc = new com.baidu.tieba.ala.livecard.b.e(this.mPageContext, this.mPageId);
+        this.gmc.o(this.mPageId);
+        this.gmc.setForumName(this.mForumName);
+        this.gmc.c(this.glX);
+        return new com.baidu.tieba.ala.livecard.a.e(this.gmc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,22 +71,22 @@ public class h extends k<bv, com.baidu.tieba.ala.livecard.a.e> implements com.ba
         TiebaStatic.log("c11842");
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.hSt != null) {
-            i2 = this.hSt.getTopThreadSize();
+        if (this.hZt != null) {
+            i2 = this.hZt.getTopThreadSize();
         }
-        bvVar.dUW.dZf = (i + 1) - i2;
-        customMessage.setData(bvVar.dUW);
+        bvVar.dXg.ebp = (i + 1) - i2;
+        customMessage.setData(bvVar.dXg);
         this.mPageContext.sendMessage(customMessage);
         if (bvVar != null) {
-            if (eVar.gjj instanceof com.baidu.tieba.a.e) {
-                eVar.gjj.setPage(this.agJ);
+            if (eVar.gmq instanceof com.baidu.tieba.a.e) {
+                eVar.gmq.setPage(this.ahc);
             }
-            eVar.gjj.setForumName(this.mForumName);
-            eVar.gjj.lA(clG());
-            eVar.gjj.a(bvVar.dUW);
-            bvVar.dUW.bfQ();
+            eVar.gmq.setForumName(this.mForumName);
+            eVar.gmq.lC(coS());
+            eVar.gmq.a(bvVar.dXg);
+            bvVar.dXg.bgK();
         }
-        this.hyr = (v) viewGroup;
+        this.hFt = (v) viewGroup;
         return eVar.getView();
     }
 
@@ -96,11 +96,11 @@ public class h extends k<bv, com.baidu.tieba.ala.livecard.a.e> implements com.ba
     }
 
     @Override // com.baidu.tieba.card.y
-    public void tz(int i) {
+    public void tS(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Dk(String str) {
-        this.agJ = str;
+    public void DH(String str) {
+        this.ahc = str;
     }
 }

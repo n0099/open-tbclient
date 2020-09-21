@@ -6,8 +6,8 @@ import com.baidu.tieba.R;
 public class f extends m {
     public f() {
         super((String) null, 1, 0);
-        this.eLo = R.drawable.icon_pure_post_keyboard24_svg;
-        this.eLr = true;
+        this.eNF = R.drawable.icon_pure_post_keyboard24_svg;
+        this.eNI = true;
         this.name = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
     }
 }

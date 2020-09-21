@@ -4,29 +4,29 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder kTZ;
-    private int kUa;
+    private SpannableStringBuilder lcD;
+    private int lcE;
     private int textSize;
 
     public g() {
-        this.kUa = 0;
+        this.lcE = 0;
         this.textSize = -1;
-        this.kTZ = new SpannableStringBuilder();
+        this.lcD = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.kUa = 0;
+        this.lcE = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.kTZ = new SpannableStringBuilder();
+            this.lcD = new SpannableStringBuilder();
             if (excContent != null) {
-                this.kTZ.append((CharSequence) excContent.text);
+                this.lcD.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.kUa = excContent.align.intValue();
+                this.lcE = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -40,9 +40,9 @@ public class g implements c {
         }
     }
 
-    public void r(CharSequence charSequence) {
+    public void q(CharSequence charSequence) {
         if (charSequence != null) {
-            this.kTZ.append(charSequence);
+            this.lcD.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dds() {
-        return this.kTZ;
+    public CharSequence dgW() {
+        return this.lcD;
     }
 
-    public int ddu() {
-        return this.kUa;
+    public int dgY() {
+        return this.lcE;
     }
 
-    public String ddv() {
+    public String dgZ() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean ddt() {
-        return (this.kUa > 0 && this.kUa < 3) || !StringUtils.isNull(this.color);
+    public boolean dgX() {
+        return (this.lcE > 0 && this.lcE < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

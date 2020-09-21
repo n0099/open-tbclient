@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class w {
     private static final String t = w.class.getSimpleName();
     public double m;
@@ -30,7 +30,7 @@ public class w {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public long a = 0;
         public long b = 0;

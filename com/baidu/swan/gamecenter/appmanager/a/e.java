@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class e extends com.baidu.swan.gamecenter.c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -23,11 +23,11 @@ public class e extends com.baidu.swan.gamecenter.c.a {
             bVar.onFail(31010, "package name is empty");
         } else {
             com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", null, null, null);
-            if (!com.baidu.swan.gamecenter.appmanager.install.a.af(AppRuntime.getAppContext(), optString)) {
+            if (!com.baidu.swan.gamecenter.appmanager.install.a.ai(AppRuntime.getAppContext(), optString)) {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", "fail", String.valueOf(31011), null);
-            } else if (com.baidu.swan.gamecenter.appmanager.install.a.ah(AppRuntime.getAppContext(), optString)) {
-                bVar.al(null);
+            } else if (com.baidu.swan.gamecenter.appmanager.install.a.ak(AppRuntime.getAppContext(), optString)) {
+                bVar.ao(null);
                 com.baidu.swan.gamecenter.appmanager.d.c.a(optString, "openApp", "success", null, null);
             } else {
                 bVar.onFail(31019, "open app fail");

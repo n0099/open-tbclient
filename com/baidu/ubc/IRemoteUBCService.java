@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public interface IRemoteUBCService extends IInterface {
     void flowAddEvent(Flow flow, String str, String str2) throws RemoteException;
 
@@ -23,11 +23,15 @@ public interface IRemoteUBCService extends IInterface {
 
     void flowStartSlot(Flow flow, String str, String str2) throws RemoteException;
 
+    String getUploadType(String str) throws RemoteException;
+
     Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException;
 
     void ubcOnEvent(String str, String str2, int i) throws RemoteException;
 
-    /* loaded from: classes18.dex */
+    void uploadLocalDatas() throws RemoteException;
+
+    /* loaded from: classes11.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         private static final String DESCRIPTOR = "com.baidu.ubc.IRemoteUBCService";
         static final int TRANSACTION_flowAddEvent = 3;
@@ -38,8 +42,10 @@ public interface IRemoteUBCService extends IInterface {
         static final int TRANSACTION_flowSetValue = 5;
         static final int TRANSACTION_flowSetValueWithDuration = 6;
         static final int TRANSACTION_flowStartSlot = 7;
+        static final int TRANSACTION_getUploadType = 12;
         static final int TRANSACTION_ubcBeginFlow = 2;
         static final int TRANSACTION_ubcOnEvent = 1;
+        static final int TRANSACTION_uploadLocalDatas = 11;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -120,6 +126,17 @@ public interface IRemoteUBCService extends IInterface {
                     flowEnd(parcel.readInt() != 0 ? Flow.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
                     return true;
+                case 11:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    uploadLocalDatas();
+                    parcel2.writeNoException();
+                    return true;
+                case 12:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    String uploadType = getUploadType(parcel.readString());
+                    parcel2.writeNoException();
+                    parcel2.writeString(uploadType);
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -129,7 +146,7 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes18.dex */
+        /* loaded from: classes11.dex */
         public static class Proxy implements IRemoteUBCService {
             private IBinder mRemote;
 
@@ -351,6 +368,36 @@ public interface IRemoteUBCService extends IInterface {
                     }
                     this.mRemote.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.ubc.IRemoteUBCService
+            public void uploadLocalDatas() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(11, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.ubc.IRemoteUBCService
+            public String getUploadType(String str) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeString(str);
+                    this.mRemote.transact(12, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();

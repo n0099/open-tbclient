@@ -31,45 +31,45 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static volatile a bsK;
-    private HashMap<String, LinkedList<com.baidu.live.data.d>> mUserAttentionRequestMap = new HashMap<>();
+    private static volatile a bwb;
+    private HashMap<String, LinkedList<com.baidu.live.data.e>> mUserAttentionRequestMap = new HashMap<>();
     private HashMap<String, C0198a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a Qx() {
-        if (bsK == null) {
+    public static a Rg() {
+        if (bwb == null) {
             synchronized (a.class) {
-                if (bsK == null) {
-                    bsK = new a();
+                if (bwb == null) {
+                    bwb = new a();
                 }
             }
         }
-        return bsK;
+        return bwb;
     }
 
-    public void a(String str, com.baidu.live.data.d dVar) {
-        if (!StringUtils.isNull(str) && dVar != null && dVar.getPortrait() != null) {
-            LinkedList<com.baidu.live.data.d> linkedList = this.mUserAttentionRequestMap.get(str);
+    public void a(String str, com.baidu.live.data.e eVar) {
+        if (!StringUtils.isNull(str) && eVar != null && eVar.getPortrait() != null) {
+            LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
                 this.mUserAttentionRequestMap.put(str, linkedList);
             }
-            a(linkedList, dVar);
+            a(linkedList, eVar);
             executeAttentionTask(str);
         }
     }
 
-    private void a(LinkedList<com.baidu.live.data.d> linkedList, com.baidu.live.data.d dVar) {
+    private void a(LinkedList<com.baidu.live.data.e> linkedList, com.baidu.live.data.e eVar) {
         if (linkedList.size() < 1) {
-            b(linkedList, dVar);
+            b(linkedList, eVar);
             return;
         }
-        com.baidu.live.data.d last = linkedList.getLast();
-        if (last.getPortrait().equals(dVar.getPortrait()) && last.isAttention() == dVar.isAttention()) {
+        com.baidu.live.data.e last = linkedList.getLast();
+        if (last.getPortrait().equals(eVar.getPortrait()) && last.isAttention() == eVar.isAttention()) {
             if (BdLog.isDebugMode()) {
                 try {
                     throw new IllegalArgumentException("new attention data is the same as the nearest attention data");
@@ -78,21 +78,21 @@ public class a {
                 }
             }
         } else if (linkedList.size() < 3) {
-            b(linkedList, dVar);
-        } else if (linkedList.get(1).equals(dVar)) {
+            b(linkedList, eVar);
+        } else if (linkedList.get(1).equals(eVar)) {
             linkedList.removeLast();
         }
     }
 
-    private void b(LinkedList<com.baidu.live.data.d> linkedList, com.baidu.live.data.d dVar) {
-        if (dVar != null) {
-            linkedList.add(dVar.clone());
+    private void b(LinkedList<com.baidu.live.data.e> linkedList, com.baidu.live.data.e eVar) {
+        if (eVar != null) {
+            linkedList.add(eVar.clone());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
-        LinkedList<com.baidu.live.data.d> linkedList;
+        LinkedList<com.baidu.live.data.e> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
             C0198a c0198a = new C0198a();
             this.mAttentionTaskMap.put(str, c0198a);
@@ -104,9 +104,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class C0198a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId bsP;
+        private BdUniqueId bwg;
         private String forumId;
         private String from;
         private String inLive;
@@ -127,13 +127,13 @@ public class a {
             this.showToastAfterAttentionSuc = false;
         }
 
-        public void a(com.baidu.live.data.d dVar) {
-            this.isAttention = dVar.isAttention();
-            this.toUid = dVar.getUserId();
-            this.inLive = dVar.getInLive();
-            this.bsP = dVar.Cs();
-            this.from = dVar.getFrom();
-            this.metaKey = dVar.Ct();
+        public void a(com.baidu.live.data.e eVar) {
+            this.isAttention = eVar.isAttention();
+            this.toUid = eVar.getUserId();
+            this.inLive = eVar.getInLive();
+            this.bwg = eVar.CH();
+            this.from = eVar.getFrom();
+            this.metaKey = eVar.CI();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -185,7 +185,7 @@ public class a {
                     updateAttentionData.isSucc = updateAttentionData.response.mServerErrorCode == 0;
                 }
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bsP));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bwg));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
                 a.this.a(updateAttentionData, this.from);
             }
@@ -224,7 +224,7 @@ public class a {
     }
 
     public void removeRequestListFirstByUid(String str) {
-        LinkedList<com.baidu.live.data.d> linkedList = this.mUserAttentionRequestMap.get(str);
+        LinkedList<com.baidu.live.data.e> linkedList = this.mUserAttentionRequestMap.get(str);
         if (linkedList != null && linkedList.size() > 0) {
             try {
                 linkedList.removeFirst();

@@ -8,35 +8,35 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.ap.ag;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public static void iu(int i) {
+    public static void iE(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.ayb().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int auc() {
-        return aue() + 1;
+    public static int auL() {
+        return auN() + 1;
     }
 
-    public static boolean aud() {
-        SwanAppConfigData arD = f.arY().arD();
-        if (arD == null) {
+    public static boolean auM() {
+        SwanAppConfigData aso = f.asJ().aso();
+        if (aso == null) {
             return false;
         }
-        return TextUtils.equals("none", arD.cQY.cRT);
+        return TextUtils.equals("none", aso.cSY.cTT);
     }
 
-    public static int aue() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aoJ(), d.class, null);
+    public static int auN() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.apu(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
         return 1;
     }
 
-    public static int iv(int i) {
+    public static int iF(int i) {
         switch (i) {
             case 0:
                 return 82;
@@ -50,7 +50,7 @@ public class b {
         }
     }
 
-    public static boolean auf() {
-        return ag.sG("3.200.101");
+    public static boolean auO() {
+        return ag.sZ("3.200.101");
     }
 }

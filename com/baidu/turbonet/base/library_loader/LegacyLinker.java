@@ -6,18 +6,18 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.library_loader.Linker;
 import java.util.HashMap;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 class LegacyLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean mZY = true;
-    private boolean mZZ = false;
-    private boolean naa = false;
-    private Bundle nab = null;
-    private long nac = -1;
-    private long nad = -1;
-    private boolean nae = false;
-    private HashMap<String, Linker.LibInfo> naf = null;
+    private boolean njX = true;
+    private boolean njY = false;
+    private boolean njZ = false;
+    private Bundle nka = null;
+    private long nkb = -1;
+    private long nkc = -1;
+    private boolean nkd = false;
+    private HashMap<String, Linker.LibInfo> nke = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
 

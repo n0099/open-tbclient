@@ -16,7 +16,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public abstract class AbsLayer implements ILayer {
     protected Context mContext;
     private IMessenger mCourier;
@@ -153,7 +153,7 @@ public abstract class AbsLayer implements ILayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static class PrivateHandler extends Handler {
         protected WeakReference<AbsLayer> mWeakControl;
 

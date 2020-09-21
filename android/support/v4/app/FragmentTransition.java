@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public class FragmentTransition {
     private static final int[] INVERSE_OPS = {0, 3, 0, 1, 5, 4, 7, 6, 9, 8};
     private static final FragmentTransitionImpl PLATFORM_IMPL;
@@ -742,7 +742,7 @@ public class FragmentTransition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes4.dex */
     public static class FragmentContainerTransition {
         public Fragment firstOut;
         public boolean firstOutIsPop;

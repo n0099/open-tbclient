@@ -1,7 +1,7 @@
 package com.baidu.location.b;
 
 import android.os.Bundle;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static Object a = new Object();
     private static c b = null;

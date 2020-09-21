@@ -3,9 +3,9 @@ package kotlin.collections;
 import android.support.v7.widget.ActivityChooserView;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class ai extends ah {
-    public static final int NV(int i) {
+    public static final int OA(int i) {
         if (i < 3) {
             return i + 1;
         }

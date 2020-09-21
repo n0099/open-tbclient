@@ -1,7 +1,7 @@
 package com.baidu.sofire.m;
 
 import android.database.ContentObserver;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a extends ContentObserver {
     private c a;
 

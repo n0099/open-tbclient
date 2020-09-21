@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class c {
     public int type = 0;
-    public int dWO = 0;
-    public int dWP = 1;
-    public int dWQ = 1;
-    public int dWR = 0;
-    public int dWS = 0;
-    public int dWT = 1;
-    public int dWU = 0;
-    public int dWV = 0;
+    public int dYY = 0;
+    public int dYZ = 1;
+    public int dZa = 1;
+    public int dZb = 0;
+    public int dZc = 0;
+    public int dZd = 1;
+    public int dZe = 0;
+    public int dZf = 0;
 }

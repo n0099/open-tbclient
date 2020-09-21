@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import android.content.Context;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class AccountToolsDTO {
     public static final int TYPE_APPEAL_ACCOUNT = 4;
     public static final int TYPE_CANCEL_ACCOUNT = 3;

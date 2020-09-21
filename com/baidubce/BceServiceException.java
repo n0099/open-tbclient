@@ -1,5 +1,5 @@
 package com.baidubce;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class BceServiceException extends BceClientException {
     private static final long serialVersionUID = 1483785729559154396L;
     private String errorCode;
@@ -8,7 +8,7 @@ public class BceServiceException extends BceClientException {
     private String requestId;
     private int statusCode;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public enum ErrorType {
         Client,
         Service,

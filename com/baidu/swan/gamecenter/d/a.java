@@ -13,7 +13,7 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 @h
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a extends com.baidu.swan.gamecenter.c.a {
     public a() {
         super("navigateToSwanGame");
@@ -21,12 +21,12 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        b.a azM;
-        b.a azM2;
+        b.a aAv;
+        b.a aAv2;
         q.m(jSONObject, "paramsJson");
         q.m(bVar, BuyTBeanActivityConfig.CALLBACK);
-        Application aoJ = com.baidu.swan.apps.t.a.aoJ();
-        if (aoJ == null) {
+        Application apu = com.baidu.swan.apps.t.a.apu();
+        if (apu == null) {
             bVar.onFail(202, "params may be error");
         } else {
             String optString = jSONObject.optString("appKey");
@@ -35,18 +35,18 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
                 bVar.onFail(202, "params may be error");
             } else {
                 JSONObject jSONObject2 = new JSONObject();
-                e azJ = e.azJ();
-                jSONObject2.put("pre_source", (azJ == null || (azM2 = azJ.azM()) == null || (r0 = azM2.aqN()) == null) ? "" : "");
-                e azJ2 = e.azJ();
-                jSONObject2.put("pre_appid", (azJ2 == null || (azM = azJ2.azM()) == null || (r0 = azM.getAppKey()) == null) ? "" : "");
+                e aAs = e.aAs();
+                jSONObject2.put("pre_source", (aAs == null || (aAv2 = aAs.aAv()) == null || (r0 = aAv2.arx()) == null) ? "" : "");
+                e aAs2 = e.aAs();
+                jSONObject2.put("pre_appid", (aAs2 == null || (aAv = aAs2.aAv()) == null || (r0 = aAv.getAppKey()) == null) ? "" : "");
                 jSONObject.put("ubc", jSONObject2);
                 String b = c.b(optString, 1, jSONObject);
                 String str2 = b;
                 Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b);
                 if (parse == null) {
                     bVar.onFail(202, "params may be error");
-                } else if (SchemeRouter.invokeScheme(aoJ, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    bVar.al(null);
+                } else if (SchemeRouter.invokeScheme(apu, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    bVar.ao(null);
                 } else {
                     bVar.onFail(202, "params may be error");
                 }

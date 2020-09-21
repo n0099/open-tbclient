@@ -9,14 +9,14 @@ import rx.j;
 import rx.k;
 import rx.subjects.PublishSubject;
 import rx.subjects.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class RxBus {
     private static final boolean DEBUG = false;
     public static final String TAG = "RxBus";
     private static volatile RxBus mInstance;
     private ConcurrentHashMap<Object, ConcurrentHashMap<Class, d>> mObservables = new ConcurrentHashMap<>();
     private ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers = new ConcurrentHashMap<>();
-    private final b<Object, Object> mRxBusSubject = new b<>(PublishSubject.elr());
+    private final b<Object, Object> mRxBusSubject = new b<>(PublishSubject.epp());
 
     private RxBus() {
     }
@@ -74,11 +74,11 @@ public class RxBus {
     }
 
     private <T> d<T> createObservable(final Object obj, Class<T> cls) {
-        return this.mRxBusSubject.P(cls).a((d.b<? extends R, ? super Object>) new TagKeeperOperator(obj, cls)).ejU().b(new rx.functions.b<T>() { // from class: com.baidu.android.app.event.RxBus.1
+        return this.mRxBusSubject.P(cls).a((d.b<? extends R, ? super Object>) new TagKeeperOperator(obj, cls)).enR().b(new rx.functions.b<T>() { // from class: com.baidu.android.app.event.RxBus.1
             @Override // rx.functions.b
             public void call(T t) {
             }
-        }).ejW();
+        }).enT();
     }
 
     private <T> void clearObservables(Object obj, Class<T> cls) {
@@ -135,7 +135,7 @@ public class RxBus {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class Remover implements k {
         private boolean isUnsubscribed;
         private k mSubscription;
@@ -164,7 +164,7 @@ public class RxBus {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public class TagKeeperOperator<T> implements d.b<T, T> {
         final Object tag;
         final Class<T> type;

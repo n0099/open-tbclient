@@ -25,13 +25,13 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static b b;
     private OkHttpClient a = a();
     private Context c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements Interceptor {
         public a() {
         }
@@ -109,13 +109,13 @@ public class b {
     }
 
     private byte[] b(byte[] bArr, String str) {
-        a.C0063a.C0064a.C0065a e = a.C0063a.C0064a.e();
+        a.C0064a.C0065a.C0066a e = a.C0064a.C0065a.e();
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        a.C0063a.C0064a build = e.a(str).build();
+        a.C0064a.C0065a build = e.a(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return a.C0063a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return a.C0064a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     public void a(Map<String, String> map, byte[] bArr, String str, final c cVar) {

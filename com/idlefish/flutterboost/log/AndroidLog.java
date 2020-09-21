@@ -1,7 +1,7 @@
 package com.idlefish.flutterboost.log;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AndroidLog implements ILog {
     @Override // com.idlefish.flutterboost.log.ILog
     public void e(String str, String str2) {

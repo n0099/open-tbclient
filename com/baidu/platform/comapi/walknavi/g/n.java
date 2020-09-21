@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class n implements Runnable {
     final /* synthetic */ a a;
 
@@ -13,6 +13,6 @@ public class n implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a(true, R.string.abc_action_menu_overflow_description);
+        this.a.a(true, R.raw.ala_live1);
     }
 }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.concurrent.task.Task;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class TaskManager {
     private static final boolean DEBUG = false;
     private static final int MESSAGE_POST_EXECUTE = 1;
@@ -25,12 +25,12 @@ public class TaskManager {
     private ThreadWorker mThreadWorker;
     private Handler mUIHandler;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public interface IStateChangeListener {
         void onStateChanged(TaskManager taskManager, State state, State state2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public enum State {
         NEW,
         RUNNING,
@@ -39,7 +39,7 @@ public class TaskManager {
         READY
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public enum TaskManagerState {
         CONTINUE,
         PAUSE

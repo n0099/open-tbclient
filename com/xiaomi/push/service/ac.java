@@ -6,24 +6,24 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ac {
     private static Object a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, Queue<String>> f837a = new HashMap();
+    private static Map<String, Queue<String>> f836a = new HashMap();
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
         synchronized (a) {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = f837a.get(str);
+            Queue<String> queue = f836a.get(str);
             if (queue == null) {
                 String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 queue = new LinkedList<>();
                 for (String str3 : split) {
                     queue.add(str3);
                 }
-                f837a.put(str, queue);
+                f836a.put(str, queue);
             }
             if (queue.contains(str2)) {
                 return true;

@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
     private String a;
     private File b;

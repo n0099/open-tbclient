@@ -10,25 +10,25 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object mZo;
-    private static Integer mZp;
-    private static Activity mZq;
-    private static c mZr;
-    private static final Map<Activity, a> mZs;
-    private static final com.baidu.turbonet.base.b<b> mZt;
-    private static final com.baidu.turbonet.base.b<c> mZu;
+    private static Object njn;
+    private static Integer njo;
+    private static Activity njp;
+    private static c njq;
+    private static final Map<Activity, a> njr;
+    private static final com.baidu.turbonet.base.b<b> njs;
+    private static final com.baidu.turbonet.base.b<c> njt;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public interface b {
-        void l(Activity activity, int i);
+        void k(Activity activity, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public interface c {
-        void JY(int i);
+        void KD(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        mZo = new Object();
-        mZs = new ConcurrentHashMap();
-        mZt = new com.baidu.turbonet.base.b<>();
-        mZu = new com.baidu.turbonet.base.b<>();
+        njn = new Object();
+        njr = new ConcurrentHashMap();
+        njs = new com.baidu.turbonet.base.b<>();
+        njt = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         private int mStatus;
-        private com.baidu.turbonet.base.b<b> mZw;
+        private com.baidu.turbonet.base.b<b> njv;
 
         private a() {
             this.mStatus = 6;
-            this.mZw = new com.baidu.turbonet.base.b<>();
+            this.njv = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -61,8 +61,8 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> dJT() {
-            return this.mZw;
+        public com.baidu.turbonet.base.b<b> dNR() {
+            return this.njv;
         }
     }
 
@@ -73,31 +73,31 @@ public class ApplicationStatus {
         baseChromiumApplication.a(new BaseChromiumApplication.b() { // from class: com.baidu.turbonet.base.ApplicationStatus.1
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void m(Activity activity, boolean z) {
-                int au;
-                if (z && activity != ApplicationStatus.mZq && (au = ApplicationStatus.au(activity)) != 6 && au != 5) {
-                    Activity unused = ApplicationStatus.mZq = activity;
+                int ay;
+                if (z && activity != ApplicationStatus.njp && (ay = ApplicationStatus.ay(activity)) != 6 && ay != 5) {
+                    Activity unused = ApplicationStatus.njp = activity;
                 }
             }
         });
         baseChromiumApplication.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.ApplicationStatus.2
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                ApplicationStatus.j(activity, 1);
+                ApplicationStatus.i(activity, 1);
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
-                ApplicationStatus.j(activity, 6);
+                ApplicationStatus.i(activity, 6);
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
-                ApplicationStatus.j(activity, 4);
+                ApplicationStatus.i(activity, 4);
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityResumed(Activity activity) {
-                ApplicationStatus.j(activity, 3);
+                ApplicationStatus.i(activity, 3);
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -106,61 +106,61 @@ public class ApplicationStatus {
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStarted(Activity activity) {
-                ApplicationStatus.j(activity, 2);
+                ApplicationStatus.i(activity, 2);
             }
 
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                ApplicationStatus.j(activity, 5);
+                ApplicationStatus.i(activity, 5);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void j(Activity activity, int i) {
+    public static void i(Activity activity, int i) {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (mZq == null || i == 1 || i == 3 || i == 2) {
-            mZq = activity;
+        if (njp == null || i == 1 || i == 3 || i == 2) {
+            njp = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
-            if (!$assertionsDisabled && mZs.containsKey(activity)) {
+            if (!$assertionsDisabled && njr.containsKey(activity)) {
                 throw new AssertionError();
             }
-            mZs.put(activity, new a());
+            njr.put(activity, new a());
         }
-        synchronized (mZo) {
-            mZp = null;
+        synchronized (njn) {
+            njo = null;
         }
-        a aVar = mZs.get(activity);
+        a aVar = njr.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.dJT().iterator();
+        Iterator<b> it = aVar.dNR().iterator();
         while (it.hasNext()) {
-            it.next().l(activity, i);
+            it.next().k(activity, i);
         }
-        Iterator<b> it2 = mZt.iterator();
+        Iterator<b> it2 = njs.iterator();
         while (it2.hasNext()) {
-            it2.next().l(activity, i);
+            it2.next().k(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = mZu.iterator();
+            Iterator<c> it3 = njt.iterator();
             while (it3.hasNext()) {
-                it3.next().JY(stateForApplication2);
+                it3.next().KD(stateForApplication2);
             }
         }
         if (i == 6) {
-            mZs.remove(activity);
-            if (activity == mZq) {
-                mZq = null;
+            njr.remove(activity);
+            if (activity == njp) {
+                njp = null;
             }
         }
     }
 
-    public static int au(Activity activity) {
-        a aVar = mZs.get(activity);
+    public static int ay(Activity activity) {
+        a aVar = njr.get(activity);
         if (aVar != null) {
             return aVar.getStatus();
         }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (mZo) {
-            if (mZp == null) {
-                mZp = Integer.valueOf(dJQ());
+        synchronized (njn) {
+            if (njo == null) {
+                njo = Integer.valueOf(dNO());
             }
-            intValue = mZp.intValue();
+            intValue = njo.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        mZu.aM(cVar);
+        njt.aO(cVar);
     }
 
     @CalledByNative
@@ -188,25 +188,25 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.mZr == null) {
-                    c unused = ApplicationStatus.mZr = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.njq == null) {
+                    c unused = ApplicationStatus.njq = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
-                        public void JY(int i) {
+                        public void KD(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.mZr);
+                    ApplicationStatus.a(ApplicationStatus.njq);
                 }
             }
         });
     }
 
-    private static int dJQ() {
+    private static int dNO() {
         boolean z;
         boolean z2;
         boolean z3 = false;
         boolean z4 = false;
-        for (a aVar : mZs.values()) {
+        for (a aVar : njr.values()) {
             int status = aVar.getStatus();
             if (status != 4 && status != 5 && status != 6) {
                 return 1;

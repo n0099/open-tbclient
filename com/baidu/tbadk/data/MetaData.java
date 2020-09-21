@@ -6,6 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -13,6 +14,7 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tbadk.coreExtra.data.PrivSetsData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private int is_manager;
     private int is_myfans;
     private int is_myfriend;
-    private l pendantData;
+    private m pendantData;
     public int rankInfluence;
     public String rankNum;
     private String virtualUserUrl;
@@ -52,6 +54,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
     private NewGodData mNewGodData = new NewGodData();
     private BazhuGradeData mBazhuGrade = new BazhuGradeData();
+    private PrivSetsData privSetsData = new PrivSetsData();
     private String userId = null;
     private int type = 0;
     private int level_id = 0;
@@ -457,7 +460,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new l();
+                this.pendantData = new m();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -492,6 +495,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             }
             this.isDefaultAvatar = user.is_default_avatar.intValue() == 1;
             this.uk = user.uk;
+            if (user.priv_sets != null) {
+                this.privSetsData.parserProtobuf(user.priv_sets);
+            }
         }
     }
 
@@ -621,12 +627,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public l getPendantData() {
+    public m getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(l lVar) {
-        this.pendantData = lVar;
+    public void setPendantData(m mVar) {
+        this.pendantData = mVar;
     }
 
     public String getVirtualUserUrl() {
@@ -693,7 +699,21 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         this.mBazhuGrade = bazhuGradeData;
     }
 
+    public void setPrivSetsData(PrivSetsData privSetsData) {
+        this.privSetsData = privSetsData;
+    }
+
+    public PrivSetsData getPrivSetsData() {
+        return this.privSetsData;
+    }
+
     public boolean showBazhuGrade() {
-        return ((this.baijiahaoInfo != null && (this.baijiahaoInfo.auth_id.intValue() != 0 || !at.isEmpty(this.baijiahaoInfo.auth_desc))) || this.mBazhuGrade == null || at.isEmpty(this.mBazhuGrade.getDesc())) ? false : true;
+        if ((this.baijiahaoInfo != null && (this.baijiahaoInfo.auth_id.intValue() != 0 || !at.isEmpty(this.baijiahaoInfo.auth_desc))) || this.mBazhuGrade == null || at.isEmpty(this.mBazhuGrade.getDesc())) {
+            return false;
+        }
+        if (this.is_bawu == 1 && Config.BAWU_TYPE_MANAGER.equals(this.bawu_type)) {
+            return this.privSetsData.getBazhuShowInside() != 3;
+        }
+        return this.privSetsData.getBazhuShowOutside() != 3;
     }
 }

@@ -5,19 +5,19 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class o {
-    public String ala;
-    public String dYs;
-    public String eVx;
-    public String ltn;
-    public String lto;
-    public String ltp;
-    public int ltq;
-    public String lts;
-    public String ltt;
-    public String ltu;
-    public String ltv;
-    public String ltw;
-    public String ltx;
+    public String alA;
+    public String eYo;
+    public String eaC;
+    public String lCf;
+    public String lCg;
+    public String lCh;
+    public int lCi;
+    public String lCj;
+    public String lCk;
+    public String lCl;
+    public String lCm;
+    public String lCn;
+    public String lCo;
     public String mExtra;
     public String mFloor;
     public String mGroupId;
@@ -31,92 +31,92 @@ public class o {
     public aq f(aq aqVar) {
         if (aqVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                aqVar.dD("obj_locate", this.mLocate);
+                aqVar.dF("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.ala)) {
-                aqVar.dD("tid", this.ala);
+            if (!StringUtils.isNull(this.alA)) {
+                aqVar.dF("tid", this.alA);
             }
-            if (!StringUtils.isNull(this.eVx)) {
-                aqVar.dD("fid", this.eVx);
+            if (!StringUtils.isNull(this.eYo)) {
+                aqVar.dF("fid", this.eYo);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                aqVar.dD("uid", this.mUid);
+                aqVar.dF("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                aqVar.dD("obj_source", this.mSource);
+                aqVar.dF("obj_source", this.mSource);
             } else {
                 aqVar.ai("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.ltn)) {
-                aqVar.dD("obj_param1", this.ltn);
+            if (!StringUtils.isNull(this.lCf)) {
+                aqVar.dF("obj_param1", this.lCf);
             } else {
                 aqVar.ai("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.lto)) {
-                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM2, this.lto);
+            if (!StringUtils.isNull(this.lCg)) {
+                aqVar.dF(TiebaInitialize.Params.OBJ_PARAM2, this.lCg);
             }
-            if (!StringUtils.isNull(this.ltp)) {
-                aqVar.dD(TiebaInitialize.Params.OBJ_PARAM3, this.ltp);
+            if (!StringUtils.isNull(this.lCh)) {
+                aqVar.dF(TiebaInitialize.Params.OBJ_PARAM3, this.lCh);
             }
-            if (this.ltq > 0) {
-                aqVar.ai("obj_param5", this.ltq);
+            if (this.lCi > 0) {
+                aqVar.ai("obj_param5", this.lCi);
             }
-            if (!StringUtils.isNull(this.dYs)) {
-                aqVar.dD("obj_id", this.dYs);
+            if (!StringUtils.isNull(this.eaC)) {
+                aqVar.dF("obj_id", this.eaC);
             }
-            if (!StringUtils.isNull(this.lts)) {
-                aqVar.dD("ab_tag", this.lts);
+            if (!StringUtils.isNull(this.lCj)) {
+                aqVar.dF("ab_tag", this.lCj);
             } else {
                 aqVar.ai("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.ltu)) {
-                aqVar.dD("topic_type", this.ltu);
+            if (!StringUtils.isNull(this.lCl)) {
+                aqVar.dF("topic_type", this.lCl);
             }
             if (!StringUtils.isNull(this.mExtra)) {
-                aqVar.dD("extra", this.mExtra);
+                aqVar.dF("extra", this.mExtra);
             } else {
                 aqVar.ai("extra", 0);
             }
-            if (!StringUtils.isNull(this.ltv)) {
-                aqVar.dD("is_vertical", this.ltv);
+            if (!StringUtils.isNull(this.lCm)) {
+                aqVar.dF("is_vertical", this.lCm);
             }
             if (!StringUtils.isNull(this.mFloor)) {
-                aqVar.dD("obj_floor", this.mFloor);
+                aqVar.dF("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.ltw)) {
-                aqVar.dD("resource_id", this.ltw);
+            if (!StringUtils.isNull(this.lCn)) {
+                aqVar.dF("resource_id", this.lCn);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
-                aqVar.dD("group_id", this.mGroupId);
+                aqVar.dF("group_id", this.mGroupId);
             }
-            aqVar.dD("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
-            aqVar.dD("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
-            aqVar.dD("nid", StringUtils.isNull(this.ltx) ? "" : this.ltx);
+            aqVar.dF("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
+            aqVar.dF("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            aqVar.dF("nid", StringUtils.isNull(this.lCo) ? "" : this.lCo);
         }
         return aqVar;
     }
 
-    public o dkh() {
+    public o dnO() {
         o oVar = new o();
         oVar.mLocate = this.mLocate;
         oVar.mType = this.mType;
-        oVar.ala = this.ala;
-        oVar.eVx = this.eVx;
+        oVar.alA = this.alA;
+        oVar.eYo = this.eYo;
         oVar.mUid = this.mUid;
         oVar.mSource = this.mSource;
-        oVar.ltn = this.ltn;
-        oVar.lto = this.lto;
-        oVar.ltp = this.ltp;
-        oVar.dYs = this.dYs;
-        oVar.lts = this.lts;
-        oVar.ltt = this.ltt;
-        oVar.ltu = this.ltu;
+        oVar.lCf = this.lCf;
+        oVar.lCg = this.lCg;
+        oVar.lCh = this.lCh;
+        oVar.eaC = this.eaC;
+        oVar.lCj = this.lCj;
+        oVar.lCk = this.lCk;
+        oVar.lCl = this.lCl;
         oVar.mFloor = this.mFloor;
-        oVar.ltw = this.ltw;
+        oVar.lCn = this.lCn;
         oVar.mGroupId = this.mGroupId;
         oVar.mNid = this.mNid;
         oVar.mVid = this.mVid;
-        oVar.ltx = this.ltx;
+        oVar.lCo = this.lCo;
         return oVar;
     }
 }

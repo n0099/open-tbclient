@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PoiDetailSearchOption {
     private String a = "";
     private String b = "";

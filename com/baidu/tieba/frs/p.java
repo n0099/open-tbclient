@@ -2,30 +2,30 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class p {
-    private com.baidu.tieba.frs.mc.l hVp;
+    private com.baidu.tieba.frs.mc.l icp;
 
     public p(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.l lVar) {
-        this.hVp = lVar;
+        this.icp = lVar;
     }
 
     public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.hVp != null && this.hVp.clO() != null && this.hVp.clO().crt() != null && this.hVp.clT() != null && bVar != null && this.hVp.clT().getListView() != null && this.hVp.clQ() != null) {
-            BdTypeRecyclerView listView = this.hVp.clT().getListView();
+        if (this.icp != null && this.icp.cpa() != null && this.icp.cpa().cuI() != null && this.icp.cpf() != null && bVar != null && this.icp.cpf().getListView() != null && this.icp.cpc() != null) {
+            BdTypeRecyclerView listView = this.icp.cpf().getListView();
             switch (bVar.what) {
                 case 2:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
                         listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
-                        this.hVp.clQ().yP(8);
+                        this.icp.cpc().zo(8);
                         return;
                     }
                     return;
                 case 3:
                     if (bVar.getView() != null) {
                         listView.removeHeaderView(bVar.getView());
-                        this.hVp.clQ().yP(0);
+                        this.icp.cpc().zo(0);
                         return;
                     }
                     return;

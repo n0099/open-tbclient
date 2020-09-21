@@ -4,33 +4,34 @@ import android.webkit.SafeBrowsingResponse;
 import android.webkit.WebResourceError;
 import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes4.dex */
+import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
+/* loaded from: classes17.dex */
 public class g {
-    private final org.a.a.d zV;
+    private final WebkitToCompatConverterBoundaryInterface zV;
 
-    public g(org.a.a.d dVar) {
-        this.zV = dVar;
+    public g(WebkitToCompatConverterBoundaryInterface webkitToCompatConverterBoundaryInterface) {
+        this.zV = webkitToCompatConverterBoundaryInterface;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public InvocationHandler a(WebResourceError webResourceError) {
-        return this.zV.bR(webResourceError);
+        return this.zV.convertWebResourceError(webResourceError);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RequiresApi(23)
     public WebResourceError a(InvocationHandler invocationHandler) {
-        return (WebResourceError) this.zV.c(invocationHandler);
+        return (WebResourceError) this.zV.convertWebResourceError(invocationHandler);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public InvocationHandler a(SafeBrowsingResponse safeBrowsingResponse) {
-        return this.zV.bS(safeBrowsingResponse);
+        return this.zV.convertSafeBrowsingResponse(safeBrowsingResponse);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RequiresApi(27)
     public SafeBrowsingResponse b(InvocationHandler invocationHandler) {
-        return (SafeBrowsingResponse) this.zV.d(invocationHandler);
+        return (SafeBrowsingResponse) this.zV.convertSafeBrowsingResponse(invocationHandler);
     }
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class EglSurfaceBase {
     protected static final String TAG = "Grafika";
     protected EglCore mEglCore;

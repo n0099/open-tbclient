@@ -3,7 +3,7 @@ package com.baidu.mapapi.utils;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class f implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ int b;

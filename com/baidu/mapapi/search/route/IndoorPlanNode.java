@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.route;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class IndoorPlanNode {
     private LatLng a;
     private String b;

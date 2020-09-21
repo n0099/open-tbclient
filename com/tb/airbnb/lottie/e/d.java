@@ -1,5 +1,5 @@
 package com.tb.airbnb.lottie.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class d {
     private final float scaleX;
     private final float scaleY;

@@ -1,7 +1,7 @@
 package com.baidu.fsg.face.liveness.beans;
 
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class f {
     public static String a = PassBioEnv.PASSPORT_DOMAIN;
     public static String b = PassBioEnv.PASSPORT_QA_DOMAIN;

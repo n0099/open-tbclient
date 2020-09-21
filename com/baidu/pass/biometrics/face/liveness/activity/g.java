@@ -9,7 +9,7 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class g extends HttpHandlerWrap {
     final /* synthetic */ ContrastPortraitResult a;
     final /* synthetic */ LivenessRecogActivity b;

@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static boolean c;
     public HashMap<String, Boolean> a = new HashMap<>();

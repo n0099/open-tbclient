@@ -5,7 +5,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class NotchUtils {
     private static final String ONEPLUS6 = "ONEPLUS A6000";
     private static final int VIVO_NOTCH = 32;

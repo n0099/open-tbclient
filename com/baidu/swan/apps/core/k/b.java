@@ -14,77 +14,77 @@ import com.baidu.webkit.sdk.WebView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cmp;
+    private static volatile b cos;
     private Context mContext;
-    private volatile boolean cmq = false;
-    private boolean cmr = false;
-    private boolean cms = false;
-    private final Object cmt = new Object();
-    private final Object cmu = new Object();
+    private volatile boolean cot = false;
+    private boolean cou = false;
+    private boolean cov = false;
+    private final Object cow = new Object();
+    private final Object cox = new Object();
     private ArrayList<a> mListeners = new ArrayList<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void Yx();
+        void Zg();
     }
 
     private b(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static synchronized b bT(Context context) {
+    public static synchronized b bS(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (cmp == null) {
-                cmp = new b(context);
+            if (cos == null) {
+                cos = new b(context);
             }
-            bVar = cmp;
+            bVar = cos;
         }
         return bVar;
     }
 
     public void onTerminate() {
-        if (ajx()) {
+        if (akh()) {
             BdSailor.getInstance().destroy();
         }
     }
 
-    public void ee(boolean z) {
+    public void ec(boolean z) {
         n(false, z);
     }
 
-    public void ajw() {
+    public void akg() {
         n(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
     }
 
     private void n(boolean z, final boolean z2) {
-        if (!this.cmq) {
-            synchronized (this.cmt) {
-                if (!this.cmr) {
+        if (!this.cot) {
+            synchronized (this.cow) {
+                if (!this.cou) {
                     Executors.newSingleThreadExecutor().execute(new Runnable() { // from class: com.baidu.swan.apps.core.k.b.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Process.setThreadPriority(10);
-                            b.this.ef(z2);
-                            b.this.cmq = true;
-                            synchronized (b.this.cmu) {
-                                b.this.cms = true;
-                                b.this.cmu.notifyAll();
-                                b.this.ajy();
+                            b.this.ed(z2);
+                            b.this.cot = true;
+                            synchronized (b.this.cox) {
+                                b.this.cov = true;
+                                b.this.cox.notifyAll();
+                                b.this.aki();
                             }
                         }
                     });
-                    this.cmr = true;
+                    this.cou = true;
                 }
             }
             if (z) {
-                synchronized (this.cmu) {
-                    while (!this.cms) {
+                synchronized (this.cox) {
+                    while (!this.cov) {
                         try {
-                            this.cmu.wait(1000L);
+                            this.cox.wait(1000L);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -95,7 +95,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ef(boolean z) {
+    public void ed(boolean z) {
         WebKitFactory.setNeedDownloadCloudResource(false);
         WebKitFactory.setProcessType("1");
         WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
@@ -123,26 +123,26 @@ public final class b {
         BdSailor.initCookieSyncManager(this.mContext);
     }
 
-    public boolean ajx() {
-        return this.cmq;
+    public boolean akh() {
+        return this.cot;
     }
 
     public void a(a aVar) {
-        synchronized (this.cmu) {
+        synchronized (this.cox) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
             }
             if (!this.mListeners.contains(aVar)) {
                 this.mListeners.add(aVar);
             }
-            if (this.cms) {
-                ajy();
+            if (this.cov) {
+                aki();
             }
         }
     }
 
     public void b(a aVar) {
-        synchronized (this.cmu) {
+        synchronized (this.cox) {
             boolean remove = this.mListeners.remove(aVar);
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "delBlinkInitListener. listener: " + aVar + " ,isRemoved: " + remove);
@@ -150,14 +150,14 @@ public final class b {
         }
     }
 
-    public void ajy() {
-        synchronized (this.cmu) {
+    public void aki() {
+        synchronized (this.cox) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }
             Iterator<a> it = this.mListeners.iterator();
             while (it.hasNext()) {
-                it.next().Yx();
+                it.next().Zg();
             }
             this.mListeners.clear();
         }

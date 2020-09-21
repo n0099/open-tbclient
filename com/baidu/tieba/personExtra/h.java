@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener lkb;
+    private View.OnLongClickListener lsX;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -25,11 +25,11 @@ public class h extends RecyclerView.Adapter<a> {
         this.mContext = context;
     }
 
-    public void aK(List<SmartApp> list) {
+    public void aO(List<SmartApp> list) {
         this.mDataList = list;
     }
 
-    public SmartApp Ox(String str) {
+    public SmartApp OY(String str) {
         if (y.isEmpty(this.mDataList)) {
             return null;
         }
@@ -49,23 +49,23 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.lkb = onLongClickListener;
+        this.lsX = onLongClickListener;
     }
 
-    private SmartApp Fn(int i) {
+    private SmartApp FO(int i) {
         return (SmartApp) y.getItem(this.mDataList, i);
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp Ox = Ox(smartApp.id);
-        if (Ox != null && this.mDataList != null) {
-            y.add(this.mDataList, 0, Ox);
+        SmartApp OY = OY(smartApp.id);
+        if (OY != null && this.mDataList != null) {
+            y.add(this.mDataList, 0, OY);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: H */
+    /* renamed from: J */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
@@ -74,11 +74,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp Fn;
-        if (aVar != null && (Fn = Fn(i)) != null) {
-            aVar.b(Fn);
+        SmartApp FO;
+        if (aVar != null && (FO = FO(i)) != null) {
+            aVar.b(FO);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.lkb);
+            aVar.setOnLongClickListener(this.lsX);
             aVar.onChangeSkinType();
         }
     }
@@ -88,28 +88,28 @@ public class h extends RecyclerView.Adapter<a> {
         return y.getCount(this.mDataList);
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes23.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView jGS;
-        private SmartApp lkc;
+        private HeadImageView jPu;
+        private SmartApp lsY;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.jGS = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.jGS.setIsRound(true);
-            this.jGS.setPlaceHolder(1);
+            this.jPu = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.jPu.setIsRound(true);
+            this.jPu.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.lkc = smartApp;
+            this.lsY = smartApp;
             this.mRootView.setTag(smartApp);
             if (!at.isEmpty(smartApp.avatar)) {
-                this.jGS.setPlaceHolder(1);
-                this.jGS.startLoad(smartApp.avatar, 10, false, false);
+                this.jPu.setPlaceHolder(1);
+                this.jPu.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!at.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

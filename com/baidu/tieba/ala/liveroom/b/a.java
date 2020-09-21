@@ -5,14 +5,14 @@ import android.widget.FrameLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.r;
+import com.baidu.live.data.u;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private CustomMessageListener fPT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
+    private CustomMessageListener fTe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,7 +25,7 @@ public class a {
             }
         }
     };
-    private c gma;
+    private c gph;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -33,14 +33,14 @@ public class a {
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.fPT.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fPT);
+        this.fTe.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fTe);
     }
 
-    public void b(ViewGroup viewGroup, r rVar) {
-        if (viewGroup != null && this.mTbPageContext != null && rVar != null) {
-            this.gma = new c(this.mTbPageContext);
-            bNc();
+    public void c(ViewGroup viewGroup, u uVar) {
+        if (viewGroup != null && this.mTbPageContext != null && uVar != null) {
+            this.gph = new c(this.mTbPageContext);
+            bOl();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 5;
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
@@ -49,31 +49,31 @@ public class a {
                 layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds96) + UtilHelper.getStatusBarHeight();
             }
             if (!TbadkCoreApplication.getInst().isOther()) {
-                viewGroup.addView(this.gma.getView(), 0, layoutParams);
-                q(rVar);
+                viewGroup.addView(this.gph.getView(), 0, layoutParams);
+                s(uVar);
             }
         }
     }
 
-    public void q(r rVar) {
-        if (rVar.aDG != null) {
-            this.gma.ec(rVar.aDG.alaId);
+    public void s(u uVar) {
+        if (uVar.aEz != null) {
+            this.gph.ee(uVar.aEz.alaId);
         }
     }
 
-    public boolean at(ViewGroup viewGroup) {
-        return (this.gma == null || this.gma.getView() == null || viewGroup.indexOfChild(this.gma.getView()) <= -1) ? false : true;
+    public boolean au(ViewGroup viewGroup) {
+        return (this.gph == null || this.gph.getView() == null || viewGroup.indexOfChild(this.gph.getView()) <= -1) ? false : true;
     }
 
-    public void bNc() {
-        if (this.gma != null && this.gma.getView() != null && this.gma.getView().getParent() != null) {
-            ((ViewGroup) this.gma.getView().getParent()).removeView(this.gma.getView());
+    public void bOl() {
+        if (this.gph != null && this.gph.getView() != null && this.gph.getView().getParent() != null) {
+            ((ViewGroup) this.gph.getView().getParent()).removeView(this.gph.getView());
         }
     }
 
     public void setVisibility(int i) {
-        if (this.gma != null && this.gma.getView() != null) {
-            this.gma.getView().setVisibility(i);
+        if (this.gph != null && this.gph.getView() != null) {
+            this.gph.getView().setVisibility(i);
         }
     }
 }

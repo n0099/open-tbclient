@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.pass.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MaxHeightScrollView extends ScrollView implements com.baidu.pass.a {
     private int a;
 

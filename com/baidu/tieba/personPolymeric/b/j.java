@@ -7,11 +7,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.data.m;
+import com.baidu.tbadk.data.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class j {
     public static String g(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
@@ -23,24 +23,24 @@ public class j {
         return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
     }
 
-    public static void a(m mVar, BdUniqueId bdUniqueId) {
-        if (mVar != null && !StringUtils.isNull(mVar.brb()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+    public static void a(n nVar, BdUniqueId bdUniqueId) {
+        if (nVar != null && !StringUtils.isNull(nVar.brV()) && y.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", mVar.brb());
+            httpMessage.addParam("pic_url", nVar.brV());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static void a(m mVar, List<q> list) {
-        m mVar2;
-        if (mVar != null && !y.isEmpty(list) && !StringUtils.isNull(mVar.brb())) {
+    public static void a(n nVar, List<q> list) {
+        n nVar2;
+        if (nVar != null && !y.isEmpty(list) && !StringUtils.isNull(nVar.brV())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 q qVar = list.get(i);
-                if ((qVar instanceof m) && (mVar2 = (m) qVar) != mVar && !mVar2.brc()) {
-                    jSONArray.put(mVar2.brb());
+                if ((qVar instanceof n) && (nVar2 = (n) qVar) != nVar && !nVar2.brW()) {
+                    jSONArray.put(nVar2.brV());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -63,10 +63,10 @@ public class j {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 q qVar = list.get(i);
-                if (qVar instanceof m) {
-                    m mVar = (m) qVar;
-                    if (!mVar.brc()) {
-                        jSONArray.put(mVar.brb());
+                if (qVar instanceof n) {
+                    n nVar = (n) qVar;
+                    if (!nVar.brW()) {
+                        jSONArray.put(nVar.brV());
                     }
                 }
             }

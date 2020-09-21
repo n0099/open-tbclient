@@ -1,7 +1,7 @@
 package com.google.zxing.common.reedsolomon;
 
 import com.baidu.ar.constants.DebugConstants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class GenericGF {
     public static final GenericGF AZTEC_DATA_8;
     public static final GenericGF DATA_MATRIX_FIELD_256;

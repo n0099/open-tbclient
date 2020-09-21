@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class ShareService extends Service {
     private Context a;
     private LoginShareStrategy b;
@@ -32,7 +32,7 @@ public final class ShareService extends Service {
     private boolean d = false;
     private Handler e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     static /* synthetic */ class a {
         static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
 
@@ -52,10 +52,10 @@ public final class ShareService extends Service {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     private class b extends Binder {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         class a implements Runnable {
             a() {
             }

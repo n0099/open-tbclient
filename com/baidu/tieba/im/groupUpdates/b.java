@@ -12,131 +12,131 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.Date;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class b extends com.baidu.adp.base.b<UpdatesActivity> {
-    private TextView ery;
-    private TextView iSo;
-    private RelativeLayout juA;
-    private UpdatesItemData juB;
-    private UpdatesActivity jut;
-    private View juu;
-    private HeadImageView juv;
-    private TextView juw;
-    private TextView jux;
-    private ImageView juy;
-    private RelativeLayout juz;
+    private TextView etD;
+    private UpdatesActivity jCV;
+    private View jCW;
+    private HeadImageView jCX;
+    private TextView jCY;
+    private TextView jCZ;
+    private ImageView jDa;
+    private RelativeLayout jDb;
+    private RelativeLayout jDc;
+    private UpdatesItemData jDd;
+    private TextView jaU;
 
     public b(UpdatesActivity updatesActivity) {
         super(updatesActivity.getPageContext(), R.layout.updates_item);
-        this.jut = updatesActivity;
+        this.jCV = updatesActivity;
         initView();
     }
 
     void initView() {
-        this.juu = this.mConvertView.findViewById(R.id.root_view);
-        this.juv = (HeadImageView) this.juu.findViewById(R.id.iv_head);
-        this.juw = (TextView) this.juu.findViewById(R.id.tv_group_name);
-        this.iSo = (TextView) this.juu.findViewById(R.id.tv_content);
-        this.ery = (TextView) this.juu.findViewById(R.id.tv_title);
-        this.jux = (TextView) this.juu.findViewById(R.id.tv_time);
-        this.juy = (ImageView) this.juu.findViewById(R.id.cb_select);
-        this.juz = (RelativeLayout) this.juu.findViewById(R.id.layout_body);
-        this.juA = (RelativeLayout) this.juu.findViewById(R.id.layout_title);
-        this.juv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
+        this.jCW = this.mConvertView.findViewById(R.id.root_view);
+        this.jCX = (HeadImageView) this.jCW.findViewById(R.id.iv_head);
+        this.jCY = (TextView) this.jCW.findViewById(R.id.tv_group_name);
+        this.jaU = (TextView) this.jCW.findViewById(R.id.tv_content);
+        this.etD = (TextView) this.jCW.findViewById(R.id.tv_title);
+        this.jCZ = (TextView) this.jCW.findViewById(R.id.tv_time);
+        this.jDa = (ImageView) this.jCW.findViewById(R.id.cb_select);
+        this.jDb = (RelativeLayout) this.jCW.findViewById(R.id.layout_body);
+        this.jDc = (RelativeLayout) this.jCW.findViewById(R.id.layout_title);
+        this.jCX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        this.juz.setClickable(true);
-        this.juz.setLongClickable(true);
-        this.juA.setClickable(true);
-        this.juA.setLongClickable(true);
-        this.juz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
+        this.jDb.setClickable(true);
+        this.jDb.setLongClickable(true);
+        this.jDc.setClickable(true);
+        this.jDc.setLongClickable(true);
+        this.jDb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.jut.ckN()) {
-                    b.this.juy.performClick();
+                if (b.this.jCV.coa()) {
+                    b.this.jDa.performClick();
                 } else {
-                    b.this.jut.a(b.this.juu, 101, 0, 0L, b.this.juB);
+                    b.this.jCV.a(b.this.jCW, 101, 0, 0L, b.this.jDd);
                 }
             }
         });
-        this.juz.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
+        this.jDb.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.jut.b(b.this.juu, 200, 0, 0L, b.this.juB);
+                b.this.jCV.b(b.this.jCW, 200, 0, 0L, b.this.jDd);
                 return true;
             }
         });
-        this.juA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
+        this.jDc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.jut.a(b.this.juu, 101, 0, 0L, b.this.juB);
+                b.this.jCV.a(b.this.jCW, 101, 0, 0L, b.this.jDd);
             }
         });
-        this.juA.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
+        this.jDc.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.jut.b(b.this.juu, 200, 0, 0L, b.this.juB);
+                b.this.jCV.b(b.this.jCW, 200, 0, 0L, b.this.jDd);
                 return true;
             }
         });
-        this.juy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
+        this.jDa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.groupUpdates.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 view.setSelected(!view.isSelected());
-                b.this.jut.a(view, view.isSelected(), b.this.juB);
+                b.this.jCV.a(view, view.isSelected(), b.this.jDd);
             }
         });
     }
 
     public void refresh() {
-        if (this.juB != null) {
-            if (this.jut.ckN()) {
-                this.juy.setVisibility(0);
+        if (this.jDd != null) {
+            if (this.jCV.coa()) {
+                this.jDa.setVisibility(0);
             } else {
-                this.juy.setVisibility(8);
-                this.juz.setSelected(false);
+                this.jDa.setVisibility(8);
+                this.jDb.setSelected(false);
             }
-            String groupHeadUrl = this.juB.getGroupHeadUrl();
+            String groupHeadUrl = this.jDd.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.juv.setTag(groupHeadUrl);
-                this.juv.startLoad(groupHeadUrl, 10, false);
+                this.jCX.setTag(groupHeadUrl);
+                this.jCX.startLoad(groupHeadUrl, 10, false);
             } else {
-                this.juv.setTag(null);
+                this.jCX.setTag(null);
             }
-            this.juv.setClickable(false);
-            if (!TextUtils.isEmpty(this.juB.getTitle())) {
-                this.ery.setText(this.juB.getTitle());
+            this.jCX.setClickable(false);
+            if (!TextUtils.isEmpty(this.jDd.getTitle())) {
+                this.etD.setText(this.jDd.getTitle());
             } else {
-                this.ery.setText(this.jut.getPageContext().getString(R.string.inform));
+                this.etD.setText(this.jCV.getPageContext().getString(R.string.inform));
             }
             Date date = new Date();
-            date.setTime(this.juB.getTime());
-            this.jux.setText(at.l(date));
-            if (!TextUtils.isEmpty(this.juB.getContent())) {
-                this.iSo.setText(this.juB.getContent());
+            date.setTime(this.jDd.getTime());
+            this.jCZ.setText(at.l(date));
+            if (!TextUtils.isEmpty(this.jDd.getContent())) {
+                this.jaU.setText(this.jDd.getContent());
             } else {
-                this.iSo.setText("");
+                this.jaU.setText("");
             }
-            if (!TextUtils.isEmpty(this.juB.getGroupName())) {
-                this.juw.setText(this.juB.getGroupName());
+            if (!TextUtils.isEmpty(this.jDd.getGroupName())) {
+                this.jCY.setText(this.jDd.getGroupName());
             } else {
-                this.juw.setText("");
+                this.jCY.setText("");
             }
-            int paddingLeft = this.juz.getPaddingLeft();
-            int paddingTop = this.juz.getPaddingTop();
-            int paddingRight = this.juz.getPaddingRight();
-            int paddingBottom = this.juz.getPaddingBottom();
-            this.jut.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.jut.getLayoutMode().onModeChanged(this.mConvertView);
-            this.juy.setSelected(this.juB.isSelected());
-            if (this.juB.isSelected() && this.jut.ckN()) {
-                ap.setBackgroundResource(this.juz, R.drawable.bg_information_down_s);
+            int paddingLeft = this.jDb.getPaddingLeft();
+            int paddingTop = this.jDb.getPaddingTop();
+            int paddingRight = this.jDb.getPaddingRight();
+            int paddingBottom = this.jDb.getPaddingBottom();
+            this.jCV.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.jCV.getLayoutMode().onModeChanged(this.mConvertView);
+            this.jDa.setSelected(this.jDd.isSelected());
+            if (this.jDd.isSelected() && this.jCV.coa()) {
+                ap.setBackgroundResource(this.jDb, R.drawable.bg_information_down_s);
             } else {
-                ap.setBackgroundResource(this.juz, R.drawable.selector_group_updates_bottom_bg);
+                ap.setBackgroundResource(this.jDb, R.drawable.selector_group_updates_bottom_bg);
             }
-            this.juz.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.jDb.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -146,6 +146,6 @@ public class b extends com.baidu.adp.base.b<UpdatesActivity> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.juB = updatesItemData;
+        this.jDd = updatesItemData;
     }
 }

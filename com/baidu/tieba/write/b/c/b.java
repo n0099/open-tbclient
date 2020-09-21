@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a mPY;
+    private com.baidu.tieba.write.b.b.a mZQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -26,12 +26,12 @@ public final class b {
 
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0830b {
-        private static final b mQb = new b();
+    private static class C0827b {
+        private static final b mZT = new b();
     }
 
-    public static final b dGI() {
-        return C0830b.mQb;
+    public static final b dKz() {
+        return C0827b.mZT;
     }
 
     private b() {
@@ -44,17 +44,17 @@ public final class b {
             this.isInit = true;
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
-            com.baidu.d.a.a.uv().setAppName("tieba");
-            if (this.mPY == null) {
-                this.mPY = new com.baidu.tieba.write.b.b.a();
+            com.baidu.d.b.a.uJ().setAppName("tieba");
+            if (this.mZQ == null) {
+                this.mZQ = new com.baidu.tieba.write.b.b.a();
             }
-            this.mPY.xk(false);
+            this.mZQ.xt(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mPY != null) {
-                        b.this.mPY.xk(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.mZQ != null) {
+                        b.this.mZQ.xt(false);
                     }
                 }
             });

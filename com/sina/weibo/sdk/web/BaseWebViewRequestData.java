@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.io.Serializable;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class BaseWebViewRequestData implements Parcelable, Serializable {
     public static final Parcelable.Creator<BaseWebViewRequestData> CREATOR = new Parcelable.Creator<BaseWebViewRequestData>() { // from class: com.sina.weibo.sdk.web.BaseWebViewRequestData.1
         /* JADX DEBUG: Method merged with bridge method */

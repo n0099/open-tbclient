@@ -10,15 +10,15 @@ import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i extends e {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bKm.get().UU();
-    private static final String[] bMl = {"deeplink", "open"};
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.bMm.get().VD();
+    private static final String[] bOl = {"deeplink", "open"};
 
     @Override // com.baidu.prologue.c.e
     public void addRedirectScheme(HashMap<String, String> hashMap) {
         String[] strArr;
-        for (String str : bMl) {
+        for (String str : bOl) {
             hashMap.put("splash/ad/" + str, "splash_ad/" + str);
         }
     }
@@ -89,7 +89,7 @@ public class i extends e {
     }
 
     private boolean a(@NonNull String str, final a aVar) {
-        return com.baidu.prologue.a.b.a.bKm.get().a(str, new b() { // from class: com.baidu.prologue.c.i.1
+        return com.baidu.prologue.a.b.a.bMm.get().a(str, new b() { // from class: com.baidu.prologue.c.i.1
         });
     }
 
@@ -107,10 +107,10 @@ public class i extends e {
             String optString = jSONObject.optString("appUrl");
             String optString2 = jSONObject.optString("webUrl");
             String optString3 = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-            if (!TextUtils.isEmpty(optString) && com.baidu.prologue.a.c.j.I(context, optString)) {
+            if (!TextUtils.isEmpty(optString) && com.baidu.prologue.a.c.j.L(context, optString)) {
                 a(Als.Area.DEEPLINK_RESULT_APP);
                 z = true;
-            } else if (!TextUtils.isEmpty(optString3) && com.baidu.prologue.a.c.j.H(context, optString3)) {
+            } else if (!TextUtils.isEmpty(optString3) && com.baidu.prologue.a.c.j.K(context, optString3)) {
                 a(Als.Area.DEEPLINK_RESULT_APP);
                 z = true;
             } else if (TextUtils.isEmpty(optString2)) {
@@ -127,11 +127,11 @@ public class i extends e {
     }
 
     private void a(Als.Area area) {
-        if (!TextUtils.isEmpty(com.baidu.prologue.business.data.c.bKE)) {
+        if (!TextUtils.isEmpty(com.baidu.prologue.business.data.c.bME)) {
             Als.a aVar = new Als.a(Als.Type.DEEP_LINK);
             aVar.a(Als.Page.NA_DEEPLINK);
             aVar.b(area);
-            aVar.im(com.baidu.prologue.business.data.c.bKE);
+            aVar.iF(com.baidu.prologue.business.data.c.bME);
             Als.a(aVar);
         } else if (DEBUG) {
             throw new IllegalStateException("全局数据仓库获取数据失败，打点失败...");

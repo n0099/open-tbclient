@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0652a gUi;
-    private HttpMessageListener gUj = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0649a gXP;
+    private HttpMessageListener gXQ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.gUi != null) {
-                    a.this.gUi.p(z, errorString);
+                if (a.this.gXP != null) {
+                    a.this.gXP.p(z, errorString);
                 }
             }
         }
@@ -26,14 +26,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0652a {
+    public interface InterfaceC0649a {
         void p(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0652a interfaceC0652a) {
+    public a(TbPageContext tbPageContext, InterfaceC0649a interfaceC0649a) {
         this.mPageContext = tbPageContext;
-        this.gUi = interfaceC0652a;
-        this.mPageContext.registerListener(this.gUj);
+        this.gXP = interfaceC0649a;
+        this.mPageContext.registerListener(this.gXQ);
     }
 
     public void aG(String str, int i) {

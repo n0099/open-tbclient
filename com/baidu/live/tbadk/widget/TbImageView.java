@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TbImageView extends BDImageView implements View.OnClickListener, Runnable {
     private static final int LOADING_FRAMES_COUNT = 12;
     private static final int LOADING_FRAMES_DURATION = 150;
@@ -73,14 +73,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     protected int mWidth;
     protected long requestTime;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface ImageViewEvent {
         void onCancel();
 
         void onComplete(String str, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface OnDrawListener {
         void onAfterDraw(TbImageView tbImageView, Canvas canvas);
 
@@ -138,7 +138,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0196a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.X(view);
+                    TbImageView.this.mGestureDetector.Z(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -156,7 +156,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.X(view);
+                        TbImageView.this.mGestureDetector.Z(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -194,7 +194,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0196a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.X(view);
+                    TbImageView.this.mGestureDetector.Z(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
@@ -212,7 +212,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.X(view);
+                        TbImageView.this.mGestureDetector.Z(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -409,7 +409,6 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        IScrollableHelper.getBbPageContext(getContext());
         if (this.mPageId != null) {
             this.isPageIdRegisterMessage = true;
         }

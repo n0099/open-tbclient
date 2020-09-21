@@ -5,16 +5,16 @@ import android.net.http.SslError;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, com.baidu.browser.sailor.platform.b.b {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum DownloadTaskType {
         ZEUS,
         BROWSER
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface IDownloadTaskListener extends INoProGuard {
         void onDownloadCancel(String str, long j, long j2, String str2);
 

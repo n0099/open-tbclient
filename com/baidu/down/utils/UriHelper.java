@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class UriHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = UriHelper.class.getSimpleName();

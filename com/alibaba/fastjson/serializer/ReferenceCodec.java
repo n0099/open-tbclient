@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ReferenceCodec implements ObjectDeserializer, ObjectSerializer {
     public static final ReferenceCodec instance = new ReferenceCodec();
 

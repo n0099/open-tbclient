@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tieba.frs.f.g;
+import com.baidu.tbadk.util.ac;
+import com.baidu.tieba.frs.f.i;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.recapp.r;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
@@ -56,6 +56,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECENTLY_VISITED = "from_recently_visited";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
+    public static final String FRS_FROM_RECOMMEND_BAR_CAR = "recommend_bar_card_forum";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
     public static final String FRS_FROM_SQUARE = "from_square";
     public static final String FRS_FROM_SQUARE_HOT = "from_square_hot";
@@ -168,7 +169,7 @@ public class FrsActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public void preJump() {
         AccountData currentAccountObj;
-        int IX;
+        int Jv;
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("name");
         String stringExtra2 = intent.getStringExtra("from");
@@ -188,28 +189,28 @@ public class FrsActivityConfig extends IntentConfig {
         }
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            IX = 3;
+            Jv = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            IX = 6;
+            Jv = 6;
         } else {
             String str = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            IX = g.IX("1~" + str + stringExtra);
+            Jv = i.Jv("1~" + str + stringExtra);
         }
-        frsRequestData.setSortType(g.yG(IX));
-        if (IX == 5) {
+        frsRequestData.setSortType(i.zf(Jv));
+        if (Jv == 5) {
             frsRequestData.setIsGood(1);
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.fQ("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.fQ("client_type", "2");
+        frsRequestData.gc("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.gc("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        g.a(IX, frsRequestData);
-        frsRequestData.QD("2");
+        i.a(Jv, frsRequestData);
+        frsRequestData.Rd("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -217,23 +218,23 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(au.bjr().bjs() ? 2 : 1);
+        frsRequestData.setqType(au.bkm().bkn() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ab.bvJ(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(ac.bwS(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.HK(1);
+        frsRequestData.In(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.fV(longExtra);
-        g.a(IX, frsRequestData);
+        frsRequestData.gj(longExtra);
+        i.a(Jv, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bw.ebH.get() && r.dnk().dne() != null) {
-            int aT = r.dnk().dne().aT(stringExtra, false);
-            int aU = r.dnk().dne().aU(stringExtra, false);
+        if (bw.edR.get() && r.dqU().dqO() != null) {
+            int aT = r.dqU().dqO().aT(stringExtra, false);
+            int aU = r.dqU().dqO().aU(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 aT++;
             } else if (frsRequestData.getLoadType() == 2) {

@@ -32,11 +32,11 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    public static boolean VA(String str) {
+    public static boolean Wc(String str) {
         return str == null || "".equals(str);
     }
 
-    public static String VB(String str) {
+    public static String Wd(String str) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
         for (int i = 0; i < length; i++) {

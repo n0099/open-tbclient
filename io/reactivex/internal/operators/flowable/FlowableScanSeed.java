@@ -7,26 +7,26 @@ import io.reactivex.j;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
     final io.reactivex.c.c<R, ? super T, R> accumulator;
-    final Callable<R> onM;
+    final Callable<R> oxv;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super R> cVar) {
+    protected void a(org.a.c<? super R> cVar) {
         try {
-            this.omT.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.k(this.onM.call(), "The seed supplied is null"), eeY()));
+            this.owE.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.k(this.oxv.call(), "The seed supplied is null"), eiV()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -1776795561228106469L;
         final io.reactivex.c.c<R, ? super T, R> accumulator;
-        final org.b.c<? super R> actual;
+        final org.a.c<? super R> actual;
         volatile boolean cancelled;
         int consumed;
         volatile boolean done;
@@ -35,10 +35,10 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         final int prefetch;
         final io.reactivex.internal.a.f<R> queue;
         final AtomicLong requested;
-        org.b.d s;
+        org.a.d s;
         R value;
 
-        ScanSeedSubscriber(org.b.c<? super R> cVar, io.reactivex.c.c<R, ? super T, R> cVar2, R r, int i) {
+        ScanSeedSubscriber(org.a.c<? super R> cVar, io.reactivex.c.c<R, ? super T, R> cVar2, R r, int i) {
             this.actual = cVar;
             this.accumulator = cVar2;
             this.value = r;
@@ -49,8 +49,8 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             this.requested = new AtomicLong();
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -58,7 +58,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
@@ -74,7 +74,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -85,7 +85,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -93,7 +93,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
@@ -102,7 +102,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -155,7 +155,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             Throwable th;
             if (getAndIncrement() == 0) {
                 int i = 1;
-                org.b.c<? super R> cVar = this.actual;
+                org.a.c<? super R> cVar = this.actual;
                 io.reactivex.internal.a.f<R> fVar = this.queue;
                 int i2 = this.limit;
                 int i3 = this.consumed;

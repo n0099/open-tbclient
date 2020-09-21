@@ -10,18 +10,18 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class g {
-    private final int gsd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
-    protected m gse;
+    protected n gvA;
+    private final int gvz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_tbds589);
     protected Context mContext;
     protected View mRootView;
 
     protected abstract View createView();
 
-    public g(Context context, m mVar) {
+    public g(Context context, n nVar) {
         this.mContext = context;
-        this.gse = mVar;
+        this.gvA = nVar;
         if (this.mContext != null) {
             this.mRootView = createView();
             if (this.mRootView != null) {
@@ -36,8 +36,8 @@ public abstract class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int bPQ() {
-        return this.gsd;
+    public int bRi() {
+        return this.gvz;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,14 +47,14 @@ public abstract class g {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
             if (this.mRootView.getLayoutParams() == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bPQ());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, bRi());
                 layoutParams.gravity = 80;
                 frameLayout.addView(this.mRootView, layoutParams);
             } else {
                 frameLayout.addView(this.mRootView);
             }
             if (i <= 0) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0185a.sdk_push_up_in);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0186a.sdk_push_up_in);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -62,7 +62,7 @@ public abstract class g {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        g.this.Mr();
+                        g.this.MZ();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -70,8 +70,8 @@ public abstract class g {
                     }
                 });
                 this.mRootView.startAnimation(loadAnimation);
-            } else if (i != bPQ()) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(i, bPQ());
+            } else if (i != bRi()) {
+                ValueAnimator ofInt = ValueAnimator.ofInt(i, bRi());
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -90,7 +90,7 @@ public abstract class g {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        g.this.Mr();
+                        g.this.MZ();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -103,17 +103,17 @@ public abstract class g {
                 });
                 ofInt.start();
             } else {
-                Mr();
+                MZ();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Mr() {
+    public void MZ() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bQh() {
+    public void bRA() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

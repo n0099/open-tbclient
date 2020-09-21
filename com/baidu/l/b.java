@@ -1,7 +1,7 @@
 package com.baidu.l;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public final class b {
-    public static com.baidu.l.c.a TN() {
-        return com.baidu.l.b.b.TQ();
+    public static com.baidu.l.c.a Uw() {
+        return com.baidu.l.b.b.Uz();
     }
 }

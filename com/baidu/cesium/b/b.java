@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class b {
-    private a alo;
+    private a alN;
     private Map<String, com.baidu.cesium.b.a> f = new HashMap();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public interface a {
         List<com.baidu.cesium.b.a> a();
     }
 
     public b(a aVar) {
-        this.alo = aVar;
+        this.alN = aVar;
         for (com.baidu.cesium.b.a aVar2 : aVar.a()) {
             this.f.put(aVar2.a(), aVar2);
         }
@@ -25,7 +25,7 @@ public class b {
         return new ArrayList(this.f.values());
     }
 
-    public com.baidu.cesium.b.a dl(String str) {
+    public com.baidu.cesium.b.a dn(String str) {
         return this.f.get(str);
     }
 }

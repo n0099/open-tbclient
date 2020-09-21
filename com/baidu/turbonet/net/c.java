@@ -4,16 +4,16 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 final class c {
     private static final Object sLock = new Object();
-    private static int ndS = 0;
+    private static int nnR = 0;
 
-    public static String fW(Context context) {
+    public static String gc(Context context) {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getPackageName());
         sb.append('/');
-        sb.append(fX(context));
+        sb.append(ge(context));
         sb.append(" (Linux; U; Android ");
         sb.append(Build.VERSION.RELEASE);
         sb.append("; ");
@@ -34,17 +34,17 @@ final class c {
         return sb.toString();
     }
 
-    private static int fX(Context context) {
+    private static int ge(Context context) {
         int i;
         synchronized (sLock) {
-            if (ndS == 0) {
+            if (nnR == 0) {
                 try {
-                    ndS = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    nnR = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
                 } catch (PackageManager.NameNotFoundException e) {
                     throw new IllegalStateException("Cannot determine package version");
                 }
             }
-            i = ndS;
+            i = nnR;
         }
         return i;
     }

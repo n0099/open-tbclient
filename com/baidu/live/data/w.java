@@ -1,7 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class w {
-    public int liveType;
-    public String portrait;
-    public long userId;
+    public String aFB;
+    public String aFC;
+    public String dialogTitle;
+    public String iconUrl;
 }

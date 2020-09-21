@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ab {
     private int B;
     long a = 0;
@@ -43,7 +43,7 @@ public class ab {
     private static ab A = null;
     private static long C = 0;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class a extends com.baidu.location.e.f {
         boolean a = false;
         int b = 0;

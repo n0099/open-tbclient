@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.e;
 
 import android.os.Bundle;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements c {
     private Bundle a = new Bundle();
 

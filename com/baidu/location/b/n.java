@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class n {
     private static long j = 12000;
     public e a;
@@ -32,7 +32,7 @@ public class n {
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -193,7 +193,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b {
         private String b;
         private String c;
@@ -234,13 +234,13 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static final class c {
         private static final n a = new n();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class d {
         private d() {
         }
@@ -264,7 +264,7 @@ public class n {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class e extends BDAbstractLocationListener {
         public e() {
         }
@@ -299,7 +299,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         private f() {
         }

@@ -2,7 +2,7 @@ package com.baidu.lbsapi.panoramaview;
 
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class TextMarker extends a {
     private String a;
     private int b;

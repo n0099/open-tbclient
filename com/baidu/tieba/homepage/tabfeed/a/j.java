@@ -6,25 +6,25 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.tabfeed.data.b, com.baidu.adp.widget.ListView.b<HotTopicRankLayout>> {
-    private v akK;
+    private v alj;
     private TbPageContext mPageContext;
 
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLP);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iUv);
         this.mPageContext = tbPageContext;
     }
 
     public void a(v vVar) {
-        this.akK = vVar;
+        this.alj = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bC */
-    public com.baidu.adp.widget.ListView.b<HotTopicRankLayout> b(ViewGroup viewGroup) {
+    /* renamed from: bD */
+    public com.baidu.adp.widget.ListView.b<HotTopicRankLayout> c(ViewGroup viewGroup) {
         return new com.baidu.adp.widget.ListView.b<>(new HotTopicRankLayout(viewGroup.getContext()));
     }
 
@@ -35,9 +35,9 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar == null || bVar2 == null) {
             return null;
         }
-        HotTopicRankLayout qK = bVar2.qK();
-        qK.F(bVar);
-        qK.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        HotTopicRankLayout qP = bVar2.qP();
+        qP.G(bVar);
+        qP.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return bVar2.getView();
     }
 }

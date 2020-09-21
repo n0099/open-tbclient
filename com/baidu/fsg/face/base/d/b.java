@@ -1,7 +1,7 @@
 package com.baidu.fsg.face.base.d;
 
 import android.graphics.Rect;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class b {
     public Rect a;
     public Rect b;

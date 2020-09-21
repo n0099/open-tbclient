@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils.enums;
 
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.f;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public enum Domain {
     DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", f.b, f.c, f.d, f.e),
     DOMAIN_QA(f.f, f.g, f.h, f.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");

@@ -1,4 +1,4 @@
 package com.baidu.tieba.hottopic.controller;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface a {
 }

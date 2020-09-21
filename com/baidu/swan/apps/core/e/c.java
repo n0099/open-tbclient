@@ -12,11 +12,11 @@ import com.baidu.swan.apps.ap.z;
 import com.baidu.swan.apps.res.ui.SelectorTextView;
 import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.swan.apps.res.widget.dialog.b {
-    private TextView cjo;
-    private SelectorTextView cjp;
-    private a cjq;
+    private TextView clp;
+    private SelectorTextView clq;
+    private a clr;
     private View mView;
 
     protected c(Context context) {
@@ -24,98 +24,98 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
     }
 
     public void a(a aVar) {
-        this.cjq = aVar;
+        this.clr = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_safe_dialog, viewGroup, false);
-        this.cjo = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
-        this.cjo.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
-        this.cjp = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
-        this.cjp.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        ahY();
+        this.clp = (TextView) this.mView.findViewById(a.f.safe_dialog_content);
+        this.clp.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
+        this.clq = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
+        this.clq.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
+        aiI();
         return this.mView;
     }
 
-    private void ahY() {
-        if (this.cjq == null) {
+    private void aiI() {
+        if (this.clr == null) {
             return;
         }
-        this.cjo.setText(this.mContext.getText(this.cjq.mMessageId));
-        this.cjo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
+        this.clp.setText(this.mContext.getText(this.clr.mMessageId));
+        this.clp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.cjq.cjv != null) {
-                    c.this.cjq.cjv.onItemClick(view);
+                if (c.this.clr.clw != null) {
+                    c.this.clr.clw.onItemClick(view);
                 }
             }
         });
-        if (this.cjq.cjs > 0) {
-            this.cjp.setVisibility(0);
-            this.cjp.setText(this.mContext.getText(this.cjq.cjs));
-            this.cjp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
+        if (this.clr.clt > 0) {
+            this.clq.setVisibility(0);
+            this.clq.setText(this.mContext.getText(this.clr.clt));
+            this.clq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.e.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.cjq.cju != null) {
-                        c.this.cjq.cju.onItemClick(view);
+                    if (c.this.clr.clv != null) {
+                        c.this.clr.clv.onItemClick(view);
                     }
                 }
             });
         } else {
-            this.cjp.setVisibility(8);
+            this.clq.setVisibility(8);
         }
-        if (this.cjq.cjt <= 0) {
+        if (this.clr.clu <= 0) {
             return;
         }
-        Drawable drawable = this.mContext.getResources().getDrawable(this.cjq.cjt);
+        Drawable drawable = this.mContext.getResources().getDrawable(this.clr.clu);
         z.decorateSrcATopMode(getContext(), drawable);
         drawable.setBounds(0, 0, ah.dip2px(this.mContext, 12.0f), ah.dip2px(this.mContext, 12.0f));
-        this.cjp.setCompoundDrawables(drawable, null, null, null);
+        this.clq.setCompoundDrawables(drawable, null, null, null);
     }
 
-    /* loaded from: classes8.dex */
-    public static class a extends b.C0431b {
-        private int cjs;
-        private int cjt;
-        public b.c cju;
-        public b.c cjv;
+    /* loaded from: classes3.dex */
+    public static class a extends b.C0426b {
+        private int clt;
+        private int clu;
+        public b.c clv;
+        public b.c clw;
         private int mMessageId;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0431b, com.baidu.swan.apps.res.widget.dialog.g.a
-        protected g bS(Context context) {
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0426b, com.baidu.swan.apps.res.widget.dialog.g.a
+        protected g bR(Context context) {
             return new c(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hb */
-        public a he(int i) {
-            super.he(i);
+        /* renamed from: hk */
+        public a hn(int i) {
+            super.hn(i);
             return this;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: hc */
-        public a hd(int i) {
+        /* renamed from: hl */
+        public a hm(int i) {
             this.mMessageId = i;
             return this;
         }
 
         public a a(int i, b.c cVar) {
             this.mMessageId = i;
-            this.cjv = cVar;
+            this.clw = cVar;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0431b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g ahZ() {
-            c cVar = (c) super.ahZ();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0426b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g aiJ() {
+            c cVar = (c) super.aiJ();
             cVar.a(this);
             return cVar;
         }

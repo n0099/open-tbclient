@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public interface SplashScreen {
     @Nullable
     View createSplashView(@NonNull Context context, @Nullable Bundle bundle);

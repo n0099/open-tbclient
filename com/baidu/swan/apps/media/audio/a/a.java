@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/backgroundAudio");
@@ -40,17 +40,17 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        JSONObject og = og(unitedSchemeEntity.getParam("params"));
-        if (og == null) {
+        JSONObject oA = oA(unitedSchemeEntity.getParam("params"));
+        if (oA == null) {
             c.e("backgroundAudio", "param is null!");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        d azZ = eVar.azZ();
+        d aAI = eVar.aAI();
         if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-            a = com.baidu.swan.apps.media.audio.a.a(og, new com.baidu.swan.apps.media.audio.a());
+            a = com.baidu.swan.apps.media.audio.a.a(oA, new com.baidu.swan.apps.media.audio.a());
         } else {
-            a = com.baidu.swan.apps.media.audio.a.a(og, azZ.asC());
+            a = com.baidu.swan.apps.media.audio.a.a(oA, aAI.atm());
         }
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
@@ -102,45 +102,45 @@ public class a extends aa {
         }
         switch (c) {
             case 0:
-                c.i("backgroundAudio", "open, audioId " + a.cyo);
-                azZ.a(a, callbackHandler);
+                c.i("backgroundAudio", "open, audioId " + a.cAp);
+                aAI.a(a, callbackHandler);
                 jSONObject = null;
                 z = true;
                 break;
             case 1:
-                c.i("backgroundAudio", "update, audioId " + a.cyo);
-                azZ.a(a);
+                c.i("backgroundAudio", "update, audioId " + a.cAp);
+                aAI.a(a);
                 jSONObject = null;
                 z = true;
                 break;
             case 2:
-                c.i("backgroundAudio", "play, audioId " + a.cyo);
-                azZ.resume();
+                c.i("backgroundAudio", "play, audioId " + a.cAp);
+                aAI.resume();
                 jSONObject = null;
                 z = true;
                 break;
             case 3:
-                c.i("backgroundAudio", "pause, audioId " + a.cyo);
-                azZ.pause();
+                c.i("backgroundAudio", "pause, audioId " + a.cAp);
+                aAI.pause();
                 jSONObject = null;
                 z = true;
                 break;
             case 4:
-                c.i("backgroundAudio", "seek, audioId " + a.cyo + " position " + a.mPos);
-                azZ.seekTo(a.mPos);
+                c.i("backgroundAudio", "seek, audioId " + a.cAp + " position " + a.mPos);
+                aAI.seekTo(a.mPos);
                 jSONObject = null;
                 z = true;
                 break;
             case 5:
-                c.i("backgroundAudio", "stop, audioId " + a.cyo);
-                azZ.stop();
+                c.i("backgroundAudio", "stop, audioId " + a.cAp);
+                aAI.stop();
                 jSONObject = null;
                 z = true;
                 break;
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a.cyt, azZ.oe(a.cyt));
+                    jSONObject2.putOpt(a.cAu, aAI.oz(a.cAu));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {
@@ -164,7 +164,7 @@ public class a extends aa {
         return super.d(context, unitedSchemeEntity, callbackHandler, str, eVar);
     }
 
-    private JSONObject og(String str) {
+    private JSONObject oA(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

@@ -1,12 +1,12 @@
 package rx;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Notification<T> {
-    private static final Notification<Void> oDP = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind oDN;
-    private final Throwable oDO;
+    private static final Notification<Void> oNu = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind oNs;
+    private final Throwable oNt;
     private final T value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum Kind {
         OnNext,
         OnError,
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> ejM() {
-        return (Notification<T>) oDP;
+    public static <T> Notification<T> enJ() {
+        return (Notification<T>) oNu;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.oDO = th;
-        this.oDN = kind;
+        this.oNt = th;
+        this.oNs = kind;
     }
 
-    public Throwable ejN() {
-        return this.oDO;
+    public Throwable enK() {
+        return this.oNt;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return ejR() && this.value != null;
+        return enO() && this.value != null;
     }
 
-    public boolean ejO() {
-        return efa() && this.oDO != null;
+    public boolean enL() {
+        return eiX() && this.oNt != null;
     }
 
-    public Kind ejP() {
-        return this.oDN;
+    public Kind enM() {
+        return this.oNs;
     }
 
-    public boolean efa() {
-        return ejP() == Kind.OnError;
+    public boolean eiX() {
+        return enM() == Kind.OnError;
     }
 
-    public boolean ejQ() {
-        return ejP() == Kind.OnCompleted;
+    public boolean enN() {
+        return enM() == Kind.OnCompleted;
     }
 
-    public boolean ejR() {
-        return ejP() == Kind.OnNext;
+    public boolean enO() {
+        return enM() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(ejP());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(enM());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (ejO()) {
-            append.append(' ').append(ejN().getMessage());
+        if (enL()) {
+            append.append(' ').append(enK().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = ejP().hashCode();
+        int hashCode = enM().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (ejO()) {
-            return (hashCode * 31) + ejN().hashCode();
+        if (enL()) {
+            return (hashCode * 31) + enK().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.ejP() != ejP() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.oDO != notification.oDO && (this.oDO == null || !this.oDO.equals(notification.oDO))))) {
+            if (notification.enM() != enM() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.oNt != notification.oNt && (this.oNt == null || !this.oNt.equals(notification.oNt))))) {
                 z = false;
             }
             return z;

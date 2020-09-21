@@ -13,11 +13,11 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new a();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class BikingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
         private int d;

@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static boolean a;
     private static int b = -1;

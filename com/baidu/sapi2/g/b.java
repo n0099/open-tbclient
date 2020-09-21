@@ -1,7 +1,7 @@
 package com.baidu.sapi2.g;
 
 import android.view.View;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public interface b {
     b a();
 

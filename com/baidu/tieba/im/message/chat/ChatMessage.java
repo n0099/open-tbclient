@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.widget.ListView.q;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -43,9 +44,11 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
     private int progressValue;
     private int readCountPv;
     private long recordId;
+    private long serviceId;
     private long sid;
     private String st_type;
     private String stat;
+    private long statisticsServiceId;
     private long statisticsTaskId;
     private long taskId;
     private long time;
@@ -66,6 +69,7 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
         super(i);
         this.progressValue = 0;
         this.statisticsTaskId = -1L;
+        this.statisticsServiceId = -1L;
         this.mIsPushForOperateAccount = false;
         this.isGifLoadSuccess = true;
         this.isUploading = false;
@@ -182,6 +186,14 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
 
     public void setTaskId(long j) {
         this.taskId = j;
+    }
+
+    public long getServiceId() {
+        return this.serviceId;
+    }
+
+    public void setServiceId(long j) {
+        this.serviceId = j;
     }
 
     public void setTShowInfo(LinkedList<IconData> linkedList) {
@@ -423,5 +435,24 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
             this.statisticsTaskId = this.taskId >= 0 ? this.taskId : 0L;
         }
         return this.statisticsTaskId;
+    }
+
+    public long getStatisticsServiceId() {
+        if (this.statisticsServiceId != -1) {
+            return this.statisticsServiceId;
+        }
+        if (!TextUtils.isEmpty(this.content)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.content);
+                if (jSONArray.length() > 0) {
+                    this.statisticsServiceId = com.baidu.adp.lib.f.b.toLong(jSONArray.optJSONObject(0).optString(Constants.EXTRA_SERVICE), 0L);
+                }
+            } catch (Exception e) {
+            }
+        }
+        if (this.statisticsServiceId <= 0) {
+            this.statisticsServiceId = this.serviceId >= 0 ? this.serviceId : 0L;
+        }
+        return this.statisticsServiceId;
     }
 }

@@ -1,31 +1,31 @@
 package kotlin.jvm.internal;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class s implements l {
-    private final String iYO;
-    private final Class<?> osS;
+    private final String jht;
+    private final Class<?> oCz;
 
     public s(Class<?> cls, String str) {
         q.m(cls, "jClass");
         q.m(str, "moduleName");
-        this.osS = cls;
-        this.iYO = str;
+        this.oCz = cls;
+        this.jht = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> egq() {
-        return this.osS;
+    public Class<?> ekn() {
+        return this.oCz;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof s) && q.l(egq(), ((s) obj).egq());
+        return (obj instanceof s) && q.l(ekn(), ((s) obj).ekn());
     }
 
     public int hashCode() {
-        return egq().hashCode();
+        return ekn().hashCode();
     }
 
     public String toString() {
-        return egq().toString() + " (Kotlin reflection is not available)";
+        return ekn().toString() + " (Kotlin reflection is not available)";
     }
 }

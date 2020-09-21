@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.media.image;
 
 import android.database.Cursor;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static void closeSafely(Cursor cursor) {
         if (cursor != null) {

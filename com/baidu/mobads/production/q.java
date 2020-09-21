@@ -28,7 +28,7 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class q implements IXAdContainerEventListener {
     private Context a;
     private final b b;

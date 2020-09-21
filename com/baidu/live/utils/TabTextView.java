@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TabTextView extends TextView {
-    private LinearGradient bos;
-    private boolean bot;
-    private final float bqF;
-    private final float bqG;
-    private final boolean bqH;
+    private LinearGradient brB;
+    private boolean brC;
+    private final float btT;
+    private final float btU;
+    private final boolean btV;
     private final int endTextColor;
     private final int startTextColor;
 
@@ -29,43 +29,43 @@ public class TabTextView extends TextView {
 
     public TabTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bot = true;
+        this.brC = true;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_TabTextView);
         this.startTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_startTextColor, -1);
         this.endTextColor = obtainStyledAttributes.getColor(a.k.sdk_TabTextView_endTextColor, -1);
-        this.bqF = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
-        this.bqG = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
-        this.bqH = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
+        this.btT = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_defaultTextSize, -1.0f);
+        this.btU = obtainStyledAttributes.getDimension(a.k.sdk_TabTextView_selectedTextSize, -1.0f);
+        this.btV = obtainStyledAttributes.getBoolean(a.k.sdk_TabTextView_selectedBold, false);
         obtainStyledAttributes.recycle();
-        cv(false);
+        cw(false);
     }
 
     @Override // android.view.View
     protected void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        cv(z);
+        cw(z);
         setSelectedBold(z);
-        cx(z);
+        cy(z);
     }
 
-    private boolean On() {
+    private boolean OQ() {
         return (this.startTextColor == -1 || this.endTextColor == -1) ? false : true;
     }
 
-    private void cv(boolean z) {
-        if (this.bot) {
+    private void cw(boolean z) {
+        if (this.brC) {
             if (z) {
-                if (this.bqG != -1.0f) {
-                    setTextSize(0, this.bqG);
+                if (this.btU != -1.0f) {
+                    setTextSize(0, this.btU);
                 }
-            } else if (this.bqF != -1.0f) {
-                setTextSize(0, this.bqF);
+            } else if (this.btT != -1.0f) {
+                setTextSize(0, this.btT);
             }
         }
     }
 
     private void setSelectedBold(boolean z) {
-        if (this.bqH) {
+        if (this.btV) {
             if (z) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
@@ -74,16 +74,16 @@ public class TabTextView extends TextView {
         }
     }
 
-    private void cx(boolean z) {
-        if (z && On()) {
-            if (this.bos == null) {
+    private void cy(boolean z) {
+        if (z && OQ()) {
+            if (this.brB == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                this.bos = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
+                this.brB = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.startTextColor, this.endTextColor}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            getPaint().setShader(this.bos);
+            getPaint().setShader(this.brB);
             return;
         }
         getPaint().setShader(null);

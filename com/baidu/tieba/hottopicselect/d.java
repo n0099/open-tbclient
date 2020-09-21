@@ -1,34 +1,34 @@
 package com.baidu.tieba.hottopicselect;
 
 import GetSugTopic.TopicList;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class d {
-    private String eaf;
-    private String eah;
-    private String eai;
-    private Long jej;
-    private Long jek;
+    private String ecp;
+    private String ecr;
+    private String ecs;
+    private Long jmP;
+    private Long jmQ;
     private Integer tag;
 
     public String getTopicName() {
-        return this.eaf;
+        return this.ecp;
     }
 
     public void setTopicName(String str) {
-        this.eaf = str;
+        this.ecp = str;
     }
 
-    public Integer cAR() {
+    public Integer cEy() {
         return this.tag;
     }
 
     public void a(TopicList topicList) {
         if (topicList != null) {
-            this.jej = topicList.topic_id;
-            this.eaf = topicList.topic_name;
-            this.eai = topicList.topic_pic;
-            this.eah = topicList.topic_desc;
-            this.jek = topicList.discuss_num;
+            this.jmP = topicList.topic_id;
+            this.ecp = topicList.topic_name;
+            this.ecs = topicList.topic_pic;
+            this.ecr = topicList.topic_desc;
+            this.jmQ = topicList.discuss_num;
             this.tag = topicList.tag;
         }
     }

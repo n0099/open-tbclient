@@ -8,40 +8,40 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
     final long bufferSize;
     final io.reactivex.c.a onOverflow;
     final BackpressureOverflowStrategy strategy;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
-    /* loaded from: classes7.dex */
-    static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 3240706908776709697L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         final long bufferSize;
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
         final io.reactivex.c.a onOverflow;
-        org.b.d s;
+        org.a.d s;
         final BackpressureOverflowStrategy strategy;
         final AtomicLong requested = new AtomicLong();
         final Deque<T> deque = new ArrayDeque();
 
-        OnBackpressureBufferStrategySubscriber(org.b.c<? super T> cVar, io.reactivex.c.a aVar, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
+        OnBackpressureBufferStrategySubscriber(org.a.c<? super T> cVar, io.reactivex.c.a aVar, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
             this.actual = cVar;
             this.onOverflow = aVar;
             this.strategy = backpressureOverflowStrategy;
             this.bufferSize = j;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -49,7 +49,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             boolean z = false;
             boolean z2 = true;
@@ -95,7 +95,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -106,13 +106,13 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             drain();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -120,7 +120,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
@@ -140,7 +140,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             T poll;
             if (getAndIncrement() == 0) {
                 Deque<T> deque = this.deque;
-                org.b.c<? super T> cVar = this.actual;
+                org.a.c<? super T> cVar = this.actual;
                 int i = 1;
                 do {
                     long j = this.requested.get();

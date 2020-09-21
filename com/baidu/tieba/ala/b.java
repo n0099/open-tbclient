@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.d.e {
-    private int aEF = 1;
+    private int aFQ = 1;
     private List<com.baidu.live.liveroom.d.d> mDataList;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -29,15 +29,15 @@ public class b implements com.baidu.live.liveroom.d.e {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String IM() {
-        if (this.aEF == 1) {
-            return com.baidu.live.w.a.Nk().beJ.aFX;
+    public String Jq() {
+        if (this.aFQ == 1) {
+            return com.baidu.live.x.a.NN().bhy.aHm;
         }
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short IN() {
+    public short Jr() {
         return (short) 5;
     }
 

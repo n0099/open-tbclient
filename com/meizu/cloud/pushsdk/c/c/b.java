@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private String d;
     private String e;
@@ -17,8 +17,8 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private String k;
     private int l;
 
-    /* loaded from: classes20.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0922a<T> {
+    /* loaded from: classes3.dex */
+    public static abstract class a<T extends a<T>> extends a.AbstractC0919a<T> {
         private String a;
         private String b;
         private String c;
@@ -80,16 +80,16 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static class C0923b extends a<C0923b> {
-        private C0923b() {
+    /* loaded from: classes3.dex */
+    private static class C0920b extends a<C0920b> {
+        private C0920b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0922a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC0919a
         /* renamed from: c */
-        public C0923b a() {
+        public C0920b a() {
             return this;
         }
     }
@@ -108,7 +108,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C0923b();
+        return new C0920b();
     }
 
     public c e() {

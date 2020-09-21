@@ -6,17 +6,17 @@ import com.baidu.swan.apps.component.components.f.a;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0370a cuF;
+    private static a.InterfaceC0365a cwG;
 
-    public static void a(a.InterfaceC0370a interfaceC0370a) {
-        cuF = interfaceC0370a;
+    public static void a(a.InterfaceC0365a interfaceC0365a) {
+        cwG = interfaceC0365a;
     }
 
-    public static void a(EditText editText, int i) {
-        if (editText != null && cuF != null) {
+    public static void c(EditText editText, int i) {
+        if (editText != null && cwG != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,24 +28,24 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            cuF.c(String.valueOf(editText.getTag()), jSONObject);
+            cwG.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
-    public static void b(EditText editText, int i) {
+    public static void d(EditText editText, int i) {
         a(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
     }
 
-    public static void c(EditText editText, int i) {
+    public static void e(EditText editText, int i) {
         a(editText, "blur", i);
     }
 
-    public static void d(EditText editText, int i) {
+    public static void f(EditText editText, int i) {
         a(editText, "confirm", i);
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && cuF != null) {
+        if (editText != null && cwG != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -57,7 +57,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            cuF.c(String.valueOf(editText.getTag()), jSONObject);
+            cwG.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

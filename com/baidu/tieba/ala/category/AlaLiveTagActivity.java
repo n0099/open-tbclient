@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
@@ -18,14 +19,14 @@ import com.baidu.tieba.ala.category.a.e;
 import com.baidu.tieba.ala.category.c.b;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
-    private String beu;
-    private CommonEmptyView bgn;
-    private View fPb;
-    private b fPc;
-    private e fPd;
-    private BdGridView fyP;
+    private String bhk;
+    private CommonEmptyView bjf;
+    private BdGridView fCb;
+    private View fSm;
+    private b fSn;
+    private e fSo;
     private String mLiveId;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -33,6 +34,10 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        if (BdBaseApplication.getInst() == null) {
+            finish();
+            return;
+        }
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(a.h.activity_ala_live_tag);
@@ -46,86 +51,86 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     }
 
     private void initData() {
-        this.beu = getIntent().getStringExtra("anchor_id");
+        this.bhk = getIntent().getStringExtra("anchor_id");
         this.mLiveId = getIntent().getStringExtra("live_id");
-        this.fPc = new b(getPageContext(), this.beu, this.mLiveId);
-        this.fPc.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
+        this.fSn = new b(getPageContext(), this.bhk, this.mLiveId);
+        this.fSn.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bHO() {
-                AlaLiveTagActivity.this.fPd.setTagList(AlaLiveTagActivity.this.fPc.getTagList());
-                AlaLiveTagActivity.this.fPb.setVisibility(0);
-                AlaLiveTagActivity.this.bHN();
+            public void bIW() {
+                AlaLiveTagActivity.this.fSo.setTagList(AlaLiveTagActivity.this.fSn.getTagList());
+                AlaLiveTagActivity.this.fSm.setVisibility(0);
+                AlaLiveTagActivity.this.bIV();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void aD(int i, String str) {
-                AlaLiveTagActivity.this.bGb();
+            public void aE(int i, String str) {
+                AlaLiveTagActivity.this.bHr();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bHP() {
+            public void bIX() {
                 AlaLiveTagActivity.this.showToast(a.i.ala_live_tag_commit_success);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913203));
                 AlaLiveTagActivity.this.finish();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bHQ() {
+            public void bIY() {
                 AlaLiveTagActivity.this.showToast(a.i.ala_live_tag_commit_fail);
             }
         });
-        this.fPd = new e(getPageContext());
-        this.fPd.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
+        this.fSo = new e(getPageContext());
+        this.fSo.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
             @Override // com.baidu.tieba.ala.category.a.e.b
-            public void bHR() {
-                AlaLiveTagActivity.this.bHN();
+            public void bIZ() {
+                AlaLiveTagActivity.this.bIV();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHN() {
-        if (ListUtils.isEmpty(this.fPd.bHS())) {
-            this.fPb.setAlpha(0.3f);
-            this.fPb.setClickable(false);
+    public void bIV() {
+        if (ListUtils.isEmpty(this.fSo.bJa())) {
+            this.fSm.setAlpha(0.3f);
+            this.fSm.setClickable(false);
             return;
         }
-        this.fPb.setAlpha(1.0f);
-        this.fPb.setClickable(true);
+        this.fSm.setAlpha(1.0f);
+        this.fSm.setClickable(true);
     }
 
     private void initView() {
         this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_live_tag_nav_bar);
         this.mRootView = findViewById(a.g.root_view);
-        this.fyP = (BdGridView) findViewById(a.g.live_tag_gridview);
-        this.bgn = (CommonEmptyView) findViewById(a.g.empty_view);
-        this.fPb = findViewById(a.g.tag_commit_tv);
-        this.fPb.setOnClickListener(this);
+        this.fCb = (BdGridView) findViewById(a.g.live_tag_gridview);
+        this.bjf = (CommonEmptyView) findViewById(a.g.empty_view);
+        this.fSm = findViewById(a.g.tag_commit_tv);
+        this.fSm.setOnClickListener(this);
         TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.i.ala_live_tag_title));
         SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.g.widget_navi_back_button), a.f.sdk_d_icon_return_n, a.f.sdk_d_icon_return_n);
         SkinManager.setNavbarTitleColor(centerTextTitle, a.d.sdk_cp_cont_i, a.d.sdk_cp_cont_i);
-        this.fyP.setAdapter((ListAdapter) this.fPd);
+        this.fCb.setAdapter((ListAdapter) this.fSo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.fPc.bIg();
+        this.fSn.bJo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGb() {
-        this.bgn.reset();
-        this.bgn.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
+    public void bHr() {
+        this.bjf.reset();
+        this.bjf.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveTagActivity.this.loadData();
-                AlaLiveTagActivity.this.bgn.setVisibility(8);
+                AlaLiveTagActivity.this.bjf.setVisibility(8);
                 AlaLiveTagActivity.this.mRootView.setVisibility(0);
             }
         });
-        this.bgn.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.bgn.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
-        this.bgn.setVisibility(0);
+        this.bjf.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.bjf.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+        this.bjf.setVisibility(0);
         this.mRootView.setVisibility(8);
     }
 
@@ -133,12 +138,12 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     public void onClick(View view) {
         super.onClick(view);
         if (view.getId() == a.g.tag_commit_tv) {
-            List<String> bHS = this.fPd.bHS();
-            Set<String> bHT = this.fPd.bHT();
-            if (bHS != null && bHT != null && bHS.size() == bHT.size() && bHT.containsAll(bHS)) {
+            List<String> bJa = this.fSo.bJa();
+            Set<String> bJb = this.fSo.bJb();
+            if (bJa != null && bJb != null && bJa.size() == bJb.size() && bJb.containsAll(bJa)) {
                 finish();
             } else {
-                this.fPc.bJ(bHS);
+                this.fSn.bO(bJa);
             }
         }
     }

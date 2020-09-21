@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class a implements f {
     final /* synthetic */ RGStateEntry a;
 

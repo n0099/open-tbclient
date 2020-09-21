@@ -1,7 +1,7 @@
 package com.google.zxing.common;
 
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class DecoderResult {
     private final List<byte[]> byteSegments;
     private final String ecLevel;

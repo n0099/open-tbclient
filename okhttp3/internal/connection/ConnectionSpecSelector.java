@@ -13,7 +13,7 @@ import javax.net.ssl.SSLProtocolException;
 import javax.net.ssl.SSLSocket;
 import okhttp3.ConnectionSpec;
 import okhttp3.internal.Internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class ConnectionSpecSelector {
     private final List<ConnectionSpec> connectionSpecs;
     private boolean isFallback;

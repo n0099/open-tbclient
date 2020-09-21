@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
@@ -30,7 +30,7 @@ public class a {
 
     public static List<e> o(JSONObject jSONObject, String str) throws ParseError {
         List<e> list;
-        List<e> Vx;
+        List<e> Wg;
         if (DEBUG) {
             Log.d("AfdResponseParser", "AFD response : " + jSONObject.toString());
         }
@@ -46,7 +46,7 @@ public class a {
         JSONArray optJSONArray = optJSONObject.optJSONArray(MapBundleKey.MapObjKey.OBJ_AD);
         if (optJSONObject2 != null) {
             String optString = optJSONObject2.optString("cmd");
-            SplashStyleRecorder.ah(optJSONObject2.optJSONObject("style_desc"));
+            SplashStyleRecorder.ak(optJSONObject2.optJSONObject("style_desc"));
             if (TextUtils.equals(IMTrack.DbBuilder.ACTION_UPDATE, optString)) {
                 list = a(optJSONArray, str, false);
                 String optString2 = optJSONObject2.optString("empty_ext_info");
@@ -60,9 +60,9 @@ public class a {
                     list = a(optJSONArray, str, true);
                 } else {
                     String optString3 = optJSONObject2.optString("ukey");
-                    if (!TextUtils.isEmpty(optString3) && (Vx = d.Vx()) != null) {
-                        for (e eVar : Vx) {
-                            if (TextUtils.equals(eVar.bKM, optString3)) {
+                    if (!TextUtils.isEmpty(optString3) && (Wg = d.Wg()) != null) {
+                        for (e eVar : Wg) {
+                            if (TextUtils.equals(eVar.bMM, optString3)) {
                                 arrayList.add(eVar);
                                 list = arrayList;
                                 break;
@@ -86,18 +86,18 @@ public class a {
         List<e> p = e.p(jSONArray);
         if (z) {
             for (e eVar : p) {
-                eVar.bKW = true;
+                eVar.bMW = true;
             }
         } else {
             new ArrayList();
-            HashMap<String, e> Vy = d.Vy();
-            if (Vy == null || Vy.size() == 0) {
-                d.W(p);
+            HashMap<String, e> Wh = d.Wh();
+            if (Wh == null || Wh.size() == 0) {
+                d.aa(p);
             } else {
-                d.Vw();
-                d.W(p);
+                d.Wf();
+                d.aa(p);
             }
-            d.X(p);
+            d.ab(p);
         }
         return p;
     }

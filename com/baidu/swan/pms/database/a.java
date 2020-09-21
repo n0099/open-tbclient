@@ -12,9 +12,9 @@ import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.model.i;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public abstract class a {
-    private static volatile a dEX;
+    private static volatile a dHb;
 
     public abstract boolean W(String str, String str2, String str3);
 
@@ -22,9 +22,9 @@ public abstract class a {
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract Map<String, f> aTu();
+    public abstract Map<String, f> aUg();
 
-    public abstract Map<String, PMSAppInfo> aTv();
+    public abstract Map<String, PMSAppInfo> aUh();
 
     public abstract boolean ab(String str, int i);
 
@@ -50,26 +50,26 @@ public abstract class a {
 
     public abstract boolean s(PMSAppInfo pMSAppInfo);
 
-    public abstract PMSAppInfo wA(String str);
+    @Nullable
+    public abstract i wS(String str);
 
-    public abstract boolean wB(String str);
+    public abstract PMSAppInfo wT(String str);
+
+    public abstract boolean wU(String str);
 
     @WorkerThread
-    public abstract int wC(@NonNull String str);
+    public abstract int wV(@NonNull String str);
 
-    public abstract void wD(String str);
+    public abstract void wW(String str);
 
-    @Nullable
-    public abstract i wz(String str);
-
-    public static a aTt() {
-        if (dEX == null) {
+    public static a aUf() {
+        if (dHb == null) {
             synchronized (a.class) {
-                if (dEX == null) {
-                    dEX = new b();
+                if (dHb == null) {
+                    dHb = new b();
                 }
             }
         }
-        return dEX;
+        return dHb;
     }
 }

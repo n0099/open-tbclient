@@ -1,6 +1,6 @@
 package com.baidu.mobads.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class k implements Runnable {
     final /* synthetic */ boolean a;
     final /* synthetic */ g b;

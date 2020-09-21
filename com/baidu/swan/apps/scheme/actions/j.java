@@ -13,7 +13,7 @@ import com.baidu.swan.apps.storage.PathType;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class j extends aa {
     public j(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getImageInfo");
@@ -33,9 +33,9 @@ public class j extends aa {
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.sd(optString) == PathType.BD_FILE) {
             jSONObject = cg(com.baidu.swan.apps.storage.b.cn(optString, eVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.rK(optString) == PathType.RELATIVE) {
+        } else if (com.baidu.swan.apps.storage.b.sd(optString) == PathType.RELATIVE) {
             jSONObject = cg(com.baidu.swan.apps.storage.b.a(optString, eVar, eVar.getVersion()), optString);
         }
         if (jSONObject != null) {
@@ -65,18 +65,18 @@ public class j extends aa {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface jt = jt(str);
-            if (jt == null) {
+            ExifInterface jM = jM(str);
+            if (jM == null) {
                 return null;
             }
-            i = jt.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            i = jM.getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", jo(i));
+            jSONObject.put("orientation", jz(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -88,7 +88,7 @@ public class j extends aa {
         return jSONObject;
     }
 
-    private String jo(int i) {
+    private String jz(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -112,7 +112,7 @@ public class j extends aa {
         }
     }
 
-    private ExifInterface jt(String str) {
+    private ExifInterface jM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

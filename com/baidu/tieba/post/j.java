@@ -3,19 +3,19 @@ package com.baidu.tieba.post;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class j implements com.baidu.tieba.k.h {
-    private String khw;
+    private String kpW;
     private String mUuid;
     private HashMap<String, com.baidu.tieba.k.f> zK;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     private static class a {
-        private static final com.baidu.tieba.k.h lxq = new j();
+        private static final com.baidu.tieba.k.h lGh = new j();
     }
 
-    public static com.baidu.tieba.k.h dlh() {
-        return a.lxq;
+    public static com.baidu.tieba.k.h doO() {
+        return a.lGh;
     }
 
     private j() {
@@ -23,103 +23,103 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cRd() {
+    public void cUJ() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.k.h
-    public void bm(int i, String str) {
-        dli().n(this.mUuid, i, str);
+    public void bq(int i, String str) {
+        doP().n(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void bn(int i, String str) {
-        dli().o(this.mUuid, i, str);
+    public void br(int i, String str) {
+        doP().o(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void bo(int i, String str) {
-        dli().p(this.mUuid, i, str);
+    public void bs(int i, String str) {
+        doP().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cRe() {
-        dli().MB(this.mUuid);
+    public void cUK() {
+        doP().Nd(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void l(int i, int i2, String str) {
-        dli().e(this.mUuid, i, i2, str);
+    public void m(int i, int i2, String str) {
+        doP().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cRf() {
-        dli().MC(this.mUuid);
-        ir(this.mUuid);
+    public void cUL() {
+        doP().Ne(this.mUuid);
+        iK(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void bp(int i, String str) {
-        dli().q(this.mUuid, i, str);
+    public void bt(int i, String str) {
+        doP().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.k.h
-    public void MF(String str) {
-        if (!StringUtils.isNull(this.khw)) {
-            if (MD(this.khw) || ME(this.khw)) {
-                ir(this.khw);
+    public void Nh(String str) {
+        if (!StringUtils.isNull(this.kpW)) {
+            if (Nf(this.kpW) || Ng(this.kpW)) {
+                iK(this.kpW);
             } else {
-                com.baidu.tieba.k.d.MA(this.khw);
+                com.baidu.tieba.k.d.Nc(this.kpW);
                 this.zK.remove(this.mUuid);
             }
-            cRd();
-            dli().fj(this.khw, str);
-            this.khw = null;
+            cUJ();
+            doP().fw(this.kpW, str);
+            this.kpW = null;
         }
     }
 
     @Override // com.baidu.tieba.k.h
-    public void cRg() {
-        this.khw = this.mUuid;
+    public void cUM() {
+        this.kpW = this.mUuid;
     }
 
     @Override // com.baidu.tieba.k.h
-    public void MG(String str) {
-        dli().fk(this.mUuid, str);
-        if (MD(this.mUuid) || ME(this.mUuid)) {
-            ir(this.mUuid);
+    public void Ni(String str) {
+        doP().fx(this.mUuid, str);
+        if (Nf(this.mUuid) || Ng(this.mUuid)) {
+            iK(this.mUuid);
         } else {
-            com.baidu.tieba.k.d.MA(this.mUuid);
+            com.baidu.tieba.k.d.Nc(this.mUuid);
             this.zK.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean MD(String str) {
-        return dli().MD(str);
+    public boolean Nf(String str) {
+        return doP().Nf(str);
     }
 
-    public boolean ME(String str) {
-        return dli().ME(str);
+    public boolean Ng(String str) {
+        return doP().Ng(str);
     }
 
-    public void ir(String str) {
+    public void iK(String str) {
         com.baidu.tieba.k.f fVar = this.zK.get(str);
         if (fVar != null) {
-            fVar.ir(str);
+            fVar.iK(str);
             this.zK.remove(str);
         }
     }
 
-    private com.baidu.tieba.k.f dli() {
+    private com.baidu.tieba.k.f doP() {
         com.baidu.tieba.k.f fVar = this.zK.get(this.mUuid);
         if (fVar == null) {
-            return dlj();
+            return doQ();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.k.f dlj() {
+    private com.baidu.tieba.k.f doQ() {
         i iVar = new i(this.mUuid);
         this.zK.put(this.mUuid, iVar);
         return iVar;

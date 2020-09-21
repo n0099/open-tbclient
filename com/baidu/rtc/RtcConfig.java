@@ -1,5 +1,5 @@
 package com.baidu.rtc;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class RtcConfig {
     public String cuid;
     public String devicePosition;
@@ -17,7 +17,7 @@ public class RtcConfig {
     public static int RTC_FAILED_INVALID_PARAMS = 2;
     public static int RTC_FAILED_INIT_FAILED = 3;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface RtcHandler {
         void onConnectFailed(int i, int i2, String str, int i3);
 

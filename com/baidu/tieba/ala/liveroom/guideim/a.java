@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.guideim;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    boolean Ji();
+    boolean JM();
 }

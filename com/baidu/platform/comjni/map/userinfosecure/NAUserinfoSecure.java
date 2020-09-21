@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.userinfosecure;
 
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class NAUserinfoSecure extends JNIBaseApi {
     private long a = 0;
 

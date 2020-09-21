@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
     private TbPageContext mContext;
     private View mView;

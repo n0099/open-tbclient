@@ -10,27 +10,27 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class TabItemView extends TextView {
-    private d irL;
-    private boolean irM;
-    private int irN;
+    private d izb;
+    private boolean izc;
+    private int izd;
     private int mState;
-    public static int irJ = 0;
-    public static int irK = 1;
+    public static int iyZ = 0;
+    public static int iza = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = irJ;
-        this.irN = 0;
-        this.irL = dVar;
-        this.irM = z;
+        this.mState = iyZ;
+        this.izd = 0;
+        this.izb = dVar;
+        this.izc = z;
         m(context, i);
     }
 
     private void m(Context context, int i) {
-        if (this.irM) {
+        if (this.izc) {
             setPadding(0, l.getDimens(getContext(), R.dimen.tbds20), 0, 0);
             setTextSize(0, l.getDimens(context, R.dimen.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.irL != null) {
-            setText(this.irL.name);
+        if (this.izb != null) {
+            setText(this.izb.name);
         }
-        bkF();
+        blA();
     }
 
     public void setState(int i) {
-        if (this.irL != null && this.irL.irI != null && this.irL.irI.hXx != null && this.irL.irI.hXx.size() > 0) {
+        if (this.izb != null && this.izb.iyY != null && this.izb.iyY.ieB != null && this.izb.iyY.ieB.size() > 0) {
             int i2 = -l.getDimens(getContext(), R.dimen.tbds20);
-            if (!this.irM) {
+            if (!this.izc) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
         }
-        if (this.irM) {
+        if (this.izc) {
             ap.setViewTextColor(this, R.color.cp_cont_b, 1);
         } else {
-            if (i == irK || i == STATE_EXPANDED) {
-                if (this.irN == 0) {
+            if (i == iza || i == STATE_EXPANDED) {
+                if (this.izd == 0) {
                     ap.setViewTextColor(this, R.color.cp_link_tip_a, 1);
                 } else {
-                    ap.setViewTextColor(this, this.irN, 1);
+                    ap.setViewTextColor(this, this.izd, 1);
                 }
             } else {
                 ap.setViewTextColor(this, R.color.cp_cont_f, 1);
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.irL == null) {
+        if (this.izb == null) {
             return -1;
         }
-        return this.irL.tabId;
+        return this.izb.tabId;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void bkF() {
+    public void blA() {
         setState(this.mState);
     }
 
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.irM) {
+            if (this.izc) {
                 setPadding(0, l.getDimens(getContext(), R.dimen.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.irL == null) {
+        if (this.izb == null) {
             return null;
         }
-        return this.irL.url;
+        return this.izb.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.irM = z;
+        this.izc = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.irN = i;
+        this.izd = i;
     }
 }

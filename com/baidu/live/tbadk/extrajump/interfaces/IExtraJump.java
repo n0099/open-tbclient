@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.extrajump.interfaces;
 
 import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IExtraJump {
     void jumpToPersonalCenter(Activity activity, String str);
 

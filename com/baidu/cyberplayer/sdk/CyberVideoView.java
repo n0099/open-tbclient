@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class CyberVideoView extends FrameLayout implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     private float A;
     private long B;
@@ -353,15 +353,15 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C0103a> b;
+        ArrayList<a.C0104a> b;
         if (this.b == null || (b = this.u.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0103a c0103a = b.get(i);
-            if (c0103a != null && c0103a.a() != null) {
-                this.b.setExternalInfo(c0103a.a(), c0103a.b());
+            a.C0104a c0104a = b.get(i);
+            if (c0104a != null && c0104a.a() != null) {
+                this.b.setExternalInfo(c0104a.a(), c0104a.b());
             }
         }
     }

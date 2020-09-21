@@ -8,7 +8,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class ConstrastLoadingView extends LinearLayout {
     private ImageView a;
     private ImageView b;

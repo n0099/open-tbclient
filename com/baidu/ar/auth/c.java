@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class c implements m {
     private volatile IHttpRequest bO;
     private boolean jc;
@@ -33,7 +33,7 @@ class c implements m {
     private int jg = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         boolean ji;
         JSONObject jj;

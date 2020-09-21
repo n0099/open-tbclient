@@ -3,7 +3,7 @@ package com.baidu.crius;
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @DoNotStrip
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class CriusValue {
     public final CriusUnit unit;
     public final float value;

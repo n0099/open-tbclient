@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.g.c;
 
 import android.view.View;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class r implements View.OnClickListener {
     final /* synthetic */ c a;
 

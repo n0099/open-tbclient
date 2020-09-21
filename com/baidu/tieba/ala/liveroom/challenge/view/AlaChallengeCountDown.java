@@ -16,13 +16,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaChallengeCountDown extends LinearLayout {
     private int count;
-    private ImageView gtM;
-    private TextView gtN;
-    private boolean gtO;
-    private boolean gtP;
+    private ImageView gxt;
+    private TextView gxu;
+    private boolean gxv;
+    private boolean gxw;
     private Context mContext;
     private int maxCount;
     private View rootView;
@@ -31,8 +31,8 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.gtO = false;
-        this.gtP = false;
+        this.gxv = false;
+        this.gxw = false;
         init(context);
     }
 
@@ -40,8 +40,8 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context, attributeSet);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.gtO = false;
-        this.gtP = false;
+        this.gxv = false;
+        this.gxw = false;
         init(context);
     }
 
@@ -49,50 +49,50 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context, attributeSet, i);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.gtO = false;
-        this.gtP = false;
+        this.gxv = false;
+        this.gxw = false;
         init(context);
     }
 
     public void init(Context context) {
         this.mContext = context;
         this.rootView = View.inflate(context, a.h.ala_challenge_count_down, this);
-        this.gtM = (ImageView) this.rootView.findViewById(a.g.ala_challenge_count_down_bg);
-        this.gtN = (TextView) this.rootView.findViewById(a.g.ala_challenge_count_down_time);
-        this.gtM.setAlpha(0.0f);
-        this.gtN.setVisibility(8);
+        this.gxt = (ImageView) this.rootView.findViewById(a.g.ala_challenge_count_down_bg);
+        this.gxu = (TextView) this.rootView.findViewById(a.g.ala_challenge_count_down_time);
+        this.gxt.setAlpha(0.0f);
+        this.gxu.setVisibility(8);
     }
 
     public void setMaxCountDownNum(int i) {
         this.maxCount = i;
     }
 
-    private void bQo() {
+    private void bRI() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                AlaChallengeCountDown.this.gtM.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                AlaChallengeCountDown.this.gxt.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
         ofFloat.start();
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0185a.challenge_count_down_roll);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0186a.challenge_count_down_roll);
         LinearInterpolator linearInterpolator = new LinearInterpolator();
         loadAnimation.setDuration(700L);
         loadAnimation.setInterpolator(linearInterpolator);
-        this.gtM.setVisibility(0);
-        this.gtM.startAnimation(loadAnimation);
+        this.gxt.setVisibility(0);
+        this.gxt.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bQp() {
+    public void bRJ() {
         if (this.count <= 0) {
-            bQr();
+            bRL();
             return;
         }
-        this.gtN.setText(String.valueOf(this.count));
-        this.gtN.setVisibility(0);
+        this.gxu.setText(String.valueOf(this.count));
+        this.gxu.setVisibility(0);
         this.count--;
         AnimationSet animationSet = new AnimationSet(true);
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
@@ -106,44 +106,44 @@ public class AlaChallengeCountDown extends LinearLayout {
         animationSet.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                AlaChallengeCountDown.this.gtN.setVisibility(0);
+                AlaChallengeCountDown.this.gxu.setVisibility(0);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChallengeCountDown.this.bQp();
+                AlaChallengeCountDown.this.bRJ();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.gtN.startAnimation(animationSet);
+        this.gxu.startAnimation(animationSet);
     }
 
-    public void bQq() {
-        this.gtO = false;
-        this.gtP = false;
-        if (this.gtM != null) {
-            this.gtM.setVisibility(8);
-            this.gtM.clearAnimation();
+    public void bRK() {
+        this.gxv = false;
+        this.gxw = false;
+        if (this.gxt != null) {
+            this.gxt.setVisibility(8);
+            this.gxt.clearAnimation();
         }
-        if (this.gtN != null) {
-            this.gtN.setVisibility(8);
-            this.gtN.clearAnimation();
+        if (this.gxu != null) {
+            this.gxu.setVisibility(8);
+            this.gxu.clearAnimation();
         }
     }
 
-    public void bQr() {
-        if (!this.gtP) {
-            this.gtP = true;
-            if (this.gtM != null) {
-                this.gtM.setVisibility(8);
-                this.gtM.clearAnimation();
+    public void bRL() {
+        if (!this.gxw) {
+            this.gxw = true;
+            if (this.gxt != null) {
+                this.gxt.setVisibility(8);
+                this.gxt.clearAnimation();
             }
-            if (this.gtN != null) {
-                this.gtN.setVisibility(8);
-                this.gtN.clearAnimation();
+            if (this.gxu != null) {
+                this.gxu.setVisibility(8);
+                this.gxu.clearAnimation();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.setDuration(300L);
@@ -160,8 +160,8 @@ public class AlaChallengeCountDown extends LinearLayout {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    AlaChallengeCountDown.this.gtO = false;
-                    AlaChallengeCountDown.this.gtP = false;
+                    AlaChallengeCountDown.this.gxv = false;
+                    AlaChallengeCountDown.this.gxw = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -177,13 +177,13 @@ public class AlaChallengeCountDown extends LinearLayout {
     }
 
     public void startCountDown() {
-        if (!this.gtO) {
-            this.gtP = false;
-            this.gtO = true;
+        if (!this.gxv) {
+            this.gxw = false;
+            this.gxv = true;
             this.count = this.maxCount;
             this.rootView.setAlpha(1.0f);
-            bQo();
-            bQp();
+            bRI();
+            bRJ();
         }
     }
 
@@ -195,11 +195,11 @@ public class AlaChallengeCountDown extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.gtN != null) {
-            this.gtN.clearAnimation();
+        if (this.gxu != null) {
+            this.gxu.clearAnimation();
         }
-        if (this.gtM != null) {
-            this.gtM.clearAnimation();
+        if (this.gxt != null) {
+            this.gxt.clearAnimation();
         }
     }
 }

@@ -12,7 +12,7 @@ public class a {
             aq aqVar = new aq(str);
             if (map != null) {
                 for (String str2 : map.keySet()) {
-                    aqVar.dD(str2, map.get(str2));
+                    aqVar.dF(str2, map.get(str2));
                 }
             }
             TiebaStatic.log(aqVar);

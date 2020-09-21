@@ -8,30 +8,30 @@ import com.baidu.b.h;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
-    public static Comparator<a> acj = new com.baidu.b.b.b();
-    protected C0088a ach;
-    protected a.C0090a aci;
+    public static Comparator<a> acE = new com.baidu.b.b.b();
+    protected C0089a acC;
+    protected a.C0091a acD;
     private final String d;
     private long e;
 
     /* renamed from: com.baidu.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0088a {
+    /* loaded from: classes3.dex */
+    public static class C0089a {
         public Context a;
-        public com.baidu.b.e.a acm;
+        public com.baidu.b.e.a acF;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b {
-        private a.C0090a acn;
+        private a.C0091a acG;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0090a c0090a, String str) {
-            this.acn = c0090a;
+        public b(a.C0091a c0091a, String str) {
+            this.acG = c0091a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
@@ -43,7 +43,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a = this.acn.a(this.c, true);
+            String a = this.acG.a(this.c, true);
             if (!TextUtils.isEmpty(a)) {
                 try {
                     a(new JSONObject(a));
@@ -62,7 +62,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.acn.c(this.c, jSONObject.toString(), true);
+                    this.acG.c(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -72,36 +72,36 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class c {
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public boolean a;
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class e {
-        public h.a aco;
-        public Exception acp;
+        public h.a acH;
+        public Exception acI;
         public int b;
 
         public e(int i, h.a aVar, Exception exc) {
             this.b = i;
-            this.aco = aVar;
-            this.acp = exc;
+            this.acH = aVar;
+            this.acI = exc;
         }
 
         public static e a(h.a aVar) {
             return new e(0, aVar, null);
         }
 
-        public static e bf(int i) {
+        public static e bj(int i) {
             return new e(i, null, null);
         }
 
-        public static e sD() {
+        public static e sI() {
             return new e(-1, null, null);
         }
 
@@ -121,9 +121,9 @@ public abstract class a {
         return this.d;
     }
 
-    public final void a(C0088a c0088a) {
-        this.ach = c0088a;
-        this.aci = c0088a.acm.sJ().cV(IXAdRequestInfo.CS);
+    public final void a(C0089a c0089a) {
+        this.acC = c0089a;
+        this.acD = c0089a.acF.sO().cX(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

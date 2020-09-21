@@ -15,7 +15,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class OneDReader implements Reader {
     public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
 

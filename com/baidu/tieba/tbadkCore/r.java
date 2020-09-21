@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface r {
     void a(int i, boolean z, f fVar);
 
     void c(m mVar);
 
-    void cmh();
+    void cpt();
 
-    void wV(int i);
+    void xu(int i);
 }

@@ -23,12 +23,12 @@ import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
 import tv.chushou.basis.http.HttpConsts;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean Zo() {
-        return com.baidu.swan.apps.t.a.aoV().Zo();
+    public static boolean ZX() {
+        return com.baidu.swan.apps.t.a.apG().ZX();
     }
 
     public static void f(File file, File file2) throws IOException {
@@ -61,7 +61,7 @@ public class e {
         }
     }
 
-    public static void kS(String str) {
+    public static void ll(String str) {
         b(str, null, null, true);
     }
 
@@ -177,7 +177,7 @@ public class e {
         }
     }
 
-    public static void bP(@NonNull Context context) {
+    public static void bO(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -234,7 +234,7 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).rk(jSONObject2).rj(com.baidu.swan.apps.runtime.e.azK()).ama();
+        new c.a(10006).rD(jSONObject2).rC(com.baidu.swan.apps.runtime.e.aAt()).amK();
     }
 
     public static void z(String str, String str2, String str3) {
@@ -254,7 +254,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).rk(jSONObject2).rj(com.baidu.swan.apps.runtime.e.azK()).ama();
+            new c.a(10008).rD(jSONObject2).rC(com.baidu.swan.apps.runtime.e.aAt()).amK();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

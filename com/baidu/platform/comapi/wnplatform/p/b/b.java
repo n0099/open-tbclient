@@ -1,10 +1,10 @@
 package com.baidu.platform.comapi.wnplatform.p.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private com.baidu.platform.comapi.wnplatform.p.b.a.a a;
     private com.baidu.platform.comapi.wnplatform.p.b.a.b b;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static b a = new b();
     }

@@ -1,13 +1,13 @@
 package com.baidu.cesium.c.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class c {
-    private b alJ = new b(32);
+    private b ami = new b(32);
 
     public byte[] a(byte[] bArr) {
-        return this.alJ.a(bArr);
+        return this.ami.a(bArr);
     }
 
     public byte[] b(byte[] bArr) {
-        return this.alJ.b(bArr);
+        return this.ami.b(bArr);
     }
 }

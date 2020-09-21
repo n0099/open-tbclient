@@ -17,7 +17,7 @@ import com.baidu.ar.recorder.b.e;
 import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class MovieRecorder implements b {
     public static final int ERROR_CODE_ON_START = 4001;
     public static final int ERROR_CODE_ON_STOP = 4002;
@@ -33,7 +33,7 @@ public class MovieRecorder implements b {
     private MovieRecorderCallback tk;
 
     /* renamed from: tv  reason: collision with root package name */
-    private HandlerThread f964tv;
+    private HandlerThread f963tv;
     private a ty;
     private com.baidu.ar.recorder.a tz;
     private static final String TAG = MovieRecorder.class.getSimpleName();
@@ -47,7 +47,7 @@ public class MovieRecorder implements b {
     private volatile boolean tI = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -199,14 +199,14 @@ public class MovieRecorder implements b {
         }
         this.tG = new com.baidu.ar.recorder.a.b();
         this.tt = 0;
-        if (!this.tu && this.f964tv == null) {
-            this.f964tv = new HandlerThread(TAG);
-            this.f964tv.start();
+        if (!this.tu && this.f963tv == null) {
+            this.f963tv = new HandlerThread(TAG);
+            this.f963tv.start();
         }
         if (this.ty != null) {
             this.ty.removeCallbacksAndMessages(null);
-        } else if (this.f964tv != null) {
-            this.ty = new a(this.f964tv.getLooper());
+        } else if (this.f963tv != null) {
+            this.ty = new a(this.f963tv.getLooper());
         } else {
             this.ty = new a(this.mContext.getMainLooper());
         }
@@ -375,9 +375,9 @@ public class MovieRecorder implements b {
             this.ty.removeCallbacksAndMessages(null);
             this.ty = null;
         }
-        if (this.f964tv != null) {
-            this.f964tv.quit();
-            this.f964tv = null;
+        if (this.f963tv != null) {
+            this.f963tv.quit();
+            this.f963tv = null;
         }
     }
 

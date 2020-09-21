@@ -7,13 +7,13 @@ import android.util.Pair;
 import com.baidu.swan.apps.ap.al;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.swan.apps.api.a.d {
     public c(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b jV(String str) {
+    public com.baidu.swan.apps.api.c.b ko(String str) {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start set clipboard data");
         }
@@ -26,17 +26,17 @@ public class c extends com.baidu.swan.apps.api.a.d {
             }
             return bVar;
         }
-        al.cP(getContext()).setText(((JSONObject) aX.second).optString("data"));
+        al.cO(getContext()).setText(((JSONObject) aX.second).optString("data"));
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    public com.baidu.swan.apps.api.c.b acj() {
+    public com.baidu.swan.apps.api.c.b acS() {
         if (DEBUG) {
             Log.d("Api-ClipboardApi", "start get clipboard data");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            CharSequence text = al.cP(getContext()).getText();
+            CharSequence text = al.cO(getContext()).getText();
             jSONObject.put("data", TextUtils.isEmpty(text) ? "" : text.toString());
             if (DEBUG) {
                 Log.i("Api-ClipboardApi", "getClipboardData:  " + jSONObject);

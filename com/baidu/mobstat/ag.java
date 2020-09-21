@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 class ag extends TextView {
     private Paint a;
     private PaintFlagsDrawFilter b;

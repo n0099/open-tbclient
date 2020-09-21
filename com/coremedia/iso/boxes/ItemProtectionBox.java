@@ -9,7 +9,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "ipro";
     private int flags;

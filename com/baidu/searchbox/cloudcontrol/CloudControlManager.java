@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes23.dex */
 public class CloudControlManager {
     private static final String KEY_SP_CLOUDCONTROL = "cloudControlCCS117";
     private static final String TAG = "CloudControlManager";
@@ -157,12 +157,7 @@ public class CloudControlManager {
     }
 
     public void onBackgroundToForeground() {
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.cloudcontrol.CloudControlManager.1
-            @Override // java.lang.Runnable
-            public void run() {
-                CloudControlManager.getInstance().requestCloudControl("1");
-            }
-        }, "requestCloudControl", 0);
+        getInstance().requestCloudControl("1");
     }
 
     public boolean getConnectData(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -179,8 +174,13 @@ public class CloudControlManager {
         }
     }
 
-    public void requestCloudControl(String str) {
-        new CloudControlRequest().cloudControlRequest(str, null);
+    public void requestCloudControl(final String str) {
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.cloudcontrol.CloudControlManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                new CloudControlRequest().cloudControlRequest(str, null);
+            }
+        }, "requestCloudControl", 0);
     }
 
     public void fetchCloudControl(final String str, final ArrayList<CloudControlRequestInfo> arrayList) {

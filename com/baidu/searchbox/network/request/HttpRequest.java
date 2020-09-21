@@ -2,6 +2,7 @@ package com.baidu.searchbox.network.request;
 
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.searchbox.http.util.HttpUtils;
 import com.baidu.searchbox.network.AbstractHttpManager;
 import com.baidu.searchbox.network.Cancelable;
 import com.baidu.searchbox.network.RequestHandler;
@@ -27,9 +28,11 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
+    public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
     public static final int REQUESTFROM_NONE = 0;
+    protected String bdTraceId;
     protected RequestClient client;
     protected int connectionTimeout;
     protected CookieManager cookieManager;
@@ -93,6 +96,8 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         if (this.httpUrl == null) {
             throw new IllegalArgumentException(" url not set, please check");
         }
+        this.bdTraceId = HttpUtils.generateBdTraceId();
+        t.headersBuilder.add("X-Bd-Traceid", this.bdTraceId);
         if (this.isReqNetStatEnable) {
             this.requestNetStat = new NetworkStatRecord();
             this.requestNetStat.url = this.httpUrl.toString();
@@ -106,6 +111,10 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         } catch (IOException e) {
             return 0L;
         }
+    }
+
+    public String getBdTraceId() {
+        return this.bdTraceId;
     }
 
     public Request getRequest() {

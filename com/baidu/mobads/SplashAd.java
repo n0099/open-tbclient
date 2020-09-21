@@ -9,14 +9,14 @@ import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SplashAd {
     private static boolean d;
     private com.baidu.mobads.production.g.a a;
     private int b;
-    private SplashAdListener bDt;
-    private IOAdEventListener bDu;
     private volatile String c;
+    private SplashAdListener e;
+    private IOAdEventListener f;
     public static String RSPLASH_PATTERN = "pattern";
     public static String RSPLASH_BTN_POS = "btn_pos";
 
@@ -27,8 +27,8 @@ public class SplashAd {
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
         this.b = 4;
         this.c = OneKeyLoginSdkCall.l;
-        this.bDt = new q(this);
-        this.bDu = new r(this);
+        this.e = new q(this);
+        this.f = new r(this);
         try {
             com.baidu.mobads.a.a.l = System.currentTimeMillis();
             com.baidu.mobads.a.a.m = 0L;
@@ -41,10 +41,10 @@ public class SplashAd {
                 a(viewGroup, context);
             }
             if (splashAdListener != null) {
-                this.bDt = splashAdListener;
+                this.e = splashAdListener;
             }
             if (TextUtils.isEmpty(str)) {
-                this.bDt.onAdFailed("请您输入正确的广告位ID");
+                this.e.onAdFailed("请您输入正确的广告位ID");
                 return;
             }
             XAdView xAdView = new XAdView(context);

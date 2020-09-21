@@ -3,30 +3,30 @@ package com.baidu.swan.games.aa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static final ReentrantLock dxu = new ReentrantLock();
-    private static volatile a dxv;
-    private d dqr;
-    private List<c> drj = new ArrayList(3);
+    private static final ReentrantLock dzv = new ReentrantLock();
+    private static volatile a dzw;
+    private d dsu;
+    private List<c> dtm = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aPC() {
-        if (dxv == null) {
+    public static a aQn() {
+        if (dzw == null) {
             synchronized (a.class) {
-                if (dxv == null) {
-                    dxv = new a();
+                if (dzw == null) {
+                    dzw = new a();
                 }
             }
         }
-        return dxv;
+        return dzw;
     }
 
     public void a(d dVar) {
-        this.dqr = dVar;
-        aPD();
+        this.dsu = dVar;
+        aQo();
     }
 
     public void am(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.dqr = null;
-        this.drj.clear();
+        this.dsu = null;
+        this.dtm.clear();
     }
 
     private void a(c cVar) {
-        dxu.lock();
+        dzv.lock();
         try {
-            if (this.dqr != null) {
-                this.dqr.c(cVar);
+            if (this.dsu != null) {
+                this.dsu.c(cVar);
             } else {
-                this.drj.add(cVar);
+                this.dtm.add(cVar);
             }
         } finally {
-            dxu.unlock();
+            dzv.unlock();
         }
     }
 
-    private void aPD() {
-        if (!this.drj.isEmpty() && this.dqr != null) {
-            dxu.lock();
+    private void aQo() {
+        if (!this.dtm.isEmpty() && this.dsu != null) {
+            dzv.lock();
             try {
-                for (c cVar : this.drj) {
-                    this.dqr.c(cVar);
+                for (c cVar : this.dtm) {
+                    this.dsu.c(cVar);
                 }
-                this.drj.clear();
+                this.dtm.clear();
             } finally {
-                dxu.unlock();
+                dzv.unlock();
             }
         }
     }

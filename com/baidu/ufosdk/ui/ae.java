@@ -1,0 +1,178 @@
+package com.baidu.ufosdk.ui;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.IMConnection;
+import com.tencent.connect.common.Constants;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes21.dex */
+public final class ae implements TextWatcher {
+    final /* synthetic */ FeedbackEditActivity a;
+    private int b;
+    private long c = 0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(FeedbackEditActivity feedbackEditActivity) {
+        this.a = feedbackEditActivity;
+    }
+
+    @Override // android.text.TextWatcher
+    public final void afterTextChanged(Editable editable) {
+        boolean z;
+        EditText editText;
+        EditText editText2;
+        TextView textView;
+        EditText editText3;
+        EditText editText4;
+        TextView textView2;
+        TextView textView3;
+        TextView textView4;
+        EditText editText5;
+        List list;
+        List list2;
+        Button button;
+        List list3;
+        List list4;
+        Button button2;
+        List list5;
+        Button button3;
+        EditText editText6;
+        List list6;
+        List list7;
+        Button button4;
+        List list8;
+        List list9;
+        Button button5;
+        List list10;
+        Button button6;
+        Button button7;
+        Button button8;
+        TextView textView5;
+        TextView textView6;
+        int i = 0;
+        z = this.a.x;
+        if (!z) {
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.a);
+            dVar.b(dVar.b() + 1);
+            this.a.x = true;
+        }
+        editText = this.a.m;
+        int length = editText.getText().toString().length();
+        if (length < com.baidu.ufosdk.b.aa - 10) {
+            textView5 = this.a.o;
+            textView5.setTextColor(-5131855);
+            textView6 = this.a.o;
+            textView6.setText("4-" + com.baidu.ufosdk.b.aa + com.baidu.ufosdk.f.s.a("27"));
+        } else if (length < com.baidu.ufosdk.b.aa - 10 || length > com.baidu.ufosdk.b.aa) {
+            editText2 = this.a.m;
+            String substring = editText2.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
+            textView = this.a.o;
+            textView.setTextColor(-1551537);
+            editText3 = this.a.m;
+            editText3.setText(substring);
+            editText4 = this.a.m;
+            FeedbackEditActivity.b(editText4, substring.length());
+            textView2 = this.a.o;
+            textView2.setText("0" + com.baidu.ufosdk.f.s.a("27"));
+            if (System.currentTimeMillis() - this.c > IMConnection.RETRY_DELAY_TIMES) {
+                Toast.makeText(this.a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
+                this.c = System.currentTimeMillis();
+            }
+        } else {
+            textView3 = this.a.o;
+            textView3.setTextColor(-5131855);
+            textView4 = this.a.o;
+            textView4.setText(String.valueOf(com.baidu.ufosdk.b.aa - editable.length()) + com.baidu.ufosdk.f.s.a("27"));
+        }
+        switch (this.b) {
+            case 0:
+                editText6 = this.a.m;
+                if (editText6.getText().toString().length() < 4) {
+                    button7 = this.a.V;
+                    button7.setTextColor(com.baidu.ufosdk.b.y);
+                    return;
+                }
+                while (true) {
+                    int i2 = i;
+                    list6 = this.a.z;
+                    if (i2 < list6.size()) {
+                        list8 = this.a.z;
+                        if (list8.get(i2) != null) {
+                            list10 = this.a.z;
+                            if (((TextView) list10.get(i2)).getText().toString().length() == 0) {
+                                button6 = this.a.V;
+                                button6.setTextColor(com.baidu.ufosdk.b.y);
+                            }
+                        }
+                        list9 = this.a.z;
+                        if (i2 == list9.size() - 1) {
+                            button5 = this.a.V;
+                            button5.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                        }
+                        i = i2 + 1;
+                    }
+                }
+                list7 = this.a.z;
+                if (list7.size() == 0) {
+                    button4 = this.a.V;
+                    button4.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                    return;
+                }
+                return;
+            case 1:
+                editText5 = this.a.m;
+                if (editText5.getText().toString().length() >= 4) {
+                    while (true) {
+                        int i3 = i;
+                        list = this.a.z;
+                        if (i3 < list.size()) {
+                            list3 = this.a.z;
+                            if (list3.get(i3) != null) {
+                                list5 = this.a.z;
+                                if (((TextView) list5.get(i3)).getText().toString().length() == 0) {
+                                    button3 = this.a.V;
+                                    button3.setTextColor(com.baidu.ufosdk.b.y);
+                                }
+                            }
+                            list4 = this.a.z;
+                            if (i3 == list4.size() - 1) {
+                                button2 = this.a.V;
+                                button2.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                            }
+                            i = i3 + 1;
+                        }
+                    }
+                    list2 = this.a.z;
+                    if (list2.size() == 0) {
+                        button = this.a.V;
+                        button.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                        return;
+                    }
+                    return;
+                }
+                break;
+        }
+        button8 = this.a.V;
+        button8.setTextColor(com.baidu.ufosdk.b.y);
+    }
+
+    @Override // android.text.TextWatcher
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        EditText editText;
+        editText = this.a.m;
+        if (editText.getText().toString().length() < 4) {
+            this.b = 0;
+        } else {
+            this.b = 1;
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+}

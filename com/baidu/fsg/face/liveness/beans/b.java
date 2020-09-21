@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public abstract class b extends BaseBean {
     public b(Context context) {
         super(context);

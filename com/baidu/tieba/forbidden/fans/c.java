@@ -10,37 +10,37 @@ import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class c {
-    private av hNP;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> hNQ;
-    private a hNR;
-    private HttpMessageListener hNS = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private av hUP;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> hUQ;
+    private a hUR;
+    private HttpMessageListener hUS = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.hNP = getForbiddenFansResponse.getPageData();
-                if (c.this.hNQ == null) {
-                    c.this.hNQ = new ArrayList();
+                c.this.hUP = getForbiddenFansResponse.getPageData();
+                if (c.this.hUQ == null) {
+                    c.this.hUQ = new ArrayList();
                 }
-                if (c.this.hNP != null) {
-                    if (c.this.hNP.bds() == 1) {
-                        c.this.hNQ.clear();
+                if (c.this.hUP != null) {
+                    if (c.this.hUP.bem() == 1) {
+                        c.this.hUQ.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.hNQ.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.hUQ.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.hNR != null) {
-                    c.this.hNR.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.hNQ);
+                if (c.this.hUR != null) {
+                    c.this.hUR.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.hUQ);
                 }
             }
         }
     };
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void b(int i, String str, ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList);
     }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.hNS);
+        MessageManager.getInstance().registerListener(this.hUS);
     }
 
-    public void cka() {
+    public void cnn() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void ckb() {
-        if (this.hNP == null || this.hNP.bdu() == 1) {
-            int bds = this.hNP != null ? this.hNP.bds() + 1 : 1;
+    public void cno() {
+        if (this.hUP == null || this.hUP.beo() == 1) {
+            int bem = this.hUP != null ? this.hUP.bem() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, bds);
+            httpMessage.addParam(Config.PACKAGE_NAME, bem);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.hNP != null && this.hNP.bdu() == 1;
+        return this.hUP != null && this.hUP.beo() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hNS);
+        MessageManager.getInstance().unRegisterListener(this.hUS);
     }
 
     public void a(a aVar) {
-        this.hNR = aVar;
+        this.hUR = aVar;
     }
 }

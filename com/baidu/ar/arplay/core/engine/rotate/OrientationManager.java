@@ -5,14 +5,14 @@ import android.view.OrientationEventListener;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class OrientationManager extends OrientationEventListener {
     private Orientation mCurrentOrientation;
     private List<OrientationListener> mListeners;
     private static Orientation sGlobalOrientation = Orientation.UNKNOWN;
     private static boolean isScreenOrientationLandscape = false;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OrientationListener {
         void onRotateOrientation(Orientation orientation);
     }

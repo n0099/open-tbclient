@@ -13,7 +13,7 @@ import com.baidu.mapapi.bikenavi.controllers.UnsupportedBikeNaviException;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static IBTTSPlayer b;
     private static com.baidu.platform.comapi.wnplatform.n.c d = new d();

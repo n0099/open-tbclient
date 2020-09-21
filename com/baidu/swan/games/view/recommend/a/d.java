@@ -3,11 +3,11 @@ package com.baidu.swan.games.view.recommend.a;
 import android.content.res.Resources;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private float dze;
-    private float dzf;
-    private a dzg;
+    private float dBf;
+    private float dBg;
+    private a dBh;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -17,19 +17,19 @@ public class d {
     @V8JavascriptField
     public volatile float width;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void ua(String str);
+        void ut(String str);
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.t.a.aoJ() != null ? com.baidu.swan.apps.t.a.aoJ().getResources() : null;
+        Resources resources = com.baidu.swan.apps.t.a.apu() != null ? com.baidu.swan.apps.t.a.apu().getResources() : null;
         this.left = b(resources, a.d.swangame_recommend_button_default_left);
         this.top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);
         this.height = b(resources, a.d.swangame_recommend_button_default_height);
-        this.dze = this.width;
-        this.dzf = this.height;
+        this.dBf = this.width;
+        this.dBg = this.height;
     }
 
     private float b(Resources resources, int i) {
@@ -40,14 +40,14 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.dzg = aVar;
+        this.dBh = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.dze;
-        this.height = this.dzf;
-        if (this.dzg != null) {
-            this.dzg.ua(str);
+        this.width = this.dBf;
+        this.height = this.dBg;
+        if (this.dBh != null) {
+            this.dBh.ut(str);
         }
     }
 

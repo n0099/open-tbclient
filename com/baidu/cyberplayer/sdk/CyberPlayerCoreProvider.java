@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class CyberPlayerCoreProvider {
     public abstract long caculateFolderSize();
 

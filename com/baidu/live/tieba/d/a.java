@@ -3,13 +3,13 @@ package com.baidu.live.tieba.d;
 import android.os.Handler;
 import android.os.Message;
 import android.view.MotionEvent;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private float bkN;
-    private float bkO;
-    private float bkP;
-    private float bkQ;
-    private InterfaceC0192a bkR;
+    private float bnG;
+    private float bnH;
+    private float bnI;
+    private float bnJ;
+    private InterfaceC0192a bnK;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.live.tieba.d.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.bkR.H(i, i2);
+                    a.this.bnK.H(i, i2);
                     return true;
                 case 1:
-                    a.this.bkR.I(i, i2);
+                    a.this.bnK.I(i, i2);
                     return true;
                 case 2:
-                    a.this.bkR.J(i, i2);
+                    a.this.bnK.J(i, i2);
                     return true;
                 default:
                     return false;
@@ -33,7 +33,7 @@ public class a {
     private Handler mHandler = new Handler(this.mHandlerCallback);
 
     /* renamed from: com.baidu.live.tieba.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface InterfaceC0192a {
         void H(int i, int i2);
 
@@ -43,40 +43,40 @@ public class a {
     }
 
     public void a(InterfaceC0192a interfaceC0192a) {
-        this.bkR = interfaceC0192a;
+        this.bnK = interfaceC0192a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bkP = motionEvent.getRawX();
-                this.bkQ = motionEvent.getRawY();
+                this.bnI = motionEvent.getRawX();
+                this.bnJ = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
-                if (this.bkR != null) {
-                    int i = (int) (this.bkN - this.bkP);
-                    if (Math.abs(i) >= Math.abs((int) (this.bkO - this.bkQ))) {
-                        G(i, (int) this.bkP);
+                if (this.bnK != null) {
+                    int i = (int) (this.bnG - this.bnI);
+                    if (Math.abs(i) >= Math.abs((int) (this.bnH - this.bnJ))) {
+                        G(i, (int) this.bnI);
                     }
                 }
-                this.bkP = 0.0f;
-                this.bkQ = 0.0f;
+                this.bnI = 0.0f;
+                this.bnJ = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.bkN);
-                int i3 = (int) (rawY - this.bkO);
-                if (this.bkR != null) {
+                int i2 = (int) (rawX - this.bnG);
+                int i3 = (int) (rawY - this.bnH);
+                if (this.bnK != null) {
                     if (i3 > 0) {
                         E(i2, i3);
                     } else {
                         F(i2, i3);
                     }
                 }
-                this.bkN = rawX;
-                this.bkO = rawY;
+                this.bnG = rawX;
+                this.bnH = rawY;
                 return true;
             default:
                 return true;

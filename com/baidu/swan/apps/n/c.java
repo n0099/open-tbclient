@@ -20,10 +20,10 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(DialogInterface dialogInterface, int i, List<d> list);
     }
@@ -34,7 +34,7 @@ public final class c {
         SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(a.f.swan_app_icon);
         final Resources resources = activity.getResources();
         if (swanAppRoundedImageView != null) {
-            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ak.a((com.baidu.swan.apps.u.c.b) eVar.azM(), "SwanSubscribeMsgDialog", false)));
+            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ak.a((com.baidu.swan.apps.u.c.b) eVar.aAv(), "SwanSubscribeMsgDialog", false)));
             swanAppRoundedImageView.setBorderColor(resources.getColor(a.c.swan_app_auth_icon_border));
         }
         TextView textView = (TextView) inflate.findViewById(a.f.auth_negative_button);
@@ -57,12 +57,12 @@ public final class c {
                 }));
             }
         }
-        final g ahZ = new g.a(activity).fz(true).as(inflate).a(new com.baidu.swan.apps.view.c.a()).jd(a.e.aiapps_action_sheet_bg).fE(false).azn().fA(false).ahZ();
+        final g aiJ = new g.a(activity).fx(true).au(inflate).a(new com.baidu.swan.apps.view.c.a()).jo(a.e.aiapps_action_sheet_bg).fC(false).azW().fy(false).aiJ();
         final DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.n.c.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (a.this.a(dialogInterface, i, arrayList)) {
-                    ahZ.dismiss();
+                    aiJ.dismiss();
                 }
             }
         };
@@ -80,15 +80,15 @@ public final class c {
                 onClickListener.onClick(g.this, -2);
             }
         });
-        ahZ.setEnableImmersion(false);
-        ahZ.setOnCancelListener(onCancelListener);
-        Window window = ahZ.getWindow();
+        aiJ.setEnableImmersion(false);
+        aiJ.setOnCancelListener(onCancelListener);
+        Window window = aiJ.getWindow();
         if (window != null) {
             window.setGravity(80);
-            window.setLayout(ah.cJ(activity), -2);
+            window.setLayout(ah.cI(activity), -2);
             window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        return ahZ;
+        return aiJ;
     }
 
     private static View a(@NonNull Activity activity, @NonNull final d dVar, final List<d> list, final View.OnClickListener onClickListener) {
@@ -99,7 +99,7 @@ public final class c {
         layoutParams.setMargins(0, 16, 0, 16);
         textView.setLayoutParams(layoutParams);
         textView.setTextColor(com.baidu.swan.support.v4.a.a.getColor(activity, a.c.swan_app_msg_dialog_title));
-        textView.setText(dVar.csl);
+        textView.setText(dVar.cup);
         final Drawable drawable = resources.getDrawable(a.e.aiapps_subscribe_msg_unselected);
         final Drawable drawable2 = resources.getDrawable(a.e.aiapps_subscribe_msg_selected);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);

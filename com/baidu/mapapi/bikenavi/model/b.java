@@ -1,7 +1,7 @@
 package com.baidu.mapapi.bikenavi.model;
 
 import android.graphics.Typeface;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private int a;
     private boolean b;

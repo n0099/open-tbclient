@@ -14,11 +14,11 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HostLiveGoodsEnterView extends FrameLayout implements a {
-    private TextView bjM;
-    private View bjv;
-    private ImageView bjw;
+    private TextView bmF;
+    private View bmo;
+    private ImageView bmp;
     private View rootView;
 
     public HostLiveGoodsEnterView(@NonNull Context context) {
@@ -38,36 +38,36 @@ public class HostLiveGoodsEnterView extends FrameLayout implements a {
 
     public void init(Context context) {
         this.rootView = View.inflate(context, a.h.ala_master_live_goods_enter_view, this);
-        this.bjv = this.rootView.findViewById(a.g.host_goods_layout);
-        this.bjw = (ImageView) this.rootView.findViewById(a.g.host_goods_imageView);
-        this.bjM = (TextView) this.rootView.findViewById(a.g.host_goods_num_textView);
+        this.bmo = this.rootView.findViewById(a.g.host_goods_layout);
+        this.bmp = (ImageView) this.rootView.findViewById(a.g.host_goods_imageView);
+        this.bmF = (TextView) this.rootView.findViewById(a.g.host_goods_num_textView);
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        if (this.bjw != null) {
-            this.bjw.setOnClickListener(onClickListener);
+        if (this.bmp != null) {
+            this.bmp.setOnClickListener(onClickListener);
         }
     }
 
-    public void Ni() {
-        if (this.bjv.getVisibility() == 8) {
+    public void NL() {
+        if (this.bmo.getVisibility() == 8) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.AUTHOR_LIVE_ROOM, "shopcart_show"));
         }
-        this.bjv.setVisibility(0);
+        this.bmo.setVisibility(0);
     }
 
-    public void Nj() {
-        this.bjv.setVisibility(8);
+    public void NM() {
+        this.bmo.setVisibility(8);
     }
 
-    public void eH(int i) {
+    public void eS(int i) {
         if (i <= 0) {
-            this.bjM.setVisibility(8);
-            this.bjM.setText("");
+            this.bmF.setVisibility(8);
+            this.bmF.setText("");
             return;
         }
-        this.bjM.setText(i + "");
-        this.bjM.setVisibility(0);
+        this.bmF.setText(i + "");
+        this.bmF.setVisibility(0);
     }
 
     @Override // com.baidu.live.core.a.a

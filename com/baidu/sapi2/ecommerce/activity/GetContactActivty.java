@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.pass.ecommerce.c.a;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GetContactActivty extends Activity {
     private static final int REQUEST_CODE_CONTACT = 4002;
 

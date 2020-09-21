@@ -1,6 +1,6 @@
 package com.google.gson;
 
-import com.google.gson.internal.i;
+import com.google.gson.internal.h;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.MalformedJsonException;
 import com.google.gson.stream.a;
@@ -10,7 +10,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class JsonStreamParser implements Iterator<JsonElement> {
     private final Object lock;
     private final a parser;
@@ -21,7 +21,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
 
     public JsonStreamParser(Reader reader) {
         this.parser = new a(reader);
-        this.parser.yq(true);
+        this.parser.yz(true);
         this.lock = new Object();
     }
 
@@ -33,7 +33,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
             throw new NoSuchElementException();
         }
         try {
-            return i.parse(this.parser);
+            return h.parse(this.parser);
         } catch (JsonParseException e) {
             if (e.getCause() instanceof EOFException) {
                 throw new NoSuchElementException();
@@ -51,7 +51,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
         boolean z;
         synchronized (this.lock) {
             try {
-                z = this.parser.dXy() != JsonToken.END_DOCUMENT;
+                z = this.parser.ebw() != JsonToken.END_DOCUMENT;
             } catch (MalformedJsonException e) {
                 throw new JsonSyntaxException(e);
             } catch (IOException e2) {

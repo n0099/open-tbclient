@@ -3,7 +3,7 @@ package com.baidu.g.a.b;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public interface c {
     View B(Context context, String str);
 

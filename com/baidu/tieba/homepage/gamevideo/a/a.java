@@ -9,94 +9,94 @@ import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.data.m;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private BdTypeRecyclerView Wu;
-    private LinkedList<com.baidu.adp.widget.ListView.a> iJW = new LinkedList<>();
-    private f iJX;
-    private c iJY;
-    private d iJZ;
-    private e iKa;
+    private BdTypeRecyclerView WM;
+    private LinkedList<com.baidu.adp.widget.ListView.a> iSC = new LinkedList<>();
+    private f iSD;
+    private c iSE;
+    private d iSF;
+    private e iSG;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Wu = bdTypeRecyclerView;
-        Jv();
+        this.WM = bdTypeRecyclerView;
+        JZ();
     }
 
-    private void Jv() {
-        this.iJX = new f(this.mPageContext, l.hng);
-        this.iJY = new c(this.mPageContext, m.ebs);
-        this.iJZ = new d(this.mPageContext, l.hnn);
-        this.iKa = new e(this.mPageContext, l.hnl);
-        this.iJX.a(this.Wu);
-        this.iJY.a(this.Wu);
-        this.iJZ.a(this.Wu);
-        this.iKa.a(this.Wu);
-        this.iJW.add(this.iJX);
-        this.iJW.add(this.iJY);
-        this.iJW.add(this.iJZ);
-        this.iJW.add(this.iKa);
-        this.Wu.addAdapters(this.iJW);
+    private void JZ() {
+        this.iSD = new f(this.mPageContext, l.huk);
+        this.iSE = new c(this.mPageContext, m.edC);
+        this.iSF = new d(this.mPageContext, l.hur);
+        this.iSG = new e(this.mPageContext, l.hup);
+        this.iSD.a(this.WM);
+        this.iSE.a(this.WM);
+        this.iSF.a(this.WM);
+        this.iSG.a(this.WM);
+        this.iSC.add(this.iSD);
+        this.iSC.add(this.iSE);
+        this.iSC.add(this.iSF);
+        this.iSC.add(this.iSG);
+        this.WM.addAdapters(this.iSC);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Wu != null) {
-            this.Wu.getListAdapter().notifyDataSetChanged();
+        if (this.WM != null) {
+            this.WM.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.iJX != null) {
-            this.iJX.setPageUniqueId(bdUniqueId);
+        if (this.iSD != null) {
+            this.iSD.setPageUniqueId(bdUniqueId);
         }
-        if (this.iJY != null) {
-            this.iJY.setPageUniqueId(bdUniqueId);
+        if (this.iSE != null) {
+            this.iSE.setPageUniqueId(bdUniqueId);
         }
-        if (this.iJZ != null) {
-            this.iJZ.setPageUniqueId(bdUniqueId);
+        if (this.iSF != null) {
+            this.iSF.setPageUniqueId(bdUniqueId);
         }
-        if (this.iKa != null) {
-            this.iKa.setPageUniqueId(bdUniqueId);
+        if (this.iSG != null) {
+            this.iSG.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<q> list) {
-        this.Wu.setData(list);
+        this.WM.setData(list);
     }
 
     public List<q> getDataList() {
-        if (this.Wu != null) {
-            return this.Wu.getData();
+        if (this.WM != null) {
+            return this.WM.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.iKa != null) {
-            this.iKa.setEventCallback(aVar);
+        if (this.iSG != null) {
+            this.iSG.setEventCallback(aVar);
         }
     }
 
-    public void zQ(int i) {
-        if (this.iJX != null) {
-            this.iJX.zQ(i);
+    public void Ar(int i) {
+        if (this.iSD != null) {
+            this.iSD.Ar(i);
         }
-        if (this.iJY != null) {
-            this.iJY.zQ(i);
+        if (this.iSE != null) {
+            this.iSE.Ar(i);
         }
-        if (this.iJZ != null) {
-            this.iJZ.zQ(i);
+        if (this.iSF != null) {
+            this.iSF.Ar(i);
         }
-        if (this.iKa != null) {
-            this.iKa.zQ(i);
+        if (this.iSG != null) {
+            this.iSG.Ar(i);
         }
     }
 
     public void onPause() {
-        if (this.iJY != null) {
-            this.iJY.onPause();
+        if (this.iSE != null) {
+            this.iSE.onPause();
         }
     }
 

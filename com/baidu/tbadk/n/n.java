@@ -3,244 +3,244 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n eTc = null;
-    private boolean eSA = false;
-    private boolean eSB = false;
-    private boolean eSC = false;
-    private boolean eSD = false;
-    private long eSE = -1;
-    private long eSF = -1;
-    private long eSG = -1;
-    private long eSH = -1;
-    private long eSI = -1;
-    private long eSJ = -1;
-    private long eSK = -1;
-    private long eSL = -1;
-    private long eSM = -1;
-    private long eSN = -1;
-    private long eSO = -1;
-    private long eSP = -1;
-    private long eSQ = -1;
-    private long eSR = -1;
-    private long eSS = -1;
-    private long eST = -1;
-    private long eSU = -1;
-    private long eSV = -1;
-    private long eSW = -1;
-    private long eSX = -1;
-    private long eSY = -1;
-    private long eSZ = -1;
-    private long eTa = -1;
-    private long eTb = -1;
+    private static n eVS = null;
+    private boolean eVq = false;
+    private boolean eVr = false;
+    private boolean eVs = false;
+    private boolean eVt = false;
+    private long eVu = -1;
+    private long eVv = -1;
+    private long eVw = -1;
+    private long eVx = -1;
+    private long eVy = -1;
+    private long eVz = -1;
+    private long eVA = -1;
+    private long eVB = -1;
+    private long eVC = -1;
+    private long eVD = -1;
+    private long eVE = -1;
+    private long eVF = -1;
+    private long eVG = -1;
+    private long eVH = -1;
+    private long eVI = -1;
+    private long eVJ = -1;
+    private long eVK = -1;
+    private long eVL = -1;
+    private long eVM = -1;
+    private long eVN = -1;
+    private long eVO = -1;
+    private long eVP = -1;
+    private long eVQ = -1;
+    private long eVR = -1;
 
-    public boolean bur() {
-        return this.eSB;
-    }
-
-    public void jE(boolean z) {
-        this.eSA = z;
-    }
-
-    public void db(long j) {
-        this.eSE = j;
-    }
-
-    public long bus() {
-        return this.eSE;
+    public boolean bvv() {
+        return this.eVr;
     }
 
     public void jF(boolean z) {
-        this.eSD = z;
+        this.eVq = z;
     }
 
     public void dc(long j) {
-        this.eSF = j;
+        this.eVu = j;
+    }
+
+    public long bvw() {
+        return this.eVu;
+    }
+
+    public void jG(boolean z) {
+        this.eVt = z;
     }
 
     public void dd(long j) {
-        this.eSG = j;
+        this.eVv = j;
     }
 
     public void de(long j) {
-        this.eSH = j;
+        this.eVw = j;
     }
 
     public void df(long j) {
-        this.eSL = j;
+        this.eVx = j;
     }
 
     public void dg(long j) {
-        this.eSK = j;
+        this.eVB = j;
     }
 
     public void dh(long j) {
-        this.eSI = j;
+        this.eVA = j;
     }
 
     public void di(long j) {
-        this.eSJ = j;
+        this.eVy = j;
     }
 
     public void dj(long j) {
-        this.eSZ = j;
+        this.eVz = j;
     }
 
     public void dk(long j) {
-        this.eSU = j;
+        this.eVP = j;
     }
 
     public void dl(long j) {
-        this.eSV = j;
+        this.eVK = j;
     }
 
     public void dm(long j) {
-        this.eSW = j;
+        this.eVL = j;
     }
 
     public void dn(long j) {
-        this.eSX = j;
+        this.eVM = j;
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m40do(long j) {
-        this.eTa = j;
+    public void m39do(long j) {
+        this.eVN = j;
     }
 
     public void dp(long j) {
-        this.eTb = j;
-        this.eSB = true;
+        this.eVQ = j;
     }
 
     public void dq(long j) {
-        this.eSM = j;
+        this.eVR = j;
+        this.eVr = true;
     }
 
     public void dr(long j) {
-        this.eSN = j;
+        this.eVC = j;
     }
 
     public void ds(long j) {
-        this.eSP = j;
+        this.eVD = j;
     }
 
     public void dt(long j) {
-        this.eSO = j;
+        this.eVF = j;
     }
 
     public void du(long j) {
-        this.eSQ = j;
+        this.eVE = j;
     }
 
     public void dv(long j) {
-        this.eSR = j;
+        this.eVG = j;
     }
 
     public void dw(long j) {
-        this.eSS = j;
+        this.eVH = j;
     }
 
     public void dx(long j) {
-        this.eST = j;
-    }
-
-    public static n but() {
-        if (eTc == null) {
-            synchronized (n.class) {
-                if (eTc == null) {
-                    eTc = new n();
-                }
-            }
-        }
-        return eTc;
-    }
-
-    public void buu() {
-        if (this.eTb - this.eSE > 0 && !this.eSC && this.eSY > 0 && m.buo().bup()) {
-            this.eSC = true;
-            long j = this.eSF - this.eSE;
-            long j2 = -1;
-            if (this.eSW > 0) {
-                j2 = this.eSX - this.eSW;
-            }
-            long j3 = this.eTb - this.eTa;
-            com.baidu.adp.lib.stats.a mN = mN();
-            mN.append("procname", "main");
-            mN.append("appc", String.valueOf(j));
-            mN.append("loadclass", String.valueOf(this.eSG));
-            mN.append("sapiinit", String.valueOf(this.eSH));
-            mN.append("acctinit", String.valueOf(this.eSI));
-            mN.append("iminit", String.valueOf(this.eSJ));
-            mN.append("plugininit", String.valueOf(this.eSK));
-            mN.append("patchloaded", String.valueOf(this.eSL));
-            mN.append("naslibinit", String.valueOf(this.eSM));
-            mN.append("websocketinit", String.valueOf(this.eSN));
-            mN.append("settinginit", String.valueOf(this.eSO));
-            mN.append("toastinit", String.valueOf(this.eSP));
-            mN.append("tiebastaticinit", String.valueOf(this.eSQ));
-            mN.append("locationinit", String.valueOf(this.eSR));
-            mN.append("cdninit", String.valueOf(this.eSS));
-            mN.append("messagesetinit", String.valueOf(this.eST));
-            mN.append("logores", String.valueOf(this.eSZ));
-            mN.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.egX ? 1 : 0));
-            if (this.eSU > 0 && this.eSW > 0 && j2 > 0) {
-                mN.append("adc", String.valueOf(this.eSU + this.eSV));
-                mN.append("adshow", String.valueOf(j2));
-                mN.append("adrequest", String.valueOf(this.eSV));
-                mN.append("hasad", "1");
-            } else {
-                mN.append("hasad", "0");
-            }
-            mN.append("tabc", String.valueOf(j3));
-            mN.append("costt", String.valueOf(j2 + j + this.eSU + this.eSV + j3 + this.eSY));
-            mN.append("newinst", this.eSA ? "1" : "0");
-            mN.append("pluginloadsync", Boolean.valueOf(this.eSD));
-            mN.append("hptotal", String.valueOf(this.eSY));
-            BdStatisticsManager.getInstance().performance("startt", mN);
-            baN();
-        }
+        this.eVI = j;
     }
 
     public void dy(long j) {
-        if (m.buo().bup() && j > 0) {
-            com.baidu.adp.lib.stats.a mN = mN();
-            mN.append("procname", "remote");
-            mN.append("costt", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("startt", mN);
+        this.eVJ = j;
+    }
+
+    public static n bvx() {
+        if (eVS == null) {
+            synchronized (n.class) {
+                if (eVS == null) {
+                    eVS = new n();
+                }
+            }
+        }
+        return eVS;
+    }
+
+    public void bvy() {
+        if (this.eVR - this.eVu > 0 && !this.eVs && this.eVO > 0 && m.bvs().bvt()) {
+            this.eVs = true;
+            long j = this.eVv - this.eVu;
+            long j2 = -1;
+            if (this.eVM > 0) {
+                j2 = this.eVN - this.eVM;
+            }
+            long j3 = this.eVR - this.eVQ;
+            com.baidu.adp.lib.stats.a mS = mS();
+            mS.append("procname", "main");
+            mS.append("appc", String.valueOf(j));
+            mS.append("loadclass", String.valueOf(this.eVw));
+            mS.append("sapiinit", String.valueOf(this.eVx));
+            mS.append("acctinit", String.valueOf(this.eVy));
+            mS.append("iminit", String.valueOf(this.eVz));
+            mS.append("plugininit", String.valueOf(this.eVA));
+            mS.append("patchloaded", String.valueOf(this.eVB));
+            mS.append("naslibinit", String.valueOf(this.eVC));
+            mS.append("websocketinit", String.valueOf(this.eVD));
+            mS.append("settinginit", String.valueOf(this.eVE));
+            mS.append("toastinit", String.valueOf(this.eVF));
+            mS.append("tiebastaticinit", String.valueOf(this.eVG));
+            mS.append("locationinit", String.valueOf(this.eVH));
+            mS.append("cdninit", String.valueOf(this.eVI));
+            mS.append("messagesetinit", String.valueOf(this.eVJ));
+            mS.append("logores", String.valueOf(this.eVP));
+            mS.append("opttest", String.valueOf(com.baidu.tbadk.core.frameworkData.d.ejm ? 1 : 0));
+            if (this.eVK > 0 && this.eVM > 0 && j2 > 0) {
+                mS.append("adc", String.valueOf(this.eVK + this.eVL));
+                mS.append("adshow", String.valueOf(j2));
+                mS.append("adrequest", String.valueOf(this.eVL));
+                mS.append("hasad", "1");
+            } else {
+                mS.append("hasad", "0");
+            }
+            mS.append("tabc", String.valueOf(j3));
+            mS.append("costt", String.valueOf(j2 + j + this.eVK + this.eVL + j3 + this.eVO));
+            mS.append("newinst", this.eVq ? "1" : "0");
+            mS.append("pluginloadsync", Boolean.valueOf(this.eVt));
+            mS.append("hptotal", String.valueOf(this.eVO));
+            BdStatisticsManager.getInstance().performance("startt", mS);
+            bbH();
         }
     }
 
-    private void baN() {
-        this.eSA = false;
-        this.eSB = false;
-        this.eSE = -1L;
-        this.eSF = -1L;
-        this.eSG = -1L;
-        this.eSH = -1L;
-        this.eSI = -1L;
-        this.eSJ = -1L;
-        this.eSK = -1L;
-        this.eSL = -1L;
-        this.eSZ = -1L;
-        this.eSW = -1L;
-        this.eSX = -1L;
-        this.eSU = -1L;
-        this.eTa = -1L;
-        this.eTb = -1L;
-        this.eSM = -1L;
-        this.eSN = -1L;
-        this.eSO = -1L;
-        this.eSP = -1L;
-        this.eSQ = -1L;
-        this.eSR = -1L;
-        this.eSS = -1L;
-        this.eST = -1L;
-        this.eSV = -1L;
-        this.eSY = -1L;
+    public void dz(long j) {
+        if (m.bvs().bvt() && j > 0) {
+            com.baidu.adp.lib.stats.a mS = mS();
+            mS.append("procname", "remote");
+            mS.append("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", mS);
+        }
     }
 
-    public void dz(long j) {
-        if (this.eSY <= 0) {
-            this.eSY = j;
+    private void bbH() {
+        this.eVq = false;
+        this.eVr = false;
+        this.eVu = -1L;
+        this.eVv = -1L;
+        this.eVw = -1L;
+        this.eVx = -1L;
+        this.eVy = -1L;
+        this.eVz = -1L;
+        this.eVA = -1L;
+        this.eVB = -1L;
+        this.eVP = -1L;
+        this.eVM = -1L;
+        this.eVN = -1L;
+        this.eVK = -1L;
+        this.eVQ = -1L;
+        this.eVR = -1L;
+        this.eVC = -1L;
+        this.eVD = -1L;
+        this.eVE = -1L;
+        this.eVF = -1L;
+        this.eVG = -1L;
+        this.eVH = -1L;
+        this.eVI = -1L;
+        this.eVJ = -1L;
+        this.eVL = -1L;
+        this.eVO = -1L;
+    }
+
+    public void dA(long j) {
+        if (this.eVO <= 0) {
+            this.eVO = j;
         }
     }
 }

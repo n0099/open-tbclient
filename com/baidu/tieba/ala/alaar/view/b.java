@@ -8,48 +8,48 @@ import com.baidu.live.ar.AlaFilterAndBeautyData;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private ViewGroup fBJ;
-    private InterfaceC0588b fBZ;
-    public final a[] fBW = {new a(a.f.ar_beauty_reset, "beauty_reset", "重置", 0, 100, 0), new a(a.f.ar_beauty_reset, "beauty_reset", "line", 0, 100, 0), new a(a.f.ar_beauty_white, AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey(), "美白", 0, 100, 0), new a(a.f.ar_beauty_blur, AlaFilterAndBeautyData.BeautyAdjustKey.smooth.getJsonKey(), "磨皮", 0, 100, 0), new a(a.f.ar_beauty_thinface, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey(), "瘦脸", 0, 100, 0), new a(a.f.ar_beauty_bigeye, AlaFilterAndBeautyData.BeautyAdjustKey.eye.getJsonKey(), "大眼", 0, 100, 0), new a(a.f.ar_beauty_face_width, AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey(), "窄脸", 0, 100, 0), new a(a.f.ar_beauty_facelength, AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts.getJsonKey(), "脸长", 0, 100, 50), new a(a.f.ar_beauty_cheekbone, AlaFilterAndBeautyData.BeautyAdjustKey.cheekboneWidth.getJsonKey(), "颧骨", 0, 100, 0), new a(a.f.ar_beauty_vface, AlaFilterAndBeautyData.BeautyAdjustKey.vFace.getJsonKey(), "下颚角", 0, 100, 0), new a(a.f.ar_beauty_chin, AlaFilterAndBeautyData.BeautyAdjustKey.chin.getJsonKey(), "下巴", -50, 50, 50), new a(a.f.ar_beauty_mouth, AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth.getJsonKey(), "嘴型", -50, 50, 50), new a(a.f.ar_beauty_nose, AlaFilterAndBeautyData.BeautyAdjustKey.nose.getJsonKey(), "瘦鼻", 0, 100, 0), new a(a.f.ar_beauty_nose_length, AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey(), "鼻长", -50, 50, 50), new a(a.f.ar_beauty_eye_distance, AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey(), "眼距", -50, 50, 50), new a(a.f.ar_beauty_upcount, AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey(), "额头", -50, 50, 50)};
-    private int fBY = -1;
-    private int fBL = 0;
-    private ArrayList<Boolean> fBX = new ArrayList<>();
+    private ViewGroup fEV;
+    private InterfaceC0584b fFl;
+    public final a[] fFi = {new a(a.f.ar_beauty_reset, "beauty_reset", "重置", 0, 100, 0), new a(a.f.ar_beauty_reset, "beauty_reset", "line", 0, 100, 0), new a(a.f.ar_beauty_white, AlaFilterAndBeautyData.BeautyAdjustKey.whiten.getJsonKey(), "美白", 0, 100, 0), new a(a.f.ar_beauty_blur, AlaFilterAndBeautyData.BeautyAdjustKey.smooth.getJsonKey(), "磨皮", 0, 100, 0), new a(a.f.ar_beauty_thinface, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey(), "瘦脸", 0, 100, 0), new a(a.f.ar_beauty_bigeye, AlaFilterAndBeautyData.BeautyAdjustKey.eye.getJsonKey(), "大眼", 0, 100, 0), new a(a.f.ar_beauty_face_width, AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey(), "窄脸", 0, 100, 0), new a(a.f.ar_beauty_facelength, AlaFilterAndBeautyData.BeautyAdjustKey.threeCounts.getJsonKey(), "脸长", 0, 100, 50), new a(a.f.ar_beauty_cheekbone, AlaFilterAndBeautyData.BeautyAdjustKey.cheekboneWidth.getJsonKey(), "颧骨", 0, 100, 0), new a(a.f.ar_beauty_vface, AlaFilterAndBeautyData.BeautyAdjustKey.vFace.getJsonKey(), "下颚角", 0, 100, 0), new a(a.f.ar_beauty_chin, AlaFilterAndBeautyData.BeautyAdjustKey.chin.getJsonKey(), "下巴", -50, 50, 50), new a(a.f.ar_beauty_mouth, AlaFilterAndBeautyData.BeautyAdjustKey.mouthWidth.getJsonKey(), "嘴型", -50, 50, 50), new a(a.f.ar_beauty_nose, AlaFilterAndBeautyData.BeautyAdjustKey.nose.getJsonKey(), "瘦鼻", 0, 100, 0), new a(a.f.ar_beauty_nose_length, AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey(), "鼻长", -50, 50, 50), new a(a.f.ar_beauty_eye_distance, AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey(), "眼距", -50, 50, 50), new a(a.f.ar_beauty_upcount, AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey(), "额头", -50, 50, 50)};
+    private int fFk = -1;
+    private int fEX = 0;
+    private ArrayList<Boolean> fFj = new ArrayList<>();
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0588b {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0584b {
         void b(int i, int[] iArr);
     }
 
     public b(ViewGroup viewGroup) {
-        this.fBJ = viewGroup;
-        bFm();
+        this.fEV = viewGroup;
+        bGC();
     }
 
-    private void bFm() {
-        if (this.fBX != null) {
-            this.fBX.clear();
-            this.fBX.addAll(Arrays.asList(new Boolean[this.fBW.length]));
+    private void bGC() {
+        if (this.fFj != null) {
+            this.fFj.clear();
+            this.fFj.addAll(Arrays.asList(new Boolean[this.fFi.length]));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, int[] iArr) {
         if (i >= 0) {
-            this.fBX.set(i, true);
-            this.fBY = i;
-            if (this.fBZ != null) {
-                this.fBZ.b(i, iArr);
+            this.fFj.set(i, true);
+            this.fFk = i;
+            if (this.fFl != null) {
+                this.fFl.b(i, iArr);
             }
         }
     }
 
-    public void Et(String str) {
+    public void ER(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.fBW.length; i++) {
-                if (str.equals(this.fBW[i].fCb)) {
+            for (int i = 0; i < this.fFi.length; i++) {
+                if (str.equals(this.fFi[i].fFn)) {
                     c(i, null);
                     return;
                 }
@@ -57,13 +57,13 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void a(InterfaceC0588b interfaceC0588b) {
-        this.fBZ = interfaceC0588b;
+    public void a(InterfaceC0584b interfaceC0584b) {
+        this.fFl = interfaceC0584b;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.fBW.length;
+        return this.fFi.length;
     }
 
     @Override // android.widget.Adapter
@@ -81,107 +81,107 @@ public class b extends BaseAdapter {
         c cVar;
         if (view == null) {
             c cVar2 = new c();
-            cVar2.fCd = new BeautyItemView(this.fBJ.getContext());
-            cVar2.fCd.setTag(cVar2);
+            cVar2.fFp = new BeautyItemView(this.fEV.getContext());
+            cVar2.fFp.setTag(cVar2);
             cVar = cVar2;
         } else {
             cVar = (c) view.getTag();
         }
-        if (this.fBX.get(i) == null || !this.fBX.get(i).booleanValue()) {
-            cVar.fCd.setUnselectedBackground();
+        if (this.fFj.get(i) == null || !this.fFj.get(i).booleanValue()) {
+            cVar.fFp.setUnselectedBackground();
         } else {
-            cVar.fCd.setSelectedBackground();
+            cVar.fFp.setSelectedBackground();
         }
-        cVar.fCd.setItemIcon(this.fBW[i % this.fBW.length].mDrawableId);
-        cVar.fCd.setItemText(this.fBW[i % this.fBW.length].mShowName);
-        cVar.fCd.setRedotVisible(Eu(this.fBW[i % this.fBW.length].fCb));
-        cVar.fCd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.b.1
+        cVar.fFp.setItemIcon(this.fFi[i % this.fFi.length].mDrawableId);
+        cVar.fFp.setItemText(this.fFi[i % this.fFi.length].mShowName);
+        cVar.fFp.setRedotVisible(ES(this.fFi[i % this.fFi.length].fFn));
+        cVar.fFp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 int[] iArr = new int[2];
                 if (view2.getTag() != null && (view2.getTag() instanceof c)) {
-                    ((c) view2.getTag()).fCd.getLocationOnScreen(iArr);
+                    ((c) view2.getTag()).fFp.getLocationOnScreen(iArr);
                 }
                 if (i == 0) {
-                    if (b.this.fBZ != null) {
-                        b.this.fBZ.b(i, iArr);
+                    if (b.this.fFl != null) {
+                        b.this.fFl.b(i, iArr);
                         return;
                     }
                     return;
                 }
-                if (b.this.fBY != i) {
-                    View childAt = b.this.fBJ.getChildAt(b.this.fBY);
+                if (b.this.fFk != i) {
+                    View childAt = b.this.fEV.getChildAt(b.this.fFk);
                     if (childAt != null && (childAt instanceof AlaLiveMultiBeautyFilterItemView)) {
                         ((AlaLiveMultiBeautyFilterItemView) childAt).setUnselectedBackground();
                     }
-                    if (b.this.fBY >= 0) {
-                        b.this.fBX.set(b.this.fBY, false);
+                    if (b.this.fFk >= 0) {
+                        b.this.fFj.set(b.this.fFk, false);
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((c) view2.getTag()).fCd.setSelectedBackground();
+                    ((c) view2.getTag()).fFp.setSelectedBackground();
                 }
                 b.this.c(i, iArr);
                 b.this.notifyDataSetChanged();
             }
         });
-        if (i == 0 && this.fBL != 0) {
-            cVar.fCd.setPadding(this.fBL, 0, 0, 0);
+        if (i == 0 && this.fEX != 0) {
+            cVar.fFp.setPadding(this.fEX, 0, 0, 0);
         } else {
-            cVar.fCd.setPadding(0, 0, 0, 0);
+            cVar.fFp.setPadding(0, 0, 0, 0);
         }
         if (i == 1) {
-            cVar.fCd.fBT.setVisibility(8);
-            cVar.fCd.fBQ.setVisibility(8);
-            cVar.fCd.fBU.setVisibility(0);
+            cVar.fFp.fFf.setVisibility(8);
+            cVar.fFp.fFc.setVisibility(8);
+            cVar.fFp.fFg.setVisibility(0);
         } else {
-            cVar.fCd.fBT.setVisibility(0);
-            cVar.fCd.fBQ.setVisibility(0);
-            cVar.fCd.fBU.setVisibility(8);
+            cVar.fFp.fFf.setVisibility(0);
+            cVar.fFp.fFc.setVisibility(0);
+            cVar.fFp.fFg.setVisibility(8);
         }
-        return cVar.fCd;
+        return cVar.fFp;
     }
 
-    private boolean Eu(String str) {
-        if (com.baidu.live.c.AD().getInt("beauty_subitem_redot", 0) != 1) {
+    private boolean ES(String str) {
+        if (com.baidu.live.c.AR().getInt("beauty_subitem_redot", 0) != 1) {
             return false;
         }
-        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && bFn()) {
+        if (TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && bGD()) {
             return true;
         }
-        return Ev(str) && com.baidu.live.c.AD().getBoolean(str, true);
+        return ET(str) && com.baidu.live.c.AR().getBoolean(str, true);
     }
 
-    public boolean bFn() {
-        return com.baidu.live.c.AD().getBoolean("naturalFace", true) || com.baidu.live.c.AD().getBoolean("goddessFace", true) || com.baidu.live.c.AD().getBoolean("babyFace", true);
+    public boolean bGD() {
+        return com.baidu.live.c.AR().getBoolean("naturalFace", true) || com.baidu.live.c.AR().getBoolean("goddessFace", true) || com.baidu.live.c.AR().getBoolean("babyFace", true);
     }
 
-    private boolean Ev(String str) {
+    private boolean ET(String str) {
         return TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey()) || TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey());
     }
 
-    public void Ew(String str) {
-        if (!TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && Ev(str)) {
-            com.baidu.live.c.AD().putBoolean(str, false);
+    public void EU(String str) {
+        if (!TextUtils.equals(str, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey()) && ET(str)) {
+            com.baidu.live.c.AR().putBoolean(str, false);
         }
     }
 
-    public void sx(int i) {
-        this.fBL = i;
+    public void sP(int i) {
+        this.fEX = i;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class c {
-        BeautyItemView fCd;
+        BeautyItemView fFp;
 
         public c() {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public String fCb;
-        public int fCc;
+        public String fFn;
+        public int fFo;
         public int mDrawableId;
         public String mShowName;
         public int maxValue;
@@ -189,11 +189,11 @@ public class b extends BaseAdapter {
 
         public a(int i, String str, String str2, int i2, int i3, int i4) {
             this.mDrawableId = i;
-            this.fCb = str;
+            this.fFn = str;
             this.minValue = i2;
             this.maxValue = i3;
             this.mShowName = str2;
-            this.fCc = i4;
+            this.fFo = i4;
         }
     }
 }

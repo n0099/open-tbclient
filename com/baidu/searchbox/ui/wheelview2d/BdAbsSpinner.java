@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 import com.baidu.android.common.ui.R;
 import com.baidu.searchbox.ui.wheelview2d.BdAdapterView;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     SpinnerAdapter mAdapter;
     boolean mBlockLayoutRequests;
@@ -278,7 +278,7 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.ui.wheelview2d.BdAbsSpinner.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -346,7 +346,7 @@ public abstract class BdAbsSpinner extends BdAdapterView<SpinnerAdapter> {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     class RecycleBin {
         private SparseArray<View> mScrapHeap = new SparseArray<>();
 

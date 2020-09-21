@@ -15,100 +15,100 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class PbNextVideoLayout extends RelativeLayout {
-    private final int kXY;
-    private int kXZ;
-    private TbImageView kYa;
-    private TextView kYb;
-    private TextView kYc;
-    private ImageView kYd;
-    private ProgressBar kYe;
-    private boolean kYf;
-    public boolean kYg;
-    private a kYh;
+    private final int lgE;
+    private int lgF;
+    private TbImageView lgG;
+    private TextView lgH;
+    private TextView lgI;
+    private ImageView lgJ;
+    private ProgressBar lgK;
+    private boolean lgL;
+    public boolean lgM;
+    private a lgN;
 
     public PbNextVideoLayout(Context context) {
         super(context);
-        this.kXY = 5000;
-        this.kXZ = 50;
-        this.kYf = true;
-        this.kYg = true;
+        this.lgE = 5000;
+        this.lgF = 50;
+        this.lgL = true;
+        this.lgM = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kXY = 5000;
-        this.kXZ = 50;
-        this.kYf = true;
-        this.kYg = true;
+        this.lgE = 5000;
+        this.lgF = 50;
+        this.lgL = true;
+        this.lgM = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kXY = 5000;
-        this.kXZ = 50;
-        this.kYf = true;
-        this.kYg = true;
+        this.lgE = 5000;
+        this.lgF = 50;
+        this.lgL = true;
+        this.lgM = true;
         init(context);
     }
 
     private void init(Context context) {
         inflate(context, R.layout.pb_next_video_layout, this);
-        this.kYa = (TbImageView) findViewById(R.id.pb_next_video_img);
-        this.kYb = (TextView) findViewById(R.id.pb_next_video_txt);
-        this.kYc = (TextView) findViewById(R.id.pb_next_video_title);
-        this.kYd = (ImageView) findViewById(R.id.pb_next_video_close);
-        this.kYe = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-        SvgManager.bjq().a(this.kYd, R.drawable.icon_pure_close16_n_svg, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
+        this.lgG = (TbImageView) findViewById(R.id.pb_next_video_img);
+        this.lgH = (TextView) findViewById(R.id.pb_next_video_txt);
+        this.lgI = (TextView) findViewById(R.id.pb_next_video_title);
+        this.lgJ = (ImageView) findViewById(R.id.pb_next_video_close);
+        this.lgK = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
+        SvgManager.bkl().a(this.lgJ, R.drawable.icon_pure_close16_n_svg, R.color.cp_mask_c_alpha100, (SvgManager.SvgResourceStateType) null);
     }
 
-    public void ar(boolean z, boolean z2) {
+    public void at(boolean z, boolean z2) {
         getLayoutParams().height = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-        this.kYa.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-        this.kYc.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-        ((LinearLayout.LayoutParams) this.kYc.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-        ((RelativeLayout.LayoutParams) this.kYd.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
-        ((RelativeLayout.LayoutParams) this.kYd.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
-        this.kXZ = (!z2 || z) ? 50 : 25;
+        this.lgG.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+        this.lgI.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+        ((LinearLayout.LayoutParams) this.lgI.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+        ((RelativeLayout.LayoutParams) this.lgJ.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
+        ((RelativeLayout.LayoutParams) this.lgJ.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
+        this.lgF = (!z2 || z) ? 50 : 25;
     }
 
     public void setDate(bw bwVar) {
-        if (bwVar != null && bwVar.beW() != null) {
-            this.kYa.startLoad(bwVar.beW().thumbnail_url, 10, false);
-            this.kYb.setText(R.string.pb_video_next_play);
-            this.kYc.setText(bwVar.getTitle());
-            this.kYe.setProgress(0);
+        if (bwVar != null && bwVar.bfQ() != null) {
+            this.lgG.startLoad(bwVar.bfQ().thumbnail_url, 10, false);
+            this.lgH.setText(R.string.pb_video_next_play);
+            this.lgI.setText(bwVar.getTitle());
+            this.lgK.setProgress(0);
         }
     }
 
     private void stopProgress() {
-        this.kYf = false;
-        if (this.kYh != null) {
-            this.kYh.cancel();
+        this.lgL = false;
+        if (this.lgN != null) {
+            this.lgN.cancel();
         }
-        this.kYb.setText(R.string.pb_video_next_video);
-        this.kYe.setProgress(0);
+        this.lgH.setText(R.string.pb_video_next_video);
+        this.lgK.setProgress(0);
     }
 
-    private void dfh() {
-        this.kYf = true;
-        this.kYb.setText(R.string.pb_video_next_play);
-        if (this.kYh != null) {
-            this.kYh.cancel();
+    private void diL() {
+        this.lgL = true;
+        this.lgH.setText(R.string.pb_video_next_play);
+        if (this.lgN != null) {
+            this.lgN.cancel();
         }
-        this.kYh = new a(5000 - this.kYe.getProgress(), this.kXZ);
-        this.kYh.start();
+        this.lgN = new a(5000 - this.lgK.getProgress(), this.lgF);
+        this.lgN.start();
     }
 
     public void setIsCountDownValid(boolean z) {
-        if (this.kYf != z) {
-            this.kYf = z;
+        if (this.lgL != z) {
+            this.lgL = z;
             if (getVisibility() == 0) {
                 if (z) {
-                    dfh();
+                    diL();
                 } else {
                     stopProgress();
                 }
@@ -120,42 +120,42 @@ public class PbNextVideoLayout extends RelativeLayout {
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            if (this.kYf) {
-                dfh();
+            if (this.lgL) {
+                diL();
                 return;
             } else {
                 stopProgress();
                 return;
             }
         }
-        this.kYe.setProgress(0);
-        if (this.kYh != null) {
-            this.kYh.cancel();
+        this.lgK.setProgress(0);
+        if (this.lgN != null) {
+            this.lgN.cancel();
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.kYd.setOnClickListener(onClickListener);
+        this.lgJ.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public class a extends CountDownTimer {
         a(long j, long j2) {
             super(j, j2);
-            PbNextVideoLayout.this.kYg = true;
+            PbNextVideoLayout.this.lgM = true;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            PbNextVideoLayout.this.kYe.setProgress(((int) (5000 - j)) * 2);
+            PbNextVideoLayout.this.lgK.setProgress(((int) (5000 - j)) * 2);
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            PbNextVideoLayout.this.kYg = false;
+            PbNextVideoLayout.this.lgM = false;
             PbNextVideoLayout.this.performClick();
         }
     }

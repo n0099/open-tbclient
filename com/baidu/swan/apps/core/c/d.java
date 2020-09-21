@@ -17,67 +17,67 @@ import com.baidu.swan.games.c.f;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adaptation.b.a<NgWebView> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean cgu;
+    private boolean ciw;
     private Context mContext;
 
     public d(Context context) {
         super(context);
-        this.cgu = false;
+        this.ciw = false;
         this.mContext = context;
-        afQ();
+        agA();
     }
 
-    protected void afQ() {
-        aaS().setVisibility(8);
-        aaS().setBackgroundColor(0);
-        File file = new File(com.baidu.swan.games.c.d.aMC().aMF(), "index.html");
+    protected void agA() {
+        abB().setVisibility(8);
+        abB().setBackgroundColor(0);
+        File file = new File(com.baidu.swan.games.c.d.aNn().aNq(), "index.html");
         if (file.exists() && file.isFile()) {
             loadUrl(Uri.fromFile(file).toString());
-            dO(false);
+            dM(false);
             return;
         }
         loadUrl("file:///android_asset/aiapps/sConsole.html");
-        f.aMP();
-        dO(true);
+        f.aNA();
+        dM(true);
     }
 
-    private void dO(boolean z) {
+    private void dM(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
         }
-        if (!this.cgu || z) {
-            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.aMO(), 2), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
+        if (!this.ciw || z) {
+            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.aNz(), 2), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
                 @Override // com.baidu.swan.games.c.b.a
                 @NonNull
-                public File afR() {
-                    return com.baidu.swan.games.c.d.aMC().aMF();
+                public File agB() {
+                    return com.baidu.swan.games.c.d.aNn().aNq();
                 }
 
                 @Override // com.baidu.swan.games.c.b.a
-                public void ld(@NonNull String str) {
-                    f.uV(str);
+                public void lw(@NonNull String str) {
+                    f.vo(str);
                 }
             }, new com.baidu.swan.games.c.b() { // from class: com.baidu.swan.apps.core.c.d.2
                 @Override // com.baidu.swan.games.c.b
-                public void dP(boolean z2) {
+                public void dN(boolean z2) {
                     if (d.DEBUG) {
                         Log.d("SwanAppConsoleManager", "download sConsole result: " + z2);
                     }
                 }
             }));
-            this.cgu = true;
+            this.ciw = true;
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void afp() {
+    protected void afZ() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void ag(View view) {
+    public void ai(View view) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
@@ -89,34 +89,34 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
         HashMap hashMap = new HashMap();
         hashMap.put("logType", str);
         hashMap.put("logs", jSONArray.toString());
-        com.baidu.swan.apps.v.f.arY().a("console", new com.baidu.swan.apps.event.a.b("searchboxSConsole", hashMap));
+        com.baidu.swan.apps.v.f.asJ().a("console", new com.baidu.swan.apps.event.a.b("searchboxSConsole", hashMap));
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void aaI() {
-        com.baidu.swan.apps.console.c.dJ(false);
-        ViewParent parent = aaS().getParent();
+    public void abr() {
+        com.baidu.swan.apps.console.c.dH(false);
+        ViewParent parent = abB().getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(aaS());
+            ((ViewGroup) parent).removeView(abB());
         }
         destroy();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void v(ViewGroup viewGroup) {
+    public void y(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            a(viewGroup, aaS());
+            a(viewGroup, abB());
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void dx(boolean z) {
-        aaS().setVisibility(z ? 0 : 8);
+    public void dv(boolean z) {
+        abB().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void aaH() {
-        dx(aaS().getVisibility() != 0);
+    public void abq() {
+        dv(abB().getVisibility() != 0);
     }
 
     private void a(ViewGroup viewGroup, View view) {
@@ -136,22 +136,22 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String aaU() {
+    public String abD() {
         return "console";
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public void aaV() {
-        super.aaV();
+    public void abE() {
+        super.abE();
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void destroy() {
-        aaN();
+        abw();
         super.destroy();
     }
 
-    private void aaN() {
+    private void abw() {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             w.forceHiddenSoftInput(this.mContext, ((Activity) this.mContext).getWindow().getDecorView().getWindowToken());
         }

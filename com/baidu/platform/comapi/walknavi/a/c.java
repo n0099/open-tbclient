@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends BaseAdapter {
     private boolean a;
     public ArrayList<String> c;
@@ -19,7 +19,7 @@ public class c extends BaseAdapter {
     public String f;
     protected Activity g = (Activity) com.baidu.platform.comapi.walknavi.b.a().g();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public View a;
         public ImageView b;

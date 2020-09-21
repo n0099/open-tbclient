@@ -4,24 +4,24 @@ import android.util.Log;
 import com.baidu.swan.apps.statistic.a.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends e {
     public String mErrorCode = "";
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cXD == null) {
-            this.cXD = new JSONObject();
+        if (this.cZD == null) {
+            this.cZD = new JSONObject();
         }
         try {
-            this.cXD.put("error_code", this.mErrorCode);
+            this.cZD.put("error_code", this.mErrorCode);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
         if (DEBUG) {
-            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.cXD + "\t " + Thread.currentThread().getId());
+            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.cZD + "\t " + Thread.currentThread().getId());
         }
         return super.toJSONObject();
     }

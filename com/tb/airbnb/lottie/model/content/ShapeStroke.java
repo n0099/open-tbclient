@@ -4,20 +4,20 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.a.q;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class ShapeStroke implements b {
     private final float EX;
     private final List<com.tb.airbnb.lottie.model.a.b> EY;
     private final String name;
-    private final com.tb.airbnb.lottie.model.a.d ojA;
-    private final com.tb.airbnb.lottie.model.a.b ojK;
-    private final LineCapType ojL;
-    private final LineJoinType ojM;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b ojY;
-    private final com.tb.airbnb.lottie.model.a.a ojs;
+    private final com.tb.airbnb.lottie.model.a.b otI;
+    private final com.tb.airbnb.lottie.model.a.a otc;
+    private final com.tb.airbnb.lottie.model.a.d otk;
+    private final com.tb.airbnb.lottie.model.a.b otu;
+    private final LineCapType otv;
+    private final LineJoinType otw;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes17.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -35,7 +35,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes17.dex */
     public enum LineJoinType {
         Miter,
         Round,
@@ -57,13 +57,13 @@ public class ShapeStroke implements b {
 
     public ShapeStroke(String str, @Nullable com.tb.airbnb.lottie.model.a.b bVar, List<com.tb.airbnb.lottie.model.a.b> list, com.tb.airbnb.lottie.model.a.a aVar, com.tb.airbnb.lottie.model.a.d dVar, com.tb.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.ojY = bVar;
+        this.otI = bVar;
         this.EY = list;
-        this.ojs = aVar;
-        this.ojA = dVar;
-        this.ojK = bVar2;
-        this.ojL = lineCapType;
-        this.ojM = lineJoinType;
+        this.otc = aVar;
+        this.otk = dVar;
+        this.otu = bVar2;
+        this.otv = lineCapType;
+        this.otw = lineJoinType;
         this.EX = f;
     }
 
@@ -76,35 +76,35 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.a edU() {
-        return this.ojs;
+    public com.tb.airbnb.lottie.model.a.a ehR() {
+        return this.otc;
     }
 
-    public com.tb.airbnb.lottie.model.a.d edu() {
-        return this.ojA;
+    public com.tb.airbnb.lottie.model.a.d ehr() {
+        return this.otk;
     }
 
-    public com.tb.airbnb.lottie.model.a.b edD() {
-        return this.ojK;
+    public com.tb.airbnb.lottie.model.a.b ehA() {
+        return this.otu;
     }
 
-    public List<com.tb.airbnb.lottie.model.a.b> jV() {
+    public List<com.tb.airbnb.lottie.model.a.b> jW() {
         return this.EY;
     }
 
-    public com.tb.airbnb.lottie.model.a.b edG() {
-        return this.ojY;
+    public com.tb.airbnb.lottie.model.a.b ehD() {
+        return this.otI;
     }
 
-    public LineCapType edE() {
-        return this.ojL;
+    public LineCapType ehB() {
+        return this.otv;
     }
 
-    public LineJoinType edF() {
-        return this.ojM;
+    public LineJoinType ehC() {
+        return this.otw;
     }
 
-    public float jX() {
+    public float jY() {
         return this.EX;
     }
 }

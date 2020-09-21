@@ -9,48 +9,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private com.baidu.live.entereffect.c.a aLY;
-    private List<com.baidu.live.entereffect.a.a> aLZ;
+    private com.baidu.live.entereffect.c.a aNQ;
+    private List<com.baidu.live.entereffect.a.a> aNR;
 
-    public static a Dg() {
-        return C0168a.aMb;
+    public static a Dw() {
+        return C0170a.aNT;
     }
 
-    public void bh(boolean z) {
+    public void bi(boolean z) {
         release();
-        if (this.aLZ == null || this.aLZ.isEmpty()) {
-            this.aLY = new com.baidu.live.entereffect.c.a();
-            this.aLY.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
+        if (this.aNR == null || this.aNR.isEmpty()) {
+            this.aNQ = new com.baidu.live.entereffect.c.a();
+            this.aNQ.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
                 @Override // com.baidu.live.entereffect.c.b.a
                 public void b(boolean z2, List<com.baidu.live.entereffect.a.a> list) {
                     if (z2) {
-                        c.Dj().z(list);
+                        c.Dz().z(list);
                     }
                 }
             });
-            this.aLY.bh(z);
+            this.aNQ.bi(z);
             return;
         }
-        c.Dj().A(this.aLZ);
+        c.Dz().A(this.aNR);
     }
 
     public void x(List<com.baidu.live.entereffect.a.a> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.aLZ == null) {
-                this.aLZ = new ArrayList();
+            if (this.aNR == null) {
+                this.aNR = new ArrayList();
             }
-            this.aLZ.clear();
-            this.aLZ.addAll(list);
-        } else if (this.aLZ != null) {
-            this.aLZ.clear();
+            this.aNR.clear();
+            this.aNR.addAll(list);
+        } else if (this.aNR != null) {
+            this.aNR.clear();
         }
     }
 
     public boolean h(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
-        if (aVar == null || aVar.JN()) {
+        if (aVar == null || aVar.Kr()) {
             return false;
         }
         try {
@@ -74,15 +74,15 @@ public class a {
         }
     }
 
-    public com.baidu.live.entereffect.a.a fV(String str) {
-        return c.Dj().fV(str);
+    public com.baidu.live.entereffect.a.a ga(String str) {
+        return c.Dz().ga(str);
     }
 
-    public void fW(String str) {
-        if (this.aLZ != null && !this.aLZ.isEmpty() && !TextUtils.isEmpty(str)) {
-            for (com.baidu.live.entereffect.a.a aVar : this.aLZ) {
+    public void gb(String str) {
+        if (this.aNR != null && !this.aNR.isEmpty() && !TextUtils.isEmpty(str)) {
+            for (com.baidu.live.entereffect.a.a aVar : this.aNR) {
                 if (aVar.id.equals(str)) {
-                    c.Dj().a(aVar);
+                    c.Dz().a(aVar);
                     return;
                 }
             }
@@ -122,10 +122,10 @@ public class a {
     }
 
     public void release() {
-        c.Dj().release();
-        if (this.aLY != null) {
-            this.aLY.release();
-            this.aLY = null;
+        c.Dz().release();
+        if (this.aNQ != null) {
+            this.aNQ.release();
+            this.aNQ = null;
         }
     }
 
@@ -134,8 +134,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0168a {
-        private static a aMb = new a();
+    /* loaded from: classes4.dex */
+    public static class C0170a {
+        private static a aNT = new a();
     }
 }

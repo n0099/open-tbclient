@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.face;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static final boolean a = false;
     public static final String b = "com.baidu.pass.biometrics.face";

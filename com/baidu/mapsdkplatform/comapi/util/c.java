@@ -2,12 +2,12 @@ package com.baidu.mapsdkplatform.comapi.util;
 
 import android.content.Context;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     private ArrayList<Integer> a;
     private Context b;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static final c a = new c();
     }

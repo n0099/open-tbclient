@@ -13,7 +13,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/debug/downloadExtension");
@@ -42,11 +42,11 @@ public class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        eVar.azU().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.a.1
+        eVar.aAD().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void J(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     a.this.a(optString, optString2, callbackHandler);
                 } else {
@@ -63,7 +63,7 @@ public class a extends aa {
         final JSONObject jSONObject = new JSONObject();
         com.baidu.swan.apps.r.d.b(str, new d.b() { // from class: com.baidu.swan.apps.extcore.c.a.a.2
             @Override // com.baidu.swan.apps.r.d.b
-            public void fy(int i) {
+            public void eO(int i) {
             }
 
             @Override // com.baidu.swan.apps.r.d.b
@@ -73,16 +73,16 @@ public class a extends aa {
                     return;
                 }
                 try {
-                    File amq = com.baidu.swan.apps.extcore.c.b.amq();
-                    File amo = com.baidu.swan.apps.extcore.c.b.amo();
-                    if (amq.exists() && com.baidu.swan.c.d.unzipFile(amq.getPath(), amo.getPath())) {
+                    File ana = com.baidu.swan.apps.extcore.c.b.ana();
+                    File amY = com.baidu.swan.apps.extcore.c.b.amY();
+                    if (ana.exists() && com.baidu.swan.c.d.unzipFile(ana.getPath(), amY.getPath())) {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download success");
-                        com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.aoJ(), a.h.aiapps_debug_extension_core_download_success).showToast();
+                        com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.apu(), a.h.aiapps_debug_extension_core_download_success).showToast();
                         jSONObject.put("status", 0);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                     } else {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                        com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.aoJ(), a.h.aiapps_debug_extension_core_download_failed).showToast();
+                        com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.apu(), a.h.aiapps_debug_extension_core_download_failed).showToast();
                         jSONObject.put("status", -1);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 1001).toString());
                     }
@@ -101,7 +101,7 @@ public class a extends aa {
                 }
                 try {
                     com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                    com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.aoJ(), a.h.aiapps_debug_extension_core_download_failed).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.apu(), a.h.aiapps_debug_extension_core_download_failed).showToast();
                     jSONObject.put("status", -1);
                 } catch (JSONException e) {
                     e.printStackTrace();

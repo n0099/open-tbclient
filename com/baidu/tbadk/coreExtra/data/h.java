@@ -1,18 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private String appId = "";
-    private String appName = "";
-    private String packageName = "";
-    private boolean eAf = false;
+    private List<i> eCj = new ArrayList();
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.appId = jSONObject.optString("app_id", "");
-            this.appName = jSONObject.optString("app_name", "");
-            this.packageName = jSONObject.optString("package_name", "");
+    public void parserJson(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    i iVar = new i();
+                    iVar.parserJson(jSONObject2);
+                    this.eCj.add(iVar);
+                }
+            }
         }
     }
 }

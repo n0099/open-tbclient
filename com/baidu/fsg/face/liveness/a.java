@@ -16,21 +16,21 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class a {
     private a() {
     }
 
     public static a a() {
-        return C0123a.a;
+        return C0124a.a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private static class C0123a {
+    /* loaded from: classes16.dex */
+    private static class C0124a {
         private static a a = new a();
 
-        private C0123a() {
+        private C0124a() {
         }
     }
 

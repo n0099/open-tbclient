@@ -17,20 +17,20 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes3.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dfr = "cookieMap";
-    public static String dfs = "ptokenDomains";
-    public static String dft = "bdussDomains";
+    public static String dhr = "cookieMap";
+    public static String dhs = "ptokenDomains";
+    public static String dht = "bdussDomains";
 
-    public static void dh(Context context) {
-        di(context);
+    public static void dg(Context context) {
+        dh(context);
     }
 
-    public static void di(Context context) {
+    public static void dh(Context context) {
         if (context != null) {
-            String cT = a.cT(context);
-            String da = a.da(context);
-            b(context, cT, aGq());
-            c(context, da, aGq());
+            String cS = a.cS(context);
+            String cZ = a.cZ(context);
+            b(context, cS, aHa());
+            c(context, cZ, aHa());
         }
     }
 
@@ -100,7 +100,7 @@ public class y {
         }
     }
 
-    private static List<String> aGq() {
+    private static List<String> aHa() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

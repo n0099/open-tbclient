@@ -13,13 +13,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.newwidget.ImageView.f;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class CriusTbClipImageView extends TbClipImageView {
-    protected b lKk;
-    private Path lKl;
-    private RectF lKm;
-    private float[] lKn;
-    private int lKo;
+    protected b lTe;
+    private Path lTf;
+    private RectF lTg;
+    private float[] lTh;
+    private int lTi;
 
     public CriusTbClipImageView(Context context) {
         this(context, null, 0);
@@ -27,9 +27,9 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lKk = new b();
-        this.lKl = new Path();
-        this.lKo = getLayerType();
+        this.lTe = new b();
+        this.lTf = new Path();
+        this.lTi = getLayerType();
     }
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet) {
@@ -40,69 +40,69 @@ public class CriusTbClipImageView extends TbClipImageView {
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void init(AttributeSet attributeSet) {
         super.init(attributeSet);
-        this.lKk = new b();
+        this.lTe = new b();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-            this.lKk.lKg = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusLeftTop, l.dip2px(getContext(), 4.0f));
-            this.lKk.lKh = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusLeftBottom, l.dip2px(getContext(), 4.0f));
-            this.lKk.lKi = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusRightTop, l.dip2px(getContext(), 4.0f));
-            this.lKk.lKj = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusRightBottom, l.dip2px(getContext(), 4.0f));
-            this.lKk.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.dip2px(getContext(), 4.0f));
-            this.lKk.mIsRound = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.lKk.mHasBorder = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
-            this.lKk.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.dip2px(getContext(), 1.0f));
-            this.lKk.mBorderColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
-            this.lKk.mBorderSurroundContent = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.lKk.mIsShowGifIcon = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.lKk.mForegroundColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.lTe.lTa = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusLeftTop, l.dip2px(getContext(), 4.0f));
+            this.lTe.lTb = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusLeftBottom, l.dip2px(getContext(), 4.0f));
+            this.lTe.lTc = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusRightTop, l.dip2px(getContext(), 4.0f));
+            this.lTe.lTd = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radiusRightBottom, l.dip2px(getContext(), 4.0f));
+            this.lTe.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, l.dip2px(getContext(), 4.0f));
+            this.lTe.mIsRound = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.lTe.mHasBorder = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.lTe.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, l.dip2px(getContext(), 1.0f));
+            this.lTe.mBorderColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, 201326592);
+            this.lTe.mBorderSurroundContent = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.lTe.mIsShowGifIcon = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.lTe.mForegroundColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_adjustViewBounds, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.lKk.lKg = l.dip2px(getContext(), 4.0f);
-            this.lKk.lKh = l.dip2px(getContext(), 4.0f);
-            this.lKk.lKi = l.dip2px(getContext(), 4.0f);
-            this.lKk.lKj = l.dip2px(getContext(), 4.0f);
-            this.lKk.mRadius = l.dip2px(getContext(), 4.0f);
-            this.lKk.mBorderWidth = l.dip2px(getContext(), 1.0f);
-            this.lKk.mBorderColor = 201326592;
+            this.lTe.lTa = l.dip2px(getContext(), 4.0f);
+            this.lTe.lTb = l.dip2px(getContext(), 4.0f);
+            this.lTe.lTc = l.dip2px(getContext(), 4.0f);
+            this.lTe.lTd = l.dip2px(getContext(), 4.0f);
+            this.lTe.mRadius = l.dip2px(getContext(), 4.0f);
+            this.lTe.mBorderWidth = l.dip2px(getContext(), 1.0f);
+            this.lTe.mBorderColor = 201326592;
         }
-        this.lKo = getLayerType();
-        if (Build.VERSION.SDK_INT < 18 && this.lKo != 1) {
+        this.lTi = getLayerType();
+        if (Build.VERSION.SDK_INT < 18 && this.lTi != 1) {
             setLayerType(1, null);
         }
-        if (!this.lKk.mIsRound) {
-            this.lKk.mRadius = 0.0f;
+        if (!this.lTe.mIsRound) {
+            this.lTe.mRadius = 0.0f;
         }
-        this.QO = this.lKk;
+        this.Rh = this.lTe;
         setConrers(0);
-        this.QP = f.oY().aA(this.mDrawerType);
-        this.QP.a(this.lKk);
+        this.Ri = f.pd().aD(this.mDrawerType);
+        this.Ri.a(this.lTe);
     }
 
     public void setRadius(int i, int i2, int i3, int i4) {
         boolean z = false;
-        if (this.lKk.lKg != i) {
-            this.lKk.lKg = i;
+        if (this.lTe.lTa != i) {
+            this.lTe.lTa = i;
             z = true;
         }
-        if (this.lKk.lKh != i2) {
-            this.lKk.lKh = i2;
+        if (this.lTe.lTb != i2) {
+            this.lTe.lTb = i2;
             z = true;
         }
-        if (this.lKk.lKi != i3) {
-            this.lKk.lKi = i3;
+        if (this.lTe.lTc != i3) {
+            this.lTe.lTc = i3;
             z = true;
         }
-        if (this.lKk.lKj != i4) {
-            this.lKk.lKj = i4;
+        if (this.lTe.lTd != i4) {
+            this.lTe.lTd = i4;
             z = true;
         }
         if (z) {
-            this.lKo = getLayerType();
-            if (Build.VERSION.SDK_INT < 18 && this.lKo != 1) {
+            this.lTi = getLayerType();
+            if (Build.VERSION.SDK_INT < 18 && this.lTi != 1) {
                 setLayerType(1, null);
             }
             invalidate();
@@ -111,7 +111,7 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void setRadius(int i) {
-        this.lKk.mRadius = i;
+        this.lTe.mRadius = i;
         setRadius(i, i, i, i);
     }
 
@@ -124,28 +124,28 @@ public class CriusTbClipImageView extends TbClipImageView {
     }
 
     private void aj(Canvas canvas) {
-        if (!this.lKk.mIsRound) {
+        if (!this.lTe.mIsRound) {
             setDrawerType(1);
-            this.lKl.reset();
-            this.lKm = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.lKn = new float[]{this.lKk.lKg, this.lKk.lKg, this.lKk.lKi, this.lKk.lKi, this.lKk.lKj, this.lKk.lKj, this.lKk.lKh, this.lKk.lKh};
-            this.lKl.addRoundRect(this.lKm, this.lKn, Path.Direction.CW);
+            this.lTf.reset();
+            this.lTg = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.lTh = new float[]{this.lTe.lTa, this.lTe.lTa, this.lTe.lTc, this.lTe.lTc, this.lTe.lTd, this.lTe.lTd, this.lTe.lTb, this.lTe.lTb};
+            this.lTf.addRoundRect(this.lTg, this.lTh, Path.Direction.CW);
             try {
-                canvas.clipPath(this.lKl);
+                canvas.clipPath(this.lTf);
             } catch (Error e) {
             }
         }
     }
 
     private void ak(Canvas canvas) {
-        if (!this.lKk.mIsRound && this.lKk.mHasBorder) {
+        if (!this.lTe.mIsRound && this.lTe.mHasBorder) {
             setDrawerType(1);
-            this.lKl.reset();
-            this.lKm = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.lKn = new float[]{this.lKk.lKg, this.lKk.lKg, this.lKk.lKi, this.lKk.lKi, this.lKk.lKj, this.lKk.lKj, this.lKk.lKh, this.lKk.lKh};
-            this.lKl.addRoundRect(this.lKm, this.lKn, Path.Direction.CW);
+            this.lTf.reset();
+            this.lTg = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.lTh = new float[]{this.lTe.lTa, this.lTe.lTa, this.lTe.lTc, this.lTe.lTc, this.lTe.lTd, this.lTe.lTd, this.lTe.lTb, this.lTe.lTb};
+            this.lTf.addRoundRect(this.lTg, this.lTh, Path.Direction.CW);
             try {
-                canvas.drawPath(this.lKl, this.QP.mBorderPaint);
+                canvas.drawPath(this.lTf, this.Ri.mBorderPaint);
             } catch (Error e) {
             }
         }
@@ -154,16 +154,16 @@ public class CriusTbClipImageView extends TbClipImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView
     public void c(Canvas canvas, Drawable drawable) {
-        if (this.lKk.mIsRound) {
+        if (this.lTe.mIsRound) {
             super.c(canvas, drawable);
             return;
         }
-        this.lKl.reset();
-        this.lKm = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-        this.lKn = new float[]{this.lKk.lKg, this.lKk.lKg, this.lKk.lKi, this.lKk.lKi, this.lKk.lKj, this.lKk.lKj, this.lKk.lKh, this.lKk.lKh};
-        this.lKl.addRoundRect(this.lKm, this.lKn, Path.Direction.CW);
+        this.lTf.reset();
+        this.lTg = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+        this.lTh = new float[]{this.lTe.lTa, this.lTe.lTa, this.lTe.lTc, this.lTe.lTc, this.lTe.lTd, this.lTe.lTd, this.lTe.lTb, this.lTe.lTb};
+        this.lTf.addRoundRect(this.lTg, this.lTh, Path.Direction.CW);
         try {
-            canvas.clipPath(this.lKl);
+            canvas.clipPath(this.lTf);
         } catch (Error e) {
         }
         drawable.draw(canvas);
@@ -176,7 +176,7 @@ public class CriusTbClipImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void qN(int i) {
-        bwn();
+    public void re(int i) {
+        bxw();
     }
 }

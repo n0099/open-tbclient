@@ -3,7 +3,7 @@ package com.baidu.vi;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class VCompass {
     private static final Handler e = new c();
     private float b;

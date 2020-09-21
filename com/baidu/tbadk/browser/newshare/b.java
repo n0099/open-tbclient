@@ -22,33 +22,33 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private TextView afE;
-    private TbRichTextView dTG;
-    private com.baidu.tbadk.widget.richText.a dTH;
-    private TbImageView dTI;
-    private TextView dTJ;
-    private TextView dTK;
-    private TextView dTL;
-    private TextView dTM;
-    private final ThreadAchievementShareInfo dTa;
-    private final ThreadAchievementShareInfo.ParamBean dTb;
+    private TextView afW;
+    private TbRichTextView dVQ;
+    private com.baidu.tbadk.widget.richText.a dVR;
+    private TbImageView dVS;
+    private TextView dVT;
+    private TextView dVU;
+    private TextView dVV;
+    private TextView dVW;
+    private final ThreadAchievementShareInfo dVk;
+    private final ThreadAchievementShareInfo.ParamBean dVl;
     private final Context mContext;
     private final View mRoot;
 
     public b(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         this.mContext = context;
         this.mRoot = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
-        this.dTa = threadAchievementShareInfo;
-        this.dTb = threadAchievementShareInfo.getParams();
+        this.dVk = threadAchievementShareInfo;
+        this.dVl = threadAchievementShareInfo.getParams();
         initUI();
         initData();
     }
 
     private void initData() {
-        if (this.dTb.getContent() != null && this.dTb.getContent().size() != 0) {
+        if (this.dVl.getContent() != null && this.dVl.getContent().size() != 0) {
             JSONArray jSONArray = new JSONArray();
             ThreadAchievementShareInfo.ContentBean contentBean = null;
-            for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.dTb.getContent()) {
+            for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.dVl.getContent()) {
                 if (contentBean2.getType() == 0) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -64,58 +64,58 @@ public class b {
                 }
                 contentBean = contentBean2;
             }
-            if (!TextUtils.isEmpty(this.dTb.getThread_title())) {
-                this.afE.setText(this.dTb.getThread_title());
-                this.afE.setVisibility(0);
-                this.dTG.setMaxLines(6);
+            if (!TextUtils.isEmpty(this.dVl.getThread_title())) {
+                this.afW.setText(this.dVl.getThread_title());
+                this.afW.setVisibility(0);
+                this.dVQ.setMaxLines(6);
             } else {
-                ((LinearLayout.LayoutParams) this.dTG.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds20);
-                this.dTG.setMaxLines(8);
+                ((LinearLayout.LayoutParams) this.dVQ.getLayoutParams()).topMargin = l.getDimens(this.mContext, R.dimen.tbds20);
+                this.dVQ.setMaxLines(8);
             }
-            this.dTG.setTextEllipsize(TextUtils.TruncateAt.END);
-            this.dTG.setMinimumHeight(l.getDimens(this.mContext, R.dimen.tbds516));
-            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.dTb.getThread_type().contains(UgcUBCUtils.UGC_TYPE_PIC_BTN)) {
-                this.dTI.setVisibility(0);
-                this.dTI.setDefaultBgResource(R.color.transparent);
-                this.dTI.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.dTI.setPlaceHolder(2);
-                this.dTI.startLoad(contentBean.getSrc(), 10, false);
-                if (!TextUtils.isEmpty(this.dTb.getThread_title())) {
-                    this.dTG.setVisibility(8);
+            this.dVQ.setTextEllipsize(TextUtils.TruncateAt.END);
+            this.dVQ.setMinimumHeight(l.getDimens(this.mContext, R.dimen.tbds516));
+            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.dVl.getThread_type().contains(UgcUBCUtils.UGC_TYPE_PIC_BTN)) {
+                this.dVS.setVisibility(0);
+                this.dVS.setDefaultBgResource(R.color.transparent);
+                this.dVS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.dVS.setPlaceHolder(2);
+                this.dVS.startLoad(contentBean.getSrc(), 10, false);
+                if (!TextUtils.isEmpty(this.dVl.getThread_title())) {
+                    this.dVQ.setVisibility(8);
                 } else {
-                    this.dTG.setMaxLines(2);
-                    this.dTG.setTextEllipsize(TextUtils.TruncateAt.END);
-                    this.dTG.setLayoutStrategy(this.dTH);
-                    this.dTG.setMinimumHeight(l.getDimens(this.mContext, R.dimen.tbds0));
+                    this.dVQ.setMaxLines(2);
+                    this.dVQ.setTextEllipsize(TextUtils.TruncateAt.END);
+                    this.dVQ.setLayoutStrategy(this.dVR);
+                    this.dVQ.setMinimumHeight(l.getDimens(this.mContext, R.dimen.tbds0));
                 }
             }
-            this.dTG.setText(TbRichTextView.a(this.mContext, jSONArray, false));
-            this.dTM.setText(at.cU(this.dTb.getAgree_num()));
-            this.dTJ.setText(at.cU(this.dTb.getPost_num()));
+            this.dVQ.setText(TbRichTextView.a(this.mContext, jSONArray, false));
+            this.dVW.setText(at.cV(this.dVl.getAgree_num()));
+            this.dVT.setText(at.cV(this.dVl.getPost_num()));
         }
     }
 
     private void initUI() {
-        this.dTJ = (TextView) this.mRoot.findViewById(R.id.comment_num);
-        this.dTK = (TextView) this.mRoot.findViewById(R.id.comment_desc);
-        this.dTL = (TextView) this.mRoot.findViewById(R.id.praise_desc);
-        this.dTM = (TextView) this.mRoot.findViewById(R.id.praise_num);
-        this.afE = (TextView) this.mRoot.findViewById(R.id.thread_title);
-        this.dTI = (TbImageView) this.mRoot.findViewById(R.id.main_img);
-        this.dTG = (TbRichTextView) this.mRoot.findViewById(R.id.rich_text);
-        this.dTM.setTextColor(ap.getColor(R.color.cp_other_d));
-        this.dTJ.setTextColor(ap.getColor(R.color.cp_other_d));
-        this.dTL.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.dTK.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.afE.setTextColor(ap.getColor(R.color.cp_cont_b));
-        this.dTH = new com.baidu.tbadk.widget.richText.a();
-        this.dTH.ri(l.getDimens(this.mContext, R.dimen.tbds38));
-        this.dTH.setTextSize(l.getDimens(this.mContext, R.dimen.tbds42));
-        this.dTH.rm(l.getDimens(this.mContext, R.dimen.tbds23));
-        this.dTH.setLineSpacing(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-        this.dTH.br(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        this.dTG.setLayoutStrategy(this.dTH);
-        this.dTG.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.dVT = (TextView) this.mRoot.findViewById(R.id.comment_num);
+        this.dVU = (TextView) this.mRoot.findViewById(R.id.comment_desc);
+        this.dVV = (TextView) this.mRoot.findViewById(R.id.praise_desc);
+        this.dVW = (TextView) this.mRoot.findViewById(R.id.praise_num);
+        this.afW = (TextView) this.mRoot.findViewById(R.id.thread_title);
+        this.dVS = (TbImageView) this.mRoot.findViewById(R.id.main_img);
+        this.dVQ = (TbRichTextView) this.mRoot.findViewById(R.id.rich_text);
+        this.dVW.setTextColor(ap.getColor(R.color.cp_other_d));
+        this.dVT.setTextColor(ap.getColor(R.color.cp_other_d));
+        this.dVV.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.dVU.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.afW.setTextColor(ap.getColor(R.color.cp_cont_b));
+        this.dVR = new com.baidu.tbadk.widget.richText.a();
+        this.dVR.rz(l.getDimens(this.mContext, R.dimen.tbds38));
+        this.dVR.setTextSize(l.getDimens(this.mContext, R.dimen.tbds42));
+        this.dVR.rD(l.getDimens(this.mContext, R.dimen.tbds23));
+        this.dVR.setLineSpacing(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
+        this.dVR.br(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        this.dVQ.setLayoutStrategy(this.dVR);
+        this.dVQ.setTextColor(ap.getColor(R.color.cp_cont_b));
     }
 
     public View getView() {

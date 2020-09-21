@@ -2,10 +2,10 @@ package com.baidu.mobads;
 
 import android.content.Context;
 import android.os.Looper;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class CpuInfoManager {
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface UrlListener {
         void onUrl(String str);
     }

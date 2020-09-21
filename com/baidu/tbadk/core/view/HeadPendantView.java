@@ -19,198 +19,198 @@ import com.baidu.tieba.R;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class HeadPendantView extends RelativeLayout {
-    private TbImageView epP;
-    private ImageView epQ;
-    private HeadImageView epR;
-    private boolean epS;
-    private boolean epT;
-    private boolean epU;
-    private boolean epV;
-    private int epW;
-    private int epX;
-    private int epY;
-    private boolean epZ;
-    private boolean eqa;
+    private TbImageView erU;
+    private ImageView erV;
+    private HeadImageView erW;
+    private boolean erX;
+    private boolean erY;
+    private boolean erZ;
+    private boolean esa;
+    private int esb;
+    private int esc;
+    private int esd;
+    private boolean ese;
+    private boolean esf;
     private Context mContext;
     private BdUniqueId mPageId;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.epS = false;
-        this.epT = false;
-        this.epU = false;
-        this.epV = false;
-        this.epW = R.drawable.ic_icon_mask_shen20_n;
-        this.epX = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.epY = 0;
-        this.eqa = true;
+        this.erX = false;
+        this.erY = false;
+        this.erZ = false;
+        this.esa = false;
+        this.esb = R.drawable.ic_icon_mask_shen20_n;
+        this.esc = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.esd = 0;
+        this.esf = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.epS = false;
-        this.epT = false;
-        this.epU = false;
-        this.epV = false;
-        this.epW = R.drawable.ic_icon_mask_shen20_n;
-        this.epX = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.epY = 0;
-        this.eqa = true;
+        this.erX = false;
+        this.erY = false;
+        this.erZ = false;
+        this.esa = false;
+        this.esb = R.drawable.ic_icon_mask_shen20_n;
+        this.esc = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.esd = 0;
+        this.esf = true;
         this.mContext = context;
         init();
     }
 
     public HeadPendantView(Context context) {
         super(context);
-        this.epS = false;
-        this.epT = false;
-        this.epU = false;
-        this.epV = false;
-        this.epW = R.drawable.ic_icon_mask_shen20_n;
-        this.epX = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.epY = 0;
-        this.eqa = true;
+        this.erX = false;
+        this.erY = false;
+        this.erZ = false;
+        this.esa = false;
+        this.esb = R.drawable.ic_icon_mask_shen20_n;
+        this.esc = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.esd = 0;
+        this.esf = true;
         this.mContext = context;
         init();
     }
 
     public void setHasPendantStyle() {
-        this.epS = true;
+        this.erX = true;
     }
 
     public void setHasPendantStyle(boolean z) {
-        if (this.epS && !z && this.epR != null) {
-            ((RelativeLayout.LayoutParams) this.epR.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.epQ != null) {
-                ((RelativeLayout.LayoutParams) this.epQ.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.erX && !z && this.erW != null) {
+            ((RelativeLayout.LayoutParams) this.erW.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.erV != null) {
+                ((RelativeLayout.LayoutParams) this.erV.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
-            if (this.epP != null) {
-                this.epP.setVisibility(8);
+            if (this.erU != null) {
+                this.erU.setVisibility(8);
             }
-            this.epT = false;
+            this.erY = false;
             invalidate();
-        } else if (!this.epS && z && this.epR != null) {
-            int width = (int) (this.epR.getWidth() * 0.13f);
-            int height = (int) (this.epR.getHeight() * 0.13f);
-            ((RelativeLayout.LayoutParams) this.epR.getLayoutParams()).setMargins(width, height, width, height);
-            if (this.epQ != null) {
-                ((RelativeLayout.LayoutParams) this.epQ.getLayoutParams()).setMargins(width, height, width, height);
+        } else if (!this.erX && z && this.erW != null) {
+            int width = (int) (this.erW.getWidth() * 0.13f);
+            int height = (int) (this.erW.getHeight() * 0.13f);
+            ((RelativeLayout.LayoutParams) this.erW.getLayoutParams()).setMargins(width, height, width, height);
+            if (this.erV != null) {
+                ((RelativeLayout.LayoutParams) this.erV.getLayoutParams()).setMargins(width, height, width, height);
             }
             invalidate();
         }
-        this.epS = z;
+        this.erX = z;
     }
 
     public void setBjhPbFirstFloor(boolean z) {
-        this.epU = z;
+        this.erZ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.epS) {
+        if (this.erX) {
             int size = View.MeasureSpec.getSize(i);
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-            ((RelativeLayout.LayoutParams) this.epR.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            if (this.epQ != null) {
-                ((RelativeLayout.LayoutParams) this.epQ.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ((RelativeLayout.LayoutParams) this.erW.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            if (this.erV != null) {
+                ((RelativeLayout.LayoutParams) this.erV.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
-        if (this.epU) {
-            ((RelativeLayout.LayoutParams) this.epR.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.epQ != null) {
-                ((RelativeLayout.LayoutParams) this.epQ.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.erZ) {
+            ((RelativeLayout.LayoutParams) this.erW.getLayoutParams()).setMargins(0, 0, 0, 0);
+            if (this.erV != null) {
+                ((RelativeLayout.LayoutParams) this.erV.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
         }
         super.onMeasure(i, i2);
     }
 
-    public void AA(String str) {
-        if (this.epP != null) {
-            if (this.epS && !StringUtils.isNull(str)) {
-                this.epT = true;
-                this.epP.setVisibility(0);
-                this.epP.setImageDrawable(null);
-                this.epP.startLoad(str, 10, false);
+    public void AW(String str) {
+        if (this.erU != null) {
+            if (this.erX && !StringUtils.isNull(str)) {
+                this.erY = true;
+                this.erU.setVisibility(0);
+                this.erU.setImageDrawable(null);
+                this.erU.startLoad(str, 10, false);
                 return;
             }
-            this.epP.setVisibility(8);
-            this.epT = false;
+            this.erU.setVisibility(8);
+            this.erY = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.epP.setAutoChangeStyle(z);
-        this.epR.setAutoChangeStyle(z);
+        this.erU.setAutoChangeStyle(z);
+        this.erW.setAutoChangeStyle(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
-        this.epX = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        bkk();
-        bkl();
-        bkm();
+        this.esc = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
+        blf();
+        blg();
+        blh();
     }
 
-    private void bkk() {
-        this.epR = new HeadImageView(this.mContext);
-        this.epR.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.epR.setPlaceHolder(1);
-        this.epR.setDefaultResource(R.color.cp_bg_line_e);
-        this.epR.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+    private void blf() {
+        this.erW = new HeadImageView(this.mContext);
+        this.erW.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.erW.setPlaceHolder(1);
+        this.erW.setDefaultResource(R.color.cp_bg_line_e);
+        this.erW.setDefaultErrorResource(R.drawable.icon_default_avatar100);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        this.epR.setLayoutParams(layoutParams);
-        addView(this.epR);
+        this.erW.setLayoutParams(layoutParams);
+        addView(this.erW);
     }
 
-    private void bkl() {
-        this.epP = new TbImageView(this.mContext);
-        this.epP.setPageId(this.mPageId);
-        this.epP.setDefaultBgResource(0);
-        this.epP.setDefaultResource(0);
-        this.epP.setDefaultErrorResource(0);
-        this.epP.setImageDrawable(null);
-        this.epP.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.epP.setVisibility(8);
-        addView(this.epP);
+    private void blg() {
+        this.erU = new TbImageView(this.mContext);
+        this.erU.setPageId(this.mPageId);
+        this.erU.setDefaultBgResource(0);
+        this.erU.setDefaultResource(0);
+        this.erU.setDefaultErrorResource(0);
+        this.erU.setImageDrawable(null);
+        this.erU.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.erU.setVisibility(8);
+        addView(this.erU);
     }
 
-    private void bkm() {
-        this.epQ = new ImageView(this.mContext);
-        this.epQ.setImageDrawable(null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.epX, this.epX);
+    private void blh() {
+        this.erV = new ImageView(this.mContext);
+        this.erV.setImageDrawable(null);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.esc, this.esc);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(11, -1);
-        this.epQ.setLayoutParams(layoutParams);
-        this.epQ.setVisibility(8);
-        addView(this.epQ);
+        this.erV.setLayoutParams(layoutParams);
+        this.erV.setVisibility(8);
+        addView(this.erV);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
-        if (this.epR != null) {
-            this.epR.setPageId(bdUniqueId);
+        if (this.erW != null) {
+            this.erW.setPageId(bdUniqueId);
         }
-        if (this.epP != null) {
-            this.epP.setPageId(bdUniqueId);
+        if (this.erU != null) {
+            this.erU.setPageId(bdUniqueId);
         }
     }
 
     public TbImageView getPendantView() {
-        return this.epP;
+        return this.erU;
     }
 
     public HeadImageView getHeadView() {
-        return this.epR;
+        return this.erW;
     }
 
     public ImageView getBigVIconView() {
-        return this.epQ;
+        return this.erV;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -220,61 +220,61 @@ public class HeadPendantView extends RelativeLayout {
 
     public void setBigVDimenSize(int i) {
         if (i > 0) {
-            this.epX = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
+            this.esc = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
         }
-        bkn();
+        bli();
     }
 
-    private void bkn() {
-        if (this.epX > 0 && this.epQ != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.epQ.getLayoutParams();
-            layoutParams.width = this.epX;
-            layoutParams.height = this.epX;
-            this.epQ.setLayoutParams(layoutParams);
+    private void bli() {
+        if (this.esc > 0 && this.erV != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.erV.getLayoutParams();
+            layoutParams.width = this.esc;
+            layoutParams.height = this.esc;
+            this.erV.setLayoutParams(layoutParams);
         }
     }
 
     public void setBigVIconResId(int i) {
-        this.epW = i;
+        this.esb = i;
     }
 
     public void setAuthIconType(int i) {
-        this.epY = i;
+        this.esd = i;
     }
 
     public void setUrl(String str) {
-        this.epR.setUrl(str);
+        this.erW.setUrl(str);
     }
 
     public void setDefalutResid(int i) {
-        this.epR.setDefaultResource(i);
+        this.erW.setDefaultResource(i);
     }
 
-    public void AB(String str) {
+    public void AX(String str) {
         if (!StringUtils.isNull(str)) {
-            String zW = q.zW(str);
-            this.epR.setImageBitmap(null);
-            this.epR.setUrl(zW);
-            if (zW.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(zW, 10, false);
+            String As = q.As(str);
+            this.erW.setImageBitmap(null);
+            this.erW.setUrl(As);
+            if (As.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(As, 10, false);
             } else {
-                startLoad(zW, 25, false);
+                startLoad(As, 25, false);
             }
         }
     }
 
     public void startLoad(String str, int i, boolean z) {
-        this.epR.a(str, i, 0, 0, z);
+        this.erW.a(str, i, 0, 0, z);
     }
 
     public void a(MetaData metaData) {
         if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String zW = q.zW(metaData.getAvater());
-            setUrl(zW);
-            if (zW.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(zW, 10, false);
+            String As = q.As(metaData.getAvater());
+            setUrl(As);
+            if (As.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(As, 10, false);
             } else {
-                startLoad(zW, 25, false);
+                startLoad(As, 25, false);
             }
             b(metaData);
         }
@@ -283,9 +283,9 @@ public class HeadPendantView extends RelativeLayout {
     public void b(MetaData metaData) {
         if (metaData != null) {
             if (metaData.getPendantData() != null) {
-                AA(metaData.getPendantData().bcA());
+                AW(metaData.getPendantData().bdu());
             } else {
-                AA(null);
+                AW(null);
             }
             c(metaData);
         }
@@ -293,45 +293,45 @@ public class HeadPendantView extends RelativeLayout {
 
     public void a(MetaData metaData, int i) {
         if (metaData != null) {
-            this.epY = i;
+            this.esd = i;
             b(metaData);
         }
     }
 
     private void c(MetaData metaData) {
         if (metaData != null) {
-            if (this.epZ) {
-                this.epQ.setVisibility(8);
+            if (this.ese) {
+                this.erV.setVisibility(8);
                 return;
             }
-            this.epR.setShowV(false);
+            this.erW.setShowV(false);
             if (metaData.isNewGod()) {
-                SvgManager.bjq().a(this.epQ, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-                iv(true);
+                SvgManager.bkl().a(this.erV, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                is(true);
                 return;
             }
-            iv(false);
-            if (this.epV || !UtilHelper.showHeadBazhuIcon(this.epQ, metaData, this.eqa)) {
-                UtilHelper.showHeadBjhBigVIcon(this.epQ, metaData, this.epY);
+            is(false);
+            if (this.esa || !UtilHelper.showHeadBazhuIcon(this.erV, metaData, this.esf)) {
+                UtilHelper.showHeadBjhBigVIcon(this.erV, metaData, this.esd);
             }
         }
     }
 
-    public void iv(boolean z) {
-        if (this.epQ != null) {
-            this.epQ.setVisibility(z ? 0 : 8);
+    public void is(boolean z) {
+        if (this.erV != null) {
+            this.erV.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setIsclearmode(boolean z) {
-        this.epZ = z;
+        this.ese = z;
     }
 
     public void setIsHomePage(boolean z) {
-        this.epV = z;
+        this.esa = z;
     }
 
     public void setShowSimpleIcon(boolean z) {
-        this.eqa = z;
+        this.esf = z;
     }
 }

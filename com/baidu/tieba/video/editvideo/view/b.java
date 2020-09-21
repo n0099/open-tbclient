@@ -10,46 +10,46 @@ import com.baidu.tieba.video.editvideo.b.b;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b, b.a {
-    private com.baidu.tieba.video.editvideo.b.a mvA;
-    private SelectMusicModel mvy;
-    private BaseActivity myd;
-    private com.baidu.tieba.video.b mye;
-    private String myf;
+    private SelectMusicModel mFk;
+    private com.baidu.tieba.video.editvideo.b.a mFm;
+    private BaseActivity mHP;
+    private com.baidu.tieba.video.b mHQ;
+    private String mHR;
 
     public b(com.baidu.tieba.video.b bVar) {
-        this.mye = bVar;
-        this.myd = this.mye.activity;
+        this.mHQ = bVar;
+        this.mHP = this.mHQ.activity;
     }
 
     @Override // com.baidu.tieba.c.b
     public void start() {
-        dCt();
+        dGn();
     }
 
     @Override // com.baidu.tieba.c.b
     public void cancel() {
-        if (this.mye != null) {
-            this.mye.wA(true);
+        if (this.mHQ != null) {
+            this.mHQ.wJ(true);
         }
-        if (this.mvA != null && this.mvA.dBG()) {
-            this.mvA.dBH();
+        if (this.mFm != null && this.mFm.dFA()) {
+            this.mFm.dFB();
         }
     }
 
-    public void dCt() {
-        if (this.mye != null) {
-            if (this.mye.isCancel()) {
-                this.mye.onCancel();
-                this.mye = null;
-            } else if (!StringUtils.isNull(this.mye.musicPath) || this.mye.isMute) {
-                if (this.mvy == null) {
-                    this.mvy = new SelectMusicModel(this.myd.getPageContext(), this);
+    public void dGn() {
+        if (this.mHQ != null) {
+            if (this.mHQ.isCancel()) {
+                this.mHQ.onCancel();
+                this.mHQ = null;
+            } else if (!StringUtils.isNull(this.mHQ.musicPath) || this.mHQ.isMute) {
+                if (this.mFk == null) {
+                    this.mFk = new SelectMusicModel(this.mHP.getPageContext(), this);
                 }
-                this.mvy.h(this.mye.originPath, this.mye.musicPath, com.baidu.tieba.video.c.mtS + "video_" + System.currentTimeMillis() + ".mp4", !this.mye.isMute);
+                this.mFk.i(this.mHQ.originPath, this.mHQ.musicPath, com.baidu.tieba.video.c.mDD + "video_" + System.currentTimeMillis() + ".mp4", !this.mHQ.isMute);
             } else {
-                s(this.mye.originPath, -4399, "");
+                s(this.mHQ.originPath, -4399, "");
             }
         }
     }
@@ -60,72 +60,72 @@ public class b implements com.baidu.tieba.c.b, com.baidu.tieba.video.editvideo.b
 
     @Override // com.baidu.tieba.video.editvideo.b
     public void s(String str, int i, String str2) {
-        if (this.mye != null && this.mye.isCancel()) {
-            this.mye.onCancel();
-            this.mye = null;
+        if (this.mHQ != null && this.mHQ.isCancel()) {
+            this.mHQ.onCancel();
+            this.mHQ = null;
         } else if (TextUtils.isEmpty(str)) {
-            this.myd.showToast(R.string.mixing_fail);
-            if (this.mye != null) {
-                this.mye.bC(i, str2);
+            this.mHP.showToast(R.string.mixing_fail);
+            if (this.mHQ != null) {
+                this.mHQ.bG(i, str2);
             }
         } else {
-            if (this.mye != null) {
-                this.mye.dAW();
+            if (this.mHQ != null) {
+                this.mHQ.dEQ();
             }
-            if (!StringUtils.isNull(this.mye.filterName)) {
-                if (!at.equals(str, this.mye.originPath)) {
-                    this.mye.mtP = str;
+            if (!StringUtils.isNull(this.mHQ.filterName)) {
+                if (!at.equals(str, this.mHQ.originPath)) {
+                    this.mHQ.mDA = str;
                 }
-                if (this.mvA == null) {
-                    this.mvA = new com.baidu.tieba.video.editvideo.b.a(this.myd.getActivity());
-                    this.mvA.a(this);
+                if (this.mFm == null) {
+                    this.mFm = new com.baidu.tieba.video.editvideo.b.a(this.mHP.getActivity());
+                    this.mFm.a(this);
                 }
-                this.mvA.fZ(str, this.mye.filterName);
+                this.mFm.gl(str, this.mHQ.filterName);
                 return;
             }
-            if (this.mye != null) {
-                this.mye.dAX();
+            if (this.mHQ != null) {
+                this.mHQ.dER();
             }
-            RP(str);
+            Sp(str);
         }
     }
 
-    private void RP(String str) {
-        if (this.mye != null) {
-            if (this.mye.isCancel()) {
-                this.mye.onCancel();
-                this.mye = null;
+    private void Sp(String str) {
+        if (this.mHQ != null) {
+            if (this.mHQ.isCancel()) {
+                this.mHQ.onCancel();
+                this.mHQ = null;
                 return;
             }
-            this.myf = str;
+            this.mHR = str;
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.setVideoPath(this.myf);
-            videoInfo.setThumbPath(this.mye.coverPath);
-            if (this.mye != null) {
-                this.mye.a(videoInfo);
+            videoInfo.setVideoPath(this.mHR);
+            videoInfo.setThumbPath(this.mHQ.coverPath);
+            if (this.mHQ != null) {
+                this.mHQ.a(videoInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void RH(String str) {
-        if (this.mye != null) {
-            this.mye.dAX();
+    public void Sh(String str) {
+        if (this.mHQ != null) {
+            this.mHQ.dER();
         }
-        RP(str);
+        Sp(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void bE(int i, String str) {
-        if (this.mye != null) {
-            this.mye.bD(i, str);
+    public void bI(int i, String str) {
+        if (this.mHQ != null) {
+            this.mHQ.bH(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void bF(int i, String str) {
-        if (this.mye != null) {
-            this.mye.bD(i, str);
+    public void bJ(int i, String str) {
+        if (this.mHQ != null) {
+            this.mHQ.bH(i, str);
         }
     }
 }

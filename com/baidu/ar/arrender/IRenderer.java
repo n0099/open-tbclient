@@ -5,7 +5,7 @@ import com.baidu.ar.DuMixStateListener;
 import com.baidu.ar.arplay.core.filter.OnRenderFinishedListener;
 import com.baidu.ar.arplay.core.filter.OnRenderStartedListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IRenderer {
     void addOutputSurface(DuMixOutput duMixOutput);
 

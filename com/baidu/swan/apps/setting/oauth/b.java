@@ -7,71 +7,71 @@ import java.util.LinkedList;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> cVa = new h<>();
-    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cqj = new HashSet();
-    private final LinkedList<d> cVb = new LinkedList<>();
-    private boolean cVc = false;
-    private boolean cVd = false;
+    public final h<ResultDataT> cXa = new h<>();
+    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> csm = new HashSet();
+    private final LinkedList<d> cXb = new LinkedList<>();
+    private boolean cXc = false;
+    private boolean cXd = false;
 
-    protected abstract void aBA();
+    protected abstract void aCk();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract ResultDataT bB(JSONObject jSONObject) throws JSONException;
+    public abstract ResultDataT bE(JSONObject jSONObject) throws JSONException;
 
-    private void aBt() {
+    private void aCd() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.1
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aBB() throws Exception {
-                if (b.this.aBv()) {
+            protected boolean aCl() throws Exception {
+                if (b.this.aCf()) {
                     return true;
                 }
                 c.c("initialPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aBC();
-        this.cVc = true;
+        }.a(this).aCm();
+        this.cXc = true;
     }
 
-    private void aBu() {
+    private void aCe() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.2
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aBB() throws Exception {
-                if (b.this.aBw()) {
+            protected boolean aCl() throws Exception {
+                if (b.this.aCg()) {
                     return true;
                 }
                 c.c("finalPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aBC();
-        this.cVd = true;
+        }.a(this).aCm();
+        this.cXd = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aBv() {
+    public boolean aCf() {
         return true;
     }
 
-    protected boolean aBw() {
+    protected boolean aCg() {
         return true;
     }
 
     public b<ResultDataT> A(com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar) {
-        if (this.cVa.cVR.isCallbackAvailable()) {
-            this.cqj.add(bVar);
+        if (this.cXa.cXR.isCallbackAvailable()) {
+            this.csm.add(bVar);
         }
         return this;
     }
 
-    private void aBx() {
-        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cqj) {
+    private void aCh() {
+        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.csm) {
             c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.I(b.this.cVa);
+                        bVar.J(b.this.cXa);
                     }
                 }
             });
@@ -79,27 +79,27 @@ public abstract class b<ResultDataT> {
     }
 
     @NonNull
-    public b aBy() {
-        if (TaskState.INIT == aBz()) {
+    public b aCi() {
+        if (TaskState.INIT == aCj()) {
             a(TaskState.CALLING);
             prepare();
         }
         return this;
     }
 
-    public TaskState aBz() {
-        return this.cVa.cVR;
+    public TaskState aCj() {
+        return this.cXa.cXR;
     }
 
-    public void rz() {
-        this.cVa.cVR = TaskState.INIT;
-        this.cVc = false;
-        this.cVd = false;
+    public void rE() {
+        this.cXa.cXR = TaskState.INIT;
+        this.cXc = false;
+        this.cXd = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.cVb.offer(dVar);
+        this.cXb.offer(dVar);
         return this;
     }
 
@@ -113,32 +113,32 @@ public abstract class b<ResultDataT> {
     }
 
     private void prepare() {
-        if (!TaskState.CALLING.equals(aBz())) {
+        if (!TaskState.CALLING.equals(aCj())) {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.cVc) {
-            aBt();
-        } else if (!this.cVb.isEmpty()) {
-            this.cVb.poll().aBC();
-        } else if (!this.cVd) {
-            aBu();
+        } else if (!this.cXc) {
+            aCd();
+        } else if (!this.cXb.isEmpty()) {
+            this.cXb.poll().aCm();
+        } else if (!this.cXd) {
+            aCe();
         } else {
             exec();
         }
     }
 
     private synchronized void exec() {
-        aBA();
+        aCk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void V(ResultDataT resultdatat) {
-        this.cVa.mData = resultdatat;
+    public void W(ResultDataT resultdatat) {
+        this.cXa.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.cVa.cVR = taskState;
+        this.cXa.cXR = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -149,16 +149,16 @@ public abstract class b<ResultDataT> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.cVa.cVS = (OAuthException) exc;
+            this.cXa.cXS = (OAuthException) exc;
         } else if (exc != null) {
-            this.cVa.cVS = new OAuthException(exc, 10001);
+            this.cXa.cXS = new OAuthException(exc, 10001);
         }
-        if (!this.cVa.isOk() && DEBUG && exc != null) {
+        if (!this.cXa.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
-        aBx();
-        this.cqj.clear();
+        aCh();
+        this.csm.clear();
     }
 }

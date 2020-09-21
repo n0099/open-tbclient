@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.widget.scalablevideoview;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public enum ScalableType {
     NONE,
     FIT_XY,

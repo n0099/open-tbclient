@@ -1,23 +1,23 @@
 package com.xiaomi.push;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ft implements Cloneable {
     public static String a = "wcc-ml-test10.bj";
     public static final String b = ae.a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f374a;
+    private int f373a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fw f375a;
+    private fw f374a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f376a = fs.f359a;
+    private boolean f375a = fs.f358a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f377b = true;
+    private boolean f376b = true;
     private String d;
     private String e;
     private String f;
@@ -35,23 +35,23 @@ public class ft implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fw fwVar) {
-        this.f374a = i;
+        this.f373a = i;
         this.d = str;
-        this.f375a = fwVar;
+        this.f374a = fwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public int mo301a() {
-        return this.f374a;
+        return this.f373a;
     }
 
     public void a(boolean z) {
-        this.f376a = z;
+        this.f375a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m302a() {
-        return this.f376a;
+        return this.f375a;
     }
 
     /* renamed from: a  reason: collision with other method in class */

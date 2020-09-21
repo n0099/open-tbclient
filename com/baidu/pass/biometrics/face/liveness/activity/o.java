@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.base.utils.ViewUtility;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class o implements View.OnClickListener {
     final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.b a;
     final /* synthetic */ LivenessRecogActivity b;

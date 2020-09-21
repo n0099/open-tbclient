@@ -2,9 +2,9 @@ package com.baidu.swan.games.v.a;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
-    public int dxc;
+    public int dzd;
     public int errCode;
     public String url;
 
@@ -14,7 +14,7 @@ public class a extends d {
         try {
             jSONObject.put("url", this.url);
             jSONObject.put("errCode", this.errCode);
-            jSONObject.put("net", this.dxc);
+            jSONObject.put("net", this.dzd);
             jSONObject.put("errMsg", this.errMsg);
         } catch (JSONException e) {
         }

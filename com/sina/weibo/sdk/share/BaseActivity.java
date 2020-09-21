@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class BaseActivity extends Activity {
     private static final String TAG = "BaseActivity";
 

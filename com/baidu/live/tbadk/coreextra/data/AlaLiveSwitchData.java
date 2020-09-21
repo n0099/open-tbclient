@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveSwitchData extends BaseData {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;
@@ -36,6 +36,7 @@ public class AlaLiveSwitchData extends BaseData {
     public String mSmallWindowPendant;
     public String mSuperConsumer;
     public String mVideoGoodslist;
+    public String mYuyinPayBarrage;
     public String mZanAnim;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -64,6 +65,7 @@ public class AlaLiveSwitchData extends BaseData {
             this.mGmsgGetLiveStatus = jSONObject.optString("f_gmsg_getLiveStatus");
             this.mNobleInfo = jSONObject.optString("s_noble_info");
             this.mPayBarrage = jSONObject.optString("s_paid_barrage");
+            this.mYuyinPayBarrage = jSONObject.optString("s_paid_barrage_audio");
             this.mQuickChat = jSONObject.optString("s_quick_chat");
             this.mGiftPanelInvalid = jSONObject.optString("s_gift_panel");
             this.mSmallWindowPendant = jSONObject.optString("s_small_window_pendant");
@@ -97,6 +99,7 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("f_gmsg_getLiveStatus", this.mGmsgGetLiveStatus);
             jSONObject.put("s_noble_info", this.mNobleInfo);
             jSONObject.put("s_paid_barrage", this.mPayBarrage);
+            jSONObject.put("s_paid_barrage_audio", this.mYuyinPayBarrage);
             jSONObject.put("s_quick_chat", this.mQuickChat);
             jSONObject.put("s_gift_panel", this.mGiftPanelInvalid);
             jSONObject.put("s_small_window_pendant", this.mSmallWindowPendant);
@@ -193,6 +196,10 @@ public class AlaLiveSwitchData extends BaseData {
 
     public boolean isPayBarrageUnabled() {
         return TextUtils.equals(this.mPayBarrage, "0");
+    }
+
+    public boolean isYuyinPayBarrageUnabled() {
+        return TextUtils.equals(this.mYuyinPayBarrage, "0");
     }
 
     public boolean isQuickChatUnabled() {

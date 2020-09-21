@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces.download;
 
 import android.graphics.Bitmap;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface IXAdStaticImgDownloader extends IOAdDownloader {
     Bitmap getBitmap();
 }

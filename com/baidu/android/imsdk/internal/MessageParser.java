@@ -438,7 +438,7 @@ public class MessageParser {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
                     NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
-                    if (!a.ayp) {
+                    if (!a.ayR) {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);
                     }
                 }

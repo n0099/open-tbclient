@@ -9,7 +9,7 @@ import com.baidu.minivideo.plugin.capture.utils.StringUtils;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes18.dex */
 public class FaceItem implements Jsonable {
     public static final String DIR_STICKER = "sticker";
     private static final String DIR_UGC_DEFAULT = "ugccapture";

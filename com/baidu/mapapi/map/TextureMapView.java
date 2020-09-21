@@ -29,7 +29,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapTextureView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class TextureMapView extends ViewGroup {
     private static String i;
     private int A;

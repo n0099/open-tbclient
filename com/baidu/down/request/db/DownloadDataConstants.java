@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class DownloadDataConstants {
     public static final String DB_TABLE = "downloads";
     public static final String DEFAULT_DL_BINARY_EXTENSION = ".bin";
@@ -39,7 +39,7 @@ public final class DownloadDataConstants {
         return sQLiteDatabase.query("downloads", null, "_id=?", new String[]{new StringBuilder().append(longValue).append("").toString()}, null, null, null).moveToFirst() ? sQLiteDatabase.update("downloads", contentValues, "_id=?", new String[]{longValue + ""}) : (int) sQLiteDatabase.insert("downloads", null, contentValues);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static final class Columns implements BaseColumns {
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";
         public static final String COLUMN_ETAG = "etag";

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.geocode;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ReverseGeoCodeOption {
     private int a = 10;
     private int b = 0;

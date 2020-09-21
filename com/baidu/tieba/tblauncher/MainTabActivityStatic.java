@@ -33,28 +33,28 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.write.j;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class MainTabActivityStatic {
-    private static int mlF = 0;
-    private static boolean mlG = false;
+    private static int mve = 0;
+    private static boolean mvf = false;
 
     static {
-        clk();
-        dyR();
-        dyQ();
-        dyS();
-        dyT();
+        cox();
+        dCL();
+        dCK();
+        dCM();
+        dCN();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.START_GO_HOME) { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    com.baidu.tbadk.core.e.b.dT((Activity) data);
+                    com.baidu.tbadk.core.e.b.dS((Activity) data);
                 }
             }
         });
-        be.bju().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
+        be.bkp().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.2
             /* JADX WARN: Removed duplicated region for block: B:28:0x007e  */
             @Override // com.baidu.tbadk.core.util.be.a
             /*
@@ -124,7 +124,7 @@ public class MainTabActivityStatic {
             }
         });
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_MESSAGE_REMIND);
-        be.bju().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
+        be.bkp().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.4
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Map<String, String> paramPair;
@@ -157,7 +157,7 @@ public class MainTabActivityStatic {
                             j.b(tbPageContext, str, forumWriteData2);
                         }
                         TiebaStatic.log(new aq(CommonStatisticKey.KEY_ENTRANCE_CLICKED).ai("obj_locate", 4).ai("obj_type", 2));
-                        TiebaStatic.log(new aq("c12292").dD("obj_locate", "3"));
+                        TiebaStatic.log(new aq("c12292").dF("obj_locate", "3"));
                     }
                     return 0;
                 }
@@ -172,9 +172,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != mlF || b != mlG) {
-                mlF = a;
-                mlG = b;
+            if (a != mve || b != mvf) {
+                mve = a;
+                mvf = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOME_NOTIFY_MSG, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }
@@ -194,7 +194,7 @@ public class MainTabActivityStatic {
         return newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
     }
 
-    private static void clk() {
+    private static void cox() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new CustomMessageTask.CustomRunnable<MainTabActivityConfig>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
@@ -208,7 +208,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dyQ() {
+    private static void dCK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
@@ -223,7 +223,7 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dyR() {
+    private static void dCL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
@@ -237,8 +237,8 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dyS() {
-        be.bju().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
+    private static void dCM() {
+        be.bkp().a(new be.a() { // from class: com.baidu.tieba.tblauncher.MainTabActivityStatic.8
             @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -254,7 +254,7 @@ public class MainTabActivityStatic {
         });
     }
 
-    private static void dyT() {
+    private static void dCN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003393, TbConfig.SERVER_ADDRESS + Config.UPLOAD_SCHEMA);
         tbHttpMessageTask.setResponsedClass(HttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

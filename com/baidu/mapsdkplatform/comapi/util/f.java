@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class f {
     private final boolean a;
     private final String b;

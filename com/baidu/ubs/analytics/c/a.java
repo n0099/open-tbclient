@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class a {
-    private static final a ngk = new a();
+    private static final a nqm = new a();
     private boolean ac;
-    private final Set<InterfaceC0849a> ngl = new LinkedHashSet();
+    private final Set<InterfaceC0846a> nqn = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0849a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0846a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a dMu() {
-        return ngk;
+    public static a dQs() {
+        return nqm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0849a> dMv() {
-        return this.ngl;
+    public final Set<InterfaceC0846a> dQt() {
+        return this.nqn;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0849a interfaceC0849a) {
-        synchronized (this.ngl) {
-            this.ngl.add(interfaceC0849a);
+    public final void a(InterfaceC0846a interfaceC0846a) {
+        synchronized (this.nqn) {
+            this.nqn.add(interfaceC0846a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.ngl) {
-            this.ngl.clear();
+        synchronized (this.nqn) {
+            this.nqn.clear();
         }
     }
 

@@ -6,110 +6,110 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a cWI;
-    private com.baidu.swan.apps.ak.b.b cWJ = new com.baidu.swan.apps.ak.b.b();
-    private c cWK = new c();
-    private C0336a cWL = new C0336a();
-    private com.baidu.swan.apps.ak.a.a cWM = new com.baidu.swan.apps.ak.a.a();
+    private static a cYI;
+    private com.baidu.swan.apps.ak.b.b cYJ = new com.baidu.swan.apps.ak.b.b();
+    private c cYK = new c();
+    private C0331a cYL = new C0331a();
+    private com.baidu.swan.apps.ak.a.a cYM = new com.baidu.swan.apps.ak.a.a();
 
     private a() {
     }
 
-    public static a aCf() {
-        if (cWI == null) {
+    public static a aCP() {
+        if (cYI == null) {
             synchronized (a.class) {
-                if (cWI == null) {
-                    cWI = new a();
+                if (cYI == null) {
+                    cYI = new a();
                 }
             }
         }
-        return cWI;
+        return cYI;
     }
 
-    public void bK(JSONObject jSONObject) {
-        this.cWJ.bM(jSONObject);
+    public void bN(JSONObject jSONObject) {
+        this.cYJ.bP(jSONObject);
     }
 
-    public void rf(String str) {
+    public void ry(String str) {
         ck(str, null);
     }
 
     public void ck(String str, String str2) {
-        this.cWJ.add(str, str2);
+        this.cYJ.add(str, str2);
     }
 
-    public void bL(JSONObject jSONObject) {
-        this.cWK.bM(jSONObject);
+    public void bO(JSONObject jSONObject) {
+        this.cYK.bP(jSONObject);
     }
 
-    public JSONObject aCg() {
-        JSONObject aCm = this.cWJ.aCm();
+    public JSONObject aCQ() {
+        JSONObject aCW = this.cYJ.aCW();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "LaunchTraces: " + aCm);
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + aCW);
         }
-        return aCm;
+        return aCW;
     }
 
-    public JSONObject aCh() {
-        JSONObject aCm = this.cWK.aCm();
+    public JSONObject aCR() {
+        JSONObject aCW = this.cYK.aCW();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "WhiteTraces: " + aCm);
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + aCW);
         }
-        return aCm;
+        return aCW;
     }
 
-    public JSONObject aCi() {
-        JSONObject aCm = this.cWL.aCm();
+    public JSONObject aCS() {
+        JSONObject aCW = this.cYL.aCW();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "extraTraces: " + aCm);
+            Log.d("SwanStabilityTracer", "extraTraces: " + aCW);
         }
-        return aCm;
+        return aCW;
     }
 
     public void clear() {
-        this.cWJ.clear();
-        this.cWK.clear();
-        this.cWL.clear();
+        this.cYJ.clear();
+        this.cYK.clear();
+        this.cYL.clear();
     }
 
-    public File aCj() {
+    public File aCT() {
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aCg());
-        jSONArray.put(aCh());
-        jSONArray.put(aCi());
-        return this.cWM.G(jSONArray);
+        jSONArray.put(aCQ());
+        jSONArray.put(aCR());
+        jSONArray.put(aCS());
+        return this.cYM.G(jSONArray);
     }
 
-    public void aCk() {
-        if (this.cWL.cWN != null && this.cWL.cWN.length() != 0) {
+    public void aCU() {
+        if (this.cYL.cYN != null && this.cYL.cYN.length() != 0) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(aCg());
-            jSONArray.put(aCh());
-            jSONArray.put(aCi());
-            this.cWM.G(jSONArray);
+            jSONArray.put(aCQ());
+            jSONArray.put(aCR());
+            jSONArray.put(aCS());
+            this.cYM.G(jSONArray);
         }
     }
 
-    public com.baidu.swan.apps.ak.a.a aCl() {
-        return this.cWM;
+    public com.baidu.swan.apps.ak.a.a aCV() {
+        return this.cYM;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.ak.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0336a implements com.baidu.swan.apps.ak.b.a<JSONObject> {
-        private JSONArray cWN;
+    /* loaded from: classes3.dex */
+    public class C0331a implements com.baidu.swan.apps.ak.b.a<JSONObject> {
+        private JSONArray cYN;
 
-        private C0336a() {
+        private C0331a() {
         }
 
-        public JSONObject aCm() {
+        public JSONObject aCW() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("extra", this.cWN);
+                jSONObject.put("extra", this.cYN);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
@@ -119,7 +119,7 @@ public final class a {
         }
 
         public void clear() {
-            this.cWN = null;
+            this.cYN = null;
         }
     }
 }

@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.CpuInfoManager;
 import com.baidu.mobads.component.XAdView;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class CpuAdView extends RelativeLayout {
-    private com.baidu.mobads.production.b.b bDp;
+    private com.baidu.mobads.production.b.b a;
 
     public CpuAdView(Context context) {
         super(context);
@@ -16,8 +16,8 @@ public final class CpuAdView extends RelativeLayout {
     public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener) {
         super(context);
         XAdView xAdView = new XAdView(context);
-        this.bDp = new com.baidu.mobads.production.b.b(context, xAdView, str, str2);
-        this.bDp.request();
+        this.a = new com.baidu.mobads.production.b.b(context, xAdView, str, str2);
+        this.a.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ar.capture;
 import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.ar.d implements ICapture {
     private WeakReference<ICapture> kL;
     private ICaptureAbilityListener kM;

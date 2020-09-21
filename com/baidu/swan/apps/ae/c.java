@@ -9,13 +9,13 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import org.json.JSONObject;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class c {
-    private static a cJZ;
-    public static final c cKa = new c();
+    private static a cLZ;
+    public static final c cMa = new c();
 
     @h
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void I(String str, String str2, String str3);
 
@@ -25,22 +25,22 @@ public final class c {
     private c() {
     }
 
-    public final a ayo() {
-        return cJZ;
+    public final a ayX() {
+        return cLZ;
     }
 
-    public final void ayp() {
-        d azE = d.azE();
-        q.l((Object) azE, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a azG = azE.azG();
-        q.l((Object) azG, "Swan.get().adaptationProducer");
-        azG.Yq().aah().bi(d.azE()).A(b.cKb).aBy();
+    public final void ayY() {
+        d aAn = d.aAn();
+        q.l((Object) aAn, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aAp = aAn.aAp();
+        q.l((Object) aAp, "Swan.get().adaptationProducer");
+        aAp.YZ().aaQ().bh(d.aAn()).A(b.cMb).aCi();
     }
 
     @h
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     static final class b<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final b cKb = new b();
+        public static final b cMb = new b();
 
         b() {
         }
@@ -48,69 +48,69 @@ public final class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
-        public final void I(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
+        public final void J(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
             q.l((Object) hVar, AdvanceSetting.NETWORK_TYPE);
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a ayo = c.cKa.ayo();
+                a ayX = c.cMa.ayX();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("openid");
-                    if (ayo == null || !ProcessUtils.isMainProcess()) {
-                        c.cKa.cd(null, optString);
+                    if (ayX == null || !ProcessUtils.isMainProcess()) {
+                        c.cMa.cd(null, optString);
                         return;
                     }
                     q.l((Object) optString, "openId");
-                    d azE = d.azE();
-                    q.l((Object) azE, "Swan.get()");
-                    String appId = azE.getAppId();
-                    am apw = com.baidu.swan.apps.t.a.apw();
-                    q.l((Object) apw, "SwanAppRuntime.getConfig()");
-                    ayo.J(optString, appId, apw.getHostName());
+                    d aAn = d.aAn();
+                    q.l((Object) aAn, "Swan.get()");
+                    String appId = aAn.getAppId();
+                    am aqg = com.baidu.swan.apps.t.a.aqg();
+                    q.l((Object) aqg, "SwanAppRuntime.getConfig()");
+                    ayX.J(optString, appId, aqg.getHostName());
                 }
             }
         }
     }
 
-    public final void ayq() {
-        d azE = d.azE();
-        q.l((Object) azE, "Swan.get()");
-        com.baidu.swan.apps.adaptation.a azG = azE.azG();
-        q.l((Object) azG, "Swan.get().adaptationProducer");
-        azG.Yq().aah().bh(d.azE()).A(C0332c.cKc).aBy();
+    public final void ayZ() {
+        d aAn = d.aAn();
+        q.l((Object) aAn, "Swan.get()");
+        com.baidu.swan.apps.adaptation.a aAp = aAn.aAp();
+        q.l((Object) aAp, "Swan.get().adaptationProducer");
+        aAp.YZ().aaQ().bg(d.aAn()).A(C0327c.cMc).aCi();
     }
 
     @h
     /* renamed from: com.baidu.swan.apps.ae.c$c  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    static final class C0332c<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
-        public static final C0332c cKc = new C0332c();
+    /* loaded from: classes3.dex */
+    static final class C0327c<MsgType> implements com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>> {
+        public static final C0327c cMc = new C0327c();
 
-        C0332c() {
+        C0327c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
-        public final void I(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
+        public final void J(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
             q.l((Object) hVar, AdvanceSetting.NETWORK_TYPE);
             if (hVar.isOk()) {
                 JSONObject jSONObject = hVar.mData;
                 JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                a ayo = c.cKa.ayo();
+                a ayX = c.cMa.ayX();
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("swanid");
-                    if (ayo == null || !ProcessUtils.isMainProcess()) {
-                        c.cKa.cd(optString, null);
+                    if (ayX == null || !ProcessUtils.isMainProcess()) {
+                        c.cMa.cd(optString, null);
                         return;
                     }
                     q.l((Object) optString, "swanId");
-                    d azE = d.azE();
-                    q.l((Object) azE, "Swan.get()");
-                    String appId = azE.getAppId();
-                    am apw = com.baidu.swan.apps.t.a.apw();
-                    q.l((Object) apw, "SwanAppRuntime.getConfig()");
-                    ayo.I(optString, appId, apw.getHostName());
+                    d aAn = d.aAn();
+                    q.l((Object) aAn, "Swan.get()");
+                    String appId = aAn.getAppId();
+                    am aqg = com.baidu.swan.apps.t.a.aqg();
+                    q.l((Object) aqg, "SwanAppRuntime.getConfig()");
+                    ayX.I(optString, appId, aqg.getHostName());
                 }
             }
         }
@@ -118,20 +118,20 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void cd(String str, String str2) {
-        d azE = d.azE();
-        q.l((Object) azE, "Swan.get()");
-        com.baidu.swan.apps.process.messaging.client.a azz = azE.azz();
-        if (azz != null) {
+        d aAn = d.aAn();
+        q.l((Object) aAn, "Swan.get()");
+        com.baidu.swan.apps.process.messaging.client.a aAi = aAn.aAi();
+        if (aAi != null) {
             Bundle bundle = new Bundle();
             bundle.putString("swanId", str);
             bundle.putString("openId", str2);
-            d azE2 = d.azE();
-            q.l((Object) azE2, "Swan.get()");
-            bundle.putString("appId", azE2.getAppId());
-            am apw = com.baidu.swan.apps.t.a.apw();
-            q.l((Object) apw, "SwanAppRuntime.getConfig()");
-            bundle.putString("hostName", apw.getHostName());
-            azz.b(bundle, com.baidu.swan.apps.ae.b.class);
+            d aAn2 = d.aAn();
+            q.l((Object) aAn2, "Swan.get()");
+            bundle.putString("appId", aAn2.getAppId());
+            am aqg = com.baidu.swan.apps.t.a.aqg();
+            q.l((Object) aqg, "SwanAppRuntime.getConfig()");
+            bundle.putString("hostName", aqg.getHostName());
+            aAi.b(bundle, com.baidu.swan.apps.ae.b.class);
         }
     }
 }

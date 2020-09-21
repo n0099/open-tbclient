@@ -5,7 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class o extends SQLiteOpenHelper {
     private Context mContext;
 
@@ -21,7 +21,7 @@ public class o extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
         sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
         sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-        u.aWn().putString("ubc_version_md5", "0");
+        u.aWZ().putString("ubc_version_md5", "0");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -105,12 +105,12 @@ public class o extends SQLiteOpenHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aVn() {
+    public long aVZ() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).length();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aVo() {
+    public long aWa() {
         return new File(this.mContext.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
     }
 }

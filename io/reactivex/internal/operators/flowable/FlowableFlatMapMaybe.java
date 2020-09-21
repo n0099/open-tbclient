@@ -10,41 +10,41 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends o<? extends R>> mapper;
     final int maxConcurrency;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super R> cVar) {
-        this.omT.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+    protected void a(org.a.c<? super R> cVar) {
+        this.owE.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes7.dex */
-    static final class FlatMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class FlatMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 8600231336733376951L;
-        final org.b.c<? super R> actual;
+        final org.a.c<? super R> actual;
         volatile boolean cancelled;
         final boolean delayErrors;
         final h<? super T, ? extends o<? extends R>> mapper;
         final int maxConcurrency;
-        org.b.d s;
+        org.a.d s;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a set = new io.reactivex.disposables.a();
         final AtomicThrowable errors = new AtomicThrowable();
         final AtomicInteger active = new AtomicInteger(1);
         final AtomicReference<io.reactivex.internal.queue.a<R>> queue = new AtomicReference<>();
 
-        FlatMapMaybeSubscriber(org.b.c<? super R> cVar, h<? super T, ? extends o<? extends R>> hVar, boolean z, int i) {
+        FlatMapMaybeSubscriber(org.a.c<? super R> cVar, h<? super T, ? extends o<? extends R>> hVar, boolean z, int i) {
             this.actual = cVar;
             this.mapper = hVar;
             this.delayErrors = z;
             this.maxConcurrency = i;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -56,7 +56,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             try {
                 o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
@@ -72,7 +72,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.active.decrementAndGet();
             if (this.errors.addThrowable(th)) {
@@ -85,20 +85,20 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.active.decrementAndGet();
             drain();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
             this.set.dispose();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -156,7 +156,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.eeY());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.eiV());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -321,7 +321,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
         */
         void drainLoop() {
             int i = 1;
-            org.b.c<? super R> cVar = this.actual;
+            org.a.c<? super R> cVar = this.actual;
             AtomicInteger atomicInteger = this.active;
             AtomicReference<io.reactivex.internal.queue.a<R>> atomicReference = this.queue;
             while (true) {
@@ -365,7 +365,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

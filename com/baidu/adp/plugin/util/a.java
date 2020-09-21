@@ -21,12 +21,12 @@ public class a {
 
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0027a {
-        public boolean Ub;
+    public static class C0028a {
+        public boolean Ut;
         public String mErrMsg;
     }
 
-    public static C0027a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
+    public static C0028a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -44,8 +44,8 @@ public class a {
         }
     }
 
-    private static C0027a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
-        C0027a c0027a;
+    private static C0028a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+        C0028a c0028a;
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -81,34 +81,34 @@ public class a {
                 } catch (Exception e) {
                     setField(pathClassLoader, PathClassLoader.class, "mLibPaths", combineArray(getField(pathClassLoader, PathClassLoader.class, "mLibPaths"), getField(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                 }
-                c0027a = null;
+                c0028a = null;
             } catch (IllegalAccessException e2) {
-                C0027a a = a(false, e2);
+                C0028a a = a(false, e2);
                 BdLog.e(e2);
-                c0027a = a;
+                c0028a = a;
             } catch (NoSuchFieldException e3) {
-                C0027a a2 = a(false, e3);
+                C0028a a2 = a(false, e3);
                 BdLog.e(e3);
-                c0027a = a2;
+                c0028a = a2;
             }
         } catch (NoSuchFieldError e4) {
-            C0027a a3 = a(false, e4);
+            C0028a a3 = a(false, e4);
             BdLog.e(e4);
-            c0027a = a3;
+            c0028a = a3;
         } catch (Throwable th) {
-            C0027a a4 = a(false, th);
+            C0028a a4 = a(false, th);
             BdLog.e(th);
-            c0027a = a4;
+            c0028a = a4;
         }
-        if (c0027a == null) {
+        if (c0028a == null) {
             return a(true, null);
         }
-        return c0027a;
+        return c0028a;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [260=7] */
-    private static C0027a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
-        C0027a c0027a;
+    private static C0028a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
+        C0028a c0028a;
         List list;
         List list2;
         List list3;
@@ -124,16 +124,16 @@ public class a {
                 Method declaredMethod = pathList.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(pathList, str2, null);
-                Object combineArray = combineArray(D(pathList), D(pathList2));
+                Object combineArray = combineArray(E(pathList), E(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, qy());
+                    Arrays.sort((File[]) combineArray, qD());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, qy());
+                        Collections.sort(list4, qD());
                         list = list4;
                     }
                 }
@@ -144,17 +144,17 @@ public class a {
                 declaredMethod2.setAccessible(true);
                 setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(pathList.getClass(), arrayList));
             } else if (Build.VERSION.SDK_INT >= 23) {
-                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(C(pathList), C(pathList2)) : combineArray(C(pathList2), C(pathList)));
-                Object combineArray2 = combineArray(D(pathList), D(pathList2));
+                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(D(pathList), D(pathList2)) : combineArray(D(pathList2), D(pathList)));
+                Object combineArray2 = combineArray(E(pathList), E(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, qy());
+                    Arrays.sort((File[]) combineArray2, qD());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, qy());
+                        Collections.sort(list5, qD());
                         list3 = list5;
                     }
                 }
@@ -165,57 +165,57 @@ public class a {
                 declaredMethod3.setAccessible(true);
                 setField(pathList, pathList.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(pathList.getClass(), arrayList2, null, new ArrayList()));
             } else {
-                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(C(pathList), C(pathList2)) : combineArray(C(pathList2), C(pathList)));
-                Object combineArray3 = combineArray(D(pathList), D(pathList2));
+                setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(D(pathList), D(pathList2)) : combineArray(D(pathList2), D(pathList)));
+                Object combineArray3 = combineArray(E(pathList), E(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, qy());
+                    Arrays.sort((File[]) combineArray3, qD());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, qy());
+                        Collections.sort(list6, qD());
                         list2 = list6;
                     }
                 }
                 setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list2);
             }
-            c0027a = null;
+            c0028a = null;
         } catch (ClassNotFoundException e) {
-            C0027a a = a(false, e);
+            C0028a a = a(false, e);
             BdLog.e(e);
-            c0027a = a;
+            c0028a = a;
         } catch (IllegalAccessException e2) {
-            C0027a a2 = a(false, e2);
+            C0028a a2 = a(false, e2);
             BdLog.e(e2);
-            c0027a = a2;
+            c0028a = a2;
         } catch (IllegalArgumentException e3) {
-            C0027a a3 = a(false, e3);
+            C0028a a3 = a(false, e3);
             BdLog.e(e3);
-            c0027a = a3;
+            c0028a = a3;
         } catch (NoSuchFieldError e4) {
-            C0027a a4 = a(false, e4);
+            C0028a a4 = a(false, e4);
             BdLog.e(e4);
-            c0027a = a4;
+            c0028a = a4;
         } catch (NoSuchFieldException e5) {
-            C0027a a5 = a(false, e5);
+            C0028a a5 = a(false, e5);
             BdLog.e(e5);
-            c0027a = a5;
+            c0028a = a5;
         } catch (NoSuchMethodException e6) {
-            C0027a a6 = a(false, e6);
+            C0028a a6 = a(false, e6);
             BdLog.e(e6);
-            c0027a = a6;
+            c0028a = a6;
         } catch (SecurityException e7) {
-            C0027a a7 = a(false, e7);
+            C0028a a7 = a(false, e7);
             BdLog.e(e7);
-            c0027a = a7;
+            c0028a = a7;
         } catch (Throwable th) {
-            C0027a a8 = a(false, th);
+            C0028a a8 = a(false, th);
             BdLog.e(th);
-            c0027a = a8;
+            c0028a = a8;
         }
-        return c0027a == null ? a(true, null) : c0027a;
+        return c0028a == null ? a(true, null) : c0028a;
     }
 
     public static void setField(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
@@ -291,26 +291,26 @@ public class a {
         return newInstance;
     }
 
-    private static C0027a a(boolean z, Throwable th) {
-        C0027a c0027a = new C0027a();
-        c0027a.Ub = z;
-        c0027a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
-        return c0027a;
+    private static C0028a a(boolean z, Throwable th) {
+        C0028a c0028a = new C0028a();
+        c0028a.Ut = z;
+        c0028a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
+        return c0028a;
     }
 
     public static Object getPathList(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
         return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
-    private static Object C(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object D(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return getField(obj, obj.getClass(), "dexElements");
     }
 
-    public static Object D(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    public static Object E(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return getField(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
-    public static C0027a b(Context context, ClassLoader classLoader, String str) {
+    public static C0028a b(Context context, ClassLoader classLoader, String str) {
         Object field;
         try {
             classLoader.loadClass(str);
@@ -330,7 +330,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> qy() {
+    private static final Comparator<File> qD() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator

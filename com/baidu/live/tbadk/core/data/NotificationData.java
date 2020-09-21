@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.core.data;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class NotificationData {
     private String content;
     private String link;

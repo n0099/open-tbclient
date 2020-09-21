@@ -1,7 +1,7 @@
 package com.baidu.tieba.advert.sdk;
 
 import android.util.Log;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class AdvertSDKStatic {
     static {
         new a().registerTask();

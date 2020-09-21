@@ -1,0 +1,9 @@
+package com.baidu.sumeru.universalimageloader.core.assist;
+/* loaded from: classes9.dex */
+public enum ImageScaleType {
+    NONE,
+    IN_SAMPLE_POWER_OF_2,
+    IN_SAMPLE_INT,
+    EXACTLY,
+    EXACTLY_STRETCHED
+}

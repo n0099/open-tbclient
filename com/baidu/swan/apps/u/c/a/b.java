@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ap.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class b<ValueT> {
-    private final ValueT cwA;
+    private final ValueT cyB;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -17,30 +17,30 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.cwA = valuet;
+        this.cyB = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.cwA);
+        return a(cVar, str, (String) this.cyB);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.ark(), str, (String) valuet);
+        return a(cVar.arU(), str, (String) valuet);
     }
 
     public void b(@NonNull final c cVar, final String str, final ValueT valuet) {
-        aq arl = cVar.arl();
-        if (arl.aFz()) {
-            b(cVar.ark(), str, (String) valuet);
-            arl.aFA();
+        aq arV = cVar.arV();
+        if (arV.aGj()) {
+            b(cVar.arU(), str, (String) valuet);
+            arV.aGk();
             return;
         }
-        arl.n(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
+        arV.n(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.u.c.a.b */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                b.this.b(cVar.ark(), str, (String) valuet);
+                b.this.b(cVar.arU(), str, (String) valuet);
             }
         });
     }

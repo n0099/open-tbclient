@@ -6,7 +6,7 @@ import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class l implements View.OnClickListener {
     final /* synthetic */ c a;
 
@@ -39,7 +39,7 @@ public class l implements View.OnClickListener {
         }
         try {
             context = this.a.l;
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context, R.anim.abc_popup_enter);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context, R.layout.abc_action_menu_layout);
             relativeLayout2 = this.a.H;
             relativeLayout2.setAnimation(c);
         } catch (Exception e) {

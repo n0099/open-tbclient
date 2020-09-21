@@ -9,7 +9,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class a extends c<SubscribeAppInfo> {
     private static final String SPILTE_TAG = "@#";
     private static final String TAG = "SubscribeAppInfoManager";

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class f {
     public static JSONObject b(@Nullable c<JSONArray> cVar, @Nullable c<JSONObject> cVar2) {
         return a(Node.values(), cVar, cVar2);

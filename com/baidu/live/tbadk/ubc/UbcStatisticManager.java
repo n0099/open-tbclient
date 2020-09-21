@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UbcStatisticManager {
     private static final long FLOW_LOOP_DURATION = 60000;
     public static volatile UbcStatisticManager mInstance = new UbcStatisticManager();
@@ -104,7 +104,16 @@ public class UbcStatisticManager {
     }
 
     public void logEvent(UbcStatisticItem ubcStatisticItem) {
+        JSONObject contentExt;
         if (ubcStatisticItem != null && !TextUtils.isEmpty(ubcStatisticItem.getId()) && this.mUbcManager != null) {
+            if (ubcStatisticItem.getContentExt() == null) {
+                contentExt = new JSONObject();
+            } else {
+                contentExt = ubcStatisticItem.getContentExt();
+            }
+            if (!contentExt.has(UbcStatConstant.KEY_CONTENT_EXT_LIVESDK)) {
+                fillJson(contentExt, UbcStatConstant.KEY_CONTENT_EXT_LIVESDK, TbConfig.SDK_VERSION);
+            }
             this.mUbcManager.onEvent(ubcStatisticItem.getId(), genEventContent(ubcStatisticItem));
         }
     }
@@ -596,7 +605,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class FlowData {
         public Object flow;
         public JSONObject formattedValue;
@@ -608,7 +617,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class SlotData {
         public String category;
         public JSONObject option;

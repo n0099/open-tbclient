@@ -10,7 +10,7 @@ import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PoseDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = PoseDetector.class.getSimpleName();
     static int[] tc = {2, 3, 4, 8, 9, 10, 14, 16};

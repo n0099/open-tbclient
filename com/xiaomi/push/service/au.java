@@ -20,15 +20,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class au extends be.a implements cz.a {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f869a;
+    private XMPushService f868a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements cz.b {
         a() {
         }
@@ -56,7 +56,7 @@ public class au extends be.a implements cz.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     static class b extends cz {
         protected b(Context context, cy cyVar, cz.b bVar, String str) {
             super(context, cyVar, bVar, str);
@@ -78,7 +78,7 @@ public class au extends be.a implements cz.a {
     }
 
     au(XMPushService xMPushService) {
-        this.f869a = xMPushService;
+        this.f868a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -109,7 +109,7 @@ public class au extends be.a implements cz.a {
             cz a2 = cz.a();
             a2.m218a();
             a2.m221b();
-            fs m519a = this.f869a.m519a();
+            fs m519a = this.f868a.m519a();
             if (m519a == null || (b2 = a2.b(m519a.m293a().c())) == null) {
                 return;
             }
@@ -128,8 +128,8 @@ public class au extends be.a implements cz.a {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m54a("bucket changed, force reconnect");
-            this.f869a.a(0, (Exception) null);
-            this.f869a.a(false);
+            this.f868a.a(0, (Exception) null);
+            this.f868a.a(false);
         }
     }
 }

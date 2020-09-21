@@ -4,23 +4,23 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class VideoAdView extends RelativeLayout {
-    private com.baidu.mobads.production.h.b bDx;
-    private IOAdEventListener bDy;
-    private VideoAdViewListener bDz;
+    private com.baidu.mobads.production.h.b a;
+    private IOAdEventListener b;
+    private VideoAdViewListener c;
 
     public VideoAdView(Context context) {
         super(context);
-        this.bDy = new v(this);
+        this.b = new v(this);
     }
 
     public VideoAdView(Context context, String str) {
         super(context, null);
-        this.bDy = new v(this);
+        this.b = new v(this);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum VideoDuration {
         DURATION_15_SECONDS(15),
         DURATION_30_SECONDS(30),
@@ -32,12 +32,13 @@ public class VideoAdView extends RelativeLayout {
             this.a = i;
         }
 
-        protected int getValue() {
+        /* JADX INFO: Access modifiers changed from: protected */
+        public int getValue() {
             return this.a;
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum VideoSize {
         SIZE_16x9(320, 180),
         SIZE_4x3(400, 300);
@@ -50,29 +51,31 @@ public class VideoAdView extends RelativeLayout {
             this.b = i2;
         }
 
-        protected int getWidth() {
+        /* JADX INFO: Access modifiers changed from: protected */
+        public int getWidth() {
             return this.a;
         }
 
-        protected int getHeight() {
+        /* JADX INFO: Access modifiers changed from: protected */
+        public int getHeight() {
             return this.b;
         }
     }
 
     public void requestAd(VideoAdRequest videoAdRequest) {
-        this.bDx = new com.baidu.mobads.production.h.b(getContext(), "TODO");
-        this.bDx.setActivity(getContext());
-        this.bDx.setAdSlotBase(this);
-        this.bDx.addEventListener(IXAdEvent.AD_CLICK_THRU, this.bDy);
-        this.bDx.addEventListener(IXAdEvent.AD_LOADED, this.bDy);
-        this.bDx.addEventListener(IXAdEvent.AD_STARTED, this.bDy);
-        this.bDx.addEventListener(IXAdEvent.AD_STOPPED, this.bDy);
-        this.bDx.addEventListener(IXAdEvent.AD_ERROR, this.bDy);
-        this.bDx.request();
+        this.a = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.a.setActivity(getContext());
+        this.a.setAdSlotBase(this);
+        this.a.addEventListener(IXAdEvent.AD_CLICK_THRU, this.b);
+        this.a.addEventListener(IXAdEvent.AD_LOADED, this.b);
+        this.a.addEventListener(IXAdEvent.AD_STARTED, this.b);
+        this.a.addEventListener(IXAdEvent.AD_STOPPED, this.b);
+        this.a.addEventListener(IXAdEvent.AD_ERROR, this.b);
+        this.a.request();
     }
 
     public void startVideo() {
-        this.bDx.start();
+        this.a.start();
     }
 
     public static void setAppSid(Context context, String str) {
@@ -80,6 +83,6 @@ public class VideoAdView extends RelativeLayout {
     }
 
     public void setListener(VideoAdViewListener videoAdViewListener) {
-        this.bDz = videoAdViewListener;
+        this.c = videoAdViewListener;
     }
 }

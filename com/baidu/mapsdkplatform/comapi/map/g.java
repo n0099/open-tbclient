@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.map.f;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g extends HttpClient.ProtoResultCallback {
     final /* synthetic */ Context a;
     final /* synthetic */ String b;

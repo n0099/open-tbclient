@@ -1,9 +1,16 @@
 package com.baidu.live.gift;
 
-import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
-public class ab {
-    public boolean aMJ;
-    public String fromType;
-    public TbPageContext pageContext;
+import android.content.Context;
+import android.content.Intent;
+/* loaded from: classes4.dex */
+public interface ab {
+    void EW();
+
+    void FD();
+
+    void a(int i, int i2, Intent intent, com.baidu.live.data.u uVar, String str);
+
+    void a(Context context, long j, String str, long j2, String str2, String str3);
+
+    void bn(boolean z);
 }

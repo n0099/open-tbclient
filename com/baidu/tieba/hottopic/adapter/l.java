@@ -17,35 +17,35 @@ import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class l extends BaseAdapter {
-    private String eon;
-    private RelateTopicForumActivity iXI;
+    private String eqD;
+    private RelateTopicForumActivity jgo;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private View.OnClickListener iXJ = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
+    private View.OnClickListener jgp = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            if (l.this.iXI != null && l.this.iXI.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+            if (l.this.jgo != null && l.this.jgo.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) l.this.dataList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").dD("fid", String.valueOf(relateForumItemData.forumId)).ai("obj_type", com.baidu.tieba.hottopic.data.k.iZV).dD("topic_id", l.this.eon));
+                    TiebaStatic.log(new aq("c10371").dF("fid", String.valueOf(relateForumItemData.forumId)).ai("obj_type", com.baidu.tieba.hottopic.data.k.jiB).dF("topic_id", l.this.eqD));
                 }
                 if (at.isForumName(relateForumItemData.forumName)) {
-                    l.this.iXI.iYv.fR(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    l.this.jgo.iPZ.gd(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
     };
 
     public l(RelateTopicForumActivity relateTopicForumActivity) {
-        this.iXI = relateTopicForumActivity;
+        this.jgo = relateTopicForumActivity;
     }
 
     public void b(List<RelateForumItemData> list, String str) {
         this.dataList.clear();
         this.dataList.addAll(list);
-        this.eon = str;
+        this.eqD = str;
         notifyDataSetChanged();
     }
 
@@ -68,39 +68,39 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.hottopic.a.f fVar;
         if (view == null) {
-            view = LayoutInflater.from(this.iXI.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.jgo.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
             com.baidu.tieba.hottopic.a.f fVar2 = new com.baidu.tieba.hottopic.a.f(view);
             view.setTag(fVar2);
-            fVar2.jaY.setOnClickListener(this.iXJ);
+            fVar2.jjE.setOnClickListener(this.jgp);
             fVar = fVar2;
         } else {
             fVar = (com.baidu.tieba.hottopic.a.f) view.getTag();
         }
-        fVar.jaY.setTag(Integer.valueOf(i));
+        fVar.jjE.setTag(Integer.valueOf(i));
         if (this.dataList != null && this.dataList.get(i) != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (fVar.aiD != skinType) {
-                ap.setViewTextColor(fVar.jaU, R.color.cp_cont_b, 1);
-                ap.setViewTextColor(fVar.izz, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.izA, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jaV, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jaW, R.color.cp_cont_c, 1);
-                ap.setViewTextColor(fVar.jaX, R.color.cp_cont_d, 1);
-                ap.setBackgroundResource(fVar.gVd, R.color.cp_bg_line_c);
-                ap.setBackgroundResource(fVar.jaY, R.drawable.btn_appdownload);
+            if (fVar.aiX != skinType) {
+                ap.setViewTextColor(fVar.jjA, R.color.cp_cont_b, 1);
+                ap.setViewTextColor(fVar.iGU, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.iGV, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jjB, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jjC, R.color.cp_cont_c, 1);
+                ap.setViewTextColor(fVar.jjD, R.color.cp_cont_d, 1);
+                ap.setBackgroundResource(fVar.gYK, R.color.cp_bg_line_c);
+                ap.setBackgroundResource(fVar.jjE, R.drawable.btn_appdownload);
                 ap.setBackgroundResource(view, R.drawable.list_item_selector);
-                fVar.aiD = skinType;
+                fVar.aiX = skinType;
             }
-            fVar.jaU.setText(this.dataList.get(i).forumName);
+            fVar.jjA.setText(this.dataList.get(i).forumName);
             if (!StringUtils.isNULL(this.dataList.get(i).forumAvatar)) {
-                fVar.jaT.startLoad(this.dataList.get(i).forumAvatar, 10, false);
+                fVar.jjz.startLoad(this.dataList.get(i).forumAvatar, 10, false);
             }
-            fVar.izz.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
-            fVar.izA.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
-            fVar.jaX.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
-            d(fVar.jaY, this.dataList.get(i).isLiked);
+            fVar.iGU.setText(at.numberUniformFormat(this.dataList.get(i).postNum));
+            fVar.iGV.setText(at.numberUniformFormat(this.dataList.get(i).followNum));
+            fVar.jjD.setText(at.forceLToR(this.dataList.get(i).forumAbstract));
+            d(fVar.jjE, this.dataList.get(i).isLiked);
             if (i == this.dataList.size() - 1) {
-                cs(fVar.gVd);
+                cB(fVar.gYK);
             }
         }
         return view;
@@ -120,7 +120,7 @@ public class l extends BaseAdapter {
         textView.setEnabled(true);
     }
 
-    public void cs(View view) {
+    public void cB(View view) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;

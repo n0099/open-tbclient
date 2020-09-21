@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a extends Dialog {
     private TextView a;
     private TextView b;
@@ -16,14 +16,14 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0254a g;
-    private InterfaceC0254a h;
+    private InterfaceC0252a g;
+    private InterfaceC0252a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public interface InterfaceC0254a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0252a {
         void a();
     }
 
@@ -36,19 +36,19 @@ public class a extends Dialog {
     }
 
     public a(Activity activity) {
-        this(activity, R.dimen.pass_liveness_face_round_width);
-        View a = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, R.layout.abc_activity_chooser_view, null);
+        this(activity, R.string.abc_action_menu_overflow_description);
+        View a = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, 2130903046, null);
         requestWindowFeature(1);
         if (getWindow() != null) {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         setContentView(a);
-        this.a = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n);
-        this.b = (TextView) a.findViewById(R.raw.lottie_use_jinba_cj_n_1);
-        this.c = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_1);
-        this.d = (TextView) a.findViewById(R.raw.lottie_use_my_cj_n_2);
-        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n_2);
-        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_publish_cj_n_1);
+        this.a = (TextView) a.findViewById(2131165243);
+        this.b = (TextView) a.findViewById(2131165246);
+        this.c = (TextView) a.findViewById(2131165250);
+        this.d = (TextView) a.findViewById(2131165251);
+        this.e = (LinearLayout) a.findViewById(2131165249);
+        this.f = (LinearLayout) a.findViewById(2131165252);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
@@ -118,13 +118,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0254a interfaceC0254a) {
-        this.g = interfaceC0254a;
+    public a a(InterfaceC0252a interfaceC0252a) {
+        this.g = interfaceC0252a;
         return this;
     }
 
-    public a b(InterfaceC0254a interfaceC0254a) {
-        this.h = interfaceC0254a;
+    public a b(InterfaceC0252a interfaceC0252a) {
+        this.h = interfaceC0252a;
         return this;
     }
 

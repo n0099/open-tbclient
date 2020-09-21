@@ -8,7 +8,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BigDecimalCodec implements ObjectDeserializer, ObjectSerializer {
     public static final BigDecimalCodec instance = new BigDecimalCodec();
 

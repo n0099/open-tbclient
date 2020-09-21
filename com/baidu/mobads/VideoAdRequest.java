@@ -1,26 +1,48 @@
 package com.baidu.mobads;
 
 import com.baidu.mobads.VideoAdView;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class VideoAdRequest {
+    private VideoAdView.VideoDuration a;
     private boolean b;
-    private VideoAdView.VideoDuration bDv;
-    private VideoAdView.VideoSize bDw;
+    private VideoAdView.VideoSize c;
 
     private VideoAdRequest(Builder builder) {
-        this.bDv = builder.bDv;
+        this.a = builder.a;
         this.b = builder.b;
-        this.bDw = builder.bDw;
+        this.c = builder.c;
     }
 
-    /* loaded from: classes20.dex */
+    protected int getVideoDuration() {
+        return this.a == null ? VideoAdView.VideoDuration.DURATION_15_SECONDS.getValue() : this.a.getValue();
+    }
+
+    protected boolean isShowCountdown() {
+        return this.b;
+    }
+
+    protected int getVideoWidth() {
+        if (this.c == null) {
+            this.c = VideoAdView.VideoSize.SIZE_16x9;
+        }
+        return this.c.getWidth();
+    }
+
+    protected int getVideoHeight() {
+        if (this.c == null) {
+            this.c = VideoAdView.VideoSize.SIZE_16x9;
+        }
+        return this.c.getHeight();
+    }
+
+    /* loaded from: classes3.dex */
     public static class Builder {
+        private VideoAdView.VideoDuration a;
         private boolean b = false;
-        private VideoAdView.VideoDuration bDv;
-        private VideoAdView.VideoSize bDw;
+        private VideoAdView.VideoSize c;
 
         public Builder setVideoDuration(VideoAdView.VideoDuration videoDuration) {
-            this.bDv = videoDuration;
+            this.a = videoDuration;
             return this;
         }
 
@@ -30,7 +52,7 @@ public class VideoAdRequest {
         }
 
         public Builder setVideoSize(VideoAdView.VideoSize videoSize) {
-            this.bDw = videoSize;
+            this.c = videoSize;
             return this;
         }
 

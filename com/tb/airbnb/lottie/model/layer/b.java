@@ -10,7 +10,7 @@ import com.tb.airbnb.lottie.a.b.p;
 import com.tb.airbnb.lottie.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class b extends a {
     private final List<a> AW;
     private final RectF FP;
@@ -19,7 +19,7 @@ public class b extends a {
     @Nullable
     private Boolean FR;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<Float, Float> okj;
+    private com.tb.airbnb.lottie.a.b.a<Float, Float> otT;
     private final RectF rect;
 
     public b(com.tb.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.tb.airbnb.lottie.d dVar) {
@@ -29,13 +29,13 @@ public class b extends a {
         this.AW = new ArrayList();
         this.rect = new RectF();
         this.FP = new RectF();
-        com.tb.airbnb.lottie.model.a.b eed = layer.eed();
-        if (eed != null) {
-            this.okj = eed.edo();
-            a(this.okj);
-            this.okj.b(this);
+        com.tb.airbnb.lottie.model.a.b eia = layer.eia();
+        if (eia != null) {
+            this.otT = eia.ehl();
+            a(this.otT);
+            this.otT.b(this);
         } else {
-            this.okj = null;
+            this.otT = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(dVar.iy().size());
         int size = list.size() - 1;
@@ -45,13 +45,13 @@ public class b extends a {
             if (a == null) {
                 aVar2 = aVar3;
             } else {
-                longSparseArray.put(a.edY().getId(), a);
+                longSparseArray.put(a.ehV().getId(), a);
                 if (aVar3 != null) {
                     aVar3.b(a);
                     aVar2 = null;
                 } else {
                     this.AW.add(0, a);
-                    switch (r0.eea()) {
+                    switch (r0.ehX()) {
                         case Add:
                         case Invert:
                             aVar2 = a;
@@ -67,7 +67,7 @@ public class b extends a {
         }
         for (int i = 0; i < longSparseArray.size(); i++) {
             a aVar4 = (a) longSparseArray.get(longSparseArray.keyAt(i));
-            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.edY().kD())) != null) {
+            if (aVar4 != null && (aVar = (a) longSparseArray.get(aVar4.ehV().kE())) != null) {
                 aVar4.c(aVar);
             }
         }
@@ -77,7 +77,7 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.tb.airbnb.lottie.c.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.FP.set(0.0f, 0.0f, this.okd.kz(), this.okd.kA());
+        this.FP.set(0.0f, 0.0f, this.otN.kA(), this.otN.kB());
         matrix.mapRect(this.FP);
         for (int size = this.AW.size() - 1; size >= 0; size--) {
             boolean z = true;
@@ -109,15 +109,15 @@ public class b extends a {
     @Override // com.tb.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.okj != null) {
-            f = (this.okj.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().iu();
+        if (this.otT != null) {
+            f = (this.otT.getValue().floatValue() * 1000.0f) / this.lottieDrawable.getComposition().iu();
         }
-        if (this.okd.kw() != 0.0f) {
-            f /= this.okd.kw();
+        if (this.otN.kx() != 0.0f) {
+            f /= this.otN.kx();
         }
-        float kx = f - this.okd.kx();
+        float ky = f - this.otN.ky();
         for (int size = this.AW.size() - 1; size >= 0; size--) {
-            this.AW.get(size).setProgress(kx);
+            this.AW.get(size).setProgress(ky);
         }
     }
 
@@ -126,7 +126,7 @@ public class b extends a {
             for (int size = this.AW.size() - 1; size >= 0; size--) {
                 a aVar = this.AW.get(size);
                 if (aVar instanceof e) {
-                    if (aVar.ku()) {
+                    if (aVar.kv()) {
                         this.FR = true;
                         return true;
                     }
@@ -142,12 +142,12 @@ public class b extends a {
 
     public boolean hasMatte() {
         if (this.FQ == null) {
-            if (ks()) {
+            if (kt()) {
                 this.FQ = true;
                 return true;
             }
             for (int size = this.AW.size() - 1; size >= 0; size--) {
-                if (this.AW.get(size).ks()) {
+                if (this.AW.get(size).kt()) {
                     this.FQ = true;
                     return true;
                 }
@@ -176,11 +176,11 @@ public class b extends a {
         super.a((b) t, (com.tb.airbnb.lottie.e.c<b>) cVar);
         if (t == j.Ca) {
             if (cVar == null) {
-                this.okj = null;
+                this.otT = null;
                 return;
             }
-            this.okj = new p(cVar);
-            a(this.okj);
+            this.otT = new p(cVar);
+            a(this.otT);
         }
     }
 }

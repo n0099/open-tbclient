@@ -8,24 +8,24 @@ import com.baidu.swan.games.l.a;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static String lG(String str) {
+    public static String lZ(String str) {
         return bs(str, "swan_sub_package_zip");
     }
 
     public static String bq(String str, String str2) {
-        return lG(d.C0426d.bB(str, str2).getPath());
+        return lZ(d.C0421d.bB(str, str2).getPath());
     }
 
-    public static String lH(String str) {
+    public static String ma(String str) {
         return bs(str, "swan_sub_package_zip");
     }
 
     public static String br(String str, String str2) {
-        return lH(a.c.bB(str, str2).getPath());
+        return ma(a.c.bB(str, str2).getPath());
     }
 
     private static String bs(String str, String str2) {
@@ -46,7 +46,7 @@ public class b {
         if (gVar == null || TextUtils.isEmpty(gVar.appId)) {
             return false;
         }
-        return g(new File(gVar.filePath), new File(d.C0426d.bB(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
+        return g(new File(gVar.filePath), new File(d.C0421d.bB(gVar.appId, String.valueOf(gVar.versionCode)).getPath(), gVar.pkgName));
     }
 
     public static boolean g(File file, File file2) {
@@ -69,7 +69,7 @@ public class b {
         } else {
             a.b y = com.baidu.swan.apps.r.a.a.y(file);
             if (y.type != -1) {
-                unzipFile = com.baidu.swan.apps.r.a.a.a(y.cvc, file2, y.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.r.a.a.a(y.cxd, file2, y.type).isSuccess;
             } else {
                 unzipFile = com.baidu.swan.c.d.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }
@@ -87,10 +87,10 @@ public class b {
         }
     }
 
-    public static boolean Z(List<g> list) {
+    public static boolean ad(List<g> list) {
         if (list == null || list.isEmpty()) {
             return false;
         }
-        return list.get(0).dFs;
+        return list.get(0).dHw;
     }
 }

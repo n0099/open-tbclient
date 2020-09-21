@@ -11,24 +11,24 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
 import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
 import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class e {
     private BdUniqueId unique_id = null;
 
     public void i(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        bhB();
-        bhA();
+        biv();
+        biu();
     }
 
-    private void bhA() {
+    private void biu() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
         bVar.setNeedAck(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void bhB() {
+    private void biv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003072, com.baidu.tieba.tbadkCore.a.a.bH(TbConfig.HOME_REALTIME_ADDRESS, CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);

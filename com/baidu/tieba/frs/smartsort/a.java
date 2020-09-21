@@ -10,83 +10,83 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.be;
 import com.baidu.tieba.frs.q;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private int bRp;
-    private TextView iiB;
-    private be inL;
-    private final FrsFragment ios;
-    private int iqA = -1;
-    private boolean iqz;
+    private int bTp;
+    private TextView ipD;
+    private final FrsFragment ivI;
+    private be ivb;
+    private boolean ixP;
+    private int ixQ = -1;
 
     public a(FrsFragment frsFragment) {
-        this.bRp = 0;
+        this.bTp = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.ios = frsFragment;
+        this.ivI = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bRp = UtilHelper.getStatusBarHeight();
+            this.bTp = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void csr() {
-        if (this.iqz && this.iqA >= 0) {
-            yt(this.iqA);
+    public void cvG() {
+        if (this.ixP && this.ixQ >= 0) {
+            yS(this.ixQ);
         }
-        this.iqz = false;
+        this.ixP = false;
     }
 
-    public void ys(int i) {
+    public void yR(int i) {
         if (i >= 0) {
-            pc(true);
-            yu(i);
+            pi(true);
+            yT(i);
             return;
         }
-        pc(false);
-        yu(i);
+        pi(false);
+        yT(i);
     }
 
-    private void yt(int i) {
+    private void yS(int i) {
         FrameLayout frameLayout;
         String string;
-        q clT = this.ios.clT();
-        if (clT != null && clT.getListView() != null && (frameLayout = (FrameLayout) clT.cnt()) != null) {
-            if (this.iiB == null && this.ios.getPageContext() != null) {
-                this.iiB = new TextView(this.ios.getPageContext().getPageActivity());
-                this.iiB.setTextSize(0, this.ios.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.iiB.setGravity(17);
+        q cpf = this.ivI.cpf();
+        if (cpf != null && cpf.getListView() != null && (frameLayout = (FrameLayout) cpf.cqF()) != null) {
+            if (this.ipD == null && this.ivI.getPageContext() != null) {
+                this.ipD = new TextView(this.ivI.getPageContext().getPageActivity());
+                this.ipD.setTextSize(0, this.ivI.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.ipD.setGravity(17);
             }
-            if (this.iiB != null) {
+            if (this.ipD != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.iiB.setText(string);
+                this.ipD.setText(string);
             }
-            ap.setBackgroundResource(this.iiB, R.color.cp_link_tip_a);
-            ap.setViewTextColor(this.iiB, R.color.cp_cont_i);
+            ap.setBackgroundResource(this.ipD, R.color.cp_link_tip_a);
+            ap.setViewTextColor(this.ipD, R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.inL == null) {
-                this.inL = new be();
+            if (this.ivb == null) {
+                this.ivb = new be();
             }
-            this.inL.a(this.iiB, frameLayout, layoutParams, 2000);
-            this.iqA = -1;
+            this.ivb.a(this.ipD, frameLayout, layoutParams, 2000);
+            this.ixQ = -1;
         }
     }
 
-    public void pc(boolean z) {
-        this.iqz = z;
+    public void pi(boolean z) {
+        this.ixP = z;
     }
 
-    public void yu(int i) {
-        this.iqA = i;
+    public void yT(int i) {
+        this.ixQ = i;
     }
 
     public void onDestroy() {
-        if (this.inL != null) {
-            this.inL.onDestroy();
+        if (this.ivb != null) {
+            this.ivb.onDestroy();
         }
     }
 }

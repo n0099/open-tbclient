@@ -8,9 +8,9 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.a;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
-    private MultiContentView jhl;
+    private MultiContentView jpR;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_multi_pictext_view);
@@ -18,19 +18,19 @@ public class MsgMultiImageTextView extends com.baidu.tieba.im.chat.g {
     }
 
     private void init() {
-        this.fGY = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.jhl = (MultiContentView) findViewById(R.id.msg_content);
+        this.fKk = (TextView) findViewById(R.id.tex_msgitem_time);
+        this.jpR = (MultiContentView) findViewById(R.id.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             b(chatMessage);
-            List<a.C0719a> a = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
-            this.jhl.setPosition(this.mPosition);
-            this.jhl.setOnItemViewLongClickListener(this.jfH);
-            this.jhl.setNeedNightMode(true);
-            this.jhl.setType(1);
-            this.jhl.setData(tbPageContext, a, view);
+            List<a.C0716a> a = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+            this.jpR.setPosition(this.mPosition);
+            this.jpR.setOnItemViewLongClickListener(this.jon);
+            this.jpR.setNeedNightMode(true);
+            this.jpR.setType(1);
+            this.jpR.setData(tbPageContext, a, view);
         }
     }
 }

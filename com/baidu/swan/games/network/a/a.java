@@ -1,7 +1,7 @@
 package com.baidu.swan.games.network.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     @V8JavascriptField
     public int progress;

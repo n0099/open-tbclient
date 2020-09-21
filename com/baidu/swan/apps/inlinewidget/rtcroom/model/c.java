@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.mobstat.Config;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     public String attribute;
     public int role;

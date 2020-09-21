@@ -3,7 +3,7 @@ package com.tb.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class e implements m<PointF, PointF> {
     private final List<com.tb.airbnb.lottie.e.a<PointF>> Du;
 
@@ -16,7 +16,7 @@ public class e implements m<PointF, PointF> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> edo() {
-        return this.Du.get(0).la() ? new com.tb.airbnb.lottie.a.b.j(this.Du) : new com.tb.airbnb.lottie.a.b.i(this.Du);
+    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> ehl() {
+        return this.Du.get(0).lb() ? new com.tb.airbnb.lottie.a.b.j(this.Du) : new com.tb.airbnb.lottie.a.b.i(this.Du);
     }
 }

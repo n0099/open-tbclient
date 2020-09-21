@@ -3,7 +3,7 @@ package com.baidu.ar.npc;
 import com.baidu.ar.npc.ArBridge;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class z implements ArBridge.d {
     final /* synthetic */ BaiduArView a;
 

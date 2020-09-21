@@ -1,10 +1,11 @@
 package com.google.zxing.datamatrix.encoder;
 
 import android.support.v4.view.InputDeviceCompat;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.sapi2.SapiAccountManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class Base256Encoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {
@@ -35,8 +36,8 @@ public final class Base256Encoder implements Encoder {
             if (length <= 249) {
                 sb.setCharAt(0, (char) length);
             } else if (length <= 1555) {
-                sb.setCharAt(0, (char) ((length / 250) + SapiAccountManager.VERSION_CODE));
-                sb.insert(1, (char) (length % 250));
+                sb.setCharAt(0, (char) ((length / ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION) + SapiAccountManager.VERSION_CODE));
+                sb.insert(1, (char) (length % ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION));
             } else {
                 throw new IllegalStateException("Message length not in valid ranges: " + length);
             }

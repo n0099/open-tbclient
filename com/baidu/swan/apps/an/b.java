@@ -7,37 +7,37 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.apps.c;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String dax;
+    private static String dcz;
 
-    public static String aEi() {
-        return sp("swan");
+    public static String aES() {
+        return sJ("swan");
     }
 
-    public static String alj() {
-        return sp("swangame");
+    public static String alT() {
+        return sJ("swangame");
     }
 
-    private static String sp(String str) {
-        String hostName = com.baidu.swan.apps.t.a.apw().getHostName();
+    private static String sJ(String str) {
+        String hostName = com.baidu.swan.apps.t.a.aqg().getHostName();
         a aVar = new a();
-        aVar.sq(str).ss(c.getVersion()).st(hostName).su(getVersionName()).sv(getOSVersion());
-        return aVar.aEj();
+        aVar.sK(str).sL(c.getVersion()).sM(hostName).sN(getVersionName()).sO(getOSVersion());
+        return aVar.aET();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.t.a.aoJ();
+        return com.baidu.swan.apps.t.a.apu();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(dax)) {
-            return dax;
+        if (!TextUtils.isEmpty(dcz)) {
+            return dcz;
         }
         try {
-            dax = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return dax;
+            dcz = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return dcz;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -54,56 +54,56 @@ public class b {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        private static String daD = "%s/%s";
-        private static String daE = "%s-%s/%s";
-        private static String daF = "(Baidu; P1 %s)";
-        private static String daG = "%s/%s";
-        private String amj;
-        private String daA;
-        private String daB;
-        private String daC;
-        private String daz;
+        private static String dcE = "%s/%s";
+        private static String dcF = "%s-%s/%s";
+        private static String dcG = "(Baidu; P1 %s)";
+        private static String dcH = "%s/%s";
+        private String amL;
+        private String dcA;
+        private String dcB;
+        private String dcC;
+        private String dcD;
 
-        public a sq(String str) {
-            this.daz = str;
+        public a sK(String str) {
+            this.dcA = str;
             return this;
         }
 
-        public a ss(String str) {
-            this.daA = str;
+        public a sL(String str) {
+            this.dcB = str;
             return this;
         }
 
-        public a st(String str) {
-            this.daB = str;
+        public a sM(String str) {
+            this.dcC = str;
             return this;
         }
 
-        public a su(String str) {
-            this.daC = str;
+        public a sN(String str) {
+            this.dcD = str;
             return this;
         }
 
-        public a sv(String str) {
-            this.amj = str;
+        public a sO(String str) {
+            this.amL = str;
             return this;
         }
 
-        public String aEj() {
-            String format = String.format(daD, this.daz, this.daA);
-            String format2 = String.format(daE, this.daz, this.daB, this.daC);
-            String format3 = String.format(daG, this.daB, this.daC);
-            String format4 = String.format(daF, this.amj);
-            if (aEk()) {
+        public String aET() {
+            String format = String.format(dcE, this.dcA, this.dcB);
+            String format2 = String.format(dcF, this.dcA, this.dcC, this.dcD);
+            String format3 = String.format(dcH, this.dcC, this.dcD);
+            String format4 = String.format(dcG, this.amL);
+            if (aEU()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aEk() {
-            return TextUtils.equals("baiduboxapp", this.daB);
+        private boolean aEU() {
+            return TextUtils.equals("baiduboxapp", this.dcC);
         }
     }
 }

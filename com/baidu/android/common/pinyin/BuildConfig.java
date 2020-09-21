@@ -1,5 +1,5 @@
 package com.baidu.android.common.pinyin;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.common.pinyin";
     public static final String BUILD_TYPE = "release";

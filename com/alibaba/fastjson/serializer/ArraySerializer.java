@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ArraySerializer implements ObjectSerializer {
     private final ObjectSerializer compObjectSerializer;
     private final Class<?> componentType;

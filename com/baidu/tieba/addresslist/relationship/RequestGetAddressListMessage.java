@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.GetAddressList.GetAddressListReqIdl;
 import tbclient.GetAddressList.ReqData;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class RequestGetAddressListMessage extends TbSocketMessage {
     private static final int INIT_TIMESTAMP = 0;
     private int mTimestamp;

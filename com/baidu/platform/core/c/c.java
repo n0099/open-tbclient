@@ -3,7 +3,7 @@ package com.baidu.platform.core.c;
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.base.e {
     public c(PoiIndoorOption poiIndoorOption) {
         a(poiIndoorOption);

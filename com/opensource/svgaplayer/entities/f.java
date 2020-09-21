@@ -12,16 +12,16 @@ import kotlin.jvm.internal.q;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String ebB() {
+    public final String getImageKey() {
         return this.imageKey;
     }
 
-    public final List<g> ebZ() {
+    public final List<g> efW() {
         return this.frames;
     }
 
@@ -36,8 +36,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.jx().isEmpty()) && ((SVGAVideoShapeEntity) o.fZ(gVar.jx())).ebP() && arrayList.size() > 0) {
-                        gVar.fP(((g) o.ga(arrayList)).jx());
+                    if ((!gVar.jy().isEmpty()) && ((SVGAVideoShapeEntity) o.gi(gVar.jy())).efM() && arrayList.size() > 0) {
+                        gVar.fY(((g) o.gj(arrayList)).jy());
                     }
                     arrayList.add(gVar);
                 }
@@ -47,7 +47,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList ega;
+        ArrayList ejX;
         q.m(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -59,16 +59,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.l((Object) frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.jx().isEmpty()) && ((SVGAVideoShapeEntity) o.fZ(gVar3.jx())).ebP() && gVar2 != null) {
-                    gVar3.fP(gVar2.jx());
+                if ((!gVar3.jy().isEmpty()) && ((SVGAVideoShapeEntity) o.gi(gVar3.jy())).efM() && gVar2 != null) {
+                    gVar3.fY(gVar2.jy());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            ega = arrayList;
+            ejX = arrayList;
         } else {
-            ega = o.ega();
+            ejX = o.ejX();
         }
-        this.frames = ega;
+        this.frames = ejX;
     }
 }

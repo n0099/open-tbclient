@@ -5,11 +5,11 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ItemDataBox extends AbstractBox {
     public static final String TYPE = "idat";
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
     ByteBuffer data;
 
     static {

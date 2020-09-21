@@ -1,6 +1,6 @@
 package com.baidu.location.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class u implements Runnable {
     final /* synthetic */ s a;
 

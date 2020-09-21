@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     private String cacheKey;
     private Context context;
@@ -56,7 +56,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.kwG = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.kFf = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -67,7 +67,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.f();
-        this.pbData.DP(2);
+        this.pbData.Eq(2);
         this.pbData.a(pbPageResIdl.data, this.context);
         if (pbPageResIdl.data != null) {
             JSONObject f = com.baidu.tieba.recapp.report.b.f(pbPageResIdl.data.thread);
@@ -75,7 +75,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             if (f != null) {
                 arrayList.add(f);
             }
-            com.baidu.tieba.recapp.report.b.dof().eY(arrayList);
+            com.baidu.tieba.recapp.report.b.drP().fg(arrayList);
         }
         BdLog.detailException(null);
     }
@@ -85,10 +85,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                j.cXi().a(this.cacheKey, this.isFromMark, bArr);
+                j.daL().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                j.cXi().n(this.cacheKey, bArr);
+                j.daL().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

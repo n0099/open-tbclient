@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.sticker.download.b;
 import android.os.Handler;
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
     private Executor mDownloadStatusPoster;
 
@@ -21,50 +21,50 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
         this.mDownloadStatusPoster.execute(new a(cVar));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     private static class a implements Runnable {
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.c fya;
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.a fyc;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.c fBm;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.a fBo;
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
-            this.fya = cVar;
-            this.fyc = this.fya.bEv();
+            this.fBm = cVar;
+            this.fBo = this.fBm.bFL();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            switch (this.fya.getStatus()) {
+            switch (this.fBm.getStatus()) {
                 case 102:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTING");
-                    this.fyc.onConnecting();
+                    this.fBo.onConnecting();
                     return;
                 case 103:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.fya.getLength() + " acceptRanges: " + this.fya.isAcceptRanges());
-                    this.fyc.onConnected(this.fya.getLength(), this.fya.isAcceptRanges());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.fBm.getLength() + " acceptRanges: " + this.fBm.isAcceptRanges());
+                    this.fBo.onConnected(this.fBm.getLength(), this.fBm.isAcceptRanges());
                     return;
                 case 104:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.fya.getFinished() + " length: " + this.fya.getLength() + " percent: " + this.fya.getPercent());
-                    this.fyc.onProgress(this.fya.getFinished(), this.fya.getLength(), this.fya.getPercent());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.fBm.getFinished() + " length: " + this.fBm.getLength() + " percent: " + this.fBm.getPercent());
+                    this.fBo.onProgress(this.fBm.getFinished(), this.fBm.getLength(), this.fBm.getPercent());
                     return;
                 case 105:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.fya.getSavedPath());
-                    if (!this.fya.getCalledCompleted()) {
-                        this.fya.setCalledCompleted(true);
-                        this.fyc.onCompleted(this.fya.getSavedPath());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.fBm.getSavedPath());
+                    if (!this.fBm.getCalledCompleted()) {
+                        this.fBm.setCalledCompleted(true);
+                        this.fBo.onCompleted(this.fBm.getSavedPath());
                         return;
                     }
                     return;
                 case 106:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PAUSED");
-                    this.fyc.onDownloadPaused();
+                    this.fBo.onDownloadPaused();
                     return;
                 case 107:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CANCELED");
-                    this.fyc.onDownloadCanceled();
+                    this.fBo.onDownloadCanceled();
                     return;
                 case 108:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.fya.getException().getCause());
-                    this.fyc.a((DownloadException) this.fya.getException());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.fBm.getException().getCause());
+                    this.fBo.a((DownloadException) this.fBm.getException());
                     return;
                 default:
                     return;

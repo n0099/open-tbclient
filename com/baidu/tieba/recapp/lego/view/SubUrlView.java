@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.lego.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class SubUrlView extends LinearLayout {
     public SubUrlView(Context context) {
         super(context);

@@ -1,7 +1,7 @@
 package io.reactivex.internal.schedulers;
 
 import java.util.concurrent.Callable;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ScheduledDirectTask extends AbstractDirectTask implements Callable<Void> {
     private static final long serialVersionUID = 1811839108042568751L;
 

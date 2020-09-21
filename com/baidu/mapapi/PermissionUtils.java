@@ -1,10 +1,10 @@
 package com.baidu.mapapi;
 
 import com.baidu.mapsdkplatform.comapi.util.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PermissionUtils {
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static final PermissionUtils a = new PermissionUtils();
     }

@@ -9,7 +9,7 @@ import com.xiaomi.push.ij;
 import com.xiaomi.push.ik;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class al {
     public static int a(ak akVar, hs hsVar) {
         int i = 0;
@@ -19,7 +19,7 @@ public class al {
                 i = 1;
                 break;
         }
-        return akVar.f847a.getInt(a, i);
+        return akVar.f846a.getInt(a, i);
     }
 
     private static String a(hs hsVar) {
@@ -36,7 +36,7 @@ public class al {
             int a = hxVar.a();
             ht a2 = ht.a(hxVar.b());
             if (a2 != null) {
-                if (z && hxVar.f483a) {
+                if (z && hxVar.f482a) {
                     arrayList.add(new Pair(Integer.valueOf(a), null));
                 } else {
                     switch (a2) {
@@ -64,7 +64,7 @@ public class al {
     }
 
     public static void a(ak akVar, hs hsVar, int i) {
-        akVar.f847a.edit().putInt(a(hsVar), i).commit();
+        akVar.f846a.edit().putInt(a(hsVar), i).commit();
     }
 
     public static void a(ak akVar, ij ijVar) {
@@ -76,7 +76,7 @@ public class al {
         for (hv hvVar : ikVar.a()) {
             if (hvVar.a() > a(akVar, hvVar.m358a())) {
                 a(akVar, hvVar.m358a(), hvVar.a());
-                akVar.a(a(hvVar.f475a, false));
+                akVar.a(a(hvVar.f474a, false));
             }
         }
         akVar.b();

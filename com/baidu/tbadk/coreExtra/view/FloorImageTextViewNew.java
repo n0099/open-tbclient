@@ -14,50 +14,50 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import org.json.JSONArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
-    private static final int eFQ = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds348);
-    private static final int eFR = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds308);
-    private TbRichTextView dTG;
-    private EditorScrollView eFS;
-    private int eFT;
-    private boolean eFU;
+    private static final int eHX = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds348);
+    private static final int eHY = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds308);
+    private TbRichTextView dVQ;
+    private EditorScrollView eHZ;
+    private int eIa;
+    private boolean eIb;
 
     public FloorImageTextViewNew(Context context) {
         super(context);
-        this.eFU = false;
+        this.eIb = false;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-        this.dTG = (TbRichTextView) findViewById(R.id.textview);
-        this.dTG.setVerticalScrollBarEnabled(true);
-        this.dTG.setTextSize(eFg);
-        this.dTG.setTextColor(ap.getColor(R.color.white_alpha83));
-        this.eFS = (EditorScrollView) findViewById(R.id.scrollview);
-        this.eFS.setPadding(0, l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34), 0, BOTTOM);
-        this.eFS.setOnTouchListener(this.eFj);
-        ((ViewGroup.MarginLayoutParams) this.eFS.getLayoutParams()).topMargin = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds174);
+        this.dVQ = (TbRichTextView) findViewById(R.id.textview);
+        this.dVQ.setVerticalScrollBarEnabled(true);
+        this.dVQ.setTextSize(eHn);
+        this.dVQ.setTextColor(ap.getColor(R.color.white_alpha83));
+        this.eHZ = (EditorScrollView) findViewById(R.id.scrollview);
+        this.eHZ.setPadding(0, l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34), 0, BOTTOM);
+        this.eHZ.setOnTouchListener(this.eHq);
+        ((ViewGroup.MarginLayoutParams) this.eHZ.getLayoutParams()).topMargin = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }
 
     private void e(Pair<Integer, Integer> pair) {
         if (pair != null) {
             if (((Integer) pair.second).intValue() > 2) {
-                if (bpL()) {
-                    this.eFT = eFR + TOP + BOTTOM;
+                if (bqF()) {
+                    this.eIa = eHY + TOP + BOTTOM;
                 } else {
-                    this.eFT = eFQ + TOP + BOTTOM;
+                    this.eIa = eHX + TOP + BOTTOM;
                 }
             } else {
-                this.eFT = -2;
+                this.eIa = -2;
             }
-            pK(this.eFT);
+            pX(this.eIa);
         }
     }
 
-    private boolean bpL() {
+    private boolean bqF() {
         float equipmentDensity = l.getEquipmentDensity(getContext());
         int equipmentHeight = l.getEquipmentHeight(getContext());
         int equipmentWidth = l.getEquipmentWidth(getContext());
@@ -78,7 +78,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     */
     public void a(ImageUrlData imageUrlData) {
         JSONArray jSONArray;
-        this.eFh = imageUrlData;
+        this.eHo = imageUrlData;
         JSONArray jSONArray2 = null;
         if (imageUrlData != null) {
             try {
@@ -89,36 +89,36 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 jSONArray = new JSONArray(imageUrlData.richTextArray);
                 jSONArray2 = jSONArray;
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
-                    this.eFU = true;
-                    com.baidu.tieba.view.c.dFi().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    this.eIb = true;
+                    com.baidu.tieba.view.c.dJc().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
-                    e(Bo(a.toString()));
-                    this.dTG.setText(a);
+                    e(BK(a.toString()));
+                    this.dVQ.setText(a);
                 } else {
-                    this.eFU = false;
+                    this.eIb = false;
                 }
-                setVisibility(!this.eFU ? 0 : 8);
+                setVisibility(!this.eIb ? 0 : 8);
             }
         }
         jSONArray = null;
         jSONArray2 = jSONArray;
         if (imageUrlData == null) {
         }
-        this.eFU = false;
-        setVisibility(!this.eFU ? 0 : 8);
+        this.eIb = false;
+        setVisibility(!this.eIb ? 0 : 8);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
-    public void iW(boolean z) {
+    public void iT(boolean z) {
         setExpandState(z);
     }
 
     private void setExpandState(boolean z) {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
-            setVisibility(this.eFU ? 0 : 8);
+            setVisibility(this.eIb ? 0 : 8);
             if (z) {
-                layoutParams.height = this.eFT;
+                layoutParams.height = this.eIa;
                 setLayoutParams(layoutParams);
                 return;
             }

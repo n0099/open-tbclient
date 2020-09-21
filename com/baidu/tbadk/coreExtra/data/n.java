@@ -1,49 +1,40 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private ArrayList<String> dYV;
-    private AntiData eAp = new AntiData();
-    private UserData mUser;
+    private String alA;
+    private String eCq;
+    private String eCr;
+    private String mIcon;
+    private int mVersion;
 
-    public n() {
-        this.mUser = null;
-        this.dYV = null;
-        this.mUser = new UserData();
-        this.dYV = new ArrayList<>(3);
+    public void db(JSONObject jSONObject) {
+        this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+        this.eCq = jSONObject.optString("tab_code");
+        this.eCr = jSONObject.optString("pop_text");
+        this.alA = jSONObject.optString("thread_id");
+        this.mVersion = jSONObject.optInt("version");
     }
 
-    public ArrayList<String> bmK() {
-        return this.dYV;
+    public String getIcon() {
+        return this.mIcon;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public String bnB() {
+        return this.eCq;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.dYV.add(optJSONArray.optString(i, null));
-                }
-            }
-            this.eAp.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public String getPopText() {
+        return this.eCr;
+    }
+
+    public String getTid() {
+        return this.alA;
+    }
+
+    public int getVersion() {
+        return this.mVersion;
     }
 }

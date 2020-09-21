@@ -1,9 +1,9 @@
 package com.faceunity.wrapper;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public class faceunity {
     private static boolean isDebug = false;
-    static int[] nBo = new int[2];
-    static int[] nBp = new int[1];
+    static int[] nLl = new int[2];
+    static int[] nLm = new int[1];
 
     @Deprecated
     public static native int fuAvatarBindItems(int i, int[] iArr, int[] iArr2);

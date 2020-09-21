@@ -2,7 +2,6 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.a;
@@ -54,7 +53,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.cardType = jSONObject.optInt(IntentConfig.CARD_TYPE);
         this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
         this.flipId = jSONObject.optString("flip_id");
-        this.scheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
+        this.scheme = jSONObject.optString("scheme");
         this.title = jSONObject.optString("title");
         this.statistics = jSONObject.optString("statistics");
         this.sExtras = jSONObject.optString("sExtras");
@@ -223,7 +222,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.bzg().parse(jSONObject);
+                a.bAp().parse(jSONObject);
             }
         }
     }

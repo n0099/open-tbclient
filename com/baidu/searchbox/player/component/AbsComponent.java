@@ -7,7 +7,7 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ComponentLayer;
-/* loaded from: classes9.dex */
+/* loaded from: classes23.dex */
 public abstract class AbsComponent implements IComponent {
     protected ComponentLayer mParent;
 

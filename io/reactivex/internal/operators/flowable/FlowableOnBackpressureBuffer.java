@@ -6,7 +6,7 @@ import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -14,14 +14,14 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
     final boolean unbounded;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class BackpressureBufferSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T> {
         private static final long serialVersionUID = -2514538129242366402L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         volatile boolean cancelled;
         final boolean delayError;
         volatile boolean done;
@@ -30,9 +30,9 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
         boolean outputFused;
         final io.reactivex.internal.a.f<T> queue;
         final AtomicLong requested = new AtomicLong();
-        org.b.d s;
+        org.a.d s;
 
-        BackpressureBufferSubscriber(org.b.c<? super T> cVar, int i, boolean z, boolean z2, io.reactivex.c.a aVar) {
+        BackpressureBufferSubscriber(org.a.c<? super T> cVar, int i, boolean z, boolean z2, io.reactivex.c.a aVar) {
             io.reactivex.internal.a.f<T> spscArrayQueue;
             this.actual = cVar;
             this.onOverflow = aVar;
@@ -45,8 +45,8 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             this.queue = spscArrayQueue;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -54,7 +54,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.queue.offer(t)) {
                 this.s.cancel();
@@ -73,7 +73,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
@@ -84,7 +84,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             if (this.outputFused) {
@@ -94,7 +94,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (!this.outputFused && SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -102,7 +102,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -116,7 +116,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
         void drain() {
             if (getAndIncrement() == 0) {
                 io.reactivex.internal.a.f<T> fVar = this.queue;
-                org.b.c<? super T> cVar = this.actual;
+                org.a.c<? super T> cVar = this.actual;
                 int i = 1;
                 while (!checkTerminated(this.done, fVar.isEmpty(), cVar)) {
                     long j = this.requested.get();
@@ -150,7 +150,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.b.c<? super T> cVar) {
+        boolean checkTerminated(boolean z, boolean z2, org.a.c<? super T> cVar) {
             if (this.cancelled) {
                 this.queue.clear();
                 return true;

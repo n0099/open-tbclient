@@ -6,7 +6,7 @@ import com.baidu.mapsdkplatform.comapi.commonutils.a.d;
 import com.baidu.mapsdkplatform.comapi.map.f;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h implements d.c {
     final /* synthetic */ Context a;
     final /* synthetic */ String b;

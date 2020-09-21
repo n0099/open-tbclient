@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d {
-    private com.baidu.live.im.data.a aMA;
-    private List<com.baidu.live.im.data.a> aMz;
+    private List<com.baidu.live.im.data.a> aOr;
+    private com.baidu.live.im.data.a aOs;
 
-    public static d Do() {
-        return a.aMB;
+    public static d DF() {
+        return a.aOt;
     }
 
     public void j(com.baidu.live.im.data.a aVar) {
-        if (this.aMz == null) {
-            this.aMz = new ArrayList();
+        if (this.aOr == null) {
+            this.aOr = new ArrayList();
         }
-        if (k(aVar) || this.aMz.size() < com.baidu.live.w.a.Nk().beJ.aHe) {
-            this.aMz.add(aVar);
+        if (k(aVar) || this.aOr.size() < com.baidu.live.x.a.NN().bhy.aIu) {
+            this.aOr.add(aVar);
         }
     }
 
@@ -27,38 +27,38 @@ public class d {
     }
 
     public boolean hasMsg() {
-        return (this.aMz == null || this.aMz.isEmpty()) ? false : true;
+        return (this.aOr == null || this.aOr.isEmpty()) ? false : true;
     }
 
-    public boolean Dp() {
-        return this.aMA != null;
+    public boolean DG() {
+        return this.aOs != null;
     }
 
-    public com.baidu.live.im.data.a Dq() {
+    public com.baidu.live.im.data.a DH() {
         if (hasMsg()) {
-            this.aMA = this.aMz.remove(0);
+            this.aOs = this.aOr.remove(0);
         } else {
-            this.aMA = null;
+            this.aOs = null;
         }
-        return this.aMA;
+        return this.aOs;
     }
 
-    public com.baidu.live.im.data.a Dr() {
-        return this.aMA;
+    public com.baidu.live.im.data.a DI() {
+        return this.aOs;
     }
 
     public void release() {
-        this.aMA = null;
-        if (this.aMz != null) {
-            this.aMz.clear();
+        this.aOs = null;
+        if (this.aOr != null) {
+            this.aOr.clear();
         }
     }
 
     private d() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        private static final d aMB = new d();
+        private static final d aOt = new d();
     }
 }

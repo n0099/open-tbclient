@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class d implements View.OnClickListener {
     final /* synthetic */ PermissionsHelperActivity a;
 

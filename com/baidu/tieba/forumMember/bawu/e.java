@@ -13,10 +13,10 @@ import tbclient.BawuRoleDes;
 import tbclient.BawuRoleInfoPub;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class e {
-    private a hOs = null;
-    private com.baidu.adp.framework.listener.a hOt = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a hVs = null;
+    private com.baidu.adp.framework.listener.a hVt = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -34,19 +34,19 @@ public class e {
                     }
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.wG(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.Ij(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.wI(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.Ik(e.this.mManagerApplyInfo.assist_apply_url);
+                        pVar.xf(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        pVar.IG(e.this.mManagerApplyInfo.manager_apply_url);
+                        pVar.xh(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        pVar.IH(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.hOs != null) {
-                        e.this.hOs.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.hVs != null) {
+                        e.this.hVs.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener hOu = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener hVu = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,13 +57,13 @@ public class e {
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.wG(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.Ij(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.wI(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.Ik(e.this.mManagerApplyInfo.assist_apply_url);
+                    pVar.xf(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    pVar.IG(e.this.mManagerApplyInfo.manager_apply_url);
+                    pVar.xh(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    pVar.IH(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.hOs != null) {
-                    e.this.hOs.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.hVs != null) {
+                    e.this.hVs.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -72,35 +72,35 @@ public class e {
     private boolean mIsPrivateForum;
     private ManagerApplyInfo mManagerApplyInfo;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void a(ArrayList<i> arrayList, p pVar, boolean z, int i, String str);
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.hOu);
-        MessageManager.getInstance().registerListener(this.hOt);
+        MessageManager.getInstance().registerListener(this.hVu);
+        MessageManager.getInstance().registerListener(this.hVt);
     }
 
-    public void eE(long j) {
+    public void eO(long j) {
         BawuTeamInfoReadCacheRequestMessage bawuTeamInfoReadCacheRequestMessage = new BawuTeamInfoReadCacheRequestMessage();
         bawuTeamInfoReadCacheRequestMessage.setCacheKey("" + j);
         MessageManager.getInstance().sendMessage(bawuTeamInfoReadCacheRequestMessage);
     }
 
-    public void eF(long j) {
+    public void eP(long j) {
         BawuTeamRequestMessage bawuTeamRequestMessage = new BawuTeamRequestMessage();
         bawuTeamRequestMessage.setForumId(j);
         MessageManager.getInstance().sendMessage(bawuTeamRequestMessage);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.hOt);
-        MessageManager.getInstance().unRegisterListener(this.hOu);
+        MessageManager.getInstance().unRegisterListener(this.hVt);
+        MessageManager.getInstance().unRegisterListener(this.hVu);
     }
 
     public void a(a aVar) {
-        this.hOs = aVar;
+        this.hVs = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -119,7 +119,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.If(bawuRoleDes.role_name);
+                    bVar.IC(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {
@@ -128,15 +128,15 @@ public class e {
                     i2 += 2;
                     if (i2 >= size2) {
                         if (this.mIsPrivateForum) {
-                            bVar.nX(false);
+                            bVar.od(false);
                         } else {
-                            bVar.nX(true);
+                            bVar.od(true);
                         }
-                        bVar.nW(true);
+                        bVar.oc(true);
                     } else {
-                        bVar.nW(false);
+                        bVar.oc(false);
                     }
-                    bVar.as(arrayList2);
+                    bVar.au(arrayList2);
                     arrayList.add(bVar);
                 }
                 if (i <= size - 2) {

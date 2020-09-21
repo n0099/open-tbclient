@@ -5,15 +5,15 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private FrameLayout ahv;
-    private boolean dya;
-    private ArrayList<a> dxZ = new ArrayList<>();
-    private boolean dyb = false;
+    private FrameLayout ahP;
+    private boolean dAb;
+    private ArrayList<a> dAa = new ArrayList<>();
+    private boolean dAc = false;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.ahv = frameLayout;
+        this.ahP = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -23,111 +23,111 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.ahv.addView(view, layoutParams);
+        this.ahP.addView(view, layoutParams);
         return true;
     }
 
     public boolean removeView(View view) {
-        if (!aE(view)) {
+        if (!aG(view)) {
             return false;
         }
-        this.ahv.removeView(view);
+        this.ahP.removeView(view);
         return true;
     }
 
     public boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        if (!aE(view)) {
+        if (!aG(view)) {
             return false;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.ahv.updateViewLayout(view, layoutParams);
+        this.ahP.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.dya;
+        return this.dAb;
     }
 
-    public void gP(boolean z) {
-        this.dya = z;
+    public void gN(boolean z) {
+        this.dAb = z;
     }
 
-    public boolean aE(View view) {
-        return view != null && view.getParent() == this.ahv && this.ahv.indexOfChild(view) >= 0;
+    public boolean aG(View view) {
+        return view != null && view.getParent() == this.ahP && this.ahP.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.ahv.getContext();
+        return this.ahP.getContext();
     }
 
-    public FrameLayout aQn() {
-        return this.ahv;
+    public FrameLayout aQZ() {
+        return this.ahP;
     }
 
-    public boolean aQo() {
-        return this.dyb;
+    public boolean aRa() {
+        return this.dAc;
     }
 
-    public void gQ(boolean z) {
-        this.dyb = z;
+    public void gO(boolean z) {
+        this.dAc = z;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.dxZ.contains(aVar)) {
-                this.dxZ.add(aVar);
+            if (!this.dAa.contains(aVar)) {
+                this.dAa.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.dxZ.remove(aVar);
+            this.dAa.remove(aVar);
         }
     }
 
-    private synchronized a[] aQp() {
+    private synchronized a[] aRb() {
         a[] aVarArr;
-        if (this.dxZ.isEmpty()) {
+        if (this.dAa.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.dxZ.size()];
-            this.dxZ.toArray(aVarArr);
+            aVarArr = new a[this.dAa.size()];
+            this.dAa.toArray(aVarArr);
         }
         return aVarArr;
     }
 
-    private synchronized void aQq() {
-        this.dxZ.clear();
+    private synchronized void aRc() {
+        this.dAa.clear();
     }
 
-    public void aoa() {
-        a[] aQp = aQp();
-        if (aQp != null) {
-            for (a aVar : aQp) {
-                aVar.aJX();
+    public void aoK() {
+        a[] aRb = aRb();
+        if (aRb != null) {
+            for (a aVar : aRb) {
+                aVar.aKI();
             }
         }
     }
 
-    public void anZ() {
-        a[] aQp = aQp();
-        if (aQp != null) {
-            for (a aVar : aQp) {
-                aVar.aJY();
+    public void aoJ() {
+        a[] aRb = aRb();
+        if (aRb != null) {
+            for (a aVar : aRb) {
+                aVar.aKJ();
             }
         }
     }
 
-    public void aQr() {
-        a[] aQp = aQp();
-        if (aQp != null) {
-            for (a aVar : aQp) {
+    public void aRd() {
+        a[] aRb = aRb();
+        if (aRb != null) {
+            for (a aVar : aRb) {
                 aVar.onViewDestroy();
             }
         }
-        aQq();
+        aRc();
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.platform.comapi.map.b;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.b.a.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private MapController b;
     private com.baidu.platform.comapi.map.b.a.b c;
-    a.InterfaceC0243a a = new c(this);
+    a.InterfaceC0241a a = new c(this);
     private com.baidu.platform.comapi.map.b.a.a d = new com.baidu.platform.comapi.map.b.a.a(this.a);
 
     public b(MapController mapController) {

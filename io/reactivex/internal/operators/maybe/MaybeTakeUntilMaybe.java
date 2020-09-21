@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class MaybeTakeUntilMaybe<T, U> extends a<T, T> {
     final o<U> other;
 
@@ -16,7 +16,7 @@ public final class MaybeTakeUntilMaybe<T, U> extends a<T, T> {
         this.source.a(takeUntilMainMaybeObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -2187421758664251153L;
         final m<? super T> actual;
@@ -82,7 +82,7 @@ public final class MaybeTakeUntilMaybe<T, U> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<io.reactivex.disposables.b> implements m<U> {
             private static final long serialVersionUID = -1266041316834525931L;
             final TakeUntilMainMaybeObserver<?, U> parent;

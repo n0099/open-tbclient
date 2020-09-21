@@ -1,34 +1,34 @@
 package com.baidu.tieba.square.square;
 
 import com.baidu.tbadk.core.data.bt;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class i implements com.baidu.tbadk.core.flow.a.a {
-    private bt mbC;
+    private bt mlc;
 
     public i(bt btVar) {
-        this.mbC = btVar;
+        this.mlc = btVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        if (this.mbC == null) {
+        if (this.mlc == null) {
             return null;
         }
-        return this.mbC.bcA();
+        return this.mlc.bdu();
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bcC() {
-        if (this.mbC == null) {
+    public String bdw() {
+        if (this.mlc == null) {
             return null;
         }
-        return this.mbC.getLink();
+        return this.mlc.getLink();
     }
 
-    public String dvA() {
-        if (this.mbC == null) {
+    public String dzt() {
+        if (this.mlc == null) {
             return null;
         }
-        return this.mbC.bdV();
+        return this.mlc.beP();
     }
 }

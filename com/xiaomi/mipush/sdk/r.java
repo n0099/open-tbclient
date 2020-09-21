@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.clientreport.data.Config;
 import com.xiaomi.push.ix;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class r {
     public static <T extends ix<T, ?>> void a(Context context, Config config) {
         if (config == null) {

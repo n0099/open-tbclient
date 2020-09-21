@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/remoteDebug");
@@ -24,12 +24,12 @@ public class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!e.aee()) {
+        if (!e.aeO()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity azC = com.baidu.swan.apps.runtime.d.azE().azC();
+        SwanAppActivity aAl = com.baidu.swan.apps.runtime.d.aAn().aAl();
         char c = 65535;
         switch (str.hashCode()) {
             case -279631955:
@@ -48,19 +48,19 @@ public class b extends aa {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (azC != null) {
-                    Intent intent = azC.getIntent();
-                    e.aeg();
-                    com.baidu.swan.apps.runtime.d.azE().w(new String[0]);
-                    com.baidu.swan.apps.runtime.d.azE().e(intent.getExtras(), "update_tag_by_remote_debug");
+                if (aAl != null) {
+                    Intent intent = aAl.getIntent();
+                    e.aeQ();
+                    com.baidu.swan.apps.runtime.d.aAn().w(new String[0]);
+                    com.baidu.swan.apps.runtime.d.aAn().e(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             case 1:
-                if (azC != null) {
+                if (aAl != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        azC.finishAndRemoveTask();
+                        aAl.finishAndRemoveTask();
                     } else {
-                        azC.finish();
+                        aAl.finish();
                     }
                     System.exit(0);
                 }

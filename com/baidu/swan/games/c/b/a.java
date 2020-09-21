@@ -2,10 +2,10 @@ package com.baidu.swan.games.c.b;
 
 import android.support.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     @NonNull
-    public abstract File afR();
+    public abstract File agB();
 
-    public abstract void ld(@NonNull String str);
+    public abstract void lw(@NonNull String str);
 }

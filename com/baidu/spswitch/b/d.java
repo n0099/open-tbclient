@@ -1,10 +1,10 @@
 package com.baidu.spswitch.b;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 public class d {
-    private static boolean bRo = false;
-    private static int bRp = 0;
+    private static boolean bTo = false;
+    private static int bTp = 0;
     private static final boolean DEBUG = b.isDebug();
 
     public static float g(Context context, float f) {

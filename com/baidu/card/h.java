@@ -1,31 +1,23 @@
 package com.baidu.card;
 
 import android.content.Context;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-/* loaded from: classes15.dex */
-public abstract class h extends b<AbsThreadDataSupport> {
-    private int bottomMargin;
-    private int topMargin;
+/* loaded from: classes20.dex */
+public class h extends at {
+    private boolean afB;
 
     public h(Context context) {
         super(context);
-        this.topMargin = 0;
-        this.bottomMargin = 0;
+        this.afB = false;
     }
 
-    public int getTopMargin() {
-        return this.topMargin;
+    public h(Context context, boolean z) {
+        super(context);
+        this.afB = false;
+        this.afB = z;
     }
 
-    public void setTopMargin(int i) {
-        this.topMargin = i;
-    }
-
-    public int tD() {
-        return this.bottomMargin;
-    }
-
-    public void bn(int i) {
-        this.bottomMargin = i;
+    @Override // com.baidu.card.at
+    protected com.baidu.tieba.play.operableVideoView.a tH() {
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.aie, this.afB);
     }
 }

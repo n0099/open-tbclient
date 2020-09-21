@@ -1,7 +1,7 @@
 package com.tencent.open.a;
 
 import android.util.Log;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public final class e extends i {
     public static final e a = new e();
 

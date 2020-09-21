@@ -9,12 +9,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class SlidingTabStrip extends LinearLayout {
-    private final int jdM;
-    private final Paint jdN;
-    private int jdO;
-    private int jdP;
+    private final int jmt;
+    private final Paint jmu;
+    private int jmv;
+    private int jmw;
     private final Paint mSelectedIndicatorPaint;
     private int mSelectedPosition;
 
@@ -25,11 +25,11 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.jdM = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.jmt = getResources().getDimensionPixelSize(R.dimen.ds5);
         this.mSelectedIndicatorPaint = new Paint();
         this.mSelectedIndicatorPaint.setColor(ap.getSkinColor(null, R.color.cp_cont_b));
-        this.jdN = new Paint();
-        this.jdN.setColor(ap.getColor(R.color.cp_bg_line_c));
+        this.jmu = new Paint();
+        this.jmu.setColor(ap.getColor(R.color.cp_bg_line_c));
     }
 
     public void i(int i, float f) {
@@ -42,15 +42,15 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i == 0) {
-            this.jdO = childAt.getLeft();
+            this.jmv = childAt.getLeft();
         } else {
-            this.jdO = childAt.getLeft() + dimensionPixelSize2;
+            this.jmv = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.jdP = this.jdO + dimensionPixelSize;
+        this.jmw = this.jmv + dimensionPixelSize;
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.jdO = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.jdO));
-            this.jdP = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.jdP));
+            this.jmv = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.jmv));
+            this.jmw = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.jmw));
         }
     }
 
@@ -61,15 +61,15 @@ public class SlidingTabStrip extends LinearLayout {
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f;
         if (this.mSelectedPosition == 0) {
-            this.jdO = (int) (left + left2);
+            this.jmv = (int) (left + left2);
         } else {
-            this.jdO = (int) (dimensionPixelSize + left + left2);
+            this.jmv = (int) (dimensionPixelSize + left + left2);
         }
-        this.jdP = getResources().getDimensionPixelSize(R.dimen.ds64) + this.jdO;
+        this.jmw = getResources().getDimensionPixelSize(R.dimen.ds64) + this.jmv;
         invalidate();
     }
 
-    public void cG(int i, int i2) {
+    public void cJ(int i, int i2) {
         if (i != i2) {
             this.mSelectedPosition = i;
             int childCount = getChildCount();
@@ -101,15 +101,15 @@ public class SlidingTabStrip extends LinearLayout {
     }
 
     private void b(Canvas canvas, int i) {
-        if (this.jdP <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
-            this.jdP = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.jmw <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
+            this.jmw = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.jdO, i - this.jdM, this.jdP, i), 10.0f, 10.0f, this.mSelectedIndicatorPaint);
+        canvas.drawRoundRect(new RectF(this.jmv, i - this.jmt, this.jmw, i), 10.0f, 10.0f, this.mSelectedIndicatorPaint);
     }
 
     public void onChangeSkinType(int i) {
         this.mSelectedIndicatorPaint.setColor(ap.getSkinColor(null, R.color.cp_cont_b));
-        this.jdN.setColor(ap.getColor(R.color.cp_bg_line_c));
+        this.jmu.setColor(ap.getColor(R.color.cp_bg_line_c));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {

@@ -1,5 +1,5 @@
 package com.baidu.tieba.personPolymeric.b;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public interface c {
-    void dib();
+    void dlG();
 }

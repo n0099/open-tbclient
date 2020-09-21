@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.liveroom.challenge.message;
 
-import com.baidu.live.data.al;
-import com.baidu.live.data.ap;
-import com.baidu.live.data.ar;
-import com.baidu.live.data.as;
-import com.baidu.live.data.at;
+import com.baidu.live.data.aq;
+import com.baidu.live.data.au;
+import com.baidu.live.data.aw;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.ay;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage {
-    private ap aIk;
-    private at aIl;
-    private at aIm;
-    private al gqL;
-    private ar gqM;
-    private as gqN;
+    private au aJF;
+    private ay aJG;
+    private ay aJH;
+    private aq guc;
+    private aw gud;
+    private ax gue;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -27,70 +27,70 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("challenge_info");
             if (optJSONObject2 != null) {
-                this.aIk = new ap();
-                this.aIk.parseJson(optJSONObject2);
+                this.aJF = new au();
+                this.aJF.parseJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("anchor_info");
             if (optJSONObject3 != null) {
-                this.aIl = new at();
-                this.aIl.parseJson(optJSONObject3);
+                this.aJG = new ay();
+                this.aJG.parseJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("rival_info");
             if (optJSONObject4 != null) {
-                this.aIm = new at();
-                this.aIm.parseJson(optJSONObject4);
+                this.aJH = new ay();
+                this.aJH.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("challenge_conf");
             if (optJSONObject5 != null) {
-                this.gqL = new al();
-                this.gqL.parseJson(optJSONObject5);
+                this.guc = new aq();
+                this.guc.parseJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("punish_info");
             if (optJSONObject6 != null) {
-                this.gqM = new ar();
-                this.gqM.parseJson(optJSONObject6);
+                this.gud = new aw();
+                this.gud.parseJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("punishStickerInfo");
             if (optJSONObject7 != null) {
-                this.gqN = new as();
-                this.gqN.parseJson(optJSONObject7);
+                this.gue = new ax();
+                this.gue.parseJson(optJSONObject7);
             }
         }
     }
 
-    public void a(ap apVar) {
-        this.aIk = apVar;
+    public void a(au auVar) {
+        this.aJF = auVar;
     }
 
-    public void a(at atVar) {
-        this.aIl = atVar;
+    public void a(ay ayVar) {
+        this.aJG = ayVar;
     }
 
-    public void b(at atVar) {
-        this.aIm = atVar;
+    public void b(ay ayVar) {
+        this.aJH = ayVar;
     }
 
-    public ap bPy() {
-        return this.aIk;
+    public au bQN() {
+        return this.aJF;
     }
 
-    public at bPz() {
-        return this.aIl;
+    public ay bQO() {
+        return this.aJG;
     }
 
-    public at bPA() {
-        return this.aIm;
+    public ay bQP() {
+        return this.aJH;
     }
 
-    public al bPB() {
-        return this.gqL;
+    public aq bQQ() {
+        return this.guc;
     }
 
-    public ar bPC() {
-        return this.gqM;
+    public aw bQR() {
+        return this.gud;
     }
 
-    public as bPD() {
-        return this.gqN;
+    public ax bQS() {
+        return this.gue;
     }
 }

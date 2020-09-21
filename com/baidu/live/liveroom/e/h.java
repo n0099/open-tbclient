@@ -1,66 +1,23 @@
 package com.baidu.live.liveroom.e;
 
-import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class h {
-    private static volatile h bee = null;
-    private e bef;
-    private e beh;
-    private c bei;
-    private com.baidu.live.p.d bej;
+    private static Boolean bgV;
 
-    private h() {
-    }
-
-    public static h Lr() {
-        if (bee == null) {
-            synchronized (h.class) {
-                if (bee == null) {
-                    bee = new h();
-                }
-            }
+    public static boolean isDebug() {
+        if (bgV != null) {
+            return bgV.booleanValue();
         }
-        return bee;
-    }
-
-    public void a(e eVar) {
-        this.bef = eVar;
-    }
-
-    public void b(e eVar) {
-        this.beh = eVar;
-    }
-
-    public boolean Ls() {
-        return this.bef != null;
-    }
-
-    public d av(Context context) {
-        if (this.bef != null) {
-            return this.bef.au(context);
+        bgV = false;
+        HashMap hashMap = new HashMap();
+        hashMap.put("debug_LivePlayerDebugEnable", false);
+        Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
+        if (process.containsKey("debug_LivePlayerDebugEnable")) {
+            bgV = Boolean.valueOf(((Boolean) process.get("debug_LivePlayerDebugEnable")).booleanValue());
         }
-        return null;
-    }
-
-    public d aw(Context context) {
-        if (this.beh != null) {
-            return this.beh.au(context);
-        }
-        return null;
-    }
-
-    public void a(c cVar) {
-        this.bei = cVar;
-    }
-
-    public b Lt() {
-        if (this.bei != null) {
-            return this.bei.Lq();
-        }
-        return null;
-    }
-
-    public com.baidu.live.p.d Lu() {
-        return this.bej;
+        return bgV.booleanValue();
     }
 }

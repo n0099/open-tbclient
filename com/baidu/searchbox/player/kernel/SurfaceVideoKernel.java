@@ -7,7 +7,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class SurfaceVideoKernel extends AbsVideoCyber {
     private static final String TAG = "SurfaceVideoKernel";
     private Surface mCurSurface;

@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.face.liveness.activity;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class e implements Animation.AnimationListener {
     final /* synthetic */ Animation a;
     final /* synthetic */ LivenessRecogActivity b;

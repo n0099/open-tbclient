@@ -1,58 +1,68 @@
 package com.baidu.tieba.ala.person.a;
 
+import com.baidu.live.data.AlaLiveInfoData;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d {
-    public int has_more;
-    public List<b> user_list;
+    public List<AlaLiveInfoData> gTt;
+    public b gTu;
+
+    public List cak() {
+        int i = 0;
+        if (ListUtils.isEmpty(this.gTt)) {
+            return null;
+        }
+        int count = ListUtils.getCount(this.gTt);
+        ArrayList arrayList = new ArrayList(count / 2);
+        if (count != 1) {
+            while (true) {
+                int i2 = i;
+                if (i2 >= count - 1) {
+                    break;
+                }
+                a aVar = new a();
+                aVar.gTr = (AlaLiveInfoData) ListUtils.getItem(this.gTt, i2);
+                aVar.gTs = (AlaLiveInfoData) ListUtils.getItem(this.gTt, i2 + 1);
+                arrayList.add(aVar);
+                i = i2 + 2;
+            }
+        } else {
+            a aVar2 = new a();
+            aVar2.gTr = (AlaLiveInfoData) ListUtils.getItem(this.gTt, 0);
+            arrayList.add(aVar2);
+        }
+        return arrayList;
+    }
 
     public void parserJson(String str) {
-        JSONObject jSONObject;
         try {
-            jSONObject = new JSONObject(str);
+            parserJson(new JSONObject(str));
         } catch (JSONException e) {
             e.printStackTrace();
-            jSONObject = null;
         }
-        parserJson(jSONObject);
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray = jSONObject.optJSONArray("record_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.user_list = new ArrayList(optJSONArray.length());
+                this.gTt = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        b bVar = new b();
-                        bVar.parserJson(optJSONObject);
-                        this.user_list.add(bVar);
+                        AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
+                        alaLiveInfoData.parserJson(optJSONObject);
+                        this.gTt.add(alaLiveInfoData);
                     }
                 }
             }
-            this.has_more = jSONObject.optInt("has_more");
+            this.gTu = new b();
+            this.gTu.parserJson(jSONObject.optJSONObject("page"));
         }
-    }
-
-    public String toString() {
-        JSONObject jSONObject = new JSONObject();
-        JSONArray jSONArray = new JSONArray();
-        if (this.user_list != null && !this.user_list.isEmpty()) {
-            for (b bVar : this.user_list) {
-                jSONArray.put(bVar.toString());
-            }
-        }
-        try {
-            jSONObject.put("user_list", jSONArray.toString());
-            jSONObject.put("has_more", this.has_more);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
     }
 }

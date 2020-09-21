@@ -20,7 +20,7 @@ import com.xiaomi.push.jc;
 import com.xiaomi.push.service.ap;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class w {
     static fl a(XMPushService xMPushService, byte[] bArr) {
         ii iiVar = new ii();
@@ -37,15 +37,15 @@ public final class w {
         try {
             fl flVar = new fl();
             flVar.a(5);
-            flVar.c(kVar.f916a);
+            flVar.c(kVar.f915a);
             flVar.b(a(iiVar));
             flVar.a("SECMSG", "message");
-            String str = kVar.f916a;
-            iiVar.f601a.f528a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
-            iiVar.f601a.f532c = str.substring(str.indexOf("/") + 1);
+            String str = kVar.f915a;
+            iiVar.f600a.f527a = str.substring(0, str.indexOf(UgcConstant.AT_RULE_TAG));
+            iiVar.f600a.f531c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m54a("try send mi push message. packagename:" + iiVar.f606b + " action:" + iiVar.f599a);
+            com.xiaomi.channel.commonutils.logger.b.m54a("try send mi push message. packagename:" + iiVar.f605b + " action:" + iiVar.f598a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -68,8 +68,8 @@ public final class w {
         byte[] a = iw.a(t);
         ii iiVar = new ii();
         ib ibVar = new ib();
-        ibVar.f527a = 5L;
-        ibVar.f528a = "fakeid";
+        ibVar.f526a = 5L;
+        ibVar.f527a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a));
         iiVar.a(hmVar);
@@ -81,13 +81,13 @@ public final class w {
     }
 
     private static String a(ii iiVar) {
-        if (iiVar.f600a != null && iiVar.f600a.f516b != null) {
-            String str = iiVar.f600a.f516b.get("ext_traffic_source_pkg");
+        if (iiVar.f599a != null && iiVar.f599a.f515b != null) {
+            String str = iiVar.f599a.f515b.get("ext_traffic_source_pkg");
             if (!TextUtils.isEmpty(str)) {
                 return str;
             }
         }
-        return iiVar.f606b;
+        return iiVar.f605b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

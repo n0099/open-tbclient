@@ -23,7 +23,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener {
     public static final int DEBUG_CHECK_GL_ERROR = 1;
     public static final int DEBUG_LOG_GL_CALLS = 2;
@@ -43,7 +43,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     private int l;
     private boolean m;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private abstract class a implements GLSurfaceView.EGLConfigChooser {
         protected int[] a;
 
@@ -88,7 +88,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class b extends a {
         protected int c;
         protected int d;
@@ -132,7 +132,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class c implements GLSurfaceView.EGLContextFactory {
         private int b;
 
@@ -164,7 +164,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class d implements GLSurfaceView.EGLWindowSurfaceFactory {
         private d() {
         }
@@ -190,7 +190,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class e {
         EGL10 a;
         EGLDisplay b;
@@ -330,7 +330,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class f extends Thread {
         private boolean a;
         private boolean b;
@@ -816,7 +816,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class g {
         private static String a = "GLThreadManager";
         private static final Class b;
@@ -920,7 +920,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class h extends Writer {
         private StringBuilder a = new StringBuilder();
 
@@ -956,7 +956,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class i extends b {
         public i(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);

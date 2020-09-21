@@ -3,6 +3,7 @@ package com.baidu.searchbox.afx;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Surface;
+import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
@@ -11,7 +12,7 @@ import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.IPlayer;
 import com.baidu.searchbox.afx.proxy.VideoPlayerProxy;
 import java.io.File;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class AlphaVideo extends GLTextureView {
     private static final int GL_CONTEXT_VERSION = 2;
     private AlphaVideoRenderer mAlphaVideoRenderer;
@@ -43,6 +44,7 @@ public class AlphaVideo extends GLTextureView {
         bringToFront();
         setPreserveEGLContextOnPause(true);
         setOpaque(false);
+        initReport();
     }
 
     private void initRenderer() {
@@ -74,6 +76,11 @@ public class AlphaVideo extends GLTextureView {
         if (this.mPlayer != null) {
             this.mPlayer.setGLTextureView(this);
         }
+        initReport();
+    }
+
+    private void initReport() {
+        setOnReportListener(AlphaVideoManager.getOnReportListener());
     }
 
     public void setSourcePath(String str) {
@@ -192,6 +199,12 @@ public class AlphaVideo extends GLTextureView {
     public void setOnVideoErrorListener(OnVideoErrorListener onVideoErrorListener) {
         if (this.mPlayer != null) {
             this.mPlayer.setOnVideoErrorListener(onVideoErrorListener);
+        }
+    }
+
+    protected void setOnReportListener(OnReportListener onReportListener) {
+        if (this.mPlayer != null) {
+            this.mPlayer.setOnReportListener(onReportListener);
         }
     }
 

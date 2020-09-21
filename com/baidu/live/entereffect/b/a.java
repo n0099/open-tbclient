@@ -5,7 +5,7 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static com.baidu.live.entereffect.a.a C(JSONObject jSONObject) {
         com.baidu.live.entereffect.a.a aVar = null;
@@ -20,7 +20,7 @@ public class a {
                 aVar.priority = jSONObject.optInt("priority_over_gift");
                 aVar.videoUrl = optString2;
                 aVar.videoMd5 = jSONObject.optString("video_md5");
-                aVar.aMc = optString3;
+                aVar.aNU = optString3;
                 aVar.frameCount = jSONObject.optInt("frame_count");
                 if (optJSONObject != null) {
                     try {
@@ -30,10 +30,10 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                aVar.aMd = new com.baidu.live.gift.c();
+                aVar.aNV = new com.baidu.live.gift.c();
                 com.baidu.live.gift.b bVar = new com.baidu.live.gift.b();
                 bVar.parseJson(jSONObject);
-                aVar.aMd.aMN = bVar;
+                aVar.aNV.aOF = bVar;
             }
         }
         return aVar;
@@ -52,20 +52,20 @@ public class a {
             if (!TextUtils.isEmpty(trim) && trim.charAt(0) != '#') {
                 trim = UgcConstant.TOPIC_PATTERN_TAG + trim;
             }
-            bVar.aMe = trim;
+            bVar.aNW = trim;
             String trim2 = jSONObject.optString("bg_color_end").trim();
             if (!TextUtils.isEmpty(trim2) && trim2.charAt(0) != '#') {
                 trim2 = UgcConstant.TOPIC_PATTERN_TAG + trim2;
             }
-            bVar.aMf = trim2;
-            bVar.aMg = jSONObject.optString("transparency_begin").trim();
-            bVar.aMh = jSONObject.optString("transparency_end").trim();
-            bVar.aJi = jSONObject.optString("text_color").trim();
-            bVar.aMi = jSONObject.optString("nickname_preix");
-            bVar.aMj = jSONObject.optString("nickname_suffix");
+            bVar.aNX = trim2;
+            bVar.aNY = jSONObject.optString("transparency_begin").trim();
+            bVar.aNZ = jSONObject.optString("transparency_end").trim();
+            bVar.aKy = jSONObject.optString("text_color").trim();
+            bVar.aOa = jSONObject.optString("nickname_preix");
+            bVar.aOb = jSONObject.optString("nickname_suffix");
             bVar.iconUrl = jSONObject.optString("icon_url");
-            bVar.aMk = jSONObject.optInt("icon_width");
-            bVar.aMl = jSONObject.optInt("icon_height");
+            bVar.aOc = jSONObject.optInt("icon_width");
+            bVar.aOd = jSONObject.optInt("icon_height");
             return bVar;
         } catch (JSONException e) {
             e.printStackTrace();

@@ -8,17 +8,17 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recommendlist.model.AlaRecommendLiveResponseMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RecommendListInitialize {
     static {
-        doN();
-        doO();
+        dsx();
+        dsy();
     }
 
-    private static void doN() {
+    private static void dsx() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913223, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.recommendlist.RecommendListInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.live.r.a> run(CustomMessage<TbPageContext> customMessage) {
+            public CustomResponsedMessage<com.baidu.live.t.a> run(CustomMessage<TbPageContext> customMessage) {
                 if (customMessage.getData() != null) {
                     return new CustomResponsedMessage<>(2913223, new a(customMessage.getData()));
                 }
@@ -29,7 +29,7 @@ public class RecommendListInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void doO() {
+    private static void dsy() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021193, TbConfig.SERVER_ADDRESS + "ala/follow/followedAnthor");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

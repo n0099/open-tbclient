@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.c.a;
 
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class f extends b {
     public f() {
-        super(com.baidu.tieba.im.settingcache.b.cIi(), CmdConfigCustom.CMD_SAVE_DRAFT_GROUP);
+        super(com.baidu.tieba.im.settingcache.b.cLO(), CmdConfigCustom.CMD_SAVE_DRAFT_GROUP);
     }
 }

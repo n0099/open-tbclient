@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.view.CustomViewHolder;
 import com.baidu.tieba.live.tbean.view.GiftBagItemView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GiftBagAdapter extends AbsDelegateAdapter<GiftBagWrapperData, CustomViewHolder> {
     private GiftBagItemView mGiftBagItemView;
     private TbPageContext<?> mPageContext;

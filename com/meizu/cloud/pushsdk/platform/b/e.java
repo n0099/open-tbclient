@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e extends c<SubTagsStatus> {
     private String a;
     private int b;

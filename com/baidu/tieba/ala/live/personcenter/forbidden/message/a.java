@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.live.personcenter.forbidden.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private int pn;
     private int ps;
@@ -26,7 +26,7 @@ public class a extends HttpMessage {
         return this.pn;
     }
 
-    public boolean bzD() {
+    public boolean bAM() {
         return this.pn == 1;
     }
 }

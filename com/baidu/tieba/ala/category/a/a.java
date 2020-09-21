@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
-    private String fPf;
+    private String fSq;
 
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, com.baidu.tieba.ala.category.b.c.fPu, bdUniqueId);
+        super(context, com.baidu.tieba.ala.category.b.c.fSF, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,12 +26,12 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.category.b.c cVar, b bVar) {
-        bVar.a(cVar, this.fPf);
+        bVar.a(cVar, this.fSq);
         return view;
     }
 
-    public void EH(String str) {
-        this.fPf = str;
+    public void Fe(String str) {
+        this.fSq = str;
         notifyDataSetChanged();
     }
 }

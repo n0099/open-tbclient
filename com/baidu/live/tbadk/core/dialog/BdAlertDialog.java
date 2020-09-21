@@ -21,12 +21,13 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BdAlertDialog {
     public static final int DIALOG_SIZE_BIG = 1;
     public static final int DIALOG_SIZE_SMALL = 0;
@@ -65,7 +66,7 @@ public class BdAlertDialog {
     private int messageTextColor = -1;
     private boolean isAutoNight = true;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface OnClickListener {
         void onClick(BdAlertDialog bdAlertDialog);
     }
@@ -335,12 +336,13 @@ public class BdAlertDialog {
     }
 
     public void autoChangeSkinType(BdPageContext<?> bdPageContext) {
+        BDLayoutMode layoutMode;
         int skinType = isAutoNight() ? TbadkCoreApplication.getInst().getSkinType() : 0;
-        if (bdPageContext instanceof TbPageContext) {
-            ((TbPageContext) bdPageContext).getLayoutMode().setNightMode(skinType == 1);
-            ((TbPageContext) bdPageContext).getLayoutMode().onModeChanged(this.mRootView);
+        if ((bdPageContext instanceof TbPageContext) && (layoutMode = ((TbPageContext) bdPageContext).getLayoutMode()) != null) {
+            layoutMode.setNightMode(skinType == 1);
+            layoutMode.onModeChanged(this.mRootView);
             if (this.mContentView != null) {
-                ((TbPageContext) bdPageContext).getLayoutMode().onModeChanged(this.mContentView);
+                layoutMode.onModeChanged(this.mContentView);
             }
         }
         if (this.mRootView != null) {
@@ -510,7 +512,7 @@ public class BdAlertDialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class ButtonEvent implements View.OnClickListener {
         private final OnClickListener listener;
         private final BdAlertDialog mDialog;

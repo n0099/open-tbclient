@@ -1,53 +1,62 @@
 package com.baidu.tieba.ala.floating;
 
 import android.content.Context;
+import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.tieba.ala.floating.a;
-/* loaded from: classes7.dex */
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a fWj;
+    private static a fZw;
 
-    public static a eM(Context context) {
-        if (fWj == null) {
-            fWj = eN(context);
+    public static a eS(Context context) {
+        if (fZw == null) {
+            fZw = eT(context);
         }
-        return fWj;
+        return fZw;
     }
 
-    private static synchronized a eN(Context context) {
+    private static synchronized a eT(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (fWj == null) {
-                fWj = new a(context);
+            if (fZw == null) {
+                fZw = new a(context);
             }
-            aVar = fWj;
+            aVar = fZw;
         }
         return aVar;
     }
 
-    public static void b(a.InterfaceC0600a interfaceC0600a) {
-        a aVar = fWj;
+    public static AlaLiveInfoData bKx() {
+        a aVar = fZw;
         if (aVar != null) {
-            aVar.a(interfaceC0600a);
-            aVar.bJs();
+            return aVar.bKx();
+        }
+        return null;
+    }
+
+    public static void b(a.InterfaceC0595a interfaceC0595a) {
+        a aVar = fZw;
+        if (aVar != null) {
+            aVar.a(interfaceC0595a);
+            aVar.bKC();
         }
     }
 
-    public static boolean bJq() {
-        a aVar = fWj;
+    public static boolean bKA() {
+        a aVar = fZw;
         if (aVar != null) {
-            return aVar.bJq();
+            return aVar.bKA();
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void destroy() {
+    public static synchronized void dp(JSONObject jSONObject) {
         synchronized (b.class) {
-            a aVar = fWj;
-            fWj = null;
+            a aVar = fZw;
             if (aVar != null) {
-                aVar.onDestroy();
+                aVar.m40do(jSONObject);
             }
         }
     }

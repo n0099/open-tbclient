@@ -23,7 +23,7 @@ import com.baidu.location.e.l;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class LocationClient implements d.a {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
@@ -72,7 +72,7 @@ public final class LocationClient implements d.a {
     private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         private final WeakReference<LocationClient> a;
 
@@ -204,7 +204,7 @@ public final class LocationClient implements d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         private b() {
         }

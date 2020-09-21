@@ -11,7 +11,7 @@ import com.baidu.pass.biometrics.base.utils.StatService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final String a = "a";
     public static final String b = "living_recog";

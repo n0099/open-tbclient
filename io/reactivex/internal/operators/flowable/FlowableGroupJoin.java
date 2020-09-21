@@ -11,15 +11,15 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends io.reactivex.internal.operators.flowable.a<TLeft, R> {
-    final h<? super TLeft, ? extends org.b.b<TLeftEnd>> leftEnd;
-    final org.b.b<? extends TRight> onu;
+    final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
+    final org.a.b<? extends TRight> oxd;
     final io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> resultSelector;
-    final h<? super TRight, ? extends org.b.b<TRightEnd>> rightEnd;
+    final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         void innerClose(boolean z, LeftRightEndSubscriber leftRightEndSubscriber);
 
@@ -33,26 +33,26 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     }
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super R> cVar) {
+    protected void a(org.a.c<? super R> cVar) {
         GroupJoinSubscription groupJoinSubscription = new GroupJoinSubscription(cVar, this.leftEnd, this.rightEnd, this.resultSelector);
         cVar.onSubscribe(groupJoinSubscription);
         LeftRightSubscriber leftRightSubscriber = new LeftRightSubscriber(groupJoinSubscription, true);
         groupJoinSubscription.disposables.a(leftRightSubscriber);
         LeftRightSubscriber leftRightSubscriber2 = new LeftRightSubscriber(groupJoinSubscription, false);
         groupJoinSubscription.disposables.a(leftRightSubscriber2);
-        this.omT.a((j) leftRightSubscriber);
-        this.onu.subscribe(leftRightSubscriber2);
+        this.owE.a((j) leftRightSubscriber);
+        this.oxd.subscribe(leftRightSubscriber2);
     }
 
-    /* loaded from: classes7.dex */
-    static final class GroupJoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements a, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class GroupJoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements a, org.a.d {
         private static final long serialVersionUID = -6071216598687999801L;
-        final org.b.c<? super R> actual;
+        final org.a.c<? super R> actual;
         volatile boolean cancelled;
-        final h<? super TLeft, ? extends org.b.b<TLeftEnd>> leftEnd;
+        final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
         int leftIndex;
         final io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> resultSelector;
-        final h<? super TRight, ? extends org.b.b<TRightEnd>> rightEnd;
+        final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
         int rightIndex;
         static final Integer LEFT_VALUE = 1;
         static final Integer RIGHT_VALUE = 2;
@@ -60,27 +60,27 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         static final Integer RIGHT_CLOSE = 4;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.eeY());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.eiV());
         final Map<Integer, UnicastProcessor<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
         final AtomicInteger active = new AtomicInteger(2);
 
-        GroupJoinSubscription(org.b.c<? super R> cVar, h<? super TLeft, ? extends org.b.b<TLeftEnd>> hVar, h<? super TRight, ? extends org.b.b<TRightEnd>> hVar2, io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> cVar2) {
+        GroupJoinSubscription(org.a.c<? super R> cVar, h<? super TLeft, ? extends org.a.b<TLeftEnd>> hVar, h<? super TRight, ? extends org.a.b<TRightEnd>> hVar2, io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> cVar2) {
             this.actual = cVar;
             this.leftEnd = hVar;
             this.rightEnd = hVar2;
             this.resultSelector = cVar2;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -95,7 +95,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             this.disposables.dispose();
         }
 
-        void errorAll(org.b.c<?> cVar) {
+        void errorAll(org.a.c<?> cVar) {
             Throwable terminate = ExceptionHelper.terminate(this.error);
             for (UnicastProcessor<TRight> unicastProcessor : this.lefts.values()) {
                 unicastProcessor.onError(terminate);
@@ -105,7 +105,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             cVar.onError(terminate);
         }
 
-        void fail(Throwable th, org.b.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
+        void fail(Throwable th, org.a.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
             io.reactivex.exceptions.a.J(th);
             ExceptionHelper.addThrowable(this.error, th);
             gVar.clear();
@@ -118,7 +118,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         void drain() {
             if (getAndIncrement() == 0) {
                 io.reactivex.internal.queue.a<Object> aVar = this.queue;
-                org.b.c<? super R> cVar = this.actual;
+                org.a.c<? super R> cVar = this.actual;
                 int i = 1;
                 while (!this.cancelled) {
                     if (this.error.get() != null) {
@@ -142,12 +142,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastProcessor<TRight> efH = UnicastProcessor.efH();
+                            UnicastProcessor<TRight> ejE = UnicastProcessor.ejE();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), efH);
+                            this.lefts.put(Integer.valueOf(i2), ejE);
                             try {
-                                org.b.b bVar = (org.b.b) io.reactivex.internal.functions.a.k(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
+                                org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
                                 LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
                                 this.disposables.a(leftRightEndSubscriber);
                                 bVar.subscribe(leftRightEndSubscriber);
@@ -158,12 +158,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                                     return;
                                 }
                                 try {
-                                    Object obj = (Object) io.reactivex.internal.functions.a.k(this.resultSelector.apply(poll, efH), "The resultSelector returned a null value");
+                                    Object obj = (Object) io.reactivex.internal.functions.a.k(this.resultSelector.apply(poll, ejE), "The resultSelector returned a null value");
                                     if (this.requested.get() != 0) {
                                         cVar.onNext(obj);
                                         io.reactivex.internal.util.b.c(this.requested, 1L);
                                         for (TRight tright : this.rights.values()) {
-                                            efH.onNext(tright);
+                                            ejE.onNext(tright);
                                         }
                                     } else {
                                         fail(new MissingBackpressureException("Could not emit value due to lack of requests"), cVar, aVar);
@@ -182,7 +182,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                             this.rightIndex = i3 + 1;
                             this.rights.put(Integer.valueOf(i3), poll);
                             try {
-                                org.b.b bVar2 = (org.b.b) io.reactivex.internal.functions.a.k(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
+                                org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
                                 LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i3);
                                 this.disposables.a(leftRightEndSubscriber2);
                                 bVar2.subscribe(leftRightEndSubscriber2);
@@ -266,8 +266,8 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class LeftRightSubscriber extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<Object> {
+    /* loaded from: classes25.dex */
+    static final class LeftRightSubscriber extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = 1883890389173668373L;
         final boolean isLeft;
         final a parent;
@@ -288,32 +288,32 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             return SubscriptionHelper.isCancelled(get());
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(Object obj) {
             this.parent.innerValue(this.isLeft, obj);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.innerError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.parent.innerComplete(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public static final class LeftRightEndSubscriber extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<Object> {
+    /* loaded from: classes25.dex */
+    public static final class LeftRightEndSubscriber extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = 1883890389173668373L;
         final int index;
         final boolean isLeft;
@@ -336,26 +336,26 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             return SubscriptionHelper.isCancelled(get());
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(Object obj) {
             if (SubscriptionHelper.cancel(this)) {
                 this.parent.innerClose(this.isLeft, this);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.innerCloseError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.parent.innerClose(this.isLeft, this);
         }

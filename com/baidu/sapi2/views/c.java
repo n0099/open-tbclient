@@ -15,7 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class c {
     public static final int f = -1728053248;
     private static String g;
@@ -25,7 +25,7 @@ public class c {
     private View d;
     private View e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class b {
         private static final String g = "status_bar_height";
         private static final String h = "navigation_bar_height";

@@ -2,11 +2,11 @@ package com.baidu.b.a;
 
 import com.baidu.b.a.e;
 import java.lang.reflect.Method;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class h extends g {
-    private a acf;
+    private a acA;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private Class<?> a;
         private Method b;
@@ -17,7 +17,7 @@ final class h extends g {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long E(Object obj) {
+        public long F(Object obj) {
             try {
                 return ((Long) this.c.invoke(obj, new Object[0])).longValue();
             } catch (Exception e) {
@@ -56,16 +56,16 @@ final class h extends g {
         this.c = 32;
         this.d = i;
         this.e = i2;
-        this.acf = new a();
+        this.acA = new a();
     }
 
     @Override // com.baidu.b.a.g
     public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.acf.b();
-            this.acf.a(b, bArr, i, i2);
-            j = this.acf.E(b);
+            Object b = this.acA.b();
+            this.acA.a(b, bArr, i, i2);
+            j = this.acA.F(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

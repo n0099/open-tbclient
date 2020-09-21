@@ -10,24 +10,24 @@ import android.util.Base64;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bZy;
+    private String cbz;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.bZy = str;
+        this.cbz = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int acO() {
+    public int adx() {
         try {
-            JSONObject jSONObject = new JSONObject(this.bZy);
+            JSONObject jSONObject = new JSONObject(this.cbz);
             int H = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("x"));
             int H2 = com.baidu.swan.apps.ap.ah.H((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
@@ -47,7 +47,7 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = a(o(decode, optInt, optInt2), H3, H4);
+                this.mBitmap = b(o(decode, optInt, optInt2), H3, H4);
                 this.mMatrix = new Matrix();
                 this.mMatrix.postTranslate(H, H2);
                 return 0;
@@ -80,7 +80,7 @@ public class j extends a {
     }
 
     @NonNull
-    private Bitmap a(@NonNull Bitmap bitmap, float f, float f2) {
+    private Bitmap b(@NonNull Bitmap bitmap, float f, float f2) {
         Matrix matrix = new Matrix();
         matrix.postScale(f / bitmap.getWidth(), f2 / bitmap.getHeight());
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

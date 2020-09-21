@@ -3,15 +3,15 @@ package com.xiaomi.push;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.down.manage.DownloadConstants;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 final class hc {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     static class a {
         fh a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f423a;
+        String f422a;
 
         a() {
         }
@@ -43,7 +43,7 @@ final class hc {
             aVar.a = fh.GSLB_TCP_ERR_OTHER;
         }
         if (aVar.a == fh.GSLB_TCP_ERR_OTHER) {
-            aVar.f423a = str;
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -84,7 +84,7 @@ final class hc {
             aVar.a = fh.CONN_XMPP_ERR;
         }
         if (aVar.a == fh.CONN_TCP_ERR_OTHER || aVar.a == fh.CONN_XMPP_ERR || aVar.a == fh.CONN_BOSH_ERR) {
-            aVar.f423a = str;
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -132,7 +132,7 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.BIND_TCP_ERR || aVar.a == fh.BIND_XMPP_ERR || aVar.a == fh.BIND_BOSH_ERR) {
-            aVar.f423a = str;
+            aVar.f422a = str;
         }
         return aVar;
     }
@@ -177,7 +177,7 @@ final class hc {
                 break;
         }
         if (aVar.a == fh.CHANNEL_TCP_ERR || aVar.a == fh.CHANNEL_XMPPEXCEPTION || aVar.a == fh.CHANNEL_BOSH_EXCEPTION) {
-            aVar.f423a = str;
+            aVar.f422a = str;
         }
         return aVar;
     }

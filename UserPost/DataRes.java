@@ -5,7 +5,7 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import tbclient.PostInfoList;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class DataRes extends Message {
     @ProtoField(tag = 4, type = Message.Datatype.UINT64)
     public final Long ctime;
@@ -88,7 +88,7 @@ public final class DataRes extends Message {
         this.reddot_deleted_thread = builder.reddot_deleted_thread;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Long ctime;
         public Integer hide_post;

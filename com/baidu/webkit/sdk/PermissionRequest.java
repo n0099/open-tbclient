@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.net.Uri;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public abstract class PermissionRequest {
     public static final String RESOURCE_AUDIO_CAPTURE = "android.permission.RECORD_AUDIO";
     public static final String RESOURCE_MIDI_SYSEX = "com.baidu.webkit.sdk.resource.MIDI_SYSEX";

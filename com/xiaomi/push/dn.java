@@ -4,7 +4,7 @@ import android.util.Log;
 import com.xiaomi.push.al;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class dn extends al.b {
     final /* synthetic */ dm a;
 
@@ -18,7 +18,7 @@ public class dn extends al.b {
         List list;
         String str;
         String str2;
-        list = dm.f224a;
+        list = dm.f223a;
         if (list.isEmpty()) {
             return;
         }

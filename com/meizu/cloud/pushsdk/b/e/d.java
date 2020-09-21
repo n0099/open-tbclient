@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends Handler {
     private final WeakReference<com.meizu.cloud.pushsdk.b.d.a> a;
 

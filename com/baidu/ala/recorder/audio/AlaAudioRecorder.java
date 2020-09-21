@@ -2,18 +2,16 @@ package com.baidu.ala.recorder.audio;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.os.Build;
 import com.baidu.ala.helper.AlaAudioBuffer;
+import com.baidu.ala.helper.AlaAudioSession;
 import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaAudioRecorder {
     public static final int BUFFER_LENGTH = 2048;
     private int mChannels;
@@ -25,7 +23,7 @@ public class AlaAudioRecorder {
     private byte[] mBuffer = null;
     private ByteBuffer mNativeBuffer = null;
     private AlaAudioBuffer mAudioBuffer = null;
-    private AudioManager mAudioManager = null;
+    private AlaAudioSession mAudioSession = null;
     private boolean mRunOpenSLES = false;
     private volatile AlaAudioRecorderCallback mCallback = null;
     private long mLastCaptureTimestamp = 0;
@@ -35,7 +33,7 @@ public class AlaAudioRecorder {
     private int[] mNativePosArr = new int[1];
     private int[] mNativeLenArr = new int[1];
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface AlaAudioRecorderCallback {
         void onAudioRecordError(String str);
 
@@ -65,7 +63,12 @@ public class AlaAudioRecorder {
             } catch (IllegalStateException e) {
                 return false;
             }
-        } else if (this.mEnableACE && this.mRunOpenSLES) {
+        }
+        if (this.mEnableACE) {
+            this.mAudioSession.startRTC();
+        }
+        this.mAudioSession.startListen();
+        if (this.mEnableACE && this.mRunOpenSLES) {
             if (this.mOpenSLESCallback == null) {
                 this.mOpenSLESCallback = new AudioProcessModule.CaptureCallback() { // from class: com.baidu.ala.recorder.audio.AlaAudioRecorder.1
                     @Override // com.baidu.ala.ndk.AudioProcessModule.CaptureCallback
@@ -81,9 +84,8 @@ public class AlaAudioRecorder {
                 return true;
             }
             return false;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public void setCallback(AlaAudioRecorderCallback alaAudioRecorderCallback) {
@@ -100,12 +102,8 @@ public class AlaAudioRecorder {
         if (this.mNativeBuffer == null) {
             this.mNativeBuffer = ByteBuffer.allocateDirect(4096);
         }
-        if (this.mAudioManager == null) {
-            try {
-                this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+        if (this.mAudioSession == null) {
+            this.mAudioSession = new AlaAudioSession(this.mContext);
         }
     }
 
@@ -141,8 +139,6 @@ public class AlaAudioRecorder {
                 }
                 if (!this.mRunOpenSLES && this.mAudioRecord.getState() == 0) {
                     this.mAudioRecord = null;
-                } else {
-                    registerHeadset();
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -212,7 +208,6 @@ public class AlaAudioRecorder {
     }
 
     public void stopAndRelease() {
-        unregisterHeadset();
         if (this.mRunOpenSLES && AudioProcessModule.sharedInstance().audioRecorderStop() != 0) {
             BdLog.e("OpenSLES audio recorder stop failed");
         }
@@ -221,6 +216,11 @@ public class AlaAudioRecorder {
                 BdLog.e("destroy apm  failed");
             }
             AudioProcessModule.sharedInstance().setCaptureCallback(null);
+        }
+        if (this.mAudioSession != null) {
+            this.mAudioSession.stopRTC();
+            this.mAudioSession.stopListen();
+            this.mAudioSession.onDestroy();
         }
         if (this.mAudioRecord != null) {
             try {
@@ -283,94 +283,6 @@ public class AlaAudioRecorder {
                 e.printStackTrace();
                 return null;
             }
-        }
-    }
-
-    private void registerHeadset() {
-        try {
-            if (this.mContext != null) {
-                if (this.mReceiver == null) {
-                    this.mReceiver = new HeadSetReceiver();
-                }
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.intent.action.HEADSET_PLUG");
-                try {
-                    if (this.mAudioManager.isBluetoothScoAvailableOffCall()) {
-                        intentFilter.addAction("android.media.SCO_AUDIO_STATE_CHANGED");
-                        this.mAudioManager.startBluetoothSco();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                this.mContext.registerReceiver(this.mReceiver, intentFilter);
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    private void unregisterHeadset() {
-        if (this.mReceiver != null && this.mContext != null) {
-            try {
-                if (this.mAudioManager != null && this.mAudioManager.isBluetoothScoOn()) {
-                    this.mAudioManager.setBluetoothScoOn(false);
-                    this.mAudioManager.stopBluetoothSco();
-                }
-                this.mContext.unregisterReceiver(this.mReceiver);
-            } catch (Exception e) {
-                e.printStackTrace();
-                try {
-                    this.mContext.unregisterReceiver(this.mReceiver);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class HeadSetReceiver extends BroadcastReceiver {
-        private AudioManager audioManager;
-
-        public HeadSetReceiver() {
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if ("android.media.SCO_AUDIO_STATE_CHANGED".equals(action)) {
-                if (1 == intent.getIntExtra("android.media.extra.SCO_AUDIO_STATE", -1) && AlaAudioRecorder.this.mAudioManager != null) {
-                    AlaAudioRecorder.this.mAudioManager.setBluetoothScoOn(true);
-                    try {
-                        AlaAudioRecorder.this.mContext.unregisterReceiver(this);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            } else if ("android.intent.action.HEADSET_PLUG".equals(action) && intent.hasExtra("state")) {
-                if (intent.getIntExtra("state", 0) == 0) {
-                    AlaAudioRecorder.this.setEnableSpeaker(context, true);
-                } else if (intent.getIntExtra("state", 0) == 1) {
-                    AlaAudioRecorder.this.setEnableSpeaker(context, false);
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setEnableSpeaker(Context context, boolean z) {
-        if (this.mAudioManager == null) {
-            try {
-                this.mAudioManager = (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                BdLog.e(e);
-                return;
-            }
-        }
-        try {
-            this.mAudioManager.setSpeakerphoneOn(z);
-        } catch (Exception e2) {
-            BdLog.e(e2);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.ioc;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public final class ComboPraiseRuntime {
     public static IComboPraiseContext getContext() {
         return new IComboPraiseContext() { // from class: com.baidu.searchbox.ui.animview.praise.ioc.ComboPraiseRuntime.1
@@ -12,6 +12,25 @@ public final class ComboPraiseRuntime {
             @Override // com.baidu.searchbox.ui.animview.praise.ioc.IComboPraiseContext
             public boolean getPraiseSwitchState() {
                 return false;
+            }
+
+            @Override // com.baidu.searchbox.ui.animview.praise.ioc.IComboPraiseContext
+            public boolean isPraiseOptimized() {
+                return false;
+            }
+
+            @Override // com.baidu.searchbox.ui.animview.praise.ioc.IComboPraiseContext
+            public boolean isPraiseLoginSupported() {
+                return false;
+            }
+
+            @Override // com.baidu.searchbox.ui.animview.praise.ioc.IComboPraiseContext
+            public boolean isLogin() {
+                return false;
+            }
+
+            @Override // com.baidu.searchbox.ui.animview.praise.ioc.IComboPraiseContext
+            public void doLogin(Context context, ILoginStatusListener iLoginStatusListener) {
             }
         };
     }

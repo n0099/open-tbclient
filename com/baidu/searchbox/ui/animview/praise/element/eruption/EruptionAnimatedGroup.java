@@ -1,38 +1,28 @@
 package com.baidu.searchbox.ui.animview.praise.element.eruption;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
+import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.EruptionStrategyGroup;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategy;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class EruptionAnimatedGroup extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float ERUPTION_RANDOM_DURATION_FACTOR = 0.6f;
-    private Context mCtx;
-    private List<Float> mElementAngleList;
-    private List<Float> mElementFactorList;
-    private List<BaseAnimatedElement> mElementList;
+    protected List<Float> mElementAngleList;
+    protected List<Float> mElementFactorList;
+    protected List<BaseAnimatedElement> mElementList;
     private IEruptionStrategyGroup mEruptionStrategyGrp;
     private IEruptionStrategy.IHostCallback mHostCallback;
+    protected Object[] mOtherInitParams;
 
-    public EruptionAnimatedGroup(Context context, Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
+    public EruptionAnimatedGroup(Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
         super(callback, scaleType);
-        this.mHostCallback = new IEruptionStrategy.IHostCallback() { // from class: com.baidu.searchbox.ui.animview.praise.element.eruption.EruptionAnimatedGroup.1
-            @Override // com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategy.IHostCallback
-            public BaseAnimatedElement createAndInitEruption(int i, int i2) {
-                EruptionAnimElement eruptionAnimElement = new EruptionAnimElement(EruptionAnimatedGroup.this.mCtx, i2, EruptionAnimatedGroup.this.mDrawableCallback, EruptionAnimatedGroup.this.mScaleType);
-                eruptionAnimElement.init(EruptionAnimatedGroup.this.mLeft, EruptionAnimatedGroup.this.mTop, EruptionAnimatedGroup.this.mWidth, EruptionAnimatedGroup.this.mHeight, EruptionAnimatedGroup.this.mResourceProvider, new Object[0]);
-                return eruptionAnimElement;
-            }
-        };
-        this.mCtx = context;
-        this.mEruptionStrategyGrp = new EruptionStrategyGroup();
     }
 
     private static float getTransformedFraction(float f, float f2) {
@@ -49,23 +39,32 @@ public class EruptionAnimatedGroup extends BaseAnimatedElement {
     }
 
     public void updateCurrentStrategy(String str) {
-        if (this.mEruptionStrategyGrp != null) {
-            this.mEruptionStrategyGrp.setCurrentStrategy(str);
-            generatedElements();
+        if (this.mEruptionStrategyGrp == null) {
+            this.mEruptionStrategyGrp = new EruptionStrategyGroup();
         }
+        this.mEruptionStrategyGrp.setCurrentStrategy(str);
+        generatedElements();
     }
 
     private void generatedElements() {
         List<Float> transformedFactorList;
-        if (this.mEruptionStrategyGrp != null) {
-            List<BaseAnimatedElement> generateEruptionElementList = this.mEruptionStrategyGrp.generateEruptionElementList(this.mResourceProvider, this.mHostCallback);
-            List<Float> generateEruptionRotateAngleList = this.mEruptionStrategyGrp.generateEruptionRotateAngleList();
-            if (generateEruptionElementList != null && !generateEruptionElementList.isEmpty() && generateEruptionRotateAngleList != null && !generateEruptionRotateAngleList.isEmpty() && (transformedFactorList = getTransformedFactorList(generateEruptionElementList.size())) != null && !transformedFactorList.isEmpty()) {
-                releaseResouces();
-                this.mElementList = generateEruptionElementList;
-                this.mElementAngleList = generateEruptionRotateAngleList;
-                this.mElementFactorList = transformedFactorList;
-            }
+        if (this.mHostCallback == null) {
+            this.mHostCallback = new IEruptionStrategy.IHostCallback() { // from class: com.baidu.searchbox.ui.animview.praise.element.eruption.EruptionAnimatedGroup.1
+                @Override // com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategy.IHostCallback
+                public BaseAnimatedElement createAndInitEruption(int i, int i2, IResourceProvider iResourceProvider) {
+                    EruptionAnimElement eruptionAnimElement = new EruptionAnimElement(i2, EruptionAnimatedGroup.this.mDrawableCallback, EruptionAnimatedGroup.this.mScaleType);
+                    eruptionAnimElement.init(EruptionAnimatedGroup.this.mLeft, EruptionAnimatedGroup.this.mTop, EruptionAnimatedGroup.this.mWidth, EruptionAnimatedGroup.this.mHeight, iResourceProvider, new Object[0]);
+                    return eruptionAnimElement;
+                }
+            };
+        }
+        List<BaseAnimatedElement> generateEruptionElementList = this.mEruptionStrategyGrp.generateEruptionElementList(this.mResourceProvider, this.mHostCallback);
+        List<Float> generateEruptionRotateAngleList = this.mEruptionStrategyGrp.generateEruptionRotateAngleList();
+        if (generateEruptionElementList != null && !generateEruptionElementList.isEmpty() && generateEruptionRotateAngleList != null && !generateEruptionRotateAngleList.isEmpty() && (transformedFactorList = getTransformedFactorList(generateEruptionElementList.size())) != null && !transformedFactorList.isEmpty()) {
+            releaseResouces();
+            this.mElementList = generateEruptionElementList;
+            this.mElementAngleList = generateEruptionRotateAngleList;
+            this.mElementFactorList = transformedFactorList;
         }
     }
 
@@ -81,7 +80,7 @@ public class EruptionAnimatedGroup extends BaseAnimatedElement {
                     BaseAnimatedElement next = it.next();
                     canvas.save();
                     if (this.mElementAngleList != null && i2 < this.mElementAngleList.size() && (next instanceof EruptionAnimElement)) {
-                        ((EruptionAnimElement) next).setRotate(this.mElementAngleList.get(i2).floatValue(), this.mWidth / 2, this.mHeight);
+                        ((EruptionAnimElement) next).setRotate(this.mElementAngleList.get(i2).floatValue(), 0.5f, 1.0f);
                     }
                     next.dispatchAnimate(canvas, getTransformedFraction(f, this.mElementFactorList.get(i2).floatValue()), j);
                     i = i2 + 1;
@@ -116,7 +115,7 @@ public class EruptionAnimatedGroup extends BaseAnimatedElement {
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement, com.baidu.searchbox.ui.animview.base.IAnimatedElement
     public BaseAnimatedElement cloneInstance() {
-        EruptionAnimatedGroup eruptionAnimatedGroup = new EruptionAnimatedGroup(this.mCtx, this.mDrawableCallback, this.mScaleType);
+        EruptionAnimatedGroup eruptionAnimatedGroup = new EruptionAnimatedGroup(this.mDrawableCallback, this.mScaleType);
         eruptionAnimatedGroup.init(this.mLeft, this.mTop, this.mWidth, this.mHeight, this.mResourceProvider, new Object[0]);
         return eruptionAnimatedGroup;
     }

@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.base.utils.Base64Utils;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 class h extends AsyncTask<Void, Void, PassFaceRecogResult> {
     final /* synthetic */ PassFaceRecogResult a;
     final /* synthetic */ i b;

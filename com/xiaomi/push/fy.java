@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class fy {
     private static int a;
     private static int b;
@@ -17,7 +17,7 @@ public final class fy {
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f378a = new Vector<>();
+    private static Vector<String> f377a = new Vector<>();
 
     static {
         a = 5000;
@@ -42,7 +42,7 @@ public final class fy {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f378a.add(newPullParser.nextText());
+                                    f377a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();

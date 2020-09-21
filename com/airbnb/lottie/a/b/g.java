@@ -4,7 +4,7 @@ import android.graphics.Path;
 import com.airbnb.lottie.model.content.Mask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class g {
     private final List<Mask> DA;
     private final List<a<com.airbnb.lottie.model.content.h, Path>> Dy;
@@ -18,8 +18,8 @@ public class g {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.Dy.add(list.get(i2).jZ().jB());
-                this.Dz.add(list.get(i2).jH().jB());
+                this.Dy.add(list.get(i2).ka().jC());
+                this.Dz.add(list.get(i2).jI().jC());
                 i = i2 + 1;
             } else {
                 return;
@@ -27,15 +27,15 @@ public class g {
         }
     }
 
-    public List<Mask> jl() {
+    public List<Mask> jm() {
         return this.DA;
     }
 
-    public List<a<com.airbnb.lottie.model.content.h, Path>> jm() {
+    public List<a<com.airbnb.lottie.model.content.h, Path>> jn() {
         return this.Dy;
     }
 
-    public List<a<Integer, Integer>> jn() {
+    public List<a<Integer, Integer>> jo() {
         return this.Dz;
     }
 }

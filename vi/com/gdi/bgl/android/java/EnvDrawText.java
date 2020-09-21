@@ -9,7 +9,7 @@ import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
 import java.nio.IntBuffer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class EnvDrawText {
     private static final String DEVICE_VIVOX3L = "vivo X3L";
     private static final int FONT_STYLE_BOLD = 1;

@@ -14,7 +14,7 @@ import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(16)
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class FlutterRenderer implements TextureRegistry {
     private static final String TAG = "FlutterRenderer";
     @NonNull
@@ -37,7 +37,7 @@ public class FlutterRenderer implements TextureRegistry {
         }
     };
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static final class ViewportMetrics {
         public float devicePixelRatio = 1.0f;
         public int width = 0;
@@ -87,7 +87,7 @@ public class FlutterRenderer implements TextureRegistry {
         return surfaceTextureRegistryEntry;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         private final long id;
         private SurfaceTexture.OnFrameAvailableListener onFrameListener = new SurfaceTexture.OnFrameAvailableListener() { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.SurfaceTextureRegistryEntry.1

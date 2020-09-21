@@ -9,23 +9,23 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class be {
     private static be a = new be();
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f884a;
+    private static String f883a;
 
     /* renamed from: a  reason: collision with other field name */
-    private al.b f885a;
+    private al.b f884a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ej.a f886a;
+    private ej.a f885a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<a> f887a = new ArrayList();
+    private List<a> f886a = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a {
         public void a(ej.a aVar) {
         }
@@ -45,33 +45,33 @@ public class be {
     public static synchronized String m559a() {
         String str;
         synchronized (be.class) {
-            if (f884a == null) {
+            if (f883a == null) {
                 SharedPreferences sharedPreferences = com.xiaomi.push.t.m583a().getSharedPreferences("XMPushServiceConfig", 0);
-                f884a = sharedPreferences.getString("DeviceUUID", null);
-                if (f884a == null) {
-                    f884a = com.xiaomi.push.i.a(com.xiaomi.push.t.m583a(), false);
-                    if (f884a != null) {
-                        sharedPreferences.edit().putString("DeviceUUID", f884a).commit();
+                f883a = sharedPreferences.getString("DeviceUUID", null);
+                if (f883a == null) {
+                    f883a = com.xiaomi.push.i.a(com.xiaomi.push.t.m583a(), false);
+                    if (f883a != null) {
+                        sharedPreferences.edit().putString("DeviceUUID", f883a).commit();
                     }
                 }
             }
-            str = f884a;
+            str = f883a;
         }
         return str;
     }
 
     private void b() {
-        if (this.f886a == null) {
+        if (this.f885a == null) {
             d();
         }
     }
 
     private void c() {
-        if (this.f885a != null) {
+        if (this.f884a != null) {
             return;
         }
-        this.f885a = new bf(this);
-        gv.a(this.f885a);
+        this.f884a = new bf(this);
+        gv.a(this.f884a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
@@ -85,14 +85,14 @@ public class be {
             try {
                 bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m583a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f886a = ej.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f885a = ej.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     com.xiaomi.push.y.a(bufferedInputStream);
                 } catch (Exception e) {
                     e = e;
                     com.xiaomi.channel.commonutils.logger.b.m54a("load config failure: " + e.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
-                    if (this.f886a != null) {
+                    if (this.f885a != null) {
                     }
                 }
             } catch (Throwable th) {
@@ -109,18 +109,18 @@ public class be {
             com.xiaomi.push.y.a(bufferedInputStream);
             throw th;
         }
-        if (this.f886a != null) {
-            this.f886a = new ej.a();
+        if (this.f885a != null) {
+            this.f885a = new ej.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         try {
-            if (this.f886a != null) {
+            if (this.f885a != null) {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m583a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                this.f886a.a(a2);
+                this.f885a.a(a2);
                 a2.m176a();
                 bufferedOutputStream.close();
             }
@@ -133,8 +133,8 @@ public class be {
     /* renamed from: a  reason: collision with other method in class */
     public int m562a() {
         b();
-        if (this.f886a != null) {
-            return this.f886a.c();
+        if (this.f885a != null) {
+            return this.f885a.c();
         }
         return 0;
     }
@@ -142,13 +142,13 @@ public class be {
     /* renamed from: a  reason: collision with other method in class */
     public ej.a m563a() {
         b();
-        return this.f886a;
+        return this.f885a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
     public synchronized void m564a() {
-        this.f887a.clear();
+        this.f886a.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -158,7 +158,7 @@ public class be {
             c();
         }
         synchronized (this) {
-            aVarArr = (a[]) this.f887a.toArray(new a[this.f887a.size()]);
+            aVarArr = (a[]) this.f886a.toArray(new a[this.f886a.size()]);
         }
         for (a aVar : aVarArr) {
             aVar.a(bVar);
@@ -166,6 +166,6 @@ public class be {
     }
 
     public synchronized void a(a aVar) {
-        this.f887a.add(aVar);
+        this.f886a.add(aVar);
     }
 }

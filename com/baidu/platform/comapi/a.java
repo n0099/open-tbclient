@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.platform.comjni.engine.MessageProxy;
 import com.baidu.platform.comjni.engine.NAEngine;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     static boolean a = false;
     private NAEngine b;

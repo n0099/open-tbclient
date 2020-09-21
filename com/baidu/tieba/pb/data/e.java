@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class e implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId kwH = BdUniqueId.gen();
+    public static final BdUniqueId kFg = BdUniqueId.gen();
     private BdUniqueId mTag;
     private String mTitle;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kwH;
+        return kFg;
     }
 
     public String getTitle() {

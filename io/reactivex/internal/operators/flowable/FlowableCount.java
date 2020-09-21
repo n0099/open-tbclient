@@ -3,25 +3,25 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableCount<T> extends a<T, Long> {
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super Long> cVar) {
-        this.omT.a((j) new CountSubscriber(cVar));
+    protected void a(org.a.c<? super Long> cVar) {
+        this.owE.a((j) new CountSubscriber(cVar));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class CountSubscriber extends DeferredScalarSubscription<Long> implements j<Object> {
         private static final long serialVersionUID = 4973004223787171406L;
         long count;
-        org.b.d s;
+        org.a.d s;
 
-        CountSubscriber(org.b.c<? super Long> cVar) {
+        CountSubscriber(org.a.c<? super Long> cVar) {
             super(cVar);
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -29,22 +29,22 @@ public final class FlowableCount<T> extends a<T, Long> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(Object obj) {
             this.count++;
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             complete(Long.valueOf(this.count));
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

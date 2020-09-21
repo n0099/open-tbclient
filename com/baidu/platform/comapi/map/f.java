@@ -18,7 +18,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f implements ad {
     private static final j b = new j();
     private WeakReference<SurfaceView> a;
@@ -27,14 +27,14 @@ public class f implements ad {
     private ak e;
     private boolean f;
     private e g;
-    private InterfaceC0244f h;
+    private InterfaceC0242f h;
     private g i;
     private k j;
     private int k;
     private int l;
     private boolean m;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private abstract class a implements e {
         protected int[] a;
 
@@ -83,7 +83,7 @@ public class f implements ad {
         abstract EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class b extends a {
         protected int c;
         protected int d;
@@ -127,15 +127,15 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes20.dex */
-    private class c implements InterfaceC0244f {
+    /* loaded from: classes3.dex */
+    private class c implements InterfaceC0242f {
         private int b;
 
         private c() {
             this.b = 12440;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0244f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             int[] iArr = {this.b, f.this.l, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
@@ -145,7 +145,7 @@ public class f implements ad {
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0244f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 return;
@@ -155,7 +155,7 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class d implements g {
         private d() {
         }
@@ -176,20 +176,20 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public interface InterfaceC0244f {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0242f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         EGLSurface a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
@@ -197,7 +197,7 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class h {
         EGL10 a;
         EGLDisplay b;
@@ -372,7 +372,7 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class i extends Thread {
         private boolean a;
         private boolean b;
@@ -876,7 +876,7 @@ public class f implements ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class j {
         private static String a = "GLThreadManager";
 
@@ -893,13 +893,13 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface k {
         GL a(GL gl);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class l extends Writer {
         private StringBuilder a = new StringBuilder();
 
@@ -936,7 +936,7 @@ public class f implements ad {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class m extends b {
         public m(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);
@@ -1018,9 +1018,9 @@ public class f implements ad {
         this.g = eVar;
     }
 
-    public void a(InterfaceC0244f interfaceC0244f) {
+    public void a(InterfaceC0242f interfaceC0242f) {
         l();
-        this.h = interfaceC0244f;
+        this.h = interfaceC0242f;
     }
 
     @Override // com.baidu.platform.comapi.map.ad

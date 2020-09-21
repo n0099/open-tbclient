@@ -14,13 +14,13 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SampleToChunkBox extends AbstractFullBox {
     public static final String TYPE = "stsc";
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_3 = null;
     List<Entry> entries;
 
     static {
@@ -82,7 +82,7 @@ public class SampleToChunkBox extends AbstractFullBox {
     }
 
     public long[] blowup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Og(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.OL(i)));
         long[] jArr = new long[i];
         LinkedList linkedList = new LinkedList(this.entries);
         Collections.reverse(linkedList);
@@ -98,7 +98,7 @@ public class SampleToChunkBox extends AbstractFullBox {
         return jArr;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         long firstChunk;
         long sampleDescriptionIndex;

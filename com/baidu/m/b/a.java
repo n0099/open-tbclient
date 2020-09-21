@@ -3,9 +3,9 @@ package com.baidu.m.b;
 import android.content.Context;
 import android.os.Process;
 /* JADX WARN: Classes with same name are omitted:
-  classes10.dex
+  classes14.dex
  */
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a {
     public static int checkSelfPermission(Context context, String str) {
         if (str == null) {
@@ -18,7 +18,7 @@ public class a {
         return checkSelfPermission(context, str) == 0;
     }
 
-    public static boolean F(Context context, String str) {
+    public static boolean I(Context context, String str) {
         return checkSelfPermission(context, str) == -1;
     }
 }

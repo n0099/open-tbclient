@@ -1,16 +1,16 @@
 package com.baidu.live.challenge;
 
-import com.baidu.live.data.ap;
-import com.baidu.live.data.at;
-/* loaded from: classes7.dex */
+import com.baidu.live.data.au;
+import com.baidu.live.data.ay;
+/* loaded from: classes4.dex */
 public interface g {
-    void BF();
+    void BU();
 
-    void BG();
+    void BV();
 
-    void BH();
+    void BW();
 
-    void a(ap apVar, at atVar, at atVar2);
+    void a(au auVar, ay ayVar, ay ayVar2);
 
     void bc(boolean z);
 

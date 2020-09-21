@@ -24,7 +24,7 @@ public class bn {
         return this.uid;
     }
 
-    public String bdP() {
+    public String beJ() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class bn {
         return this.portrait;
     }
 
-    public String bdQ() {
+    public String beK() {
         return this.institute;
     }
 

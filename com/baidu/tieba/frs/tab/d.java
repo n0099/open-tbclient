@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.tab;
 
 import com.baidu.tieba.frs.bg;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d {
-    public bg irI;
+    public bg iyY;
     public String name;
     public int tabId;
     public int tabType;

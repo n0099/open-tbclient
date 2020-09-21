@@ -1,5 +1,5 @@
 package android.app;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class AppGlobals {
     public static Application getInitialApplication() {
         return null;

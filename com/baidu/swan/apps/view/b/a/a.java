@@ -10,39 +10,39 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String deo;
-    private List<C0457a> dep;
-    private List<C0457a> deq;
-    private int[] der;
+    private String dgp;
+    private List<C0452a> dgq;
+    private List<C0452a> dgr;
+    private int[] dgs;
     private long mTimeStamp;
 
     public a(MotionEvent motionEvent) {
-        this.deo = BdStatsConstant.StatsType.ERROR;
+        this.dgp = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
-        this.dep = new ArrayList();
-        this.deq = new ArrayList();
-        this.der = new int[2];
+        this.dgq = new ArrayList();
+        this.dgr = new ArrayList();
+        this.dgs = new int[2];
         a(motionEvent, "");
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.deo = BdStatsConstant.StatsType.ERROR;
+        this.dgp = BdStatsConstant.StatsType.ERROR;
         this.mTimeStamp = 0L;
-        this.dep = new ArrayList();
-        this.deq = new ArrayList();
-        this.der = new int[2];
+        this.dgq = new ArrayList();
+        this.dgr = new ArrayList();
+        this.dgs = new int[2];
         a(motionEvent, str);
     }
 
-    public String aGg() {
-        return this.deo;
+    public String aGQ() {
+        return this.dgp;
     }
 
     public void h(int[] iArr) {
-        this.der = iArr;
+        this.dgs = iArr;
         if (DEBUG) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
@@ -51,54 +51,54 @@ public class a {
     private void a(MotionEvent motionEvent, String str) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.deo = "touchstart";
+                this.dgp = "touchstart";
                 A(motionEvent);
                 break;
             case 1:
-                this.deo = "touchend";
+                this.dgp = "touchend";
                 A(motionEvent);
                 break;
             case 2:
-                this.deo = "touchmove";
+                this.dgp = "touchmove";
                 A(motionEvent);
                 break;
             case 3:
-                this.deo = "touchcancel";
+                this.dgp = "touchcancel";
                 A(motionEvent);
                 break;
             case 4:
             default:
-                this.deo = BdStatsConstant.StatsType.ERROR;
+                this.dgp = BdStatsConstant.StatsType.ERROR;
                 break;
             case 5:
-                this.deo = "touchpointerdown";
+                this.dgp = "touchpointerdown";
                 A(motionEvent);
                 break;
             case 6:
-                this.deo = "touchpointerup";
+                this.dgp = "touchpointerup";
                 A(motionEvent);
                 break;
         }
         this.mTimeStamp = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.deo = str;
+            this.dgp = str;
         }
         onTouch(motionEvent);
-        if (TextUtils.equals(this.deo, "touchpointerdown")) {
-            this.deo = "touchstart";
+        if (TextUtils.equals(this.dgp, "touchpointerdown")) {
+            this.dgp = "touchstart";
         }
-        if (TextUtils.equals(this.deo, "touchpointerup")) {
-            this.deo = "touchend";
+        if (TextUtils.equals(this.dgp, "touchpointerup")) {
+            this.dgp = "touchend";
         }
     }
 
     private void onTouch(MotionEvent motionEvent) {
-        if (!TextUtils.equals(this.deo, "touchend") && !TextUtils.equals(this.deo, "touchcancel")) {
+        if (!TextUtils.equals(this.dgp, "touchend") && !TextUtils.equals(this.dgp, "touchcancel")) {
             try {
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i = 0; i < pointerCount; i++) {
                     if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
-                        this.dep.add(b(motionEvent, i));
+                        this.dgq.add(b(motionEvent, i));
                     }
                 }
             } catch (Exception e) {
@@ -112,12 +112,12 @@ public class a {
     private void A(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.deq.add(b(motionEvent, motionEvent.getActionIndex()));
+                this.dgr.add(b(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i = 0; i < pointerCount; i++) {
-                this.deq.add(b(motionEvent, i));
+                this.dgr.add(b(motionEvent, i));
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -126,34 +126,34 @@ public class a {
         }
     }
 
-    public C0457a b(MotionEvent motionEvent, int i) {
+    public C0452a b(MotionEvent motionEvent, int i) {
         int pointerId = motionEvent.getPointerId(i);
-        C0457a c0457a = new C0457a();
-        c0457a.identifier = pointerId;
-        c0457a.x = motionEvent.getX(i);
-        c0457a.y = motionEvent.getY(i);
-        c0457a.det = (motionEvent.getRawX() + c0457a.x) - motionEvent.getX();
-        c0457a.deu = (motionEvent.getRawY() + c0457a.y) - motionEvent.getY();
-        c0457a.dev = motionEvent.getPressure(i);
-        return c0457a;
+        C0452a c0452a = new C0452a();
+        c0452a.identifier = pointerId;
+        c0452a.x = motionEvent.getX(i);
+        c0452a.y = motionEvent.getY(i);
+        c0452a.dgt = (motionEvent.getRawX() + c0452a.x) - motionEvent.getX();
+        c0452a.dgu = (motionEvent.getRawY() + c0452a.y) - motionEvent.getY();
+        c0452a.dgv = motionEvent.getPressure(i);
+        return c0452a;
     }
 
-    public JSONObject aGh() {
+    public JSONObject aGR() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!this.dep.isEmpty()) {
-                for (C0457a c0457a : this.dep) {
-                    if (c0457a != null) {
-                        jSONArray.put(c0457a.aGi());
+            if (!this.dgq.isEmpty()) {
+                for (C0452a c0452a : this.dgq) {
+                    if (c0452a != null) {
+                        jSONArray.put(c0452a.aGS());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.deq.isEmpty()) {
-                for (C0457a c0457a2 : this.deq) {
-                    if (c0457a2 != null) {
-                        jSONArray2.put(c0457a2.aGi());
+            if (!this.dgr.isEmpty()) {
+                for (C0452a c0452a2 : this.dgr) {
+                    if (c0452a2 != null) {
+                        jSONArray2.put(c0452a2.aGS());
                     }
                 }
             }
@@ -170,27 +170,27 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0457a {
-        private float det;
-        private float deu;
-        private float dev;
+    /* loaded from: classes3.dex */
+    public class C0452a {
+        private float dgt;
+        private float dgu;
+        private float dgv;
         private int identifier;
         private float x;
         private float y;
 
-        private C0457a() {
+        private C0452a() {
         }
 
-        JSONObject aGi() {
+        JSONObject aGS() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("x", ah.px2dpFloat(this.x));
                 jSONObject.put("y", ah.px2dpFloat(this.y));
-                jSONObject.put("clientX", ah.px2dpFloat(this.det - a.this.der[0]));
-                jSONObject.put("clientY", ah.px2dpFloat(this.deu - a.this.der[1]));
+                jSONObject.put("clientX", ah.px2dpFloat(this.dgt - a.this.dgs[0]));
+                jSONObject.put("clientY", ah.px2dpFloat(this.dgu - a.this.dgs[1]));
                 jSONObject.put("identifier", this.identifier);
-                jSONObject.put("force", this.dev);
+                jSONObject.put("force", this.dgv);
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     e.printStackTrace();

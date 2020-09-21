@@ -37,8 +37,8 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
     private int l;
     private int m;
     private ArrayList<FanItem> n;
-    private RecyclerView nSf;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> nSg;
+    private RecyclerView oca;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ocb;
 
     public PlayShowMicPerson(Context context) {
         this(context, null);
@@ -65,12 +65,12 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
             }
         });
         this.a = (TextView) findViewById(a.f.tv_mic_count);
-        this.nSf = (RecyclerView) findViewById(a.f.lv_list);
-        this.m = (int) ((tv.chushou.zues.utils.a.gW(this.b).y * 0.7d) - tv.chushou.zues.utils.a.dip2px(this.b, 44.0f));
-        this.nSf.setLayoutManager(new LinearLayoutManager(this.b));
-        this.nSg = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.n, a.h.list_playshow_micperson_item, new d() { // from class: com.kascend.chushou.player.ui.PlayShowMicPerson.2
+        this.oca = (RecyclerView) findViewById(a.f.lv_list);
+        this.m = (int) ((tv.chushou.zues.utils.a.hc(this.b).y * 0.7d) - tv.chushou.zues.utils.a.dip2px(this.b, 44.0f));
+        this.oca.setLayoutManager(new LinearLayoutManager(this.b));
+        this.ocb = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.n, a.h.list_playshow_micperson_item, new d() { // from class: com.kascend.chushou.player.ui.PlayShowMicPerson.2
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void C(View view, int i2) {
+            public void D(View view, int i2) {
                 if (PlayShowMicPerson.this.b != null && PlayShowMicPerson.this.n != null && i2 >= 0 && i2 < PlayShowMicPerson.this.n.size()) {
                     com.kascend.chushou.d.a.a(PlayShowMicPerson.this.b, e.O("_fromView", "53"), PlayShowMicPerson.this.e, ((FanItem) PlayShowMicPerson.this.n.get(i2)).mUserId, PlayShowMicPerson.this.f, false);
                 }
@@ -78,16 +78,16 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
         }) { // from class: com.kascend.chushou.player.ui.PlayShowMicPerson.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC1014a view$OnLongClickListenerC1014a, FanItem fanItem) {
-                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC1014a.qW(a.f.iv_avatar);
+            public void a(a.View$OnLongClickListenerC1011a view$OnLongClickListenerC1011a, FanItem fanItem) {
+                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC1011a.rn(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
-                view$OnLongClickListenerC1014a.u(a.f.iv_avatar);
-                frescoThumbnailView.bX(fanItem.mAvatar, c.emi());
+                view$OnLongClickListenerC1011a.u(a.f.iv_avatar);
+                frescoThumbnailView.bX(fanItem.mAvatar, c.eqg());
                 tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
                 cVar.append(fanItem.mNickname);
-                cVar.append(" ").a(PlayShowMicPerson.this.b, c.WQ(fanItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
-                ((TextView) view$OnLongClickListenerC1014a.qW(a.f.tv_nickname)).setText(cVar);
-                TextView textView = (TextView) view$OnLongClickListenerC1014a.qW(a.f.tv_signature);
+                cVar.append(" ").a(PlayShowMicPerson.this.b, c.Xs(fanItem.mGender), a.d.double_icon_size, a.d.double_icon_size);
+                ((TextView) view$OnLongClickListenerC1011a.rn(a.f.tv_nickname)).setText(cVar);
+                TextView textView = (TextView) view$OnLongClickListenerC1011a.rn(a.f.tv_signature);
                 if (h.isEmpty(fanItem.mSignature)) {
                     textView.setVisibility(8);
                 } else {
@@ -95,16 +95,16 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
                     textView.setText(fanItem.mSignature);
                 }
                 if (!h.isEmpty(fanItem.mFansIcon)) {
-                    view$OnLongClickListenerC1014a.a(false, a.f.iv_arrow);
-                    view$OnLongClickListenerC1014a.a(true, a.f.iv_fans_icon);
-                    view$OnLongClickListenerC1014a.a(a.f.iv_fans_icon, fanItem.mFansIcon, a.e.ic_loyal_icon_default, b.a.small, b.a.small, 1, false, true);
+                    view$OnLongClickListenerC1011a.a(false, a.f.iv_arrow);
+                    view$OnLongClickListenerC1011a.a(true, a.f.iv_fans_icon);
+                    view$OnLongClickListenerC1011a.a(a.f.iv_fans_icon, fanItem.mFansIcon, a.e.ic_loyal_icon_default, b.a.small, b.a.small, 1, false, true);
                     return;
                 }
-                view$OnLongClickListenerC1014a.a(true, a.f.iv_arrow);
-                view$OnLongClickListenerC1014a.a(false, a.f.iv_fans_icon);
+                view$OnLongClickListenerC1011a.a(true, a.f.iv_arrow);
+                view$OnLongClickListenerC1011a.a(false, a.f.iv_fans_icon);
             }
         };
-        this.nSf.setAdapter(this.nSg);
+        this.oca.setAdapter(this.ocb);
     }
 
     public void a(ArrayList<FanItem> arrayList, MicStatus micStatus, String str, boolean z, String str2) {
@@ -120,13 +120,13 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
             this.n.clear();
             this.n.addAll(arrayList);
             setListViewHeight(this.n.size());
-            this.nSg.notifyDataSetChanged();
+            this.ocb.notifyDataSetChanged();
         }
     }
 
     public void a() {
         this.j = false;
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0882a.slide_out_bottom_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, a.C0879a.slide_out_bottom_anim);
         loadAnimation.setAnimationListener(this);
         if (this.c != null) {
             this.c.startAnimation(loadAnimation);
@@ -158,10 +158,10 @@ public class PlayShowMicPerson extends RelativeLayout implements View.OnClickLis
     }
 
     public void setListViewHeight(int i) {
-        if (i > 0 && tv.chushou.zues.utils.a.dip2px(this.b, 60.0f) * i > this.m && this.nSf != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nSf.getLayoutParams();
+        if (i > 0 && tv.chushou.zues.utils.a.dip2px(this.b, 60.0f) * i > this.m && this.oca != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.oca.getLayoutParams();
             layoutParams.height = this.m;
-            this.nSf.setLayoutParams(layoutParams);
+            this.oca.setLayoutParams(layoutParams);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class AccountRealNameResult extends SapiResult {
     public String callbackkey;
     public boolean juniorRealNameSuc;

@@ -35,7 +35,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class j {
     private static String f;
     private static String a = "";
@@ -109,7 +109,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public static class a {
         public String a;
         public long b;

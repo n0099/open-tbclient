@@ -1,5 +1,7 @@
 package com.baidu.live.liveroom.e;
-/* loaded from: classes7.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public interface a {
-    boolean Lm();
+    boolean L(JSONObject jSONObject);
 }

@@ -13,9 +13,9 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    public static List<e> cJ(List<GameForumSubTab> list) {
+    public static List<e> cP(List<GameForumSubTab> list) {
         if (y.isEmpty(list)) {
             return null;
         }
@@ -34,7 +34,7 @@ public class a {
         return arrayList;
     }
 
-    public static List<q> cK(List<ThreadInfo> list) {
+    public static List<q> cQ(List<ThreadInfo> list) {
         if (y.isEmpty(list)) {
             return null;
         }
@@ -49,10 +49,10 @@ public class a {
             bw bwVar = new bw();
             bVar.setThreadData(bwVar);
             bwVar.a(list.get(i2));
-            bwVar.bfC();
-            if (!TextUtils.isEmpty(bwVar.bfO())) {
+            bwVar.bgw();
+            if (!TextUtils.isEmpty(bwVar.bgI())) {
                 ak akVar = new ak();
-                akVar.zc(bwVar.bfO());
+                akVar.zx(bwVar.bgI());
                 linkedList.add(akVar);
             } else {
                 linkedList.add(bVar);

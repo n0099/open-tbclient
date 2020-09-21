@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.bikenavi.widget;
 import android.view.View;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
     final /* synthetic */ a a;
 
@@ -14,6 +14,6 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.g.a(false, R.string.abc_action_bar_up_description);
+        this.a.g.a(false, R.raw.aiapp_guide);
     }
 }

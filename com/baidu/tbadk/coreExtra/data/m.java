@@ -1,40 +1,28 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private String ala;
-    private String eAl;
-    private String eAm;
-    private String mIcon;
-    private int mVersion;
+    private int eCs;
+    private n eCt;
 
-    public void cY(JSONObject jSONObject) {
-        this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.eAl = jSONObject.optString("tab_code");
-        this.eAm = jSONObject.optString("pop_text");
-        this.ala = jSONObject.optString("thread_id");
-        this.mVersion = jSONObject.optInt("version");
+    public void db(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject("common");
+        if (optJSONObject != null) {
+            this.eCs = optJSONObject.optInt("version");
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
+        if (optJSONObject2 != null) {
+            this.eCt = new n();
+            this.eCt.db(optJSONObject2);
+        }
     }
 
-    public String getIcon() {
-        return this.mIcon;
+    public int bnC() {
+        return this.eCs;
     }
 
-    public String bmH() {
-        return this.eAl;
-    }
-
-    public String getPopText() {
-        return this.eAm;
-    }
-
-    public String getTid() {
-        return this.ala;
-    }
-
-    public int getVersion() {
-        return this.mVersion;
+    public n bnD() {
+        return this.eCt;
     }
 }

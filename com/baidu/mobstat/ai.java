@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class ai {
     public static boolean a(View view) {
         Object tag = view.getTag(-5000);

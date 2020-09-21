@@ -2,10 +2,10 @@ package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
 import com.faceunity.a.d;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public interface g {
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public interface a {
         void D(boolean z, String str);
     }

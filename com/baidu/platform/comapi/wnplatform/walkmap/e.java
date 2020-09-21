@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.walkmap;
 
 import com.baidu.platform.comjni.bikenavi.JNINaviMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e {
     private JNINaviMap a;
 

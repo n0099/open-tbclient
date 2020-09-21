@@ -20,7 +20,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && isSuccess()) {
             try {
                 this.isOpenTrack = jSONObject.getInt("is_open_track") == 1;
-                b.bik().putBoolean("key_is_open_track", this.isOpenTrack);
+                b.bjf().putBoolean("key_is_open_track", this.isOpenTrack);
                 TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
             } catch (JSONException e) {
                 BdLog.e("open track parese exception " + e.toString());

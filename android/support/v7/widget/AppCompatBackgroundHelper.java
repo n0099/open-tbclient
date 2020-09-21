@@ -10,7 +10,7 @@ import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppCompatBackgroundHelper {
     private TintInfo mBackgroundTint;
     private TintInfo mInternalBackgroundTint;

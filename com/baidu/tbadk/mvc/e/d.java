@@ -24,14 +24,14 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) btM();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) buQ();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> dv = com.baidu.tbadk.core.c.a.bhb().dv(this.tableName, str);
+                l<byte[]> dv = com.baidu.tbadk.core.c.a.bhV().dv(this.tableName, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
-                        BdCacheService.lU().a(dv);
+                        BdCacheService.lY().a(dv);
                     } else {
                         dv.remove(dVar2.getCacheKey());
                     }
@@ -45,11 +45,11 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> dw = com.baidu.tbadk.core.c.a.bhb().dw(this.tableName, str);
+                l<String> dw = com.baidu.tbadk.core.c.a.bhV().dw(this.tableName, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
-                        BdCacheService.lU().a(dw);
+                        BdCacheService.lY().a(dw);
                     } else {
                         dw.remove(dVar4.getCacheKey());
                     }
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String btr = ((f) dVar5).btr();
-                    if (btr != null) {
-                        dw.setForever(dVar5.getCacheKey(), btr);
+                    String buv = ((f) dVar5).buv();
+                    if (buv != null) {
+                        dw.setForever(dVar5.getCacheKey(), buv);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

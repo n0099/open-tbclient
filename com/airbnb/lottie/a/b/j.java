@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class j extends f<PointF> {
     private final PointF DC;
 
@@ -21,7 +21,7 @@ public class j extends f<PointF> {
         }
         PointF pointF2 = aVar.GX;
         PointF pointF3 = aVar.GY;
-        if (this.Dv == null || (pointF = (PointF) this.Dv.b(aVar.AX, aVar.Ha.floatValue(), pointF2, pointF3, f, jh(), getProgress())) == null) {
+        if (this.Dv == null || (pointF = (PointF) this.Dv.b(aVar.AX, aVar.Ha.floatValue(), pointF2, pointF3, f, ji(), getProgress())) == null) {
             this.DC.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.DC;
         }

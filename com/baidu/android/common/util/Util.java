@@ -6,7 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.cesium.d.b;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public final class Util {
     private static final boolean a = false;
     private static final String b = "Util";

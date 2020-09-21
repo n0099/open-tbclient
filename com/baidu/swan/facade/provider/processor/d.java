@@ -13,33 +13,33 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String aHp = aHp();
+        String aHZ = aHZ();
         if (DEBUG) {
-            Log.i("ParamsProcessor", "params: " + aHp);
+            Log.i("ParamsProcessor", "params: " + aHZ);
         }
-        String encryptParams = encryptParams(aHp);
+        String encryptParams = encryptParams(aHZ);
         if (DEBUG) {
             Log.i("ParamsProcessor", "encryption params: " + encryptParams);
         }
-        return tu(encryptParams);
+        return tN(encryptParams);
     }
 
-    private String aHp() {
+    private String aHZ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swan_sdk_version", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.jC(0));
-            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.jC(1));
-            jSONObject.put("uid", com.baidu.swan.apps.t.a.aoO().bl(AppRuntime.getAppContext()));
-            jSONObject.put(MapBundleKey.MapObjKey.OBJ_PUID, com.baidu.swan.apps.t.a.aoO().bk(AppRuntime.getAppContext()));
-            jSONObject.put(j.c, com.baidu.swan.apps.i.c.uG());
+            jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.jN(0));
+            jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.jN(1));
+            jSONObject.put("uid", com.baidu.swan.apps.t.a.apz().bk(AppRuntime.getAppContext()));
+            jSONObject.put(MapBundleKey.MapObjKey.OBJ_PUID, com.baidu.swan.apps.t.a.apz().bj(AppRuntime.getAppContext()));
+            jSONObject.put(j.c, com.baidu.swan.apps.i.c.uU());
             jSONObject.put("ut", com.baidu.swan.apps.i.c.getDeviceInfo());
             jSONObject.put("timestamp", System.currentTimeMillis());
         } catch (JSONException e) {
@@ -55,7 +55,7 @@ public class d extends a {
         return Base64.encodeToString(com.baidu.swan.facade.provider.a.b.a(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
     }
 
-    private Cursor tu(String str) {
+    private Cursor tN(String str) {
         MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
         matrixCursor.newRow().add("params", str);
         return matrixCursor;

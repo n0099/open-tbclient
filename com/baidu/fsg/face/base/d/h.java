@@ -31,7 +31,7 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class h {
     public static final String a = "armeabi";
     public static final String b = "armeabi-v7a";

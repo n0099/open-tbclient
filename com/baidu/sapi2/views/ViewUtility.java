@@ -13,10 +13,10 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ViewUtility implements NoProguard {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     static class a implements View.OnTouchListener {
         final /* synthetic */ float a;
 

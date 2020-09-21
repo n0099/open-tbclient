@@ -1,5 +1,5 @@
 package io.flutter.plugin.common;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public interface ActivityLifecycleListener {
     void onPostResume();
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tieba.b.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class a<T extends com.baidu.live.tieba.b.a.a> implements View.OnClickListener {
     public int currentPageType;
     protected b mCallback;

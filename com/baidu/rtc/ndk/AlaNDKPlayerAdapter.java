@@ -1,10 +1,10 @@
 package com.baidu.rtc.ndk;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class AlaNDKPlayerAdapter {
     private OnNDKCallback mCallback = null;
     private volatile long mNativeObject = 0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface OnNDKCallback {
         void jniNotifyMessage(int i, int i2, String str);
     }

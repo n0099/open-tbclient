@@ -13,15 +13,15 @@ import com.baidu.media.extractor.b;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class DuMediaExtractor implements b {
-    private b.a bAO;
-    private a bAP;
+    private b.a bEl;
+    private a bEm;
     @Keep
     private long mNativeDuMediaExtractor;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes16.dex */
     public static class a extends Handler {
         private final WeakReference<DuMediaExtractor> a;
 
@@ -49,14 +49,14 @@ public class DuMediaExtractor implements b {
     private void c() {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.bAP = new a(this, myLooper);
+            this.bEm = new a(this, myLooper);
             return;
         }
         Looper mainLooper = Looper.getMainLooper();
         if (mainLooper != null) {
-            this.bAP = new a(this, mainLooper);
+            this.bEm = new a(this, mainLooper);
         } else {
-            this.bAP = null;
+            this.bEm = null;
         }
     }
 
@@ -85,8 +85,8 @@ public class DuMediaExtractor implements b {
     public void a() {
         synchronized (this) {
             nativeRelease();
-            this.bAO = null;
-            this.bAP = null;
+            this.bEl = null;
+            this.bEm = null;
             this.mNativeDuMediaExtractor = 0L;
         }
     }

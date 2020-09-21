@@ -2,7 +2,7 @@ package com.baidu.location.d;
 
 import android.util.Log;
 import java.lang.ref.WeakReference;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class b implements Runnable {
     final /* synthetic */ WeakReference a;
     final /* synthetic */ a b;

@@ -13,15 +13,15 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.m.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class a implements ac {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private long lastResumeTime;
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
-    public void aay() {
+    public void abh() {
         if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.azI().id);
+            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + e.aAr().id);
         }
         this.lastResumeTime = System.currentTimeMillis();
     }
@@ -41,13 +41,13 @@ public class a implements ac {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
-    public void aaz() {
+    public void abi() {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppBackground");
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.bik().getLong("smart_app_tid", 0L);
-        String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("smart_app_id", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.bik().getString("smart_app_name", "");
+        long j = com.baidu.tbadk.core.sharedPref.b.bjf().getLong("smart_app_tid", 0L);
+        String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("smart_app_id", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.bjf().getString("smart_app_name", "");
         if (this.lastResumeTime != 0 && j != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d dVar = new d();
@@ -55,11 +55,11 @@ public class a implements ac {
             dVar.setCurrentPageKey(getCurrentPageKey());
             dVar.setTid(j);
             dVar.objID = string;
-            dVar.eRm = string2;
+            dVar.eUd = string2;
             dVar.setSorceKeyList(getCurrentPageSourceKeyList());
-            com.baidu.tbadk.m.e.bua().jB(true);
-            com.baidu.tbadk.m.e.bua().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
-            com.baidu.tbadk.core.sharedPref.b.bik().putLong("smart_app_tid", 0L);
+            com.baidu.tbadk.m.e.bve().jC(true);
+            com.baidu.tbadk.m.e.bve().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            com.baidu.tbadk.core.sharedPref.b.bjf().putLong("smart_app_tid", 0L);
         }
     }
 
@@ -68,8 +68,8 @@ public class a implements ac {
         if (DEBUG) {
             Log.e("DefaultSwanAppLifecycle", "onAppExit");
         }
-        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_ai_app_guide_display", true)) {
-            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_ai_app_guide_display", false);
+        if (com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean("key_ai_app_guide_display", true)) {
+            com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean("key_ai_app_guide_display", false);
             Intent intent = new Intent(swanAppActivity, DealIntentService.class);
             intent.putExtra(DealIntentService.KEY_CLASS, 38);
             swanAppActivity.startService(intent);
@@ -77,6 +77,6 @@ public class a implements ac {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ac
-    public void aaA() {
+    public void abj() {
     }
 }

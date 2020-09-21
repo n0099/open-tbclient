@@ -17,9 +17,9 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private com.baidu.b.c.d.d acC;
+    private com.baidu.b.c.d.d acU;
     private List<b> b;
 
     public c() {
@@ -39,7 +39,7 @@ public class c {
     }
 
     private void a() {
-        this.acC = new com.baidu.b.c.d.e(e.a(), e.b());
+        this.acU = new com.baidu.b.c.d.e(e.a(), e.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -58,9 +58,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.b.c.d.d dVar) {
-        com.baidu.b.c.d.a sG = com.baidu.b.c.d.a.sG();
-        sG.a(2, dVar);
-        return sG.a(bArr);
+        com.baidu.b.c.d.a sL = com.baidu.b.c.d.a.sL();
+        sL.a(2, dVar);
+        return sL.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -98,7 +98,7 @@ public class c {
                                 JSONObject jSONObject = new JSONObject(new String(a));
                                 b bVar = new b();
                                 bVar.b = jSONObject.getInt("priority");
-                                bVar.acg = resolveInfo.activityInfo.applicationInfo;
+                                bVar.acB = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -112,7 +112,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.b.d.a.a(string2.getBytes()), this.acC);
+                                            byte[] a2 = a(com.baidu.b.d.a.a(string2.getBytes()), this.acU);
                                             if (a2 != null && Arrays.equals(a2, com.baidu.b.d.c.a(a))) {
                                                 bVar.c = true;
                                             }

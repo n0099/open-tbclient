@@ -17,14 +17,14 @@ import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrange
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushActivityConfig;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
-    private View.OnClickListener aBm;
-    private MsgSettingItemView lQL;
-    private MsgSettingItemView lQM;
-    private MsgSettingItemView lQN;
-    private TbSettingTextTipView lQO;
-    private MsgReceiveActivity lQP;
+    private View.OnClickListener aBS;
+    private MsgSettingItemView lZS;
+    private MsgSettingItemView lZT;
+    private MsgSettingItemView lZU;
+    private TbSettingTextTipView lZV;
+    private MsgReceiveActivity lZW;
     private ArrayList<OfficialAccountPushInfo> list;
     private View mBack;
     private NavigationBar mNavigationBar;
@@ -32,83 +32,83 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
 
     public f(MsgReceiveActivity msgReceiveActivity) {
         super(msgReceiveActivity.getPageContext());
-        this.aBm = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
+        this.aBS = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && view == f.this.lQO) {
-                    TiebaStatic.log(new aq("c13287").dD("uid", TbadkCoreApplication.getCurrentAccount()));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.lQP, f.this.getList())));
+                if (view != null && view == f.this.lZV) {
+                    TiebaStatic.log(new aq("c13287").dF("uid", TbadkCoreApplication.getCurrentAccount()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.lZW, f.this.getList())));
                 }
             }
         };
-        this.lQP = msgReceiveActivity;
+        this.lZW = msgReceiveActivity;
     }
 
     public void init() {
-        if (this.lQP != null) {
+        if (this.lZW != null) {
             initUI();
         }
     }
 
     private void initUI() {
-        if (this.lQP != null) {
-            this.lQP.setContentView(R.layout.msg_receive_activity);
-            this.mRootView = (ViewGroup) this.lQP.findViewById(R.id.msg_receive_root_view);
-            this.mNavigationBar = (NavigationBar) this.lQP.findViewById(R.id.navigation_bar_msg_receive);
-            this.mNavigationBar.setCenterTextTitle(this.lQP.getPageContext().getString(R.string.receive_message));
+        if (this.lZW != null) {
+            this.lZW.setContentView(R.layout.msg_receive_activity);
+            this.mRootView = (ViewGroup) this.lZW.findViewById(R.id.msg_receive_root_view);
+            this.mNavigationBar = (NavigationBar) this.lZW.findViewById(R.id.navigation_bar_msg_receive);
+            this.mNavigationBar.setCenterTextTitle(this.lZW.getPageContext().getString(R.string.receive_message));
             this.mNavigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.lQL = (MsgSettingItemView) this.lQP.findViewById(R.id.item_view_friend_msg);
-            this.lQL.setText(R.string.friend_msg_switch);
-            this.lQL.setOnSwitchStateChangeListener(this.lQP);
-            this.lQM = (MsgSettingItemView) this.lQP.findViewById(R.id.item_view_stranger_msg);
-            this.lQM.setText(R.string.stranger_msg_switch);
-            this.lQM.setOnSwitchStateChangeListener(this.lQP);
-            this.lQM.setLineVisibility(false);
-            drl();
-            this.lQN = (MsgSettingItemView) this.lQP.findViewById(R.id.item_view_forum_broadcast_msg);
-            this.lQN.setText(R.string.receive_forum_broadcast_message);
-            this.lQN.setOnSwitchStateChangeListener(this.lQP);
-            this.lQN.setLineVisibility(false);
-            drm();
-            this.lQO = (TbSettingTextTipView) this.lQP.findViewById(R.id.item_view_offical_account_push_msg);
-            this.lQO.setOnClickListener(this.aBm);
+            this.lZS = (MsgSettingItemView) this.lZW.findViewById(R.id.item_view_friend_msg);
+            this.lZS.setText(R.string.friend_msg_switch);
+            this.lZS.setOnSwitchStateChangeListener(this.lZW);
+            this.lZT = (MsgSettingItemView) this.lZW.findViewById(R.id.item_view_stranger_msg);
+            this.lZT.setText(R.string.stranger_msg_switch);
+            this.lZT.setOnSwitchStateChangeListener(this.lZW);
+            this.lZT.setLineVisibility(false);
+            dvb();
+            this.lZU = (MsgSettingItemView) this.lZW.findViewById(R.id.item_view_forum_broadcast_msg);
+            this.lZU.setText(R.string.receive_forum_broadcast_message);
+            this.lZU.setOnSwitchStateChangeListener(this.lZW);
+            this.lZU.setLineVisibility(false);
+            dvc();
+            this.lZV = (TbSettingTextTipView) this.lZW.findViewById(R.id.item_view_offical_account_push_msg);
+            this.lZV.setOnClickListener(this.aBS);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void drl() {
-        if (this.lQL == null || this.lQM == null) {
+    private void dvb() {
+        if (this.lZS == null || this.lZT == null) {
             return;
         }
         switch (GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) {
             case 0:
                 return;
             case 1:
-                this.lQL.getSwitchView().turnOnNoCallback();
-                this.lQL.setLineVisibility(true);
-                this.lQM.getSwitchView().turnOffNoCallback();
+                this.lZS.getSwitchView().turnOnNoCallback();
+                this.lZS.setLineVisibility(true);
+                this.lZT.getSwitchView().turnOffNoCallback();
                 return;
             default:
-                this.lQL.getSwitchView().turnOffNoCallback();
-                this.lQL.setLineVisibility(false);
-                this.lQM.setVisibility(8);
-                this.lQM.getSwitchView().turnOffNoCallback();
+                this.lZS.getSwitchView().turnOffNoCallback();
+                this.lZS.setLineVisibility(false);
+                this.lZT.setVisibility(8);
+                this.lZT.getSwitchView().turnOffNoCallback();
                 return;
         }
     }
 
-    private void drm() {
-        if (this.lQN != null) {
-            this.lQN.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.boy().boS());
+    private void dvc() {
+        if (this.lZU != null) {
+            this.lZU.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.bps().bpM());
         }
     }
 
-    public void vD(boolean z) {
+    public void vL(boolean z) {
         if (z) {
-            this.lQM.setVisibility(0);
+            this.lZT.setVisibility(0);
         } else {
-            this.lQM.setVisibility(8);
+            this.lZT.setVisibility(8);
         }
     }
 
@@ -118,31 +118,31 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
         ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c, i);
-        this.mNavigationBar.onChangeSkinType(this.lQP.getPageContext(), i);
-        this.lQL.onChangeSkinType(this.lQP.getPageContext(), i);
-        this.lQM.onChangeSkinType(this.lQP.getPageContext(), i);
-        this.lQN.onChangeSkinType(this.lQP.getPageContext(), i);
-        this.lQO.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(this.lZW.getPageContext(), i);
+        this.lZS.onChangeSkinType(this.lZW.getPageContext(), i);
+        this.lZT.onChangeSkinType(this.lZW.getPageContext(), i);
+        this.lZU.onChangeSkinType(this.lZW.getPageContext(), i);
+        this.lZV.onChangeSkinType(i);
     }
 
-    public View cGH() {
+    public View cKn() {
         return this.mBack;
     }
 
-    public BdSwitchView drn() {
-        return this.lQL.getSwitchView();
+    public BdSwitchView dvd() {
+        return this.lZS.getSwitchView();
     }
 
-    public BdSwitchView dro() {
-        return this.lQM.getSwitchView();
+    public BdSwitchView dve() {
+        return this.lZT.getSwitchView();
     }
 
-    public BdSwitchView drp() {
-        return this.lQN.getSwitchView();
+    public BdSwitchView dvf() {
+        return this.lZU.getSwitchView();
     }
 
-    public void vE(boolean z) {
-        this.lQL.setLineVisibility(z);
+    public void vM(boolean z) {
+        this.lZS.setLineVisibility(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +150,7 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
         return this.list;
     }
 
-    public void ba(ArrayList<OfficialAccountPushInfo> arrayList) {
+    public void bc(ArrayList<OfficialAccountPushInfo> arrayList) {
         this.list = arrayList;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.core.data;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BlockPopInfoData implements Serializable {
     public static final int TYPE_CAN_NOT_POST = 1;
     public static final int TYPE_CAN_POST = 0;

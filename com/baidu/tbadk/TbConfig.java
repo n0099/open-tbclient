@@ -460,6 +460,7 @@ public class TbConfig {
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_ALA_LIVE_ROOM_CLOSED = "ala/live/mgetLiveStatus";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
+    public static final String URL_BACK_USER = "c/c/user/backUser";
     public static final String URL_BAIDU_SINGKIL = "https://eopa.baidu.com/page/HomePage-YW54iXYf?channel=7";
     public static final String URL_BJH_REPORT = "https://ufosdk.baidu.com/?m=Client&a=commonreport&appid=234410&nid=%1$s&platid=%2$s&remark=bjh";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
@@ -543,7 +544,9 @@ public class TbConfig {
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
-    public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/n/apage-runtime/page/ueg_service_center";
+    public static final String URL_UEG_SERVICE_CENTER = "http://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter";
+    public static final String URL_UPLOAD_OFFLINE_PACK = "c/c/user/uploadOfflinePack";
+    public static final String URL_UPLOAD_OFFLINE_PACK_STATUS = "c/c/user/updateOfflinePackTask";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String URL_URL_PARSER = "c/s/urlParser";
     public static final String URL_USER_REPORT = "c/c/user/complaint";
@@ -787,7 +790,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bsX().setPhotoMaxNum(i);
+            c.bub().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

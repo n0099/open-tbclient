@@ -3,11 +3,11 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public interface l {
     void H(String str, int i);
 
-    int XP();
+    int Yy();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -15,23 +15,23 @@ public interface l {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    m aaB();
+    ExecutorService aaL();
 
-    ExecutorService aac();
+    m abk();
 
-    String apW();
+    String aqG();
 
-    String apX();
+    String aqH();
 
-    String avl();
+    String avU();
 
-    boolean avm();
+    boolean avV();
 
-    boolean avn();
+    boolean avW();
 
-    boolean avo();
+    boolean avX();
 
-    String cl(Context context);
+    String ck(Context context);
 
     void f(String str, int i, String str2);
 
@@ -45,5 +45,5 @@ public interface l {
 
     String getUserId(Context context);
 
-    boolean oR(String str);
+    boolean pk(String str);
 }

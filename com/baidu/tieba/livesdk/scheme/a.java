@@ -22,15 +22,15 @@ public class a implements g {
             sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
             sb.append("=1");
             sb.append("&page_from=live");
-            Activity currentActivity = com.baidu.adp.base.a.lb().currentActivity();
+            Activity currentActivity = com.baidu.adp.base.a.lf().currentActivity();
             if (currentActivity != null) {
-                be.bju().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
+                be.bkp().a((TbPageContext) i.I(currentActivity), new String[]{sb.toString()}, true);
             }
         }
     }
 
     @Override // com.baidu.tieba.sdk.b.g
-    public void LO(String str) {
+    public void Mq(String str) {
         openScheme(str);
     }
 }

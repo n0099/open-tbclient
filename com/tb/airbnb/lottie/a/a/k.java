@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class k implements i, l {
     private final String name;
-    private final MergePaths oiE;
+    private final MergePaths oso;
     private final Path CX = new Path();
     private final Path CY = new Path();
     private final Path path = new Path();
@@ -22,7 +22,7 @@ public class k implements i, l {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.oiE = mergePaths;
+        this.oso = mergePaths;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.i
@@ -53,11 +53,11 @@ public class k implements i, l {
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path iU() {
+    public Path iV() {
         this.path.reset();
-        switch (this.oiE.edJ()) {
+        switch (this.oso.ehG()) {
             case Merge:
-                iY();
+                iZ();
                 break;
             case Add:
                 a(Path.Op.UNION);
@@ -80,12 +80,12 @@ public class k implements i, l {
         return this.name;
     }
 
-    private void iY() {
+    private void iZ() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.CD.size()) {
-                this.path.addPath(this.CD.get(i2).iU());
+                this.path.addPath(this.CD.get(i2).iV());
                 i = i2 + 1;
             } else {
                 return;
@@ -105,27 +105,27 @@ public class k implements i, l {
             }
             l lVar = this.CD.get(i);
             if (lVar instanceof c) {
-                List<l> iS = ((c) lVar).iS();
-                for (int size2 = iS.size() - 1; size2 >= 0; size2--) {
-                    Path iU = iS.get(size2).iU();
-                    iU.transform(((c) lVar).iT());
-                    this.CY.addPath(iU);
+                List<l> iT = ((c) lVar).iT();
+                for (int size2 = iT.size() - 1; size2 >= 0; size2--) {
+                    Path iV = iT.get(size2).iV();
+                    iV.transform(((c) lVar).iU());
+                    this.CY.addPath(iV);
                 }
             } else {
-                this.CY.addPath(lVar.iU());
+                this.CY.addPath(lVar.iV());
             }
             size = i - 1;
         }
         l lVar2 = this.CD.get(0);
         if (lVar2 instanceof c) {
-            List<l> iS2 = ((c) lVar2).iS();
-            for (int i2 = 0; i2 < iS2.size(); i2++) {
-                Path iU2 = iS2.get(i2).iU();
-                iU2.transform(((c) lVar2).iT());
-                this.CX.addPath(iU2);
+            List<l> iT2 = ((c) lVar2).iT();
+            for (int i2 = 0; i2 < iT2.size(); i2++) {
+                Path iV2 = iT2.get(i2).iV();
+                iV2.transform(((c) lVar2).iU());
+                this.CX.addPath(iV2);
             }
         } else {
-            this.CX.set(lVar2.iU());
+            this.CX.set(lVar2.iV());
         }
         this.path.op(this.CX, this.CY, op);
     }

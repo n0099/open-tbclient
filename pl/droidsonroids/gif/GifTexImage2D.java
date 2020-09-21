@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import java.io.IOException;
 import pl.droidsonroids.gif.annotations.Beta;
 @Beta
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GifTexImage2D {
     private final GifInfoHandle mGifInfoHandle;
 

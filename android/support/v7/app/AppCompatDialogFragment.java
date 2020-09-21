@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.DialogFragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppCompatDialogFragment extends DialogFragment {
     @Override // android.support.v4.app.DialogFragment
     public Dialog onCreateDialog(Bundle bundle) {

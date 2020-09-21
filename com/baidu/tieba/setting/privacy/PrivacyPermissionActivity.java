@@ -20,16 +20,16 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionActivity> {
     private View mBack;
     private NavigationBar mNavigationBar;
     private RecyclerView mRecyclerView;
     private View mRootView;
     private List<a> mDataList = new ArrayList();
-    private String[] lSx = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission.ACCESS_FINE_LOCATION"};
-    private String[] lSy = {getString(R.string.allow_to_use_camera), getString(R.string.allow_to_use_sdcard), getString(R.string.allow_to_use_record), getString(R.string.allow_to_use_location)};
-    private String[] lSz = {getString(R.string.privacy_camera_info), getString(R.string.privacy_sdcard_info), getString(R.string.privacy_record_info), getString(R.string.privacy_location_info)};
+    private String[] mbU = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission.ACCESS_FINE_LOCATION"};
+    private String[] mbV = {getString(R.string.allow_to_use_camera), getString(R.string.allow_to_use_sdcard), getString(R.string.allow_to_use_record), getString(R.string.allow_to_use_location)};
+    private String[] mbW = {getString(R.string.privacy_camera_info), getString(R.string.privacy_sdcard_info), getString(R.string.privacy_record_info), getString(R.string.privacy_location_info)};
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter() { // from class: com.baidu.tieba.setting.privacy.PrivacyPermissionActivity.1
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -59,7 +59,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             if (aVar == null) {
                 return 0;
             }
-            return aVar.blo;
+            return aVar.boh;
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -68,9 +68,9 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         }
     };
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes25.dex */
     public static class a {
-        public int blo = 0;
+        public int boh = 0;
         public String info;
         public boolean isOpen;
         public String name;
@@ -89,15 +89,15 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.mRecyclerView.setAdapter(this.mAdapter);
-        for (int i = 0; i < this.lSx.length; i++) {
+        for (int i = 0; i < this.mbU.length; i++) {
             a aVar = new a();
-            aVar.blo = 0;
-            aVar.name = this.lSy[i];
-            aVar.info = this.lSz[i];
+            aVar.boh = 0;
+            aVar.name = this.mbV[i];
+            aVar.info = this.mbW[i];
             this.mDataList.add(aVar);
         }
         a aVar2 = new a();
-        aVar2.blo = 1;
+        aVar2.boh = 1;
         this.mDataList.add(aVar2);
     }
 
@@ -105,12 +105,12 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mDataList.size() >= this.lSx.length) {
+        if (this.mDataList.size() >= this.mbU.length) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.lSx.length) {
-                    this.mDataList.get(i2).isOpen = ae.am(getActivity(), this.lSx[i2]);
+                if (i2 < this.mbU.length) {
+                    this.mDataList.get(i2).isOpen = ae.ap(getActivity(), this.mbU[i2]);
                     i = i2 + 1;
                 } else {
                     this.mAdapter.notifyDataSetChanged();
@@ -129,12 +129,12 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.mAdapter.notifyDataSetChanged();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes25.dex */
     public static class c extends RecyclerView.ViewHolder {
-        private TbSettingTextTipView lSD;
-        private TextView lSE;
         private View.OnClickListener mOnClickListener;
         private int mSkinType;
+        private TbSettingTextTipView mca;
+        private TextView mcb;
 
         public c(View view) {
             super(view);
@@ -151,42 +151,42 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     }
                 }
             };
-            this.lSD = (TbSettingTextTipView) view.findViewById(R.id.privacy_name);
-            this.lSD.setOnClickListener(this.mOnClickListener);
-            this.lSE = (TextView) view.findViewById(R.id.privacy_info);
+            this.mca = (TbSettingTextTipView) view.findViewById(R.id.privacy_name);
+            this.mca.setOnClickListener(this.mOnClickListener);
+            this.mcb = (TextView) view.findViewById(R.id.privacy_info);
         }
 
         public void a(a aVar) {
             String string;
             if (aVar != null && this.itemView != null) {
-                this.lSD.setText(aVar.name);
-                TbSettingTextTipView tbSettingTextTipView = this.lSD;
+                this.mca.setText(aVar.name);
+                TbSettingTextTipView tbSettingTextTipView = this.mca;
                 if (aVar.isOpen) {
                     string = this.itemView.getContext().getString(R.string.privacy_permisson_open);
                 } else {
                     string = this.itemView.getContext().getString(R.string.privacy_permisson_closed);
                 }
                 tbSettingTextTipView.setTip(string);
-                this.lSE.setText(aVar.info);
+                this.mcb.setText(aVar.info);
             }
         }
 
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
-                this.lSD.onChangeSkinType(i);
-                ap.setBackgroundResource(this.lSD, R.drawable.more_all);
-                ap.setBackgroundColor(this.lSE, R.color.cp_bg_line_c);
-                ap.setViewTextColor(this.lSE, R.color.cp_cont_c);
+                this.mca.onChangeSkinType(i);
+                ap.setBackgroundResource(this.mca, R.drawable.more_all);
+                ap.setBackgroundColor(this.mcb, R.color.cp_bg_line_c);
+                ap.setViewTextColor(this.mcb, R.color.cp_cont_c);
                 this.mSkinType = i;
             }
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes25.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private TextView lSB;
         private View.OnClickListener mOnClickListener;
         private int mSkinType;
+        private TextView mbY;
 
         public b(View view) {
             super(view);
@@ -197,13 +197,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     com.baidu.tbadk.browser.a.startWebActivity(b.this.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             };
-            this.lSB = (TextView) view;
-            this.lSB.setOnClickListener(this.mOnClickListener);
+            this.mbY = (TextView) view;
+            this.mbY.setOnClickListener(this.mOnClickListener);
         }
 
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
-                ap.setViewTextColor(this.lSB, R.color.cp_link_tip_a);
+                ap.setViewTextColor(this.mbY, R.color.cp_link_tip_a);
                 ap.setBackgroundResource(this.itemView, R.drawable.more_all);
                 this.mSkinType = i;
             }

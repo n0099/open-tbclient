@@ -16,8 +16,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: V */
-    public h.a b(ViewGroup viewGroup) {
+    /* renamed from: W */
+    public h.a c(ViewGroup viewGroup) {
         return new h.a(new h(this.mPageContext, viewGroup));
     }
 
@@ -28,7 +28,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || cVar == null) {
             return null;
         }
-        aVar.fLT.a(cVar);
+        aVar.fPh.a(cVar);
         return aVar.getView();
     }
 }

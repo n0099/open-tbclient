@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public String a;
     public HashSet<String> b = new HashSet<>();

@@ -1,9 +1,21 @@
 package com.baidu.live.gift;
-/* loaded from: classes7.dex */
+
+import android.view.View;
+/* loaded from: classes4.dex */
 public interface x {
-    void Fb();
+    View EU();
 
-    void gu(String str);
+    View EV();
 
-    void release();
+    void EW();
+
+    void EX();
+
+    void bk(boolean z);
+
+    void dP(int i);
+
+    void dQ(int i);
+
+    void onDestroy();
 }

@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class u extends AnimatorListenerAdapter {
     final /* synthetic */ SwipeDismissTouchListener a;
 

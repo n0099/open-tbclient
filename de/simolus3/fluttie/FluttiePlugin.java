@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 @RequiresApi(api = 15)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, MethodChannel.MethodCallHandler {
     private PluginRegistry.Registrar registrar;
     private RenderingThreads renderingThreads;
@@ -245,7 +245,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 if (str2.endsWith(".json")) {
                     str2 = str2.substring(0, str2.length() - 5);
                 }
-                int identifier = g.ld().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
+                int identifier = g.lh().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
                 if (identifier != 0) {
                     f.d(this.registrar.context(), identifier).a(iVar).c(iVar2);
                     return;

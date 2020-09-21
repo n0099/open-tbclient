@@ -5,13 +5,13 @@ import com.baidu.tieba.ala.data.f;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaGetMyAssistWIshListResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<f> egb;
+    private ArrayList<f> eiq;
 
     public AlaGetMyAssistWIshListResponseMessage(int i) {
         super(1021171);
-        this.egb = new ArrayList<>();
+        this.eiq = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,12 +22,12 @@ public class AlaGetMyAssistWIshListResponseMessage extends JsonHttpResponsedMess
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 f fVar = new f();
                 fVar.parserJson(optJSONArray.getJSONObject(i2));
-                this.egb.add(fVar);
+                this.eiq.add(fVar);
             }
         }
     }
 
     public ArrayList<f> getData() {
-        return this.egb;
+        return this.eiq;
     }
 }

@@ -6,38 +6,38 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class g {
-    private String ebV;
-    private String ebW;
+    private String eef;
+    private String eeg;
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private List<FrsTabInfo> hSf;
-    private final List<com.baidu.tbadk.mainTab.b> hSg = new LinkedList();
+    private List<FrsTabInfo> hZf;
+    private final List<com.baidu.tbadk.mainTab.b> hZg = new LinkedList();
     private Context mContext;
     private String mFrom;
 
     public g(Context context, List<FrsTabInfo> list) {
-        this.hSf = list;
+        this.hZf = list;
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> clx() {
-        return this.hSf;
+    public List<FrsTabInfo> bsg() {
+        return this.hZf;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.hSg) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.hZg) {
                 if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
                     return;
                 }
             }
-            this.hSg.add(bVar);
+            this.hZg.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> cly() {
-        return this.hSg;
+    public List<com.baidu.tbadk.mainTab.b> coK() {
+        return this.hZg;
     }
 
     public void setForumName(String str) {
@@ -68,11 +68,11 @@ public class g {
         this.forumGameLabel = str;
     }
 
-    public void zt(String str) {
-        this.ebV = str;
+    public void zO(String str) {
+        this.eef = str;
     }
 
-    public void zu(String str) {
-        this.ebW = str;
+    public void zP(String str) {
+        this.eeg = str;
     }
 }

@@ -24,7 +24,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static final String a = c.class.getSimpleName();
 

@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface d {
     void b(int i, Map<String, String> map);
 
@@ -15,7 +15,7 @@ public interface d {
 
     void d(Context context, Uri uri);
 
-    void eA(int i);
+    void eE(int i);
 
     View getPlayerView();
 

@@ -10,18 +10,18 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes24.dex */
 public class i implements b {
-    private String cUw;
+    private String cWw;
     private final Context mContext = AppRuntime.getAppContext();
     @NonNull
     private final SharedPreferences mSp;
 
     public i(String str) {
-        this.cUw = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        if ("default".equals(this.cUw)) {
+        this.cWw = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
+        if ("default".equals(this.cWw)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(this.mContext);
-            this.cUw = this.mContext.getPackageName() + "_preferences";
+            this.cWw = this.mContext.getPackageName() + "_preferences";
             return;
         }
         this.mSp = this.mContext.getSharedPreferences(str, 0);
@@ -35,16 +35,16 @@ public class i implements b {
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return ak(this.mContext, this.cUw);
+        return an(this.mContext, this.cWw);
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aDd() {
+    public boolean aDN() {
         return false;
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aDe() {
+    public Set<String> aDO() {
         return this.mSp.getAll().keySet();
     }
 
@@ -162,7 +162,7 @@ public class i implements b {
         edit().apply();
     }
 
-    public static File ak(@NonNull Context context, @NonNull String str) {
+    public static File an(@NonNull Context context, @NonNull String str) {
         return new File(context.getApplicationInfo().dataDir, "shared_prefs/" + str + ".xml");
     }
 }

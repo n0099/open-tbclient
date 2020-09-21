@@ -5,7 +5,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class h extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {

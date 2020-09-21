@@ -1,10 +1,10 @@
 package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.GetLockWindowMsg.DataReq;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgReqIdl;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class PushDialogReqNetMsg extends NetMessage {
     private long task_id;
     private long tid;
@@ -19,7 +19,7 @@ public class PushDialogReqNetMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.tid = Long.valueOf(this.tid);
             builder.task_id = Long.valueOf(this.task_id);
-            t.a(builder, true, true, true);
+            u.a(builder, true, true, true);
             GetLockWindowMsgReqIdl.Builder builder2 = new GetLockWindowMsgReqIdl.Builder();
             builder2.data = builder.build(true);
             return builder2.build(true);

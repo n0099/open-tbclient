@@ -4,23 +4,23 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class t extends a {
-    private boolean ajt;
-    private boolean emA;
-    private boolean emB;
+    private boolean ajR;
+    private boolean eoT;
+    private boolean eoU;
     private int height;
     private int procType;
     private int width;
 
     public t(boolean z, boolean z2, boolean z3, int i) {
-        this.ajt = true;
-        this.emA = false;
-        this.emB = false;
+        this.ajR = true;
+        this.eoT = false;
+        this.eoU = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.ajt = z;
-        this.emA = z2;
-        this.emB = z3;
+        this.ajR = z;
+        this.eoT = z2;
+        this.eoU = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -43,21 +43,21 @@ public class t extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajt;
+        return this.ajR;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bjI() {
-        return this.emB;
+    public boolean bkD() {
+        return this.eoU;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bjJ() {
-        return this.emA;
+    public boolean bkE() {
+        return this.eoT;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bjK() {
+    public int bkF() {
         return this.procType;
     }
 }

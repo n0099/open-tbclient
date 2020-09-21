@@ -8,7 +8,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/updateInput");
@@ -37,7 +37,7 @@ public class e extends aa {
         com.baidu.swan.apps.component.components.f.a aVar = (com.baidu.swan.apps.component.components.f.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("updateInput", "input组件不存在");
-            com.baidu.swan.apps.console.c.e("SwanAppAction", "can't find input component:#" + bVar.caX);
+            com.baidu.swan.apps.console.c.e("SwanAppAction", "can't find input component:#" + bVar.ccZ);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }

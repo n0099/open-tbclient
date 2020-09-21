@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreFooter extends BdIListPage {
     private int footerHeight;
     private boolean isLoading;

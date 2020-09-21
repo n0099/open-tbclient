@@ -2,28 +2,28 @@ package com.baidu.ar.libloader;
 
 import android.content.Context;
 import com.baidu.ar.ARType;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.ar.libloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0083a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0084a {
         void a(ARType aRType, String str, String str2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void onSuccess();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void onReady();
     }
 
     void a(Context context, b bVar);
 
-    void a(ARType aRType, String str, String str2, InterfaceC0083a interfaceC0083a);
+    void a(ARType aRType, String str, String str2, InterfaceC0084a interfaceC0084a);
 
     void a(String str, c cVar);
 

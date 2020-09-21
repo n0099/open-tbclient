@@ -2,20 +2,20 @@ package com.facebook.drawee.a.a.a.a;
 
 import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class b implements com.facebook.drawee.a.a.a.b {
-    private final g nmI;
-    private final h nnl;
+    private final g nwI;
+    private final h nxl;
 
     public b(h hVar, g gVar) {
-        this.nnl = hVar;
-        this.nmI = gVar;
+        this.nxl = hVar;
+        this.nwI = gVar;
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public void g(String str, int i, boolean z) {
-        this.nnl.La(i);
-        this.nnl.xR(z);
-        this.nmI.a(this.nnl, 1);
+        this.nxl.LF(i);
+        this.nxl.ya(z);
+        this.nwI.a(this.nxl, 1);
     }
 }

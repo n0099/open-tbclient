@@ -1,7 +1,7 @@
 package com.baidu.live.view.tabhost;
 
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface a {
     void enterBackground();
 

@@ -21,7 +21,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends View {
     private static final String v = "LoadCircleView";
     private static final int w = 4097;
@@ -49,9 +49,9 @@ public class a extends View {
     private boolean u;
 
     /* renamed from: com.baidu.pass.ecommerce.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    class C0236a implements ValueAnimator.AnimatorUpdateListener {
-        C0236a() {
+    /* loaded from: classes6.dex */
+    class C0234a implements ValueAnimator.AnimatorUpdateListener {
+        C0234a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -62,7 +62,7 @@ public class a extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class b implements ValueAnimator.AnimatorUpdateListener {
         b() {
         }
@@ -76,13 +76,13 @@ public class a extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class c extends AnimatorListenerAdapter {
 
         /* renamed from: com.baidu.pass.ecommerce.d.a$c$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        class C0237a extends TimerTask {
-            C0237a() {
+        /* loaded from: classes6.dex */
+        class C0235a extends TimerTask {
+            C0235a() {
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -97,13 +97,13 @@ public class a extends View {
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             if (a.this.s != null) {
-                a.this.s.schedule(new C0237a(), 0L, 16L);
+                a.this.s.schedule(new C0235a(), 0L, 16L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class d extends Handler {
         private WeakReference<a> a;
 
@@ -189,18 +189,18 @@ public class a extends View {
     public void a() {
         if (!this.u) {
             this.u = true;
-            C0236a c0236a = new C0236a();
+            C0234a c0234a = new C0234a();
             float f = this.d;
             float f2 = f / 3.0f;
             float f3 = (f * 23.0f) / 21.0f;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, f3);
             ofFloat.setInterpolator(new LinearInterpolator());
             ofFloat.setDuration(this.o);
-            ofFloat.addUpdateListener(c0236a);
+            ofFloat.addUpdateListener(c0234a);
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f3, this.d);
             ofFloat2.setInterpolator(new LinearInterpolator());
             ofFloat2.setDuration(this.p);
-            ofFloat2.addUpdateListener(c0236a);
+            ofFloat2.addUpdateListener(c0234a);
             ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat3.setInterpolator(new DecelerateInterpolator());
             ofFloat3.setDuration(this.q);

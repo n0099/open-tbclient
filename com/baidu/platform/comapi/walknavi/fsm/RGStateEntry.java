@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.walkmap.f;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class RGStateEntry extends RGStateCar3D {
     private int b = 0;
     private f a = new a(this);

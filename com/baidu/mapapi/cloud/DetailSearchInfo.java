@@ -3,7 +3,7 @@ package com.baidu.mapapi.cloud;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class DetailSearchInfo extends BaseSearchInfo {
     public String poiId;
     public int uid;

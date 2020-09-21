@@ -10,7 +10,7 @@ import com.baidu.swan.apps.al.c.a;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     public a(j jVar) {
         super(jVar, "/swanAPI/getBatteryInfo");
@@ -37,15 +37,15 @@ public class a extends b {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            a.C0338a cv = com.baidu.swan.apps.al.c.a.cv(context);
-            if (cv == null) {
+            a.C0333a cu = com.baidu.swan.apps.al.c.a.cu(context);
+            if (cu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                 return false;
             }
             if (DEBUG) {
-                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + cv.level + " ; plugged: " + cv.cYZ);
+                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + cu.level + " ; plugged: " + cu.dbb);
             }
-            JSONObject a = a(cv);
+            JSONObject a = a(cu);
             if (a == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
                 if (DEBUG) {

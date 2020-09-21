@@ -1,6 +1,7 @@
 package com.baidu.tieba.flutter.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -11,13 +12,16 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.f;
 import com.baidu.adp.base.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -29,25 +33,32 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.a;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.m.a;
+import com.baidu.tbadk.m.b;
 import com.baidu.tbadk.m.d;
 import com.baidu.tbadk.m.e;
+import com.baidu.tbadk.switchs.FlutterAttachSwitch;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.compatible.menukey.MenuKeyUtils;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
+import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
+import com.idlefish.flutterboost.containers.FlutterSplashView;
 import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-/* loaded from: classes19.dex */
-public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPageContextSupport {
+/* loaded from: classes24.dex */
+public class FlutterPageActivity<T> extends BoostFlutterActivity implements f<T>, TbPageContextSupport, a {
     private static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
     private long lastResumeTime;
-    private a mLayoutInflateFactory;
+    private com.baidu.tbadk.core.a mLayoutInflateFactory;
     private c mLayoutMode;
     protected SwipeBackLayout mSwipeBackLayout;
     private TbPageContext<T> pageContext;
@@ -59,8 +70,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     private long creatTime = 0;
     private long startTime = 0;
     private long flutterStartTime = 0;
+    private CustomMessageListener skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.flutter.view.FlutterPageActivity.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            FlutterActivityAndFragmentDelegate flutterDelegate;
+            FlutterSplashView boostFlutterView;
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && !FlutterAttachSwitch.isOn() && (flutterDelegate = FlutterPageActivity.this.getFlutterDelegate()) != null && (boostFlutterView = flutterDelegate.getBoostFlutterView()) != null) {
+                boostFlutterView.showSplash(FlutterPageActivity.this.provideSplashScreen());
+            }
+        }
+    };
 
-    @Override // com.baidu.tbadk.TbPageContextSupport
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.base.f
     public TbPageContext<T> getPageContext() {
         try {
             if (this.pageContext == null && mClazz4GetPageContext != null) {
@@ -74,7 +97,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.ld().getResources();
+        Resources resources = g.lh().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 
@@ -113,12 +136,12 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             BdSocketLinkService.startService(false, "app start");
         }
         this.mLayoutMode = new c();
-        this.mLayoutInflateFactory = new a();
+        this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
         this.mLayoutInflateFactory.a(this.mLayoutMode);
         TbadkCoreApplication.setIsAppRunning(true);
         bc.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        com.baidu.adp.base.a.lb().pushActivity(getPageContext().getPageActivity());
+        com.baidu.adp.base.a.lf().pushActivity(getPageContext().getPageActivity());
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             z = true;
         }
@@ -126,6 +149,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         if (this.mUseStyleImmersiveSticky) {
             this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
+        MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.creatTime = System.currentTimeMillis() - this.startTime;
     }
@@ -143,7 +167,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public SplashScreen provideSplashScreen() {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Resources resources = g.ld().getResources();
+        Resources resources = g.lh().getResources();
         if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
             frameLayout.setBackgroundColor(0);
         } else {
@@ -209,7 +233,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bua().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bve().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -234,8 +258,9 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
         }
+        MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
         super.onDestroy();
-        com.baidu.adp.base.a.lb().popActivity(getPageContext().getPageActivity());
+        com.baidu.adp.base.a.lf().popActivity(getPageContext().getPageActivity());
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
@@ -260,11 +285,66 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         this.mSwipeBackLayout.swipeBackControl(d);
     }
 
+    @Override // com.baidu.tbadk.m.a
+    public String getCurrentPageKey() {
+        return getContainerUrl();
+    }
+
+    @Override // com.baidu.tbadk.m.a
+    public List<String> getCurrentPageSourceKeyList() {
+        Intent intent = getIntent();
+        if (intent == null) {
+            return null;
+        }
+        return intent.getStringArrayListExtra("obj_source");
+    }
+
+    @Override // com.baidu.tbadk.m.a
+    public List<String> getNextPageSourceKeyList() {
+        ArrayList arrayList;
+        ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
+        String currentPageKey = getCurrentPageKey();
+        if (y.isEmpty(arrayList2)) {
+            arrayList = null;
+        } else {
+            ArrayList arrayList3 = new ArrayList();
+            arrayList3.addAll(arrayList2);
+            arrayList = arrayList3;
+        }
+        if ((getPageStayFilter() == null || getPageStayFilter().isCurrentPageCanBeAddToSourceTrace()) && !StringUtils.isNull(currentPageKey)) {
+            if (arrayList == null) {
+                arrayList = new ArrayList();
+            }
+            arrayList.add(currentPageKey);
+        }
+        return arrayList;
+    }
+
     public d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new d();
         }
         return this.pageStayDurationItem;
+    }
+
+    @Override // com.baidu.tbadk.m.a
+    public b getPageStayFilter() {
+        return new b() { // from class: com.baidu.tieba.flutter.view.FlutterPageActivity.2
+            @Override // com.baidu.tbadk.m.b
+            public boolean isCurrentPageCanBeAddToSourceTrace() {
+                return true;
+            }
+
+            @Override // com.baidu.tbadk.m.b
+            public int getMaxCost() {
+                return e.bve().getMaxCostFromServer();
+            }
+
+            @Override // com.baidu.tbadk.m.b
+            public boolean canStat(d dVar) {
+                return false;
+            }
+        };
     }
 
     public BdUniqueId getUniqueId() {

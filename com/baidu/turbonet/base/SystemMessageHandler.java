@@ -7,38 +7,38 @@ import android.os.Message;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 class SystemMessageHandler extends Handler {
-    private long mZS;
-    private long mZT = 0;
+    private long njR;
+    private long njS = 0;
 
     private native void nativeDoRunLoopOnce(long j, long j2);
 
     private SystemMessageHandler(long j) {
-        this.mZS = 0L;
-        this.mZS = j;
+        this.njR = 0L;
+        this.njR = j;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 2) {
-            this.mZT = 0L;
+            this.njS = 0L;
         }
-        nativeDoRunLoopOnce(this.mZS, this.mZT);
+        nativeDoRunLoopOnce(this.njR, this.njS);
     }
 
     @CalledByNative
     private void scheduleWork() {
-        sendMessage(Kb(1));
+        sendMessage(KG(1));
     }
 
     @CalledByNative
     private void scheduleDelayedWork(long j, long j2) {
-        if (this.mZT != 0) {
+        if (this.njS != 0) {
             removeMessages(2);
         }
-        this.mZT = j;
-        sendMessageDelayed(Kb(2), j2);
+        this.njS = j;
+        sendMessageDelayed(KG(2), j2);
     }
 
     @CalledByNative
@@ -47,7 +47,7 @@ class SystemMessageHandler extends Handler {
         removeMessages(2);
     }
 
-    private Message Kb(int i) {
+    private Message KG(int i) {
         Message obtain = Message.obtain();
         obtain.what = i;
         a.a(obtain, true);
@@ -55,29 +55,29 @@ class SystemMessageHandler extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        static final c mZU;
+        static final c njT;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         public interface c {
             void a(Message message, boolean z);
         }
 
         public static void a(Message message, boolean z) {
-            mZU.a(message, z);
+            njT.a(message, z);
         }
 
         static {
             if (Build.VERSION.SDK_INT >= 22) {
-                mZU = new b();
+                njT = new b();
             } else {
-                mZU = new C0846a();
+                njT = new C0843a();
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         static class b implements c {
             b() {
             }
@@ -90,13 +90,13 @@ class SystemMessageHandler extends Handler {
         }
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        static class C0846a implements c {
-            private Method mZV;
+        /* loaded from: classes15.dex */
+        static class C0843a implements c {
+            private Method njU;
 
-            C0846a() {
+            C0843a() {
                 try {
-                    this.mZV = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
+                    this.njU = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {
                     com.baidu.turbonet.base.a.g("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
                 } catch (NoSuchMethodException e2) {
@@ -108,21 +108,21 @@ class SystemMessageHandler extends Handler {
 
             @Override // com.baidu.turbonet.base.SystemMessageHandler.a.c
             public void a(Message message, boolean z) {
-                if (this.mZV != null) {
+                if (this.njU != null) {
                     try {
-                        this.mZV.invoke(message, Boolean.valueOf(z));
+                        this.njU.invoke(message, Boolean.valueOf(z));
                     } catch (IllegalAccessException e) {
                         com.baidu.turbonet.base.a.g("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
-                        this.mZV = null;
+                        this.njU = null;
                     } catch (IllegalArgumentException e2) {
                         com.baidu.turbonet.base.a.g("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
-                        this.mZV = null;
+                        this.njU = null;
                     } catch (RuntimeException e3) {
                         com.baidu.turbonet.base.a.g("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
-                        this.mZV = null;
+                        this.njU = null;
                     } catch (InvocationTargetException e4) {
                         com.baidu.turbonet.base.a.g("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
-                        this.mZV = null;
+                        this.njU = null;
                     }
                 }
             }

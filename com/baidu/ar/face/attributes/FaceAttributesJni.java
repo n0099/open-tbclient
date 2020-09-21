@@ -3,7 +3,7 @@ package com.baidu.ar.face.attributes;
 import android.content.res.AssetManager;
 import com.baidu.ar.libloader.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FaceAttributesJni {
     protected static boolean nH;
 

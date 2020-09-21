@@ -2,10 +2,10 @@ package com.baidu.tieba.personPolymeric.tab.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     private long cursor;
     private int pageSize;
@@ -25,7 +25,7 @@ public class PersonCenterDynamicTabRequestMessage extends NetMessage {
         builder.cursor = Long.valueOf(this.cursor);
         builder.page_size = Integer.valueOf(this.pageSize);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         GetShoubaiThreadListReqIdl.Builder builder2 = new GetShoubaiThreadListReqIdl.Builder();
         builder2.data = builder.build(false);

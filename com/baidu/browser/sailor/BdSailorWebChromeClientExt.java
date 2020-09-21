@@ -3,7 +3,7 @@ package com.baidu.browser.sailor;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class BdSailorWebChromeClientExt implements INoProGuard {
     public static final BdSailorWebChromeClientExt DEFAULT = new BdSailorWebChromeClientExt();
 

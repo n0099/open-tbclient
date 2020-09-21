@@ -15,33 +15,33 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class a extends BaseAdapter {
-    private PersonalGroupFragment jxp;
-    private List<GroupInfoData> jxq = new ArrayList();
+    private PersonalGroupFragment jFR;
+    private List<GroupInfoData> jFS = new ArrayList();
 
-    public void dQ(List<GroupInfoData> list) {
-        this.jxq = list;
+    public void dY(List<GroupInfoData> list) {
+        this.jFS = list;
     }
 
     public a(PersonalGroupFragment personalGroupFragment) {
-        this.jxp = personalGroupFragment;
+        this.jFR = personalGroupFragment;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.jxq.size();
+        return this.jFS.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: BG */
+    /* renamed from: Ch */
     public GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.jxq.size()) {
+        if (itemId < 0 || itemId >= this.jFS.size()) {
             return null;
         }
-        return this.jxq.get(itemId);
+        return this.jFS.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -51,63 +51,63 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0720a c0720a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0720a)) {
-            view = LayoutInflater.from(this.jxp.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c0720a = new C0720a();
-            c0720a.jxr = (LinearLayout) view.findViewById(R.id.click_head);
-            c0720a.jxt = (ImageView) view.findViewById(R.id.diver_top);
-            c0720a.jxu = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c0720a.jxv = (ImageView) view.findViewById(R.id.diver_top_px);
-            c0720a.jpo = (GroupImageView) view.findViewById(R.id.item_head);
-            c0720a.jpp = (TextView) view.findViewById(R.id.item_group_name);
-            c0720a.jpr = (TextView) view.findViewById(R.id.item_group_num);
-            c0720a.jps = (TextView) view.findViewById(R.id.item_introduce);
-            c0720a.jxs = (TextView) view.findViewById(R.id.isCreator);
-            c0720a.jpt = (ImageView) view.findViewById(R.id.item_grade1);
-            c0720a.jpu = (ImageView) view.findViewById(R.id.item_grade2);
-            c0720a.jpv = (ImageView) view.findViewById(R.id.item_grade3);
-            c0720a.jpw = new ImageView[4];
-            c0720a.jpw[1] = c0720a.jpt;
-            c0720a.jpw[2] = c0720a.jpu;
-            c0720a.jpw[3] = c0720a.jpv;
-            view.setTag(c0720a);
+        C0717a c0717a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0717a)) {
+            view = LayoutInflater.from(this.jFR.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
+            c0717a = new C0717a();
+            c0717a.jFT = (LinearLayout) view.findViewById(R.id.click_head);
+            c0717a.jFV = (ImageView) view.findViewById(R.id.diver_top);
+            c0717a.jFW = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c0717a.jFX = (ImageView) view.findViewById(R.id.diver_top_px);
+            c0717a.jxR = (GroupImageView) view.findViewById(R.id.item_head);
+            c0717a.jxS = (TextView) view.findViewById(R.id.item_group_name);
+            c0717a.jxU = (TextView) view.findViewById(R.id.item_group_num);
+            c0717a.jxV = (TextView) view.findViewById(R.id.item_introduce);
+            c0717a.jFU = (TextView) view.findViewById(R.id.isCreator);
+            c0717a.jxW = (ImageView) view.findViewById(R.id.item_grade1);
+            c0717a.jxX = (ImageView) view.findViewById(R.id.item_grade2);
+            c0717a.jxY = (ImageView) view.findViewById(R.id.item_grade3);
+            c0717a.jxZ = new ImageView[4];
+            c0717a.jxZ[1] = c0717a.jxW;
+            c0717a.jxZ[2] = c0717a.jxX;
+            c0717a.jxZ[3] = c0717a.jxY;
+            view.setTag(c0717a);
         } else {
-            c0720a = (C0720a) view.getTag();
+            c0717a = (C0717a) view.getTag();
         }
-        GroupInfoData groupInfoData = this.jxq.get(i);
-        c0720a.jpo.setTag(null);
-        c0720a.jpo.setDrawBorder(true);
-        c0720a.jpo.setPlaceHolder(1);
+        GroupInfoData groupInfoData = this.jFS.get(i);
+        c0717a.jxR.setTag(null);
+        c0717a.jxR.setDrawBorder(true);
+        c0717a.jxR.setPlaceHolder(1);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0720a.jpo.startLoad(portrait, 10, false);
+                c0717a.jxR.startLoad(portrait, 10, false);
             } else {
-                c0720a.jpo.startLoad("", 10, false);
+                c0717a.jxR.startLoad("", 10, false);
             }
-            c0720a.jxr.setOnClickListener(this.jxp);
-            c0720a.jxr.setTag(groupInfoData);
-            c0720a.jxt.setVisibility(8);
-            c0720a.jxv.setVisibility(8);
-            c0720a.jxu.setVisibility(0);
-            c0720a.jpp.setText(groupInfoData.getName());
-            c0720a.jpr.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0720a.jps.setText(groupInfoData.getIntro());
+            c0717a.jFT.setOnClickListener(this.jFR);
+            c0717a.jFT.setTag(groupInfoData);
+            c0717a.jFV.setVisibility(8);
+            c0717a.jFX.setVisibility(8);
+            c0717a.jFW.setVisibility(0);
+            c0717a.jxS.setText(groupInfoData.getName());
+            c0717a.jxU.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0717a.jxV.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0720a.jxs.setVisibility(0);
+                c0717a.jFU.setVisibility(0);
             } else {
-                c0720a.jxs.setVisibility(8);
+                c0717a.jFU.setVisibility(8);
             }
-            a(c0720a.jpw, groupInfoData.getGrade());
+            a(c0717a.jxZ, groupInfoData.getGrade());
         }
-        this.jxp.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.jxp.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
+        this.jFR.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jFR.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            ap.setViewTextColor(c0720a.jpp, R.color.common_color_10009, 1);
-            ap.setImageResource(c0720a.jpt, R.drawable.icon_vip_grade_big_small_s);
-            ap.setImageResource(c0720a.jpu, R.drawable.icon_vip_grade_big_small_s);
-            ap.setImageResource(c0720a.jpv, R.drawable.icon_vip_grade_big_small_s);
+            ap.setViewTextColor(c0717a.jxS, R.color.common_color_10009, 1);
+            ap.setImageResource(c0717a.jxW, R.drawable.icon_vip_grade_big_small_s);
+            ap.setImageResource(c0717a.jxX, R.drawable.icon_vip_grade_big_small_s);
+            ap.setImageResource(c0717a.jxY, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -127,23 +127,23 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    static class C0720a {
-        GroupImageView jpo;
-        TextView jpp;
-        TextView jpr;
-        TextView jps;
-        ImageView jpt;
-        ImageView jpu;
-        ImageView jpv;
-        ImageView[] jpw;
-        LinearLayout jxr;
-        TextView jxs;
-        ImageView jxt;
-        ImageView jxu;
-        ImageView jxv;
+    /* loaded from: classes25.dex */
+    static class C0717a {
+        LinearLayout jFT;
+        TextView jFU;
+        ImageView jFV;
+        ImageView jFW;
+        ImageView jFX;
+        GroupImageView jxR;
+        TextView jxS;
+        TextView jxU;
+        TextView jxV;
+        ImageView jxW;
+        ImageView jxX;
+        ImageView jxY;
+        ImageView[] jxZ;
 
-        C0720a() {
+        C0717a() {
         }
     }
 }

@@ -13,40 +13,40 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView dTJ;
-    public int eua;
-    private TextView evn;
-    private boolean evo;
-    private boolean evp;
-    private boolean evq;
-    private boolean evr;
-    private boolean evs;
+    private TextView dVT;
+    public int ewe;
+    private TextView exr;
+    private boolean exs;
+    private boolean exu;
+    private boolean exv;
+    private boolean exw;
+    private boolean exx;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.evo = false;
-        this.evp = false;
-        this.evq = false;
-        this.evr = false;
-        this.evs = false;
+        this.exs = false;
+        this.exu = false;
+        this.exv = false;
+        this.exw = false;
+        this.exx = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.evo = false;
-        this.evp = false;
-        this.evq = false;
-        this.evr = false;
-        this.evs = false;
+        this.exs = false;
+        this.exu = false;
+        this.exv = false;
+        this.exw = false;
+        this.exx = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.evn = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.dTJ = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.exr = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.dVT = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
@@ -56,78 +56,78 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
             return;
         }
         setVisibility(0);
-        J(bwVar);
         K(bwVar);
         L(bwVar);
         M(bwVar);
-        y(bwVar);
-    }
-
-    private void J(bw bwVar) {
-        if (this.evn != null && bwVar != null && this.evq && bwVar.beY() != null && bwVar.bfY()) {
-            this.evn.setVisibility(0);
-            this.evn.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bwVar.beY().audience_count)));
-        }
+        N(bwVar);
+        z(bwVar);
     }
 
     private void K(bw bwVar) {
-        if (this.evn != null && bwVar != null && this.evo) {
-            if (bwVar.bew() >= 0) {
-                this.evn.setVisibility(0);
-                this.evn.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bwVar.bew())));
-                return;
-            }
-            this.evn.setVisibility(8);
+        if (this.exr != null && bwVar != null && this.exv && bwVar.bfS() != null && bwVar.bgS()) {
+            this.exr.setVisibility(0);
+            this.exr.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bwVar.bfS().audience_count)));
         }
     }
 
     private void L(bw bwVar) {
-        if (this.dTJ != null && bwVar != null && this.evp) {
-            if (bwVar.bev() >= 0) {
-                this.dTJ.setVisibility(0);
-                this.dTJ.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bwVar.bev())));
+        if (this.exr != null && bwVar != null && this.exs) {
+            if (bwVar.bfq() >= 0) {
+                this.exr.setVisibility(0);
+                this.exr.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bwVar.bfq())));
                 return;
             }
-            this.dTJ.setVisibility(8);
+            this.exr.setVisibility(8);
         }
     }
 
     private void M(bw bwVar) {
-        if (this.dTJ != null && bwVar != null && this.evr && bwVar.bfY()) {
-            this.dTJ.setVisibility(0);
-            this.dTJ.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bwVar.bgc())));
+        if (this.dVT != null && bwVar != null && this.exu) {
+            if (bwVar.bfp() >= 0) {
+                this.dVT.setVisibility(0);
+                this.dVT.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bwVar.bfp())));
+                return;
+            }
+            this.dVT.setVisibility(8);
         }
     }
 
-    private void y(bw bwVar) {
-        if (this.dTJ != null && bwVar != null && this.evs && bwVar.bfY()) {
-            this.dTJ.setVisibility(0);
-            this.dTJ.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bwVar.beY() == null || bwVar.beY().share_info == null) ? 0 : bwVar.beY().share_info.share_count)));
+    private void N(bw bwVar) {
+        if (this.dVT != null && bwVar != null && this.exw && bwVar.bgS()) {
+            this.dVT.setVisibility(0);
+            this.dVT.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bwVar.bgW())));
+        }
+    }
+
+    private void z(bw bwVar) {
+        if (this.dVT != null && bwVar != null && this.exx && bwVar.bgS()) {
+            this.dVT.setVisibility(0);
+            this.dVT.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bwVar.bfS() == null || bwVar.bfS().share_info == null) ? 0 : bwVar.bfS().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.evo = z;
+        this.exs = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.evp = z;
+        this.exu = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.evq = z;
+        this.exv = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.evr = z;
+        this.exw = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.evs = z;
+        this.exx = z;
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.evn, R.color.cp_cont_d);
-        ap.setViewTextColor(this.dTJ, R.color.cp_cont_d);
+        ap.setViewTextColor(this.exr, R.color.cp_cont_d);
+        ap.setViewTextColor(this.dVT, R.color.cp_cont_d);
     }
 }

@@ -1,31 +1,49 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    private int mChunkNo;
-    private String mMd5;
-    private long mTotalLength;
+    private AntiData eCu = new AntiData();
+    private ArrayList<String> ebf;
+    private UserData mUser;
 
-    public String getMd5() {
-        return this.mMd5;
+    public o() {
+        this.mUser = null;
+        this.ebf = null;
+        this.mUser = new UserData();
+        this.ebf = new ArrayList<>(3);
     }
 
-    public void setMd5(String str) {
-        this.mMd5 = str;
+    public ArrayList<String> bnE() {
+        return this.ebf;
     }
 
-    public long getTotalLength() {
-        return this.mTotalLength;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public void setTotalLength(long j) {
-        this.mTotalLength = j;
-    }
-
-    public int getChunkNo() {
-        return this.mChunkNo;
-    }
-
-    public void setChunkNo(int i) {
-        this.mChunkNo = i;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.mUser.parserJson(jSONObject.optJSONObject("user"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.ebf.add(optJSONArray.optString(i, null));
+                }
+            }
+            this.eCu.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class CyberRTCRoom {
     private RTCRoomProvider a;
 

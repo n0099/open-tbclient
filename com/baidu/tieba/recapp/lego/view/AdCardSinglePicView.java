@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    private XfremodeRoundLayout lFo;
-    private TbImageView lFp;
-    private View lFq;
-    private TextView lFr;
+    private XfremodeRoundLayout lOi;
+    private TbImageView lOj;
+    private View lOk;
+    private TextView lOl;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -32,44 +32,44 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void di(View view) {
-        float dimensionPixelSize = this.efr.getResources().getDimensionPixelSize(R.dimen.tbds10);
+    protected void dq(View view) {
+        float dimensionPixelSize = this.ehG.getResources().getDimensionPixelSize(R.dimen.tbds10);
         if (view instanceof XfremodeRoundLayout) {
             ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
-        this.lFo = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.lFp = (TbImageView) view.findViewById(R.id.ad_img);
-        this.lFp.setPlaceHolder(3);
-        this.lFq = view.findViewById(R.id.channel_ad);
-        this.lFr = (TextView) view.findViewById(R.id.advert_source_img);
-        this.lFo.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        this.lOi = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.lOj = (TbImageView) view.findViewById(R.id.ad_img);
+        this.lOj.setPlaceHolder(3);
+        this.lOk = view.findViewById(R.id.channel_ad);
+        this.lOl = (TextView) view.findViewById(R.id.advert_source_img);
+        this.lOi.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.lEf.setVisibility(8);
+            this.lMZ.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
-        boolean a = a(this.lFp, adCard);
+        boolean a = a(this.lOj, adCard);
         if (!TextUtils.isEmpty(str) && a) {
-            this.lEf.setVisibility(0);
-            this.lFp.startLoad(str, 17, false);
+            this.lMZ.setVisibility(0);
+            this.lOj.startLoad(str, 17, false);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (!StringUtils.isNull(adCard.adSource, true)) {
-                this.lFr.setText(adCard.adSource);
-                this.lFq.setVisibility(0);
-            } else if (advertAppInfo != null && advertAppInfo.dWs != null && !TextUtils.isEmpty(advertAppInfo.dWs.adSource)) {
-                this.lFr.setText(advertAppInfo.dWs.adSource);
-                this.lFq.setVisibility(0);
+                this.lOl.setText(adCard.adSource);
+                this.lOk.setVisibility(0);
+            } else if (advertAppInfo != null && advertAppInfo.dYC != null && !TextUtils.isEmpty(advertAppInfo.dYC.adSource)) {
+                this.lOl.setText(advertAppInfo.dYC.adSource);
+                this.lOk.setVisibility(0);
             } else {
-                this.lFq.setVisibility(8);
+                this.lOk.setVisibility(8);
             }
-            a(this.lFp, adCard.threadPicList[0].lDQ);
+            a(this.lOj, adCard.threadPicList[0].lMK);
             return;
         }
-        this.lEf.setVisibility(8);
+        this.lMZ.setVisibility(8);
     }
 
     protected boolean a(TbImageView tbImageView, AdCard adCard) {
@@ -109,7 +109,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 layoutParams.height = i;
                 layoutParams.width = i2;
             }
-            this.lFo.setLayoutParams(layoutParams);
+            this.lOi.setLayoutParams(layoutParams);
             tbImageView.setLayoutParams(layoutParams);
         }
     }

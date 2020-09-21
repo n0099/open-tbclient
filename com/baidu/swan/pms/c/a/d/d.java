@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.c.a.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class d {
-    private static d dFK;
-    private com.baidu.swan.pms.c.a.c.b dFL = new com.baidu.swan.pms.c.a.c.b();
+    private static d dHO;
+    private com.baidu.swan.pms.c.a.c.b dHP = new com.baidu.swan.pms.c.a.c.b();
 
-    public static d aTU() {
-        if (dFK != null) {
-            return dFK;
+    public static d aUG() {
+        if (dHO != null) {
+            return dHO;
         }
         synchronized (d.class) {
-            if (dFK == null) {
-                dFK = new d();
+            if (dHO == null) {
+                dHO = new d();
             }
         }
-        return dFK;
+        return dHO;
     }
 
     private d() {
@@ -27,23 +27,23 @@ public class d {
     }
 
     public synchronized <T> void j(f<T> fVar) {
-        fVar.he(false);
-        this.dFL.b(fVar);
+        fVar.hc(false);
+        this.dHP.b(fVar);
     }
 
-    public synchronized boolean wx(String str) {
-        return this.dFL.wx(str);
+    public synchronized boolean wQ(String str) {
+        return this.dHP.wQ(str);
     }
 
-    public synchronized boolean wy(String str) {
-        return this.dFL.wy(str);
+    public synchronized boolean wR(String str) {
+        return this.dHP.wR(str);
     }
 
     public synchronized void c(b bVar) {
-        this.dFL.a(bVar);
+        this.dHP.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.dFL.b(bVar);
+        this.dHP.b(bVar);
     }
 }

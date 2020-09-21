@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.enterForum.hotuserrank.a.c;
 import com.squareup.wire.Wire;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     private c pageData;
 

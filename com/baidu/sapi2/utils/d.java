@@ -30,22 +30,22 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class d {
     public static final String a = "d";
     private static final String b = "file:///android_asset/";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class a extends WebViewClient {
         final /* synthetic */ WebView a;
         final /* synthetic */ String b;
         final /* synthetic */ com.baidu.sapi2.callback.a.a c;
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        class C0304a implements ValueCallback<String> {
-            C0304a() {
+        /* loaded from: classes25.dex */
+        class C0302a implements ValueCallback<String> {
+            C0302a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.a.evaluateJavascript(this.b, new C0304a());
+                this.a.evaluateJavascript(this.b, new C0302a());
                 return;
             }
             this.c.a(null);

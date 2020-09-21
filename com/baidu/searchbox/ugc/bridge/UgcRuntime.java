@@ -1,9 +1,9 @@
 package com.baidu.searchbox.ugc.bridge;
 
-import com.baidu.tieba.write.b.a.m;
-/* loaded from: classes14.dex */
+import com.baidu.tieba.write.b.a.g;
+/* loaded from: classes19.dex */
 public class UgcRuntime {
     public static IUgcHostInterface getUgcInterface() {
-        return m.dGG();
+        return g.dKx();
     }
 }

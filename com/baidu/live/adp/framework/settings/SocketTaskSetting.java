@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.settings;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class SocketTaskSetting extends TaskSetting {
     private static volatile SocketTaskSetting sInstance = null;
 

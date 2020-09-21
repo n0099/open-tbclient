@@ -1,68 +1,61 @@
 package com.baidu.live.utils;
 
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.au;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes7.dex */
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.support.v4.view.ViewCompat;
+/* loaded from: classes4.dex */
 public class m {
-    private static Map<Long, Long> bqx = new HashMap();
-    private static Map<Long, Set<Long>> bqy = new HashMap();
-
-    public static Long av(long j) {
-        if (bqx.containsKey(Long.valueOf(j))) {
-            return bqx.get(Long.valueOf(j));
+    public static Bitmap b(Bitmap bitmap, int i, int i2) {
+        try {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.drawARGB(0, 0, 0, 0);
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setColor(ViewCompat.MEASURED_STATE_MASK);
+            canvas.drawRoundRect(new RectF(0.0f, 0.0f, width, height), i, i, paint);
+            int i3 = i2 ^ 15;
+            if ((i3 & 1) != 0) {
+                a(canvas, paint, i, width, height);
+            }
+            if ((i3 & 2) != 0) {
+                b(canvas, paint, i, width, height);
+            }
+            if ((i3 & 4) != 0) {
+                c(canvas, paint, i, width, height);
+            }
+            if ((i3 & 8) != 0) {
+                d(canvas, paint, i, width, height);
+            }
+            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            Rect rect = new Rect(0, 0, width, height);
+            canvas.drawBitmap(bitmap, rect, rect, paint);
+            return createBitmap;
+        } catch (Exception e) {
+            return bitmap;
         }
-        return 0L;
     }
 
-    public static void h(long j, long j2) {
-        bqx.put(Long.valueOf(j), Long.valueOf(j2));
+    private static void a(Canvas canvas, Paint paint, int i, int i2, int i3) {
+        canvas.drawRect(new Rect(0, 0, i, i), paint);
     }
 
-    public static boolean i(long j, long j2) {
-        Set<Long> set;
-        if (bqy.containsKey(Long.valueOf(j)) && (set = bqy.get(Long.valueOf(j))) != null) {
-            return set.contains(Long.valueOf(j2));
-        }
-        return false;
+    private static void b(Canvas canvas, Paint paint, int i, int i2, int i3) {
+        canvas.drawRect(new Rect(i2 - i, 0, i2, i), paint);
     }
 
-    public static void j(long j, long j2) {
-        if (!bqy.containsKey(Long.valueOf(j))) {
-            HashSet hashSet = new HashSet();
-            hashSet.add(Long.valueOf(j2));
-            bqy.put(Long.valueOf(j), hashSet);
-            return;
-        }
-        Set<Long> set = bqy.get(Long.valueOf(j));
-        if (set != null) {
-            set.add(Long.valueOf(j2));
-            return;
-        }
-        HashSet hashSet2 = new HashSet();
-        hashSet2.add(Long.valueOf(j2));
-        bqy.put(Long.valueOf(j), hashSet2);
+    private static void c(Canvas canvas, Paint paint, int i, int i2, int i3) {
+        canvas.drawRect(new Rect(0, i3 - i, i, i3), paint);
     }
 
-    public static void Pl() {
-        bqy.clear();
-    }
-
-    public static void k(long j, long j2) {
-        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        httpMessage.addParam("uid", j + "");
-        httpMessage.addParam("live_id", j2 + "");
-        httpMessage.addParam("latest_event_id", av(j2) + "");
-        httpMessage.addParam("current_time", (System.currentTimeMillis() / 1000) + "");
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static void a(au auVar, AlaLiveInfoData alaLiveInfoData, boolean z) {
+    private static void d(Canvas canvas, Paint paint, int i, int i2, int i3) {
+        canvas.drawRect(new Rect(i2 - i, i3 - i, i2, i3), paint);
     }
 }

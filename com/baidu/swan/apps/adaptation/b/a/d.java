@@ -2,22 +2,22 @@ package com.baidu.swan.apps.adaptation.b.a;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public long bSX;
-    public long bSY;
-    public volatile long bSZ;
-    public long bTa;
-    public long bTb;
-    private long bTc;
-    public String bTd = "1";
+    public long bUX;
+    public long bUY;
+    public volatile long bUZ;
+    public long bVa;
+    public long bVb;
+    private long bVc;
+    public String bVd = "1";
 
-    public long abf() {
-        if (this.bTc > 0) {
-            return this.bTc;
+    public long abO() {
+        if (this.bVc > 0) {
+            return this.bVc;
         }
-        long[] jArr = {this.bTa, this.bTb, this.bSY};
+        long[] jArr = {this.bVa, this.bVb, this.bUY};
         int length = jArr.length;
         int i = 0;
         long j = Long.MAX_VALUE;
@@ -30,42 +30,42 @@ public class d {
             j = j2;
         }
         if (j != Long.MAX_VALUE) {
-            this.bTc = j;
+            this.bVc = j;
         }
-        return this.bTc;
+        return this.bVc;
     }
 
-    public final void abg() {
-        if (this.bSZ > 0 && this.bSZ != this.bTa && this.bSZ != this.bTb && this.bSZ != this.bSY) {
+    public final void abP() {
+        if (this.bUZ > 0 && this.bUZ != this.bVa && this.bUZ != this.bVb && this.bUZ != this.bUY) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.bSZ);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: miss with real fmp=" + this.bUZ);
             }
-        } else if (this.bTa > 0) {
+        } else if (this.bVa > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.bTa);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with ftp=" + this.bVa);
             }
-            this.bSZ = this.bTa;
-            this.bTd = "2";
-        } else if (this.bTb > 0) {
+            this.bUZ = this.bVa;
+            this.bVd = "2";
+        } else if (this.bVb > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.bTb);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fip=" + this.bVb);
             }
-            this.bSZ = this.bTb;
-            this.bTd = "3";
-        } else if (this.bSY > 0) {
+            this.bUZ = this.bVb;
+            this.bVd = "3";
+        } else if (this.bUY > 0) {
             if (DEBUG) {
-                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.bSY);
+                Log.d("WebViewPaintTiming", "tryCalibrateFmp: hit with fcp=" + this.bUY);
             }
-            this.bSZ = this.bSY;
-            this.bTd = "1";
+            this.bUZ = this.bUY;
+            this.bVd = "1";
         } else if (DEBUG) {
             throw new RuntimeException("ftp fcp fip 至少收到上述一个回调才能校准 fmp \n" + toString());
         }
     }
 
     @NonNull
-    public String abh() {
-        String str = this.bTd;
+    public String abQ() {
+        String str = this.bVd;
         char c = 65535;
         switch (str.hashCode()) {
             case 48:
@@ -107,20 +107,20 @@ public class d {
         }
     }
 
-    public String aM(long j) {
-        if (j == this.bTa) {
+    public String aN(long j) {
+        if (j == this.bVa) {
             return "2";
         }
-        if (j == this.bTb) {
+        if (j == this.bVb) {
             return "3";
         }
-        if (j != this.bSY && j == this.bSZ) {
+        if (j != this.bUY && j == this.bUZ) {
             return "0";
         }
         return "1";
     }
 
     public String toString() {
-        return "WebViewPaintTiming{fp=" + this.bSX + ", fcp=" + this.bSY + ", fmp=" + this.bSZ + ", ftp=" + this.bTa + ", fip=" + this.bTb + ", mMinCache=" + this.bTc + ", fmpType='" + this.bTd + "', fmpTypeName='" + abh() + "'}";
+        return "WebViewPaintTiming{fp=" + this.bUX + ", fcp=" + this.bUY + ", fmp=" + this.bUZ + ", ftp=" + this.bVa + ", fip=" + this.bVb + ", mMinCache=" + this.bVc + ", fmpType='" + this.bVd + "', fmpTypeName='" + abQ() + "'}";
     }
 }

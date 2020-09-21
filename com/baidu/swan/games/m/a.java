@@ -6,29 +6,29 @@ import com.baidu.swan.games.m.b.b;
 import com.baidu.swan.games.m.b.c;
 import com.baidu.swan.games.m.b.d;
 import com.baidu.swan.games.m.b.e;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class a {
-    public static e aOq() {
+    public static e aPb() {
         return new com.baidu.swan.games.m.a.e();
     }
 
-    public static d aOr() {
+    public static d aPc() {
         return new com.baidu.swan.games.m.a.d();
     }
 
-    public static com.baidu.swan.games.m.b.a aOs() {
+    public static com.baidu.swan.games.m.b.a aPd() {
         return new com.baidu.swan.games.m.a.a();
     }
 
-    public static ax aOt() {
+    public static ax aPe() {
         return new aa();
     }
 
-    public static b aOu() {
+    public static b aPf() {
         return new com.baidu.swan.games.m.a.b();
     }
 
-    public static c aOv() {
+    public static c aPg() {
         return new com.baidu.swan.games.m.a.c();
     }
 }

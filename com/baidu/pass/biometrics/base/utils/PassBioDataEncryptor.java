@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
 import java.util.Random;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class PassBioDataEncryptor {
     private static final String a = "PassBioDataEncryptor";
 

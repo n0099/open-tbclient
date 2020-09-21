@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ComboPraiseProvider implements IResourceProvider {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     public static final String DIR_NAME_ERUPTION = "exploding";
@@ -263,7 +263,7 @@ public class ComboPraiseProvider implements IResourceProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class ResourcePackage implements IResourcePackage {
         public static final int LRU_SIZE = 4;
         private Context mContext;
@@ -549,7 +549,7 @@ public class ComboPraiseProvider implements IResourceProvider {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class Builder {
         private static final String DEFAULT_UNZIP_DIR_NAME = "lottie_unzip";
         Context mContext;
@@ -595,6 +595,7 @@ public class ComboPraiseProvider implements IResourceProvider {
         }
 
         public IResourceProvider build() {
+            boolean z;
             if (this.mProcessedResPath != null) {
                 releaseProvider();
                 this.mProvider = new ComboPraiseProvider(this.mContext, this.mProcessedResPath);
@@ -604,13 +605,19 @@ public class ComboPraiseProvider implements IResourceProvider {
                     return null;
                 }
                 return null;
-            } else if (!FileUtils.unzipFile(this.mZipInputPath.getPath(), this.mUnZipOutputPath.getPath())) {
-                if (ComboPraiseProvider.DEBUG) {
-                    Log.d(ComboPraiseProvider.TAG, "build failed, failed to unzip, src:" + this.mZipInputPath.getPath() + ", dest:" + this.mUnZipOutputPath.getPath());
+            } else {
+                try {
+                    z = FileUtils.unzipFile(this.mZipInputPath.getPath(), this.mUnZipOutputPath.getPath());
+                } catch (Exception e) {
+                    z = false;
+                }
+                if (!z) {
+                    if (ComboPraiseProvider.DEBUG) {
+                        Log.d(ComboPraiseProvider.TAG, "build failed, failed to unzip, src:" + this.mZipInputPath.getPath() + ", dest:" + this.mUnZipOutputPath.getPath());
+                        return null;
+                    }
                     return null;
                 }
-                return null;
-            } else {
                 releaseProvider();
                 this.mProvider = new ComboPraiseProvider(this.mContext, this.mUnZipOutputPath);
             }

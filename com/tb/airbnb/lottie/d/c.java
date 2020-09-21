@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.view.Choreographer;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
     private com.tb.airbnb.lottie.d composition;
@@ -22,11 +22,11 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.animation.ValueAnimator
     public Object getAnimatedValue() {
-        return Float.valueOf(kT());
+        return Float.valueOf(kU());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    public float kT() {
+    public float kU() {
         if (this.composition == null) {
             return 0.0f;
         }
@@ -53,7 +53,7 @@ public class c extends a implements Choreographer.FrameCallback {
         return this.composition.iu();
     }
 
-    public float kU() {
+    public float kV() {
         return this.GN;
     }
 
@@ -64,26 +64,26 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.view.Choreographer.FrameCallback
     public void doFrame(long j) {
-        kW();
+        kX();
         if (this.composition != null && isRunning()) {
             long nanoTime = System.nanoTime();
-            float kV = ((float) (nanoTime - this.GM)) / kV();
+            float kW = ((float) (nanoTime - this.GM)) / kW();
             float f = this.GN;
             if (isReversed()) {
-                kV = -kV;
+                kW = -kW;
             }
-            this.GN = kV + f;
+            this.GN = kW + f;
             boolean z = !e.d(this.GN, getMinFrame(), getMaxFrame());
             this.GN = e.clamp(this.GN, getMinFrame(), getMaxFrame());
             this.GM = nanoTime;
-            kS();
+            kT();
             if (z) {
                 if (getRepeatCount() != -1 && this.repeatCount >= getRepeatCount()) {
                     this.GN = getMaxFrame();
-                    kX();
-                    ab(isReversed());
+                    kY();
+                    aa(isReversed());
                 } else {
-                    kQ();
+                    kR();
                     this.repeatCount++;
                     if (getRepeatMode() == 2) {
                         this.GL = this.GL ? false : true;
@@ -94,11 +94,11 @@ public class c extends a implements Choreographer.FrameCallback {
                     this.GM = nanoTime;
                 }
             }
-            kY();
+            kZ();
         }
     }
 
-    private float kV() {
+    private float kW() {
         if (this.composition == null) {
             return Float.MAX_VALUE;
         }
@@ -127,7 +127,7 @@ public class c extends a implements Choreographer.FrameCallback {
         if (this.GN != i) {
             this.GN = e.clamp(i, getMinFrame(), getMaxFrame());
             this.GM = System.nanoTime();
-            kS();
+            kT();
         }
     }
 
@@ -171,32 +171,32 @@ public class c extends a implements Choreographer.FrameCallback {
     @MainThread
     public void playAnimation() {
         this.GQ = true;
-        aa(isReversed());
+        Z(isReversed());
         setFrame((int) (isReversed() ? getMaxFrame() : getMinFrame()));
         this.GM = System.nanoTime();
         this.repeatCount = 0;
-        kW();
+        kX();
     }
 
     @MainThread
     public void endAnimation() {
-        kX();
-        ab(isReversed());
+        kY();
+        aa(isReversed());
     }
 
     @MainThread
     public void pauseAnimation() {
-        kX();
+        kY();
     }
 
     @MainThread
     public void resumeAnimation() {
         this.GQ = true;
-        kW();
+        kX();
         this.GM = System.nanoTime();
-        if (isReversed() && kU() == getMinFrame()) {
+        if (isReversed() && kV() == getMinFrame()) {
             this.GN = getMaxFrame();
-        } else if (!isReversed() && kU() == getMaxFrame()) {
+        } else if (!isReversed() && kV() == getMaxFrame()) {
             this.GN = getMinFrame();
         }
     }
@@ -204,8 +204,8 @@ public class c extends a implements Choreographer.FrameCallback {
     @Override // android.animation.ValueAnimator, android.animation.Animator
     @MainThread
     public void cancel() {
-        kR();
-        kX();
+        kS();
+        kY();
     }
 
     private boolean isReversed() {
@@ -226,27 +226,27 @@ public class c extends a implements Choreographer.FrameCallback {
         return this.GP == 2.1474836E9f ? this.composition.iw() : this.GP;
     }
 
-    protected void kW() {
+    protected void kX() {
         if (isRunning()) {
-            ac(false);
+            ab(false);
             Choreographer.getInstance().postFrameCallback(this);
         }
     }
 
     @MainThread
-    protected void kX() {
-        ac(true);
+    protected void kY() {
+        ab(true);
     }
 
     @MainThread
-    protected void ac(boolean z) {
+    protected void ab(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {
             this.GQ = false;
         }
     }
 
-    private void kY() {
+    private void kZ() {
         if (this.composition != null) {
             if (this.GN < this.GO || this.GN > this.GP) {
                 throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.GO), Float.valueOf(this.GP), Float.valueOf(this.GN)));

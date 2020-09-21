@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e eJv;
+    private static e eLC;
     public String isOn;
     public final String NET_TYPENAME_2G = "2g";
     public final String NET_TYPENAME_3G = "3g";
@@ -15,13 +15,13 @@ public class e {
     public HashMap<String, String> uploadDataNumMap = new HashMap<>();
     public HashMap<String, String> mergeDataFrequencyMap = new HashMap<>();
 
-    public static synchronized e bqS() {
+    public static synchronized e brM() {
         e eVar;
         synchronized (e.class) {
-            if (eJv == null) {
-                eJv = new e();
+            if (eLC == null) {
+                eLC = new e();
             }
-            eVar = eJv;
+            eVar = eLC;
         }
         return eVar;
     }

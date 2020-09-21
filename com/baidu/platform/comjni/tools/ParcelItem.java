@@ -3,7 +3,7 @@ package com.baidu.platform.comjni.tools;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ParcelItem implements Parcelable {
     public static final Parcelable.Creator<ParcelItem> CREATOR = new a();
     private Bundle a;

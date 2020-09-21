@@ -1,162 +1,81 @@
 package com.baidu.tieba.frs.f;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.k;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.view.FrsPrivateShareDialogView;
-import com.baidu.tieba.frs.view.FrsShareCardView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.net.URLEncoder;
-/* loaded from: classes16.dex */
+import java.util.Set;
+/* loaded from: classes21.dex */
 public class e {
-    public static void a(final TbPageContext tbPageContext, final FrsViewData frsViewData, String str) {
-        final String str2;
-        Uri parse;
-        if (tbPageContext != null && frsViewData != null && frsViewData.getForum() != null) {
-            if (frsViewData.getForum().getName() == null || frsViewData.getForum().getId() == null) {
-                tbPageContext.showToast(tbPageContext.getString(R.string.no_forum_data));
-                return;
+    private final SharedPreferences iAo = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+
+    public boolean eO(String str, String str2) {
+        if (eT(str, str2)) {
+            return this.iAo.getBoolean(str + '_' + str2 + "_show", false);
+        }
+        return false;
+    }
+
+    public long eP(String str, String str2) {
+        if (eT(str, str2)) {
+            return this.iAo.getLong(str + '_' + str2 + "_show_time", 0L);
+        }
+        return 0L;
+    }
+
+    public void a(String str, String str2, long j, boolean z) {
+        if (eT(str, str2)) {
+            String str3 = str + '_' + str2 + "_show_time";
+            String str4 = str + '_' + str2 + "_show_cnt";
+            int i = this.iAo.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.iAo.edit();
+            if (i > 3) {
+                edit.putInt(str4, i + 1);
             }
-            TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
-            String name = frsViewData.getForum().getName();
-            ForumData forum = frsViewData.getForum();
-            String encode = URLEncoder.encode(name);
-            if (!TextUtils.isEmpty(forum.forum_share_link)) {
-                str2 = forum.forum_share_link + "?kw=" + encode + "&fr=frsshare";
-            } else {
-                str2 = TbConfig.HTTPS_FRS_PREFIX + encode + "&fr=frsshare";
+            edit.putLong(str3, j);
+            if (z) {
+                edit.putBoolean(str + '_' + str2 + "_show", true);
             }
-            Uri parse2 = frsViewData.getForum().getImage_url() == null ? null : Uri.parse(frsViewData.getForum().getImage_url());
-            String slogan = frsViewData.getForum().getSlogan();
-            final ShareItem shareItem = new ShareItem();
-            shareItem.title = name + tbPageContext.getString(R.string.forum);
-            shareItem.content = slogan;
-            shareItem.linkUrl = str2;
-            shareItem.eEf = true;
-            shareItem.eEw = 10;
-            shareItem.extData = str;
-            if (parse2 != null) {
-                shareItem.imageUri = parse2;
-            }
-            ShareItem shareItem2 = new ShareItem();
-            shareItem2.title = name + tbPageContext.getString(R.string.forum);
-            shareItem2.content = slogan;
-            shareItem2.linkUrl = str2;
-            shareItem2.eEf = true;
-            shareItem2.eEw = 10;
-            shareItem2.extData = str;
-            shareItem2.fName = frsViewData.getForum().getName();
-            String str3 = frsViewData.getForum().getfShareImage();
-            if (StringUtils.isNull(str3)) {
-                shareItem2.typeShareToSmallApp = 4;
-                shareItem2.fid = frsViewData.getForum().getId();
-                parse = parse2;
-            } else {
-                parse = Uri.parse(str3);
-                shareItem2.typeShareToSmallApp = 2;
-            }
-            if (parse2 != null) {
-                shareItem2.imageUri = parse;
-            }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), shareItem, true);
-            shareDialogConfig.setHasSpecialItem(true);
-            shareDialogConfig.setSpecialShareItems(3, shareItem2);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCustomCopyTitle(R.string.copy_link);
-            shareDialogConfig.addOutsideTextView(R.string.poster_share, R.drawable.icon_pure_share_poster40_svg, new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.e.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dD("fid", ShareItem.this.extData).ai("obj_type", 18).ai("obj_source", 10));
-                    FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
-                    com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                    if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
-                        aVar.nw(2);
-                        aVar.aX(frsPrivateShareDialogView);
-                        aVar.b(tbPageContext).bhg();
-                    }
-                }
-            });
-            shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.f.e.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    com.baidu.adp.lib.util.a.copyToClipboard(str2);
-                    l.showToast(tbPageContext.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
-                }
-            });
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            edit.apply();
         }
     }
 
-    public static void b(TbPageContext tbPageContext, FrsViewData frsViewData) {
-        FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
-            aVar.nw(2);
-            aVar.aX(frsPrivateShareDialogView);
-            aVar.b(tbPageContext).bhg();
+    public int eQ(String str, String str2) {
+        if (eT(str, str2)) {
+            return this.iAo.getInt(str + '_' + str2 + "_show_cnt", 0);
+        }
+        return 0;
+    }
+
+    public void h(String str, String str2, long j) {
+        if (eT(str, str2)) {
+            SharedPreferences.Editor edit = this.iAo.edit();
+            edit.putLong(str + '_' + str2 + "_visit_time", j);
+            edit.apply();
         }
     }
 
-    private static ShareFromFrsMsgData h(FrsViewData frsViewData) {
-        ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(frsViewData.getForum().getImage_url());
-        shareFromFrsMsgData.setName(frsViewData.getForum().getName());
-        shareFromFrsMsgData.setMemberNum(frsViewData.getForum().getMember_num());
-        shareFromFrsMsgData.setPostNum(frsViewData.getForum().getPost_num());
-        shareFromFrsMsgData.setContent(frsViewData.getForum().getSlogan());
-        return shareFromFrsMsgData;
+    public long eR(String str, String str2) {
+        if (eT(str, str2)) {
+            return this.iAo.getLong(str + '_' + str2 + "_visit_time", 0L);
+        }
+        return 0L;
     }
 
-    public static void a(final FrsFragment frsFragment, FrsViewData frsViewData, final long j, final String str, final long j2) {
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            final ShareFromFrsMsgData h = h(frsViewData);
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
-            final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
-            frsShareCardView.setPageId(frsFragment.getUniqueId());
-            frsShareCardView.setData(h);
-            aVar.nw(1);
-            aVar.aX(frsShareCardView);
-            aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.3
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    FrsFragment.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), frsShareCardView.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(FrsFragment.this.getTbPageContext().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), h.toChatMessageContent())));
-                    aVar2.dismiss();
+    public void eS(String str, String str2) {
+        if (eT(str, str2)) {
+            String str3 = str + '_' + str2;
+            Set<String> keySet = this.iAo.getAll().keySet();
+            SharedPreferences.Editor edit = this.iAo.edit();
+            for (String str4 : keySet) {
+                if (str4.startsWith(str3)) {
+                    edit.remove(str4);
                 }
-            });
-            aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.frs.f.e.4
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    FrsFragment.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), frsShareCardView.getChatMsgView());
-                    aVar2.dismiss();
-                }
-            });
-            aVar.ih(true);
-            aVar.b(frsFragment.getPageContext()).bhg();
-            if (!k.isEmpty(h.getImageUrl())) {
-                frsShareCardView.aJ(h.getImageUrl(), false);
             }
+            edit.apply();
         }
+    }
+
+    private boolean eT(String str, String str2) {
+        return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

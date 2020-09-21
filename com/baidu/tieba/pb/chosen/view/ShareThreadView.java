@@ -10,21 +10,21 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public final class ShareThreadView extends LinearLayout {
-    private TbImageView ePI;
-    private EditText izx;
-    private TextView jcS;
+    private TbImageView eSz;
+    private EditText iGS;
+    private TextView jly;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.izx;
+        return this.iGS;
     }
 
     public void aJ(String str, boolean z) {
-        if (this.ePI != null) {
-            this.ePI.startLoad(str, z ? 17 : 18, false);
+        if (this.eSz != null) {
+            this.eSz.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -44,25 +44,25 @@ public final class ShareThreadView extends LinearLayout {
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
         ap.setViewTextColor(this.title, R.color.cp_cont_b, 1);
-        this.izx = (EditText) findViewById(R.id.chat_msg);
-        this.ePI = (TbImageView) findViewById(R.id.chat_group_img);
-        this.jcS = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.izx, R.color.cp_cont_b, 2);
-        ap.setViewTextColor(this.jcS, R.color.cp_cont_f, 1);
-        this.izx.setHintTextColor(ap.getColor(R.color.cp_cont_e));
-        this.izx.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cuO();
+        this.iGS = (EditText) findViewById(R.id.chat_msg);
+        this.eSz = (TbImageView) findViewById(R.id.chat_group_img);
+        this.jly = (TextView) findViewById(R.id.chat_group_desc);
+        ap.setViewTextColor(this.iGS, R.color.cp_cont_b, 2);
+        ap.setViewTextColor(this.jly, R.color.cp_cont_f, 1);
+        this.iGS.setHintTextColor(ap.getColor(R.color.cp_cont_e));
+        this.iGS.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cyh();
     }
 
-    public void cuO() {
+    public void cyh() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.jcS != null) {
-            this.jcS.setText(str);
+        if (this.jly != null) {
+            this.jly.setText(str);
         }
     }
 
@@ -73,8 +73,8 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.izx != null) {
-            return k.charSequence2String(this.izx.getText(), null);
+        if (this.iGS != null) {
+            return k.charSequence2String(this.iGS.getText(), null);
         }
         return null;
     }

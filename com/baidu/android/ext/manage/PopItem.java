@@ -2,11 +2,11 @@ package com.baidu.android.ext.manage;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes11.dex */
 public interface PopItem {
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes11.dex */
     public @interface MethodName {
     }
 

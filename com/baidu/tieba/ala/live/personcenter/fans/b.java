@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.live.personcenter.fans;
 
 import android.widget.BaseAdapter;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<a> egb = null;
-    boolean ght = false;
+    protected ArrayList<a> eiq = null;
+    boolean gkC = false;
 
-    public void bLD() {
-        this.ght = false;
-        if (this.egb != null && this.egb.size() == 0) {
-            this.ght = true;
+    public void bMN() {
+        this.gkC = false;
+        if (this.eiq != null && this.eiq.size() == 0) {
+            this.gkC = true;
         }
     }
 }

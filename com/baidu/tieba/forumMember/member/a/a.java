@@ -17,39 +17,39 @@ import com.baidu.tieba.forumMember.member.s;
 import com.baidu.tieba.frs.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
-    private BdTypeListView fCT;
-    private o hPW;
-    private r hPX;
+    private List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
+    private BdTypeListView fGf;
+    private o hWW;
+    private r hWX;
 
-    public List<com.baidu.adp.widget.ListView.a> bGf() {
-        return this.bbw;
+    public List<com.baidu.adp.widget.ListView.a> bHv() {
+        return this.bdV;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.fCT = bdTypeListView;
-        this.bbw.add(new i(baseActivity.getPageContext(), j.hPh));
-        this.bbw.add(new l(baseActivity.getPageContext(), m.hPs));
-        this.bbw.add(new g(baseActivity.getPageContext(), n.hSE));
-        this.bbw.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hOK));
-        this.bbw.add(new d(baseActivity.getPageContext(), e.hON));
-        this.bbw.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.hPW = new o(baseActivity.getPageContext(), p.hPJ);
-        this.bbw.add(this.hPW);
-        this.hPX = new r(baseActivity.getPageContext(), s.hPU);
-        this.bbw.add(this.hPX);
+        this.fGf = bdTypeListView;
+        this.bdV.add(new i(baseActivity.getPageContext(), j.hWh));
+        this.bdV.add(new l(baseActivity.getPageContext(), m.hWs));
+        this.bdV.add(new g(baseActivity.getPageContext(), n.hZE));
+        this.bdV.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.hVK));
+        this.bdV.add(new d(baseActivity.getPageContext(), e.hVN));
+        this.bdV.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.hWW = new o(baseActivity.getPageContext(), p.hWJ);
+        this.bdV.add(this.hWW);
+        this.hWX = new r(baseActivity.getPageContext(), s.hWU);
+        this.bdV.add(this.hWX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fCT != null && (this.fCT.getAdapter() instanceof f)) {
-            this.fCT.getAdapter().notifyDataSetChanged();
+        if (this.fGf != null && (this.fGf.getAdapter() instanceof f)) {
+            this.fGf.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.hPW.onDestroy();
-        this.hPX.onDestroy();
+        this.hWW.onDestroy();
+        this.hWX.onDestroy();
     }
 }

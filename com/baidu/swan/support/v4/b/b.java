@@ -1,5 +1,5 @@
 package com.baidu.swan.support.v4.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 class b {
     static final int[] EMPTY_INTS = new int[0];
     static final long[] EMPTY_LONGS = new long[0];

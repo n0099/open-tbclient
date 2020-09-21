@@ -21,10 +21,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SpecialRecommendTabModel extends BdBaseModel {
-    private a fKI;
+    private a fNW;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener fKE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
+    private HttpMessageListener fNS = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -33,32 +33,32 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 if (alaSpecialRecommendResponse.isSuccess()) {
                     if (SpecialRecommendTabModel.this.pn == 0) {
                         SpecialRecommendTabModel.this.mDatas.clear();
-                        SpecialRecommendTabModel.this.fKJ.clear();
+                        SpecialRecommendTabModel.this.fNX.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (y.getCount(alaSpecialRecommendResponse.livesList) > 0) {
-                        SpecialRecommendTabModel.this.bE(alaSpecialRecommendResponse.livesList);
+                        SpecialRecommendTabModel.this.bJ(alaSpecialRecommendResponse.livesList);
                     }
-                    SpecialRecommendTabModel.this.bF(SpecialRecommendTabModel.this.fKJ);
+                    SpecialRecommendTabModel.this.bK(SpecialRecommendTabModel.this.fNX);
                     if (SpecialRecommendTabModel.this.pn == 0 && alaSpecialRecommendResponse.mSpecialActivityListData != null) {
                         SpecialRecommendTabModel.this.a(alaSpecialRecommendResponse.mSpecialActivityListData);
                     }
                     SpecialRecommendTabModel.d(SpecialRecommendTabModel.this);
-                    if (SpecialRecommendTabModel.this.fKI != null) {
-                        SpecialRecommendTabModel.this.fKI.j(SpecialRecommendTabModel.this.mDatas, z);
+                    if (SpecialRecommendTabModel.this.fNW != null) {
+                        SpecialRecommendTabModel.this.fNW.j(SpecialRecommendTabModel.this.mDatas, z);
                     }
-                } else if (SpecialRecommendTabModel.this.fKI != null) {
-                    SpecialRecommendTabModel.this.fKI.ay(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialRecommendTabModel.this.fNW != null) {
+                    SpecialRecommendTabModel.this.fNW.az(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private List<q> mDatas = new LinkedList();
-    private List<bw> fKJ = new ArrayList();
+    private List<bw> fNX = new ArrayList();
 
     /* loaded from: classes4.dex */
     public interface a {
-        void ay(int i, String str);
+        void az(int i, String str);
 
         void j(List<q> list, boolean z);
     }
@@ -71,19 +71,19 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.fKE);
+        MessageManager.getInstance().registerListener(this.fNS);
     }
 
-    public void OA() {
+    public void Pd() {
         this.pn = 0;
-        sD(0);
+        sV(0);
     }
 
-    public void bGg() {
-        sD(this.pn);
+    public void bHw() {
+        sV(this.pn);
     }
 
-    private void sD(int i) {
+    private void sV(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         httpMessage.addParam("tab_name", "推荐");
@@ -92,7 +92,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (cVar != null && !y.isEmpty(cVar.fKl)) {
+        if (cVar != null && !y.isEmpty(cVar.fNz)) {
             if (y.getCount(this.mDatas) > 2) {
                 this.mDatas.add(2, cVar);
             } else {
@@ -102,13 +102,13 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bE(List<bw> list) {
+    public void bJ(List<bw> list) {
         boolean z;
         for (bw bwVar : list) {
             if (bwVar != null && bwVar.getThreadType() == 49) {
                 String tid = bwVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
-                    Iterator<bw> it = this.fKJ.iterator();
+                    Iterator<bw> it = this.fNX.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -119,26 +119,26 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.fKJ.add(bwVar);
+                        this.fNX.add(bwVar);
                     }
                 }
             }
         }
     }
 
-    public void bF(List<bw> list) {
+    public void bK(List<bw> list) {
         if (!y.isEmpty(list)) {
             this.mDatas = new LinkedList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 b bVar = new b();
                 com.baidu.tieba.ala.alasquare.a.c cVar = new com.baidu.tieba.ala.alasquare.a.c();
-                cVar.fCB = list.get(i);
-                bVar.fEP = cVar;
+                cVar.fFN = list.get(i);
+                bVar.fIb = cVar;
                 if (i + 1 < size) {
                     com.baidu.tieba.ala.alasquare.a.c cVar2 = new com.baidu.tieba.ala.alasquare.a.c();
-                    cVar2.fCB = list.get(i + 1);
-                    bVar.fEQ = cVar2;
+                    cVar2.fFN = list.get(i + 1);
+                    bVar.fIc = cVar2;
                 }
                 this.mDatas.add(bVar);
             }
@@ -146,11 +146,11 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fKE);
+        MessageManager.getInstance().unRegisterListener(this.fNS);
     }
 
     public void a(a aVar) {
-        this.fKI = aVar;
+        this.fNW = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -163,7 +163,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         return false;
     }
 
-    public List<bw> bGQ() {
-        return this.fKJ;
+    public List<bw> bIg() {
+        return this.fNX;
     }
 }

@@ -42,8 +42,8 @@ public class WebPManager {
     }
 
     public static Drawable a(int i, @Nullable ResourceStateType resourceStateType) {
-        Drawable ob;
-        Drawable ob2;
+        Drawable on;
+        Drawable on2;
         if (i <= 0) {
             return null;
         }
@@ -51,23 +51,23 @@ public class WebPManager {
             resourceStateType = ResourceStateType.NORMAL;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        if (resourceStateType.canDisable && (ob2 = ob(i)) != null) {
-            ob2.setAlpha(76);
-            stateListDrawable.addState(new int[]{-16842910}, ob2);
+        if (resourceStateType.canDisable && (on2 = on(i)) != null) {
+            on2.setAlpha(76);
+            stateListDrawable.addState(new int[]{-16842910}, on2);
         }
-        if (resourceStateType.canPress && (ob = ob(i)) != null) {
-            ob.setAlpha(127);
-            stateListDrawable.addState(new int[]{16842919}, ob);
+        if (resourceStateType.canPress && (on = on(i)) != null) {
+            on.setAlpha(127);
+            stateListDrawable.addState(new int[]{16842919}, on);
         }
-        Drawable ob3 = ob(i);
-        if (ob3 != null) {
-            stateListDrawable.addState(new int[0], ob3);
+        Drawable on3 = on(i);
+        if (on3 != null) {
+            stateListDrawable.addState(new int[0], on3);
             return stateListDrawable;
         }
         return null;
     }
 
-    private static Drawable ob(int i) {
+    private static Drawable on(int i) {
         Drawable mutate = ap.getDrawable(i).mutate();
         if (TbadkCoreApplication.getInst().getSkinType() != 0) {
             mutate.setColorFilter(ap.getColor(R.color.cp_mask_a), PorterDuff.Mode.SRC_ATOP);

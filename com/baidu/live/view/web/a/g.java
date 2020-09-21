@@ -13,14 +13,14 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class g extends com.baidu.live.view.web.a {
     private BaseActivity baseActivity;
-    private IChannelPayController bvB;
-    private SchemeCallback bvt;
+    private SchemeCallback byG;
+    private IChannelPayController byO;
 
     public g(SchemeCallback schemeCallback) {
-        this.bvt = schemeCallback;
+        this.byG = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -34,7 +34,7 @@ public class g extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hr(String str) {
+    public void hP(String str) {
         CustomResponsedMessage runTask;
         Log.d(IChannelPayController.TAG, "@@ PersonalCenterBridgeJsInterface params = " + str);
         try {
@@ -44,13 +44,13 @@ public class g extends com.baidu.live.view.web.a {
             }
             PayChannelData payChannelData = new PayChannelData(this.baseActivity, jSONObject.optString("channel"), jSONObject.optString("icon_id"), jSONObject.optString("price"), jSONObject.optString("from"), jSONObject.optString("live_id"), 14);
             payChannelData.setShowToast(false);
-            if (this.bvB == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
-                this.bvB = (IChannelPayController) runTask.getData();
+            if (this.byO == null && (runTask = MessageManager.getInstance().runTask(2913197, IChannelPayController.class, payChannelData)) != null && runTask.getData() != null) {
+                this.byO = (IChannelPayController) runTask.getData();
             }
-            if (this.bvB != null) {
-                this.bvB.pay(payChannelData);
+            if (this.byO != null) {
+                this.byO.pay(payChannelData);
             }
-            if (this.bvt != null) {
+            if (this.byG != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.g.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
@@ -70,7 +70,7 @@ public class g extends com.baidu.live.view.web.a {
                             if (!TextUtils.isEmpty(optString5)) {
                                 jSONObject3.put("transitionId", optString5);
                             }
-                            g.this.bvt.doJsCallback(optInt, optString2, jSONObject3, optString);
+                            g.this.byG.doJsCallback(optInt, optString2, jSONObject3, optString);
                             Log.d(IChannelPayController.TAG, "@@ doJsCallback status = " + optInt + ", message:" + optString2 + ", data:" + jSONObject3.toString());
                         } catch (Exception e) {
                             e.printStackTrace();

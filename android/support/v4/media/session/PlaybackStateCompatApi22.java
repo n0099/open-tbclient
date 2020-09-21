@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(22)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class PlaybackStateCompatApi22 {
     PlaybackStateCompatApi22() {
     }

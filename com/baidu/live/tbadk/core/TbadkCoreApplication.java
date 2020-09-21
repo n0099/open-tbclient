@@ -106,7 +106,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements BdActivityStack.OnAllActivityClosed {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     private static final String ACTIVE_CLEAR_TAG = "active_clear";
@@ -132,6 +132,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     private boolean isPhoneCalling;
     private boolean isRecAppExist;
     private boolean isUserChanged;
+    private boolean isYuyinRoom;
     private int keyboardHeight;
     private ListItemsRule listItemRule;
     BdLocationMananger.LocationCallBack locationCallBack;
@@ -215,6 +216,14 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
 
     public void setCurrentActivity(Activity activity) {
         this.mCurrentActivity = activity;
+    }
+
+    public boolean getIsYuyinRoom() {
+        return this.isYuyinRoom;
+    }
+
+    public void setIsYuyinRoom(boolean z) {
+        this.isYuyinRoom = z;
     }
 
     public boolean isPageStayOpen() {
@@ -310,6 +319,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         this.mCapableOfWebp = true;
         this.mIsLocationOn = true;
         this.mVoiceHeadsetMode = 0;
+        this.isYuyinRoom = false;
         this.mResumeNum = 0;
         this.mStartTime = 0L;
         this.mImei = null;
@@ -1244,7 +1254,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         private MyPhoneStateListener() {
         }

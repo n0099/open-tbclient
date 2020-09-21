@@ -3,7 +3,7 @@ package com.baidu.sofire.j;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.sofire.o.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public class a implements b {
     private static a a;
     private b b = null;

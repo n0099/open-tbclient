@@ -2,7 +2,7 @@ package io.reactivex.internal.subscriptions;
 
 import io.reactivex.internal.a.d;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public abstract class BasicIntQueueSubscription<T> extends AtomicInteger implements d<T> {
     private static final long serialVersionUID = -6671519529404341862L;
 

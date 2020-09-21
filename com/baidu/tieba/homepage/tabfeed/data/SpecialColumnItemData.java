@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import tbclient.ActivityPage.SpecialColumn;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class SpecialColumnItemData implements Parcelable, q {
     public static final int TYPE_LIVE = 3;
     public static final int TYPE_LIVE_RE = 4;
@@ -30,7 +30,7 @@ public class SpecialColumnItemData implements Parcelable, q {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ab */
+        /* renamed from: AC */
         public SpecialColumnItemData[] newArray(int i) {
             return new SpecialColumnItemData[i];
         }

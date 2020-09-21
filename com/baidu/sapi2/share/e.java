@@ -33,14 +33,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class e {
     private static final String a = "share_account";
     private static final String b = "share_fail_reason";
     static final int c = 87;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class a implements Comparator<Map.Entry<Intent, Integer>> {
         a() {
         }
@@ -54,7 +54,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class b implements Runnable {
         final /* synthetic */ SapiContext a;
 
@@ -390,13 +390,13 @@ public final class e {
         throw new IllegalArgumentException("loginActivity can't be null");
     }
 
-    public static void a(b.AbstractC0302b abstractC0302b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
+    public static void a(b.AbstractC0300b abstractC0300b, int i, int i2, Intent intent, com.baidu.sapi2.share.b bVar, List<PassNameValuePair> list) {
         String str;
         int i3;
         String str2;
         String str3;
         if (i == 20001) {
-            if (abstractC0302b != null) {
+            if (abstractC0300b != null) {
                 Context context = SapiAccountManager.getInstance().getConfignation().context;
                 String stringExtra = intent != null ? intent.getStringExtra(com.baidu.sapi2.share.b.c) : "";
                 if (i2 == -1 && intent != null) {
@@ -426,14 +426,14 @@ public final class e {
                             }
                         }
                         sapiContext.put(SapiContext.KEY_PRE_LOGIN_TYPE, com.baidu.sapi2.share.b.k);
-                        abstractC0302b.onSuccess();
+                        abstractC0300b.onSuccess();
                         str3 = str4;
                         str2 = "";
                         i3 = 0;
                     } else {
                         i3 = 1;
                         Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
-                        abstractC0302b.onFailed(-207, "互通登录失败,请稍后再试");
+                        abstractC0300b.onFailed(-207, "互通登录失败,请稍后再试");
                         str2 = "互通登录失败,请稍后再试";
                         str3 = "";
                     }
@@ -444,7 +444,7 @@ public final class e {
                     } else {
                         str = "result data is null";
                     }
-                    abstractC0302b.onFailed(-207, "互通登录失败,请稍后再试");
+                    abstractC0300b.onFailed(-207, "互通登录失败,请稍后再试");
                     i3 = 2;
                     str2 = str;
                     str3 = "";

@@ -1,59 +1,41 @@
 package com.google.gson.internal;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-/* loaded from: classes3.dex */
-public class g {
-    public static DateFormat MT(int i) {
-        return new SimpleDateFormat(MU(i), Locale.US);
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes23.dex */
+public final class g {
+    private static final Map<Class<?>, Class<?>> nNG;
+    private static final Map<Class<?>, Class<?>> nNH;
+
+    static {
+        HashMap hashMap = new HashMap(16);
+        HashMap hashMap2 = new HashMap(16);
+        a(hashMap, hashMap2, Boolean.TYPE, Boolean.class);
+        a(hashMap, hashMap2, Byte.TYPE, Byte.class);
+        a(hashMap, hashMap2, Character.TYPE, Character.class);
+        a(hashMap, hashMap2, Double.TYPE, Double.class);
+        a(hashMap, hashMap2, Float.TYPE, Float.class);
+        a(hashMap, hashMap2, Integer.TYPE, Integer.class);
+        a(hashMap, hashMap2, Long.TYPE, Long.class);
+        a(hashMap, hashMap2, Short.TYPE, Short.class);
+        a(hashMap, hashMap2, Void.TYPE, Void.class);
+        nNG = Collections.unmodifiableMap(hashMap);
+        nNH = Collections.unmodifiableMap(hashMap2);
     }
 
-    public static DateFormat dR(int i, int i2) {
-        return new SimpleDateFormat(MV(i) + " " + MW(i2), Locale.US);
+    private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
+        map.put(cls, cls2);
+        map2.put(cls2, cls);
     }
 
-    private static String MU(int i) {
-        switch (i) {
-            case 0:
-                return "EEEE, MMMM d, y";
-            case 1:
-                return "MMMM d, y";
-            case 2:
-                return "MMM d, y";
-            case 3:
-                return "M/d/yy";
-            default:
-                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-        }
+    public static boolean j(Type type) {
+        return nNG.containsKey(type);
     }
 
-    private static String MV(int i) {
-        switch (i) {
-            case 0:
-                return "EEEE, MMMM d, yyyy";
-            case 1:
-                return "MMMM d, yyyy";
-            case 2:
-                return "MMM d, yyyy";
-            case 3:
-                return "M/d/yy";
-            default:
-                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-        }
-    }
-
-    private static String MW(int i) {
-        switch (i) {
-            case 0:
-            case 1:
-                return "h:mm:ss a z";
-            case 2:
-                return "h:mm:ss a";
-            case 3:
-                return "h:mm a";
-            default:
-                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
-        }
+    public static <T> Class<T> G(Class<T> cls) {
+        Class<T> cls2 = (Class<T>) nNG.get(a.checkNotNull(cls));
+        return cls2 == null ? cls : cls2;
     }
 }

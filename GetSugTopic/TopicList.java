@@ -2,7 +2,7 @@ package GetSugTopic;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public final class TopicList extends Message {
     public static final String DEFAULT_TOPIC_DESC = "";
     public static final String DEFAULT_TOPIC_NAME = "";
@@ -67,7 +67,7 @@ public final class TopicList extends Message {
         this.topic_pic = builder.topic_pic;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public static final class Builder extends Message.Builder<TopicList> {
         public Long discuss_num;
         public Integer tag;

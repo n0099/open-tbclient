@@ -4,22 +4,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.live.tbadk.core.BaseFragment;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class NewThroneAndNobleFragmentAdapter extends FragmentPagerAdapter {
-    private ArrayList<BaseFragment> fxy;
+    private ArrayList<BaseFragment> fAK;
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (this.fxy == null) {
+        if (this.fAK == null) {
             return null;
         }
-        return this.fxy.get(i);
+        return this.fAK.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.fxy != null) {
-            return this.fxy.size();
+        if (this.fAK != null) {
+            return this.fAK.size();
         }
         return 0;
     }

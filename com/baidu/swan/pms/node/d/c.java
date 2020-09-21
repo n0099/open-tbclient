@@ -1,9 +1,9 @@
 package com.baidu.swan.pms.node.d;
 
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public interface c {
-    void alT();
+    void amD();
 
     void parseData(JSONObject jSONObject);
 }

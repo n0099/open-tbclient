@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
-    private String dFp;
-    private ArrayList<String> mMh;
-    private final String mTP = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String dHt;
+    private ArrayList<String> mWb;
+    private final String ndI = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.mMh)) {
+        if (spannable != null && !y.isEmpty(this.mWb)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.mMh.iterator();
+                Iterator<String> it = this.mWb.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -75,7 +75,7 @@ public class c {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean j(EditText editText) {
+    public boolean i(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
@@ -91,10 +91,10 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dFD())) {
+        if (y.isEmpty(dJx())) {
             return false;
         }
-        return j(editText) || j(editText2);
+        return i(editText) || i(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
@@ -113,20 +113,20 @@ public class c {
         }
     }
 
-    public void bf(ArrayList<String> arrayList) {
-        this.mMh = arrayList;
+    public void bh(ArrayList<String> arrayList) {
+        this.mWb = arrayList;
     }
 
-    public ArrayList<String> dFD() {
-        return this.mMh;
+    public ArrayList<String> dJx() {
+        return this.mWb;
     }
 
-    public void Sw(String str) {
-        this.dFp = str;
+    public void SW(String str) {
+        this.dHt = str;
     }
 
-    public String dFH() {
-        return this.dFp;
+    public String dJB() {
+        return this.dHt;
     }
 
     private void c(Spannable spannable) {

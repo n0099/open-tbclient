@@ -7,20 +7,20 @@ import androidx.annotation.UiThread;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class MethodChannel {
     private static final String TAG = "MethodChannel#";
     private final MethodCodec codec;
     private final BinaryMessenger messenger;
     private final String name;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface MethodCallHandler {
         @UiThread
         void onMethodCall(@NonNull MethodCall methodCall, @NonNull Result result);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface Result {
         @UiThread
         void error(String str, @Nullable String str2, @Nullable Object obj);
@@ -62,7 +62,7 @@ public final class MethodChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public final class IncomingResultHandler implements BinaryMessenger.BinaryReply {
         private final Result callback;
 
@@ -90,7 +90,7 @@ public final class MethodChannel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         private final MethodCallHandler handler;
 

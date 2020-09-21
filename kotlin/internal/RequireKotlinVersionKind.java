@@ -2,7 +2,7 @@ package kotlin.internal;
 
 import kotlin.h;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public enum RequireKotlinVersionKind {
     LANGUAGE_VERSION,
     COMPILER_VERSION,

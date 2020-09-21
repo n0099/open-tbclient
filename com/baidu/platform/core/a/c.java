@@ -1,5 +1,5 @@
 package com.baidu.platform.core.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.platform.base.e {
     public c(String str) {
         a(str);

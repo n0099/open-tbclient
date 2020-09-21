@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaUserLiveMarkInfoResponseMessage extends JsonHttpResponsedMessage {
-    private List<AlaLiveMarkData> gFb;
+    private List<AlaLiveMarkData> gIz;
 
     public AlaUserLiveMarkInfoResponseMessage() {
         super(1021121);
-        this.gFb = new ArrayList();
+        this.gIz = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,12 +24,12 @@ public class AlaUserLiveMarkInfoResponseMessage extends JsonHttpResponsedMessage
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                 alaLiveMarkData.parserJson(optJSONObject);
-                this.gFb.add(alaLiveMarkData);
+                this.gIz.add(alaLiveMarkData);
             }
         }
     }
 
-    public List<AlaLiveMarkData> bVd() {
-        return this.gFb;
+    public List<AlaLiveMarkData> bWN() {
+        return this.gIz;
     }
 }

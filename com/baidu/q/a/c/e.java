@@ -1,7 +1,7 @@
 package com.baidu.q.a.c;
 
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes25.dex */
 public class e {
     public static boolean a(String str, File file, boolean z, Object obj) {
         boolean b;

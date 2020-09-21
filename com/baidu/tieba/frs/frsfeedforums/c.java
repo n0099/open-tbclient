@@ -8,23 +8,23 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends k<l, d> {
-    private boolean icW;
-    protected a ihl;
+    private boolean ika;
+    protected a ion;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.icW = z;
+        this.ika = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bo */
-    public d b(ViewGroup viewGroup) {
+    /* renamed from: bp */
+    public d c(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.ihl = new a(this.mPageContext, inflate, 2, this.icW, this.mPageId);
+        this.ion = new a(this.mPageContext, inflate, 2, this.ika, this.mPageId);
         return new d(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends k<l, d> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
         if (lVar != null) {
-            this.ihl.f(lVar.getForumId(), lVar.dvW());
+            this.ion.f(lVar.getForumId(), lVar.dzP());
         }
         return view;
     }

@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.map.panodata;
 
 import android.os.Bundle;
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class NAWalkPanoData extends JNIBaseApi {
     private long a = 0;
 

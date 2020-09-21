@@ -1,7 +1,7 @@
 package com.baidu.tieba.ad.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
-    public static int sf(int i) {
+    public static int sx(int i) {
         return Math.round(i / 1000.0f);
     }
 }

@@ -19,14 +19,14 @@ import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newdetail.view.HotTopicDetailFeedView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class HotTopicDetailPagerAdapter extends PagerAdapter {
-    private static String[] gbO = {"最热", "最新"};
-    private static final int klH = gbO.length;
-    private int Zh;
+    private static String[] gfb = {"最热", "最新"};
+    private static final int kug = gfb.length;
+    private int Zz;
     private boolean hasInit = false;
-    private List<HotTopicDetailFeedView> iXx;
-    private bj iZf;
+    private List<HotTopicDetailFeedView> jgd;
+    private bj jhK;
     private List<d> mHotTopicDataList;
     private TbPageContext<HotTopicDetailActivity> pageContext;
 
@@ -36,11 +36,11 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             this.pageContext = (TbPageContext) I;
         }
         this.mHotTopicDataList = new ArrayList();
-        this.iXx = new ArrayList();
-        HotTopicDetailFeedView Dy = new HotTopicDetailFeedView(context).Dy(1);
-        HotTopicDetailFeedView Dy2 = new HotTopicDetailFeedView(context).Dy(0);
-        this.iXx.add(Dy);
-        this.iXx.add(Dy2);
+        this.jgd = new ArrayList();
+        HotTopicDetailFeedView DZ = new HotTopicDetailFeedView(context).DZ(1);
+        HotTopicDetailFeedView DZ2 = new HotTopicDetailFeedView(context).DZ(0);
+        this.jgd.add(DZ);
+        this.jgd.add(DZ2);
         d dVar = new d(1);
         d dVar2 = new d(0);
         this.mHotTopicDataList.add(dVar);
@@ -49,7 +49,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return gbO.length;
+        return gfb.length;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -60,19 +60,19 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (this.hasInit && this.Zh != i) {
-            int i2 = this.Zh;
-            this.Zh = i;
+        if (this.hasInit && this.Zz != i) {
+            int i2 = this.Zz;
+            this.Zz = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-            HotTopicDetailFeedView hotTopicDetailFeedView = (HotTopicDetailFeedView) y.getItem(this.iXx, i2 % klH);
+            HotTopicDetailFeedView hotTopicDetailFeedView = (HotTopicDetailFeedView) y.getItem(this.jgd, i2 % kug);
             if (hotTopicDetailFeedView != null) {
                 hotTopicDetailFeedView.pause();
             }
-            HotTopicDetailFeedView hotTopicDetailFeedView2 = (HotTopicDetailFeedView) y.getItem(this.iXx, this.Zh % klH);
-            d dVar = (d) y.getItem(this.mHotTopicDataList, this.Zh);
+            HotTopicDetailFeedView hotTopicDetailFeedView2 = (HotTopicDetailFeedView) y.getItem(this.jgd, this.Zz % kug);
+            d dVar = (d) y.getItem(this.mHotTopicDataList, this.Zz);
             if (hotTopicDetailFeedView2 != null && dVar != null) {
                 if (y.isEmpty(dVar.list)) {
-                    this.pageContext.getOrignalPage().Do(cSv());
+                    this.pageContext.getOrignalPage().DP(cWa());
                 } else {
                     hotTopicDetailFeedView2.resume();
                 }
@@ -82,9 +82,9 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.view.PagerAdapter
-    /* renamed from: F */
+    /* renamed from: H */
     public HotTopicDetailFeedView instantiateItem(ViewGroup viewGroup, int i) {
-        HotTopicDetailFeedView hotTopicDetailFeedView = this.iXx.get(i % gbO.length);
+        HotTopicDetailFeedView hotTopicDetailFeedView = this.jgd.get(i % gfb.length);
         if (hotTopicDetailFeedView.getParent() != null) {
             viewGroup.removeView(hotTopicDetailFeedView);
         }
@@ -94,7 +94,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        return gbO[i];
+        return gfb[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -102,7 +102,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     }
 
     public void destroy() {
-        for (HotTopicDetailFeedView hotTopicDetailFeedView : this.iXx) {
+        for (HotTopicDetailFeedView hotTopicDetailFeedView : this.jgd) {
             if (hotTopicDetailFeedView != null) {
                 hotTopicDetailFeedView.destroy();
             }
@@ -110,37 +110,37 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     }
 
     public void resume() {
-        HotTopicDetailFeedView cSA = cSA();
-        if (cSA != null) {
-            cSA.resume();
+        HotTopicDetailFeedView cWf = cWf();
+        if (cWf != null) {
+            cWf.resume();
         }
     }
 
     public void pause() {
-        HotTopicDetailFeedView cSA = cSA();
-        if (cSA != null) {
-            cSA.pause();
+        HotTopicDetailFeedView cWf = cWf();
+        if (cWf != null) {
+            cWf.pause();
         }
     }
 
-    private void Am(int i) {
+    private void AN(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.bGS();
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.bIi();
         }
     }
 
-    private void An(int i) {
+    private void AO(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.bGT();
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.bIj();
         }
     }
 
-    private void Ao(int i) {
+    private void AP(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.bGU();
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.bIk();
         }
     }
 
@@ -149,7 +149,7 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         while (true) {
             int i3 = i2;
             if (i3 < this.mHotTopicDataList.size()) {
-                HotTopicDetailFeedView hotTopicDetailFeedView = this.iXx.get(i3);
+                HotTopicDetailFeedView hotTopicDetailFeedView = this.jgd.get(i3);
                 if (hotTopicDetailFeedView != null) {
                     hotTopicDetailFeedView.onChangeSkinType(i);
                 }
@@ -160,36 +160,36 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void Dq(int i) {
+    public void DR(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.gT(true);
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.gR(true);
         }
     }
 
-    public void Dr(int i) {
+    public void DS(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
             hotTopicDetailFeedView.hideLoadingView();
         }
     }
 
     public void C(boolean z, int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.nM(z);
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.nS(z);
         }
     }
 
-    public void Ds(int i) {
+    public void DT(int i) {
         HotTopicDetailFeedView hotTopicDetailFeedView;
-        if (this.iXx != null && Dx(i) < this.iXx.size() && (hotTopicDetailFeedView = this.iXx.get(Dx(i))) != null) {
-            hotTopicDetailFeedView.bFX();
+        if (this.jgd != null && DY(i) < this.jgd.size() && (hotTopicDetailFeedView = this.jgd.get(DY(i))) != null) {
+            hotTopicDetailFeedView.bHn();
         }
     }
 
     public void a(@NonNull d dVar, boolean z, int i) {
-        d dVar2 = (d) y.getItem(this.mHotTopicDataList, Dx(i) % klH);
+        d dVar2 = (d) y.getItem(this.mHotTopicDataList, DY(i) % kug);
         if (dVar2 != null) {
             if (z) {
                 dVar2.list = dVar.list;
@@ -201,42 +201,42 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
             }
             dVar2.pageData = dVar.pageData;
             dVar2.lastId = dVar.lastId;
-            if ((dVar2.pageData == null || dVar2.pageData.bdu() == 0) ? false : true) {
-                Am(i);
+            if ((dVar2.pageData == null || dVar2.pageData.beo() == 0) ? false : true) {
+                AN(i);
             } else {
-                Ao(i);
-                An(i);
+                AP(i);
+                AO(i);
             }
-            ((HotTopicDetailFeedView) y.getItem(this.iXx, Dx(i) % klH)).setData(dVar2.e(this.iZf));
+            ((HotTopicDetailFeedView) y.getItem(this.jgd, DY(i) % kug)).setData(dVar2.e(this.jhK));
         }
     }
 
-    public d Dt(int i) {
-        return (d) y.getItem(this.mHotTopicDataList, Dx(i) % klH);
+    public d DU(int i) {
+        return (d) y.getItem(this.mHotTopicDataList, DY(i) % kug);
     }
 
-    private HotTopicDetailFeedView cSA() {
-        return (HotTopicDetailFeedView) y.getItem(this.iXx, this.Zh % klH);
+    private HotTopicDetailFeedView cWf() {
+        return (HotTopicDetailFeedView) y.getItem(this.jgd, this.Zz % kug);
     }
 
-    public int cSv() {
-        return this.Zh == 1 ? 0 : 1;
+    public int cWa() {
+        return this.Zz == 1 ? 0 : 1;
     }
 
-    private int Dx(int i) {
+    private int DY(int i) {
         return i == 1 ? 0 : 1;
     }
 
-    public void cSw() {
+    public void cWb() {
         this.hasInit = true;
     }
 
     public void c(bj bjVar) {
-        this.iZf = bjVar;
+        this.jhK = bjVar;
     }
 
     public void setScrollListener(RecyclerView.OnScrollListener onScrollListener) {
-        for (HotTopicDetailFeedView hotTopicDetailFeedView : this.iXx) {
+        for (HotTopicDetailFeedView hotTopicDetailFeedView : this.jgd) {
             if (hotTopicDetailFeedView != null) {
                 hotTopicDetailFeedView.setScrollListener(onScrollListener);
             }

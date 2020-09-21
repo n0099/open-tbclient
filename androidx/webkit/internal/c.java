@@ -6,13 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
-/* loaded from: classes4.dex */
+import org.chromium.support_lib_boundary.WebResourceErrorBoundaryInterface;
+import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
+import org.chromium.support_lib_boundary.util.Features;
+/* loaded from: classes17.dex */
 public class c extends androidx.webkit.b {
     private WebResourceError zP;
-    private org.a.a.b zQ;
+    private WebResourceErrorBoundaryInterface zQ;
 
     public c(@NonNull InvocationHandler invocationHandler) {
-        this.zQ = (org.a.a.b) org.a.a.a.a.a(org.a.a.b.class, invocationHandler);
+        this.zQ = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
     }
 
     public c(@NonNull WebResourceError webResourceError) {
@@ -27,9 +30,9 @@ public class c extends androidx.webkit.b {
         return this.zP;
     }
 
-    private org.a.a.b hR() {
+    private WebResourceErrorBoundaryInterface hR() {
         if (this.zQ == null) {
-            this.zQ = (org.a.a.b) org.a.a.a.a.a(org.a.a.b.class, d.hT().a(this.zP));
+            this.zQ = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, d.hT().a(this.zP));
         }
         return this.zQ;
     }
@@ -37,7 +40,7 @@ public class c extends androidx.webkit.b {
     @Override // androidx.webkit.b
     @SuppressLint({"NewApi"})
     public int getErrorCode() {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_RESOURCE_ERROR_GET_CODE");
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.WEB_RESOURCE_ERROR_GET_CODE);
         if (feature.isSupportedByFramework()) {
             return hQ().getErrorCode();
         }
@@ -51,7 +54,7 @@ public class c extends androidx.webkit.b {
     @NonNull
     @SuppressLint({"NewApi"})
     public CharSequence getDescription() {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_RESOURCE_ERROR_GET_DESCRIPTION");
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.WEB_RESOURCE_ERROR_GET_DESCRIPTION);
         if (feature.isSupportedByFramework()) {
             return hQ().getDescription();
         }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.i;
 
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class d {
     static final /* synthetic */ int[] a = new int[RouteGuideKind.values().length];
 

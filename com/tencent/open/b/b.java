@@ -3,7 +3,7 @@ package com.tencent.open.b;
 import android.os.Bundle;
 import java.io.Serializable;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class b implements Serializable {
     public final HashMap<String, String> a = new HashMap<>();
 

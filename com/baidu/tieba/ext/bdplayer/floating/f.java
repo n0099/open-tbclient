@@ -1,7 +1,7 @@
 package com.baidu.tieba.ext.bdplayer.floating;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface f {
-    void HC(String str);
+    void HZ(String str);
 
-    void chD();
+    void ckQ();
 }

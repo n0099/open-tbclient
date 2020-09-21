@@ -12,14 +12,14 @@ public class h {
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a dNy = k.dNy();
-        dNy.a("phonescripstarttime");
-        dNy.a("phonescripcache");
-        dNy.a("pre_sim_key");
+        k.a dRw = k.dRw();
+        dRw.a("phonescripstarttime");
+        dRw.a("phonescripcache");
+        dRw.a("pre_sim_key");
         if (z2) {
-            dNy.a();
+            dRw.a();
         } else {
-            dNy.b();
+            dRw.b();
         }
         if (z) {
             b = null;
@@ -53,11 +53,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a dNy = k.dNy();
-            dNy.a("phonescripcache", a2);
-            dNy.a("phonescripstarttime", j);
-            dNy.a("pre_sim_key", str2);
-            dNy.b();
+            k.a dRw = k.dRw();
+            dRw.a("phonescripcache", a2);
+            dRw.a("phonescripstarttime", j);
+            dRw.a("pre_sim_key", str2);
+            dRw.b();
         }
     }
 
@@ -77,7 +77,7 @@ public class h {
 
     private static boolean b() {
         if (TextUtils.isEmpty(b)) {
-            return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.L("phonescripstarttime", 0L));
+            return !TextUtils.isEmpty(k.b("phonescripcache", "")) && a(k.M("phonescripstarttime", 0L));
         }
         c.b("PhoneScripUtils", c + " " + d);
         return a(d);

@@ -2,13 +2,13 @@ package com.baidu.b;
 
 import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements Comparator<b> {
-    final /* synthetic */ c adb;
+    final /* synthetic */ c adu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.adb = cVar;
+        this.adu = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

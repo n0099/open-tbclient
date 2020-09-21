@@ -4,7 +4,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public class ObjectsCompat {
     private ObjectsCompat() {
     }

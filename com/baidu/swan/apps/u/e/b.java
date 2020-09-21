@@ -4,89 +4,89 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cwI;
-    public com.baidu.swan.apps.ap.e.b<b> cwJ;
-    private final List<a> cwK = new ArrayList();
-    private String cwL = b.class.getPackage().getName();
+    private String cyJ;
+    public com.baidu.swan.apps.ap.e.b<b> cyK;
+    private final List<a> cyL = new ArrayList();
+    private String cyM = b.class.getPackage().getName();
 
-    public b nT(String str) {
-        this.cwI = str;
+    public b oo(String str) {
+        this.cyJ = str;
         return this;
     }
 
-    public String arr() {
-        return this.cwI;
+    public String asb() {
+        return this.cyJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> ars() {
-        return new ArrayList(this.cwK);
+    public synchronized List<a> asc() {
+        return new ArrayList(this.cyL);
     }
 
-    public synchronized a aro() {
+    public synchronized a arY() {
         a aVar;
         aVar = new a();
-        this.cwK.add(aVar);
+        this.cyL.add(aVar);
         return aVar;
     }
 
-    public synchronized a nS(String str) {
-        return aro().nV(str);
+    public synchronized a om(String str) {
+        return arY().oq(str);
     }
 
     public synchronized a bK(String str, String str2) {
-        return nS(str2).nU(str);
+        return om(str2).op(str);
     }
 
     public b q(com.baidu.swan.apps.ap.e.b<b> bVar) {
-        this.cwJ = bVar;
+        this.cyK = bVar;
         return this;
     }
 
-    public synchronized b art() {
-        return r(this.cwJ);
+    public synchronized b asd() {
+        return r(this.cyK);
     }
 
     public synchronized b r(com.baidu.swan.apps.ap.e.b<b> bVar) {
         if (bVar == null) {
-            bVar = new C0454b();
+            bVar = new C0449b();
         }
-        bVar.I(this);
+        bVar.J(this);
         return this;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class a {
-        final List<String> cwM;
-        private final List<StackTraceElement> cwN;
-        final /* synthetic */ b cwO;
+        final List<String> cyN;
+        private final List<StackTraceElement> cyO;
+        final /* synthetic */ b cyP;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.cwO = bVar;
+            this.cyP = bVar;
             this.msgs = new ArrayList();
-            this.cwM = new ArrayList();
-            this.cwN = new ArrayList();
+            this.cyN = new ArrayList();
+            this.cyO = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cwL)) {
-                    this.cwN.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.cyM)) {
+                    this.cyO.add(stackTraceElement);
                 }
             }
         }
 
-        public a nU(String str) {
+        public a op(String str) {
             this.tag = str;
             return this;
         }
 
-        public synchronized a nV(String str) {
+        public synchronized a oq(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -95,43 +95,42 @@ public final class b {
             return this;
         }
 
-        public synchronized a aru() {
-            return m34if(this.cwN.size());
+        public synchronized a ase() {
+            return ip(this.cyO.size());
         }
 
-        /* renamed from: if  reason: not valid java name */
-        public synchronized a m34if(int i) {
+        public synchronized a ip(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.cwN.size() ? this.cwN.size() : i2;
+                int size = i2 > this.cyO.size() ? this.cyO.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.cwO.nS("[Trace]==> " + this.cwN.get(i3).toString());
+                    this.cyP.om("[Trace]==> " + this.cyO.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a arv() {
-            return m34if(1);
+        public synchronized a asf() {
+            return ip(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.u.e.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0454b implements com.baidu.swan.apps.ap.e.b<b> {
-        private C0454b() {
+    /* loaded from: classes3.dex */
+    public class C0449b implements com.baidu.swan.apps.ap.e.b<b> {
+        private C0449b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.b
         /* renamed from: a */
-        public void I(b bVar) {
+        public void J(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.cwK) {
+                for (a aVar : bVar.cyL) {
                     for (String str : aVar.msgs) {
-                        String arr = bVar.arr();
-                        E(TextUtils.isEmpty(aVar.tag) ? arr : aVar.tag, arr + " >>> " + str);
+                        String asb = bVar.asb();
+                        E(TextUtils.isEmpty(aVar.tag) ? asb : aVar.tag, asb + " >>> " + str);
                     }
                 }
             }

@@ -6,7 +6,7 @@ import android.hardware.SensorEventListener;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.face.liveness.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a implements SensorEventListener {
     final /* synthetic */ b.a a;
     final /* synthetic */ b b;

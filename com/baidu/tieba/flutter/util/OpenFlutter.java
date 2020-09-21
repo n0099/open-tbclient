@@ -31,7 +31,7 @@ import com.baidu.tieba.flutter.view.FlutterPageActivity;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -133,7 +133,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.xZ("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.yt("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -144,7 +144,7 @@ public class OpenFlutter {
                 return FlutterConcernForumEnableSwitch.isOn();
             }
             if (str.contains(ACTIVITY_PERSON_CENTER)) {
-                return FlutterPersonCenterEnableSwitch.isOn() && d.aZZ();
+                return FlutterPersonCenterEnableSwitch.isOn() && d.baN();
             }
             return true;
         }
@@ -166,14 +166,10 @@ public class OpenFlutter {
             str = ACTIVITY_FORUM_DETAIL;
         } else if (intentConfig instanceof PersonBarActivityConfig) {
             str = ACTIVITY_CONCERN_FORUM;
-        } else if (!FlutterConcernForumEnableSwitch.isOn()) {
-            return customMessage;
+        } else if ((intentConfig instanceof PersonPolymericActivityConfig) || (intentConfig instanceof PersonInfoActivityConfig)) {
+            str = ACTIVITY_PERSON_CENTER;
         } else {
-            if ((intentConfig instanceof PersonPolymericActivityConfig) || (intentConfig instanceof PersonInfoActivityConfig)) {
-                str = ACTIVITY_PERSON_CENTER;
-            } else {
-                return customMessage;
-            }
+            return customMessage;
         }
         if (checkSwitch(str)) {
             if (FlutterPageActivity.class != 0) {
@@ -198,15 +194,15 @@ public class OpenFlutter {
     }
 
     public static boolean checkPluginEnable(String str) {
-        PluginSetting findPluginSetting = c.qq().findPluginSetting("com.baidu.tieba.pluginFlutter");
+        PluginSetting findPluginSetting = c.qv().findPluginSetting("com.baidu.tieba.pluginFlutter");
         if ((findPluginSetting == null || findPluginSetting.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
             a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("page", str);
             statsItem.append("staticversion", BdStatisticsManager.getInstance().getAppVersion());
             statsItem.append("version", TbConfig.getVersion());
             statsItem.append("sub_version", TbConfig.getSubVersion());
-            statsItem.append("setting", PluginPackageManager.pO().pZ());
-            statsItem.append("pluginInit", PluginPackageManager.pO().pZ());
+            statsItem.append("setting", PluginPackageManager.pT().qe());
+            statsItem.append("pluginInit", PluginPackageManager.pT().qe());
             BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
             return false;
         }

@@ -2,7 +2,7 @@ package com.opensource.svgaplayer;
 
 import kotlin.h;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class e {
-    private static int oea;
+    private static int onM;
 }

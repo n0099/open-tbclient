@@ -1,9 +1,9 @@
 package com.baidu.tieba.enterForum.data;
 
 import tbclient.FrsTabInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class i {
-    private int hux;
+    private int hBC;
     private String tabCode;
     private String tabName;
 
@@ -11,7 +11,7 @@ public class i {
         if (frsTabInfo != null) {
             this.tabCode = frsTabInfo.tab_code;
             this.tabName = frsTabInfo.tab_name;
-            this.hux = frsTabInfo.tab_version.intValue();
+            this.hBC = frsTabInfo.tab_version.intValue();
         }
     }
 }

@@ -1,80 +1,156 @@
 package com.baidu.tieba.frs.gametab;
 
-import android.content.Context;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.guide.d;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes16.dex */
+import com.baidu.tieba.view.FollowUserButton;
+/* loaded from: classes21.dex */
 public class c {
-    public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
-        String fixedText;
-        if (tbPageContext == null || frsViewData == null) {
-            return false;
-        }
-        if (bg.checkUpIsLogin(tbPageContext.getPageActivity())) {
-            AntiData anti = frsViewData.getAnti();
-            if (anti != null) {
-                if (a(tbPageContext, anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
-                    return true;
-                }
-                if (anti.getIfpost() == 0 && !StringUtils.isNull(anti.getForbid_info())) {
-                    String forbid_info = anti.getForbid_info();
-                    if (at.getRealSize(forbid_info) > 14) {
-                        forbid_info = at.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
-                    }
-                    BdToast a = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) forbid_info, R.drawable.icon_pure_toast_mistake40_svg, true);
-                    a.setExtraTextLineSpacing(1.25f);
-                    a.bhm();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return true;
+    private com.baidu.adp.lib.guide.c fNh;
+    private View.OnClickListener fuF;
+    private final ViewGroup gcM;
+    private final Handler handler = new Handler();
+    private com.baidu.adp.lib.guide.b isX;
+    private String isY;
+    private Runnable isZ;
+    private final Activity mActivity;
+
+    public c(Activity activity, int i) {
+        this.mActivity = activity;
+        this.gcM = (ViewGroup) activity.findViewById(i);
     }
 
-    public static boolean a(final TbPageContext<?> tbPageContext, int i, final BlockPopInfoData blockPopInfoData) {
-        if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
-            return false;
-        }
-        String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(R.string.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
-        if (i != 1 && i != 2) {
-            BdToast a = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) string, R.drawable.icon_pure_toast_mistake40_svg, true);
-            a.setExtraTextLineSpacing(1.25f);
-            a.bhm();
-            return false;
-        }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.zA(at.getFixedText(string, 50, true));
-        aVar.b(at.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.1
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (aVar2 != null) {
-                    aVar2.dismiss();
-                }
+    public void setClickListener(View.OnClickListener onClickListener) {
+        this.fuF = onClickListener;
+    }
+
+    public void Jc(String str) {
+        this.isY = str;
+    }
+
+    public void ccj() {
+        if (this.gcM != null) {
+            if (this.fNh != null) {
+                this.fNh.b(this.gcM);
             }
-        });
-        if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
-            aVar.a(at.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    be.bju().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
-                    if (aVar2 != null) {
-                        aVar2.dismiss();
+            this.isZ = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (c.this.fNh != null) {
+                        c.this.fNh.b(c.this.gcM);
                     }
                 }
+            };
+            com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
+            dVar.ae(true);
+            dVar.b(new d.a() { // from class: com.baidu.tieba.frs.gametab.c.2
+                @Override // com.baidu.adp.lib.guide.d.a
+                public void onShown() {
+                }
+
+                @Override // com.baidu.adp.lib.guide.d.a
+                public void onDismiss() {
+                    c.this.fNh = null;
+                    c.this.handler.removeCallbacks(c.this.isZ);
+                }
             });
+            if (this.isX == null) {
+                this.isX = cul();
+            }
+            dVar.a(this.isX);
+            dVar.am(R.anim.frs_guide_tip_enter);
+            dVar.an(R.anim.frs_guide_tip_out);
+            this.fNh = dVar.mh();
+            this.fNh.a(this.mActivity, this.gcM, false);
+            this.handler.postDelayed(this.isZ, 4000L);
         }
-        aVar.b(tbPageContext).bhg();
-        return true;
+    }
+
+    public void cuk() {
+        if (this.fNh != null) {
+            this.fNh.b(this.gcM);
+        }
+    }
+
+    private com.baidu.adp.lib.guide.b cul() {
+        return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.3
+            @Override // com.baidu.adp.lib.guide.b
+            public View getView(LayoutInflater layoutInflater) {
+                View inflate = layoutInflater.inflate(R.layout.frs_guide_tip, (ViewGroup) null);
+                View findViewById = inflate.findViewById(R.id.frs_guide_bg);
+                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.frs_guide_bar_icon);
+                final FollowUserButton followUserButton = (FollowUserButton) inflate.findViewById(R.id.frs_guide_concern_btn);
+                ap.setViewTextColor((TextView) inflate.findViewById(R.id.frs_guide_text), R.color.cp_link_tip_a);
+                barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                barImageView.setContentDescription(c.this.mActivity.getResources().getString(R.string.bar_header));
+                barImageView.setStrokeWith(l.getDimens(c.this.mActivity, R.dimen.tbds1));
+                barImageView.setShowOval(true);
+                barImageView.setPlaceHolder(2);
+                barImageView.setShowOuterBorder(false);
+                barImageView.setShowInnerBorder(true);
+                barImageView.setStrokeColorResId(R.color.cp_border_a);
+                if (!StringUtils.isNull(c.this.isY)) {
+                    barImageView.startLoad(c.this.isY, 10, false);
+                }
+                final com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
+                aVar.pp(R.color.cp_link_tip_a);
+                aVar.pj(UtilHelper.getDimenPixelSize(R.dimen.tbds28));
+                aVar.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                aVar.po(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
+                followUserButton.setConfig(aVar);
+                followUserButton.setText(c.this.mActivity.getString(R.string.attention));
+                followUserButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.c.3.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (c.this.fuF != null) {
+                            c.this.fuF.onClick(view);
+                        }
+                        aVar.pp(R.color.cp_cont_d);
+                        aVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+                        followUserButton.setText(TbadkCoreApplication.getInst().getString(R.string.followed));
+                        followUserButton.setClickable(false);
+                        if (c.this.isZ != null) {
+                            c.this.handler.removeCallbacks(c.this.isZ);
+                            c.this.handler.postDelayed(c.this.isZ, 1000L);
+                        }
+                    }
+                });
+                com.baidu.tbadk.core.util.e.a.bkK().oG(R.color.cp_bg_line_h).oB(l.getDimens(c.this.mActivity, R.dimen.tbds21)).oC(R.color.cp_shadow_a_alpha12).oA(4369).oD(l.getDimens(c.this.mActivity, R.dimen.tbds10)).oE(0).oF(l.getDimens(c.this.mActivity, R.dimen.tbds5)).bb(findViewById);
+                return inflate;
+            }
+
+            @Override // com.baidu.adp.lib.guide.b
+            public int getAnchor() {
+                return 3;
+            }
+
+            @Override // com.baidu.adp.lib.guide.b
+            public int getFitPosition() {
+                return 32;
+            }
+
+            @Override // com.baidu.adp.lib.guide.b
+            public int getXOffset() {
+                return 0;
+            }
+
+            @Override // com.baidu.adp.lib.guide.b
+            public int getYOffset() {
+                return 0;
+            }
+        };
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ActivityPrizeData {
     private String dotTimestamp;
     private String enterForumText;

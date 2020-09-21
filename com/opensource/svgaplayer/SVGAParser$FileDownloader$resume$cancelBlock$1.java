@@ -5,7 +5,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import kotlin.l;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implements kotlin.jvm.a.a<l> {
     final /* synthetic */ Ref.BooleanRef $cancelled;
 
@@ -20,7 +20,7 @@ final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implem
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ l invoke() {
         invoke2();
-        return l.osf;
+        return l.oBM;
     }
 
     @Override // kotlin.jvm.a.a

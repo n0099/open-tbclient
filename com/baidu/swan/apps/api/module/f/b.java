@@ -8,75 +8,75 @@ import com.baidu.swan.apps.api.module.f.a;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.t.b.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static volatile b bWJ;
-    private a bWK;
+    private static volatile b bYK;
+    private a bYL;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(a.C0353a c0353a, int i);
+        void a(a.C0348a c0348a, int i);
 
-        void a(a.C0353a c0353a, com.baidu.swan.apps.scheme.actions.f.b bVar);
+        void a(a.C0348a c0348a, com.baidu.swan.apps.scheme.actions.f.b bVar);
 
-        void a(a.C0353a c0353a, String str);
+        void a(a.C0348a c0348a, String str);
     }
 
     private b() {
     }
 
-    public static b abZ() {
-        if (bWJ == null) {
+    public static b acI() {
+        if (bYK == null) {
             synchronized (b.class) {
-                if (bWJ == null) {
-                    bWJ = new b();
+                if (bYK == null) {
+                    bYK = new b();
                 }
             }
         }
-        return bWJ;
+        return bYK;
     }
 
-    public void a(@NonNull final a.C0353a c0353a, @NonNull a aVar, boolean z) {
-        this.bWK = aVar;
-        if (ak.aFj()) {
-            a(c0353a);
+    public void a(@NonNull final a.C0348a c0348a, @NonNull a aVar, boolean z) {
+        this.bYL = aVar;
+        if (ak.aFT()) {
+            a(c0348a);
         } else if (z) {
-            this.bWK.a(c0353a, "GetLocation does not supported when app is invisible");
+            this.bYL.a(c0348a, "GetLocation does not supported when app is invisible");
         } else {
-            com.baidu.swan.apps.ab.a.a(d.azE().azC(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
+            com.baidu.swan.apps.ab.a.a(d.aAn().aAl(), new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, 0, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.api.module.f.b.1
                 @Override // com.baidu.swan.apps.ab.b
-                public void iG(String str) {
-                    b.this.a(c0353a);
+                public void iZ(String str) {
+                    b.this.a(c0348a);
                 }
 
                 @Override // com.baidu.swan.apps.ab.b
-                public void N(int i, String str) {
+                public void O(int i, String str) {
                     c.e("GetLocationHelper", str);
-                    b.this.bWK.a(c0353a, str);
+                    b.this.bYL.a(c0348a, str);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final a.C0353a c0353a) {
+    public void a(final a.C0348a c0348a) {
         String str;
-        if (TextUtils.equals(c0353a.mType, "gcj02")) {
+        if (TextUtils.equals(c0348a.mType, "gcj02")) {
             str = "gcj02";
-        } else if (TextUtils.equals(c0353a.mType, "bd09ll")) {
+        } else if (TextUtils.equals(c0348a.mType, "bd09ll")) {
             str = "bd09ll";
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.t.a.apb().a(str, false, c0353a.bWH, new d.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
+        com.baidu.swan.apps.t.a.apM().a(str, false, c0348a.bYI, new d.a() { // from class: com.baidu.swan.apps.api.module.f.b.2
             @Override // com.baidu.swan.apps.t.b.d.a
             public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
-                b.this.bWK.a(c0353a, bVar);
+                b.this.bYL.a(c0348a, bVar);
             }
 
             @Override // com.baidu.swan.apps.t.b.d.a
             public void onFailed(int i) {
-                b.this.bWK.a(c0353a, i);
+                b.this.bYL.a(c0348a, i);
             }
         });
     }

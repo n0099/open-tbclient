@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class aw {
     public static void a(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);

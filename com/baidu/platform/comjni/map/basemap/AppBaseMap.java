@@ -6,7 +6,7 @@ import android.view.Surface;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AppBaseMap {
     private NABaseMap b;
     private long a = 0;

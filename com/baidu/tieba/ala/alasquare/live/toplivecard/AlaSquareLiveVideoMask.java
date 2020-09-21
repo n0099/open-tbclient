@@ -20,124 +20,124 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class AlaSquareLiveVideoMask extends FrameLayout {
-    private Animation bAi;
-    private TextView dTU;
-    private HeadImageView fDA;
-    private TextView fDB;
-    private TextView fDC;
-    private TextView fDD;
-    private NoActiveStopAlaPlayAnimationView fDE;
-    private ProgressBar fDF;
-    private FrameLayout fDG;
-    private boolean fDH;
-    private TbImageView fDy;
-    private View fDz;
-    private ImageView fcc;
+    private Animation bDF;
+    private TextView dWe;
+    private TbImageView fGK;
+    private View fGL;
+    private HeadImageView fGM;
+    private TextView fGN;
+    private TextView fGO;
+    private TextView fGP;
+    private NoActiveStopAlaPlayAnimationView fGQ;
+    private ProgressBar fGR;
+    private FrameLayout fGS;
+    private boolean fGT;
+    private ImageView feV;
     private Context mContext;
     private View mRootView;
 
     public AlaSquareLiveVideoMask(Context context) {
         super(context);
-        this.fDH = false;
+        this.fGT = false;
         init(context);
     }
 
     public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fDH = false;
+        this.fGT = false;
         init(context);
     }
 
     public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fDH = false;
+        this.fGT = false;
         init(context);
     }
 
     public void setFromSpecialForum(boolean z) {
-        this.fDH = z;
-        this.fcc.setVisibility(8);
-        this.fDF.setVisibility(8);
-        this.fDE.setVisibility(8);
-        this.fDE.setFromSpecialForum(this.fDH);
+        this.fGT = z;
+        this.feV.setVisibility(8);
+        this.fGR.setVisibility(8);
+        this.fGQ.setVisibility(8);
+        this.fGQ.setFromSpecialForum(this.fGT);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.bAi = AnimationUtils.loadAnimation(this.mContext, R.anim.video_cover_fade_out);
+        this.bDF = AnimationUtils.loadAnimation(this.mContext, R.anim.video_cover_fade_out);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
-        this.fDG = (FrameLayout) this.mRootView.findViewById(R.id.fade_out_view_root);
-        this.fDy = (TbImageView) this.mRootView.findViewById(R.id.live_cover);
-        this.fDy.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.fDy.setAutoChangeStyle(false);
-        this.fDz = this.mRootView.findViewById(R.id.head_root_view);
-        this.fDz.setBackgroundResource(R.drawable.round_host_header_bg_n);
-        this.fDA = (HeadImageView) this.mRootView.findViewById(R.id.hostheader_image);
-        this.dTU = (TextView) this.mRootView.findViewById(R.id.hostheader_name);
-        this.fDB = (TextView) this.mRootView.findViewById(R.id.hostheader_id);
-        this.fDA.setIsRound(true);
-        this.fDA.setAutoChangeStyle(false);
-        this.fDC = (TextView) this.mRootView.findViewById(R.id.tvSquareTitle);
-        this.fDD = (TextView) this.mRootView.findViewById(R.id.tvLiveCount);
-        this.fcc = (ImageView) this.mRootView.findViewById(R.id.image_video_play);
-        this.fDE = (NoActiveStopAlaPlayAnimationView) this.mRootView.findViewById(R.id.ala_play);
-        this.fDE.setFromSpecialForum(this.fDH);
-        ap.setImageResource(this.fcc, R.drawable.btn_icon_play_live_on_n);
-        this.fDF = (ProgressBar) this.mRootView.findViewById(R.id.auto_video_loading_progress);
-        bpI();
+        this.fGS = (FrameLayout) this.mRootView.findViewById(R.id.fade_out_view_root);
+        this.fGK = (TbImageView) this.mRootView.findViewById(R.id.live_cover);
+        this.fGK.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        this.fGK.setAutoChangeStyle(false);
+        this.fGL = this.mRootView.findViewById(R.id.head_root_view);
+        this.fGL.setBackgroundResource(R.drawable.round_host_header_bg_n);
+        this.fGM = (HeadImageView) this.mRootView.findViewById(R.id.hostheader_image);
+        this.dWe = (TextView) this.mRootView.findViewById(R.id.hostheader_name);
+        this.fGN = (TextView) this.mRootView.findViewById(R.id.hostheader_id);
+        this.fGM.setIsRound(true);
+        this.fGM.setAutoChangeStyle(false);
+        this.fGO = (TextView) this.mRootView.findViewById(R.id.tvSquareTitle);
+        this.fGP = (TextView) this.mRootView.findViewById(R.id.tvLiveCount);
+        this.feV = (ImageView) this.mRootView.findViewById(R.id.image_video_play);
+        this.fGQ = (NoActiveStopAlaPlayAnimationView) this.mRootView.findViewById(R.id.ala_play);
+        this.fGQ.setFromSpecialForum(this.fGT);
+        ap.setImageResource(this.feV, R.drawable.btn_icon_play_live_on_n);
+        this.fGR = (ProgressBar) this.mRootView.findViewById(R.id.auto_video_loading_progress);
+        bqC();
     }
 
     public void setData(bw bwVar) {
-        if (bwVar != null && bwVar.beY() != null && bwVar.beE() != null) {
-            AlaInfoData beY = bwVar.beY();
-            this.fDy.startLoad(beY.cover, 10, false);
-            AlaUserInfoData alaUserInfoData = beY.user_info;
+        if (bwVar != null && bwVar.bfS() != null && bwVar.bfy() != null) {
+            AlaInfoData bfS = bwVar.bfS();
+            this.fGK.startLoad(bfS.cover, 10, false);
+            AlaUserInfoData alaUserInfoData = bfS.user_info;
             if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-                this.fDz.setVisibility(0);
-                this.fDA.startLoad(alaUserInfoData.portrait, 10, false);
-                this.dTU.setText(bwVar.beE().getName_show());
-                this.fDB.setText(String.format(this.mContext.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
+                this.fGL.setVisibility(0);
+                this.fGM.startLoad(alaUserInfoData.portrait, 10, false);
+                this.dWe.setText(bwVar.bfy().getName_show());
+                this.fGN.setText(String.format(this.mContext.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
             } else {
-                this.fDz.setVisibility(8);
+                this.fGL.setVisibility(8);
             }
-            this.fDC.setText(bwVar.getTitle());
-            this.fDD.setText(this.mContext.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(beY.audience_count)));
-            if (!this.fDH) {
-                this.fDE.startPlayAnimation();
+            this.fGO.setText(bwVar.getTitle());
+            this.fGP.setText(this.mContext.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(bfS.audience_count)));
+            if (!this.fGT) {
+                this.fGQ.startPlayAnimation();
             }
         }
     }
 
-    public void bpI() {
-        ap.setViewTextColor(this.fDD, (int) R.color.cp_cont_a);
-        ap.setViewTextColor(this.dTU, (int) R.color.cp_cont_a);
-        ap.setViewTextColor(this.fDB, (int) R.color.cp_cont_a);
-        ap.setViewTextColor(this.fDC, (int) R.color.cp_cont_a);
+    public void bqC() {
+        ap.setViewTextColor(this.fGP, R.color.cp_cont_a);
+        ap.setViewTextColor(this.dWe, R.color.cp_cont_a);
+        ap.setViewTextColor(this.fGN, R.color.cp_cont_a);
+        ap.setViewTextColor(this.fGO, R.color.cp_cont_a);
     }
 
-    public void bFH() {
-        if (this.fDH) {
-            this.fcc.setVisibility(8);
-            this.fDF.setVisibility(8);
-            this.fDE.setVisibility(8);
+    public void bGX() {
+        if (this.fGT) {
+            this.feV.setVisibility(8);
+            this.fGR.setVisibility(8);
+            this.fGQ.setVisibility(8);
         }
-        this.fDG.startAnimation(this.bAi);
+        this.fGS.startAnimation(this.bDF);
     }
 
-    public void bFI() {
-        this.fDG.clearAnimation();
+    public void bGY() {
+        this.fGS.clearAnimation();
     }
 
-    public void bFJ() {
-        if (!this.fDH) {
-            this.fDE.startPlayAnimation();
+    public void bGZ() {
+        if (!this.fGT) {
+            this.fGQ.startPlayAnimation();
         }
     }
 
     public void onDestroy() {
-        if (!this.fDH) {
-            this.fDE.Om();
+        if (!this.fGT) {
+            this.fGQ.OP();
         }
-        this.fDG.clearAnimation();
+        this.fGS.clearAnimation();
     }
 }

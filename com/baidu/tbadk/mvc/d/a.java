@@ -1,44 +1,44 @@
 package com.baidu.tbadk.mvc.d;
 /* loaded from: classes.dex */
 public class a implements b {
-    private boolean eQE = false;
-    private boolean eQF = true;
-    private boolean eQG = false;
-    private boolean eQH = true;
-    private boolean eQI = true;
-    private boolean eQJ = false;
-    private boolean eQK = true;
-    private boolean eQL = true;
+    private boolean eTv = false;
+    private boolean eTw = true;
+    private boolean eTx = false;
+    private boolean eTy = true;
+    private boolean eTz = true;
+    private boolean eTA = false;
+    private boolean eTB = true;
+    private boolean eTC = true;
 
     public boolean isPullRefreshing() {
-        return this.eQE;
-    }
-
-    public void jx(boolean z) {
-        this.eQE = z;
-    }
-
-    public boolean btJ() {
-        return this.eQG;
+        return this.eTv;
     }
 
     public void jy(boolean z) {
-        this.eQG = z;
+        this.eTv = z;
     }
 
-    public boolean btK() {
-        return this.eQH;
+    public boolean buN() {
+        return this.eTx;
     }
 
     public void jz(boolean z) {
-        this.eQH = z;
+        this.eTx = z;
     }
 
-    public boolean btL() {
-        return this.eQI;
+    public boolean buO() {
+        return this.eTy;
     }
 
     public void jA(boolean z) {
-        this.eQI = z;
+        this.eTy = z;
+    }
+
+    public boolean buP() {
+        return this.eTz;
+    }
+
+    public void jB(boolean z) {
+        this.eTz = z;
     }
 }

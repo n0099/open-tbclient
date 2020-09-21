@@ -2,12 +2,12 @@ package com.baidu.tieba.im.forum.broadcast.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListReqIdl;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public static final int LOAD_RN = 15;
     public static final int LOAD_TYPE_LOADMORE = 2;
@@ -17,7 +17,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f986common;
+    private CommonReq f985common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -28,13 +28,13 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f986common = commonReq;
+        this.f985common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1072common = this.f986common;
+        builder.f1073common = this.f985common;
         builder.query_type = Integer.valueOf(this.queryType);
         builder.forum_id = Long.valueOf(this.forumId);
         builder.need_cnt = Integer.valueOf(this.needCount);
@@ -42,7 +42,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         builder.bcast_ids = this.bcastIds;
         builder.staff_id64 = Long.valueOf(this.lastId);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         GetForumBroadcastListReqIdl.Builder builder2 = new GetForumBroadcastListReqIdl.Builder();
         builder2.data = builder.build(false);

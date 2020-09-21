@@ -3,9 +3,9 @@ package com.baidu.swan.apps.w.a.a;
 import android.support.v4.view.ViewCompat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a implements com.baidu.swan.apps.model.a {
-    public c cxA;
+    public c czB;
     public int color = 0;
     public int fillColor = ViewCompat.MEASURED_STATE_MASK;
     public int radius = -1;
@@ -14,9 +14,9 @@ public class a implements com.baidu.swan.apps.model.a {
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has("radius")) {
-            this.cxA = new c();
-            this.cxA.parseFromJson(jSONObject);
-            if (this.cxA.isValid()) {
+            this.czB = new c();
+            this.czB.parseFromJson(jSONObject);
+            if (this.czB.isValid()) {
                 this.color = com.baidu.swan.apps.w.a.d.P(jSONObject.optString("color"), 0);
                 this.fillColor = com.baidu.swan.apps.w.a.d.P(jSONObject.optString("fillColor"), ViewCompat.MEASURED_STATE_MASK);
                 this.radius = jSONObject.optInt("radius", -1);
@@ -27,12 +27,12 @@ public class a implements com.baidu.swan.apps.model.a {
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.cxA == null || !this.cxA.isValid() || this.radius == -1) ? false : true;
+        return (this.czB == null || !this.czB.isValid() || this.radius == -1) ? false : true;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("coordinate ->").append(this.cxA).append("color ->").append(this.color).append("fillColor ->").append(this.fillColor).append("radius ->").append(this.radius).append("strokeWidth ->").append(this.strokeWidth);
+        sb.append("coordinate ->").append(this.czB).append("color ->").append(this.color).append("fillColor ->").append(this.fillColor).append("radius ->").append(this.radius).append("strokeWidth ->").append(this.strokeWidth);
         return sb.toString();
     }
 }

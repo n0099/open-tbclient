@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.tab;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface a {
-    boolean ru(int i);
+    boolean rL(int i);
 }

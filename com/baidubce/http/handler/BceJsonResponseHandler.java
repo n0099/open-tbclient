@@ -5,7 +5,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.JsonUtils;
 import java.io.InputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class BceJsonResponseHandler implements HttpResponseHandler {
     @Override // com.baidubce.http.handler.HttpResponseHandler
     public boolean handle(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws Exception {

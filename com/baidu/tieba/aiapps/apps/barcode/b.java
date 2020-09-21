@@ -10,7 +10,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.t.b.h;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import java.nio.charset.Charset;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class b implements h {
     @Override // com.baidu.swan.apps.t.b.h
     public void a(Context context, final com.baidu.swan.apps.g.a aVar) {

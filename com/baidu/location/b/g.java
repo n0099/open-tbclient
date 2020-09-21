@@ -31,7 +31,7 @@ import java.util.UUID;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g {
     private Handler I;
     private static g j = null;
@@ -75,7 +75,7 @@ public class g {
     double i = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.e.f {
         String a = null;
 

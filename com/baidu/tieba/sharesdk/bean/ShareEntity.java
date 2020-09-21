@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class ShareEntity implements Parcelable {
     public static final Parcelable.Creator<ShareEntity> CREATOR = new Parcelable.Creator<ShareEntity>() { // from class: com.baidu.tieba.sharesdk.bean.ShareEntity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,29 +19,29 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.PY(parcel.readString());
-            shareEntity.GZ(parcel.readInt());
+            shareEntity.Qy(parcel.readString());
+            shareEntity.HC(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.ae(parcel.readBundle());
-            shareEntity.Hb(parcel.readInt());
+            shareEntity.HE(parcel.readInt());
             shareEntity.setTid(parcel.readString());
-            shareEntity.Ha(parcel.readInt());
-            shareEntity.Qa(parcel.readString());
+            shareEntity.HD(parcel.readInt());
+            shareEntity.QA(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
-            shareEntity.fU(parcel.readLong());
-            shareEntity.vK(parcel.readByte() == 1);
+            shareEntity.gi(parcel.readLong());
+            shareEntity.vS(parcel.readByte() == 1);
             shareEntity.extLiveInfo = parcel.readString();
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Hc */
+        /* renamed from: HF */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -71,7 +71,7 @@ public class ShareEntity implements Parcelable {
         this.stats = bundle;
     }
 
-    public Bundle bpx() {
+    public Bundle bqr() {
         return this.stats;
     }
 
@@ -99,19 +99,19 @@ public class ShareEntity implements Parcelable {
         this.content = str;
     }
 
-    public void fU(long j) {
+    public void gi(long j) {
         this.readCount = j;
     }
 
-    public long dsB() {
+    public long dwt() {
         return this.readCount;
     }
 
-    public void vK(boolean z) {
+    public void vS(boolean z) {
         this.isVideoThread = z;
     }
 
-    public boolean dsC() {
+    public boolean dwu() {
         return this.isVideoThread;
     }
 
@@ -123,15 +123,15 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void PY(String str) {
+    public void Qy(String str) {
         this.localFile = str;
     }
 
-    public String dsD() {
+    public String dwv() {
         return this.localFile;
     }
 
-    public String bcA() {
+    public String bdu() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -147,15 +147,15 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int dsE() {
+    public int dww() {
         return this.shareTo;
     }
 
-    public void GZ(int i) {
+    public void HC(int i) {
         this.shareTo = i;
     }
 
-    public int dsF() {
+    public int dwx() {
         return this.shareType;
     }
 
@@ -167,35 +167,35 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public String dsG() {
+    public String dwy() {
         return this.extLiveInfo;
     }
 
-    public void PZ(String str) {
+    public void Qz(String str) {
         this.extLiveInfo = str;
     }
 
-    public void Qa(String str) {
+    public void QA(String str) {
         this.fName = str;
     }
 
-    public String dsH() {
+    public String dwz() {
         return this.fName;
     }
 
-    public void Ha(int i) {
+    public void HD(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int dsI() {
+    public int dwA() {
         return this.typeShareToSmallApp;
     }
 
-    public void Hb(int i) {
+    public void HE(int i) {
         this.shareType = i;
     }
 
-    public boolean dsJ() {
+    public boolean dwB() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

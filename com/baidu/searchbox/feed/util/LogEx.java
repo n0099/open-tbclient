@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import java.util.IllegalFormatException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class LogEx {
     private static final boolean ENABLE_LOG = true;
     private static final int LARGE_STRING_LIMIT = 1000;

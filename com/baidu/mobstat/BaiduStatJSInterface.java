@@ -36,17 +36,17 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class BaiduStatJSInterface {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
         void onPageStarted(WebView webView, String str, bl blVar);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class CustomWebViewClient extends WebViewClient {
         private WeakReference<Context> a;
         private WebViewClient b;
@@ -320,7 +320,7 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
         private WeakReference<Context> a;
         private WebChromeClient b;

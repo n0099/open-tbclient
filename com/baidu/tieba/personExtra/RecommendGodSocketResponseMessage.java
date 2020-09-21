@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.personPolymeric.c.q;
 import com.squareup.wire.Wire;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public q recommendGodData;
 

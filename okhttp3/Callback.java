@@ -1,7 +1,7 @@
 package okhttp3;
 
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public interface Callback {
     void onFailure(Call call, IOException iOException);
 

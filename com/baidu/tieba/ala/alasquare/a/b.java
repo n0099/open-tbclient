@@ -31,12 +31,12 @@ public class b {
                     arrayList2.add(aVar);
                 } else {
                     com.baidu.tieba.ala.alasquare.live.b.b bVar = new com.baidu.tieba.ala.alasquare.live.b.b();
-                    bVar.tabId = aVar.fCX;
+                    bVar.tabId = aVar.fGj;
                     bVar.entryName = str2;
                     bVar.labelName = aVar.label_name;
                     bVar.bitmapRatio = aVar.bitmap_wh_ratio;
-                    bVar.categoryType = aVar.fCY;
-                    bVar.fCZ = aVar.fCZ;
+                    bVar.categoryType = aVar.fGk;
+                    bVar.fGl = aVar.fGl;
                     linkedList.add(bVar);
                     int size = b.size();
                     int i = size % 2 != 0 ? size - 1 : size;
@@ -46,8 +46,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.b bVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.b();
                             c cVar = (c) b.get(i2);
                             c cVar2 = (c) b.get(i2 + 1);
-                            bVar2.fEP = cVar;
-                            bVar2.fEQ = cVar2;
+                            bVar2.fIb = cVar;
+                            bVar2.fIc = cVar2;
                             arrayList.add(cVar);
                             arrayList.add(cVar2);
                             linkedList.add(bVar2);
@@ -55,8 +55,8 @@ public class b {
                             com.baidu.tieba.ala.alasquare.subtablist.b.a aVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
                             c cVar3 = (c) b.get(i2);
                             c cVar4 = (c) b.get(i2 + 1);
-                            aVar2.fEP = cVar3;
-                            aVar2.fEQ = cVar4;
+                            aVar2.fIb = cVar3;
+                            aVar2.fIc = cVar4;
                             arrayList.add(cVar3);
                             arrayList.add(cVar4);
                             linkedList.add(aVar2);
@@ -99,14 +99,14 @@ public class b {
             return false;
         }
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-            if (aVar.fCX == aVar2.fCX && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
+            if (aVar.fGj == aVar2.fGj && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bw(List<HotLiveWithCategory> list) {
+    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bB(List<HotLiveWithCategory> list) {
         if (y.isEmpty(list)) {
             return new LinkedList();
         }
@@ -121,7 +121,7 @@ public class b {
 
     private static String a(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.fCX + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append(aVar.fGj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.entry_name + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.label_name);
         return sb.toString();
@@ -195,7 +195,7 @@ public class b {
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
                 c cVar = new c();
-                cVar.tabId = aVar.fCX;
+                cVar.tabId = aVar.fGj;
                 cVar.entryName = aVar.entry_name;
                 cVar.labelName = aVar.label_name;
                 cVar.a(threadInfo);

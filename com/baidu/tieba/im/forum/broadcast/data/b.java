@@ -3,17 +3,17 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import tbclient.BroadcastInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class b {
     private String content;
     private String ctr;
-    private long jne;
-    private int jnf;
-    private long jng;
-    private int jnh;
-    private int jni;
-    private RecommendForumInfo jnj;
-    private ThreadInfo jnk;
+    private long jvH;
+    private int jvI;
+    private long jvJ;
+    private int jvK;
+    private int jvL;
+    private RecommendForumInfo jvM;
+    private ThreadInfo jvN;
     private String picUrl;
     private String title;
 
@@ -29,51 +29,51 @@ public class b {
         return this.picUrl;
     }
 
-    public long cEA() {
-        return this.jne;
+    public long cIg() {
+        return this.jvH;
     }
 
-    public int cEB() {
-        return this.jnf;
+    public int cIh() {
+        return this.jvI;
     }
 
-    public int cEC() {
-        return this.jnh;
+    public int cIi() {
+        return this.jvK;
     }
 
-    public String cED() {
+    public String cIj() {
         return this.ctr;
     }
 
-    public long cEE() {
-        return this.jng;
+    public long cIk() {
+        return this.jvJ;
     }
 
-    public int cEF() {
-        return this.jni;
+    public int cIl() {
+        return this.jvL;
     }
 
-    public RecommendForumInfo cEG() {
-        return this.jnj;
+    public RecommendForumInfo cIm() {
+        return this.jvM;
     }
 
-    public ThreadInfo cEH() {
-        return this.jnk;
+    public ThreadInfo cIn() {
+        return this.jvN;
     }
 
     public void a(BroadcastInfo broadcastInfo) {
         if (broadcastInfo != null) {
-            this.jng = broadcastInfo.bcast_id.longValue();
+            this.jvJ = broadcastInfo.bcast_id.longValue();
             this.title = broadcastInfo.title;
             this.content = broadcastInfo.content;
             this.picUrl = broadcastInfo.pic_url;
-            this.jne = broadcastInfo.publish_time.intValue();
-            this.jnf = broadcastInfo.pushuser_cnt.intValue();
-            this.jnj = broadcastInfo.forum_info;
-            this.jnk = broadcastInfo.thread_infos;
+            this.jvH = broadcastInfo.publish_time.intValue();
+            this.jvI = broadcastInfo.pushuser_cnt.intValue();
+            this.jvM = broadcastInfo.forum_info;
+            this.jvN = broadcastInfo.thread_infos;
             this.ctr = broadcastInfo.ctr;
-            this.jnh = broadcastInfo.pv.intValue();
-            this.jni = broadcastInfo.audit_status.intValue();
+            this.jvK = broadcastInfo.pv.intValue();
+            this.jvL = broadcastInfo.audit_status.intValue();
         }
     }
 }

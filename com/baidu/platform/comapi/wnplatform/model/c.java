@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.model;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     LatLng a = new LatLng(0.0d, 0.0d);
     String b = "";

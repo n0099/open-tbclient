@@ -1,9 +1,9 @@
 package com.baidu.turbonet.net.proxy;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public interface b {
     void a(Exception exc, long j);
 
-    void ge(long j);
+    void gs(long j);
 
     void onComplete(long j);
 }

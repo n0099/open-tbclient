@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static HashMap<String, Method> b = new HashMap<>();
     private String a = "ReflectMethod";
@@ -13,7 +13,7 @@ public class c {
     private Class<?>[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a {
     }
 

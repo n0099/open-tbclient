@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public class TypefaceCompatUtil {
     private static final String CACHE_FILE_PREFIX = ".font";
     private static final String TAG = "TypefaceCompatUtil";

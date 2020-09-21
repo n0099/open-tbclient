@@ -1,12 +1,13 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import android.support.v7.widget.helper.ItemTouchHelper;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.sapi2.SapiAccountManager;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class GeneralAppIdDecoder {
     private final BitArray information;
     private final CurrentParsingState current = new CurrentParsingState();
@@ -270,7 +271,7 @@ public final class GeneralAppIdDecoder {
             case SapiAccountManager.VERSION_CODE /* 249 */:
                 c = '>';
                 break;
-            case 250:
+            case ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION /* 250 */:
                 c = '?';
                 break;
             case 251:

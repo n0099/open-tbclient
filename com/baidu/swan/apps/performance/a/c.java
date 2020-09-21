@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.performance.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface c {
     boolean a(a aVar);
 }

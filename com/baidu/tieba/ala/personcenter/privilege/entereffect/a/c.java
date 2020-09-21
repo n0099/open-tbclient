@@ -12,22 +12,22 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, a> {
     public c(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.gWJ);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.haq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aM */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: aN */
+    public a c(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null));
     }
 
     private void a(a aVar) {
         if (aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(aVar.gWH, R.color.cp_cont_b, 1, skinType);
-            ap.setBackgroundResource(aVar.gWI, R.color.cp_bg_line_c, skinType);
+            ap.setViewTextColor(aVar.hao, R.color.cp_cont_b, 1, skinType);
+            ap.setBackgroundResource(aVar.hap, R.color.cp_bg_line_c, skinType);
         }
     }
 
@@ -36,12 +36,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, a aVar2) {
         if (aVar != null) {
-            aVar2.gWH.setText(aVar.aDf);
+            aVar2.hao.setText(aVar.aDQ);
         }
         if (i == 0) {
-            aVar2.gWI.setVisibility(8);
+            aVar2.hap.setVisibility(8);
         } else {
-            aVar2.gWI.setVisibility(0);
+            aVar2.hap.setVisibility(0);
         }
         a(aVar2);
         return aVar2.getView();
@@ -49,13 +49,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public TextView gWH;
-        public View gWI;
+        public TextView hao;
+        public View hap;
 
         public a(View view) {
             super(view);
-            this.gWH = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.gWI = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.hao = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.hap = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

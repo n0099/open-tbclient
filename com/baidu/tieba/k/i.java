@@ -1,27 +1,27 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface i {
-    void De(int i);
+    void DF(int i);
 
-    void Df(int i);
+    void DG(int i);
 
-    void Dg(int i);
+    void DH(int i);
 
-    void MH(String str);
+    void Nj(String str);
 
-    String MI(String str);
+    String Nk(String str);
 
-    boolean MJ(String str);
+    boolean Nl(String str);
 
-    void ai(boolean z, boolean z2);
+    void ak(boolean z, boolean z2);
 
-    void cRh();
+    void cUN();
 
-    void cRi();
+    void cUO();
 
     void h(long j, long j2, long j3);
 
-    void rW(boolean z);
+    void se(boolean z);
 
-    void t(long j, int i);
+    void w(long j, int i);
 }

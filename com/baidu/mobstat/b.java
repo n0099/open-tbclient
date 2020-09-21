@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class b {
     static b a = new b();
 

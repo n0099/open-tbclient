@@ -7,7 +7,7 @@ import com.baidu.searchbox.ugc.draft.DraftData;
 import com.baidu.searchbox.ugc.provider.listener.OnVideoShareListener;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public interface IPublisherManagerInterface {
     void deleteDraft(String str);
 

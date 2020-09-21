@@ -1,44 +1,50 @@
 package com.baidu.live.v;
 
-import com.baidu.live.adp.framework.controller.HttpRule;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.adp.lib.util.Md5;
+import android.graphics.drawable.Drawable;
+import com.baidu.live.aa.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.webkit.internal.ETAG;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class a extends HttpRule {
-    public a(int i) {
-        super(i);
-    }
-
-    private void addSign(HttpMessage httpMessage) {
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
-        for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
-            Map.Entry<String, Object> entry = encodeInBackGround.get(i);
-            if (entry != null) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if ((value instanceof String) && !"sign".equals(key)) {
-                    stringBuffer.append(key + ETAG.EQUAL);
-                    stringBuffer.append(value);
-                }
+import com.baidu.live.tbadk.util.IResourceAdapter;
+import com.baidu.live.tbadk.widget.CommonEmptyView;
+/* loaded from: classes4.dex */
+public class a implements IResourceAdapter {
+    @Override // com.baidu.live.tbadk.util.IResourceAdapter
+    public Drawable getEmotionDrawable(CommonEmptyView.ImgType imgType, CommonEmptyView.StyleType styleType) {
+        int i = 0;
+        if (styleType == CommonEmptyView.StyleType.DARK) {
+            if (imgType == CommonEmptyView.ImgType.NO_NET) {
+                i = a.b.sdk_pic_live_empty01_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
+                i = a.b.sdk_pic_live_empty02_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
+                i = a.b.sdk_pic_live_empty03_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
+                i = a.b.sdk_pic_live_empty04_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
+                i = a.b.sdk_pic_live_empty05_d_tb;
+            } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
+                i = a.b.sdk_pic_live_empty06_d_tb;
             }
+        } else if (imgType == CommonEmptyView.ImgType.NO_NET) {
+            i = a.b.sdk_pic_live_empty01_tb;
+        } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
+            i = a.b.sdk_pic_live_empty02_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
+            i = a.b.sdk_pic_live_empty03_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
+            i = a.b.sdk_pic_live_empty04_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
+            i = a.b.sdk_pic_live_empty05_tb;
+        } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
+            i = a.b.sdk_pic_live_empty06_tb;
         }
-        stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", Md5.toMd5(stringBuffer.toString()));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.live.adp.framework.controller.MessageRule
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            httpMessage.addParam("cuid", TbadkCoreApplication.getUniqueIdentifier());
-            addSign(httpMessage);
+        if (i == 0) {
+            return null;
         }
-        return httpMessage;
+        try {
+            return TbadkCoreApplication.getInst().getResources().getDrawable(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

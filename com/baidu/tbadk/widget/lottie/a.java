@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.c.n;
 /* loaded from: classes.dex */
 public class a implements c {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private n fcR;
+    private n ffJ;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
@@ -20,13 +20,13 @@ public class a implements c {
         if (at.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + hVar.iL().replace("/", "") + "/" + hVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mM().loadResourceFromMemery(str, 36, new Object[0]);
+        String str = this.mPath + hVar.iM().replace("/", "") + "/" + hVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mR().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fcR == null) {
-                this.fcR = new n();
+            if (this.ffJ == null) {
+                this.ffJ = new n();
             }
-            aVar = this.fcR.o(str, 0, 0);
+            aVar = this.ffJ.o(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();
@@ -37,7 +37,7 @@ public class a implements c {
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.e.c.mM().a(str, 36, null, null);
+        com.baidu.adp.lib.e.c.mR().a(str, 36, null, null);
         return null;
     }
 

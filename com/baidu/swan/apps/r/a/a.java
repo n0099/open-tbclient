@@ -36,14 +36,14 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static CharSequence cvb = "._";
+    private static CharSequence cxc = "._";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class b {
-        public BufferedInputStream cvc;
+        public BufferedInputStream cxd;
         public int type = -1;
     }
 
@@ -56,11 +56,11 @@ public class a {
     /* JADX WARN: Type inference failed for: r2v8 */
     /* JADX WARN: Type inference failed for: r2v9 */
     @NonNull
-    public static C0425a a(BufferedInputStream bufferedInputStream, File file, int i) {
+    public static C0420a a(BufferedInputStream bufferedInputStream, File file, int i) {
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2;
         DataInputStream dataInputStream3;
-        C0425a c0425a = new C0425a(false);
+        C0420a c0420a = new C0420a(false);
         if (file != null && bufferedInputStream != null && i != 0) {
             boolean z = DEBUG;
             ?? r2 = z;
@@ -74,17 +74,17 @@ public class a {
                     dataInputStream = new DataInputStream(bufferedInputStream);
                     try {
                         bVar.versionCode = a(dataInputStream);
-                        bVar.cvd = a(dataInputStream);
-                        bVar.cve = a(dataInputStream);
-                        bVar.cvf = a(dataInputStream);
-                        bVar.cvg = b(dataInputStream);
-                        dataInputStream.readFully(bVar.cvh);
-                        byte[] J = J(bVar.cvh);
+                        bVar.cxe = a(dataInputStream);
+                        bVar.cxf = a(dataInputStream);
+                        bVar.cxg = a(dataInputStream);
+                        bVar.cxh = b(dataInputStream);
+                        dataInputStream.readFully(bVar.cxi);
+                        byte[] J = J(bVar.cxi);
                         if (J == null || J.length <= 0) {
-                            c0425a.clA = "cipher is null";
+                            c0420a.cnD = "cipher is null";
                             d.closeSafely(dataInputStream);
                         } else {
-                            byte[] bArr = new byte[bVar.cve];
+                            byte[] bArr = new byte[bVar.cxf];
                             dataInputStream.readFully(bArr);
                             byte[] bArr2 = new byte[16];
                             byte[] bArr3 = new byte[16];
@@ -92,15 +92,15 @@ public class a {
                             System.arraycopy(J, 16, bArr3, 0, 16);
                             byte[] d = d(bArr, bArr2, bArr3);
                             if (d == null || d.length <= 0) {
-                                c0425a.clA = "index array length <= 0";
+                                c0420a.cnD = "index array length <= 0";
                                 d.closeSafely(dataInputStream);
                             } else {
                                 if (i == 2) {
                                     if (DEBUG) {
                                         Log.d("BundleDecrypt", "create brotli stream");
                                     }
-                                    dataInputStream2 = new DataInputStream(com.baidu.swan.apps.t.a.apI().j(new ByteArrayInputStream(d)));
-                                    dataInputStream3 = new DataInputStream(com.baidu.swan.apps.t.a.apI().j(dataInputStream));
+                                    dataInputStream2 = new DataInputStream(com.baidu.swan.apps.t.a.aqs().j(new ByteArrayInputStream(d)));
+                                    dataInputStream3 = new DataInputStream(com.baidu.swan.apps.t.a.aqs().j(dataInputStream));
                                 } else {
                                     dataInputStream2 = new DataInputStream(new ByteArrayInputStream(d));
                                     dataInputStream3 = new DataInputStream(new GZIPInputStream(dataInputStream));
@@ -111,17 +111,17 @@ public class a {
                                     for (int i2 = 0; i2 < 4; i2++) {
                                         c cVar = new c("BundleDecrypt" + i2, file, countDownLatch);
                                         cVar.start();
-                                        handlerArr[i2] = cVar.aoI();
+                                        handlerArr[i2] = cVar.apt();
                                     }
-                                    for (int i3 = 0; i3 < bVar.cvd; i3++) {
+                                    for (int i3 = 0; i3 < bVar.cxe; i3++) {
                                         b.a aVar = new b.a();
                                         aVar.offset = a(dataInputStream2);
                                         aVar.size = a(dataInputStream2);
-                                        aVar.cvi = a(dataInputStream2);
-                                        byte[] bArr4 = new byte[aVar.cvi];
+                                        aVar.cxj = a(dataInputStream2);
+                                        byte[] bArr4 = new byte[aVar.cxj];
                                         dataInputStream2.readFully(bArr4);
                                         aVar.path = new String(bArr4, "utf-8");
-                                        if (aVar.path.contains(cvb)) {
+                                        if (aVar.path.contains(cxc)) {
                                             dataInputStream3.skipBytes(aVar.size);
                                         } else {
                                             byte[] bArr5 = new byte[aVar.size];
@@ -141,25 +141,25 @@ public class a {
                                     countDownLatch.await();
                                     d.closeSafely(dataInputStream2);
                                     d.closeSafely(dataInputStream3);
-                                    c0425a.isSuccess = true;
+                                    c0420a.isSuccess = true;
                                     d.closeSafely(dataInputStream);
                                 } else {
                                     if (DEBUG) {
                                         Log.e("BundleDecrypt", "create destination directory fail");
                                     }
-                                    c0425a.clA = "create destination directory failed";
+                                    c0420a.cnD = "create destination directory failed";
                                     d.closeSafely(dataInputStream);
                                 }
                             }
                         }
                     } catch (Exception e) {
                         e = e;
-                        c0425a.clA = e.getLocalizedMessage();
+                        c0420a.cnD = e.getLocalizedMessage();
                         if (DEBUG) {
                             Log.e("BundleDecrypt", "decrypt bundle fail", e);
                         }
                         d.closeSafely(dataInputStream);
-                        return c0425a;
+                        return c0420a;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -176,7 +176,7 @@ public class a {
                 throw th;
             }
         }
-        return c0425a;
+        return c0420a;
     }
 
     private static int a(DataInputStream dataInputStream) throws IOException {
@@ -191,7 +191,7 @@ public class a {
         return ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).getLong();
     }
 
-    private static PublicKey aoH() {
+    private static PublicKey aps() {
         try {
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB".getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
@@ -218,7 +218,7 @@ public class a {
     private static byte[] J(byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, aoH());
+            cipher.init(2, aps());
             return cipher.doFinal(bArr);
         } catch (InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e) {
             if (DEBUG) {
@@ -276,13 +276,13 @@ public class a {
             return closeable;
         }
         if (read == -1122498812) {
-            bVar.cvc = closeable;
+            bVar.cxd = closeable;
             bVar.type = 1;
             closeable = bVar;
         } else {
             closeable2 = closeable;
             if (read == -1122434039) {
-                bVar.cvc = closeable;
+                bVar.cxd = closeable;
                 bVar.type = 2;
                 closeable = bVar;
             }
@@ -294,7 +294,7 @@ public class a {
 
     public static b a(@NonNull BufferedInputStream bufferedInputStream) throws IOException {
         b bVar = new b();
-        bVar.cvc = bufferedInputStream;
+        bVar.cxd = bufferedInputStream;
         bufferedInputStream.mark(8);
         int read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
         if (read == -1122498812) {
@@ -307,7 +307,7 @@ public class a {
         return bVar;
     }
 
-    public static void hX(int i) {
+    public static void ih(int i) {
         File file = new File(com.baidu.swan.apps.u.a.a.getStorageList().get(0).mPath, "/decryptLog.csv");
         try {
             if (!file.exists()) {
@@ -323,12 +323,12 @@ public class a {
     }
 
     /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0425a {
-        public String clA = "";
+    /* loaded from: classes3.dex */
+    public static class C0420a {
+        public String cnD = "";
         public boolean isSuccess;
 
-        C0425a(boolean z) {
+        C0420a(boolean z) {
             this.isSuccess = z;
         }
     }

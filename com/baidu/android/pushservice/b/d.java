@@ -28,7 +28,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends b {
     private static d k;
     private String d;
@@ -47,7 +47,7 @@ public class d extends b {
     private static int j = -1;
     private static String[] s = {"/default.prop", "/system/build.prop", "/system/default.prop", "/data/local.prop"};
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }

@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download;
 
 import java.io.Serializable;
-/* loaded from: classes19.dex */
+/* loaded from: classes18.dex */
 public class RequestTask implements Serializable {
     public static final int STATUS_COMPLETE = 6;
     public static final int STATUS_CONNECTING = 1;

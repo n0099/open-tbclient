@@ -2,25 +2,25 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 final class c extends kotlin.collections.n {
     private int index;
-    private final char[] osL;
+    private final char[] oCs;
 
     public c(char[] cArr) {
         q.m(cArr, com.baidu.fsg.base.statistics.b.j);
-        this.osL = cArr;
+        this.oCs = cArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.osL.length;
+        return this.index < this.oCs.length;
     }
 
     @Override // kotlin.collections.n
-    public char efZ() {
+    public char ejW() {
         try {
-            char[] cArr = this.osL;
+            char[] cArr = this.oCs;
             int i = this.index;
             this.index = i + 1;
             return cArr[i];

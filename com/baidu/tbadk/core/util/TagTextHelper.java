@@ -50,13 +50,13 @@ public final class TagTextHelper {
     }
 
     @ColorRes
-    public static int nZ(int i) {
+    public static int ol(int i) {
         HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
         return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
     }
 
     @ColorRes
-    public static int oa(int i) {
+    public static int om(int i) {
         switch (i) {
             case 1:
                 return R.color.cp_cont_h;

@@ -8,50 +8,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b mAZ;
-    private View mBh;
+    private b mKP;
+    private View mKW;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mBh = null;
+        this.mKW = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mBh = null;
+        this.mKW = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.mAZ != null) {
-            this.mAZ.handleTouchEvent(motionEvent);
+        if (this.mKP != null) {
+            this.mKP.handleTouchEvent(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.mAZ = bVar;
+            this.mKP = bVar;
         }
     }
 
-    public void dDw() {
+    public void dHq() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void dDx() {
+    public void dHr() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.mBh == null) {
-            this.mBh = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.mKW == null) {
+            this.mKW = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.mBh, layoutParams);
+            addView(this.mKW, layoutParams);
         }
-        this.mBh.setVisibility(z ? 0 : 8);
+        this.mKW.setVisibility(z ? 0 : 8);
     }
 }

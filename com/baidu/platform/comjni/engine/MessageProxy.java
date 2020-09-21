@@ -6,7 +6,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MessageProxy {
     private static final SparseArray<List<Handler>> a = new SparseArray<>();
 

@@ -11,27 +11,27 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import com.xiaomi.push.fc;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class XMJobService extends Service {
     static Service a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private IBinder f796a = null;
+    private IBinder f795a = null;
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     static class a extends JobService {
         Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        private Handler f797a;
+        private Handler f796a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        private static class HandlerC0948a extends Handler {
+        /* loaded from: classes9.dex */
+        private static class HandlerC0945a extends Handler {
             JobService a;
 
-            HandlerC0948a(JobService jobService) {
+            HandlerC0945a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -67,10 +67,10 @@ public class XMJobService extends Service {
             intent.setAction("com.xiaomi.push.timer");
             intent.setPackage(getPackageName());
             startService(intent);
-            if (this.f797a == null) {
-                this.f797a = new HandlerC0948a(this);
+            if (this.f796a == null) {
+                this.f796a = new HandlerC0945a(this);
             }
-            this.f797a.sendMessage(Message.obtain(this.f797a, 1, jobParameters));
+            this.f796a.sendMessage(Message.obtain(this.f796a, 1, jobParameters));
             return true;
         }
 
@@ -88,14 +88,14 @@ public class XMJobService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f796a != null ? this.f796a : new Binder();
+        return this.f795a != null ? this.f795a : new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f796a = new a(this).a;
+            this.f795a = new a(this).a;
         }
         a = this;
     }

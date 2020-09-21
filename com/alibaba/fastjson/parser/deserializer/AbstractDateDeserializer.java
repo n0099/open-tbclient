@@ -9,7 +9,7 @@ import com.alibaba.fastjson.parser.JSONScanner;
 import java.lang.reflect.Type;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractDateDeserializer extends ContextObjectDeserializer implements ObjectDeserializer {
     protected abstract <T> T cast(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2);
 

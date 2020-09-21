@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import java.util.concurrent.locks.Lock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e implements com.baidu.mapsdkplatform.comapi.map.l {
     final /* synthetic */ BaiduMap a;
 

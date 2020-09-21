@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class a extends i implements Handler.Callback {
     private b a;
     private FileWriter b;

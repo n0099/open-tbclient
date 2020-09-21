@@ -8,17 +8,17 @@ import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class s {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void h(String str, Bitmap bitmap);
+        void g(String str, Bitmap bitmap);
     }
 
     public static boolean i(Uri uri) {
-        return uri != null && com.facebook.drawee.a.a.c.dPy().S(uri);
+        return uri != null && com.facebook.drawee.a.a.c.dTw().U(uri);
     }
 
     public static Bitmap b(Uri uri, Context context) {
@@ -29,25 +29,25 @@ public class s {
             if (DEBUG) {
                 Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
             }
-            return c(com.facebook.drawee.a.a.c.dPy().d(ImageRequest.Z(uri), context.getApplicationContext()));
+            return c(com.facebook.drawee.a.a.c.dTw().d(ImageRequest.ab(uri), context.getApplicationContext()));
         }
         if (DEBUG) {
             Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
         }
-        com.facebook.datasource.b<Boolean> T = com.facebook.drawee.a.a.c.dPy().T(uri);
-        if (T == null || !T.dPf() || T.getResult() == null || !T.getResult().booleanValue()) {
+        com.facebook.datasource.b<Boolean> V = com.facebook.drawee.a.a.c.dTw().V(uri);
+        if (V == null || !V.dTd() || V.getResult() == null || !V.getResult().booleanValue()) {
             return null;
         }
         try {
-            return c(com.facebook.drawee.a.a.c.dPy().e(ImageRequest.Z(uri), context));
+            return c(com.facebook.drawee.a.a.c.dTw().e(ImageRequest.ab(uri), context));
         } finally {
-            T.ahA();
+            V.aik();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
     private static Bitmap c(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
-        Bitmap dUs;
+        Bitmap dYq;
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = null;
         if (bVar == null) {
             return null;
@@ -57,10 +57,10 @@ public class s {
             if (result != null) {
                 try {
                     com.facebook.imagepipeline.g.c cVar = result.get();
-                    if (cVar != null && (cVar instanceof com.facebook.imagepipeline.g.b) && (dUs = ((com.facebook.imagepipeline.g.b) cVar).dUs()) != null && !dUs.isRecycled()) {
+                    if (cVar != null && (cVar instanceof com.facebook.imagepipeline.g.b) && (dYq = ((com.facebook.imagepipeline.g.b) cVar).dYq()) != null && !dYq.isRecycled()) {
                         try {
-                            Bitmap createBitmap = Bitmap.createBitmap(dUs);
-                            bVar.ahA();
+                            Bitmap createBitmap = Bitmap.createBitmap(dYq);
+                            bVar.aik();
                             com.facebook.common.references.a.c(result);
                             return createBitmap;
                         } catch (OutOfMemoryError e) {
@@ -70,12 +70,12 @@ public class s {
                 } catch (Throwable th) {
                     aVar = result;
                     th = th;
-                    bVar.ahA();
+                    bVar.aik();
                     com.facebook.common.references.a.c(aVar);
                     throw th;
                 }
             }
-            bVar.ahA();
+            bVar.aik();
             com.facebook.common.references.a.c(result);
             return null;
         } catch (Throwable th2) {
@@ -108,17 +108,17 @@ public class s {
             if (DEBUG) {
                 Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
             }
-            com.facebook.drawee.a.a.c.dPy().f(ImageRequestBuilder.ab(uri).dWA(), str);
+            com.facebook.drawee.a.a.c.dTw().f(ImageRequestBuilder.ad(uri).eay(), str);
         }
     }
 
     public static void a(final String str, final a aVar) {
         Uri uri = ak.getUri(str);
         if (uri == null) {
-            aVar.h(str, null);
+            aVar.g(str, null);
             return;
         }
-        com.facebook.drawee.a.a.c.dPy().e(ImageRequestBuilder.ab(uri).dWA(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.ap.s.1
+        com.facebook.drawee.a.a.c.dTw().e(ImageRequestBuilder.ad(uri).eay(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.ap.s.1
             @Override // com.facebook.imagepipeline.e.b
             protected void h(Bitmap bitmap) {
                 Bitmap copy;
@@ -129,29 +129,29 @@ public class s {
                         } else {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
-                        a.this.h(str, copy);
+                        a.this.g(str, copy);
                         return;
                     } catch (Exception e) {
                         if (s.DEBUG) {
                             Log.e("SwanAppFrescoImageUtils", e.getMessage());
                         }
-                        a.this.h(str, null);
+                        a.this.g(str, null);
                         return;
                     }
                 }
-                a.this.h(str, null);
+                a.this.g(str, null);
             }
 
             @Override // com.facebook.datasource.a
             protected void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
-                a.this.h(str, null);
+                a.this.g(str, null);
             }
 
             @Override // com.facebook.datasource.a, com.facebook.datasource.d
             public void b(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
                 super.b(bVar);
-                a.this.h(str, null);
+                a.this.g(str, null);
             }
-        }, com.facebook.common.b.i.dOE());
+        }, com.facebook.common.b.i.dSC());
     }
 }

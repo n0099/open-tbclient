@@ -23,30 +23,30 @@ import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
 import com.baidu.tieba.hottopic.data.e;
 import com.baidu.tieba.hottopic.view.ShareCardView;
 import java.net.URLEncoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class b {
-    private BaseActivity<?> iYB;
-    private SparseArray<String> iYC = null;
+    private BaseActivity<?> jhg;
+    private SparseArray<String> jhh = null;
 
     public b(BaseActivity<?> baseActivity) {
-        this.iYB = baseActivity;
+        this.jhg = baseActivity;
     }
 
-    private SparseArray<String> bby() {
-        if (this.iYC == null) {
-            this.iYC = new SparseArray<>(8);
-            this.iYC.put(2, "topic_wx_timeline");
-            this.iYC.put(3, "topic_wx_friend");
-            this.iYC.put(4, "topic_qq_zone");
-            this.iYC.put(5, "topic_tencent_weibo");
-            this.iYC.put(6, "topic_sina_weibo");
+    private SparseArray<String> bcs() {
+        if (this.jhh == null) {
+            this.jhh = new SparseArray<>(8);
+            this.jhh.put(2, "topic_wx_timeline");
+            this.jhh.put(3, "topic_wx_friend");
+            this.jhh.put(4, "topic_qq_zone");
+            this.jhh.put(5, "topic_tencent_weibo");
+            this.jhh.put(6, "topic_sina_weibo");
         }
-        return this.iYC;
+        return this.jhh;
     }
 
     public void b(String str, String str2, String str3, String str4, String str5, boolean z) {
         if (TextUtils.isEmpty(str) && z) {
-            this.iYB.showToast(this.iYB.getActivity().getString(R.string.no_hot_topic_data));
+            this.jhg.showToast(this.jhg.getActivity().getString(R.string.no_hot_topic_data));
             return;
         }
         if (StringUtils.isNull(str3)) {
@@ -57,44 +57,44 @@ public class b {
         shareItem.title = str2;
         shareItem.content = str5;
         shareItem.linkUrl = str3;
-        shareItem.eEf = true;
+        shareItem.eGl = true;
         shareItem.extData = str;
         shareItem.imageUri = parse;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.iYB.getActivity(), shareItem, true, bby());
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.jhg.getActivity(), shareItem, true, bcs());
         shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.adp.lib.util.a.copyToClipboard(shareItem.linkUrl);
-                l.showToast(b.this.iYB.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                l.showToast(b.this.jhg.getActivity(), view.getResources().getString(R.string.copy_pb_url_success));
             }
         });
         shareDialogConfig.setIsCopyLink(true);
-        this.iYB.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+        this.jhg.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final long j2, e eVar) {
-        if (eVar != null && eVar.czZ() != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iYB.getActivity());
-            final ShareCardView shareCardView = new ShareCardView(this.iYB.getActivity());
+        if (eVar != null && eVar.cDG() != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jhg.getActivity());
+            final ShareCardView shareCardView = new ShareCardView(this.jhg.getActivity());
             shareCardView.setData(shareFromTopicMsgData);
-            aVar.nw(1);
-            aVar.aX(shareCardView);
+            aVar.nH(1);
+            aVar.aZ(shareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.hottopic.controller.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ((InputMethodManager) b.this.iYB.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(b.this.iYB.getActivity(), j, str, j2, "from_share", shareCardView.getLeaveMsg(), shareFromTopicMsgData.toChatMessageContent())));
+                    ((InputMethodManager) b.this.jhg.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(b.this.jhg.getActivity(), j, str, j2, "from_share", shareCardView.getLeaveMsg(), shareFromTopicMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.hottopic.controller.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ((InputMethodManager) b.this.iYB.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
+                    ((InputMethodManager) b.this.jhg.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.iYB.getPageContext()).bhg();
+            aVar.b(this.jhg.getPageContext()).bia();
             if (!k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
                 shareCardView.aJ(shareFromTopicMsgData.getImageUrl(), false);
             }
@@ -102,28 +102,28 @@ public class b {
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final String str2, final String str3, e eVar) {
-        if (eVar != null && eVar.czZ() != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iYB.getActivity());
-            final ShareCardView shareCardView = new ShareCardView(this.iYB.getActivity());
+        if (eVar != null && eVar.cDG() != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jhg.getActivity());
+            final ShareCardView shareCardView = new ShareCardView(this.jhg.getActivity());
             shareCardView.setData(shareFromTopicMsgData);
-            aVar.nw(1);
-            aVar.aX(shareCardView);
+            aVar.nH(1);
+            aVar.aZ(shareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.hottopic.controller.b.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ((InputMethodManager) b.this.iYB.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(b.this.iYB.getActivity(), j, str, str2, str3, 0, shareCardView.getLeaveMsg(), shareFromTopicMsgData.toChatMessageContent())));
+                    ((InputMethodManager) b.this.jhg.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(b.this.jhg.getActivity(), j, str, str2, str3, 0, shareCardView.getLeaveMsg(), shareFromTopicMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.hottopic.controller.b.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ((InputMethodManager) b.this.iYB.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
+                    ((InputMethodManager) b.this.jhg.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(shareCardView.getChatMsgView().getWindowToken(), 2);
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.iYB.getPageContext()).bhg();
+            aVar.b(this.jhg.getPageContext()).bia();
             if (!k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
                 shareCardView.aJ(shareFromTopicMsgData.getImageUrl(), false);
             }

@@ -5,7 +5,7 @@ import com.xiaomi.push.al;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class gy extends al.b {
     final /* synthetic */ Context a;
 
@@ -20,11 +20,11 @@ public final class gy extends al.b {
         ArrayList arrayList;
         List list;
         List list2;
-        obj = gx.f411a;
+        obj = gx.f410a;
         synchronized (obj) {
-            list = gx.f413a;
+            list = gx.f412a;
             arrayList = new ArrayList(list);
-            list2 = gx.f413a;
+            list2 = gx.f412a;
             list2.clear();
         }
         gx.b(this.a, arrayList);

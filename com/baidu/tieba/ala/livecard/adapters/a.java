@@ -8,7 +8,7 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes4.dex */
 public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.livecard.a.b> implements y {
-    private com.baidu.tieba.ala.livecard.b.a giH;
+    private com.baidu.tieba.ala.livecard.b.a glO;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -19,14 +19,14 @@ public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
-    public com.baidu.tieba.ala.livecard.a.b b(ViewGroup viewGroup) {
+    /* renamed from: an */
+    public com.baidu.tieba.ala.livecard.a.b c(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.giH = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
-        this.giH.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.b(this.giH);
+        this.glO = new com.baidu.tieba.ala.livecard.b.a(this.mPageContext);
+        this.glO.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.b(this.glO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,12 +35,12 @@ public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.g gVar, com.baidu.tieba.ala.livecard.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (com.baidu.tieba.tbadkCore.g) bVar);
         if (gVar != null) {
-            int topThreadSize = this.hSt != null ? this.hSt.getTopThreadSize() : 0;
-            if (gVar.mcR != null && gVar.mcR.get(0) != null) {
-                gVar.mcR.get(0).dZf = (i + 1) - topThreadSize;
+            int topThreadSize = this.hZt != null ? this.hZt.getTopThreadSize() : 0;
+            if (gVar.mmr != null && gVar.mmr.get(0) != null) {
+                gVar.mmr.get(0).ebp = (i + 1) - topThreadSize;
             }
-            bVar.gja.setForumName(this.mForumName);
-            bVar.gja.a(gVar);
+            bVar.gmh.setForumName(this.mForumName);
+            bVar.gmh.a(gVar);
         }
         return view;
     }
@@ -51,6 +51,6 @@ public class a extends k<com.baidu.tieba.tbadkCore.g, com.baidu.tieba.ala.liveca
     }
 
     @Override // com.baidu.tieba.card.y
-    public void tz(int i) {
+    public void tS(int i) {
     }
 }

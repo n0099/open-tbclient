@@ -46,7 +46,7 @@ public class RequestClient implements Call.Factory, Cloneable {
     final int writeTimeout;
     static final List<Protocol> DEFAULT_PROTOCOLS = Util.immutableList(Protocol.HTTP_2, Protocol.HTTP_1_1);
     public static int sNetworkQuality = -1;
-    public static List<HttpManager.NetworkQualityListener> sNetworkQualityListeners = new ArrayList(2);
+    public static final List<HttpManager.NetworkQualityListener> sNetworkQualityListeners = new ArrayList(2);
 
     public boolean isHasSetHttpDelegator() {
         return this.hasSetHttpDelegator;

@@ -2,19 +2,19 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OnSubscribeRange implements d.a<Integer> {
-    private final int bqn;
-    private final int bqo;
+    private final int btx;
+    private final int bty;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     public void call(rx.j<? super Integer> jVar) {
-        jVar.setProducer(new RangeProducer(jVar, this.bqn, this.bqo));
+        jVar.setProducer(new RangeProducer(jVar, this.btx, this.bty));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class RangeProducer extends AtomicLong implements rx.f {
         private static final long serialVersionUID = 4114392207069098388L;
         private final rx.j<? super Integer> childSubscriber;

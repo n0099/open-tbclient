@@ -14,7 +14,7 @@ import java.util.Vector;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static a b = null;
     private NAFavorite a = null;
@@ -28,9 +28,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0217a implements Comparator<String> {
-        C0217a() {
+    /* loaded from: classes3.dex */
+    public class C0216a implements Comparator<String> {
+        C0216a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class b {
         private long b;
         private long c;
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class c {
         private String b;
         private long c;
@@ -339,7 +339,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0217a());
+                            Collections.sort(this.f, new C0216a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -379,7 +379,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0217a());
+                            Collections.sort(this.e, new C0216a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

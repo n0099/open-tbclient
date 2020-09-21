@@ -7,7 +7,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     private static final int FRAME_RATE;
 

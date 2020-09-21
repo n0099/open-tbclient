@@ -1,12 +1,12 @@
 package com.baidu.live.view.web.a;
 
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.live.view.web.a {
-    protected com.baidu.live.view.web.f bvu;
+    protected com.baidu.live.view.web.f byH;
 
     public a(com.baidu.live.view.web.f fVar) {
-        this.bvu = fVar;
+        this.byH = fVar;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -15,10 +15,10 @@ public class a extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hr(String str) {
+    public void hP(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl CloseBridgeJsInterface params = " + str);
-        if (this.bvu != null) {
-            this.bvu.fA(-1);
+        if (this.byH != null) {
+            this.byH.eL(-1);
         }
     }
 }

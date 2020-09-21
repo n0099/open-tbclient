@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class i implements FileFilter {
     @Override // java.io.FileFilter
     public boolean accept(File file) {

@@ -4,31 +4,31 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ab {
-    public static void aEU() {
-        String aEV = aEV();
-        if (!TextUtils.isEmpty(aEV)) {
+    public static void aFE() {
+        String aFF = aFF();
+        if (!TextUtils.isEmpty(aFF)) {
             if (com.baidu.swan.apps.b.DEBUG) {
-                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aEV);
+                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aFF);
             }
-            WebSettingsGlobalBlink.setRefererPattern(aEV, com.baidu.swan.apps.r.d.aoA());
+            WebSettingsGlobalBlink.setRefererPattern(aFF, com.baidu.swan.apps.r.d.apl());
         }
     }
 
-    public static String aEV() {
+    public static String aFF() {
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("SwanAppRefererUtils", "getFixedReferer: " + sE("https://smartapps.cn/%s/%s/page-frame.html"));
+            Log.d("SwanAppRefererUtils", "getFixedReferer: " + sX("https://smartapps.cn/%s/%s/page-frame.html"));
         }
-        return sE("https://smartapps.cn/%s/%s/page-frame.html");
+        return sX("https://smartapps.cn/%s/%s/page-frame.html");
     }
 
-    public static boolean sD(String str) {
+    public static boolean sW(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static String sE(String str) {
-        com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        return azI != null ? String.format(str, azI.getAppKey(), azI.aAe()) : "";
+    public static String sX(String str) {
+        com.baidu.swan.apps.runtime.e aAr = com.baidu.swan.apps.runtime.e.aAr();
+        return aAr != null ? String.format(str, aAr.getAppKey(), aAr.aAN()) : "";
     }
 }

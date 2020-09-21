@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT = -109;
     public static final int ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL = -106;

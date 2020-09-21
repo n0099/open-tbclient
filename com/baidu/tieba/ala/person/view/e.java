@@ -2,49 +2,49 @@ package com.baidu.tieba.ala.person.view;
 
 import android.view.View;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class e extends c {
-    private PlayBackItemView gSO;
-    private PlayBackItemView gSP;
+    private PlayBackItemView gWw;
+    private PlayBackItemView gWx;
 
     public e(View view, int i) {
         super(view, i);
-        this.gSO = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
-        this.gSP = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
+        this.gWw = (PlayBackItemView) view.findViewById(a.g.playback_item_left);
+        this.gWx = (PlayBackItemView) view.findViewById(a.g.playback_item_right);
     }
 
     @Override // com.baidu.tieba.ala.person.view.c
-    public void F(Object obj) {
+    public void G(Object obj) {
         if (obj instanceof com.baidu.tieba.ala.person.a.a) {
             final com.baidu.tieba.ala.person.a.a aVar = (com.baidu.tieba.ala.person.a.a) obj;
-            if (aVar.gPJ != null) {
-                this.gSO.setVisibility(0);
-                this.gSO.setData(aVar.gPJ.getMedia_pic(), aVar.gPJ.join_count, aVar.gPJ.start_time, aVar.gPJ.getLiveTitle());
+            if (aVar.gTr != null) {
+                this.gWw.setVisibility(0);
+                this.gWw.setData(aVar.gTr.getMedia_pic(), aVar.gTr.join_count, aVar.gTr.start_time, aVar.gTr.getLiveTitle());
             } else {
-                this.gSO.setVisibility(4);
+                this.gWw.setVisibility(4);
             }
-            if (aVar.gPK != null) {
-                this.gSP.setVisibility(0);
-                this.gSP.setData(aVar.gPK.getMedia_pic(), aVar.gPK.join_count, aVar.gPK.start_time, aVar.gPK.getLiveTitle());
+            if (aVar.gTs != null) {
+                this.gWx.setVisibility(0);
+                this.gWx.setData(aVar.gTs.getMedia_pic(), aVar.gTs.join_count, aVar.gTs.start_time, aVar.gTs.getLiveTitle());
             } else {
-                this.gSP.setVisibility(4);
+                this.gWx.setVisibility(4);
             }
-            if (this.gSO != null) {
-                this.gSO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
+            if (this.gWw != null) {
+                this.gWw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.gPH != null) {
-                            e.this.gPH.a(aVar.gPJ, view);
+                        if (e.this.gTp != null) {
+                            e.this.gTp.a(aVar.gTr, view);
                         }
                     }
                 });
             }
-            if (this.gSP != null) {
-                this.gSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
+            if (this.gWx != null) {
+                this.gWx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.gPH != null) {
-                            e.this.gPH.a(aVar.gPK, view);
+                        if (e.this.gTp != null) {
+                            e.this.gTp.a(aVar.gTs, view);
                         }
                     }
                 });

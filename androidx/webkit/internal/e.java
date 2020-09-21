@@ -1,7 +1,9 @@
 package androidx.webkit.internal;
-/* loaded from: classes4.dex */
+
+import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
+/* loaded from: classes17.dex */
 public interface e {
-    org.a.a.d hM();
+    WebkitToCompatConverterBoundaryInterface hM();
 
     String[] hN();
 }

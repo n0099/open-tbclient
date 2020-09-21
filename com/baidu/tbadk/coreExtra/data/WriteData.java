@@ -19,7 +19,6 @@ import org.json.JSONObject;
 public class WriteData extends OrmObject implements Serializable {
     public static final String CALL_FROM_ONE = "1";
     public static final String CALL_FROM_OTHER = "0";
-    public static final String CALL_FROM_PERSON = "3";
     public static final String CALL_FROM_TWO = "2";
     public static final int NEW = 0;
     public static final int NEW_DRUFTING_BOTTLE = 7;
@@ -291,7 +290,7 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.blw());
+            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bmq());
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);

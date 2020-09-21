@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class Dot extends Overlay {
     LatLng a;
     int b;

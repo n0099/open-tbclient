@@ -20,7 +20,7 @@ public class bg {
     private static int mSkin_1_common_color = -1;
     private static int mMore_color = -1;
     private static boolean mIsNeedInit = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> elu = new com.baidu.adp.lib.d.a<>(500);
+    private static com.baidu.adp.lib.d.a<Integer, Integer> enM = new com.baidu.adp.lib.d.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -65,16 +65,16 @@ public class bg {
 
     public static void prepareNewView(View view) {
         if (view != null) {
-            elu.remove(Integer.valueOf(System.identityHashCode(view)));
+            enM.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void processSkin(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = elu.get(Integer.valueOf(identityHashCode));
+        Integer num = enM.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             processSkin0(viewGroup, i);
-            elu.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            enM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

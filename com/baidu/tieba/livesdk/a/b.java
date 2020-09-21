@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.h.a.a.a {
-    private c jUf;
+    private c kcI;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.livesdk.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.jUf != null) {
-                b.this.jUf.onLoginStatusChanged(false, false);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.kcI != null) {
+                b.this.kcI.onLoginStatusChanged(false, false);
             }
         }
     };
@@ -39,14 +39,14 @@ public class b implements com.baidu.h.a.a.a {
     }
 
     @Override // com.baidu.h.a.a.a
-    public com.baidu.h.a.a.b Rb() {
+    public com.baidu.h.a.a.b RS() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             com.baidu.h.a.a.b bVar = new com.baidu.h.a.a.b();
             bVar.setUid(currentAccountInfo.getID());
             bVar.setBduss(currentAccountInfo.getBDUSS());
             bVar.setDisplayname(currentAccountInfo.getAccountNameShow());
-            bVar.hA(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
+            bVar.hW(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
             return bVar;
         }
         return null;
@@ -54,6 +54,6 @@ public class b implements com.baidu.h.a.a.a {
 
     @Override // com.baidu.h.a.a.a
     public void a(c cVar) {
-        this.jUf = cVar;
+        this.kcI = cVar;
     }
 }

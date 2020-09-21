@@ -4,10 +4,11 @@ import android.text.TextUtils;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.ca;
+import com.baidu.live.data.ci;
 import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends HttpMessage {
     public b() {
         super(1003029);
@@ -30,14 +31,14 @@ public class b extends HttpMessage {
             i6 = 0;
         }
         addParam("no_wechat", i6);
-        ca caVar = new ca();
-        caVar.props_id = JavaTypesHelper.toInt(str, 0);
-        caVar.new_props_id = str;
-        caVar.money = i3;
-        caVar.aLH = i4;
-        caVar.wars_name = "";
-        caVar.wars_item = "";
-        addParam("wares", caVar.toJson());
+        ci ciVar = new ci();
+        ciVar.props_id = JavaTypesHelper.toInt(str, 0);
+        ciVar.new_props_id = str;
+        ciVar.money = i3;
+        ciVar.aNq = i4;
+        ciVar.wars_name = "";
+        ciVar.wars_item = "";
+        addParam("wares", ciVar.toJson());
         if (!StringUtils.isNull(str3)) {
             addParam("refer_page", str3);
         }
@@ -46,6 +47,13 @@ public class b extends HttpMessage {
         }
         if (!StringUtils.isNull(str5)) {
             addParam("live_id", str5);
+        }
+        String baiduzid = ExtraParamsManager.getBaiduzid();
+        if (baiduzid != null) {
+            addParam("zid", baiduzid);
+        }
+        if (TbadkCoreApplication.getInst().getIsYuyinRoom()) {
+            addParam("is_jiaoyou", 1);
         }
     }
 }

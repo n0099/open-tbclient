@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes4.dex */
 public class NestScrollingTypedListView extends BdTypeListView {
-    private int fNi;
+    private int fQw;
     private boolean isFirst;
     private NestedScrollingChildHelper mChildHelper;
     private int mLastTouchX;
@@ -91,8 +91,8 @@ public class NestScrollingTypedListView extends BdTypeListView {
                     this.isFirst = false;
                     N(motionEvent);
                     return true;
-                } else if (!bD(this.fNi, i2)) {
-                    this.fNi = i2;
+                } else if (!bD(this.fQw, i2)) {
+                    this.fQw = i2;
                     Log.i("pyt", "move lastY" + this.mLastTouchY + ",y=" + y + ",dy=" + i2);
                     if (dispatchNestedPreScroll(i, i2, this.mScrollConsumed, this.mScrollOffset)) {
                         obtain.offsetLocation(this.mScrollOffset[0], this.mScrollOffset[1]);
@@ -117,7 +117,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
     }
 
     private void N(MotionEvent motionEvent) {
-        this.fNi = 0;
+        this.fQw = 0;
         int[] iArr = this.mNestedOffsets;
         this.mNestedOffsets[1] = 0;
         iArr[0] = 0;

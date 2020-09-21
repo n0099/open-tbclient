@@ -17,7 +17,7 @@ public class e {
         a.remove(str);
     }
 
-    public static com.cmic.sso.sdk.b.b Uh(String str) {
+    public static com.cmic.sso.sdk.b.b UJ(String str) {
         return a.get(str);
     }
 

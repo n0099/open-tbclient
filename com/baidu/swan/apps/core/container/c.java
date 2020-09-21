@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.container;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface c {
-    boolean afu();
+    boolean age();
 
-    boolean dN(boolean z);
+    boolean dL(boolean z);
 }

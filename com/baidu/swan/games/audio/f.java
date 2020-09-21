@@ -12,29 +12,29 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class f {
-    private static final HashMap<String, String> doz = new HashMap<>();
+    private static final HashMap<String, String> dqA = new HashMap<>();
 
     static {
-        doz.put("494433", ".mp3");
-        doz.put("524946", ".wav");
+        dqA.put("494433", ".mp3");
+        dqA.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.cyo = gVar.cyo;
-        dVar.cyx = gVar.autoplay;
+        dVar.cAp = gVar.cAp;
+        dVar.cAy = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.dow = gVar.startTime;
-        dVar.cyy = gVar.obeyMuteSwitch;
+        dVar.dqx = gVar.startTime;
+        dVar.cAz = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.cyu = aKY().toString();
+        dVar.cAv = aLJ().toString();
         return dVar;
     }
 
-    public static JSONObject aKY() {
+    public static JSONObject aLJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -60,28 +60,28 @@ public class f {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String uy(String str) throws MalformedURLException {
+    public static String uR(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf);
         }
-        return "/" + com.baidu.swan.apps.runtime.e.azK() + "/" + str.hashCode() + str2;
+        return "/" + com.baidu.swan.apps.runtime.e.aAt() + "/" + str.hashCode() + str2;
     }
 
-    public static String aKZ() {
-        String aLb = aLb();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(aLb)) {
+    public static String aLK() {
+        String aLM = aLM();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(aLM)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return aLb;
+        return aLM;
     }
 
-    public static String aLa() {
+    public static String aLL() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String aLb() {
+    private static String aLM() {
         String str = n.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -103,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return doz.get(bytesToHexString(bArr2));
+        return dqA.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

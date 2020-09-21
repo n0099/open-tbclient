@@ -7,15 +7,15 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
     final AtomicReference<a<T>> current;
-    final t<T> ooA;
+    final t<T> oyj;
     final t<T> source;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.ooA.subscribe(uVar);
+        this.oyj.subscribe(uVar);
     }
 
     @Override // io.reactivex.d.a
@@ -44,13 +44,13 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class a<T> implements io.reactivex.disposables.b, u<T> {
-        static final InnerDisposable[] ooB = new InnerDisposable[0];
-        static final InnerDisposable[] ooC = new InnerDisposable[0];
+        static final InnerDisposable[] oyk = new InnerDisposable[0];
+        static final InnerDisposable[] oyl = new InnerDisposable[0];
         final AtomicReference<a<T>> current;
         final AtomicReference<io.reactivex.disposables.b> s = new AtomicReference<>();
-        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(ooB);
+        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(oyk);
         final AtomicBoolean shouldConnect = new AtomicBoolean();
 
         a(AtomicReference<a<T>> atomicReference) {
@@ -59,7 +59,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.observers.get() != ooC && this.observers.getAndSet(ooC) != ooC) {
+            if (this.observers.get() != oyl && this.observers.getAndSet(oyl) != oyl) {
                 this.current.compareAndSet(this, null);
                 DisposableHelper.dispose(this.s);
             }
@@ -67,7 +67,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.observers.get() == ooC;
+            return this.observers.get() == oyl;
         }
 
         @Override // io.reactivex.u
@@ -85,7 +85,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.current.compareAndSet(this, null);
-            InnerDisposable<T>[] andSet = this.observers.getAndSet(ooC);
+            InnerDisposable<T>[] andSet = this.observers.getAndSet(oyl);
             if (andSet.length != 0) {
                 for (InnerDisposable<T> innerDisposable : andSet) {
                     innerDisposable.child.onError(th);
@@ -98,7 +98,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
         @Override // io.reactivex.u
         public void onComplete() {
             this.current.compareAndSet(this, null);
-            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(ooC)) {
+            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(oyl)) {
                 innerDisposable.child.onComplete();
             }
         }
@@ -124,7 +124,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerDisposableArr2 = ooB;
+                            innerDisposableArr2 = oyk;
                         } else {
                             innerDisposableArr2 = new InnerDisposable[length - 1];
                             System.arraycopy(innerDisposableArr, 0, innerDisposableArr2, 0, i);
@@ -141,7 +141,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class InnerDisposable<T> extends AtomicReference<Object> implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -1100270633763673112L;
         final u<? super T> child;

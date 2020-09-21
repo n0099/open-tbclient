@@ -1,5 +1,5 @@
 package android.support.v4.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class CircularArray<E> {
     private int mCapacityBitmask;
     private E[] mElements;

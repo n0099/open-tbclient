@@ -12,38 +12,38 @@ import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends a {
-    private OriginalThreadCardView hle;
-    private int kCM;
-    private int kCO;
+    private OriginalThreadCardView hsh;
+    private int kLk;
+    private int kLm;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.kCM = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.kCO = i;
+        this.kLk = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.kLm = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.hle == null) {
-            this.hle = new OriginalThreadCardView(this.efr.getPageActivity());
-            this.hle.hlS = this.kCO;
-            this.hle.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
+        if (this.hsh == null) {
+            this.hsh = new OriginalThreadCardView(this.ehG.getPageActivity());
+            this.hsh.hsV = this.kLm;
+            this.hsh.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.kQe != null) {
-                        c.this.kQe.a(c.this.hle, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.kYG != null) {
+                        c.this.kYG.a(c.this.hsh, new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-                            public bw bce() {
-                                if (c.this.kQf != null) {
-                                    return c.this.kQf.bdf();
+                            public bw bcY() {
+                                if (c.this.kYH != null) {
+                                    return c.this.kYH.bdZ();
                                 }
                                 return null;
                             }
 
                             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-                            public ar bcg() {
+                            public ar bda() {
                                 return null;
                             }
 
@@ -56,20 +56,20 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.kCM;
-            layoutParams.leftMargin = this.kCM;
-            layoutParams.rightMargin = this.kCM;
-            this.hle.setLayoutParams(layoutParams);
-            this.hle.onChangeSkinType();
+            layoutParams.bottomMargin = this.kLk;
+            layoutParams.leftMargin = this.kLk;
+            layoutParams.rightMargin = this.kLk;
+            this.hsh.setLayoutParams(layoutParams);
+            this.hsh.onChangeSkinType();
         }
-        return this.hle;
+        return this.hsh;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.kQf = originalThreadInfo;
-        if (this.hle != null) {
-            this.hle.b(this.kQf);
+        this.kYH = originalThreadInfo;
+        if (this.hsh != null) {
+            this.hsh.b(this.kYH);
         }
     }
 
@@ -77,8 +77,8 @@ public class c extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.hle != null) {
-                this.hle.onChangeSkinType();
+            if (this.hsh != null) {
+                this.hsh.onChangeSkinType();
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.browser.core.async;
 import android.os.Build;
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class a extends HandlerThread {
     public a(String str, int i) {
         super(str, i);
@@ -21,7 +21,7 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void tm() {
+    public void ts() {
         try {
             Looper looper = getLooper();
             if (Build.VERSION.SDK_INT >= 18) {

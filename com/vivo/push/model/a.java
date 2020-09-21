@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class a {
     private String a;
     private String b;

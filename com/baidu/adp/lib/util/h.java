@@ -21,20 +21,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h Oz = null;
+    private static h OU = null;
 
-    public static h oc() {
+    public static h oi() {
         h hVar;
-        if (Oz == null) {
+        if (OU == null) {
             synchronized (h.class) {
-                if (Oz == null) {
-                    Oz = new h();
+                if (OU == null) {
+                    OU = new h();
                 }
-                hVar = Oz;
+                hVar = OU;
             }
             return hVar;
         }
-        return Oz;
+        return OU;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -128,7 +128,7 @@ public class h {
         }
     }
 
-    public boolean cg(String str) {
+    public boolean ci(String str) {
         boolean z;
         boolean z2;
         StringBuilder sb = new StringBuilder();
@@ -414,7 +414,7 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        i OA;
+        i OV;
         String mLibName;
         boolean mLoadSuccess = false;
         StringBuilder mLogContent;
@@ -424,7 +424,7 @@ public class h {
             this.mLibName = str;
             this.mNewFileName = str2;
             this.mLogContent = sb;
-            this.OA = iVar;
+            this.OV = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -443,8 +443,8 @@ public class h {
             if (this.mLogContent.length() > 0) {
                 BdStatisticsManager.getInstance().error("so", "load_" + this.mLibName + PluginInstallerService.APK_LIB_SUFFIX, "", BdErrorInfo.ERR_SO_LOAD, this.mLogContent.toString(), new Object[0]);
             }
-            if (this.OA != null) {
-                this.OA.callback(this.mLoadSuccess);
+            if (this.OV != null) {
+                this.OV.callback(this.mLoadSuccess);
             }
         }
     }

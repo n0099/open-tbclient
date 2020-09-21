@@ -2,7 +2,7 @@ package com.baidu.pano.platform.a;
 
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface b {
     a a(String str);
 
@@ -10,7 +10,7 @@ public interface b {
 
     void a(String str, a aVar);
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public byte[] a;
         public String b;

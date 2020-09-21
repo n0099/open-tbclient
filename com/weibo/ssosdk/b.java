@@ -8,19 +8,19 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes9.dex */
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String okO = "";
+    private String ouz = "";
     private String from = "";
-    private String okP = "";
-    private String okQ = "";
-    private String okR = "";
-    private String okS = "";
+    private String ouA = "";
+    private String ouB = "";
+    private String ouC = "";
+    private String ouD = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String VJ(String str) {
+    private String Wl(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -28,7 +28,7 @@ public class b implements Cloneable {
         }
     }
 
-    public String yG(boolean z) {
+    public String yO(boolean z) {
         if (this.extra.isEmpty()) {
             return "";
         }
@@ -41,37 +41,37 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return VJ(jSONObject.toString());
+            return Wl(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
-    public String yH(boolean z) {
-        return z ? VJ(this.okR) : this.okR;
+    public String yP(boolean z) {
+        return z ? Wl(this.ouC) : this.ouC;
     }
 
-    public String yI(boolean z) {
-        return z ? VJ(this.okP) : this.okP;
+    public String yQ(boolean z) {
+        return z ? Wl(this.ouA) : this.ouA;
     }
 
-    public void VK(String str) {
-        this.okP = str;
+    public void Wm(String str) {
+        this.ouA = str;
     }
 
-    public String yJ(boolean z) {
-        return z ? VJ(this.okQ) : this.okQ;
+    public String yR(boolean z) {
+        return z ? Wl(this.ouB) : this.ouB;
     }
 
-    public String yK(boolean z) {
-        return z ? VJ(this.from) : this.from;
+    public String yS(boolean z) {
+        return z ? Wl(this.from) : this.from;
     }
 
     public void setFrom(String str) {
         this.from = str;
     }
 
-    public String yL(boolean z) {
-        return z ? VJ(this.appKey) : this.appKey;
+    public String yT(boolean z) {
+        return z ? Wl(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -86,12 +86,12 @@ public class b implements Cloneable {
         this.appContext = context.getApplicationContext();
     }
 
-    public String yM(boolean z) {
-        return z ? VJ(this.okO) : this.okO;
+    public String yU(boolean z) {
+        return z ? Wl(this.ouz) : this.ouz;
     }
 
-    public boolean eeu() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.okP)) ? false : true;
+    public boolean eir() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.ouA)) ? false : true;
     }
 
     public Object clone() {

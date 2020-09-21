@@ -1,7 +1,7 @@
 package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PoiParaOption {
     String a;
     String b;

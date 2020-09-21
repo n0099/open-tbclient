@@ -9,16 +9,16 @@ import android.view.ViewParent;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class g {
-    private ValueAnimator hYd;
-    private TextView iiB;
+    private ValueAnimator ifh;
+    private TextView ipD;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.g.3
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.iiB != null && g.this.iiB.getParent() != null && g.this.hYd != null) {
-                g.this.hYd.start();
+            if (g.this.ipD != null && g.this.ipD.getParent() != null && g.this.ifh != null) {
+                g.this.ifh.start();
             }
         }
     };
@@ -26,36 +26,36 @@ public class g {
 
     public g(Context context) {
         this.mContext = context;
-        cqt();
+        ctG();
     }
 
-    private void cqt() {
-        this.iiB = new TextView(this.mContext);
-        this.iiB.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-        ap.setBackgroundResource(this.iiB, R.color.cp_link_tip_a);
-        ap.setViewTextColor(this.iiB, (int) R.color.cp_cont_a);
-        this.iiB.setGravity(17);
-        this.iiB.setVisibility(0);
-        this.hYd = new ValueAnimator();
-        this.hYd.setFloatValues(1.0f, 0.0f);
-        this.hYd.setDuration(400L);
-        this.hYd.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
+    private void ctG() {
+        this.ipD = new TextView(this.mContext);
+        this.ipD.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+        ap.setBackgroundResource(this.ipD, R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.ipD, (int) R.color.cp_cont_a);
+        this.ipD.setGravity(17);
+        this.ipD.setVisibility(0);
+        this.ifh = new ValueAnimator();
+        this.ifh.setFloatValues(1.0f, 0.0f);
+        this.ifh.setDuration(400L);
+        this.ifh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.iiB != null && valueAnimator != null) {
-                    g.this.iiB.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (g.this.ipD != null && valueAnimator != null) {
+                    g.this.ipD.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.hYd.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
+        this.ifh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (g.this.iiB != null) {
-                    g.this.con();
+                if (g.this.ipD != null) {
+                    g.this.crA();
                 }
             }
 
@@ -69,32 +69,32 @@ public class g {
         });
     }
 
-    public void con() {
+    public void crA() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hYd != null) {
-            this.hYd.cancel();
+        if (this.ifh != null) {
+            this.ifh.cancel();
         }
-        if (this.iiB != null) {
-            ViewParent parent = this.iiB.getParent();
+        if (this.ipD != null) {
+            ViewParent parent = this.ipD.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.iiB);
+                ((ViewGroup) parent).removeView(this.ipD);
             }
-            this.iiB.setVisibility(8);
-            this.iiB = null;
+            this.ipD.setVisibility(8);
+            this.ipD = null;
         }
     }
 
     public boolean isShowing() {
-        return this.iiB != null && this.iiB.getVisibility() == 0;
+        return this.ipD != null && this.ipD.getVisibility() == 0;
     }
 
-    public TextView cqu() {
-        return this.iiB;
+    public TextView ctH() {
+        return this.ipD;
     }
 
-    public void cqv() {
+    public void ctI() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, 2000L);
     }

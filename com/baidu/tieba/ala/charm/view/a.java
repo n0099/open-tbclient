@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> egb = new ArrayList<>();
-    private View.OnClickListener fRp;
-    private View.OnClickListener fRq;
-    private View.OnClickListener fRr;
-    private int fRs;
+    private ArrayList<ALaCharmData> eiq = new ArrayList<>();
+    private View.OnClickListener fUA;
+    private View.OnClickListener fUB;
+    private View.OnClickListener fUC;
+    private int fUD;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.fRs = 1;
+        this.fUD = 1;
         this.mPageContext = tbPageContext;
-        this.fRs = i;
+        this.fUD = i;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fRp = onClickListener;
+        this.fUA = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fRr = onClickListener;
+        this.fUC = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.fRq = onClickListener;
+        this.fUB = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.egb.clear();
-            this.egb.addAll(arrayList);
+            this.eiq.clear();
+            this.eiq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void ab(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.egb.addAll(arrayList);
+            this.eiq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.egb == null) {
+        if (this.eiq == null) {
             return 0;
         }
-        return this.egb.size();
+        return this.eiq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sZ */
+    /* renamed from: ts */
     public ALaCharmData getItem(int i) {
-        if (this.egb == null) {
+        if (this.eiq == null) {
             return null;
         }
-        return this.egb.get(i);
+        return this.eiq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.fRs == 1) {
+            if (this.fUD == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.fRs == 2) {
+            } else if (this.fUD == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.fRs);
-            dVar2.p(this.fRr);
-            dVar2.m(this.fRp);
-            dVar2.q(this.fRq);
+            d dVar2 = new d(inflate, this.fUD);
+            dVar2.p(this.fUC);
+            dVar2.m(this.fUA);
+            dVar2.q(this.fUB);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void at(String str, boolean z) {
-        if (this.egb != null && str != null) {
-            Iterator<ALaCharmData> it = this.egb.iterator();
+        if (this.eiq != null && str != null) {
+            Iterator<ALaCharmData> it = this.eiq.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

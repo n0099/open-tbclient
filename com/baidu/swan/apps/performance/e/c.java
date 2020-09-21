@@ -3,15 +3,15 @@ package com.baidu.swan.apps.performance.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c implements e {
-    private List<Long> cHI = new ArrayList();
+    private List<Long> cJI = new ArrayList();
     private long mEndTime = -1;
 
     @Override // com.baidu.swan.apps.performance.e.e
     public void setStart(long j) {
-        if (this.cHI != null) {
-            this.cHI.add(Long.valueOf(j));
+        if (this.cJI != null) {
+            this.cJI.add(Long.valueOf(j));
         }
     }
 
@@ -21,11 +21,11 @@ public class c implements e {
     }
 
     @Override // com.baidu.swan.apps.performance.e.e
-    public long aij() {
-        if (this.cHI == null || this.cHI.size() <= 0 || this.mEndTime < 0) {
+    public long aiT() {
+        if (this.cJI == null || this.cJI.size() <= 0 || this.mEndTime < 0) {
             return -1L;
         }
-        return this.mEndTime - ((Long) Collections.min(this.cHI)).longValue();
+        return this.mEndTime - ((Long) Collections.min(this.cJI)).longValue();
     }
 
     @Override // com.baidu.swan.apps.performance.e.e

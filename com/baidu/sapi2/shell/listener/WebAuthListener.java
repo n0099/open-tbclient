@@ -3,7 +3,7 @@ package com.baidu.sapi2.shell.listener;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.shell.result.WebAuthResult;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public abstract class WebAuthListener implements SapiCallback<WebAuthResult> {
     public void beforeSuccess(SapiAccount sapiAccount) {
     }

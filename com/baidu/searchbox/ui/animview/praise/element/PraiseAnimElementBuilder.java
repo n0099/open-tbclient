@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class PraiseAnimElementBuilder {
     private int mCanvasHeight;
     private int mCanvasWidth;
@@ -86,19 +86,19 @@ public class PraiseAnimElementBuilder {
         IAnimatedElement eruptionAnimatedGroup;
         switch (i) {
             case 0:
-                eruptionAnimatedGroup = new WaveAnimElement(this.mCtx, this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_CENTER);
+                eruptionAnimatedGroup = new WaveAnimElement(this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_CENTER);
                 break;
             case 1:
-                eruptionAnimatedGroup = new ShakeAnimElement(this.mCtx, this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_CENTER);
+                eruptionAnimatedGroup = new ShakeAnimElement(this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_CENTER);
                 break;
             case 2:
-                eruptionAnimatedGroup = new PraiseLevelAnimElement(this.mCtx, this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_XY);
+                eruptionAnimatedGroup = new PraiseLevelAnimElement(this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_XY);
                 break;
             case 3:
-                eruptionAnimatedGroup = new PraiseNumberAnimElement(this.mCtx);
+                eruptionAnimatedGroup = new PraiseNumberAnimElement();
                 break;
             case 4:
-                eruptionAnimatedGroup = new EruptionAnimatedGroup(this.mCtx, this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_XY);
+                eruptionAnimatedGroup = new EruptionAnimatedGroup(this.mDrawableCallback, BaseAnimatedElement.ScaleType.FIT_XY);
                 break;
             default:
                 return;

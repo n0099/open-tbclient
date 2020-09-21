@@ -24,10 +24,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    private static final int efK = R.drawable.shape_new_complete_toast_bg;
-    private TextView cjo;
-    private TextView efL;
-    private TbImageView efM;
+    private static final int ehZ = R.drawable.shape_new_complete_toast_bg;
+    private TextView clp;
+    private TextView eia;
+    private TbImageView eib;
     private Context mContext;
     private com.baidu.tbadk.BdToken.completeTask.a mData;
     private Runnable mHideRunnable;
@@ -43,19 +43,19 @@ public class h implements View.OnClickListener {
         if (context != null) {
             this.mContext = context;
             this.mRootView = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.new_task_completed_toast_layout, (ViewGroup) null);
-            this.cjo = (TextView) this.mRootView.findViewById(R.id.toast_message_content);
-            this.efL = (TextView) this.mRootView.findViewById(R.id.toast_btn);
-            this.efL.setOnClickListener(this);
-            this.efM = (TbImageView) this.mRootView.findViewById(R.id.toast_bg);
-            this.efM.setDefaultBgResource(efK);
-            this.efM.setDrawCorner(true);
-            this.efM.setConrers(15);
-            this.efM.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds20));
+            this.clp = (TextView) this.mRootView.findViewById(R.id.toast_message_content);
+            this.eia = (TextView) this.mRootView.findViewById(R.id.toast_btn);
+            this.eia.setOnClickListener(this);
+            this.eib = (TbImageView) this.mRootView.findViewById(R.id.toast_bg);
+            this.eib.setDefaultBgResource(ehZ);
+            this.eib.setDrawCorner(true);
+            this.eib.setConrers(15);
+            this.eib.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds20));
             this.offsetY = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds176);
             this.offsetX = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds29);
             ap.setBackgroundResource(this.mRootView, R.drawable.layerlist_new_complete_task_toast_shadow);
             this.mWindowManager = (WindowManager) this.mContext.getSystemService("window");
-            bhu();
+            bio();
             this.mHideRunnable = new Runnable() { // from class: com.baidu.tbadk.core.dialog.h.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -72,59 +72,59 @@ public class h implements View.OnClickListener {
     private h b(com.baidu.tbadk.BdToken.completeTask.a aVar) {
         if (this.mContext != null) {
             if (aVar == null) {
-                return bhr();
+                return bil();
             }
             this.mData = aVar;
             if (at.isEmpty(aVar.message)) {
-                this.cjo.setText(this.mContext.getResources().getString(R.string.task_already_finish));
+                this.clp.setText(this.mContext.getResources().getString(R.string.task_already_finish));
             } else {
-                this.cjo.setText(aVar.message);
+                this.clp.setText(aVar.message);
             }
             if (at.isEmpty(aVar.btnText)) {
-                this.efL.setText(this.mContext.getResources().getString(R.string.back));
+                this.eia.setText(this.mContext.getResources().getString(R.string.back));
             } else {
-                this.efL.setText(aVar.btnText);
+                this.eia.setText(aVar.btnText);
             }
             if (at.isEmpty(aVar.message_color)) {
-                ap.setViewTextColor(this.cjo, R.color.cp_link_tip_a, 1);
+                ap.setViewTextColor(this.clp, R.color.cp_link_tip_a, 1);
             } else {
-                this.cjo.setTextColor(com.baidu.tieba.lego.card.d.b.fo(aVar.message_color));
+                this.clp.setTextColor(com.baidu.tieba.lego.card.d.b.fq(aVar.message_color));
             }
             if (at.isEmpty(aVar.btn_text_color)) {
-                ap.setViewTextColor(this.efL, R.color.cp_cont_a, 1);
+                ap.setViewTextColor(this.eia, R.color.cp_cont_a, 1);
             } else {
-                this.efL.setTextColor(com.baidu.tieba.lego.card.d.b.fo(aVar.btn_text_color));
+                this.eia.setTextColor(com.baidu.tieba.lego.card.d.b.fq(aVar.btn_text_color));
             }
             if (!at.isEmpty(aVar.btn_color)) {
-                this.efL.setBackgroundDrawable(zE(aVar.btn_color));
+                this.eia.setBackgroundDrawable(zZ(aVar.btn_color));
             }
             if (!at.isEmpty(aVar.imgUrl)) {
-                this.efM.startLoad(aVar.imgUrl, 10, false);
+                this.eib.startLoad(aVar.imgUrl, 10, false);
             }
             if (aVar.duration > 3) {
                 this.duration = aVar.duration * 1000;
             }
             this.alpha = (float) aVar.opacity;
-            bht();
+            bin();
             return this;
         }
         return this;
     }
 
-    private h bhr() {
-        this.cjo.setText(this.mContext.getResources().getString(R.string.task_already_finish));
-        this.efL.setText(this.mContext.getResources().getString(R.string.back));
-        ap.setViewTextColor(this.cjo, R.color.cp_link_tip_a, 1);
-        ap.setViewTextColor(this.efL, R.color.cp_cont_a, 1);
-        bht();
+    private h bil() {
+        this.clp.setText(this.mContext.getResources().getString(R.string.task_already_finish));
+        this.eia.setText(this.mContext.getResources().getString(R.string.back));
+        ap.setViewTextColor(this.clp, R.color.cp_link_tip_a, 1);
+        ap.setViewTextColor(this.eia, R.color.cp_cont_a, 1);
+        bin();
         return this;
     }
 
-    public h bhs() {
+    public h bim() {
         if (this.mContext != null) {
             this.mWindowManager.addView(this.mRootView, this.mLayoutParams);
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
-            com.baidu.adp.lib.f.e.mS().postDelayed(this.mHideRunnable, this.duration);
+            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
+            com.baidu.adp.lib.f.e.mX().postDelayed(this.mHideRunnable, this.duration);
             if (this.mData != null) {
                 TiebaStatic.log(new aq("c13317").ai("obj_source", this.mData.activityId).ai("obj_type", this.mData.missionId));
             }
@@ -137,17 +137,17 @@ public class h implements View.OnClickListener {
             if (this.mRootView.getWindowToken() != null) {
                 this.mWindowManager.removeView(this.mRootView);
             }
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mHideRunnable);
+            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mHideRunnable);
         }
         this.mContext = null;
     }
 
-    private void bht() {
+    private void bin() {
         this.mLayoutParams.y = this.offsetY;
         this.mLayoutParams.alpha = this.alpha;
     }
 
-    private void bhu() {
+    private void bio() {
         this.mLayoutParams = new WindowManager.LayoutParams();
         this.mLayoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - (this.offsetX * 2);
         this.mLayoutParams.height = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds196);
@@ -158,12 +158,12 @@ public class h implements View.OnClickListener {
         this.mLayoutParams.gravity = 81;
     }
 
-    private StateListDrawable zE(String str) {
+    private StateListDrawable zZ(String str) {
         StateListDrawable stateListDrawable = new StateListDrawable();
         Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10));
-        gradientDrawable.setColor(com.baidu.tieba.lego.card.d.b.fo(str));
+        gradientDrawable.setColor(com.baidu.tieba.lego.card.d.b.fq(str));
         stateListDrawable.addState(new int[]{16842919}, drawable);
         stateListDrawable.addState(new int[0], gradientDrawable);
         return stateListDrawable;
@@ -172,21 +172,21 @@ public class h implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mData != null) {
-            if (this.mData.dQR == com.baidu.tbadk.BdToken.completeTask.a.dQP) {
+            if (this.mData.dTb == com.baidu.tbadk.BdToken.completeTask.a.dSZ) {
                 if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !at.isEmpty(this.mData.url)) {
-                    xW(this.mData.url);
+                    yq(this.mData.url);
                 }
-            } else if (this.mData.dQR == com.baidu.tbadk.BdToken.completeTask.a.dQQ && !at.isEmpty(this.mData.url)) {
-                xW(this.mData.url);
+            } else if (this.mData.dTb == com.baidu.tbadk.BdToken.completeTask.a.dTa && !at.isEmpty(this.mData.url)) {
+                yq(this.mData.url);
             }
             TiebaStatic.log(new aq("c13318").ai("obj_source", this.mData.activityId).ai("obj_type", this.mData.missionId));
         }
     }
 
-    private void xW(String str) {
+    private void yq(String str) {
         TbPageContext<?> o;
         if (!at.isEmpty(str) && (o = o(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            be.bju().b(o, new String[]{str});
+            be.bkp().b(o, new String[]{str});
         }
     }
 

@@ -6,11 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class FlutterMain {
     private static boolean isRunningInRobolectricTest = false;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static class Settings {
         private String logTag;
 

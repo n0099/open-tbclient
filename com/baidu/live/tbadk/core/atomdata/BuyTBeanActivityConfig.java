@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.util.PageDialogHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static final String CALLBACK = "callback";
     public static final String FROM_EXTRA = "from_extra";

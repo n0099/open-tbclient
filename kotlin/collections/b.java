@@ -3,12 +3,12 @@ package kotlin.collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State osg = State.NotReady;
-    private T osh;
+    private State oBN = State.NotReady;
+    private T oBO;
 
-    protected abstract void efW();
+    protected abstract void ejT();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.osg != State.Failed) {
-            switch (this.osg) {
+        if (this.oBN != State.Failed) {
+            switch (this.oBN) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return efV();
+                    return ejS();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.osg = State.NotReady;
-            return this.osh;
+            this.oBN = State.NotReady;
+            return this.oBO;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean efV() {
-        this.osg = State.Failed;
-        efW();
-        return this.osg == State.Ready;
+    private final boolean ejS() {
+        this.oBN = State.Failed;
+        ejT();
+        return this.oBN == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bK(T t) {
-        this.osh = t;
-        this.osg = State.Ready;
+    public final void bM(T t) {
+        this.oBO = t;
+        this.oBN = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.osg = State.Done;
+        this.oBN = State.Done;
     }
 }

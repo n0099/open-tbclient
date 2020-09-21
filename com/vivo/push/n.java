@@ -3,7 +3,7 @@ package com.vivo.push;
 import com.vivo.push.cache.ISubscribeAppAliasManager;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class n implements Runnable {
     final /* synthetic */ List a;
     final /* synthetic */ LocalAliasTagsManager b;

@@ -13,8 +13,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a extends ItemizedOverlay {
     private View b;
     private ImageView c;
@@ -23,13 +22,13 @@ public class a extends ItemizedOverlay {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0256a {
+    /* loaded from: classes3.dex */
+    public static class C0254a {
         static final a a = new a();
     }
 
     public static a b() {
-        return C0256a.a;
+        return C0254a.a;
     }
 
     private a() {
@@ -70,7 +69,7 @@ public class a extends ItemizedOverlay {
 
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
-            this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_list_menu_item_radio, (ViewGroup) null);
+            this.b = ((Activity) context).getLayoutInflater().inflate(2130903056, (ViewGroup) null);
             this.c = (ImageView) this.b.findViewById(2131165327);
             this.c.setImageResource(i);
             this.d = (ImageView) this.b.findViewById(2131165328);

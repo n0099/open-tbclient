@@ -12,14 +12,14 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     private boolean isCancle;
     private XiaoMiCallback xiaoMiCallback;
     private Thread xiaoMiThread;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes19.dex */
     public interface XiaoMiCallback {
         void onFailure();
 

@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import tbclient.User;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     private int from;
     private boolean isHost;

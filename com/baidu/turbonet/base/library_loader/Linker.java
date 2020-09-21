@@ -7,17 +7,17 @@ import com.baidu.turbonet.base.a;
 import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public abstract class Linker {
-    private static Linker nal = null;
-    private static Object nam = new Object();
-    protected int naj = 0;
+    private static Linker nkk = null;
+    private static Object nkl = new Object();
+    protected int nki = 0;
     protected final Object mLock = new Object();
-    private String nak = null;
+    private String nkj = null;
 
     private static native long nativeGetRandomBaseLoadAddress();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static class LibInfo implements Parcelable {
         public static final Parcelable.Creator<LibInfo> CREATOR = new Parcelable.Creator<LibInfo>() { // from class: com.baidu.turbonet.base.library_loader.Linker.LibInfo.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public abstract class Linker {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Kc */
+            /* renamed from: KH */
             public LibInfo[] newArray(int i) {
                 return new LibInfo[i];
             }

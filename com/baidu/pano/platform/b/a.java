@@ -3,7 +3,7 @@ package com.baidu.pano.platform.b;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Bitmap a;
 

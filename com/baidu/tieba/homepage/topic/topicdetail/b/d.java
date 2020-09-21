@@ -3,25 +3,25 @@ package com.baidu.tieba.homepage.topic.topicdetail.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bw;
 import tbclient.ThreadInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId iTz = BdUniqueId.gen();
-    public bw dUW;
-    public boolean iTA;
-    public String iTB;
+    public static final BdUniqueId jcf = BdUniqueId.gen();
+    public bw dXg;
     public int index;
+    public boolean jcg;
+    public String jch;
     public long topicId;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iTz;
+        return jcf;
     }
 
     public void c(ThreadInfo threadInfo) {
         if (threadInfo != null) {
-            this.dUW = new bw();
-            this.dUW.a(threadInfo);
-            this.dUW.bfC();
+            this.dXg = new bw();
+            this.dXg.a(threadInfo);
+            this.dXg.bgw();
         }
     }
 }

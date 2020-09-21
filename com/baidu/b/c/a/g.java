@@ -1,5 +1,5 @@
 package com.baidu.b.c.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g {
     private static volatile byte[] a;
 

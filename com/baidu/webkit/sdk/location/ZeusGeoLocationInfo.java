@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk.location;
 
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class ZeusGeoLocationInfo {
     public static final String COOR_TYPE_GCJ = "gcj02";
     private double mLongitude = 0.0d;

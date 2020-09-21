@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SkiaImageDecoder implements ImageDecoder {
     private static final String ASSET_PREFIX = "file:///android_asset/";
     public static final String FILE_PREFIX = "file://";

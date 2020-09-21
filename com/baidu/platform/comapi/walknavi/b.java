@@ -43,7 +43,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
     public static int a = 0;
     public static int b = 1;
@@ -94,7 +94,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.c.a {
     private Context z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         static final b a = new b(null);
     }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface ar {
     void a(int i, int i2, ba baVar);
 
     void a(av avVar);
 
-    void bLP();
+    void bMZ();
 
     void init();
 }

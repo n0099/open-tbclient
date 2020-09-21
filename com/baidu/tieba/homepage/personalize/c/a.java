@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.homepage.personalize.g;
 import com.baidu.tieba.s.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
     public static void a(bw bwVar, BdUniqueId bdUniqueId, int i) {
         boolean z;
         String str;
         int i2;
         if (bwVar != null) {
-            if (bwVar.eet) {
+            if (bwVar.egC) {
                 z = true;
-                str = bwVar.eeu;
+                str = bwVar.egD;
                 i2 = 20;
             } else {
                 z = false;
@@ -28,14 +28,14 @@ public class a {
             String a = com.baidu.tieba.s.a.a(bwVar.getTid(), str, "", bwVar.getBaijiahaoData());
             aq a2 = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, z, str, (String) null, i2);
             if (a2 != null) {
-                if (bwVar.eet) {
+                if (bwVar.egC) {
                     a2.delete("thread_type");
                     a2.ai("thread_type", bwVar.getThreadType());
                 }
-                c.dvJ().a(bdUniqueId, a, a2);
+                c.dzC().a(bdUniqueId, a, a2);
                 if (g.isEnabled()) {
-                    g.JL(a);
-                    if (g.cyi() >= 10) {
+                    g.Kn(a);
+                    if (g.cBQ() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -49,9 +49,9 @@ public class a {
         int i3;
         boolean z = false;
         if (bwVar != null) {
-            if (bwVar.eet) {
+            if (bwVar.egC) {
                 z = true;
-                str = bwVar.eeu;
+                str = bwVar.egD;
                 i3 = 20;
             } else {
                 str = null;
@@ -59,11 +59,11 @@ public class a {
             }
             aq a = com.baidu.tieba.s.a.a(bwVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", i2, i, z, str, (String) null, i3);
             if (a != null) {
-                if (bwVar.eet) {
+                if (bwVar.egC) {
                     a.delete("thread_type");
                     a.ai("thread_type", bwVar.getThreadType());
                 }
-                c.dvJ().b(bdUniqueId, a);
+                c.dzC().b(bdUniqueId, a);
                 d(bwVar, i2);
             }
         }

@@ -19,7 +19,7 @@ import com.sdk.mobile.manager.login.cucc.UiOauthManager;
 import com.sdk.mobile.manager.oauth.cucc.OauthManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ChinaUnicomSdkWrap {
     private static final int a = 15;
     private static final String b = "baidu_passport_cu_onekey_login";

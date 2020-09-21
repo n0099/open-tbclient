@@ -12,15 +12,17 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MissionCustomDialogActivityConfig;
 import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
+import com.baidu.tbadk.core.atomData.UserTropicGiftBagActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -29,15 +31,16 @@ import com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
-/* loaded from: classes16.dex */
-public class PersonInfoDelegateStatic extends b {
+import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
+/* loaded from: classes21.dex */
+public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private Boolean isNew = false;
     private CustomMessageListener maintabEmotionListener;
     private MessageRedDotView tipView;
 
     static {
-        bFC();
-        com.baidu.tieba.p.a.doT();
+        bGS();
+        com.baidu.tieba.p.a.dsD();
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -56,6 +59,9 @@ public class PersonInfoDelegateStatic extends b {
         MessageManager.getInstance().registerListener(customMessageListener);
         TbadkCoreApplication.getInst().RegisterIntent(NewUserRedPackageActivityConfig.class, NewUserRedPackageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MissionCustomDialogActivityConfig.class, MissionCustomDialogActivity.class);
+        cWe();
+        TbadkCoreApplication.getInst().RegisterIntent(UserTropicGiftBagActivityConfig.class, UserTropicGiftBagActivity.class);
+        b.dkd();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -70,7 +76,7 @@ public class PersonInfoDelegateStatic extends b {
         cVar.type = 8;
         cVar.textResId = R.string.mine;
         cVar.animationResId = R.raw.lottie_tab_my;
-        cVar.showIconType = c.ePD;
+        cVar.showIconType = c.eSu;
         return cVar;
     }
 
@@ -79,11 +85,11 @@ public class PersonInfoDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.ePU = this.mIndicator;
+        aVar.eSL = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
-        boolean z = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
+        boolean z = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean(SharedPrefConfig.KEY_FEEDBACK_PERSON_TAB_SHOW, false);
         if (this.isNew.booleanValue() || z) {
             this.tipView.refresh(0);
             this.tipView.setVisibility(0);
@@ -100,7 +106,7 @@ public class PersonInfoDelegateStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).ePv);
+                    PersonInfoDelegateStatic.this.isNew = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).eSm);
                     if (PersonInfoDelegateStatic.this.isNew.booleanValue()) {
                         PersonInfoDelegateStatic.this.tipView.refresh(0);
                         PersonInfoDelegateStatic.this.tipView.setVisibility(0);
@@ -109,7 +115,7 @@ public class PersonInfoDelegateStatic extends b {
                     }
                     AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                     if (!PersonInfoDelegateStatic.this.isNew.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
+                        com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.MEMBER_CLOSE_AD_MINE_CLICKED, true);
                     }
                 }
             }
@@ -118,7 +124,7 @@ public class PersonInfoDelegateStatic extends b {
         MessageManager.getInstance().registerListener(this.maintabEmotionListener);
     }
 
-    private static void bFC() {
+    private static void bGS() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bH(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -133,5 +139,21 @@ public class PersonInfoDelegateStatic extends b {
     public void onRemove() {
         super.onRemove();
         MessageManager.getInstance().unRegisterListener(this.maintabEmotionListener);
+    }
+
+    private static void cWe() {
+        be.bkp().a(new be.a() { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.3
+            @Override // com.baidu.tbadk.core.util.be.a
+            public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+                if (strArr == null || strArr[0] == null || tbPageContext == null || tbPageContext.getPageActivity() == null) {
+                    return 3;
+                }
+                if (strArr[0].contains("openAiCustomService")) {
+                    b.dkd().dke();
+                    return 0;
+                }
+                return 3;
+            }
+        });
     }
 }

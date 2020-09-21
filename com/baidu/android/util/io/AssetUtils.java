@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public final class AssetUtils {
     private static final String TAG = "AssetUtils";
 

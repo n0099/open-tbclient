@@ -1,7 +1,7 @@
 package com.coremedia.iso;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeWriterVariable {
     public static void write(long j, ByteBuffer byteBuffer, int i) {
         switch (i) {

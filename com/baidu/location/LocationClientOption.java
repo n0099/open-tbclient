@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int GpsOnly = 3;
@@ -40,14 +40,14 @@ public final class LocationClientOption {
     public int timeOut;
     public int wifiCacheTimeOut;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum BDLocationPurpose {
         SignIn,
         Sport,
         Transport
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum LocationMode {
         Hight_Accuracy,
         Battery_Saving,

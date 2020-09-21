@@ -61,7 +61,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(anVar.getForumName());
                         aVar.setForumGameLabel(anVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.lo(false);
+                        aVar.lq(false);
                         anVar.b(aVar);
                     }
                 }
@@ -81,8 +81,8 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(amVar.getForumName());
                         aVar.setForumGameLabel(amVar.getForumGameLabel());
                         aVar.setFromType(1);
-                        aVar.lo(true);
-                        if (amVar.xx(9)) {
+                        aVar.lq(true);
+                        if (amVar.xW(9)) {
                             amVar.b(aVar);
                         }
                     }
@@ -103,7 +103,7 @@ public class AlaFrsLiveStatic {
                         aVar.setForumName(anVar.getForumName());
                         aVar.setForumGameLabel(anVar.getForumGameLabel());
                         aVar.setFromType(2);
-                        aVar.lo(false);
+                        aVar.lq(false);
                         anVar.b(aVar);
                     }
                 }
@@ -121,7 +121,7 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().type = 3;
                         aVar.setForumId(anVar.getForumId());
                         aVar.setForumName(anVar.getForumName());
-                        aVar.lp(false);
+                        aVar.lr(false);
                         anVar.b(aVar);
                     }
                 }
@@ -140,8 +140,8 @@ public class AlaFrsLiveStatic {
                         aVar.getFragmentTabStructure().textResId = R.string.ala_video;
                         aVar.setForumId(amVar.getForumId());
                         aVar.setForumName(amVar.getForumName());
-                        aVar.lp(true);
-                        if (amVar.xx(8)) {
+                        aVar.lr(true);
+                        if (amVar.xW(8)) {
                             amVar.b(aVar);
                         }
                     }

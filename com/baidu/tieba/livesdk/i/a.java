@@ -10,10 +10,10 @@ import com.baidu.tbadk.ala.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class a implements d {
-    private AlaLivePlayer jUw;
-    private volatile d.a jUx;
+    private AlaLivePlayer kcZ;
+    private volatile d.a kda;
     private WeakReference<Context> mContext;
-    private AlaLivePlayerData jUy = new AlaLivePlayerData();
+    private AlaLivePlayerData kdb = new AlaLivePlayerData();
     private AlaLivePlayerCallback mPlayerCallback = new AlaLivePlayerCallback() { // from class: com.baidu.tieba.livesdk.i.a.1
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onStreamChanged(int i, int i2) {
@@ -23,12 +23,12 @@ public class a implements d {
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onDebugInfo(int i, AlaLiveDebugInfo alaLiveDebugInfo) {
             BdLog.d("onDebugInfo");
-            if (a.this.jUx != null && alaLiveDebugInfo != null) {
-                a.this.jUy.bandWidth = alaLiveDebugInfo.bandWidth;
-                a.this.jUy.fpsAvg = alaLiveDebugInfo.fpsAvg;
-                a.this.jUy.videoBitrate = alaLiveDebugInfo.bandWidth;
-                a.this.jUy.audioBitrate = 65536L;
-                a.this.jUx.a(i, a.this.jUy);
+            if (a.this.kda != null && alaLiveDebugInfo != null) {
+                a.this.kdb.bandWidth = alaLiveDebugInfo.bandWidth;
+                a.this.kdb.fpsAvg = alaLiveDebugInfo.fpsAvg;
+                a.this.kdb.videoBitrate = alaLiveDebugInfo.bandWidth;
+                a.this.kdb.audioBitrate = 65536L;
+                a.this.kda.a(i, a.this.kdb);
             }
         }
 
@@ -44,8 +44,8 @@ public class a implements d {
         @Override // com.baidu.ala.player.AlaLivePlayerCallback
         public void onFirstFrame(int i, int i2, int i3) {
             BdLog.d("onFirstFrame " + i);
-            if (a.this.jUx != null) {
-                a.this.jUx.onFirstFrame(i, i2, i3);
+            if (a.this.kda != null) {
+                a.this.kda.onFirstFrame(i, i2, i3);
             }
         }
 
@@ -61,7 +61,7 @@ public class a implements d {
 
     public a(Context context) {
         this.mContext = new WeakReference<>(context);
-        this.jUw = AlaLivePlayer.createLivePlayer(context);
-        this.jUw.setPlayerCallback(this.mPlayerCallback);
+        this.kcZ = AlaLivePlayer.createLivePlayer(context);
+        this.kcZ.setPlayerCallback(this.mPlayerCallback);
     }
 }

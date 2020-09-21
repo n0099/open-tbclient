@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class b extends FrameLayout {
     private View a;
     private ObjectAnimator b;

@@ -1,5 +1,5 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
     private int og;
     private int[] od = {3, 10, 10, 10, 10};

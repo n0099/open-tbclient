@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.c.b;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidubce.AbstractBceClient;
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class c {
     protected Context d;
     protected Uri.Builder e;
@@ -41,7 +42,7 @@ public abstract class c {
     protected final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     protected AtomicBoolean t = new AtomicBoolean(false);
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         protected final String a;
         protected final Context b;
@@ -53,7 +54,7 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.c.b.a e = com.meizu.cloud.pushsdk.c.b.a.Single;
         protected h f = h.HTTPS;
         protected int g = 5;
-        protected int h = 250;
+        protected int h = ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION;
         protected int i = 5;
         protected long j = 40000;
         protected long k = 40000;

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.p;
 
 import android.view.View;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class n implements View.OnClickListener {
     private static long a = 0;
 

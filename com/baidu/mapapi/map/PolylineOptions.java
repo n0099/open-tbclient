@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class PolylineOptions extends OverlayOptions {
     int a;
     Bundle c;
@@ -27,13 +27,13 @@ public final class PolylineOptions extends OverlayOptions {
     private LineCapType q = LineCapType.LineCapButt;
     private boolean r = true;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum LineCapType {
         LineCapButt,
         LineCapRound
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum LineJoinType {
         LineJoinBevel,
         LineJoinMiter,

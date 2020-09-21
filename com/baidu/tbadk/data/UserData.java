@@ -273,19 +273,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            m mVar = new m();
-            mVar.BG(getPortraitH());
-            mVar.BH(getPortrait());
-            mVar.jc(true);
-            this.mPhotoAlbum.add(mVar);
+            n nVar = new n();
+            nVar.Cc(getPortraitH());
+            nVar.Cd(getPortrait());
+            nVar.iZ(true);
+            this.mPhotoAlbum.add(nVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        m mVar2 = new m();
-                        mVar2.BG(userPics.big);
-                        mVar2.BH(userPics.small);
-                        mVar2.jc(false);
-                        this.mPhotoAlbum.add(mVar2);
+                        n nVar2 = new n();
+                        nVar2.Cc(userPics.big);
+                        nVar2.Cd(userPics.small);
+                        nVar2.iZ(false);
+                        this.mPhotoAlbum.add(nVar2);
                     }
                 }
             }
@@ -322,7 +322,7 @@ public class UserData extends MetaData {
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
                 this.personPrivate = new PersonPrivateData();
-                this.personPrivate.a(privSets);
+                this.personPrivate.parserProtobuf(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
@@ -485,22 +485,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                m mVar = new m();
-                mVar.BG(getPortraitH());
-                mVar.BH(getPortrait());
-                mVar.jc(true);
-                this.mPhotoAlbum.add(mVar);
+                n nVar = new n();
+                nVar.Cc(getPortraitH());
+                nVar.Cd(getPortrait());
+                nVar.iZ(true);
+                this.mPhotoAlbum.add(nVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            m mVar2 = new m();
-                            mVar2.BG(jSONObject2.optString("big"));
-                            mVar2.BH(jSONObject2.optString("small"));
-                            mVar2.jc(false);
-                            this.mPhotoAlbum.add(mVar2);
+                            n nVar2 = new n();
+                            nVar2.Cc(jSONObject2.optString("big"));
+                            nVar2.Cd(jSONObject2.optString("small"));
+                            nVar2.iZ(false);
+                            this.mPhotoAlbum.add(nVar2);
                         }
                     }
                 }

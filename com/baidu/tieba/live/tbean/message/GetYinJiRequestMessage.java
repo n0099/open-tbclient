@@ -1,7 +1,8 @@
 package com.baidu.tieba.live.tbean.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+/* loaded from: classes4.dex */
 public class GetYinJiRequestMessage extends HttpMessage {
     private String st_type;
 
@@ -20,5 +21,9 @@ public class GetYinJiRequestMessage extends HttpMessage {
 
     public void setParams() {
         addParam("st_type", getSt_type());
+        String baiduzid = ExtraParamsManager.getBaiduzid();
+        if (baiduzid != null) {
+            addParam("zid", baiduzid);
+        }
     }
 }

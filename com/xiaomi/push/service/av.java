@@ -10,16 +10,16 @@ import com.xiaomi.push.hw;
 import com.xiaomi.push.il;
 import com.xiaomi.push.iw;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class av implements eu {
     @Override // com.xiaomi.push.eu
     public void a(Context context, HashMap<String, String> hashMap) {
         il ilVar = new il();
         ilVar.b(eq.a(context).m269a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f477a);
+        ilVar.c(hw.AwakeAppResponse.f476a);
         ilVar.a(an.a());
-        ilVar.f618a = hashMap;
+        ilVar.f617a = hashMap;
         byte[] a = iw.a(w.a(ilVar.c(), ilVar.b(), ilVar, hm.Notification));
         if (!(context instanceof XMPushService)) {
             com.xiaomi.channel.commonutils.logger.b.m54a("MoleInfo : context is not correct in pushLayer " + ilVar.a());

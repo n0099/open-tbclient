@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class df {
     public static int a(Context context, int i) {
         int a = gx.a(context);
@@ -34,10 +34,10 @@ public class df {
                 if (ixVar != null) {
                     try {
                         if (ixVar instanceof id) {
-                            String str = ((id) ixVar).f564d;
+                            String str = ((id) ixVar).f563d;
                             return (TextUtils.isEmpty(str) || fa.a(fa.m270a(str)) == -1) ? a : fa.a(fa.m270a(str));
                         } else if (ixVar instanceof il) {
-                            String str2 = ((il) ixVar).f623d;
+                            String str2 = ((il) ixVar).f622d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a;
                             }

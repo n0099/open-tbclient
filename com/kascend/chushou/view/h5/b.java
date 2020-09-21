@@ -34,11 +34,11 @@ public class b extends d implements View.OnClickListener {
     private View l;
     private ImageView m;
     private View n;
-    private CSWebView nYB;
-    private CustomSwipeRefreshLayout nYC;
-    private com.kascend.chushou.widget.cswebview.a nYD;
-    private com.kascend.chushou.widget.cswebview.d nYE;
     private TextView o;
+    private CSWebView oiq;
+    private CustomSwipeRefreshLayout oir;
+    private com.kascend.chushou.widget.cswebview.a ois;
+    private com.kascend.chushou.widget.cswebview.d oit;
     private boolean d = false;
     private boolean e = true;
     private boolean f = false;
@@ -96,14 +96,14 @@ public class b extends d implements View.OnClickListener {
         this.o = (TextView) inflate.findViewById(a.f.tv_refresh);
         this.o.setOnClickListener(this);
         this.n = inflate.findViewById(a.f.ll_loading);
-        this.nYB = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.oiq = (CSWebView) inflate.findViewById(a.f.web_view);
         if (this.i != -1) {
             inflate.setBackgroundColor(this.i);
-            this.nYB.setBackgroundColor(this.i);
+            this.oiq.setBackgroundColor(this.i);
         }
-        this.nYC = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
-        this.nYC.setEnabled(this.f);
-        this.nYB.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.b.1
+        this.oir = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
+        this.oir.setEnabled(this.f);
+        this.oiq.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.b.1
             @Override // android.webkit.WebChromeClient
             public void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
@@ -112,12 +112,12 @@ public class b extends d implements View.OnClickListener {
                 }
             }
         });
-        final com.kascend.chushou.widget.cswebview.d eaU = this.nYD != null ? this.nYD.eaU() : null;
-        this.nYE = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.b.2
+        final com.kascend.chushou.widget.cswebview.d eeS = this.ois != null ? this.ois.eeS() : null;
+        this.oit = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.b.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (eaU != null) {
-                    eaU.a((Object) null);
+                if (eeS != null) {
+                    eeS.a((Object) null);
                 } else if (b.this.getActivity() != null) {
                     b.this.getActivity().finish();
                 }
@@ -127,17 +127,17 @@ public class b extends d implements View.OnClickListener {
             public void a(String str) {
             }
         };
-        if (this.nYD == null) {
-            this.nYD = new com.kascend.chushou.widget.cswebview.a();
+        if (this.ois == null) {
+            this.ois = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.nYD.a(this.nYE);
-        this.nYD.a(this);
-        CSWebView.a(this.nYB, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.b.3
+        this.ois.a(this.oit);
+        this.ois.a(this);
+        CSWebView.a(this.oiq, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.b.3
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
                 if (!b.this.isFinishing()) {
-                    b.this.nYC.setEnabled(false);
+                    b.this.oir.setEnabled(false);
                     if (!b.this.s) {
                         b.this.showStatus(1);
                     }
@@ -150,9 +150,9 @@ public class b extends d implements View.OnClickListener {
                 e.e(b.this.TAG, "onPageFinished");
                 if (!b.this.isFinishing()) {
                     b.this.s = false;
-                    b.this.nYC.setEnabled(b.this.f);
+                    b.this.oir.setEnabled(b.this.f);
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.emq()) {
+                    if (tv.chushou.zues.utils.a.eqo()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             b.this.showStatus(4);
                         } else {
@@ -179,23 +179,23 @@ public class b extends d implements View.OnClickListener {
                         webView.clearView();
                     } catch (Exception e2) {
                     }
-                    b.this.nYC.setEnabled(b.this.f);
+                    b.this.oir.setEnabled(b.this.f);
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.nYD);
-        this.nYC.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
-        this.nYC.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.b.4
+        }, this.ois);
+        this.oir.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
+        this.oir.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.b.4
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
-                b.this.nYC.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.emq()) {
+                b.this.oir.setRefreshing(false);
+                if (tv.chushou.zues.utils.a.eqo()) {
                     b.this.s = true;
                     if (b.this.c == null || b.this.c.length() <= 0) {
-                        b.this.nYB.loadUrl("");
+                        b.this.oiq.loadUrl("");
                         return;
                     } else {
-                        b.this.nYB.loadUrl(b.this.c);
+                        b.this.oiq.loadUrl(b.this.c);
                         return;
                     }
                 }
@@ -218,9 +218,9 @@ public class b extends d implements View.OnClickListener {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.nYB != null) {
-            this.nYB.resumeTimers();
-            this.nYB.onResume();
+        if (this.oiq != null) {
+            this.oiq.resumeTimers();
+            this.oiq.onResume();
         }
         e.d(this.TAG, MissionEvent.MESSAGE_RESUME);
     }
@@ -228,8 +228,8 @@ public class b extends d implements View.OnClickListener {
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.nYB != null) {
-            this.nYB.onPause();
+        if (this.oiq != null) {
+            this.oiq.onPause();
         }
         e.d(this.TAG, MissionEvent.MESSAGE_PAUSE);
     }
@@ -243,13 +243,13 @@ public class b extends d implements View.OnClickListener {
     @Override // com.kascend.chushou.view.base.b
     public void unInit() {
         tv.chushou.zues.a.a.cm(this);
-        if (this.nYB != null) {
-            this.nYB.loadUrl("");
-            this.nYB.removeAllViews();
-            this.nYB.destroy();
-            this.nYB = null;
+        if (this.oiq != null) {
+            this.oiq.loadUrl("");
+            this.oiq.removeAllViews();
+            this.oiq.destroy();
+            this.oiq = null;
         }
-        this.nYC = null;
+        this.oir = null;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -258,15 +258,15 @@ public class b extends d implements View.OnClickListener {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.cvE() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.cyX() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
                     e.d(this.TAG, "refresh pay loayal fans success,  url=" + str);
-                    this.nYB.loadUrl(str);
+                    this.oiq.loadUrl(str);
                 } else if (this.c.contains("m/noble/info.htm")) {
                     if (intent != null) {
-                        String str2 = tv.chushou.common.a.cvE() + "m/noble/info.htm";
+                        String str2 = tv.chushou.common.a.cyX() + "m/noble/info.htm";
                         String stringExtra = intent.getStringExtra("payLevel");
                         String stringExtra2 = intent.getStringExtra("payCount");
                         String stringExtra3 = intent.getStringExtra("roomId");
@@ -274,7 +274,7 @@ public class b extends d implements View.OnClickListener {
                             str2 = str2 + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&payResultCode=1&roomId=" + stringExtra3 + "&payLevel=" + stringExtra + "&payCount=" + stringExtra2;
                         }
                         e.d(this.TAG, "refresh pay noble success,  url=" + str2);
-                        this.nYB.loadUrl(str2);
+                        this.oiq.loadUrl(str2);
                     }
                 } else {
                     a();
@@ -289,8 +289,8 @@ public class b extends d implements View.OnClickListener {
             if (this.c.contains("m/register.htm") || this.c.contains("m/password.htm")) {
                 ((Activity) this.mContext).setResult(-1);
                 ((Activity) this.mContext).finish();
-            } else if (this.nYB != null) {
-                this.nYB.loadUrl(this.c);
+            } else if (this.oiq != null) {
+                this.oiq.loadUrl(this.c);
             }
         }
     }
@@ -300,7 +300,7 @@ public class b extends d implements View.OnClickListener {
         switch (i) {
             case 1:
                 if (this.g) {
-                    this.nYB.setVisibility(8);
+                    this.oiq.setVisibility(8);
                     this.j.setVisibility(0);
                     this.j.setBackgroundResource(a.c.transparent);
                     this.l.setVisibility(8);
@@ -315,16 +315,16 @@ public class b extends d implements View.OnClickListener {
                 return;
             case 2:
                 this.j.setVisibility(8);
-                tv.chushou.zues.toolkit.d.b.setScaleX(this.nYB, 0.0f);
-                tv.chushou.zues.toolkit.d.b.setScaleY(this.nYB, 0.0f);
-                this.nYB.setVisibility(0);
-                this.nYB.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
+                tv.chushou.zues.toolkit.d.b.setScaleX(this.oiq, 0.0f);
+                tv.chushou.zues.toolkit.d.b.setScaleY(this.oiq, 0.0f);
+                this.oiq.setVisibility(0);
+                this.oiq.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300L).start();
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nYB.setVisibility(8);
+                this.oiq.setVisibility(8);
                 this.j.setVisibility(0);
                 this.j.setBackgroundResource(a.e.powindow_circle_bg);
                 this.n.setVisibility(8);
@@ -352,52 +352,52 @@ public class b extends d implements View.OnClickListener {
         int id = view.getId();
         if (id == a.f.tv_refresh) {
             b();
-        } else if (id == a.f.iv_close && this.nYE != null) {
-            this.nYE.a((Object) null);
+        } else if (id == a.f.iv_close && this.oit != null) {
+            this.oit.a((Object) null);
         }
     }
 
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
-        this.nYD = aVar;
+        this.ois = aVar;
         if (aVar != null) {
-            this.nYg = aVar.eaV();
+            this.ohV = aVar.eeT();
         }
     }
 
     public void a(String str) {
-        if (this.nYB != null) {
-            this.nYB.a(str);
+        if (this.oiq != null) {
+            this.oiq.a(str);
         }
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.d && this.nYB.canGoBack()) {
-            this.nYB.goBack();
+        if (i == 4 && this.d && this.oiq.canGoBack()) {
+            this.oiq.goBack();
             return true;
         }
         return false;
     }
 
     private void a() {
-        String str = tv.chushou.common.a.cvE() + "m/pay.htm";
+        String str = tv.chushou.common.a.cyX() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
         e.d(this.TAG, "refreshAfterRechargeSuccess url=" + str);
-        this.nYB.loadUrl(str);
+        this.oiq.loadUrl(str);
     }
 
     private void b() {
         e.d(this.TAG, "H5=" + this.c);
-        if (this.nYB != null) {
-            this.nYB.setTag(null);
-            this.nYC.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.emq()) {
+        if (this.oiq != null) {
+            this.oiq.setTag(null);
+            this.oir.setRefreshing(false);
+            if (tv.chushou.zues.utils.a.eqo()) {
                 if (this.c != null && this.c.length() > 0) {
-                    this.nYB.loadUrl(this.c);
+                    this.oiq.loadUrl(this.c);
                     return;
                 } else {
-                    this.nYB.loadUrl("");
+                    this.oiq.loadUrl("");
                     return;
                 }
             }

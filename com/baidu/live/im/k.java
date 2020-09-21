@@ -1,33 +1,33 @@
 package com.baidu.live.im;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface k {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        boolean Ji();
+        boolean JM();
 
-        void Jj();
+        void JN();
 
-        void Jk();
+        void JO();
 
-        void Jl();
+        void JP();
 
-        boolean Jm();
+        boolean JQ();
 
-        int Jn();
+        int JR();
 
-        void gR(String str);
+        void hd(String str);
     }
 
-    void Bb();
+    void Bq();
 
-    j Jf();
+    j JJ();
 
-    com.baidu.live.view.input.a Jg();
+    com.baidu.live.view.input.a JK();
 
-    int Jh();
+    int JL();
 
     void a(a aVar);
 

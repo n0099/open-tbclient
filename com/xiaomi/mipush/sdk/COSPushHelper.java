@@ -3,11 +3,11 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f25a = false;
+    private static volatile boolean f24a = false;
     private static long a = 0;
 
     public static void convertMessage(Intent intent) {
@@ -25,7 +25,7 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f25a;
+        return f24a;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -48,7 +48,7 @@ public class COSPushHelper {
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f25a = z;
+            f24a = z;
         }
     }
 

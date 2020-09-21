@@ -2,7 +2,7 @@ package com.airbnb.lottie.model;
 
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class c {
     private final String En;
     private final float Eo;
@@ -16,7 +16,7 @@ public class c {
         this.Eo = f;
     }
 
-    public String jv() {
+    public String jw() {
         return this.En;
     }
 
@@ -24,7 +24,7 @@ public class c {
         return this.name;
     }
 
-    public String jw() {
+    public String jx() {
         return this.style;
     }
 }

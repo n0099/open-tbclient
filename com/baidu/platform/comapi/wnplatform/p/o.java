@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.p;
 
 import android.content.SharedPreferences;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o extends com.baidu.platform.comapi.walknavi.a {
     private SharedPreferences.Editor b = null;
     private SharedPreferences a = com.baidu.platform.comapi.wnplatform.p.b.a.a().getSharedPreferences("walknavi_preference", 0);

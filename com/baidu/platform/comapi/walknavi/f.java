@@ -4,8 +4,8 @@ import android.net.wifi.WifiManager;
 import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
-public class f implements a.InterfaceC0254a {
+/* loaded from: classes3.dex */
+public class f implements a.InterfaceC0252a {
     final /* synthetic */ WifiManager a;
     final /* synthetic */ a.b b;
     final /* synthetic */ int c;
@@ -19,7 +19,7 @@ public class f implements a.InterfaceC0254a {
         this.c = i;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0254a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0252a
     public void a() {
         this.a.setWifiEnabled(true);
         if (this.b != null) {

@@ -1,111 +1,62 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
-import com.baidu.live.tbadk.widget.TbImageView;
-import java.lang.reflect.Method;
-import org.apache.http.HttpHost;
-/* loaded from: classes7.dex */
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+/* loaded from: classes4.dex */
 public class k {
-    private static boolean hasNavBar(Context context) {
-        Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-        if (identifier != 0) {
-            boolean z = resources.getBoolean(identifier);
-            String navBarOverride = getNavBarOverride();
-            if ("1".equals(navBarOverride)) {
-                return false;
-            }
-            if ("0".equals(navBarOverride)) {
-                return true;
-            }
-            return z;
+    public static String av(long j) {
+        long j2 = j / 60000;
+        long j3 = (j % 60000) / 1000;
+        String str = (j2 < 10 ? "0" : "") + j2 + ":";
+        if (j3 < 10) {
+            str = str + "0";
         }
-        return ViewConfiguration.get(context).hasPermanentMenuKey() ? false : true;
+        return str + j3;
     }
 
-    private static String getNavBarOverride() {
+    public static String b(Date date) {
+        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
+    }
+
+    public static Date hD(String str) {
         try {
-            Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
-            declaredMethod.setAccessible(true);
-            return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-        } catch (Throwable th) {
+            return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    public static int getNavigationBarHeight(Context context) {
-        Resources resources;
-        int identifier;
-        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
-            return 0;
+    public static boolean c(Date date) {
+        boolean z = true;
+        if (date == null) {
+            return false;
         }
-        return resources.getDimensionPixelSize(identifier);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(date);
+        if (calendar.get(1) != calendar2.get(1) || calendar.get(2) != calendar2.get(2)) {
+            z = false;
+        }
+        return z;
     }
 
-    public static int getVirtualBarHeight(Context context) {
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
-        Display defaultDisplay = windowManager.getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        try {
-            Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
-            return displayMetrics.heightPixels - windowManager.getDefaultDisplay().getHeight();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
+    public static boolean d(Date date) {
+        boolean z = true;
+        if (date == null) {
+            return false;
         }
-    }
-
-    public static void a(TbImageView tbImageView, String str, boolean z, boolean z2) {
-        if (tbImageView != null && !TextUtils.isEmpty(str)) {
-            if (str.toLowerCase().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                tbImageView.startLoad(str, 10, false);
-            } else if (z) {
-                tbImageView.startLoad(str, 25, false);
-            } else {
-                tbImageView.startLoad(str, 12, false);
-            }
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(date);
+        if (calendar.get(1) != calendar2.get(1) || calendar.get(2) != calendar2.get(2) || calendar.get(5) != calendar2.get(5)) {
+            z = false;
         }
-    }
-
-    public static boolean ho(String str) {
-        if (str.contains("·") || str.contains("•")) {
-            if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
-                return true;
-            }
-        } else if (str.matches("^[\\u4e00-\\u9fa5]+$")) {
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean Pj() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
-            return !ExtraParamsManager.getSaveFlowStatus();
-        }
-        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
-        if (buildParamsExtra != null) {
-            return buildParamsExtra.isShouldShowNotWifiToastByAudience();
-        }
-        return true;
-    }
-
-    public static boolean Pk() {
-        if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
-            return !ExtraParamsManager.getSaveFlowStatus();
-        }
-        IExtraParams buildParamsExtra = ExtraParamsManager.getInstance().buildParamsExtra();
-        if (buildParamsExtra != null) {
-            return buildParamsExtra.isShouldShowNotWifiToastByMaster();
-        }
-        return true;
+        return z;
     }
 }

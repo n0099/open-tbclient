@@ -5,16 +5,16 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class a extends ClickableSpan {
-    private tv.chushou.zues.a oQZ;
+    private tv.chushou.zues.a pap;
 
     public a(tv.chushou.zues.a aVar) {
-        this.oQZ = aVar;
+        this.pap = aVar;
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        if (this.oQZ != null) {
-            this.oQZ.onClick(view);
+        if (this.pap != null) {
+            this.pap.onClick(view);
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MapViewTest extends ViewGroup {
     MapSurfaceView a;
     MapController b;

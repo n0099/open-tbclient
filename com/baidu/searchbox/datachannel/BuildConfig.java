@@ -1,5 +1,5 @@
 package com.baidu.searchbox.datachannel;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.datachannel";
     public static final String BUILD_TYPE = "release";

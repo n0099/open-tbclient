@@ -22,13 +22,13 @@ public class AlaLivePushRemindDialog {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                d.boy().pE(300);
-                d.boy().iR(true);
-                d.boy().iS(true);
-                d.boy().iQ(true);
-                d.boy().iI(true);
-                d.boy().iJ(true);
-                d.boy().iH(true);
+                d.bps().pR(300);
+                d.bps().iO(true);
+                d.bps().iP(true);
+                d.bps().iN(true);
+                d.bps().iF(true);
+                d.bps().iG(true);
+                d.bps().iE(true);
                 AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
             }
         }
@@ -42,7 +42,7 @@ public class AlaLivePushRemindDialog {
     public void showDialog(final boolean z) {
         a aVar = new a(this.mPageContext.getPageActivity());
         aVar.setAutoNight(false);
-        aVar.ns(R.string.ala_live_push_remind);
+        aVar.nD(R.string.ala_live_push_remind);
         aVar.a(R.string.ala_live_push_remind_open, new a.b() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(a aVar2) {
@@ -64,7 +64,7 @@ public class AlaLivePushRemindDialog {
                 }
             }
         });
-        aVar.b(this.mPageContext).bhg();
+        aVar.b(this.mPageContext).bia();
         TiebaStatic.log("c12669");
     }
 

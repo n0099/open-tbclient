@@ -21,126 +21,126 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class t extends af.a {
-    public VoteView ahQ;
-    public AppletsCellView akH;
-    public View efE;
-    public TextView kBS;
-    public View kBo;
-    public TbImageView kCA;
-    public TbImageView kCB;
-    public ThreadSkinView kCC;
-    public LinearLayout kCD;
-    public TextView kCE;
-    public LinearLayout kCF;
-    public u kCG;
-    public FrameLayout kCH;
-    public com.baidu.tieba.pb.pb.main.c.a kCI;
-    public ThreadForumEnterButtonContainer kCJ;
-    public PbBusinessPromotionContainer kCK;
-    public com.baidu.tieba.pb.pb.main.view.a kCL;
-    private ImageView kCx;
-    private View kCy;
-    public TbRichTextView kCz;
+    public VoteView ail;
+    public AppletsCellView alg;
+    public View ehT;
+    public View kJM;
+    private ImageView kKV;
+    private View kKW;
+    public TbRichTextView kKX;
+    public TbImageView kKY;
+    public TbImageView kKZ;
+    public TextView kKq;
+    public ThreadSkinView kLa;
+    public LinearLayout kLb;
+    public TextView kLc;
+    public LinearLayout kLd;
+    public u kLe;
+    public FrameLayout kLf;
+    public com.baidu.tieba.pb.pb.main.c.a kLg;
+    public ThreadForumEnterButtonContainer kLh;
+    public PbBusinessPromotionContainer kLi;
+    public com.baidu.tieba.pb.pb.main.view.a kLj;
     public int mSkinType;
 
     public t(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
         this.mSkinType = 3;
-        this.kCG = new u(view);
-        this.kCx = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.kCx.setScaleType(ImageView.ScaleType.MATRIX);
+        this.kLe = new u(view);
+        this.kKV = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
+        this.kKV.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -ay.daj());
-        this.kCx.setImageMatrix(matrix);
-        this.kCy = view.findViewById(R.id.blank_view_above_rich_text);
-        this.kCz = (TbRichTextView) view.findViewById(R.id.richText);
-        this.kBo = view;
-        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.kCz.getPaddingLeft()) - this.kCz.getPaddingRight();
+        matrix.postTranslate(0.0f, -ay.ddM());
+        this.kKV.setImageMatrix(matrix);
+        this.kKW = view.findViewById(R.id.blank_view_above_rich_text);
+        this.kKX = (TbRichTextView) view.findViewById(R.id.richText);
+        this.kJM = view;
+        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.kKX.getPaddingLeft()) - this.kKX.getPaddingRight();
         int dimension = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60);
-        d dVar = new d(this.kCz.getLayoutStrategy());
-        dVar.feF = equipmentWidth;
-        this.kCz.setLayoutStrategy(dVar);
-        this.kCB = (TbImageView) view.findViewById(R.id.game_activity_banner);
+        d dVar = new d(this.kKX.getLayoutStrategy());
+        dVar.fhx = equipmentWidth;
+        this.kKX.setLayoutStrategy(dVar);
+        this.kKZ = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(equipmentWidth - dimension, i);
-        this.kCz.getLayoutStrategy().rd(min);
-        this.kCz.getLayoutStrategy().re((int) (min * 1.618f));
-        this.kCz.setTextSize(TbConfig.getContentSize());
-        this.kCz.setDisplayImage(z, false);
-        this.kCz.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.efE = view.findViewById(R.id.divider_bottom_first_floor);
-        this.kCA = (TbImageView) view.findViewById(R.id.user_head_mask);
-        this.kCC = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
-        this.kCD = (LinearLayout) view.findViewById(R.id.pb_list_content);
-        this.kBS = (TextView) view.findViewById(R.id.pb_item_tail_content);
-        this.akH = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
-        this.kCF = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
-        this.kCE = (TextView) view.findViewById(R.id.pb_tail_text);
-        this.kCJ = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
-        this.kCJ.setFrom(1);
-        this.kCL = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
-        this.kCK = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
-        this.kCH = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
-        this.ahQ = (VoteView) view.findViewById(R.id.vote_view);
-        this.ahQ.setPageContext(tbPageContext);
+        this.kKX.getLayoutStrategy().ru(min);
+        this.kKX.getLayoutStrategy().rv((int) (min * 1.618f));
+        this.kKX.setTextSize(TbConfig.getContentSize());
+        this.kKX.setDisplayImage(z, false);
+        this.kKX.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.ehT = view.findViewById(R.id.divider_bottom_first_floor);
+        this.kKY = (TbImageView) view.findViewById(R.id.user_head_mask);
+        this.kLa = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
+        this.kLb = (LinearLayout) view.findViewById(R.id.pb_list_content);
+        this.kKq = (TextView) view.findViewById(R.id.pb_item_tail_content);
+        this.alg = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
+        this.kLd = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
+        this.kLc = (TextView) view.findViewById(R.id.pb_tail_text);
+        this.kLh = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
+        this.kLh.setFrom(1);
+        this.kLj = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
+        this.kLi = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
+        this.kLf = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
+        this.ail = (VoteView) view.findViewById(R.id.vote_view);
+        this.ail.setPageContext(tbPageContext);
     }
 
     public void a(@NonNull com.baidu.tieba.pb.data.f fVar, boolean z, boolean z2) {
-        if (this.kCJ != null && fVar != null && fVar.getForum() != null) {
-            if (fVar.cVP() && fVar.cVM()) {
-                this.kCJ.setVisibility(8);
+        if (this.kLh != null && fVar != null && fVar.getForum() != null) {
+            if (fVar.cZu() && fVar.cZr()) {
+                this.kLh.setVisibility(8);
                 return;
             }
-            this.kCJ.setBottomPlaceHolderVisibility(z2);
-            if (z || !com.baidu.tbadk.core.util.y.isEmpty(fVar.cVJ())) {
+            this.kLh.setBottomPlaceHolderVisibility(z2);
+            if (z || !com.baidu.tbadk.core.util.y.isEmpty(fVar.cZo())) {
             }
             bw bwVar = new bw();
             bwVar.setId(fVar.getThreadId());
             bwVar.setFid(com.baidu.adp.lib.f.b.toLong(fVar.getForum().getId(), 0L));
-            bwVar.zo(fVar.getForum().getName());
-            bwVar.zt(fVar.getForum().getFirst_class());
-            bwVar.zu(fVar.getForum().getSecond_class());
-            if (fVar.cVm() != null) {
-                bwVar.setThreadType(fVar.cVm().threadType);
+            bwVar.zJ(fVar.getForum().getName());
+            bwVar.zO(fVar.getForum().getFirst_class());
+            bwVar.zP(fVar.getForum().getSecond_class());
+            if (fVar.cYR() != null) {
+                bwVar.setThreadType(fVar.cYR().threadType);
             }
-            if (fVar.kwR) {
-                this.kCJ.setVisibility(8);
-                this.kCK.a(bwVar, fVar.cVl(), fVar.cVM());
+            if (fVar.kFq) {
+                this.kLh.setVisibility(8);
+                this.kLi.a(bwVar, fVar.cYQ(), fVar.cZr());
                 return;
             }
-            this.kCK.setVisibility(8);
+            this.kLi.setVisibility(8);
         }
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, boolean z, boolean z2) {
-        if (fVar != null && fVar.kwS) {
-            this.kCx.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.kCx.setVisibility(0);
+        if (fVar != null && fVar.kFr) {
+            this.kKV.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.kKV.setVisibility(0);
         } else if (z && z2) {
-            this.kCx.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.kCx.setVisibility(0);
+            this.kKV.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.kKV.setVisibility(0);
         } else if (z) {
-            this.kCx.setImageResource(R.drawable.pic_pb_refined_n);
-            this.kCx.setVisibility(0);
+            this.kKV.setImageResource(R.drawable.pic_pb_refined_n);
+            this.kKV.setVisibility(0);
         } else if (z2) {
-            this.kCx.setImageResource(R.drawable.pic_pb_stick_n);
-            this.kCx.setVisibility(0);
+            this.kKV.setImageResource(R.drawable.pic_pb_stick_n);
+            this.kKV.setVisibility(0);
         } else {
-            this.kCx.setVisibility(8);
+            this.kKV.setVisibility(8);
         }
     }
 
     public void D(boolean z, int i) {
-        if (this.kCy != null) {
+        if (this.kKW != null) {
             if (z) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kCy.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kKW.getLayoutParams();
                 layoutParams.height = i;
-                this.kCy.setLayoutParams(layoutParams);
-                this.kCy.setVisibility(0);
+                this.kKW.setLayoutParams(layoutParams);
+                this.kKW.setVisibility(0);
                 return;
             }
-            this.kCy.setVisibility(8);
+            this.kKW.setVisibility(8);
         }
     }
 }

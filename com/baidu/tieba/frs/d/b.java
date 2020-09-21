@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    public boolean iqZ = false;
-    public int ira = 0;
-    public String irb = null;
-    public int irc = -1;
-    public int ird = -1;
-    public int ire = -1;
-    public int irf = -1;
+    public boolean iyp = false;
+    public int iyq = 0;
+    public String iyr = null;
+    public int iys = -1;
+    public int iyt = -1;
+    public int iyu = -1;
+    public int iyv = -1;
 }

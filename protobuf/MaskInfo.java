@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class MaskInfo extends Message {
     public static final String DEFAULT_MASKFIDS = "";
     public static final String DEFAULT_MASKGIDS = "";
@@ -67,7 +67,7 @@ public final class MaskInfo extends Message {
         this.maskFids = builder.maskFids;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<MaskInfo> {
         public String maskFids;
         public String maskGids;

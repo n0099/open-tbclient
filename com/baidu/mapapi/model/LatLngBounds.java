@@ -3,13 +3,13 @@ package com.baidu.mapapi.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
     public final LatLng southwest;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private double a;
         private double b;

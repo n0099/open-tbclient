@@ -18,69 +18,69 @@ import com.baidu.tieba.frs.s;
 import com.baidu.tieba.frs.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class d {
-    private BdTypeRecyclerView Wu;
-    private PbListView fEa;
-    private final a jan;
-    private final b jao;
+    private BdTypeRecyclerView WM;
+    private PbListView fHm;
+    private final a jiT;
+    private final b jiU;
     private final TbPageContext mPageContext;
     private View mRootView;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface a {
     }
 
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.jan = aVar;
-        this.Wu = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.Wu.setLayoutManager(new LinearLayoutManager(this.Wu.getContext()));
-        this.Wu.setFadingEdgeLength(0);
-        this.Wu.setOverScrollMode(2);
-        this.fEa = new PbListView(tbPageContext.getPageActivity());
-        this.fEa.createView();
-        this.fEa.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.fEa.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.fEa.setLineGone();
-        this.fEa.setTextSize(R.dimen.tbfontsize33);
-        this.fEa.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.Wu.setNextPage(this.fEa);
-        this.fEa.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.fEa.endLoadData();
-        this.fEa.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.jiT = aVar;
+        this.WM = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
+        this.WM.setLayoutManager(new LinearLayoutManager(this.WM.getContext()));
+        this.WM.setFadingEdgeLength(0);
+        this.WM.setOverScrollMode(2);
+        this.fHm = new PbListView(tbPageContext.getPageActivity());
+        this.fHm.createView();
+        this.fHm.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.fHm.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.fHm.setLineGone();
+        this.fHm.setTextSize(R.dimen.tbfontsize33);
+        this.fHm.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.WM.setNextPage(this.fHm);
+        this.fHm.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.fHm.endLoadData();
+        this.fHm.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.jao = new b(tbPageContext, this.Wu);
+        this.jiU = new b(tbPageContext, this.WM);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.jao.b(tbPageTag);
+        this.jiU.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.fEa != null) {
-            this.fEa.setTextColor(ap.getColor(R.color.cp_cont_j));
-            this.fEa.changeSkin(skinType);
+        if (this.fHm != null) {
+            this.fHm.setTextColor(ap.getColor(R.color.cp_cont_j));
+            this.fHm.changeSkin(skinType);
         }
-        if (this.Wu != null && this.Wu.getAdapter() != null) {
-            this.Wu.getAdapter().notifyDataSetChanged();
+        if (this.WM != null && this.WM.getAdapter() != null) {
+            this.WM.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void oF(boolean z) {
+    public void oL(boolean z) {
         if (z) {
-            this.Wu.setVisibility(0);
+            this.WM.setVisibility(0);
         } else {
-            this.Wu.setVisibility(8);
+            this.WM.setVisibility(8);
         }
     }
 
     public void setRefreshing(boolean z) {
         v vVar = new v();
         vVar.tabId = 401;
-        vVar.fkC = z;
+        vVar.fnv = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, vVar));
     }
 
@@ -90,21 +90,21 @@ public class d {
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.Wu.setData(list);
+            this.WM.setData(list);
         }
     }
 
     public void showNoDataView() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new s());
-        this.Wu.setData(arrayList);
+        this.WM.setData(arrayList);
     }
 
-    public void clA() {
-        this.Wu.scrollToPosition(0);
+    public void coM() {
+        this.WM.scrollToPosition(0);
     }
 
     public boolean hasData() {
-        return (this.Wu == null || y.isEmpty(this.Wu.getData())) ? false : true;
+        return (this.WM == null || y.isEmpty(this.WM.getData())) ? false : true;
     }
 }

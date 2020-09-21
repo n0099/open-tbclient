@@ -4,7 +4,7 @@ import com.xiaomi.push.fl;
 import com.xiaomi.push.fx;
 import com.xiaomi.push.gj;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class bl implements fx {
     final /* synthetic */ XMPushService a;
 

@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public FrsTabViewPager(Context context) {
         this(context, null);
@@ -20,10 +20,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                oy(true);
+                oE(true);
                 break;
             case 1:
-                oy(false);
+                oE(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -33,46 +33,46 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                oy(false);
+                oE(false);
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void oy(boolean z) {
+    public void oE(boolean z) {
         a aVar = new a();
-        aVar.oz(cnY());
-        aVar.oA(z);
+        aVar.oF(crl());
+        aVar.oG(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cnX() {
-        oy(false);
+    public void crk() {
+        oE(false);
     }
 
-    private boolean cnY() {
+    private boolean crl() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a {
-        private boolean hXA;
-        private boolean hXB;
+        private boolean ieE;
+        private boolean ieF;
 
-        public boolean cnZ() {
-            return this.hXA;
+        public boolean crm() {
+            return this.ieE;
         }
 
-        public void oz(boolean z) {
-            this.hXA = z;
+        public void oF(boolean z) {
+            this.ieE = z;
         }
 
-        public boolean coa() {
-            return this.hXB;
+        public boolean crn() {
+            return this.ieF;
         }
 
-        public void oA(boolean z) {
-            this.hXB = z;
+        public void oG(boolean z) {
+            this.ieF = z;
         }
     }
 }

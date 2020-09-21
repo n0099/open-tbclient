@@ -8,10 +8,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class BundleCompat {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     static class BundleCompatBaseImpl {
         private static final String TAG = "BundleCompatBaseImpl";
         private static Method sGetIBinderMethod;

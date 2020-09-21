@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.encoder;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum Compaction {
     AUTO,
     TEXT,

@@ -4,7 +4,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.platform.comapi.walknavi.d.l;
 import java.text.DecimalFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h implements com.baidu.platform.comapi.wnplatform.k.b {
     final /* synthetic */ f a;
 

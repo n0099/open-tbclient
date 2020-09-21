@@ -6,39 +6,38 @@ import android.location.LocationManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.c.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f implements c.a {
-    private static f hpN = null;
-    private c hpO;
-    private c hpP;
-    private ArrayList<TransmitForumData> hpQ;
-    private ArrayList<TransmitForumData> hpS;
+    private static f hwR = null;
+    private c hwS;
+    private c hwT;
+    private ArrayList<TransmitForumData> hwU;
+    private ArrayList<TransmitForumData> hwW;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean hpR = false;
-    private boolean hpT = false;
+    private boolean hwV = false;
+    private boolean hwX = false;
     private boolean isLoading = false;
 
-    public static f cdc() {
-        if (hpN == null) {
+    public static f cgr() {
+        if (hwR == null) {
             synchronized (f.class) {
-                if (hpN == null) {
-                    hpN = new f();
+                if (hwR == null) {
+                    hwR = new f();
                 }
             }
         }
-        return hpN;
+        return hwR;
     }
 
     private f() {
@@ -46,38 +45,38 @@ public class f implements c.a {
     }
 
     private void init() {
-        cde();
-        cdd();
+        cgt();
+        cgs();
         this.isLoading = false;
     }
 
-    private void cdd() {
+    private void cgs() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA), c.class);
         if (runTask != null) {
-            this.hpP = (c) runTask.getData();
+            this.hwT = (c) runTask.getData();
         }
-        if (this.hpP != null) {
-            this.hpP.a(this);
+        if (this.hwT != null) {
+            this.hwT.a(this);
         }
     }
 
-    private void cde() {
+    private void cgt() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER), c.class);
         if (runTask != null) {
-            this.hpO = (c) runTask.getData();
+            this.hwS = (c) runTask.getData();
         }
-        if (this.hpO != null) {
-            this.hpO.a(this);
+        if (this.hwS != null) {
+            this.hwS.a(this);
         }
     }
 
     public void b(ShareDialogConfig shareDialogConfig) {
-        if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !k.isFastDoubleClick()) {
+        if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !l.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.location = cdi();
+                shareDialogConfig.shareItem.location = cgx();
             }
-            if (l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading && !shareDialogConfig.shareItem.bpB()) {
-                cdf();
+            if (com.baidu.adp.lib.util.l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading && !shareDialogConfig.shareItem.bqv()) {
+                cgu();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,13 +85,13 @@ public class f implements c.a {
         }
     }
 
-    public void cdf() {
+    public void cgu() {
         this.isLoading = true;
-        if (this.hpO != null) {
-            this.hpO.ccZ();
+        if (this.hwS != null) {
+            this.hwS.cgo();
         }
-        if (this.hpP != null) {
-            this.hpP.ccZ();
+        if (this.hwT != null) {
+            this.hwT.cgo();
         }
     }
 
@@ -100,56 +99,56 @@ public class f implements c.a {
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.hpS = arrayList;
+                this.hwW = arrayList;
             }
-            this.hpT = true;
+            this.hwX = true;
         } else if (i == 2) {
             if (z) {
-                this.hpQ = arrayList;
+                this.hwU = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.hpR = true;
+            this.hwV = true;
         }
-        cdg();
+        cgv();
     }
 
-    private void cdg() {
-        if (this.hpO == null || this.hpR) {
-            if (this.hpP == null || this.hpT) {
-                this.hpR = false;
-                this.hpT = false;
+    private void cgv() {
+        if (this.hwS == null || this.hwV) {
+            if (this.hwT == null || this.hwX) {
+                this.hwV = false;
+                this.hwX = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!y.isEmpty(this.hpQ)) {
-                    Iterator<TransmitForumData> it = this.hpQ.iterator();
+                if (!y.isEmpty(this.hwU)) {
+                    Iterator<TransmitForumData> it = this.hwU.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
-                        if (!ex(next.forumId)) {
+                        if (!eH(next.forumId)) {
                             this.mForumList.add(next);
                         }
                     }
                 }
-                if (!y.isEmpty(this.hpS)) {
-                    Iterator<TransmitForumData> it2 = this.hpS.iterator();
+                if (!y.isEmpty(this.hwW)) {
+                    Iterator<TransmitForumData> it2 = this.hwW.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
-                        if (!ex(next2.forumId)) {
+                        if (!eH(next2.forumId)) {
                             this.mForumList.add(next2);
                         }
                     }
                 }
-                this.hpQ = null;
-                this.hpS = null;
-                cdh();
+                this.hwU = null;
+                this.hwW = null;
+                cgw();
             }
         }
     }
 
-    private void cdh() {
+    private void cgw() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED, this.mForumList));
     }
 
-    private boolean ex(long j) {
+    private boolean eH(long j) {
         if (this.mForumList == null) {
             return false;
         }
@@ -163,7 +162,7 @@ public class f implements c.a {
         return false;
     }
 
-    private Location cdi() {
+    private Location cgx() {
         if (ae.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService("location");
             Criteria criteria = new Criteria();

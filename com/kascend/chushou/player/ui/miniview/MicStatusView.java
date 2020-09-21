@@ -30,8 +30,8 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
     private boolean i;
     private String j;
     private int k;
-    private NoClickRecyclerView nVw;
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> nVx;
+    private NoClickRecyclerView ofr;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> ofs;
 
     public MicStatusView(Context context) {
         super(context);
@@ -64,21 +64,21 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.b = context;
         View inflate = LayoutInflater.from(context).inflate(a.h.view_mic_status, (ViewGroup) this, true);
         this.a = (TextView) inflate.findViewById(a.f.mic_txt);
-        this.nVw = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
-        this.nVw.setLayoutManager(new b(this.b, 0, false));
-        this.nVx = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
+        this.ofr = (NoClickRecyclerView) inflate.findViewById(a.f.recycler_view);
+        this.ofr.setLayoutManager(new b(this.b, 0, false));
+        this.ofs = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.e, a.h.item_mic_user, new d() { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void C(View view, int i) {
+            public void D(View view, int i) {
                 tv.chushou.zues.a.a.post(new com.kascend.chushou.b.a.a.a());
             }
         }) { // from class: com.kascend.chushou.player.ui.miniview.MicStatusView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC1014a view$OnLongClickListenerC1014a, FanItem fanItem) {
-                view$OnLongClickListenerC1014a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.oOQ, b.a.oOQ);
+            public void a(a.View$OnLongClickListenerC1011a view$OnLongClickListenerC1011a, FanItem fanItem) {
+                view$OnLongClickListenerC1011a.a(a.f.iv_image, fanItem.mAvatar, com.kascend.chushou.view.a.a(fanItem.mGender), b.a.oYs, b.a.oYs);
             }
         };
-        this.nVw.setAdapter(this.nVx);
+        this.ofr.setAdapter(this.ofs);
     }
 
     @Override // android.view.View
@@ -90,14 +90,14 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.d = true;
         this.c = str;
         setVisibility(0);
-        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0882a.slide_in_top_danmu_anim));
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).Va(this.c));
+        startAnimation(AnimationUtils.loadAnimation(this.b, a.C0879a.slide_in_top_danmu_anim));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).VC(this.c));
     }
 
     public void a() {
         this.d = false;
         setVisibility(8);
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).yA(false).Va(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).yI(false).VC(this.c));
     }
 
     public void a(List<FanItem> list, String str, boolean z, MicStatus micStatus, String str2) {
@@ -109,10 +109,10 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         if (this.a != null) {
             this.a.setText(String.format(this.b.getString(a.i.mic_play_together), Integer.valueOf(micStatus.onlineCount)));
         }
-        if (this.nVx != null && !h.isEmpty(list)) {
+        if (this.ofs != null && !h.isEmpty(list)) {
             this.e.clear();
             this.e.addAll(list);
-            this.nVx.notifyDataSetChanged();
+            this.ofs.notifyDataSetChanged();
         }
     }
 

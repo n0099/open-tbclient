@@ -7,7 +7,7 @@ import com.baidu.sofire.b;
 import com.baidu.sofire.i.e;
 import com.baidu.sofire.i.i;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a {
     private Context a;
 

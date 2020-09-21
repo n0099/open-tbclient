@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils.enums;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public enum QrLoginAction {
     NOTICE(LogConfig.KEY_NOTICE),
     LOGIN(OneKeyLoginSdkCall.k),

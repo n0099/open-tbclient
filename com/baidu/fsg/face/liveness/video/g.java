@@ -6,7 +6,7 @@ import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class g extends Thread implements Thread.UncaughtExceptionHandler {
     protected LinkedBlockingQueue<a> a;
     protected f b;
@@ -169,7 +169,7 @@ public class g extends Thread implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     public static class a {
         long a;
         byte[] b;

@@ -1,180 +1,57 @@
 package com.baidu.card;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes15.dex */
-public class al<T extends AbsThreadDataSupport> extends af.a {
-    private com.baidu.tieba.card.aa<T> ahf;
-    private aj<T> ahg;
-    private aq ahh;
-    private t ahi;
-    private ai ahj;
-    private ac ahk;
-    private i ahl;
-    private BdUniqueId mId;
-    private aa mNegFeedBackItem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+/* loaded from: classes20.dex */
+public class al {
+    public static final int ahm = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+    private static final int ahn = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+    public static final int aho = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+    int ahq;
+    boolean ahp = false;
+    int ahr = 0;
+    int ahs = aho;
+    int aht = ahm;
+    int ahu = 0;
+    int ahv = ahm;
+    int ahw = ahm;
+    int ahx = R.color.cp_bg_line_e;
 
-    public al(aj<T> ajVar) {
-        super(ajVar.getView());
-        this.ahg = ajVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al() {
+        this.ahq = ahn;
+        this.ahq = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), com.baidu.tbadk.a.b.a.aL(R.dimen.tbds5, R.dimen.tbds20));
     }
 
-    @Override // com.baidu.adp.widget.ListView.af.a
-    public View getView() {
-        return this.ahg.getView();
+    public void bv(int i) {
+        this.ahq = i;
     }
 
-    public aj<T> tR() {
-        return this.ahg;
+    public void bw(int i) {
+        this.ahr = i;
     }
 
-    private TbPageContext getTbPageContext() {
-        return ((TbPageContextSupport) this.ahg.getView().getContext()).getPageContext();
+    public void bx(int i) {
+        this.ahs = i;
     }
 
-    private void c(d dVar) {
-        if (dVar != null && dVar.tB() != null) {
-            this.ahg.a(dVar);
-        }
+    public void by(int i) {
+        this.aht = i;
     }
 
-    public void a(boolean z, Align align, NEGFeedBackView.a aVar) {
-        if (!z) {
-            c(this.mNegFeedBackItem);
-            return;
-        }
-        if (this.mNegFeedBackItem == null) {
-            this.mNegFeedBackItem = new aa(getTbPageContext(), align);
-            this.mNegFeedBackItem.agc.setUniqueId(this.mId);
-            this.mNegFeedBackItem.a(aVar);
-        }
-        this.mNegFeedBackItem.a(align);
-        this.ahg.b(this.mNegFeedBackItem);
+    public void bz(int i) {
+        this.ahu = i;
     }
 
-    public aa aL(boolean z) {
-        if (this.mNegFeedBackItem == null) {
-            this.mNegFeedBackItem = new aa(getTbPageContext(), z);
-            this.mNegFeedBackItem.agc.setUniqueId(this.mId);
-        }
-        this.ahg.b(this.mNegFeedBackItem);
-        return this.mNegFeedBackItem;
+    public void bA(int i) {
+        this.ahv = i;
     }
 
-    public void a(boolean z, Align align) {
-        if (!z) {
-            c(this.ahh);
-            return;
-        }
-        if (this.ahh == null) {
-            this.ahh = new aq(getTbPageContext(), align);
-        }
-        this.ahh.a(align);
-        this.ahg.b(this.ahh);
+    public void bB(int i) {
+        this.ahw = i;
     }
 
-    public void a(boolean z, FollowUserButton.a aVar) {
-        if (!z) {
-            c(this.ahl);
-            return;
-        }
-        if (this.ahl == null) {
-            this.ahl = new i(getTbPageContext(), com.baidu.tbadk.a.d.bad());
-            this.ahl.setOnClickEvent(aVar);
-        }
-        this.ahl.setPageUniqueId(this.mId);
-        this.ahg.b(this.ahl);
-    }
-
-    public t tS() {
-        return aM(true);
-    }
-
-    public t aM(boolean z) {
-        if (this.ahi == null) {
-            this.ahi = new t(this.ahg.getContext());
-        }
-        this.ahi.h(this.mId);
-        this.ahi.aI(z);
-        this.ahg.b(this.ahi);
-        return this.ahi;
-    }
-
-    public ai tT() {
-        if (this.ahj == null) {
-            this.ahj = new ai(getTbPageContext());
-            this.ahj.setPageId(this.mId);
-        }
-        this.ahg.b(this.ahj);
-        return this.ahj;
-    }
-
-    public ac by(int i) {
-        if (this.ahk == null) {
-            this.ahk = new ac(this.ahg.getView().getContext(), i);
-            this.ahk.setPageId(this.mId);
-        }
-        this.ahg.b(this.ahk);
-        return this.ahk;
-    }
-
-    public void b(T t) {
-        boolean z = false;
-        if (t == null) {
-            this.ahg.getView().setVisibility(8);
-            return;
-        }
-        if (t.bce() != null) {
-            t.bce().getTid();
-        }
-        if (t.bce() != null && t.bce().beE() != null) {
-            t.bce().beE().getName_show();
-        }
-        this.ahg.getView().setVisibility(0);
-        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agc != null) {
-            if (!t.isSelf() && t.bcg() != null) {
-                this.mNegFeedBackItem.f(t);
-                this.mNegFeedBackItem.F(t.bcg());
-                this.mNegFeedBackItem.agc.setVisibility(0);
-                z = true;
-            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.agc != null) {
-                this.mNegFeedBackItem.agc.setVisibility(8);
-            }
-        }
-        if (this.ahh != null) {
-            this.ahh.f(t);
-            this.ahh.F(t.bce());
-        }
-        if (this.ahj != null) {
-            this.ahj.aK(z);
-            this.ahj.F(t.bce());
-        }
-        if (this.ahi != null) {
-            this.ahi.F(t.bce());
-        }
-        if (this.ahk != null) {
-            this.ahk.f(t);
-            this.ahk.F(t.bce());
-        }
-        if (this.ahl != null) {
-            this.ahl.a(t, z);
-            this.ahl.F(t.bce());
-        }
-        this.ahg.g(t);
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mId = bdUniqueId;
-    }
-
-    public void b(com.baidu.tieba.card.aa<T> aaVar) {
-        this.ahf = aaVar;
-        this.ahg.a(aaVar);
+    public void setBackgroundResource(int i) {
+        this.ahx = i;
     }
 }

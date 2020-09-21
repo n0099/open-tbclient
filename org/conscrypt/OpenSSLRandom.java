@@ -2,7 +2,7 @@ package org.conscrypt;
 
 import java.io.Serializable;
 import java.security.SecureRandomSpi;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class OpenSSLRandom extends SecureRandomSpi implements Serializable {
     private static final long serialVersionUID = 8506210602917522861L;
 

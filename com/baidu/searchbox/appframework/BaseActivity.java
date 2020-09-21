@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.Toast;
-import com.android.a.a.a;
+import com.android.support.appcompat.b;
 import com.baidu.android.util.concurrent.UiThreadUtil;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.appframework.ext.IActionBarExtObject;
@@ -28,9 +28,6 @@ import com.baidu.searchbox.common.security.SecurityUtils;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.skin.ioc.SkinResourcesRuntime;
-import com.baidu.searchbox.suspensionball.SuspensionBallAnimFinishListener;
-import com.baidu.searchbox.suspensionball.SuspensionBallHelper;
-import com.baidu.searchbox.suspensionball.SuspensionBallManager;
 import com.baidu.searchbox.unitedscheme.BaseRouter;
 import com.baidu.searchbox.widget.ImmersionHelper;
 import com.baidu.searchbox.widget.OnTranslucentListener;
@@ -42,7 +39,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends FragmentActivity implements IActionBarExtObject, ICommonMenuExtObject, IToolBarExtObject, NightModeChangeListener {
     protected static final int INVALID_ANIM = 0;
     public static final String KEY_WINDOWS_ANIMATING_NEED_DRAW = "winAccelerate";
@@ -59,7 +56,8 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     private SlideHelper mSlideHelper;
     private SlideInterceptor mSlideInterceptor;
     private SlidingPaneLayout.PanelSlideListener mSlideListener;
-    private SuspensionBallHelper mSuspensionBallHelper;
+    private Object mSuspensionBallExtObject;
+    private SlidingPaneLayout.PanelSlideListener mSuspensionBallSlideListener;
     private Object mToolBarExtObject;
     private WeakReference<Activity> preActivity;
     private static final boolean DEBUG = LibAppFrameworkConfig.GLOBAL_DEBUG;
@@ -71,11 +69,12 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     private int mExitAnimWhenFinishing = 0;
     private boolean mEnableDrawDuringWindowsAnimating = true;
     private boolean mEnableSliding = false;
+    private boolean mEnableTaskRootSlide = false;
     private boolean mForceActivityTransparent = false;
     private boolean mEnableImmersion = ImmersionHelper.SUPPORT_IMMERSION;
     private final Object tagObject = new Object();
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes4.dex */
     public interface OnNewIntentCallback {
         void execute(Object obj);
     }
@@ -83,9 +82,9 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = a.releaseFixedOrientation(this);
+        int releaseFixedOrientation = b.releaseFixedOrientation(this);
         super.onCreate(bundle);
-        a.fixedOrientation(this, releaseFixedOrientation);
+        b.fixedOrientation(this, releaseFixedOrientation);
         if (DEBUG) {
             Log.d(TAG, "onCreate: ");
         }
@@ -104,7 +103,6 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         }
         applySliding();
         applyImmersion();
-        initSuspensionBallHelper();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -178,6 +176,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         if (DEBUG) {
             Log.d(TAG, "onBackPressed: ");
         }
+        doBackStatistic();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -188,9 +187,6 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         }
         startEnterActivityAnim();
         handleDrawDuringWindowsAnimating();
-        if (this.mSuspensionBallHelper != null) {
-            this.mSuspensionBallHelper.handleSuspensionPage(getIsSuspensionBallPage());
-        }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -268,16 +264,11 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
 
     @Override // android.app.Activity
     public void finish() {
-        doSuspensionBallExitAnim(new SuspensionBallAnimFinishListener() { // from class: com.baidu.searchbox.appframework.BaseActivity.1
-            @Override // com.baidu.searchbox.suspensionball.SuspensionBallAnimFinishListener
-            public void onFinish() {
-                BaseActivity.super.finish();
-                if (BaseActivity.DEBUG) {
-                    Log.d(BaseActivity.TAG, "finish: ");
-                }
-                BaseActivity.this.startExitActivityAnim();
-            }
-        });
+        super.finish();
+        if (DEBUG) {
+            Log.d(TAG, "finish: ");
+        }
+        startExitActivityAnim();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -309,6 +300,10 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         this.mEnableSliding = z;
     }
 
+    public void setEnableTaskRootSlide(boolean z) {
+        this.mEnableTaskRootSlide = z;
+    }
+
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {
         this.mEnableSliding = z;
         this.mSlideInterceptor = slideInterceptor;
@@ -323,7 +318,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     }
 
     public void setCurrentActivityNoTransparent() {
-        SlideUtil.convertFromTranslucent(this, new OnTranslucentListener() { // from class: com.baidu.searchbox.appframework.BaseActivity.2
+        SlideUtil.convertFromTranslucent(this, new OnTranslucentListener() { // from class: com.baidu.searchbox.appframework.BaseActivity.1
             @Override // com.baidu.searchbox.widget.OnTranslucentListener
             public void onTranslucent(boolean z) {
             }
@@ -332,8 +327,8 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
 
     private void applySliding() {
         if (this.mEnableSliding) {
-            boolean z = true;
-            if (getResources().getConfiguration().orientation == 2) {
+            boolean z = getResources().getConfiguration().orientation != 2;
+            if (!this.mEnableTaskRootSlide && isTaskRoot()) {
                 z = false;
             }
             if (DEBUG && (getWindow().getAttributes().flags & 67108864) == 0) {
@@ -343,15 +338,19 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
             this.mSlideHelper = new SlideHelper();
             this.mSlideHelper.attachSlideView(this, findViewById(16908290));
             this.mSlideHelper.setCanSlide(z);
+            this.mSlideHelper.setNightMode(NightModeHelper.getNightModeSwitcherState());
             this.mSlideHelper.forceActivityTransparent(this.mForceActivityTransparent);
             this.mSlideHelper.attachActivity(this);
             this.mSlideHelper.setSlideInterceptor(this.mSlideInterceptor);
-            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.searchbox.appframework.BaseActivity.3
+            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.searchbox.appframework.BaseActivity.2
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelSlide(View view, float f) {
                     View maskView = BaseActivity.this.mSlideHelper.getMaskView();
                     if (maskView != null) {
                         maskView.setAlpha(1.0f - f >= 0.0f ? 1.0f - f : 0.0f);
+                    }
+                    if (BaseActivity.this.mSuspensionBallSlideListener != null) {
+                        BaseActivity.this.mSuspensionBallSlideListener.onPanelSlide(view, f);
                     }
                     if (BaseActivity.this.mSlideListener != null) {
                         BaseActivity.this.mSlideListener.onPanelSlide(view, f);
@@ -362,8 +361,8 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelOpened(View view) {
-                    if (BaseActivity.this.mSuspensionBallHelper != null) {
-                        BaseActivity.this.mSuspensionBallHelper.setFinishFromSlide(true);
+                    if (BaseActivity.this.mSuspensionBallSlideListener != null) {
+                        BaseActivity.this.mSuspensionBallSlideListener.onPanelOpened(view);
                     }
                     if (BaseActivity.this.mSlideListener != null) {
                         BaseActivity.this.mSlideListener.onPanelOpened(view);
@@ -372,10 +371,14 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
                     BaseActivity.this.mSlideHelper.setShadowDrawable(null);
                     BaseActivity.this.finish();
                     BaseActivity.this.overridePendingTransition(0, 0);
+                    BaseActivity.this.slideBackStatistic();
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
+                    if (BaseActivity.this.mSuspensionBallSlideListener != null) {
+                        BaseActivity.this.mSuspensionBallSlideListener.onPanelClosed(view);
+                    }
                     if (BaseActivity.this.mSlideListener != null) {
                         BaseActivity.this.mSlideListener.onPanelClosed(view);
                     }
@@ -419,7 +422,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         sNextExitAnimWhenFinishing = i4;
     }
 
-    protected void setPendingTransition(int i, int i2, int i3, int i4) {
+    public void setPendingTransition(int i, int i2, int i3, int i4) {
         this.mEnterAnimWhenStarting = i;
         this.mExitAnimWhenStarting = i2;
         this.mEnterAnimWhenFinishing = i3;
@@ -455,7 +458,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         if (z && !sHasMultiWindowShow) {
             Toast.makeText(getApplicationContext(), R.string.androidn_multiwindow_user_toast, 1).show();
             setHasMultiWindowShow(true);
-        } else if (!z) {
+        } else if (!z && !DeviceUtil.isMateX()) {
             setHasMultiWindowShow(false);
         }
     }
@@ -472,7 +475,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         this.mEnableImmersion = ImmersionHelper.SUPPORT_IMMERSION && z;
     }
 
-    protected boolean immersionEnabled() {
+    public boolean immersionEnabled() {
         return this.mEnableImmersion;
     }
 
@@ -512,7 +515,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
             str = getIntent().getStringExtra(KEY_WINDOWS_ANIMATING_NEED_DRAW);
         }
         if ((this.mEnableDrawDuringWindowsAnimating || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-            UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.appframework.BaseActivity.4
+            UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.appframework.BaseActivity.3
                 @Override // java.lang.Runnable
                 public void run() {
                     BaseActivity.this.setDrawDuringWindowsAnimating(BaseActivity.this.getWindow().getDecorView());
@@ -546,7 +549,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         }
     }
 
-    private void resetActivityAnim() {
+    protected void resetActivityAnim() {
         if (sNextEnterAnimWhenStarting != 0 || sNextExitAnimWhenStarting != 0) {
             this.mEnterAnimWhenStarting = sNextEnterAnimWhenStarting;
             this.mExitAnimWhenStarting = sNextExitAnimWhenStarting;
@@ -566,8 +569,7 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startExitActivityAnim() {
+    private void startExitActivityAnim() {
         if (this.mEnterAnimWhenFinishing != 0 || this.mExitAnimWhenFinishing != 0) {
             overridePendingTransition(this.mEnterAnimWhenFinishing, this.mExitAnimWhenFinishing);
             this.mEnterAnimWhenFinishing = 0;
@@ -601,28 +603,12 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
         }
     }
 
-    private void initSuspensionBallHelper() {
-        if (getIsSuspensionBallPage()) {
-            if (this.mSuspensionBallHelper == null) {
-                this.mSuspensionBallHelper = new SuspensionBallHelper();
-            }
-            this.mSuspensionBallHelper.initSuspensionBallClipAnimHelper(this, this.mSlideHelper, getIsSuspensionBallPage());
-        }
+    protected void doBackStatistic() {
+        AppFrameworkRuntime.backPressUBC(null, getFrom(), getPage(), getSource());
     }
 
-    protected void doSuspensionBallExitAnim(SuspensionBallAnimFinishListener suspensionBallAnimFinishListener) {
-        if (getIsSuspensionBallPage()) {
-            if (this.mSuspensionBallHelper == null) {
-                this.mSuspensionBallHelper = new SuspensionBallHelper();
-            }
-            this.mSuspensionBallHelper.doSuspensionBallExitAnim(this, this.mSlideHelper, suspensionBallAnimFinishListener);
-        } else if (suspensionBallAnimFinishListener != null) {
-            suspensionBallAnimFinishListener.onFinish();
-        }
-    }
-
-    protected boolean getIsSuspensionBallPage() {
-        return SuspensionBallManager.getInstance().isClickFromSuspension(getIntent());
+    protected void slideBackStatistic() {
+        AppFrameworkRuntime.slideBackUBC(null, getFrom(), getPage(), getSource());
     }
 
     @Override // com.baidu.searchbox.appframework.ext.IActionBarExtObject
@@ -661,5 +647,33 @@ public class BaseActivity extends FragmentActivity implements IActionBarExtObjec
     @Override // com.baidu.searchbox.appframework.ext.IBaseExtObject
     public Context getExtContext() {
         return this;
+    }
+
+    public Object getSuspensionBallExtObject() {
+        return this.mSuspensionBallExtObject;
+    }
+
+    public void setSuspensionBallExtObject(Object obj) {
+        this.mSuspensionBallExtObject = obj;
+    }
+
+    public void setSuspensionBallSlideListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
+        this.mSuspensionBallSlideListener = panelSlideListener;
+    }
+
+    public SlidingPaneLayout.PanelSlideListener getSuspensionBallSlideListener() {
+        return this.mSuspensionBallSlideListener;
+    }
+
+    public String getFrom() {
+        return AppFrameworkConstants.DEFAULT_UBC_FROM;
+    }
+
+    public String getPage() {
+        return null;
+    }
+
+    public String getSource() {
+        return null;
     }
 }

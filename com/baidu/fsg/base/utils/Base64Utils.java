@@ -3,7 +3,7 @@ package com.baidu.fsg.base.utils;
 import android.os.Build;
 import android.util.Base64;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class Base64Utils {
     private static final Boolean a;
 

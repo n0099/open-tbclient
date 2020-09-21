@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aDG;
-    private AlaLiveUserInfoData aEf;
-    private List<AlaLiveInfoData> gQb;
+    private AlaLiveUserInfoData aEz;
+    private AlaLiveUserInfoData aFb;
+    private List<AlaLiveInfoData> gTJ;
     private boolean mHasMore;
     private AlaLocationData mLocationData;
     private AlaRelationData mRelationData;
 
     public AlaNewHostTabHttpResponseMessage() {
         super(1021076);
-        this.gQb = new ArrayList();
+        this.gTJ = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -33,10 +33,10 @@ public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
                 if (optJSONObject3 != null) {
-                    if (this.aDG == null) {
-                        this.aDG = new AlaLiveUserInfoData();
+                    if (this.aEz == null) {
+                        this.aEz = new AlaLiveUserInfoData();
                     }
-                    this.aDG.parserJson(optJSONObject3);
+                    this.aEz.parserJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("relation_info");
                 if (optJSONObject4 != null) {
@@ -54,13 +54,13 @@ public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
                 }
                 JSONObject optJSONObject6 = optJSONObject2.optJSONObject("login_user_info");
                 if (optJSONObject6 != null) {
-                    if (this.aEf == null) {
-                        this.aEf = new AlaLiveUserInfoData();
+                    if (this.aFb == null) {
+                        this.aFb = new AlaLiveUserInfoData();
                     }
-                    this.aEf.parserJson(optJSONObject6);
+                    this.aFb.parserJson(optJSONObject6);
                 }
             }
-            ListUtils.clear(this.gQb);
+            ListUtils.clear(this.gTJ);
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("live_record_info");
             if (optJSONObject7 != null) {
                 JSONArray optJSONArray = optJSONObject7.optJSONArray("record_list");
@@ -70,7 +70,7 @@ public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
                         if (jSONObject2 != null) {
                             AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                             alaLiveInfoData.parserJson(jSONObject2);
-                            this.gQb.add(alaLiveInfoData);
+                            this.gTJ.add(alaLiveInfoData);
                         }
                     }
                 }

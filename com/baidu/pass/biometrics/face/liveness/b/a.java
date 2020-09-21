@@ -13,7 +13,7 @@ import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final String a = "CameraInterface";
     public static final int b = 3;
@@ -23,18 +23,18 @@ public class a {
     private static int f = -1;
     Camera g;
     SurfaceHolder h;
-    private C0233a i;
+    private C0231a i;
     private int k;
     private String j = "off";
     private boolean l = true;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0233a {
+    /* loaded from: classes8.dex */
+    public static class C0231a {
         public int a;
         public int b;
 
-        public C0233a(int i, int i2) {
+        public C0231a(int i, int i2) {
             this.a = i;
             this.b = i2;
         }
@@ -76,9 +76,9 @@ public class a {
         return Camera.getNumberOfCameras();
     }
 
-    public C0233a c() {
+    public C0231a c() {
         if (this.i == null) {
-            this.i = new C0233a(640, 480);
+            this.i = new C0231a(640, 480);
         }
         return this.i;
     }
@@ -105,15 +105,15 @@ public class a {
     }
 
     @TargetApi(5)
-    private List<C0233a> b(Activity activity, Camera.Parameters parameters) {
+    private List<C0231a> b(Activity activity, Camera.Parameters parameters) {
         int i;
         int i2;
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            C0233a c0233a = new C0233a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-            int i3 = c0233a.a;
-            int i4 = c0233a.b;
+            C0231a c0231a = new C0231a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+            int i3 = c0231a.a;
+            int i4 = c0231a.b;
             if ((i3 * i4) / 4 > 921600) {
                 i = (i3 * i4) / 8;
                 i2 = 2073600;
@@ -132,7 +132,7 @@ public class a {
                 int i7 = size.width;
                 int i8 = size.height;
                 if (i7 * i8 >= i && i7 * i8 <= i2) {
-                    arrayList.add(new C0233a(i7, i8));
+                    arrayList.add(new C0231a(i7, i8));
                 }
                 i5 = i6 + 1;
             }
@@ -233,26 +233,26 @@ public class a {
         }
     }
 
-    private C0233a a(Activity activity, Camera.Parameters parameters) {
-        C0233a c0233a = this.i;
-        if (c0233a == null) {
-            List<C0233a> b2 = b(activity, parameters);
-            this.i = new C0233a(640, 480);
+    private C0231a a(Activity activity, Camera.Parameters parameters) {
+        C0231a c0231a = this.i;
+        if (c0231a == null) {
+            List<C0231a> b2 = b(activity, parameters);
+            this.i = new C0231a(640, 480);
             if (b2 != null && b2.size() != 0) {
                 Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-                C0233a c0233a2 = new C0233a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-                float f2 = c0233a2.b / c0233a2.a;
-                C0233a c0233a3 = this.i;
-                float f3 = c0233a3.a / c0233a3.b;
+                C0231a c0231a2 = new C0231a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+                float f2 = c0231a2.b / c0231a2.a;
+                C0231a c0231a3 = this.i;
+                float f3 = c0231a3.a / c0231a3.b;
                 int i = 0;
                 float f4 = f3;
                 while (true) {
                     int i2 = i;
                     if (i2 < b2.size()) {
-                        C0233a c0233a4 = b2.get(i2);
-                        float abs = Math.abs((c0233a4.a / c0233a4.b) - f2);
+                        C0231a c0231a4 = b2.get(i2);
+                        float abs = Math.abs((c0231a4.a / c0231a4.b) - f2);
                         if (abs < f4) {
-                            this.i = c0233a4;
+                            this.i = c0231a4;
                             f4 = abs;
                         }
                         i = i2 + 1;
@@ -264,22 +264,22 @@ public class a {
                 return this.i;
             }
         } else {
-            return c0233a;
+            return c0231a;
         }
     }
 
-    public C0233a a(Activity activity, Camera.Parameters parameters, boolean z) {
-        C0233a a2 = a(activity, parameters);
+    public C0231a a(Activity activity, Camera.Parameters parameters, boolean z) {
+        C0231a a2 = a(activity, parameters);
         parameters.setPreviewSize(a2.a, a2.b);
         return a2;
     }
 
     @TargetApi(5)
-    public void a(Camera.Parameters parameters, C0233a c0233a) {
+    public void a(Camera.Parameters parameters, C0231a c0231a) {
         int i;
         int i2;
         Camera.Size size = null;
-        float f2 = c0233a != null ? c0233a.a / c0233a.b : 0.0f;
+        float f2 = c0231a != null ? c0231a.a / c0231a.b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         if (supportedPictureSizes != null) {
             int size2 = supportedPictureSizes.size();

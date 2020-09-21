@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class EmailAddressParsedResult extends ParsedResult {
     private final String[] bccs;
     private final String body;

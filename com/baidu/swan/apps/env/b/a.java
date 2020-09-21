@@ -2,68 +2,68 @@ package com.baidu.swan.apps.env.b;
 
 import android.support.annotation.NonNull;
 import com.baidu.swan.pms.e.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a implements com.baidu.swan.pms.e.b {
-    private String cpP;
-    private boolean cpQ;
-    private com.baidu.swan.pms.e.b cpR;
+    private String crS;
+    private boolean crT;
+    private com.baidu.swan.pms.e.b crU;
 
     private a() {
     }
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        if (this.cpR != null) {
-            this.cpR.a(str, aVar);
+        if (this.crU != null) {
+            this.crU.a(str, aVar);
         } else if (aVar != null) {
-            aVar.en(true);
+            aVar.el(true);
         }
     }
 
-    public String aly() {
-        return this.cpP;
+    public String ami() {
+        return this.crS;
     }
 
-    public boolean alz() {
-        return this.cpQ;
+    public boolean amj() {
+        return this.crT;
     }
 
     @NonNull
     public String toString() {
-        return "SoLib:: libName=" + this.cpP + " buildin=" + this.cpQ;
+        return "SoLib:: libName=" + this.crS + " buildin=" + this.crT;
     }
 
     /* renamed from: com.baidu.swan.apps.env.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0400a {
-        private a cpS;
+    /* loaded from: classes3.dex */
+    public static class C0395a {
+        private a crV;
 
-        private a alA() {
-            if (this.cpS == null) {
-                this.cpS = new a();
+        private a amk() {
+            if (this.crV == null) {
+                this.crV = new a();
             }
-            return this.cpS;
+            return this.crV;
         }
 
-        public C0400a mj(String str) {
-            alA().cpP = str;
+        public C0395a mC(String str) {
+            amk().crS = str;
             return this;
         }
 
-        public C0400a em(boolean z) {
-            alA().cpQ = z;
+        public C0395a ek(boolean z) {
+            amk().crT = z;
             return this;
         }
 
-        public C0400a a(com.baidu.swan.pms.e.b bVar) {
-            alA().cpR = bVar;
+        public C0395a a(com.baidu.swan.pms.e.b bVar) {
+            amk().crU = bVar;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a alB() {
-            a aVar = this.cpS;
-            this.cpS = null;
+        public a aml() {
+            a aVar = this.crV;
+            this.crV = null;
             return aVar;
         }
     }

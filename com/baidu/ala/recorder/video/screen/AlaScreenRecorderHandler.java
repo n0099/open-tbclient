@@ -3,7 +3,7 @@ package com.baidu.ala.recorder.video.screen;
 import android.os.Handler;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaScreenRecorderHandler extends Handler {
     private static final int MSG_PAUSE_RECORD = 2;
     private static final int MSG_RESUME_RECORD = 3;

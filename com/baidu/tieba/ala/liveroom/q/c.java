@@ -1,99 +1,110 @@
 package com.baidu.tieba.ala.liveroom.q;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.net.Uri;
-import android.support.v4.graphics.ColorUtils;
-import android.text.TextUtils;
-import android.widget.PopupWindow;
+import android.os.Build;
+import com.baidu.fsg.base.statistics.j;
+import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.view.web.g;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-/* loaded from: classes7.dex */
-public class c implements a {
-    private Activity cAc;
-    private CustomMessageListener fNN;
-    private PopupWindow.OnDismissListener fNO;
-    private d gGz;
-
-    public c(Activity activity) {
-        this.cAc = activity;
-        bHh();
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.message.AlaExceptionHttpResMessage;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ala.liveroom.data.AlaLiveRecorderPerfData;
+import com.baidu.tieba.ala.liveroom.messages.AlaLivePerfResponseMessage;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class c extends BdBaseModel {
+    public c() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021048, TbConfig.SERVER_ADDRESS + "ala/sys/gatherData");
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(AlaLivePerfResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        com.baidu.live.tieba.f.a.a.a(1021049, "ala/sys/exceptionMonitor", AlaExceptionHttpResMessage.class, false, true, true, true);
     }
 
-    @Override // com.baidu.tieba.ala.liveroom.q.a
-    public void Go(String str) {
-        this.gGz = new d(this.cAc);
-        this.gGz.setOnDismissListener(this.fNO);
-        this.gGz.bHi().setBackgroundColor(EE(str));
-        g gVar = new g();
-        gVar.v(this.cAc).a(this.gGz).a(this.gGz.bHi().getSchemeCallback());
-        com.baidu.live.view.web.a[] QV = gVar.QV();
-        for (com.baidu.live.view.web.a aVar : QV) {
-            this.gGz.bHi().addJavascriptInterface(aVar, aVar.getName());
-        }
-        this.gGz.show(str);
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.q.a
-    public void resume() {
-        if (this.gGz != null && this.gGz.isShowing() && this.gGz.bHi() != null) {
-            this.gGz.bHi().onResume();
-        }
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.q.a
-    public void pause() {
-        if (this.gGz != null && this.gGz.isShowing() && this.gGz.bHi() != null) {
-            this.gGz.bHi().onPause();
-        }
-    }
-
-    public void dismiss() {
-        if (this.gGz != null) {
-            this.gGz.bHj();
-        }
-    }
-
-    public void Fb() {
-        dismiss();
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.q.a
-    public void release() {
-        Fb();
-        MessageManager.getInstance().unRegisterListener(this.fNN);
-    }
-
-    private void bHh() {
-        this.fNN = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.q.c.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.gGz != null && c.this.gGz.isShowing()) {
-                    c.this.gGz.dismiss();
-                }
+    public void a(AlaLiveRecorderPerfData alaLiveRecorderPerfData) {
+        if (alaLiveRecorderPerfData != null) {
+            HttpMessage httpMessage = new HttpMessage(1021048);
+            httpMessage.addParam("_os_version", Build.VERSION.RELEASE);
+            httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("status", 1);
+                jSONObject.put("live_id", alaLiveRecorderPerfData.liveID);
+                jSONObject.put("log_id", alaLiveRecorderPerfData.logID);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, alaLiveRecorderPerfData.liveTotalTime);
+                jSONObject2.put("pt", alaLiveRecorderPerfData.prepareTime);
+                jSONObject2.put("ut", alaLiveRecorderPerfData.updateTime);
+                jSONObject2.put("lt", alaLiveRecorderPerfData.linkTime);
+                jSONObject2.put(j.g, alaLiveRecorderPerfData.linkCount);
+                jSONObject2.put("wt", alaLiveRecorderPerfData.waitTime);
+                jSONObject2.put("st", alaLiveRecorderPerfData.showTime);
+                jSONObject2.put("et", alaLiveRecorderPerfData.endViewShowTime);
+                jSONObject2.put("ls", alaLiveRecorderPerfData.liveType);
+                jSONObject2.put("session_line", alaLiveRecorderPerfData.sessionLine);
+                jSONObject.put("time", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.putOpt("success", Integer.valueOf(alaLiveRecorderPerfData.errCode == 0 ? 1 : 0));
+                jSONObject3.put(LogConfig.RECONNECT, alaLiveRecorderPerfData.isReShow ? 1 : 0);
+                jSONObject3.putOpt(TiebaInitialize.LogFields.REASON, Integer.valueOf(alaLiveRecorderPerfData.errCode));
+                jSONObject3.put("sub_reason", alaLiveRecorderPerfData.errSubReason);
+                jSONObject3.putOpt("dropc", Long.valueOf(alaLiveRecorderPerfData.dropCount));
+                jSONObject3.putOpt("dropi", Long.valueOf(alaLiveRecorderPerfData.dropICount));
+                jSONObject3.putOpt("dropp", Long.valueOf(alaLiveRecorderPerfData.dropPCount));
+                jSONObject3.putOpt("dropa", Long.valueOf(alaLiveRecorderPerfData.dropACount));
+                jSONObject.putOpt("stability", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.putOpt("mem", cf(alaLiveRecorderPerfData.memoryArray));
+                jSONObject4.putOpt(com.baidu.fsg.face.base.b.c.i, cf(alaLiveRecorderPerfData.cpuArray));
+                jSONObject4.putOpt("bat", String.format("%.2f", Float.valueOf(alaLiveRecorderPerfData.energyUsage)));
+                jSONObject4.putOpt("charge", Boolean.valueOf(alaLiveRecorderPerfData.isCharging));
+                jSONObject.putOpt("perf", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.putOpt("df", String.format("%.2f", Float.valueOf(((float) alaLiveRecorderPerfData.dataFlow) / 1024.0f)));
+                jSONObject5.putOpt("nf", String.format("%.2f", Float.valueOf(((float) alaLiveRecorderPerfData.netFlow) / 1024.0f)));
+                jSONObject5.putOpt("pf", String.format("%.2f", Float.valueOf(((float) alaLiveRecorderPerfData.prictureFlow) / 1024.0f)));
+                jSONObject5.putOpt("mf", String.format("%.2f", Float.valueOf(((float) alaLiveRecorderPerfData.mediaFlow) / 1024.0f)));
+                jSONObject5.putOpt("if", String.format("%.2f", Float.valueOf(((float) alaLiveRecorderPerfData.IMFlow) / 1024.0f)));
+                jSONObject.putOpt("dataflow", jSONObject5);
+                httpMessage.addParam("data", jSONObject.toString());
+            } catch (Throwable th) {
+                BdLog.e(th.getLocalizedMessage());
             }
-        };
-        MessageManager.getInstance().registerListener(this.fNN);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 
-    private int EE(String str) {
-        int indexOf;
-        String queryParameter = Uri.parse(str).getQueryParameter("background");
-        if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
-            queryParameter = str.substring(indexOf + 11, indexOf + 19);
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void release() {
+        MessageManager.getInstance().unRegisterTask(1021048);
+        MessageManager.getInstance().unRegisterTask(1021049);
+    }
+
+    private String cf(List list) {
+        if (list == null || list.size() == 0) {
+            return "";
         }
-        if (TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) {
-            return 0;
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < list.size(); i++) {
+            stringBuffer.append(list.get(i));
+            stringBuffer.append(',');
         }
-        try {
-            int parseInt = Integer.parseInt(queryParameter.substring(6, 8), 16);
-            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor(UgcConstant.TOPIC_PATTERN_TAG + queryParameter.substring(0, 6)), parseInt);
-        } catch (Exception e) {
-            return 0;
-        }
+        return stringBuffer.toString();
     }
 }

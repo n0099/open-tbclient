@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a mgA;
-    private final int mgB = 10;
-    private final int mgC = 3000;
+    private com.baidu.adp.lib.stats.a mqa;
+    private final int mqb = 10;
+    private final int mqc = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
@@ -18,45 +18,45 @@ public class b {
     public void aX(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.mgA = new com.baidu.adp.lib.stats.a("dbg");
+        this.mqa = new com.baidu.adp.lib.stats.a("dbg");
         c.C(str, getNetType(), z);
     }
 
     public void start() {
-        this.mgA.startTimer();
+        this.mqa.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e dxc;
-        if (this.mgA != null && (dxc = dxc()) != null) {
+        e dAV;
+        if (this.mqa != null && (dAV = dAV()) != null) {
             if (z) {
-                if (dxc.mgH != null) {
-                    dxc.mgH.num++;
+                if (dAV.mqh != null) {
+                    dAV.mqh.num++;
                     if (z2) {
-                        dxc.mgH.mgE += j2;
-                        dxc.mgH.size += j;
+                        dAV.mqh.mqe += j2;
+                        dAV.mqh.size += j;
                     } else {
-                        dxc.mgH.mgF++;
+                        dAV.mqh.mqf++;
                     }
                 } else {
                     return;
                 }
-            } else if (dxc.mgI != null) {
-                dxc.mgI.num++;
+            } else if (dAV.mqi != null) {
+                dAV.mqi.num++;
                 if (z2) {
-                    dxc.mgI.mgE += j3;
-                    dxc.mgI.size += j;
+                    dAV.mqi.mqe += j3;
+                    dAV.mqi.size += j;
                     j2 = j3;
                 } else {
-                    dxc.mgI.mgF++;
+                    dAV.mqi.mqf++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.mgA = null;
+            this.mqa = null;
             if (z2) {
-                c.a(dxc, 10);
+                c.a(dAV, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > IMConnection.RETRY_DELAY_TIMES) {
@@ -75,19 +75,19 @@ public class b {
     }
 
     public void destory() {
-        e dxc;
-        if (this.mgA != null && (dxc = dxc()) != null && dxc.mgJ != null) {
-            long timeCost = this.mgA.getTimeCost();
+        e dAV;
+        if (this.mqa != null && (dAV = dAV()) != null && dAV.mqj != null) {
+            long timeCost = this.mqa.getTimeCost();
             if (timeCost > IMConnection.RETRY_DELAY_TIMES) {
-                d dVar = dxc.mgJ;
-                dVar.mgE = timeCost + dVar.mgE;
-                dxc.mgJ.num++;
-                c.a(dxc, 10);
+                d dVar = dAV.mqj;
+                dVar.mqe = timeCost + dVar.mqe;
+                dAV.mqj.num++;
+                c.a(dAV, 10);
             }
         }
     }
 
-    private e dxc() {
+    private e dAV() {
         return c.D(this.mLogType, getNetType(), this.mIsJson);
     }
 

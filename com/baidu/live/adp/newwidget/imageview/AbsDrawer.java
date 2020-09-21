@@ -9,14 +9,14 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsDrawer {
     private static final int DEFAULT_PAINT_FLAGS = 6;
     private static final Matrix.ScaleToFit[] sS2FArray = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
     private static final int IMAGE_COLORFILTER_NIGHT = -5000269;
     private static final PorterDuffColorFilter sColorFilterForSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
-    protected Paint mPaint = new Paint(6);
-    protected Paint mBorderPaint = new Paint();
+    public Paint mPaint = new Paint(6);
+    public Paint mBorderPaint = new Paint();
     protected Paint mForegroundPaint = new Paint();
     protected Matrix mDrawMatrix = new Matrix();
     protected RectF mBounds = new RectF();

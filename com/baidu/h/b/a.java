@@ -1,14 +1,14 @@
 package com.baidu.h.b;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private static volatile a bxt;
-    private com.baidu.h.a.b.a.b bxu;
-    private com.baidu.h.a.a.a bxv;
-    private com.baidu.h.a.c.a bxw;
-    private com.baidu.h.a.d.a bxx;
-    private b bxy;
+    private static volatile a bAQ;
+    private com.baidu.h.a.b.a.b bAR;
+    private com.baidu.h.a.a.a bAS;
+    private com.baidu.h.a.c.a bAT;
+    private com.baidu.h.a.d.a bAU;
+    private b bAV;
     private Context mContext;
 
     private a(Context context) {
@@ -16,53 +16,53 @@ public class a {
     }
 
     public static a aF(Context context) {
-        if (bxt == null) {
+        if (bAQ == null) {
             synchronized (a.class) {
-                if (bxt == null) {
-                    bxt = new a(context);
+                if (bAQ == null) {
+                    bAQ = new a(context);
                 }
             }
         }
-        return bxt;
+        return bAQ;
     }
 
-    public com.baidu.h.a.b.a.b Ri() {
-        return this.bxu;
+    public com.baidu.h.a.b.a.b RZ() {
+        return this.bAR;
     }
 
     public void a(com.baidu.h.a.b.a.b bVar) {
-        this.bxu = bVar;
+        this.bAR = bVar;
     }
 
-    public com.baidu.h.a.a.a Rj() {
-        return this.bxv;
+    public com.baidu.h.a.a.a Sa() {
+        return this.bAS;
     }
 
     public void a(com.baidu.h.a.a.a aVar) {
-        this.bxv = aVar;
+        this.bAS = aVar;
     }
 
-    public com.baidu.h.a.c.a Rk() {
-        return this.bxw;
+    public com.baidu.h.a.c.a Sb() {
+        return this.bAT;
     }
 
     public void a(com.baidu.h.a.c.a aVar) {
-        this.bxw = aVar;
+        this.bAT = aVar;
     }
 
-    public com.baidu.h.a.d.a Rl() {
-        return this.bxx;
+    public com.baidu.h.a.d.a Sc() {
+        return this.bAU;
     }
 
     public void a(com.baidu.h.a.d.a aVar) {
-        this.bxx = aVar;
+        this.bAU = aVar;
     }
 
-    public b Rm() {
-        return this.bxy;
+    public b Sd() {
+        return this.bAV;
     }
 
     public void a(b bVar) {
-        this.bxy = bVar;
+        this.bAV = bVar;
     }
 }

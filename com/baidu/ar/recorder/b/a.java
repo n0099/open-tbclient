@@ -6,7 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
     private long tZ = 0;

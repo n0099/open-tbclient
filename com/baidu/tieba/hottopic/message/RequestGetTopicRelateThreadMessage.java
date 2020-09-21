@@ -2,15 +2,15 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.GetTopicRelateThread.DataReq;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadReqIdl;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class RequestGetTopicRelateThreadMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f982common;
+    private CommonReq f981common;
     private Long last_id;
     private Integer page_no;
     private Integer pmy_source;
@@ -29,11 +29,11 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f982common;
+        return this.f981common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f982common = commonReq;
+        this.f981common = commonReq;
     }
 
     public Long getTopicId() {
@@ -136,7 +136,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1128common = getCommon();
+            builder.f1129common = getCommon();
             builder.topic_id = getTopicId();
             builder.topic_name = getTopicName();
             builder.rn = getRn();
@@ -150,7 +150,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
             builder.pmy_source = getPmy_source();
             builder.sort_type = getSort_type();
             if (z) {
-                t.a(builder, true);
+                u.a(builder, true);
             }
             GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
             builder2.data = builder.build(false);

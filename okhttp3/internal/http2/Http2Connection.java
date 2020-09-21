@@ -29,7 +29,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class Http2Connection implements Closeable {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final int OKHTTP_CLIENT_WINDOW_SIZE = 16777216;
@@ -237,7 +237,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     final class PingRunnable extends NamedRunnable {
         final int payload1;
         final int payload2;
@@ -399,7 +399,7 @@ public final class Http2Connection implements Closeable {
         return this.shutdown;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         boolean client;
         String hostname;
@@ -447,7 +447,7 @@ public final class Http2Connection implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         final Http2Reader reader;
 
@@ -817,7 +817,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener

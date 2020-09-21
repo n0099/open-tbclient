@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.model;
 
 import com.baidu.searchbox.NoProGuard;
 import com.google.gson.a.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LinkInfoItem implements NoProGuard {
     @c("key")
     public String linkKey;

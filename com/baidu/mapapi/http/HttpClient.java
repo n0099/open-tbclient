@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class HttpClient {
     public static boolean isHttpsEnable = true;
     HttpURLConnection a;
@@ -26,7 +26,7 @@ public class HttpClient {
     private String f;
     private ProtoResultCallback g;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum HttpStateError {
         NO_ERROR,
         NETWORK_ERROR,
@@ -35,7 +35,7 @@ public class HttpClient {
         SERVER_ERROR
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ProtoResultCallback {
         public abstract void onFailed(HttpStateError httpStateError);
 

@@ -1,7 +1,7 @@
 package com.baidu.vi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class i {
     static final /* synthetic */ int[] a = new int[NetworkInfo.State.values().length];
 

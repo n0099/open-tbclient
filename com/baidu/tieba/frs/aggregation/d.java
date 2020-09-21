@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.aggregation;
 
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public interface d {
-    void amF();
+    void anp();
 
     void d(List<g> list, boolean z, boolean z2);
 

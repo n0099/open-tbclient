@@ -8,7 +8,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o implements Observer {
     private Context a;
     private URL b;
@@ -18,7 +18,7 @@ public class o implements Observer {
     private SharedPreferences f;
     private SharedPreferences.OnSharedPreferenceChangeListener g;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(e eVar);
 

@@ -6,36 +6,36 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private int[] gEj;
-    private short[] gEk;
-    private int[] gEl;
-    private InterfaceC0635a gEm;
+    private int[] gHG;
+    private short[] gHH;
+    private int[] gHI;
+    private InterfaceC0632a gHJ;
     private Context mContext;
-    private final int gEg = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds160);
-    public final int gEh = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds152);
-    public final int gEi = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
-    private View.OnClickListener evS = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
+    private final int gHD = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds160);
+    public final int gHE = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds152);
+    public final int gHF = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
+    private View.OnClickListener exX = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.panel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 0;
             boolean z = true;
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 int itemId = ((AlaMasterOperationSwitchItemView) view).getItemId();
-                int ux = a.this.ux(itemId);
-                if (ux >= 0) {
-                    if (a.this.gEk[ux] == 1) {
-                        a.this.gEk[ux] = 2;
-                    } else if (a.this.gEk[ux] == 2) {
-                        a.this.gEk[ux] = 1;
+                int uQ = a.this.uQ(itemId);
+                if (uQ >= 0) {
+                    if (a.this.gHH[uQ] == 1) {
+                        a.this.gHH[uQ] = 2;
+                    } else if (a.this.gHH[uQ] == 2) {
+                        a.this.gHH[uQ] = 1;
                     }
                     a.this.notifyDataSetChanged();
-                    if (a.this.gEk[ux] != 1) {
+                    if (a.this.gHH[uQ] != 1) {
                         z = false;
                     }
                 }
@@ -43,15 +43,15 @@ public class a extends BaseAdapter {
             } else if (view instanceof AlaMasterOperationEntryItemView) {
                 i = ((AlaMasterOperationEntryItemView) view).getItemId();
             }
-            if (a.this.gEm != null) {
-                a.this.gEm.J(i, z);
+            if (a.this.gHJ != null) {
+                a.this.gHJ.J(i, z);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.ala.liveroom.master.panel.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0635a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0632a {
         void J(int i, boolean z);
     }
 
@@ -59,52 +59,52 @@ public class a extends BaseAdapter {
         this.mContext = context;
         if (z) {
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                this.gEj = new int[]{a.i.ala_operation_panel_text_mute, 0, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-                this.gEl = new int[]{4, 0, 5, 6};
+                this.gHG = new int[]{a.i.ala_operation_panel_text_mute, 0, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+                this.gHI = new int[]{4, 0, 5, 6};
             } else {
-                this.gEj = new int[]{a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-                this.gEl = new int[]{4, 5, 6};
+                this.gHG = new int[]{a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+                this.gHI = new int[]{4, 5, 6};
             }
-            this.gEk = new short[]{1, 1, 1};
+            this.gHH = new short[]{1, 1, 1};
             return;
         }
-        this.gEj = new int[]{a.i.ala_operation_panel_text_camera, a.i.ala_operation_panel_text_falshing, a.i.ala_operation_panel_text_mirror_off, a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
-        this.gEk = new short[]{1, 1, 1, 1, 1, 1};
-        this.gEl = new int[]{1, 2, 3, 4, 5, 6};
-        be beVar = com.baidu.live.w.a.Nk().bkd;
-        if (beVar != null && beVar.aJD != null && beVar.aJD.aLu) {
-            int[] iArr = new int[this.gEj.length + 1];
-            System.arraycopy(this.gEj, 0, iArr, 0, this.gEj.length);
-            iArr[this.gEj.length] = a.i.ala_operation_panel_text_redpacket;
-            this.gEj = iArr;
-            short[] sArr = new short[this.gEk.length + 1];
-            System.arraycopy(this.gEk, 0, sArr, 0, this.gEk.length);
-            sArr[this.gEk.length] = 1;
-            this.gEk = sArr;
-            int[] iArr2 = new int[this.gEl.length + 1];
-            System.arraycopy(this.gEl, 0, iArr2, 0, this.gEl.length);
-            iArr2[this.gEl.length] = 7;
-            this.gEl = iArr2;
+        this.gHG = new int[]{a.i.ala_operation_panel_text_camera, a.i.ala_operation_panel_text_falshing, a.i.ala_operation_panel_text_mirror_off, a.i.ala_operation_panel_text_mute, a.i.ala_operation_panel_text_admin, a.i.ala_operation_panel_text_black};
+        this.gHH = new short[]{1, 1, 1, 1, 1, 1};
+        this.gHI = new int[]{1, 2, 3, 4, 5, 6};
+        bj bjVar = com.baidu.live.x.a.NN().bmW;
+        if (bjVar != null && bjVar.aKT != null && bjVar.aKT.aNc) {
+            int[] iArr = new int[this.gHG.length + 1];
+            System.arraycopy(this.gHG, 0, iArr, 0, this.gHG.length);
+            iArr[this.gHG.length] = a.i.ala_operation_panel_text_redpacket;
+            this.gHG = iArr;
+            short[] sArr = new short[this.gHH.length + 1];
+            System.arraycopy(this.gHH, 0, sArr, 0, this.gHH.length);
+            sArr[this.gHH.length] = 1;
+            this.gHH = sArr;
+            int[] iArr2 = new int[this.gHI.length + 1];
+            System.arraycopy(this.gHI, 0, iArr2, 0, this.gHI.length);
+            iArr2[this.gHI.length] = 7;
+            this.gHI = iArr2;
         }
-        if (beVar != null && beVar.aJy != null && beVar.aJy.CY()) {
-            int[] iArr3 = new int[this.gEj.length + 1];
-            System.arraycopy(this.gEj, 0, iArr3, 0, this.gEj.length);
-            iArr3[this.gEj.length] = a.i.ala_operation_panel_text_host_wish;
-            this.gEj = iArr3;
-            short[] sArr2 = new short[this.gEk.length + 1];
-            System.arraycopy(this.gEk, 0, sArr2, 0, this.gEk.length);
-            sArr2[this.gEk.length] = 1;
-            this.gEk = sArr2;
-            int[] iArr4 = new int[this.gEl.length + 1];
-            System.arraycopy(this.gEl, 0, iArr4, 0, this.gEl.length);
-            iArr4[this.gEl.length] = 8;
-            this.gEl = iArr4;
+        if (bjVar != null && bjVar.aKO != null && bjVar.aKO.Do()) {
+            int[] iArr3 = new int[this.gHG.length + 1];
+            System.arraycopy(this.gHG, 0, iArr3, 0, this.gHG.length);
+            iArr3[this.gHG.length] = a.i.ala_operation_panel_text_host_wish;
+            this.gHG = iArr3;
+            short[] sArr2 = new short[this.gHH.length + 1];
+            System.arraycopy(this.gHH, 0, sArr2, 0, this.gHH.length);
+            sArr2[this.gHH.length] = 1;
+            this.gHH = sArr2;
+            int[] iArr4 = new int[this.gHI.length + 1];
+            System.arraycopy(this.gHI, 0, iArr4, 0, this.gHI.length);
+            iArr4[this.gHI.length] = 8;
+            this.gHI = iArr4;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.gEl.length;
+        return this.gHI.length;
     }
 
     @Override // android.widget.Adapter
@@ -114,15 +114,15 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < 0 || i >= this.gEl.length) {
+        if (i < 0 || i >= this.gHI.length) {
             return -1L;
         }
-        return this.gEl[i];
+        return this.gHI[i];
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ut(this.gEl[i]) ? 0 : 1;
+        return uM(this.gHI[i]) ? 0 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -139,53 +139,53 @@ public class a extends BaseAdapter {
         AlaMasterOperationEntryItemView alaMasterOperationEntryItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView;
         AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView2;
-        if (i < 0 || i >= this.gEl.length) {
+        if (i < 0 || i >= this.gHI.length) {
             return null;
         }
-        int i2 = this.gEl[i];
-        int i3 = this.gEj[i];
-        if (ut(i2)) {
+        int i2 = this.gHI[i];
+        int i3 = this.gHG[i];
+        if (uM(i2)) {
             if (view instanceof AlaMasterOperationSwitchItemView) {
                 alaMasterOperationSwitchItemView2 = (AlaMasterOperationSwitchItemView) view;
             } else {
                 AlaMasterOperationSwitchItemView alaMasterOperationSwitchItemView3 = new AlaMasterOperationSwitchItemView(this.mContext, i2);
-                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(bUH(), bUI()));
+                alaMasterOperationSwitchItemView3.setLayoutParams(new AbsListView.LayoutParams(bWr(), bWs()));
                 alaMasterOperationSwitchItemView2 = alaMasterOperationSwitchItemView3;
             }
-            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, uu(i2), uv(i2));
-            alaMasterOperationSwitchItemView2.h(this.gEk[i]);
+            alaMasterOperationSwitchItemView2.setTextResIdAndOnIconIdAndOffIconId(i3, uN(i2), uO(i2));
+            alaMasterOperationSwitchItemView2.h(this.gHH[i]);
             alaMasterOperationSwitchItemView = alaMasterOperationSwitchItemView2;
         } else {
             if (view instanceof AlaMasterOperationEntryItemView) {
                 alaMasterOperationEntryItemView = (AlaMasterOperationEntryItemView) view;
             } else {
                 AlaMasterOperationEntryItemView alaMasterOperationEntryItemView2 = new AlaMasterOperationEntryItemView(this.mContext, i2);
-                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(bUH(), bUI()));
+                alaMasterOperationEntryItemView2.setLayoutParams(new AbsListView.LayoutParams(bWr(), bWs()));
                 alaMasterOperationEntryItemView = alaMasterOperationEntryItemView2;
             }
-            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, uw(i2));
+            alaMasterOperationEntryItemView.setTextResIdAndIconResId(i3, uP(i2));
             alaMasterOperationSwitchItemView = alaMasterOperationEntryItemView;
         }
-        alaMasterOperationSwitchItemView.setOnClickListener(this.evS);
+        alaMasterOperationSwitchItemView.setOnClickListener(this.exX);
         return alaMasterOperationSwitchItemView;
     }
 
-    private boolean ut(int i) {
+    private boolean uM(int i) {
         return i == 1 || i == 2 || i == 3 || i == 4;
     }
 
-    private int bUH() {
+    private int bWr() {
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            return this.gEg;
+            return this.gHD;
         }
         return -1;
     }
 
-    private int bUI() {
-        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? this.gEi : this.gEh;
+    private int bWs() {
+        return UtilHelper.getRealScreenOrientation(this.mContext) == 2 ? this.gHF : this.gHE;
     }
 
-    private int uu(int i) {
+    private int uN(int i) {
         if (i == 1) {
             return a.f.btn_camera_exchange_white;
         }
@@ -201,7 +201,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int uv(int i) {
+    private int uO(int i) {
         if (i == 1) {
             return a.f.btn_camera_exchange_white;
         }
@@ -217,7 +217,7 @@ public class a extends BaseAdapter {
         return 0;
     }
 
-    private int uw(int i) {
+    private int uP(int i) {
         if (i == 5) {
             return a.f.btn_live_admin;
         }
@@ -234,9 +234,9 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ux(int i) {
-        for (int i2 = 0; i2 < this.gEl.length; i2++) {
-            if (this.gEl[i2] == i) {
+    public int uQ(int i) {
+        for (int i2 = 0; i2 < this.gHI.length; i2++) {
+            if (this.gHI[i2] == i) {
                 return i2;
             }
         }
@@ -244,13 +244,13 @@ public class a extends BaseAdapter {
     }
 
     public void a(int i, short s) {
-        int ux = ux(i);
-        if (ux >= 0) {
-            this.gEk[ux] = s;
+        int uQ = uQ(i);
+        if (uQ >= 0) {
+            this.gHH[uQ] = s;
         }
     }
 
-    public void a(InterfaceC0635a interfaceC0635a) {
-        this.gEm = interfaceC0635a;
+    public void a(InterfaceC0632a interfaceC0632a) {
+        this.gHJ = interfaceC0632a;
     }
 }

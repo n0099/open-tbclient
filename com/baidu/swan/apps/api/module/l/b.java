@@ -7,17 +7,17 @@ import android.util.Pair;
 import com.baidu.swan.apps.ap.ak;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.swan.apps.api.a.d {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kg(String str) {
+    public com.baidu.swan.apps.api.c.b kz(String str) {
         if (DEBUG) {
             Log.d("Api-HandleException", "params = " + str);
         }
-        if (abL()) {
+        if (acu()) {
             com.baidu.swan.apps.console.c.e("Api-HandleException", "Api-HandleException does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-HandleException does not supported when app is invisible.");
         }
@@ -55,20 +55,20 @@ public class b extends com.baidu.swan.apps.api.a.d {
         }
         switch (c) {
             case 0:
-                return aC(jSONObject);
+                return aF(jSONObject);
             case 1:
-                return aB(jSONObject);
+                return aE(jSONObject);
             default:
                 return new com.baidu.swan.apps.api.c.b(202, "unsupported code");
         }
     }
 
-    private com.baidu.swan.apps.api.c.b aB(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aE(JSONObject jSONObject) {
         com.baidu.swan.apps.core.f.bd("data_init", "业务数据初始化异常");
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
-    private com.baidu.swan.apps.api.c.b aC(JSONObject jSONObject) {
+    private com.baidu.swan.apps.api.c.b aF(JSONObject jSONObject) {
         String optString = jSONObject.optString("data");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(202, "data is required");
@@ -78,7 +78,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             if (TextUtils.isEmpty(optString2)) {
                 return new com.baidu.swan.apps.api.c.b(202, "path is required");
             }
-            if (ak.sL(optString2) && ak.aFg()) {
+            if (ak.te(optString2) && ak.aFQ()) {
                 com.baidu.swan.apps.core.f.bd("skeleton", "5秒内未触发骨架屏移除");
             } else if (DEBUG) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);

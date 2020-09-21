@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BdToast {
     private static SoftReference<Toast> mToastStatic;
     private static HashMap<DefaultIcon, Integer> sDefaultIconMap = new HashMap<>(2);
@@ -29,7 +29,7 @@ public class BdToast {
     private int offsetY = 0;
     private int paddingHorizontal = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum DefaultIcon {
         SUCCESS,
         FAILURE,

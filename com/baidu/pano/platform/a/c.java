@@ -3,7 +3,7 @@ package com.baidu.pano.platform.a;
 import android.os.Process;
 import com.baidu.pano.platform.a.b;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends Thread {
     private static final boolean a = w.b;
     private final BlockingQueue<n<?>> b;

@@ -162,8 +162,15 @@ public class ConnectManager {
                 case 13:
                     sb.append("4g");
                     break;
+                case 16:
+                case 17:
+                case 18:
+                case 19:
                 default:
                     sb.append(activeNetworkInfo.getTypeName());
+                    break;
+                case 20:
+                    sb.append("5g");
                     break;
             }
             return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();

@@ -10,7 +10,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class i {
     private static i b;
     private final Context a;

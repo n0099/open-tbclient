@@ -7,7 +7,7 @@ import com.baidu.tieba.R;
 public class i {
     private static int topMargin = 0;
 
-    public static int dX(Context context) {
+    public static int dW(Context context) {
         return s(context, 0);
     }
 

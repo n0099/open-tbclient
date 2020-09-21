@@ -7,7 +7,7 @@ import android.view.SurfaceView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class al implements ad {
     private static final Semaphore e = new Semaphore(1);
     protected boolean b;
@@ -19,7 +19,7 @@ public class al implements ad {
     protected ak a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends Thread {
         private WeakReference<al> b;
         private boolean d;

@@ -2,7 +2,7 @@ package com.baidu.location.e;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class f {
     public String h = null;
     public int i = 1;

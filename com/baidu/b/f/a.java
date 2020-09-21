@@ -1,7 +1,7 @@
 package com.baidu.b.f;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private String a;
     private boolean b;

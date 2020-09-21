@@ -1,20 +1,20 @@
 package com.baidu.tieba.enterForum.recommend.b;
 
 import tbclient.RecommendForumInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
     public String authen;
     public String avatar;
-    public boolean eaw;
+    public boolean ecG;
     public String extra;
     public long forumId;
     public String forumName;
-    public int hyD;
-    public String hyE;
-    public boolean hyF;
-    public String hyG;
-    public String hyH;
-    public int hyI;
+    public int hFF;
+    public String hFG;
+    public boolean hFH;
+    public String hFI;
+    public String hFJ;
+    public int hFK;
     public int memberCount;
     public String slogan;
     public String source;
@@ -24,18 +24,18 @@ public class b {
         this.avatar = recommendForumInfo.avatar;
         this.forumId = recommendForumInfo.forum_id.longValue();
         this.forumName = recommendForumInfo.forum_name;
-        this.eaw = recommendForumInfo.is_like.intValue() == 1;
+        this.ecG = recommendForumInfo.is_like.intValue() == 1;
         this.memberCount = recommendForumInfo.member_count.intValue();
         this.threadCount = recommendForumInfo.thread_count.intValue();
         this.slogan = recommendForumInfo.slogan;
-        this.hyD = recommendForumInfo.forum_type.intValue();
+        this.hFF = recommendForumInfo.forum_type.intValue();
         this.authen = recommendForumInfo.authen;
-        this.hyE = recommendForumInfo.recom_reason;
-        this.hyF = recommendForumInfo.is_brand_forum.intValue() == 1;
-        this.hyG = recommendForumInfo.hot_text;
-        this.hyH = recommendForumInfo.abtest_tag;
+        this.hFG = recommendForumInfo.recom_reason;
+        this.hFH = recommendForumInfo.is_brand_forum.intValue() == 1;
+        this.hFI = recommendForumInfo.hot_text;
+        this.hFJ = recommendForumInfo.abtest_tag;
         this.source = recommendForumInfo.source;
         this.extra = recommendForumInfo.extra;
-        this.hyI = 1;
+        this.hFK = 1;
     }
 }

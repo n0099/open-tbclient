@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends c {
-    public ArrayList<com.baidu.swan.apps.w.a.a.c> cxy;
-    public int[] cxz = {0, 0, 0, 0};
+    public int[] czA = {0, 0, 0, 0};
+    public ArrayList<com.baidu.swan.apps.w.a.a.c> czz;
 
     @Override // com.baidu.swan.apps.w.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -19,14 +19,14 @@ public class b extends c {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
                 int length = jSONArray2.length();
-                this.cxy = new ArrayList<>(length);
+                this.czz = new ArrayList<>(length);
                 for (int i = 0; i < length; i++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
                     if (jSONObject2 != null) {
                         com.baidu.swan.apps.w.a.a.c cVar = new com.baidu.swan.apps.w.a.a.c();
                         cVar.parseFromJson(jSONObject2);
                         if (cVar.isValid()) {
-                            this.cxy.add(cVar);
+                            this.czz.add(cVar);
                         }
                     }
                 }
@@ -34,7 +34,7 @@ public class b extends c {
             if (jSONObject.has("padding") && (jSONArray = jSONObject.getJSONArray("padding")) != null && jSONArray.length() > 0) {
                 int min = Math.min(jSONArray.length(), 4);
                 for (int i2 = 0; i2 < min; i2++) {
-                    this.cxz[i2] = ah.H(jSONArray.optInt(i2));
+                    this.czA[i2] = ah.H(jSONArray.optInt(i2));
                 }
             }
         }
@@ -42,6 +42,6 @@ public class b extends c {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.caY) || TextUtils.isEmpty(this.caX) || this.cxy == null || this.cxy.size() <= 0) ? false : true;
+        return (TextUtils.isEmpty(this.cda) || TextUtils.isEmpty(this.ccZ) || this.czz == null || this.czz.size() <= 0) ? false : true;
     }
 }

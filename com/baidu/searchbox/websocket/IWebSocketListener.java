@@ -5,7 +5,7 @@ import java.util.Map;
 import kotlin.h;
 import org.json.JSONObject;
 @h
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface IWebSocketListener {
     void onClose(JSONObject jSONObject);
 

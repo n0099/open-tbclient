@@ -17,7 +17,7 @@ import com.baidu.live.tieba.view.TabTextView;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public static final int TIP_POS_TYPE_CENTER = 0;
     public static final int TIP_POS_TYPE_TOP = 1;

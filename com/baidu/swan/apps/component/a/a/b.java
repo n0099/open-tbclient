@@ -7,12 +7,12 @@ import com.baidu.swan.apps.ap.ah;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.swan.apps.component.a.c.b {
-    public int cav;
-    public int caw;
-    public String cax;
-    public boolean cay;
+    public boolean ccA;
+    public int ccx;
+    public int ccy;
+    public String ccz;
     protected int mViewHeight;
     public int maxLength;
     public int selectionEnd;
@@ -20,7 +20,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
 
     public b(String str, @NonNull String str2) {
         super(str, str2);
-        this.cax = "";
+        this.ccz = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -28,39 +28,39 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.maxLength = jSONObject.optInt("maxLength");
-            this.cav = aI(jSONObject);
-            this.caw = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+            this.ccx = aL(jSONObject);
+            this.ccy = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
             this.selectionStart = jSONObject.optInt("selectionStart");
             this.selectionEnd = jSONObject.optInt("selectionEnd");
-            this.cax = jSONObject.optString("confirmType");
-            this.cay = jSONObject.optInt("password") == 1;
-            acU();
+            this.ccz = jSONObject.optString("confirmType");
+            this.ccA = jSONObject.optInt("password") == 1;
+            adD();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
-    public void aH(JSONObject jSONObject) {
-        super.aH(jSONObject);
+    public void aK(JSONObject jSONObject) {
+        super.aK(jSONObject);
         if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-            this.cav = aI(jSONObject);
+            this.ccx = aL(jSONObject);
         }
         this.maxLength = jSONObject.optInt("maxLength", this.maxLength);
-        this.caw = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.caw);
+        this.ccy = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.ccy);
         this.selectionStart = jSONObject.optInt("selectionStart", this.selectionStart);
         this.selectionEnd = jSONObject.optInt("selectionEnd", this.selectionEnd);
-        this.cax = jSONObject.optString("confirmType", this.cax);
-        this.cay = jSONObject.optInt("password", this.cay ? 1 : 0) == 1;
-        acU();
+        this.ccz = jSONObject.optString("confirmType", this.ccz);
+        this.ccA = jSONObject.optInt("password", this.ccA ? 1 : 0) == 1;
+        adD();
     }
 
-    private void acU() {
-        if (this.caI != null) {
-            this.textColor = SwanAppConfigData.fo(this.caI.optString("color"));
-            this.caB = true;
+    private void adD() {
+        if (this.ccK != null) {
+            this.textColor = SwanAppConfigData.fq(this.ccK.optString("color"));
+            this.ccD = true;
         }
     }
 
-    private int aI(@NonNull JSONObject jSONObject) {
+    private int aL(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("cursorSpacing");
         if (TextUtils.isEmpty(optString)) {
             return 0;
@@ -84,7 +84,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         this.selectionEnd = i2;
     }
 
-    public void gE(int i) {
+    public void gN(int i) {
         this.mViewHeight = i;
     }
 }

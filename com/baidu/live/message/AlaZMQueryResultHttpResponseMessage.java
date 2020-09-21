@@ -3,7 +3,7 @@ package com.baidu.live.message;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaZMQueryResultHttpResponseMessage extends JsonHttpResponsedMessage {
     private String mMsg;
     private int mResult;

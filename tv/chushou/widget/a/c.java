@@ -13,35 +13,35 @@ import java.lang.ref.SoftReference;
 import tv.chushou.widget.a.b;
 /* loaded from: classes6.dex */
 public class c {
-    private static volatile Resources oMN;
-    private static SoftReference<tv.chushou.widget.a.a.a> oMO;
+    private static volatile Resources oWp;
+    private static SoftReference<tv.chushou.widget.a.a.a> oWq;
 
-    public static void b(Resources resources) {
-        oMN = resources;
+    public static void d(Resources resources) {
+        oWp = resources;
     }
 
     public static Resources getResources() {
-        return oMN;
+        return oWp;
     }
 
     public static String getString(@StringRes int i) {
-        return oMN.getString(i);
+        return oWp.getString(i);
     }
 
     public static String getString(@StringRes int i, Object... objArr) {
-        return oMN.getString(i, objArr);
+        return oWp.getString(i, objArr);
     }
 
     public static int getColor(@ColorRes int i) {
-        return oMN.getColor(i);
+        return oWp.getColor(i);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
-        return oMN.getDrawable(i);
+        return oWp.getDrawable(i);
     }
 
-    public static int Ov(@DimenRes int i) {
-        return oMN.getDimensionPixelSize(i);
+    public static int Pa(@DimenRes int i) {
+        return oWp.getDimensionPixelSize(i);
     }
 
     public static int H(float f) {
@@ -53,27 +53,27 @@ public class c {
     }
 
     @DrawableRes
-    public static int WP(String str) {
+    public static int Xr(String str) {
         return "female".equals(str) ? b.c.commonres_female_big : b.c.commonres_male_big;
     }
 
     @DrawableRes
-    public static int WQ(String str) {
+    public static int Xs(String str) {
         return "female".equals(str) ? b.c.commonres_female_no_border : b.c.commonres_male_no_border;
     }
 
     @DrawableRes
-    public static int emi() {
-        return b.C1006b.commonres_placeholder_bg;
+    public static int eqg() {
+        return b.C1003b.commonres_placeholder_bg;
     }
 
     @NonNull
-    public static Drawable emj() {
-        if (oMO != null && oMO.get() != null) {
-            return oMO.get().getConstantState().newDrawable();
+    public static Drawable eqh() {
+        if (oWq != null && oWq.get() != null) {
+            return oWq.get().getConstantState().newDrawable();
         }
-        tv.chushou.widget.a.a.a aVar = new tv.chushou.widget.a.a.a(BitmapFactory.decodeResource(getResources(), b.c.commonres_placeholder_icon), getColor(b.C1006b.commonres_placeholder_bg));
-        oMO = new SoftReference<>(aVar);
+        tv.chushou.widget.a.a.a aVar = new tv.chushou.widget.a.a.a(BitmapFactory.decodeResource(getResources(), b.c.commonres_placeholder_icon), getColor(b.C1003b.commonres_placeholder_bg));
+        oWq = new SoftReference<>(aVar);
         return aVar;
     }
 }

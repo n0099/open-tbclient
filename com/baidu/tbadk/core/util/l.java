@@ -10,17 +10,17 @@ public class l {
             return null;
         }
         aq aqVar = new aq(str);
-        aqVar.dD("tid", bwVar.getTid());
+        aqVar.dF("tid", bwVar.getTid());
         aqVar.u("fid", bwVar.getFid());
-        aqVar.dD("resource_id", str2);
+        aqVar.dF("resource_id", str2);
         return aqVar;
     }
 
-    private static int u(bw bwVar) {
-        if (bwVar.getType() == bw.ebg || bwVar.bgA()) {
+    private static int v(bw bwVar) {
+        if (bwVar.getType() == bw.edq || bwVar.bhu()) {
             return 2;
         }
-        if (bwVar.bdm() || bwVar.bdn()) {
+        if (bwVar.beg() || bwVar.beh()) {
             return 3;
         }
         return 1;
@@ -32,21 +32,21 @@ public class l {
         }
         aq a = a("c13629", bwVar, str);
         a.u("uid", TbadkApplication.getCurrentAccountId());
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.ai("obj_source", bwVar.threadType);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
-        a.ai("obj_type", bwVar.bfK());
-        if (bwVar.bgh() != null) {
-            a.ai("obj_name", bwVar.bgh().mfW ? 1 : 0);
+        a.ai("obj_param5", v(bwVar));
+        a.ai("obj_type", bwVar.bgE());
+        if (bwVar.bhb() != null) {
+            a.ai("obj_name", bwVar.bhb().mpv ? 1 : 0);
         }
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
         }
-        if (bwVar.beE() != null) {
-            a.ai(TiebaInitialize.Params.AB_TYPE, bwVar.beE().getIsLike() ? 1 : 0);
+        if (bwVar.bfy() != null) {
+            a.ai(TiebaInitialize.Params.AB_TYPE, bwVar.bfy().getIsLike() ? 1 : 0);
         }
-        a.ai("is_full", bwVar.bgu() ? 1 : 0);
+        a.ai("is_full", bwVar.bho() ? 1 : 0);
         return a;
     }
 
@@ -55,22 +55,22 @@ public class l {
             return null;
         }
         aq a = a("c13628", bwVar, str);
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.ai("obj_source", bwVar.threadType);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
-        a.dD("obj_name", bwVar.mRecomAbTag);
+        a.ai("obj_param5", v(bwVar));
+        a.dF("obj_name", bwVar.mRecomAbTag);
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
-            a.dD("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
         }
-        if (bwVar.edG > 0) {
+        if (bwVar.efQ > 0) {
             a.ai("midpageflag", 1);
         } else {
             a.ai("midpageflag", 0);
         }
-        if (bwVar.beE() != null) {
-            a.ai(TiebaInitialize.Params.AB_TYPE, bwVar.beE().getIsLike() ? 1 : 0);
+        if (bwVar.bfy() != null) {
+            a.ai(TiebaInitialize.Params.AB_TYPE, bwVar.bfy().getIsLike() ? 1 : 0);
         }
         return a;
     }
@@ -80,21 +80,21 @@ public class l {
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.getType() == bw.ebs) {
+        if (bwVar.getType() == bw.edC) {
             a = a("c13636", bwVar, str);
             if (bwVar.getBaijiahaoData() != null) {
-                a.dD("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+                a.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
             }
         } else {
             a = a("c13633", bwVar, str);
-            a.ai("obj_type", bwVar.bfK());
+            a.ai("obj_type", bwVar.bgE());
         }
         a.u("uid", TbadkApplication.getCurrentAccountId());
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
+        a.ai("obj_param5", v(bwVar));
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
             return a;
         }
         return a;
@@ -105,12 +105,12 @@ public class l {
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.getType() == bw.ebs) {
+        if (bwVar.getType() == bw.edC) {
             aq a = a("c13637", bwVar, str);
             if (bwVar.getBaijiahaoData() != null) {
-                a.dD("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+                a.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
             }
-            if (bwVar.edG > 0) {
+            if (bwVar.efQ > 0) {
                 a.ai("midpageflag", 1);
                 aqVar = a;
             } else {
@@ -119,16 +119,16 @@ public class l {
             }
         } else {
             aq a2 = a("c13631", bwVar, str);
-            a2.ai("obj_type", bwVar.bfK());
-            a2.ai("is_full", bwVar.bgu() ? 1 : 0);
+            a2.ai("obj_type", bwVar.bgE());
+            a2.ai("is_full", bwVar.bho() ? 1 : 0);
             aqVar = a2;
         }
         aqVar.u("uid", TbadkApplication.getCurrentAccountId());
-        aqVar.ai("obj_locate", bwVar.dZf);
+        aqVar.ai("obj_locate", bwVar.ebp);
         aqVar.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        aqVar.ai("obj_param5", u(bwVar));
+        aqVar.ai("obj_param5", v(bwVar));
         if (bwVar.getBaijiahaoData() != null) {
-            aqVar.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            aqVar.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
             return aqVar;
         }
         return aqVar;
@@ -140,14 +140,14 @@ public class l {
         }
         aq a = a("c13632", bwVar, str);
         a.u("uid", TbadkApplication.getCurrentAccountId());
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
-        a.ai("obj_type", bwVar.bfK());
+        a.ai("obj_param5", v(bwVar));
+        a.ai("obj_type", bwVar.bgE());
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
         }
-        a.ai("is_full", bwVar.bgu() ? 1 : 0);
+        a.ai("is_full", bwVar.bho() ? 1 : 0);
         return a;
     }
 
@@ -157,12 +157,12 @@ public class l {
         }
         aq a = a("c13638", bwVar, str);
         a.u("uid", TbadkApplication.getCurrentAccountId());
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
+        a.ai("obj_param5", v(bwVar));
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
-            a.dD("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
             return a;
         }
         return a;
@@ -173,22 +173,22 @@ public class l {
         if (bwVar == null) {
             return null;
         }
-        if (bwVar.getType() == bw.ebs) {
+        if (bwVar.getType() == bw.edC) {
             a = a("c13639", bwVar, str);
             a.ai("obj_type", 1);
             if (bwVar.getBaijiahaoData() != null) {
-                a.dD("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
+                a.dF("obj_param6", bwVar.getBaijiahaoData().oriUgcVid);
             }
         } else {
             a = a("c13634", bwVar, str);
-            a.ai("obj_type", bwVar.bfK());
+            a.ai("obj_type", bwVar.bgE());
         }
         a.u("uid", TbadkApplication.getCurrentAccountId());
-        a.ai("obj_locate", bwVar.dZf);
+        a.ai("obj_locate", bwVar.ebp);
         a.u(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-        a.ai("obj_param5", u(bwVar));
+        a.ai("obj_param5", v(bwVar));
         if (bwVar.getBaijiahaoData() != null) {
-            a.dD("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
+            a.dF("obj_param4", bwVar.getBaijiahaoData().oriUgcNid);
             return a;
         }
         return a;
@@ -207,9 +207,9 @@ public class l {
             aqVar.ai(TiebaInitialize.Params.OBJ_PARAM2, 1);
         }
         aqVar.u("uid", TbadkApplication.getCurrentAccountId());
-        aqVar.dD("tid", arVar.getTid());
-        aqVar.dD("fid", arVar.getFid());
-        aqVar.dD("resource_id", str);
+        aqVar.dF("tid", arVar.getTid());
+        aqVar.dF("fid", arVar.getFid());
+        aqVar.dF("resource_id", str);
         return aqVar;
     }
 }

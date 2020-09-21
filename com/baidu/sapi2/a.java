@@ -5,11 +5,11 @@ import android.app.Application;
 import android.os.Bundle;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     private Stack<Activity> a;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     private static class b {
         public static a a = new a();
 

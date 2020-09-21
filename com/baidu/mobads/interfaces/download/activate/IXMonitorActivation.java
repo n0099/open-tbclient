@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces.download.activate;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface IXMonitorActivation {
     void addAppInfoForMonitor(IXAppInfo iXAppInfo);
 

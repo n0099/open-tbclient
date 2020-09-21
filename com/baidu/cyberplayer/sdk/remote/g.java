@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class g {
     private static volatile g a;
     private c b;
@@ -64,7 +64,7 @@ public class g {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class a extends c.a {
         RemotePlayerService a;
 
@@ -107,7 +107,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
     }

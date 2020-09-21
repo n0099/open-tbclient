@@ -19,9 +19,9 @@ import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private com.baidu.swan.apps.af.a cKh;
+    private com.baidu.swan.apps.af.a cMh;
     private Context mContext;
 
     public c(Context context) {
@@ -30,11 +30,11 @@ public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public c(Context context, com.baidu.swan.apps.af.a aVar) {
         this.mContext = context;
-        this.cKh = aVar;
+        this.cMh = aVar;
     }
 
     public void b(com.baidu.swan.apps.af.a aVar) {
-        this.cKh = aVar;
+        this.cMh = aVar;
         notifyDataSetChanged();
     }
 
@@ -49,14 +49,14 @@ public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.cKh != null) {
+        if (this.cMh != null) {
             if (viewHolder instanceof b) {
                 int i2 = i - 1;
                 if (i2 >= 0) {
-                    ((b) viewHolder).a(this.mContext, this.cKh.cKd.get(i2), i);
+                    ((b) viewHolder).a(this.mContext, this.cMh.cMd.get(i2), i);
                 }
             } else if (viewHolder instanceof a) {
-                ((a) viewHolder).Y(this.mContext, this.cKh.cKe);
+                ((a) viewHolder).ab(this.mContext, this.cMh.cMe);
             }
         }
     }
@@ -68,33 +68,33 @@ public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cKh == null) {
+        if (this.cMh == null) {
             return 0;
         }
-        return this.cKh.cKd.size() + 1;
+        return this.cMh.cMd.size() + 1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     static class b extends RecyclerView.ViewHolder {
         b(View view) {
             super(view);
         }
 
-        void a(final Context context, final a.C0333a c0333a, final int i) {
-            if (c0333a != null) {
+        void a(final Context context, final a.C0328a c0328a, final int i) {
+            if (c0328a != null) {
                 ((RelativeLayout) this.itemView.findViewById(a.f.related_swan_app)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.af.c.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (!TextUtils.isEmpty(c0333a.cKf)) {
-                            SchemeRouter.invoke(context, c0333a.cKf);
+                        if (!TextUtils.isEmpty(c0328a.cMf)) {
+                            SchemeRouter.invoke(context, c0328a.cMf);
                             c.H("aboutrelated", String.valueOf(i), "click");
                         }
                     }
                 });
                 final SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.itemView.findViewById(a.f.swan_app_icon);
-                s.a(c0333a.iconUrl, new s.a() { // from class: com.baidu.swan.apps.af.c.b.2
+                s.a(c0328a.iconUrl, new s.a() { // from class: com.baidu.swan.apps.af.c.b.2
                     @Override // com.baidu.swan.apps.ap.s.a
-                    public void h(String str, Bitmap bitmap) {
+                    public void g(String str, Bitmap bitmap) {
                         if (bitmap == null) {
                             swanAppRoundedImageView.setImageDrawable(context.getResources().getDrawable(a.e.aiapps_default_grey_icon));
                         } else {
@@ -102,18 +102,18 @@ public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         }
                     }
                 });
-                ((TextView) this.itemView.findViewById(a.f.swan_app_name)).setText(c0333a.appName);
+                ((TextView) this.itemView.findViewById(a.f.swan_app_name)).setText(c0328a.appName);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     static class a extends RecyclerView.ViewHolder {
         public a(View view) {
             super(view);
         }
 
-        void Y(final Context context, final String str) {
+        void ab(final Context context, final String str) {
             TextView textView = (TextView) this.itemView.findViewById(a.f.more_relate_swan_app);
             if (TextUtils.isEmpty(str)) {
                 textView.setVisibility(8);
@@ -141,12 +141,12 @@ public class c extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (!TextUtils.isEmpty(str3)) {
                 fVar.mType = str3;
             }
-            b.a azM = d.azE().azA().azM();
-            fVar.mFrom = h.jv(d.azE().XP());
-            fVar.mAppId = azM.getAppId();
-            fVar.mSource = azM.aqN();
-            fVar.bO(h.rq(azM.aqP()));
-            fVar.rz(azM.aqT().getString("ubc"));
+            b.a aAv = d.aAn().aAj().aAv();
+            fVar.mFrom = h.jG(d.aAn().Yy());
+            fVar.mAppId = aAv.getAppId();
+            fVar.mSource = aAv.arx();
+            fVar.bR(h.rJ(aAv.arz()));
+            fVar.rS(aAv.arD().getString("ubc"));
             com.baidu.swan.apps.statistic.d.b(fVar);
         }
     }

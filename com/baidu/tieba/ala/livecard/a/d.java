@@ -17,21 +17,21 @@ import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.tieba.card.m;
 /* loaded from: classes4.dex */
 public class d implements View.OnClickListener {
-    private bw afL;
-    private final View.OnClickListener aiT = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
+    private bw agf;
+    private final View.OnClickListener ajn = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.gjh != null) {
-                d.this.gjh.d(view, d.this.afL);
+            if (d.this.gmo != null) {
+                d.this.gmo.d(view, d.this.agf);
             }
         }
     };
-    public RelativeLayout gjc;
-    public ThreadUserInfoLayout gjd;
-    public ThreadCommentAndPraiseInfoLayout gje;
-    public View gjf;
-    public AlaVideoContainer gjg;
-    private com.baidu.tieba.ala.livecard.vc.c gjh;
+    public RelativeLayout gmj;
+    public ThreadUserInfoLayout gmk;
+    public ThreadCommentAndPraiseInfoLayout gml;
+    public View gmm;
+    public AlaVideoContainer gmn;
+    private com.baidu.tieba.ala.livecard.vc.c gmo;
     public View mDivider;
     private String mForumName;
     public TextView mTextTitle;
@@ -39,18 +39,18 @@ public class d implements View.OnClickListener {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.gjc = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.gjd = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.gjd.setFrom(3);
+        this.gmj = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.gmk = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.gmk.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.gjg = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.gjf = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.gje = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.gmn = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.gmm = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.gml = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
         this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.gjc.setOnClickListener(this);
-        this.gje.setOnClickListener(this);
-        this.gje.getCommentContainer().setOnClickListener(this);
-        this.gjg.setOnVideoClickListener(this);
+        this.gmj.setOnClickListener(this);
+        this.gml.setOnClickListener(this);
+        this.gml.getCommentContainer().setOnClickListener(this);
+        this.gmn.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -58,78 +58,78 @@ public class d implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.afL != null && this.afL.beE() != null) {
-            k(this.afL, this.mForumName);
+        if (this.agf != null && this.agf.bfy() != null) {
+            k(this.agf, this.mForumName);
         }
     }
 
     public void k(bw bwVar, String str) {
-        if (bwVar != null && bwVar.beE() != null) {
-            this.afL = bwVar;
+        if (bwVar != null && bwVar.bfy() != null) {
+            this.agf = bwVar;
             this.mForumName = str;
-            this.gjc.setVisibility(0);
-            this.gjd.setData(bwVar);
-            if (this.gjd.getHeaderImg() != null) {
-                this.gjd.getHeaderImg().setData(bwVar);
+            this.gmj.setVisibility(0);
+            this.gmk.setData(bwVar);
+            if (this.gmk.getHeaderImg() != null) {
+                this.gmk.getHeaderImg().setData(bwVar);
             }
-            this.gjd.setUserAfterClickListener(this.aiT);
+            this.gmk.setUserAfterClickListener(this.ajn);
             bwVar.z(false, true);
-            this.mTextTitle.setText(bwVar.bfo());
-            this.gjg.getController().a(bwVar, str, "", false);
-            this.gjg.getController().startPlayAnimation();
-            this.gje.setReplyTimeVisible(false);
-            this.gje.setNeedAddReplyIcon(true);
-            this.gje.setIsBarViewVisible(false);
-            this.gje.setCommentNumEnable(false);
-            this.gje.setOnClickListener(this);
-            this.gje.setLiveShareEnable(false);
-            this.gje.setShareVisible(true);
-            this.gje.setShowPraiseNum(true);
-            this.gje.setNeedAddPraiseIcon(true);
-            this.gje.setFrom(2);
-            if (this.gje.setData(bwVar)) {
-                this.gjf.setVisibility(8);
+            this.mTextTitle.setText(bwVar.bgi());
+            this.gmn.getController().a(bwVar, str, "", false);
+            this.gmn.getController().startPlayAnimation();
+            this.gml.setReplyTimeVisible(false);
+            this.gml.setNeedAddReplyIcon(true);
+            this.gml.setIsBarViewVisible(false);
+            this.gml.setCommentNumEnable(false);
+            this.gml.setOnClickListener(this);
+            this.gml.setLiveShareEnable(false);
+            this.gml.setShareVisible(true);
+            this.gml.setShowPraiseNum(true);
+            this.gml.setNeedAddPraiseIcon(true);
+            this.gml.setFrom(2);
+            if (this.gml.setData(bwVar)) {
+                this.gmm.setVisibility(8);
             } else {
-                this.gjf.setVisibility(0);
+                this.gmm.setVisibility(0);
             }
-            T(bwVar);
+            U(bwVar);
         }
     }
 
-    public void p(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.gje != null && this.gjd != null) {
-            this.gjd.setPageUniqueId(bdUniqueId);
+    public void o(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null && this.gml != null && this.gmk != null) {
+            this.gmk.setPageUniqueId(bdUniqueId);
         }
     }
 
-    private void T(bw bwVar) {
-        this.gje.onChangeSkinType();
-        this.gjd.onChangeSkinType();
-        this.gjg.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.gjc.setBackgroundDrawable(ap.nT(R.color.cp_bg_line_e));
+    private void U(bw bwVar) {
+        this.gml.onChangeSkinType();
+        this.gmk.onChangeSkinType();
+        this.gmn.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.gmj.setBackgroundDrawable(ap.of(R.color.cp_bg_line_e));
         ap.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (bwVar != null && m.Ha(bwVar.getId())) {
-            ap.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
+        if (bwVar != null && m.Hx(bwVar.getId())) {
+            ap.setViewTextColor(this.mTextTitle, R.color.cp_cont_d);
         } else {
-            ap.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
+            ap.setViewTextColor(this.mTextTitle, R.color.cp_cont_b);
         }
     }
 
     public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.gjh = cVar;
+        this.gmo = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gjc || view == this.gje.getCommentContainer()) {
-            if (this.afL != null) {
-                m.GZ(this.afL.getId());
+        if (view == this.gmj || view == this.gml.getCommentContainer()) {
+            if (this.agf != null) {
+                m.Hw(this.agf.getId());
             }
-            if (this.gjh != null) {
-                this.gjh.c(view, this.afL);
+            if (this.gmo != null) {
+                this.gmo.c(view, this.agf);
             }
-        } else if (view.getId() == R.id.video_container && this.gjh != null) {
-            this.gjh.c(view, this.afL);
+        } else if (view.getId() == R.id.video_container && this.gmo != null) {
+            this.gmo.c(view, this.agf);
         }
     }
 }

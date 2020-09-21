@@ -12,32 +12,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow hwn;
-    private boolean itk;
+    private PopupWindow hDr;
+    private boolean iAG;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int itj = R.string.attention_post_update_tip;
+    private int iAF = R.string.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable itl = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable iAH = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int dimens = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds64);
-                View h = a.this.h(pageActivity, a.this.itj);
+                View g = a.this.g(pageActivity, a.this.iAF);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds32);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(pageActivity, R.dimen.ds16) + (iArr[1] - dimens);
-                a.this.hwn = new PopupWindow(h, -2, dimens);
-                a.this.hwn.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
+                a.this.hDr = new PopupWindow(g, -2, dimens);
+                a.this.hDr.showAtLocation(a.this.mAnchor, 53, dimens2, dimens3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.hwn != null) {
-                            a.this.csS();
+                        if (a.this.hDr != null) {
+                            a.this.cwj();
                         }
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
@@ -47,30 +47,30 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.itk = z;
+        this.iAG = z;
     }
 
-    public void cm(View view) {
+    public void cv(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.itk) {
-                this.itj = R.string.attention_post_update_tip;
+            if (this.iAG) {
+                this.iAF = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.bik().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.bjf().getInt(str, 0);
                 if (i >= 3) {
-                    this.itk = false;
+                    this.iAG = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.bik().putInt(str, i + 1);
-                this.itk = false;
-                this.mHandler.postDelayed(this.itl, 500L);
+                com.baidu.tbadk.core.sharedPref.b.bjf().putInt(str, i + 1);
+                this.iAG = false;
+                this.mHandler.postDelayed(this.iAH, 500L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public View h(Activity activity, int i) {
+    public View g(Activity activity, int i) {
         TextView textView = new TextView(activity);
         int dimens = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.ds20);
         textView.setPadding(dimens, 0 - activity.getResources().getDimensionPixelSize(R.dimen.ds12), dimens, 0);
@@ -87,18 +87,18 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        csS();
+        cwj();
     }
 
-    public void csS() {
-        if (this.hwn != null) {
-            this.hwn.dismiss();
-            this.hwn = null;
+    public void cwj() {
+        if (this.hDr != null) {
+            this.hDr.dismiss();
+            this.hDr = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        csS();
+        cwj();
     }
 }

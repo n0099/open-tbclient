@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AdSettings {
     private static String c;
     private static String d;
@@ -19,8 +19,8 @@ public class AdSettings {
     private static HashSet<String> a = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
-    private static HashSet<String> bCY = new HashSet<>();
-    private static JSONArray bCZ = new JSONArray();
+    private static HashSet<String> k = new HashSet<>();
+    private static JSONArray l = new JSONArray();
     private static JSONObject m = new JSONObject();
 
     public static void setSupportHttps(boolean z) {
@@ -36,7 +36,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         UNKNOWN_PROTOCOL_TYPE(0),
         HTTP_PROTOCOL_TYPE(1),
@@ -54,7 +54,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum d {
         MALE(0),
         FEMALE(1);
@@ -71,7 +71,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -93,7 +93,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -206,13 +206,13 @@ public class AdSettings {
     @Deprecated
     public static void setHob(String[] strArr) {
         for (String str : strArr) {
-            bCY.add(str);
+            k.add(str);
         }
     }
 
     @Deprecated
     public static void setHob(List<String> list) {
-        bCY.addAll(list);
+        k.addAll(list);
     }
 
     @Deprecated

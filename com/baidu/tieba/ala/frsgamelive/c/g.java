@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h fYM;
+    private h gca;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.fYM = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.fYM.getView());
+        this.gca = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.gca.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fYM != null) {
-            this.fYM.onChangeSkinType(tbPageContext, i);
+        if (this.gca != null) {
+            this.gca.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    public void c(com.baidu.tieba.ala.e eVar) {
-        if (this.fYM != null) {
-            this.fYM.d(eVar);
+    public void c(com.baidu.tieba.ala.f fVar) {
+        if (this.gca != null) {
+            this.gca.d(fVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dUW != null && this.fYM != null) {
-            this.fYM.a(cVar.dUW);
+        if (cVar != null && cVar.dXg != null && this.gca != null) {
+            this.gca.a(cVar.dXg);
         }
     }
 
@@ -53,11 +53,11 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public g fYN;
+        public g gcb;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.fYN = gVar;
+            this.gcb = gVar;
         }
     }
 }

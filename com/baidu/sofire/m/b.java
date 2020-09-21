@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class b {
     private Context a;
 

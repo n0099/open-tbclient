@@ -8,7 +8,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class ConstrastLoadingView extends LinearLayout {
     private ImageView a;
     private ImageView b;

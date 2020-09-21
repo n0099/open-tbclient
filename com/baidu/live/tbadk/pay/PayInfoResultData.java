@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PayInfoResultData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;

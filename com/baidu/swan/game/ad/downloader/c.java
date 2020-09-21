@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static boolean a(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull com.baidu.swan.apps.adlanding.download.a.a aVar) {
         Bundle bundle = new Bundle();
@@ -16,9 +16,9 @@ public class c {
             str = jSONObject.toString();
         }
         bundle.putString(PushConstants.PARAMS, str);
-        com.baidu.swan.apps.process.messaging.client.a axC = com.baidu.swan.apps.process.messaging.client.a.axC();
-        if (axC != null) {
-            axC.b(bundle, b.class, new d(aVar, swanAppDownloadType));
+        com.baidu.swan.apps.process.messaging.client.a ayl = com.baidu.swan.apps.process.messaging.client.a.ayl();
+        if (ayl != null) {
+            ayl.b(bundle, b.class, new d(aVar, swanAppDownloadType));
             return true;
         }
         return true;

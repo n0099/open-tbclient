@@ -6,16 +6,16 @@ import java.util.List;
 import tbclient.GetAddressList.DataRes;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private List<e> frx;
-    private List<e> fry;
+    private List<e> fuJ;
+    private List<e> fuK;
 
     public List<e> getAddressList() {
-        if (this.frx == null) {
-            this.frx = new ArrayList();
+        if (this.fuJ == null) {
+            this.fuJ = new ArrayList();
         }
-        return this.frx;
+        return this.fuJ;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.fry = new ArrayList();
+            this.fuK = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     e eVar = new e();
                     eVar.a(robotslist);
-                    this.fry.add(eVar);
+                    this.fuK.add(eVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.frx = new ArrayList();
+            this.fuJ = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     eVar2.a(listdata);
                     if (eVar2.getContacts() != null) {
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar : eVar2.getContacts()) {
-                            if (a(this.fry, aVar)) {
+                            if (a(this.fuK, aVar)) {
                                 aVar.setUserType(1);
                             } else {
                                 aVar.setUserType(0);
                             }
                         }
                     }
-                    this.frx.add(eVar2);
+                    this.fuJ.add(eVar2);
                 }
             }
             return z3;

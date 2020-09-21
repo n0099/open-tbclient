@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import com.baidu.ar.g.b;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private static a cB;

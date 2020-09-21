@@ -2,7 +2,7 @@ package com.baidu.tieba.live.tbean;
 
 import android.content.Intent;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IBuyTBeanActivity {
     void closeLoadingDialog();
 

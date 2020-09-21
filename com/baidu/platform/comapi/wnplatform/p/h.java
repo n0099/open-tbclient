@@ -5,7 +5,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h {
     private static float c = 0.0f;
     private static int d = 0;

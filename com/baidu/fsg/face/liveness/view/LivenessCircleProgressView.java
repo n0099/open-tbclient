@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class LivenessCircleProgressView extends FrameLayout {
     private Paint a;
     private Paint b;

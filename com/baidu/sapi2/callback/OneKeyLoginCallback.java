@@ -1,7 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.result.OneKeyLoginResult;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public abstract class OneKeyLoginCallback {
     public void available(OneKeyLoginResult oneKeyLoginResult) {
     }

@@ -9,31 +9,31 @@ import tbclient.RecommendForumInfo;
 public class bj extends u {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String className;
-    public int dZY;
-    private ArrayList<bi> dZZ;
+    public int eci;
+    private ArrayList<bi> ecj;
     public String title;
 
     public bj() {
-        mQ(9);
-        this.dZZ = new ArrayList<>();
+        nb(9);
+        this.ecj = new ArrayList<>();
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dXJ;
+        return dZT;
     }
 
     @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bce() {
+    public bw bcY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.u, com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bcg() {
+    public ar bda() {
         return new ar();
     }
 
-    public void aL(List<RecommendForumInfo> list) {
+    public void aP(List<RecommendForumInfo> list) {
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             int size = list.size();
@@ -45,12 +45,12 @@ public class bj extends u {
                     arrayList.add(biVar);
                 }
             }
-            this.dZZ.clear();
-            this.dZZ.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
+            this.ecj.clear();
+            this.ecj.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
         }
     }
 
-    public ArrayList<bi> bdK() {
-        return this.dZZ;
+    public ArrayList<bi> beE() {
+        return this.ecj;
     }
 }

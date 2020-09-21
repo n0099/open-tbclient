@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.util;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum PageType {
     PERSON_INFO,
     FRS,

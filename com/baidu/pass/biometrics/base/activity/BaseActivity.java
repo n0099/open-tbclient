@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import com.baidu.pass.biometrics.base.NoProguard;
 import com.baidu.pass.biometrics.base.R;
 import com.baidu.pass.biometrics.base.utils.PassBioGlobalUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class BaseActivity extends Activity implements NoProguard {
     private String c;
     private boolean a = false;

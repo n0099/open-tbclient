@@ -23,7 +23,7 @@ import com.baidu.platform.comapi.wnplatform.i.e;
 import com.baidu.platform.comapi.wnplatform.p.g;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     LatLng a;
     LatLng b;
@@ -51,7 +51,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
 
     public b(Activity activity) {
         this.f = activity;
-        this.e = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, R.layout.abc_action_mode_close_item_material, null);
+        this.e = com.baidu.platform.comapi.wnplatform.p.a.a.a(activity, 2130903045, null);
         w();
         v();
     }
@@ -202,7 +202,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
@@ -476,13 +476,13 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
                 t();
                 return;
             }
-            com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_activity_chooser_view_see_all));
+            com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.ala_play));
             if (com.baidu.platform.comapi.walknavi.g.b.b.a == 2) {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);
             } else {
                 b = com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, i);
             }
-            this.i = b2.a(b).d(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_action_bar_home_description)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_activitychooserview_choose_application)).a(new f(this));
+            this.i = b2.a(b).d(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.ad_refresh_load)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.bottom_bar_bg)).a(new f(this));
             if (z) {
                 this.v = new a(7000L, 1000L, this.f, this.i);
                 this.v.start();
@@ -534,7 +534,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     private void G() {
         try {
             if (this.j == null) {
-                this.j = new com.baidu.platform.comapi.walknavi.widget.a(this.f).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_activity_chooser_view_see_all)).a(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_capital_off)).c(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_capital_on)).a().a(new i(this)).d(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_activitychooserview_choose_application)).b(new h(this));
+                this.j = new com.baidu.platform.comapi.walknavi.widget.a(this.f).b(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.ala_play)).a(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.bottom_bar_bg_1)).c(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.card_live_bg)).a().a(new i(this)).d(com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.bottom_bar_bg)).b(new h(this));
                 this.j.setOnCancelListener(new j(this));
             }
             if (this.f != null && !this.f.isFinishing()) {
@@ -557,7 +557,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.o.a {
     public void I() {
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.o();
         if (this.f != null) {
-            com.baidu.platform.comapi.walknavi.g.d.c.a(this.f, com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.string.abc_search_hint));
+            com.baidu.platform.comapi.walknavi.g.d.c.a(this.f, com.baidu.platform.comapi.wnplatform.p.a.a.b(this.f, R.raw.card_live_bg_black));
         }
         t();
     }

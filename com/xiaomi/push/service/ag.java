@@ -18,35 +18,35 @@ import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(24)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ag {
     private static ag a = new ag();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        List<b> f841a;
+        List<b> f840a;
         List<b> b;
 
         private a() {
-            this.f841a = new ArrayList();
+            this.f840a = new ArrayList();
             this.b = new ArrayList();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        Notification f842a;
+        Notification f841a;
 
         public b(int i, Notification notification) {
             this.a = i;
-            this.f842a = notification;
+            this.f841a = notification;
         }
 
         public String toString() {
@@ -110,10 +110,10 @@ public class ag {
                     if (m540a(notification)) {
                         value.b.add(bVar);
                     } else {
-                        value.f841a.add(bVar);
+                        value.f840a.add(bVar);
                     }
                 }
-                int size = value.f841a.size();
+                int size = value.f840a.size();
                 if (value.b.size() <= 0) {
                     if (size >= 2) {
                         a(context, a2, a4, key);
@@ -123,8 +123,8 @@ public class ag {
                 } else if (size >= 2 && !m541a(context)) {
                     b bVar2 = value.b.get(0);
                     com.xiaomi.channel.commonutils.logger.b.b("group refresh:" + bVar2);
-                    bVar2.f842a.when = System.currentTimeMillis();
-                    a2.notify(bVar2.a, bVar2.f842a);
+                    bVar2.f841a.when = System.currentTimeMillis();
+                    a2.notify(bVar2.a, bVar2.f841a);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class ag {
         if (m540a(statusBarNotification.getNotification())) {
             aVar.b.add(bVar);
         } else {
-            aVar.f841a.add(bVar);
+            aVar.f840a.add(bVar);
         }
     }
 

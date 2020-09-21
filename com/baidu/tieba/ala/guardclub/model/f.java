@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.guardclub.model;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.utils.p;
 import com.baidu.mobstat.Config;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class f extends HttpMessage {
     private int pn;
     private int ps;
@@ -23,7 +23,7 @@ public class f extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("scene_from", p.EZ());
+        addParam("scene_from", p.Fz());
         addParam("ps", this.ps);
         addParam(Config.PACKAGE_NAME, this.pn);
     }

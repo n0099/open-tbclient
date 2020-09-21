@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class s {
     public static String a(String str, String str2) {
         try {

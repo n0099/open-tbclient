@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class PlatformChannel {
     private static final String TAG = "PlatformChannel";
     @NonNull
@@ -237,7 +237,7 @@ public class PlatformChannel {
     @Nullable
     private PlatformMessageHandler platformMessageHandler;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface PlatformMessageHandler {
         @Nullable
         CharSequence getClipboardData(@Nullable ClipboardContentFormat clipboardContentFormat);
@@ -402,7 +402,7 @@ public class PlatformChannel {
         return new SystemChromeStyle(!jSONObject.isNull("statusBarColor") ? Integer.valueOf(jSONObject.getInt("statusBarColor")) : null, !jSONObject.isNull("statusBarIconBrightness") ? Brightness.fromValue(jSONObject.getString("statusBarIconBrightness")) : null, valueOf, fromValue, !jSONObject.isNull("systemNavigationBarDividerColor") ? Integer.valueOf(jSONObject.getInt("systemNavigationBarDividerColor")) : null);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum SoundType {
         CLICK("SystemSoundType.click");
         
@@ -425,7 +425,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum HapticFeedbackType {
         STANDARD(null),
         LIGHT_IMPACT("HapticFeedbackType.lightImpact"),
@@ -452,7 +452,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum DeviceOrientation {
         PORTRAIT_UP("DeviceOrientation.portraitUp"),
         PORTRAIT_DOWN("DeviceOrientation.portraitDown"),
@@ -478,7 +478,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum SystemUiOverlay {
         TOP_OVERLAYS("SystemUiOverlay.top"),
         BOTTOM_OVERLAYS("SystemUiOverlay.bottom");
@@ -502,7 +502,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static class AppSwitcherDescription {
         public final int color;
         @NonNull
@@ -514,7 +514,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public static class SystemChromeStyle {
         @Nullable
         public final Integer statusBarColor;
@@ -536,7 +536,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum Brightness {
         LIGHT("Brightness.light"),
         DARK("Brightness.dark");
@@ -560,7 +560,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum ClipboardContentFormat {
         PLAIN_TEXT("text/plain");
         

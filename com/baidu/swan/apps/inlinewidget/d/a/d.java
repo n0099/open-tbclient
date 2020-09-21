@@ -3,11 +3,11 @@ package com.baidu.swan.apps.inlinewidget.d.a;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.ap.ah;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.d.c> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String anJ() {
+    public String aot() {
         return "pageScrollUp";
     }
 

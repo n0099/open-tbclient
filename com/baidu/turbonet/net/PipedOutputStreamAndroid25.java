@@ -2,21 +2,21 @@ package com.baidu.turbonet.net;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 nde;
+    private PipedInputStreamAndroid25 nnd;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.nde == null) {
+        if (this.nnd == null) {
             throw new IOException("Pipe not connected");
         }
-        this.nde.Kr(i);
+        this.nnd.KW(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.nde == null) {
+        if (this.nnd == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.nde.t(bArr, i, i2);
+            this.nnd.t(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.nde != null) {
-            synchronized (this.nde) {
-                this.nde.notifyAll();
+        if (this.nnd != null) {
+            synchronized (this.nnd) {
+                this.nnd.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.nde != null) {
-            this.nde.dKW();
+        if (this.nnd != null) {
+            this.nnd.dOU();
         }
     }
 }

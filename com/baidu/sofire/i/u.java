@@ -16,7 +16,7 @@ import java.io.FileReader;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public class u {
     public static String a;
     private static u c;

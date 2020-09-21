@@ -9,7 +9,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.view.AccessibilityBridge;
 import java.util.HashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class AccessibilityChannel {
     private static final String TAG = "AccessibilityChannel";
     @NonNull
@@ -97,7 +97,7 @@ public class AccessibilityChannel {
         }
     };
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface AccessibilityMessageHandler extends FlutterJNI.AccessibilityDelegate {
         void announce(@NonNull String str);
 

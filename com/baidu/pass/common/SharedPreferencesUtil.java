@@ -3,7 +3,7 @@ package com.baidu.pass.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
     private static SharedPreferencesUtil a = null;
     private static SharedPreferences b = null;

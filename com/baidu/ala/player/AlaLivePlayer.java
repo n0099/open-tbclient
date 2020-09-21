@@ -41,7 +41,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaLivePlayer extends LinearLayout {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -85,7 +85,7 @@ public class AlaLivePlayer extends LinearLayout {
     private CustomMessageListener mSwitchForeBackListener;
     private boolean manualReconnect;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class AlaLivePlayerConf {
         public int index;
         public LinearLayout.LayoutParams param;
@@ -805,7 +805,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public class AlaVideoPlayer2 implements AlaVideoPlayer.VideoPlayerCallback {
         private AlaVideoPlayer mPlayer;
 
@@ -894,7 +894,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     private class MessageStreamStuckData {
         public int index;
         public int ms;
@@ -904,7 +904,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     private class MessageBufferEventData {
         public int duration;
         public int index;
@@ -916,7 +916,7 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public class PlayerHandler extends Handler {
         public PlayerHandler() {
         }
@@ -1010,7 +1010,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     class CallStateReceiver extends BroadcastReceiver {
         private boolean isRegisted = false;
 

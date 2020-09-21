@@ -35,7 +35,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 @SuppressLint({"NewApi"})
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private a l;
     private static b c = null;
@@ -46,14 +46,14 @@ public class b {
     private com.baidu.location.c.a e = new com.baidu.location.c.a();
     private com.baidu.location.c.a f = null;
     private List<com.baidu.location.c.a> g = null;
-    private C0207b h = null;
+    private C0206b h = null;
     private boolean i = false;
     private boolean j = false;
     private long m = 0;
     private Handler n = new Handler();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends TelephonyManager.CellInfoCallback {
         private a() {
         }
@@ -76,9 +76,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0207b extends PhoneStateListener {
-        public C0207b() {
+    /* loaded from: classes3.dex */
+    public class C0206b extends PhoneStateListener {
+        public C0206b() {
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -663,7 +663,7 @@ public class b {
         if (!this.i && com.baidu.location.f.isServing) {
             this.d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
             this.g = new LinkedList();
-            this.h = new C0207b();
+            this.h = new C0206b();
             i();
             if (this.d != null && this.h != null) {
                 if (Build.VERSION.SDK_INT < 29) {

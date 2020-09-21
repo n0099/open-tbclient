@@ -3,7 +3,7 @@ package com.baidu.location.e;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.lbsapi.auth.LBSAuthManager;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static String e = null;
     public static String f = null;
@@ -19,7 +19,7 @@ public class b {
     private boolean l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final b a = new b();
     }

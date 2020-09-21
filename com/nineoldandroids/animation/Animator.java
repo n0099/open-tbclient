@@ -2,11 +2,11 @@ package com.nineoldandroids.animation;
 
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public abstract class Animator implements Cloneable {
     ArrayList<AnimatorListener> mListeners = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface AnimatorListener {
         void onAnimationCancel(Animator animator);
 

@@ -5,7 +5,7 @@ import com.google.gson.a.c;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class UgcQuanInfo implements NoProGuard, Serializable {
     @c("id")
     public String quanId;
@@ -18,7 +18,7 @@ public class UgcQuanInfo implements NoProGuard, Serializable {
     @c("type_info")
     public List<QuanziTypeInfo> typeInfoList = new ArrayList();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public class QuanziTypeInfo implements NoProGuard, Serializable {
         @c("text")
         public String text;

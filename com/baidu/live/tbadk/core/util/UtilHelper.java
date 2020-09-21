@@ -66,6 +66,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
@@ -83,7 +84,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -92,13 +93,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -494,7 +495,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [843=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [844=4] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -541,6 +542,30 @@ public class UtilHelper {
             return false;
         }
         return true;
+    }
+
+    public static boolean is64Bit() {
+        boolean z;
+        IOException e;
+        BufferedReader bufferedReader;
+        if (Build.VERSION.SDK_INT >= 21) {
+            return Build.SUPPORTED_64_BIT_ABIS.length > 0;
+        }
+        try {
+            bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+            z = bufferedReader.readLine().contains("aarch64");
+        } catch (IOException e2) {
+            z = false;
+            e = e2;
+        }
+        try {
+            bufferedReader.close();
+            return z;
+        } catch (IOException e3) {
+            e = e3;
+            e.printStackTrace();
+            return z;
+        }
     }
 
     public static boolean isInstalledPackage(Context context, String str) {
@@ -1126,7 +1151,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1714=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1742=4] */
     public static String getSystemProperty(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

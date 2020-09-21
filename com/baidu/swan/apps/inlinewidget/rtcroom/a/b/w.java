@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class w extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String anJ() {
+    public String aot() {
         return "setEnlargeEye";
     }
 
@@ -15,7 +15,7 @@ public class w extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Integer) {
-            bVar.hM(((Integer) command.obj).intValue());
+            bVar.hV(((Integer) command.obj).intValue());
         }
     }
 }

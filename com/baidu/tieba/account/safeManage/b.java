@@ -8,11 +8,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import tbclient.SimpleUser;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private LinearLayout fnV;
-    private TbSettingTextTipView fnW;
-    private TbSettingTextTipView fnX;
+    private LinearLayout fra;
+    private TbSettingTextTipView frb;
+    private TbSettingTextTipView frd;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,28 +20,28 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        bpZ();
+        bqT();
     }
 
-    private void bpZ() {
+    private void bqT() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.fnV = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.fnW = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.fnX = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.fnW.bqb();
-        this.fnX.bqb();
-        this.fnW.setOnClickListener(this.mOnClickListener);
-        this.fnX.setOnClickListener(this.mOnClickListener);
+        this.fra = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.frb = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.frd = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.frb.bqV();
+        this.frd.bqV();
+        this.frb.setOnClickListener(this.mOnClickListener);
+        this.frd.setOnClickListener(this.mOnClickListener);
     }
 
-    public void pT(int i) {
+    public void qg(int i) {
         this.mActivity.getLayoutMode().setNightMode(i == 1);
         this.mActivity.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.fnX.setTip(simpleUser.block_msg);
+            this.frd.setTip(simpleUser.block_msg);
         }
     }
 

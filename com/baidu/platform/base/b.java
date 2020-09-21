@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends HttpClient.ProtoResultCallback {
     final /* synthetic */ d a;
     final /* synthetic */ Object b;

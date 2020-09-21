@@ -4,17 +4,17 @@ import java.util.Arrays;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class h {
-    public static final a dpH = new a(null);
+    public static final a drJ = new a(null);
     private byte[] content;
-    private byte[] dpA;
-    private byte[] dpB;
-    private byte dpC;
-    private byte dpD;
-    private short dpE;
-    private int dpF;
-    private byte[] dpG;
+    private byte[] drC;
+    private byte[] drD;
+    private byte drE;
+    private byte drF;
+    private short drG;
+    private int drH;
+    private byte[] drI;
 
     public h() {
         this(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
@@ -26,19 +26,19 @@ public final class h {
                 return false;
             }
             h hVar = (h) obj;
-            if (!q.l(this.dpA, hVar.dpA) || !q.l(this.dpB, hVar.dpB)) {
+            if (!q.l(this.drC, hVar.drC) || !q.l(this.drD, hVar.drD)) {
                 return false;
             }
-            if (!(this.dpC == hVar.dpC)) {
+            if (!(this.drE == hVar.drE)) {
                 return false;
             }
-            if (!(this.dpD == hVar.dpD)) {
+            if (!(this.drF == hVar.drF)) {
                 return false;
             }
-            if (!(this.dpE == hVar.dpE)) {
+            if (!(this.drG == hVar.drG)) {
                 return false;
             }
-            if (!(this.dpF == hVar.dpF) || !q.l(this.dpG, hVar.dpG) || !q.l(this.content, hVar.content)) {
+            if (!(this.drH == hVar.drH) || !q.l(this.drI, hVar.drI) || !q.l(this.content, hVar.content)) {
                 return false;
             }
         }
@@ -46,24 +46,24 @@ public final class h {
     }
 
     public int hashCode() {
-        byte[] bArr = this.dpA;
+        byte[] bArr = this.drC;
         int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-        byte[] bArr2 = this.dpB;
-        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.dpC) * 31) + this.dpD) * 31) + this.dpE) * 31) + this.dpF) * 31;
-        byte[] bArr3 = this.dpG;
+        byte[] bArr2 = this.drD;
+        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.drE) * 31) + this.drF) * 31) + this.drG) * 31) + this.drH) * 31;
+        byte[] bArr3 = this.drI;
         int hashCode3 = ((bArr3 != null ? Arrays.hashCode(bArr3) : 0) + hashCode2) * 31;
         byte[] bArr4 = this.content;
         return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
     }
 
     public h(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, byte[] bArr3, byte[] bArr4) {
-        this.dpA = bArr;
-        this.dpB = bArr2;
-        this.dpC = b;
-        this.dpD = b2;
-        this.dpE = s;
-        this.dpF = i;
-        this.dpG = bArr3;
+        this.drC = bArr;
+        this.drD = bArr2;
+        this.drE = b;
+        this.drF = b2;
+        this.drG = s;
+        this.drH = i;
+        this.drI = bArr3;
         this.content = bArr4;
     }
 
@@ -72,59 +72,59 @@ public final class h {
     }
 
     public final void R(byte[] bArr) {
-        this.dpA = bArr;
+        this.drC = bArr;
     }
 
-    public final byte[] aMd() {
-        return this.dpA;
+    public final byte[] aMO() {
+        return this.drC;
     }
 
     public final void S(byte[] bArr) {
-        this.dpB = bArr;
+        this.drD = bArr;
     }
 
-    public final byte[] aMe() {
-        return this.dpB;
+    public final byte[] aMP() {
+        return this.drD;
     }
 
-    public final byte aMf() {
-        return this.dpC;
+    public final byte aMQ() {
+        return this.drE;
     }
 
     public final void c(byte b) {
-        this.dpC = b;
+        this.drE = b;
     }
 
-    public final byte aMg() {
-        return this.dpD;
+    public final byte aMR() {
+        return this.drF;
     }
 
     public final void d(byte b) {
-        this.dpD = b;
+        this.drF = b;
     }
 
-    public final short aMh() {
-        return this.dpE;
+    public final short aMS() {
+        return this.drG;
     }
 
     public final void c(short s) {
-        this.dpE = s;
+        this.drG = s;
     }
 
-    public final int aMi() {
-        return this.dpF;
+    public final int aMT() {
+        return this.drH;
     }
 
-    public final void kX(int i) {
-        this.dpF = i;
+    public final void li(int i) {
+        this.drH = i;
     }
 
     public final void T(byte[] bArr) {
-        this.dpG = bArr;
+        this.drI = bArr;
     }
 
-    public final byte[] aMj() {
-        return this.dpG;
+    public final byte[] aMU() {
+        return this.drI;
     }
 
     public final byte[] getContent() {
@@ -136,7 +136,7 @@ public final class h {
     }
 
     @kotlin.h
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         private a() {
         }
@@ -145,31 +145,31 @@ public final class h {
             this();
         }
 
-        public final h aMk() {
+        public final h aMV() {
             h hVar = new h(null, null, (byte) 0, (byte) 0, (short) 0, 0, null, null, 255, null);
             hVar.R(new byte[2]);
-            byte[] aMd = hVar.aMd();
-            if (aMd != null) {
-                aMd[0] = 0;
+            byte[] aMO = hVar.aMO();
+            if (aMO != null) {
+                aMO[0] = 0;
             }
-            byte[] aMd2 = hVar.aMd();
-            if (aMd2 != null) {
-                aMd2[1] = 2;
+            byte[] aMO2 = hVar.aMO();
+            if (aMO2 != null) {
+                aMO2[1] = 2;
             }
             hVar.S(new byte[2]);
-            byte[] aMe = hVar.aMe();
-            if (aMe != null) {
-                aMe[0] = -27;
+            byte[] aMP = hVar.aMP();
+            if (aMP != null) {
+                aMP[0] = -27;
             }
-            byte[] aMe2 = hVar.aMe();
-            if (aMe2 != null) {
-                aMe2[1] = -89;
+            byte[] aMP2 = hVar.aMP();
+            if (aMP2 != null) {
+                aMP2[1] = -89;
             }
             return hVar;
         }
     }
 
     public String toString() {
-        return "RecordParams(protocolVersion=" + Arrays.toString(this.dpA) + ", schemeType=" + ((int) this.dpC) + ", schemeExtType=" + ((int) this.dpD) + ", schemeLen=" + ((int) this.dpE) + ", contentLen=" + this.dpF + ", scheme=" + Arrays.toString(this.dpG) + ')';
+        return "RecordParams(protocolVersion=" + Arrays.toString(this.drC) + ", schemeType=" + ((int) this.drE) + ", schemeExtType=" + ((int) this.drF) + ", schemeLen=" + ((int) this.drG) + ", contentLen=" + this.drH + ", scheme=" + Arrays.toString(this.drI) + ')';
     }
 }

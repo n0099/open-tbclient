@@ -10,23 +10,23 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView bby;
-    private LoadingView fQZ;
-    private TbListCommonPullView gQd;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a gQe;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a gQf;
-    private boolean gQg = false;
-    private TbListCommonPullView.ListPullRefreshListener gQh = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView bdX;
+    private LoadingView fUk;
+    private TbListCommonPullView gTL;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a gTM;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a gTN;
+    private boolean gTO = false;
+    private TbListCommonPullView.ListPullRefreshListener gTP = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.gQf != null) {
-                a.this.gQf.refreshData();
+            if (a.this.gTN != null) {
+                a.this.gTN.refreshData();
             }
         }
     };
-    private a.InterfaceC0651a gQi = new a.InterfaceC0651a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0648a gTQ = new a.InterfaceC0648a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;
@@ -38,13 +38,13 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.bby = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.gQd = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.gQd.changeSkin(0);
-        this.gQd.setSkinType(0);
-        this.gQd.setListPullRefreshListener(this.gQh);
-        this.bby.setPullRefresh(this.gQd);
-        this.gQe = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bby);
+        this.bdX = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.gTL = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.gTL.changeSkin(0);
+        this.gTL.setSkinType(0);
+        this.gTL.setListPullRefreshListener(this.gTP);
+        this.bdX.setPullRefresh(this.gTL);
+        this.gTM = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.bdX);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -58,12 +58,12 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String IM() {
+    public String Jq() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short IN() {
+    public short Jr() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gQf != null) {
-            this.gQf.onDestroy();
+        if (this.gTN != null) {
+            this.gTN.onDestroy();
         }
-        if (this.gQe != null) {
-            this.gQe.onDestroy();
-            this.gQe = null;
+        if (this.gTM != null) {
+            this.gTM.onDestroy();
+            this.gTM = null;
         }
-        if (this.fQZ != null) {
-            this.fQZ.release();
-            this.fQZ = null;
+        if (this.fUk != null) {
+            this.fUk.release();
+            this.fUk = null;
         }
-        if (this.gQd != null) {
-            this.gQd = null;
+        if (this.gTL != null) {
+            this.gTL = null;
         }
     }
 

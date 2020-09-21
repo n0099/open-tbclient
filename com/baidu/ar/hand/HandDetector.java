@@ -13,7 +13,7 @@ import com.baidu.ar.d.l;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HandDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = HandDetector.class.getSimpleName();
     private int oE = 7;

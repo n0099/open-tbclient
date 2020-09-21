@@ -1,7 +1,7 @@
 package com.baidu.ar.arrender;
 
 import android.view.Surface;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IGLRenderer extends IRenderer {
     void bindTargetSurface(Surface surface);
 

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LogConfig {
     public static final String CONNECT_FAIL = "connectFail";
     public static final String CONNECT_SUCC = "connectSucc";

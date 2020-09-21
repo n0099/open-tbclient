@@ -3,7 +3,7 @@ package com.baidu.location.c;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.Locale;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public int a;
     public long b;

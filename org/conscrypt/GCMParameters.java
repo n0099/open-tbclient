@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.security.AlgorithmParametersSpi;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class GCMParameters extends AlgorithmParametersSpi {
     private static final int DEFAULT_TLEN = 96;
     private byte[] iv;

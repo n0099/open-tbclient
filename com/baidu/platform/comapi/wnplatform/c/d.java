@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private List<com.baidu.platform.comapi.wnplatform.c.a> f;
     private c j;
@@ -182,7 +182,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         private a() {
         }
@@ -214,7 +214,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         }
         if (wLocData.accuracy < 80.0f) {
             try {
-                this.c = wLocData.m30clone();
+                this.c = wLocData.m31clone();
                 a(this.c, CashierData.SDK);
                 if (wLocData.isIndoorMode) {
                     a++;
@@ -235,7 +235,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         ArrayList arrayList;
         if (wLocData != null) {
             try {
-                this.b = wLocData.m30clone();
+                this.b = wLocData.m31clone();
                 GeoPoint geoPoint = null;
                 if (wLocData.coordType == 0) {
                     geoPoint = com.baidu.platform.comapi.wnplatform.p.b.a(wLocData.longitude, wLocData.latitude);

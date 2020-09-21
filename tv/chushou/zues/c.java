@@ -13,92 +13,92 @@ import java.util.concurrent.locks.ReentrantLock;
 public class c {
     private final Handler.Callback mCallback;
     private Lock mLock;
-    private final b oMR;
+    private final b oWt;
     @VisibleForTesting
-    final a oMS;
+    final a oWu;
 
     public c() {
         this.mLock = new ReentrantLock();
-        this.oMS = new a(this.mLock, null);
+        this.oWu = new a(this.mLock, null);
         this.mCallback = null;
-        this.oMR = new b();
+        this.oWt = new b();
     }
 
     public c(@Nullable Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.oMS = new a(this.mLock, null);
+        this.oWu = new a(this.mLock, null);
         this.mCallback = callback;
-        this.oMR = new b(new WeakReference(callback));
+        this.oWt = new b(new WeakReference(callback));
     }
 
     public c(@NonNull Looper looper) {
         this.mLock = new ReentrantLock();
-        this.oMS = new a(this.mLock, null);
+        this.oWu = new a(this.mLock, null);
         this.mCallback = null;
-        this.oMR = new b(looper);
+        this.oWt = new b(looper);
     }
 
     public c(@NonNull Looper looper, @NonNull Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.oMS = new a(this.mLock, null);
+        this.oWu = new a(this.mLock, null);
         this.mCallback = callback;
-        this.oMR = new b(looper, new WeakReference(callback));
+        this.oWt = new b(looper, new WeakReference(callback));
     }
 
     public final boolean o(@NonNull Runnable runnable) {
-        return this.oMR.post(M(runnable));
+        return this.oWt.post(M(runnable));
     }
 
     public final boolean e(Runnable runnable, long j) {
-        return this.oMR.postDelayed(M(runnable), j);
+        return this.oWt.postDelayed(M(runnable), j);
     }
 
     public final void L(Runnable runnable) {
-        RunnableC1009c N = this.oMS.N(runnable);
+        RunnableC1006c N = this.oWu.N(runnable);
         if (N != null) {
-            this.oMR.removeCallbacks(N);
+            this.oWt.removeCallbacks(N);
         }
     }
 
     public final boolean S(Message message) {
-        return this.oMR.sendMessage(message);
+        return this.oWt.sendMessage(message);
     }
 
-    public final boolean Ow(int i) {
-        return this.oMR.sendEmptyMessage(i);
+    public final boolean Pb(int i) {
+        return this.oWt.sendEmptyMessage(i);
     }
 
-    public final boolean B(int i, long j) {
-        return this.oMR.sendEmptyMessageDelayed(i, j);
+    public final boolean C(int i, long j) {
+        return this.oWt.sendEmptyMessageDelayed(i, j);
     }
 
     public final boolean b(Message message, long j) {
-        return this.oMR.sendMessageDelayed(message, j);
+        return this.oWt.sendMessageDelayed(message, j);
     }
 
     public final void removeMessages(int i) {
-        this.oMR.removeMessages(i);
+        this.oWt.removeMessages(i);
     }
 
     public final void cl(Object obj) {
-        this.oMR.removeCallbacksAndMessages(obj);
+        this.oWt.removeCallbacksAndMessages(obj);
     }
 
-    public final boolean Ox(int i) {
-        return this.oMR.hasMessages(i);
+    public final boolean Pc(int i) {
+        return this.oWt.hasMessages(i);
     }
 
-    public final Message Oy(int i) {
-        return this.oMR.obtainMessage(i);
+    public final Message Pd(int i) {
+        return this.oWt.obtainMessage(i);
     }
 
-    private RunnableC1009c M(@NonNull Runnable runnable) {
+    private RunnableC1006c M(@NonNull Runnable runnable) {
         if (runnable == null) {
             throw new NullPointerException("Runnable can't be null");
         }
         a aVar = new a(this.mLock, runnable);
-        this.oMS.a(aVar);
-        return aVar.oMV;
+        this.oWu.a(aVar);
+        return aVar.oWx;
     }
 
     /* loaded from: classes6.dex */
@@ -135,21 +135,21 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: tv.chushou.zues.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC1009c implements Runnable {
+    public static class RunnableC1006c implements Runnable {
         private final WeakReference<a> mReference;
-        private final WeakReference<Runnable> oMW;
+        private final WeakReference<Runnable> oWy;
 
-        RunnableC1009c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
-            this.oMW = weakReference;
+        RunnableC1006c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
+            this.oWy = weakReference;
             this.mReference = weakReference2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Runnable runnable = this.oMW.get();
+            Runnable runnable = this.oWy.get();
             a aVar = this.mReference.get();
             if (aVar != null) {
-                aVar.eml();
+                aVar.eqj();
             }
             if (runnable != null) {
                 runnable.run();
@@ -163,33 +163,33 @@ public class c {
         @NonNull
         Lock lock;
         @Nullable
-        a oMT;
+        a oWv;
         @Nullable
-        a oMU;
+        a oWw;
         @NonNull
-        final RunnableC1009c oMV;
+        final RunnableC1006c oWx;
         @NonNull
         final Runnable runnable;
 
         public a(@NonNull Lock lock, @NonNull Runnable runnable) {
             this.runnable = runnable;
             this.lock = lock;
-            this.oMV = new RunnableC1009c(new WeakReference(runnable), new WeakReference(this));
+            this.oWx = new RunnableC1006c(new WeakReference(runnable), new WeakReference(this));
         }
 
-        public RunnableC1009c eml() {
+        public RunnableC1006c eqj() {
             this.lock.lock();
             try {
-                if (this.oMU != null) {
-                    this.oMU.oMT = this.oMT;
+                if (this.oWw != null) {
+                    this.oWw.oWv = this.oWv;
                 }
-                if (this.oMT != null) {
-                    this.oMT.oMU = this.oMU;
+                if (this.oWv != null) {
+                    this.oWv.oWw = this.oWw;
                 }
-                this.oMU = null;
-                this.oMT = null;
+                this.oWw = null;
+                this.oWv = null;
                 this.lock.unlock();
-                return this.oMV;
+                return this.oWx;
             } catch (Throwable th) {
                 this.lock.unlock();
                 throw th;
@@ -199,24 +199,24 @@ public class c {
         public void a(@NonNull a aVar) {
             this.lock.lock();
             try {
-                if (this.oMT != null) {
-                    this.oMT.oMU = aVar;
+                if (this.oWv != null) {
+                    this.oWv.oWw = aVar;
                 }
-                aVar.oMT = this.oMT;
-                this.oMT = aVar;
-                aVar.oMU = this;
+                aVar.oWv = this.oWv;
+                this.oWv = aVar;
+                aVar.oWw = this;
             } finally {
                 this.lock.unlock();
             }
         }
 
         @Nullable
-        public RunnableC1009c N(Runnable runnable) {
+        public RunnableC1006c N(Runnable runnable) {
             this.lock.lock();
             try {
-                for (a aVar = this.oMT; aVar != null; aVar = aVar.oMT) {
+                for (a aVar = this.oWv; aVar != null; aVar = aVar.oWv) {
                     if (aVar.runnable == runnable) {
-                        return aVar.eml();
+                        return aVar.eqj();
                     }
                 }
                 this.lock.unlock();

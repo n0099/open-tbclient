@@ -7,29 +7,29 @@ import com.baidu.tieba.addresslist.QuickSearchActivity;
 import com.baidu.tieba.addresslist.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a frv;
-    private byte[] frw;
+    private a fuH;
+    private byte[] fuI;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.frw = new byte[0];
-        this.frv = a.bBy();
+        this.fuI = new byte[0];
+        this.fuH = a.bCK();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> DR(String str) {
-        synchronized (this.frw) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Eo(String str) {
+        synchronized (this.fuI) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> bBz = this.frv.bBz();
-            if (bBz == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> bCL = this.fuH.bCL();
+            if (bCL == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : bBz) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : bCL) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -38,7 +38,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : bBz) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : bCL) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

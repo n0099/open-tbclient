@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
     @Override // com.baidu.swan.apps.y.b.a
     public boolean a(Bitmap bitmap, Rect rect) {

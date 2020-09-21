@@ -1,24 +1,22 @@
 package com.baidu.searchbox.ui.animview.praise.element;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.util.PraiseLevelUtil;
 import java.util.Stack;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class PraiseNumberAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final int OFFSET_Y_DP = 2;
     private static int[] mNumberDrawableOffsetX;
-    private Context mCtx;
     private boolean mIsAlignRight;
     private Stack<Drawable> mNumDrawableStack;
 
-    public PraiseNumberAnimElement(Context context) {
+    public PraiseNumberAnimElement() {
         super(null, null);
-        this.mCtx = context;
     }
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement
@@ -37,7 +35,7 @@ public class PraiseNumberAnimElement extends BaseAnimatedElement {
     private void parseOtherParams(Object... objArr) {
         if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Integer)) {
             int intValue = ((Integer) objArr[0]).intValue();
-            mNumberDrawableOffsetX = new int[]{0, -intValue, (-intValue) * 2, (-intValue) * 3};
+            mNumberDrawableOffsetX = new int[]{0, 0, -intValue, (-intValue) * 2, (-intValue) * 3};
         }
     }
 
@@ -68,10 +66,10 @@ public class PraiseNumberAnimElement extends BaseAnimatedElement {
     private void drawNumber(Canvas canvas, long j) {
         if (this.mNumDrawableStack != null && this.mNumDrawableStack.size() > 0) {
             if (mNumberDrawableOffsetX != null && mNumberDrawableOffsetX.length > 0) {
-                canvas.translate(mNumberDrawableOffsetX[getSafetyIndex(PraiseLevelUtil.matchPraiseLevel(j).mTextCount - 1)], 0.0f);
+                canvas.translate(mNumberDrawableOffsetX[getSafetyIndex(PraiseLevelUtil.matchPraiseLevel(j).mTextCount)], 0.0f);
             }
             int i = this.mNumDrawableStack.peek().getBounds().right;
-            int dp2px = DeviceUtil.ScreenInfo.dp2px(this.mCtx, 2.0f);
+            int dp2px = DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 2.0f);
             while (!this.mNumDrawableStack.empty()) {
                 if (!this.mIsAlignRight) {
                     this.mNumDrawableStack.pop().draw(canvas);

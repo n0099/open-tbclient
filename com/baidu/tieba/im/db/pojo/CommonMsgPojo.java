@@ -37,6 +37,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     private String pushIds;
     private int read_flag;
     private long rid;
+    private String serviceId;
     private long sid;
     private String taskId;
     private String toUid;
@@ -90,9 +91,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jyB);
+                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jHd);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jyC);
+                this.gid = String.valueOf(com.baidu.tieba.im.sendmessage.a.jHe);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -112,6 +113,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             this.content = chatMessage.getContent();
             this.sid = chatMessage.getSid();
             this.taskId = String.valueOf(chatMessage.getTaskId());
+            this.serviceId = String.valueOf(chatMessage.getServiceId());
             this.is_delete = 0;
             this.rid = chatMessage.getRecordId();
             checkRidAndSelf();
@@ -163,6 +165,14 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
 
     public void setSid(long j) {
         this.sid = j;
+    }
+
+    public String getServiceId() {
+        return this.serviceId;
+    }
+
+    public void setServiceId(String str) {
+        this.serviceId = str;
     }
 
     public String getTaskId() {

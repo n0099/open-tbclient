@@ -22,7 +22,7 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class KuangFloatingViewController {
     private View mFloatingView;
     private WindowManager wm;

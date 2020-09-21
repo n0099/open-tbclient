@@ -14,7 +14,7 @@ import java.lang.reflect.WildcardType;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ArrayListTypeFieldDeserializer extends FieldDeserializer {
     private ObjectDeserializer deserializer;
     private int itemFastMatchToken;

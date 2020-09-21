@@ -10,24 +10,24 @@ import com.baidu.swan.apps.process.messaging.c;
 import com.baidu.swan.apps.runtime.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> cJz = new ArrayDeque();
+    private final Deque<Message> cLz = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void axv() {
-        a axC = a.axC();
-        while (axC.axG() && !this.cJz.isEmpty()) {
-            Message peek = this.cJz.peek();
+    public void aye() {
+        a ayl = a.ayl();
+        while (ayl.ayp() && !this.cLz.isEmpty()) {
+            Message peek = this.cLz.peek();
             if (peek == null || B(peek)) {
-                this.cJz.poll();
+                this.cLz.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void pO(String str) {
+    public void qh(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message axw = cVar.axw();
-        axw.arg1 = SwanAppProcessInfo.current().index;
-        if (d.azE().axR() && (axw.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) axw.obj;
+        Message ayf = cVar.ayf();
+        ayf.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aAn().ayA() && (ayf.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) ayf.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.azE().getAppId());
+                bundle.putString("ai_apps_id", d.aAn().getAppId());
             }
         }
-        if (!B(axw) && cVar.isSticky()) {
-            this.cJz.offer(axw);
-            a.axC().axE();
+        if (!B(ayf) && cVar.isSticky()) {
+            this.cLz.offer(ayf);
+            a.ayl().ayn();
         }
     }
 
     private boolean B(Message message) {
-        a axC = a.axC();
-        if (message != null && axC.axG()) {
+        a ayl = a.ayl();
+        if (message != null && ayl.ayp()) {
             try {
-                axC.axD().send(message);
+                ayl.aym().send(message);
                 return true;
             } catch (RemoteException e) {
-                axC.axH();
+                ayl.ayq();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

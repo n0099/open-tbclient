@@ -12,32 +12,32 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 import kotlin.text.l;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class b {
-    private final String oeI;
-    private Path oeJ;
+    private final String oor;
+    private Path oos;
 
     public b(String str) {
         q.m(str, "originValue");
-        this.oeI = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
+        this.oor = l.a((CharSequence) str, (CharSequence) Constants.ACCEPT_TIME_SEPARATOR_SP, false, 2, (Object) null) ? l.a(str, Constants.ACCEPT_TIME_SEPARATOR_SP, " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
         q.m(path, "toPath");
-        Path path2 = this.oeJ;
+        Path path2 = this.oos;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.oeI, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.oor, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
             q.l((Object) nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.oeK;
+                set = c.oot;
                 if (set.contains(nextToken)) {
                     if (q.l((Object) nextToken, (Object) "Z") || q.l((Object) nextToken, (Object) MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z)) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -49,7 +49,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.oeJ = path3;
+        this.oos = path3;
         path.set(path3);
     }
 

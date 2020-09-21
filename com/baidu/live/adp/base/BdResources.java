@@ -1,7 +1,7 @@
 package com.baidu.live.adp.base;
 
 import android.content.res.Resources;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BdResources {
     private static volatile BdResources mInstance = null;
     private Resources mCurrentResources = null;

@@ -7,7 +7,7 @@ import android.hardware.SensorManager;
 import android.os.Handler;
 import android.os.Message;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class c extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {

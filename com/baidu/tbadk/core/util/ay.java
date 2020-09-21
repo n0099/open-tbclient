@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -37,15 +38,16 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class ay {
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, int i2) {
-        if (absThreadDataSupport != null && context != null && absThreadDataSupport.bce() != null) {
-            bw bce = absThreadDataSupport.bce();
-            String beq = com.baidu.tieba.card.m.beq();
+        if (absThreadDataSupport != null && context != null && absThreadDataSupport.bcY() != null) {
+            bw bcY = absThreadDataSupport.bcY();
+            String bfk = com.baidu.tieba.card.m.bfk();
             if (i == 3) {
-                beq = com.baidu.tieba.card.m.cbQ();
+                bfk = com.baidu.tieba.card.m.cff();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bcY.getFid())));
             }
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bce, null, beq, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(bce.getFid()));
-            createFromThreadCfg.setForumName(bce.beI());
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bcY, null, bfk, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bcY.getFid()));
+            createFromThreadCfg.setForumName(bcY.bfC());
             createFromThreadCfg.setJumpToCommentArea(true);
             createFromThreadCfg.setStartFrom(i);
             createFromThreadCfg.setSortType(i2);
@@ -54,53 +56,54 @@ public final class ay {
             } else {
                 createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
             }
-            if (absThreadDataSupport.bch() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.bch());
+            if (absThreadDataSupport.bdb() != null) {
+                createFromThreadCfg.addLocateParam(absThreadDataSupport.bdb());
             }
             if (i == 3) {
                 createFromThreadCfg.setVideo_source("frs");
             } else if (i == 2) {
                 createFromThreadCfg.setVideo_source("index");
                 com.baidu.tbadk.core.data.bf bfVar = new com.baidu.tbadk.core.data.bf();
-                bfVar.t(bce);
+                bfVar.u(bcY);
                 createFromThreadCfg.setRecomData(bfVar);
             }
-            if (bce.eeg) {
+            if (bcY.egq) {
                 createFromThreadCfg.setFromHomePageQuality(true);
             }
-            if (bce.bfL() && createFromThreadCfg.getIntent() != null) {
+            if (bcY.bgF() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            com.baidu.tieba.card.m.GZ(bce.getTid());
+            com.baidu.tieba.card.m.Hw(bcY.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
 
     public static void a(AbsThreadDataSupport absThreadDataSupport, Context context, int i, boolean z, boolean z2, boolean z3, Rect rect, boolean z4) {
-        if (absThreadDataSupport != null && absThreadDataSupport.bce() != null && context != null) {
-            bw bce = absThreadDataSupport.bce();
-            String beq = com.baidu.tieba.card.m.beq();
+        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null && context != null) {
+            bw bcY = absThreadDataSupport.bcY();
+            String bfk = com.baidu.tieba.card.m.bfk();
             if (i == 3) {
-                beq = com.baidu.tieba.card.m.cbQ();
+                bfk = com.baidu.tieba.card.m.cff();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bcY.getFid())));
             }
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bce, null, beq, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(bce.getFid()));
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bcY, null, bfk, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(bcY.getFid()));
             if (i == 3) {
                 createFromThreadCfg.setFrom("from_frs");
             } else {
                 createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
             }
-            createFromThreadCfg.setForumName(bce.beI());
+            createFromThreadCfg.setForumName(bcY.bfC());
             createFromThreadCfg.setStartFrom(i);
-            if (absThreadDataSupport.bch() != null) {
-                createFromThreadCfg.addLocateParam(absThreadDataSupport.bch());
+            if (absThreadDataSupport.bdb() != null) {
+                createFromThreadCfg.addLocateParam(absThreadDataSupport.bdb());
             }
             if (i == 3) {
                 createFromThreadCfg.setVideo_source("frs");
             } else if (i == 2) {
                 createFromThreadCfg.setVideo_source("index");
                 com.baidu.tbadk.core.data.bf bfVar = new com.baidu.tbadk.core.data.bf();
-                bfVar.t(bce);
+                bfVar.u(bcY);
                 createFromThreadCfg.setRecomData(bfVar);
             }
             createFromThreadCfg.setJumpGodReply(z);
@@ -108,14 +111,14 @@ public final class ay {
                 createFromThreadCfg.setJumpToCommentArea(z2);
             }
             createFromThreadCfg.setFromHomePageQuality(z3);
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && v(bce) && !z2 && !z4) {
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && w(bcY) && !z2 && !z4) {
                 createFromThreadCfg.setNeedPreLoad(true);
-                com.baidu.tieba.frs.l.ak(bce);
+                com.baidu.tieba.frs.l.al(bcY);
             }
-            createFromThreadCfg.setThreadData(bce);
+            createFromThreadCfg.setThreadData(bcY);
             createFromThreadCfg.setVideoOriginArea(rect);
-            createFromThreadCfg.setIsPrivacy(bce.isPrivacy);
-            com.baidu.tieba.card.m.GZ(bce.getTid());
+            createFromThreadCfg.setIsPrivacy(bcY.isPrivacy);
+            com.baidu.tieba.card.m.Hw(bcY.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -134,6 +137,7 @@ public final class ay {
             createNormalCfg.setForumId(String.valueOf(originalThreadInfo.forumId));
             if (i == 3) {
                 createNormalCfg.setFrom("from_frs");
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(originalThreadInfo.forumId)));
             } else {
                 createNormalCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
             }
@@ -166,13 +170,13 @@ public final class ay {
         a(absThreadDataSupport, context, i, z, false, false, null, z2);
     }
 
-    private static boolean v(bw bwVar) {
+    private static boolean w(bw bwVar) {
         if (bwVar != null && !bwVar.isShareThread && bwVar.itemData == null && bwVar.itemStarData == null) {
             int i = bwVar.threadType;
             if (i == 0 || i == 11 || i == 40) {
                 return true;
             }
-            return bwVar.bdo();
+            return bwVar.bei();
         }
         return false;
     }
@@ -217,19 +221,19 @@ public final class ay {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).mM(i).yQ(bwVar.beI()).yR(String.valueOf(bwVar.getFid())).yS(bwVar.getTid()).hI(z).yT(arrayList.size() > 0 ? arrayList.get(0) : "").hJ(true).a(concurrentHashMap).hK(true).r(bwVar).hP(z2).a(rect, UtilHelper.fixedDrawableRect(rect, view));
-            ImageViewerConfig dP = aVar.dP(context);
+            aVar.x(arrayList).mX(i).zl(bwVar.bfC()).zm(String.valueOf(bwVar.getFid())).zn(bwVar.getTid()).hF(z).zo(arrayList.size() > 0 ? arrayList.get(0) : "").hG(true).a(concurrentHashMap).hH(true).s(bwVar).hM(z2).a(rect, UtilHelper.fixedDrawableRect(rect, view));
+            ImageViewerConfig dO = aVar.dO(context);
             if (str != null) {
-                dP.getIntent().putExtra("from", str);
+                dO.getIntent().putExtra("from", str);
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dP));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, dO));
             if (context instanceof TbPageContextSupport) {
                 HistoryMessage historyMessage = new HistoryMessage();
                 historyMessage.Activity = ((TbPageContextSupport) context).getPageContext();
                 historyMessage.threadId = bwVar.getId();
                 historyMessage.threadName = bwVar.getTitle();
-                historyMessage.forumName = bwVar.beI();
-                historyMessage.postID = bwVar.beV();
+                historyMessage.forumName = bwVar.bfC();
+                historyMessage.postID = bwVar.bfP();
                 MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
             }
         }
@@ -246,10 +250,10 @@ public final class ay {
     public static void a(TextView textView, bw bwVar, int i, boolean z) {
         if (textView != null && bwVar != null) {
             SpannableStringBuilder spannableStringBuilder = null;
-            if (bwVar.bee() != null) {
-                spannableStringBuilder = new SpannableStringBuilder(bwVar.bee());
+            if (bwVar.beY() != null) {
+                spannableStringBuilder = new SpannableStringBuilder(bwVar.beY());
             }
-            if (x(bwVar)) {
+            if (y(bwVar)) {
                 textView.setVisibility(8);
             } else if (spannableStringBuilder != null) {
                 if (z && bwVar.getTabId() > 0 && !at.isEmpty(bwVar.getTabName())) {
@@ -277,22 +281,22 @@ public final class ay {
     public static void a(TextView textView, TextView textView2, bw bwVar, int i, boolean z) {
         SpannableStringBuilder spannableStringBuilder;
         if (bwVar != null) {
-            bwVar.id(false);
+            bwVar.ia(false);
             SpannableStringBuilder spannableStringBuilder2 = null;
-            if (bwVar.bef() != null) {
-                spannableStringBuilder2 = new SpannableStringBuilder(bwVar.bef());
+            if (bwVar.beZ() != null) {
+                spannableStringBuilder2 = new SpannableStringBuilder(bwVar.beZ());
             }
-            if (bwVar.getTabId() <= 0 || at.isEmpty(bwVar.getTabName()) || !x(bwVar) || !(spannableStringBuilder2 == null || at.isEmptyStringAfterTrim(spannableStringBuilder2.toString()))) {
+            if (bwVar.getTabId() <= 0 || at.isEmpty(bwVar.getTabName()) || !y(bwVar) || !(spannableStringBuilder2 == null || at.isEmptyStringAfterTrim(spannableStringBuilder2.toString()))) {
                 spannableStringBuilder = spannableStringBuilder2;
-            } else if (bwVar.isShareThread && bwVar.edI != null) {
+            } else if (bwVar.isShareThread && bwVar.efS != null) {
                 spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.share_thread_default_abstract));
-            } else if (bwVar.bfG()) {
+            } else if (bwVar.bgA()) {
                 spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.voice_thread_default_abstract));
             } else {
                 spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.thread_default_abstract));
             }
             if (spannableStringBuilder != null && !at.isEmptyStringAfterTrim(spannableStringBuilder.toString())) {
-                if (z && bwVar.getTabId() > 0 && !at.isEmpty(bwVar.getTabName()) && x(bwVar)) {
+                if (z && bwVar.getTabId() > 0 && !at.isEmpty(bwVar.getTabName()) && y(bwVar)) {
                     spannableStringBuilder.insert(0, (CharSequence) bwVar.getTabName());
                     spannableStringBuilder.setSpan(new StyleSpan(1), 0, bwVar.getTabName().length(), 33);
                     spannableStringBuilder.insert(bwVar.getTabName().length(), (CharSequence) "  |  ");
@@ -313,7 +317,7 @@ public final class ay {
                     layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.getDimens(textView.getContext(), R.dimen.tbds7), 0, 0);
                     textView.setLayoutParams(layoutParams2);
                 }
-                bwVar.id(a(textView, spannableStringBuilder, i2, i));
+                bwVar.ia(a(textView, spannableStringBuilder, i2, i));
             } else {
                 textView.setVisibility(8);
             }
@@ -325,11 +329,11 @@ public final class ay {
 
     public static void a(TextView textView, TextView textView2, SpannableString spannableString, bw bwVar, int i, boolean z, boolean z2) {
         if (bwVar != null) {
-            bwVar.id(false);
+            bwVar.ia(false);
             if (spannableString != null && !at.isEmptyStringAfterTrim(spannableString.toString())) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(spannableString);
                 textView.setVisibility(0);
-                if (z2 && !z && bwVar.getTabId() > 0 && !at.isEmpty(bwVar.getTabName()) && x(bwVar)) {
+                if (z2 && !z && bwVar.getTabId() > 0 && !at.isEmpty(bwVar.getTabName()) && y(bwVar)) {
                     spannableStringBuilder.insert(0, (CharSequence) bwVar.getTabName());
                     spannableStringBuilder.setSpan(new StyleSpan(1), 0, bwVar.getTabName().length(), 33);
                     spannableStringBuilder.insert(bwVar.getTabName().length(), (CharSequence) "  |  ");
@@ -349,7 +353,7 @@ public final class ay {
                     layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.getDimens(textView.getContext(), R.dimen.tbds7), 0, 0);
                     textView.setLayoutParams(layoutParams2);
                 }
-                bwVar.id(a(textView, spannableStringBuilder, i2, i));
+                bwVar.ia(a(textView, spannableStringBuilder, i2, i));
             } else {
                 textView.setVisibility(8);
             }
@@ -435,14 +439,14 @@ public final class ay {
     }
 
     public static boolean h(bw bwVar, String str) {
-        return (bwVar == null || bwVar.beE() == null || StringUtils.isNull(bwVar.beE().getUserId()) || StringUtils.isNull(str) || !bwVar.beE().getUserId().equals(str)) ? false : true;
+        return (bwVar == null || bwVar.bfy() == null || StringUtils.isNull(bwVar.bfy().getUserId()) || StringUtils.isNull(str) || !bwVar.bfy().getUserId().equals(str)) ? false : true;
     }
 
-    public static boolean w(bw bwVar) {
-        return (bwVar == null || bwVar.beE() == null || StringUtils.isNull(bwVar.beE().getUserId()) || !bwVar.beE().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+    public static boolean x(bw bwVar) {
+        return (bwVar == null || bwVar.bfy() == null || StringUtils.isNull(bwVar.bfy().getUserId()) || !bwVar.bfy().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 
-    public static Rect aY(View view) {
+    public static Rect ba(View view) {
         if (view == null) {
             return null;
         }
@@ -475,7 +479,7 @@ public final class ay {
         }
     }
 
-    private static boolean x(bw bwVar) {
-        return bwVar == null || bwVar.beS() == 1 || bwVar.bee() == null || at.isEmptyStringAfterTrim(bwVar.bee().toString());
+    private static boolean y(bw bwVar) {
+        return bwVar == null || bwVar.bfM() == 1 || bwVar.beY() == null || at.isEmptyStringAfterTrim(bwVar.beY().toString());
     }
 }

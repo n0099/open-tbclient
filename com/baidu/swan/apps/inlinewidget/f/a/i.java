@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.f.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class i extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.f.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String anJ() {
+    public String aot() {
         return "setRate";
     }
 

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -92,7 +92,7 @@ public class u {
             return false;
         }
         try {
-            e.K(activity);
+            e.M(activity);
             return true;
         } catch (Exception e) {
             return true;

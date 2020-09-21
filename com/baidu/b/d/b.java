@@ -2,7 +2,7 @@ package com.baidu.b.d;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

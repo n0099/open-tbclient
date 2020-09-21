@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class o {
     private boolean enabled = false;
     private final Set<a> Ck = new ArraySet();
@@ -28,7 +28,7 @@ public class o {
         }
     };
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void h(float f);
     }

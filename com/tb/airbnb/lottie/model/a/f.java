@@ -2,7 +2,7 @@ package com.tb.airbnb.lottie.model.a;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class f extends n<PointF, PointF> {
     @Override // com.tb.airbnb.lottie.model.a.n
     public /* bridge */ /* synthetic */ String toString() {
@@ -14,7 +14,7 @@ public class f extends n<PointF, PointF> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> edo() {
+    public com.tb.airbnb.lottie.a.b.a<PointF, PointF> ehl() {
         return new com.tb.airbnb.lottie.a.b.j(this.Du);
     }
 }

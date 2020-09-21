@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class DateUtils {
     private static String DATA_TIME_Rfc822_FORMAT = "EEE, dd MMM yyyy HH:mm:ss 'GMT'";
     private static String DATA_TIME_AlternateIso8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";

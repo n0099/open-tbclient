@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     private View.OnClickListener mOnClickListener;
     private BdUniqueId mPageId;
@@ -19,8 +19,8 @@ public class ae extends o<com.baidu.tieba.pb.data.j, af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cg */
-    public af b(ViewGroup viewGroup) {
+    /* renamed from: ch */
+    public af c(ViewGroup viewGroup) {
         return new af(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.mPageId);
     }
 

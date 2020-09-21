@@ -1,20 +1,20 @@
 package io.reactivex;
 
 import io.reactivex.internal.util.NotificationLite;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class p<T> {
-    static final p<Object> omh = new p<>(null);
+    static final p<Object> ovS = new p<>(null);
     final Object value;
 
     private p(Object obj) {
         this.value = obj;
     }
 
-    public boolean efa() {
+    public boolean eiX() {
         return NotificationLite.isError(this.value);
     }
 
-    public Throwable efb() {
+    public Throwable eiY() {
         Object obj = this.value;
         if (NotificationLite.isError(obj)) {
             return NotificationLite.getError(obj);
@@ -48,7 +48,7 @@ public final class p<T> {
         return "OnNextNotification[" + this.value + "]";
     }
 
-    public static <T> p<T> bC(T t) {
+    public static <T> p<T> bE(T t) {
         io.reactivex.internal.functions.a.k(t, "value is null");
         return new p<>(t);
     }
@@ -58,7 +58,7 @@ public final class p<T> {
         return new p<>(NotificationLite.error(th));
     }
 
-    public static <T> p<T> efc() {
-        return (p<T>) omh;
+    public static <T> p<T> eiZ() {
+        return (p<T>) ovS;
     }
 }

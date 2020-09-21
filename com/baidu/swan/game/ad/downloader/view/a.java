@@ -1,11 +1,11 @@
 package com.baidu.swan.game.ad.downloader.view;
 
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class a {
     public String name;
     public String url;
-    public SwanAdDownloadState dkn = SwanAdDownloadState.NOT_START;
+    public SwanAdDownloadState dmp = SwanAdDownloadState.NOT_START;
     public int percent = Integer.parseInt("0");
 
     private a() {

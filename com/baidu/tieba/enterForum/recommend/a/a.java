@@ -10,15 +10,15 @@ import com.baidu.tieba.card.aa;
 import com.baidu.tieba.enterForum.recommend.b.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bbw;
+    private List<com.baidu.adp.widget.ListView.a> bdV;
     private List<q> forumList;
-    private v hyr;
-    private b hys;
-    private c hyt;
-    private d hyu;
-    private aa<com.baidu.tieba.card.data.b> hyv = new aa<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
+    private v hFt;
+    private b hFu;
+    private c hFv;
+    private d hFw;
+    private aa<com.baidu.tieba.card.data.b> hFx = new aa<com.baidu.tieba.card.data.b>() { // from class: com.baidu.tieba.enterForum.recommend.a.a.1
         @Override // com.baidu.tieba.card.aa
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             if (bVar != null && (bVar instanceof com.baidu.tieba.enterForum.recommend.b.d)) {
@@ -27,21 +27,21 @@ public class a {
                 for (q qVar : a.this.forumList) {
                     if (qVar instanceof com.baidu.tieba.enterForum.recommend.b.d) {
                         if (title.equals(((com.baidu.tieba.enterForum.recommend.b.d) qVar).getTitle())) {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> cgl = ((com.baidu.tieba.enterForum.recommend.b.d) qVar).cgl();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> cjC = ((com.baidu.tieba.enterForum.recommend.b.d) qVar).cjC();
                             arrayList.add(qVar);
-                            arrayList.addAll(cgl);
+                            arrayList.addAll(cjC);
                         } else {
-                            List<com.baidu.tieba.enterForum.recommend.b.c> cgk = ((com.baidu.tieba.enterForum.recommend.b.d) qVar).cgk();
+                            List<com.baidu.tieba.enterForum.recommend.b.c> cjB = ((com.baidu.tieba.enterForum.recommend.b.d) qVar).cjB();
                             arrayList.add(qVar);
-                            arrayList.addAll(cgk);
+                            arrayList.addAll(cjB);
                         }
                     }
                 }
                 e eVar = new e();
-                eVar.hyR = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                eVar.hFT = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
                 arrayList.add(eVar);
                 if (arrayList.size() > 0) {
-                    a.this.hyr.setData(arrayList);
+                    a.this.hFt.setData(arrayList);
                 }
             }
         }
@@ -50,34 +50,34 @@ public class a {
 
     public a(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.hyr = vVar;
-        Jv();
-        this.hyr.addAdapters(this.bbw);
+        this.hFt = vVar;
+        JZ();
+        this.hFt.addAdapters(this.bdV);
     }
 
-    private void Jv() {
-        this.bbw = new ArrayList();
-        this.hys = new b(this.mPageContext);
-        this.bbw.add(this.hys);
-        this.hyt = new c(this.mPageContext, this.hyv);
-        this.bbw.add(this.hyt);
-        this.hyu = new d(this.mPageContext);
-        this.bbw.add(this.hyu);
+    private void JZ() {
+        this.bdV = new ArrayList();
+        this.hFu = new b(this.mPageContext);
+        this.bdV.add(this.hFu);
+        this.hFv = new c(this.mPageContext, this.hFx);
+        this.bdV.add(this.hFv);
+        this.hFw = new d(this.mPageContext);
+        this.bdV.add(this.hFw);
     }
 
     public void notifyDataSetChanged() {
-        if (this.hyr != null) {
-            this.hyr.getListAdapter().notifyDataSetChanged();
+        if (this.hFt != null) {
+            this.hFt.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
         this.forumList = list;
-        this.hyr.setData(list);
+        this.hFt.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
             aVar.setPageId(bdUniqueId);
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.im.message.RequestSearchGroupsMessage;
 import com.baidu.tieba.im.searchGroup.AddGroupActivity;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class SearchGroupModel extends BdBaseModel<AddGroupActivity> {
     public SearchGroupModel(AddGroupActivity addGroupActivity) {
         super(addGroupActivity.getPageContext());

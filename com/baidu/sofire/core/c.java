@@ -29,7 +29,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class c implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static Context b;
     private static c e;

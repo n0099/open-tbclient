@@ -1,26 +1,23 @@
 package com.baidu.searchbox.ui.animview.praise.element;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.InputDeviceCompat;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ShakeAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
     private static final float FACTOR_SHAKE = 0.6f;
     public static final int TYPE_SCALE_IN = 0;
     public static final int TYPE_SHAKE = 1;
-    private Context mCtx;
-    private g mLottieDrawable;
+    protected g mLottieDrawable;
     private int mShowType;
 
-    public ShakeAnimElement(Context context, Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
+    public ShakeAnimElement(Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
         super(callback, scaleType);
         this.mShowType = -1;
-        this.mCtx = context;
     }
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement
@@ -39,9 +36,6 @@ public class ShakeAnimElement extends BaseAnimatedElement {
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement
     protected void onDispatchAnimate(Canvas canvas, float f, long j) {
         if (this.mLottieDrawable != null) {
-            if (this.mInterpolator != null) {
-                f = this.mInterpolator.getInterpolation(f);
-            }
             this.mLottieDrawable.setProgress(getTransformFraction(this.mShowType, f));
             this.mLottieDrawable.draw(canvas);
         }

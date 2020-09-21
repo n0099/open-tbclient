@@ -4,51 +4,51 @@ import android.graphics.Bitmap;
 import com.facebook.fresco.animation.b.b;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements com.facebook.fresco.animation.b.b {
-    private int nrt = -1;
+    private int nBr = -1;
     @Nullable
-    private b.a nru;
+    private b.a nBs;
     @GuardedBy("this")
     @Nullable
-    private com.facebook.common.references.a<Bitmap> nrv;
+    private com.facebook.common.references.a<Bitmap> nBt;
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Lv(int i) {
-        return this.nrt == i ? com.facebook.common.references.a.b(this.nrv) : null;
+    public synchronized com.facebook.common.references.a<Bitmap> Ma(int i) {
+        return this.nBr == i ? com.facebook.common.references.a.b(this.nBt) : null;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> Lw(int i) {
-        return com.facebook.common.references.a.b(this.nrv);
+    public synchronized com.facebook.common.references.a<Bitmap> Mb(int i) {
+        return com.facebook.common.references.a.b(this.nBt);
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized com.facebook.common.references.a<Bitmap> ab(int i, int i2, int i3) {
+    public synchronized com.facebook.common.references.a<Bitmap> ae(int i, int i2, int i3) {
         com.facebook.common.references.a<Bitmap> b;
-        b = com.facebook.common.references.a.b(this.nrv);
-        dRs();
+        b = com.facebook.common.references.a.b(this.nBt);
+        dVq();
         return b;
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized boolean Lx(int i) {
+    public synchronized boolean Mc(int i) {
         boolean z;
-        if (i == this.nrt) {
-            z = com.facebook.common.references.a.a(this.nrv);
+        if (i == this.nBr) {
+            z = com.facebook.common.references.a.a(this.nBt);
         }
         return z;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        dRs();
+        dVq();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
-        if (r4.get().equals(r2.nrv.get()) != false) goto L12;
+        if (r4.get().equals(r2.nBt.get()) != false) goto L12;
      */
     @Override // com.facebook.fresco.animation.b.b
     /*
@@ -56,30 +56,30 @@ public class b implements com.facebook.fresco.animation.b.b {
     */
     public synchronized void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
         if (aVar != null) {
-            if (this.nrv != null) {
+            if (this.nBt != null) {
             }
         }
-        com.facebook.common.references.a.c(this.nrv);
-        if (this.nru != null && this.nrt != -1) {
-            this.nru.b(this, this.nrt);
+        com.facebook.common.references.a.c(this.nBt);
+        if (this.nBs != null && this.nBr != -1) {
+            this.nBs.b(this, this.nBr);
         }
-        this.nrv = com.facebook.common.references.a.b(aVar);
-        if (this.nru != null) {
-            this.nru.a(this, i);
+        this.nBt = com.facebook.common.references.a.b(aVar);
+        if (this.nBs != null) {
+            this.nBs.a(this, i);
         }
-        this.nrt = i;
+        this.nBr = i;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public void b(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
     }
 
-    private synchronized void dRs() {
-        if (this.nru != null && this.nrt != -1) {
-            this.nru.b(this, this.nrt);
+    private synchronized void dVq() {
+        if (this.nBs != null && this.nBr != -1) {
+            this.nBs.b(this, this.nBr);
         }
-        com.facebook.common.references.a.c(this.nrv);
-        this.nrv = null;
-        this.nrt = -1;
+        com.facebook.common.references.a.c(this.nBt);
+        this.nBt = null;
+        this.nBr = -1;
     }
 }

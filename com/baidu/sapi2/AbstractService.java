@@ -10,7 +10,7 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public abstract class AbstractService implements NoProguard {
     private static final String a = "3";
     protected SapiConfiguration configuration;

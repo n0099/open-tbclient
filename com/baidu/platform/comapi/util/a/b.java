@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.vi.VIContext;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private String a;
     private String b;

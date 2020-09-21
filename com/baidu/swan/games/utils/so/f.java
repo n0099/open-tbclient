@@ -1,31 +1,31 @@
 package com.baidu.swan.games.utils.so;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class f {
-    private final boolean dxV;
-    private final boolean dxW;
-    private final boolean dxX;
+    private final boolean dzW;
+    private final boolean dzX;
+    private final boolean dzY;
 
     private f(boolean z, boolean z2) {
-        this.dxV = true;
-        this.dxW = z;
-        this.dxX = z2;
+        this.dzW = true;
+        this.dzX = z;
+        this.dzY = z2;
     }
 
     private f(boolean z) {
-        this.dxV = false;
-        this.dxW = true;
-        this.dxX = z;
+        this.dzW = false;
+        this.dzX = true;
+        this.dzY = z;
     }
 
     public boolean isSuccess() {
-        return this.dxV ? this.dxW && this.dxX : this.dxX;
+        return this.dzW ? this.dzX && this.dzY : this.dzY;
     }
 
-    public boolean aQj() {
-        return (this.dxV && this.dxW) ? false : true;
+    public boolean aQV() {
+        return (this.dzW && this.dzX) ? false : true;
     }
 
-    public static f aQk() {
+    public static f aQW() {
         return new f(true, true);
     }
 
@@ -33,7 +33,7 @@ public class f {
         return new f(z, z2);
     }
 
-    public static f gO(boolean z) {
+    public static f gM(boolean z) {
         return new f(z);
     }
 }

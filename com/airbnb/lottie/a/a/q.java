@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class q extends a {
     private final com.airbnb.lottie.a.b.a<Integer, Integer> CJ;
     private final com.airbnb.lottie.model.layer.a Cs;
@@ -14,10 +14,10 @@ public class q extends a {
     private final String name;
 
     public q(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(gVar, aVar, shapeStroke.jT().toPaintCap(), shapeStroke.jU().toPaintJoin(), shapeStroke.jX(), shapeStroke.jH(), shapeStroke.jS(), shapeStroke.jV(), shapeStroke.jW());
+        super(gVar, aVar, shapeStroke.jU().toPaintCap(), shapeStroke.jV().toPaintJoin(), shapeStroke.jY(), shapeStroke.jI(), shapeStroke.jT(), shapeStroke.jW(), shapeStroke.jX());
         this.Cs = aVar;
         this.name = shapeStroke.getName();
-        this.CJ = shapeStroke.kn().jB();
+        this.CJ = shapeStroke.ko().jC();
         this.CJ.b(this);
         aVar.a(this.CJ);
     }

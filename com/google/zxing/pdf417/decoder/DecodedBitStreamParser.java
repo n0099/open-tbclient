@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class DecodedBitStreamParser {
     private static final int AL = 28;
     private static final int AS = 27;
@@ -36,7 +36,7 @@ final class DecodedBitStreamParser {
     private static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum Mode {
         ALPHA,
         LOWER,

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class k {
     /* JADX INFO: Access modifiers changed from: private */
     public static final int j(Iterable<? extends e> iterable) {
@@ -37,11 +37,11 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.h a(MatchResult matchResult) {
-        return kotlin.b.l.eh(matchResult.start(), matchResult.end());
+        return kotlin.b.l.el(matchResult.start(), matchResult.end());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.h a(MatchResult matchResult, int i) {
-        return kotlin.b.l.eh(matchResult.start(i), matchResult.end(i));
+        return kotlin.b.l.el(matchResult.start(i), matchResult.end(i));
     }
 }

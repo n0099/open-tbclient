@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share.face;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class a implements Comparable<a> {
     public String a;
     public long b;

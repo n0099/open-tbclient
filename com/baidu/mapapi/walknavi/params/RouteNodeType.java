@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.params;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum RouteNodeType {
     LOCATION(1),
     KEYWORD(2);

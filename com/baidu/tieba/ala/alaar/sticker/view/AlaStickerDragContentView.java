@@ -12,10 +12,10 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int fzI;
+    private int fCU;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
 
     public void bB(int i, int i2) {
         this.borderWidth = i;
-        this.fzI = i2;
+        this.fCU = i2;
     }
 
     public DragTextView a(int i, Bitmap bitmap, int i2, e eVar, AlaLiveStickerInfo alaLiveStickerInfo) {
@@ -51,7 +51,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzI);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fCU);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
@@ -111,7 +111,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
         dragTextView.setType(i);
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fzI);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.fCU);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 1) {
@@ -145,7 +145,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
         addView(dragTextView, layoutParams);
     }
 
-    public void bF(View view) {
+    public void bJ(View view) {
         if (view.getParent() != null) {
             view.setVisibility(8);
             ((ViewGroup) view.getParent()).removeView(view);

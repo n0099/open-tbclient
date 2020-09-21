@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.video.camera;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class CameraExecutor {
     private static volatile CameraExecutor mInstance = null;
     private Handler mCameraHandler;

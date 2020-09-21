@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class RequestSearchPersonHistoryWriteMessage extends CustomMessage<Object> {
     private boolean isclear;
 

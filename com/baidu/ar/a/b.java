@@ -3,7 +3,7 @@ package com.baidu.ar.a;
 import android.content.Context;
 import com.baidu.ar.callback.ICallbackWith;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private JSONObject bG;

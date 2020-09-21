@@ -18,7 +18,7 @@ import java.io.RandomAccessFile;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class s extends com.baidu.location.e.f {
     private static s q = null;
     String a = null;

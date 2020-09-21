@@ -2,38 +2,38 @@ package com.xiaomi.push;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class je extends ji {
     private static final jn a = new jn();
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f772a;
+    protected int f771a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected boolean f773a;
+    protected boolean f772a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f774a;
+    private byte[] f773a;
     protected boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    private byte[] f775b;
+    private byte[] f774b;
     protected boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    private byte[] f776c;
+    private byte[] f775c;
     private byte[] d;
     private byte[] e;
     private byte[] f;
     private byte[] g;
     private byte[] h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements jk {
         protected int a;
 
         /* renamed from: a  reason: collision with other field name */
-        protected boolean f777a;
+        protected boolean f776a;
         protected boolean b;
 
         public a() {
@@ -45,16 +45,16 @@ public class je extends ji {
         }
 
         public a(boolean z, boolean z2, int i) {
-            this.f777a = false;
+            this.f776a = false;
             this.b = true;
-            this.f777a = z;
+            this.f776a = z;
             this.b = z2;
             this.a = i;
         }
 
         @Override // com.xiaomi.push.jk
         public ji a(js jsVar) {
-            je jeVar = new je(jsVar, this.f777a, this.b);
+            je jeVar = new je(jsVar, this.f776a, this.b);
             if (this.a != 0) {
                 jeVar.b(this.a);
             }
@@ -64,18 +64,18 @@ public class je extends ji {
 
     public je(js jsVar, boolean z, boolean z2) {
         super(jsVar);
-        this.f773a = false;
+        this.f772a = false;
         this.b = true;
         this.c = false;
-        this.f774a = new byte[1];
-        this.f775b = new byte[2];
-        this.f776c = new byte[4];
+        this.f773a = new byte[1];
+        this.f774b = new byte[2];
+        this.f775c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f773a = z;
+        this.f772a = z;
         this.b = z2;
     }
 
@@ -215,17 +215,17 @@ public class je extends ji {
 
     @Override // com.xiaomi.push.ji
     public void a(byte b) {
-        this.f774a[0] = b;
-        this.a.m495a(this.f774a, 0, 1);
+        this.f773a[0] = b;
+        this.a.m495a(this.f773a, 0, 1);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(int i) {
-        this.f776c[0] = (byte) ((i >> 24) & 255);
-        this.f776c[1] = (byte) ((i >> 16) & 255);
-        this.f776c[2] = (byte) ((i >> 8) & 255);
-        this.f776c[3] = (byte) (i & 255);
-        this.a.m495a(this.f776c, 0, 4);
+        this.f775c[0] = (byte) ((i >> 24) & 255);
+        this.f775c[1] = (byte) ((i >> 16) & 255);
+        this.f775c[2] = (byte) ((i >> 8) & 255);
+        this.f775c[3] = (byte) (i & 255);
+        this.a.m495a(this.f775c, 0, 4);
     }
 
     @Override // com.xiaomi.push.ji
@@ -244,20 +244,20 @@ public class je extends ji {
     @Override // com.xiaomi.push.ji
     public void a(jf jfVar) {
         a(jfVar.a);
-        a(jfVar.f779a);
+        a(jfVar.f778a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jg jgVar) {
         a(jgVar.a);
-        a(jgVar.f780a);
+        a(jgVar.f779a);
     }
 
     @Override // com.xiaomi.push.ji
     public void a(jh jhVar) {
         a(jhVar.a);
         a(jhVar.b);
-        a(jhVar.f781a);
+        a(jhVar.f780a);
     }
 
     @Override // com.xiaomi.push.ji
@@ -284,9 +284,9 @@ public class je extends ji {
 
     @Override // com.xiaomi.push.ji
     public void a(short s) {
-        this.f775b[0] = (byte) ((s >> 8) & 255);
-        this.f775b[1] = (byte) (s & 255);
-        this.a.m495a(this.f775b, 0, 2);
+        this.f774b[0] = (byte) ((s >> 8) & 255);
+        this.f774b[1] = (byte) (s & 255);
+        this.a.m495a(this.f774b, 0, 2);
     }
 
     @Override // com.xiaomi.push.ji
@@ -304,7 +304,7 @@ public class je extends ji {
     }
 
     public void b(int i) {
-        this.f772a = i;
+        this.f771a = i;
         this.c = true;
     }
 
@@ -319,8 +319,8 @@ public class je extends ji {
             throw new jc("Negative length: " + i);
         }
         if (this.c) {
-            this.f772a -= i;
-            if (this.f772a < 0) {
+            this.f771a -= i;
+            if (this.f771a < 0) {
                 throw new jc("Message length exceeded: " + i);
             }
         }

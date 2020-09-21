@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.text.TextUtils;
 import com.baidu.mapsdkplatform.comapi.map.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class ad implements f.a {
     final /* synthetic */ CustomMapStyleCallBack a;
     final /* synthetic */ MapCustomStyleOptions b;

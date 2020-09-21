@@ -2,23 +2,23 @@ package com.baidu.tieba.ext.bdplayer.floating;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private JSONObject fWf;
-    private JSONObject fWk;
+    private JSONObject fZs;
+    private JSONObject fZx;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject chy() {
-        return this.fWf;
+    public JSONObject ckM() {
+        return this.fZs;
     }
 
-    public JSONObject chz() {
-        return this.fWk;
+    public JSONObject ckN() {
+        return this.fZx;
     }
 
-    public static c HB(String str) {
+    public static c HY(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -26,25 +26,25 @@ public class c {
             e.printStackTrace();
             jSONObject = null;
         }
-        return dz(jSONObject);
+        return dH(jSONObject);
     }
 
-    public static c dz(JSONObject jSONObject) {
+    public static c dH(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.fWf = jSONObject.optJSONObject("extra");
-        cVar.fWk = jSONObject.optJSONObject("src");
+        cVar.fZs = jSONObject.optJSONObject("extra");
+        cVar.fZx = jSONObject.optJSONObject("src");
         try {
-            JSONObject chz = cVar.chz();
-            if (chz != null) {
-                cVar.roomId = chz.optString("room_id");
-                cVar.cover = chz.optString("cover");
+            JSONObject ckN = cVar.ckN();
+            if (ckN != null) {
+                cVar.roomId = ckN.optString("room_id");
+                cVar.cover = ckN.optString("cover");
             }
-            JSONObject chy = cVar.chy();
-            if (chy != null) {
-                cVar.extra = chy.toString();
+            JSONObject ckM = cVar.ckM();
+            if (ckM != null) {
+                cVar.extra = ckM.toString();
                 return cVar;
             }
             return cVar;

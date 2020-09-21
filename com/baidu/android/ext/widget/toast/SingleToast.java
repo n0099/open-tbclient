@@ -20,9 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.manage.MutexPopManager;
 import com.baidu.android.ext.widget.toast.UniversalToast;
+import com.baidu.android.toast.R;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.facebook.drawee.a.a.c;
 import com.facebook.drawee.generic.RoundingParams;
@@ -33,7 +33,7 @@ import rx.a.b.a;
 import rx.d;
 import rx.functions.b;
 import rx.schedulers.Schedulers;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class SingleToast {
     private static final int SYSTEMTOAST_LONGDURATION = 3500;
     private static final int SYSTEMTOAST_SHORTDURATION = 2000;
@@ -79,7 +79,7 @@ final class SingleToast {
                     ToastUtils.setToastAnimation(SingleToast.mSystemToast, R.style.toast_animation);
                     int i3 = SingleToast.mSystemToast.getDuration() == 1 ? SingleToast.SYSTEMTOAST_LONGDURATION : 2000;
                     UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ekd()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
+                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.eoa()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.b
                         public void call(Long l) {
@@ -194,6 +194,7 @@ final class SingleToast {
         linearLayout.setClickable(true);
         TextView textView = (TextView) linearLayout.findViewById(R.id.highLoading_progress_toast_title);
         if (!TextUtils.isEmpty(charSequence) && textView != null) {
+            textView.setText(charSequence);
             textView.setTextColor(resources.getColor(R.color.white_text));
         }
         if (ToastUtils.shouldShowSystemToast(applicationContext)) {
@@ -251,7 +252,7 @@ final class SingleToast {
                     });
                     int i3 = SingleToast.mSystemToast.getDuration() == 1 ? SingleToast.SYSTEMTOAST_LONGDURATION : 2000;
                     UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.ekd()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.5.2
+                    d.b(i3, TimeUnit.MILLISECONDS).d(Schedulers.io()).c(a.eoa()).c(new b<Long>() { // from class: com.baidu.android.ext.widget.toast.SingleToast.5.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.b
                         public void call(Long l) {
@@ -354,7 +355,7 @@ final class SingleToast {
         final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.left_icon_clickable_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dPw().xW(true).Q(uri).dQn());
+        ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dTu().yf(true).S(uri).dUl());
         if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
             textView.setTextColor(resources.getColor(R.color.white_text));
             textView.setText(charSequence);
@@ -600,7 +601,7 @@ final class SingleToast {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showIconTitleMsgBtnToast(@NonNull final Context context, Uri uri, int i, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i2, int i3, @Nullable UniversalToast.ToastCallback toastCallback) {
+    public static void showIconTitleMsgBtnToast(@NonNull final Context context, Uri uri, int i, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i2, int i3, int i4, @Nullable UniversalToast.ToastCallback toastCallback) {
         boolean z;
         final TextView textView;
         final Context applicationContext = context.getApplicationContext();
@@ -612,7 +613,7 @@ final class SingleToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().yb(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().yk(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -703,7 +704,10 @@ final class SingleToast {
             }
         }
         toastCustom.setView(linearLayout);
-        toastCustom.setGravity(81, 0, (int) context.getResources().getDimension(R.dimen.clickable_toast_view_margin_bottom));
+        if (i4 <= 0) {
+            i4 = (int) context.getResources().getDimension(R.dimen.clickable_toast_view_margin_bottom);
+        }
+        toastCustom.setGravity(81, 0, i4);
         toastCustom.setDuration(i3);
         toastCustom.setOnClick(toastCallback);
         toastCustom.setWindowAnimation(R.style.toast_animation);

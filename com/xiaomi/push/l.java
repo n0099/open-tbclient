@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class l {
     private static int a = 0;
     private static int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f786a = null;
+    private static Map<String, o> f785a = null;
 
     public static synchronized int a() {
         int i;
@@ -61,53 +61,53 @@ public class l {
 
     /* renamed from: a  reason: collision with other method in class */
     private static void m499a() {
-        if (f786a != null) {
+        if (f785a != null) {
             return;
         }
-        f786a = new HashMap();
-        f786a.put("CN", o.China);
-        f786a.put("FI", o.Europe);
-        f786a.put("SE", o.Europe);
-        f786a.put("NO", o.Europe);
-        f786a.put("FO", o.Europe);
-        f786a.put("EE", o.Europe);
-        f786a.put("LV", o.Europe);
-        f786a.put("LT", o.Europe);
-        f786a.put("BY", o.Europe);
-        f786a.put("MD", o.Europe);
-        f786a.put("UA", o.Europe);
-        f786a.put("PL", o.Europe);
-        f786a.put("CZ", o.Europe);
-        f786a.put("SK", o.Europe);
-        f786a.put("HU", o.Europe);
-        f786a.put("DE", o.Europe);
-        f786a.put("AT", o.Europe);
-        f786a.put("CH", o.Europe);
-        f786a.put("LI", o.Europe);
-        f786a.put("GB", o.Europe);
-        f786a.put("IE", o.Europe);
-        f786a.put("NL", o.Europe);
-        f786a.put("BE", o.Europe);
-        f786a.put("LU", o.Europe);
-        f786a.put("FR", o.Europe);
-        f786a.put("RO", o.Europe);
-        f786a.put("BG", o.Europe);
-        f786a.put("RS", o.Europe);
-        f786a.put("MK", o.Europe);
-        f786a.put("AL", o.Europe);
-        f786a.put("GR", o.Europe);
-        f786a.put("SI", o.Europe);
-        f786a.put("HR", o.Europe);
-        f786a.put("IT", o.Europe);
-        f786a.put("SM", o.Europe);
-        f786a.put("MT", o.Europe);
-        f786a.put("ES", o.Europe);
-        f786a.put("PT", o.Europe);
-        f786a.put("AD", o.Europe);
-        f786a.put("CY", o.Europe);
-        f786a.put("DK", o.Europe);
-        f786a.put("RU", o.Russia);
-        f786a.put("IN", o.India);
+        f785a = new HashMap();
+        f785a.put("CN", o.China);
+        f785a.put("FI", o.Europe);
+        f785a.put("SE", o.Europe);
+        f785a.put("NO", o.Europe);
+        f785a.put("FO", o.Europe);
+        f785a.put("EE", o.Europe);
+        f785a.put("LV", o.Europe);
+        f785a.put("LT", o.Europe);
+        f785a.put("BY", o.Europe);
+        f785a.put("MD", o.Europe);
+        f785a.put("UA", o.Europe);
+        f785a.put("PL", o.Europe);
+        f785a.put("CZ", o.Europe);
+        f785a.put("SK", o.Europe);
+        f785a.put("HU", o.Europe);
+        f785a.put("DE", o.Europe);
+        f785a.put("AT", o.Europe);
+        f785a.put("CH", o.Europe);
+        f785a.put("LI", o.Europe);
+        f785a.put("GB", o.Europe);
+        f785a.put("IE", o.Europe);
+        f785a.put("NL", o.Europe);
+        f785a.put("BE", o.Europe);
+        f785a.put("LU", o.Europe);
+        f785a.put("FR", o.Europe);
+        f785a.put("RO", o.Europe);
+        f785a.put("BG", o.Europe);
+        f785a.put("RS", o.Europe);
+        f785a.put("MK", o.Europe);
+        f785a.put("AL", o.Europe);
+        f785a.put("GR", o.Europe);
+        f785a.put("SI", o.Europe);
+        f785a.put("HR", o.Europe);
+        f785a.put("IT", o.Europe);
+        f785a.put("SM", o.Europe);
+        f785a.put("MT", o.Europe);
+        f785a.put("ES", o.Europe);
+        f785a.put("PT", o.Europe);
+        f785a.put("AD", o.Europe);
+        f785a.put("CY", o.Europe);
+        f785a.put("DK", o.Europe);
+        f785a.put("RU", o.Russia);
+        f785a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -121,7 +121,7 @@ public class l {
 
     private static o b(String str) {
         m499a();
-        return f786a.get(str.toUpperCase());
+        return f785a.get(str.toUpperCase());
     }
 
     public static String b() {

@@ -10,17 +10,17 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class di {
     private static volatile di a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f208a;
+    private Context f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ConcurrentLinkedQueue<b> f209a = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<b> f208a = new ConcurrentLinkedQueue<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     class a extends b {
         a() {
             super();
@@ -33,7 +33,7 @@ public class di {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends al.b {
         long a = System.currentTimeMillis();
 
@@ -57,35 +57,35 @@ public class di {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     class c extends b {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        File f211a;
+        File f210a;
 
         /* renamed from: a  reason: collision with other field name */
-        String f212a;
+        String f211a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f213a;
+        boolean f212a;
         String b;
 
         /* renamed from: b  reason: collision with other field name */
-        boolean f214b;
+        boolean f213b;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(String str, String str2, File file, boolean z) {
             super();
-            this.f212a = str;
+            this.f211a = str;
             this.b = str2;
-            this.f211a = file;
-            this.f214b = z;
+            this.f210a = file;
+            this.f213b = z;
         }
 
         private boolean c() {
             int i;
-            SharedPreferences sharedPreferences = di.this.f208a.getSharedPreferences("log.timestamp", 0);
+            SharedPreferences sharedPreferences = di.this.f207a.getSharedPreferences("log.timestamp", 0);
             String string = sharedPreferences.getString("log.requst", "");
             long currentTimeMillis = System.currentTimeMillis();
             try {
@@ -114,7 +114,7 @@ public class di {
 
         @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
         public boolean a() {
-            return az.d(di.this.f208a) || (this.f214b && az.b(di.this.f208a));
+            return az.d(di.this.f207a) || (this.f213b && az.b(di.this.f207a));
         }
 
         @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
@@ -124,10 +124,10 @@ public class di {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uid", com.xiaomi.push.service.be.m559a());
                     hashMap.put("token", this.b);
-                    hashMap.put("net", az.m140a(di.this.f208a));
-                    az.a(this.f212a, hashMap, this.f211a, "file");
+                    hashMap.put("net", az.m140a(di.this.f207a));
+                    az.a(this.f211a, hashMap, this.f210a, "file");
                 }
-                this.f213a = true;
+                this.f212a = true;
             } catch (IOException e) {
             }
         }
@@ -135,22 +135,22 @@ public class di {
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
         public void mo229c() {
-            if (!this.f213a) {
+            if (!this.f212a) {
                 this.a++;
                 if (this.a < 3) {
-                    di.this.f209a.add(this);
+                    di.this.f208a.add(this);
                 }
             }
-            if (this.f213a || this.a >= 3) {
-                this.f211a.delete();
+            if (this.f212a || this.a >= 3) {
+                this.f210a.delete();
             }
             di.this.a((1 << this.a) * 1000);
         }
     }
 
     private di(Context context) {
-        this.f208a = context;
-        this.f209a.add(new a());
+        this.f207a = context;
+        this.f208a.add(new a());
         b(0L);
     }
 
@@ -162,13 +162,13 @@ public class di {
                 }
             }
         }
-        a.f208a = context;
+        a.f207a = context;
         return a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        b peek = this.f209a.peek();
+        b peek = this.f208a.peek();
         if (peek == null || !peek.a()) {
             return;
         }
@@ -181,7 +181,7 @@ public class di {
             return;
         }
         try {
-            File file = new File(this.f208a.getExternalFilesDir(null) + "/.logcache");
+            File file = new File(this.f207a.getExternalFilesDir(null) + "/.logcache");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {
@@ -193,21 +193,21 @@ public class di {
     }
 
     private void b(long j) {
-        if (this.f209a.isEmpty()) {
+        if (this.f208a.isEmpty()) {
             return;
         }
         gv.a(new dk(this), j);
     }
 
     private void c() {
-        while (!this.f209a.isEmpty()) {
-            b peek = this.f209a.peek();
+        while (!this.f208a.isEmpty()) {
+            b peek = this.f208a.peek();
             if (peek != null) {
-                if (!peek.b() && this.f209a.size() <= 6) {
+                if (!peek.b() && this.f208a.size() <= 6) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                this.f209a.remove(peek);
+                this.f208a.remove(peek);
             }
         }
     }
@@ -218,7 +218,7 @@ public class di {
     }
 
     public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
-        this.f209a.add(new dj(this, i, date, date2, str, str2, z));
+        this.f208a.add(new dj(this, i, date, date2, str, str2, z));
         b(0L);
     }
 }

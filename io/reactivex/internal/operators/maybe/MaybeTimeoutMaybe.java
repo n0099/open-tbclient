@@ -5,7 +5,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class MaybeTimeoutMaybe<T, U> extends a<T, T> {
     final o<? extends T> fallback;
     final o<U> other;
@@ -18,7 +18,7 @@ public final class MaybeTimeoutMaybe<T, U> extends a<T, T> {
         this.source.a(timeoutMainMaybeObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimeoutMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -5955289211445418871L;
         final m<? super T> actual;
@@ -97,7 +97,7 @@ public final class MaybeTimeoutMaybe<T, U> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimeoutOtherMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements m<Object> {
         private static final long serialVersionUID = 8663801314800248617L;
         final TimeoutMainMaybeObserver<T, U> parent;
@@ -128,7 +128,7 @@ public final class MaybeTimeoutMaybe<T, U> extends a<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class TimeoutFallbackMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = 8663801314800248617L;
         final m<? super T> actual;

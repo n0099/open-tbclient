@@ -3,7 +3,7 @@ package com.baidu.sofire.i;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class m {
     private static final m c = new m();
     private HandlerThread a = new HandlerThread("rp_th", 10);

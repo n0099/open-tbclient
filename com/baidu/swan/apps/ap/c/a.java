@@ -10,45 +10,45 @@ import java.lang.reflect.Parameter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a implements c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ClassLoader dcb;
-    private final Object[] dci;
-    private final Set<b<?>> dbZ = new HashSet();
-    private final Set<Object> dca = new HashSet();
-    private int dcc = 0;
-    private int dcd = 0;
-    private int dce = 0;
-    private int dcf = 0;
-    private int dcg = -1;
-    private int dch = 0;
+    private ClassLoader ded;
+    private final Object[] dek;
+    private final Set<b<?>> deb = new HashSet();
+    private final Set<Object> dec = new HashSet();
+    private int dee = 0;
+    private int def = 0;
+    private int deg = 0;
+    private int deh = 0;
+    private int dei = -1;
+    private int dej = 0;
 
     private a(ClassLoader classLoader, Object... objArr) {
-        this.dcb = classLoader;
-        this.dci = objArr == null ? new Object[0] : objArr;
+        this.ded = classLoader;
+        this.dek = objArr == null ? new Object[0] : objArr;
     }
 
     public static a a(ClassLoader classLoader, Object... objArr) {
         return new a(classLoader, objArr);
     }
 
-    public boolean aFG() {
-        return this.dch > 0;
+    public boolean aGq() {
+        return this.dej > 0;
     }
 
     public a a(b<?>... bVarArr) {
         if (bVarArr != null) {
-            this.dbZ.addAll(Arrays.asList(bVarArr));
+            this.deb.addAll(Arrays.asList(bVarArr));
         }
         return this;
     }
 
-    public a kq(int i) {
+    public a kB(int i) {
         Object[] objArr;
-        if (!aFG() && i > 0) {
-            this.dch = i;
-            for (Object obj : this.dci) {
+        if (!aGq() && i > 0) {
+            this.dej = i;
+            for (Object obj : this.dek) {
                 if (obj instanceof Class) {
                     a(i, (Class) obj);
                 } else if (obj instanceof Annotation) {
@@ -64,50 +64,50 @@ public final class a implements c {
                 }
             }
         }
-        this.dch = 0;
+        this.dej = 0;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Class<?>... clsArr) {
-        return a(dcj, i, clsArr);
+        return a(del, i, clsArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Package... packageArr) {
-        return a(dck, i, packageArr);
+        return a(dem, i, packageArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(int i, @NonNull Annotation... annotationArr) {
-        return a(dcl, i, annotationArr);
+        return a(den, i, annotationArr);
     }
 
     public a a(int i, @NonNull Method... methodArr) {
-        return a(dcn, i, methodArr);
+        return a(dep, i, methodArr);
     }
 
     public a a(int i, @NonNull Field... fieldArr) {
-        return a(dcm, i, fieldArr);
+        return a(deo, i, fieldArr);
     }
 
     public a a(int i, Constructor<?>... constructorArr) {
-        return a(dco, i, constructorArr);
+        return a(deq, i, constructorArr);
     }
 
     @RequiresApi(api = 26)
     public a a(int i, Parameter... parameterArr) {
-        return a(dcp, i, parameterArr);
+        return a(der, i, parameterArr);
     }
 
     @SafeVarargs
     private final <TargeT> a a(@NonNull b<TargeT> bVar, int i, TargeT... targetArr) {
-        if (!this.dbZ.contains(bVar)) {
+        if (!this.deb.contains(bVar)) {
             int i2 = i - 1;
             if (i > 0 && targetArr != null && targetArr.length > 0) {
                 for (TargeT target : targetArr) {
-                    if (X(target)) {
-                        bVar.a(this, this.dcb, i2, target);
+                    if (Y(target)) {
+                        bVar.a(this, this.ded, i2, target);
                     }
                 }
             }
@@ -115,16 +115,16 @@ public final class a implements c {
         return this;
     }
 
-    private <TargeT> boolean X(TargeT target) {
-        this.dcc++;
+    private <TargeT> boolean Y(TargeT target) {
+        this.dee++;
         if (target == null) {
-            this.dce++;
+            this.deg++;
             return false;
-        } else if (this.dca.contains(target)) {
-            this.dcd++;
+        } else if (this.dec.contains(target)) {
+            this.def++;
             return false;
         } else {
-            this.dca.add(target);
+            this.dec.add(target);
             return true;
         }
     }

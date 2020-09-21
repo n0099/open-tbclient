@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class a {
     private static final int a = 2048;
 

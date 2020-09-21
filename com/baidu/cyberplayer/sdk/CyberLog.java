@@ -1,7 +1,7 @@
 package com.baidu.cyberplayer.sdk;
 
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class CyberLog {
     public static int a = 1;
 

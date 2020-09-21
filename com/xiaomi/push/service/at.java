@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class at {
     public static String a = "1";
     public static String b = "2";

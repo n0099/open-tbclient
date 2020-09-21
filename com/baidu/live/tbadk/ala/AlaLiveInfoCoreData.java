@@ -1,11 +1,11 @@
 package com.baidu.live.tbadk.ala;
 
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.data.AlaInfoData;
 import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public String action;
@@ -19,7 +19,6 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     public int liveStatus;
     public String liveTitle;
     public int liveType;
-    public int localBroadcastType = 0;
     public String mediaPic;
     public String otherParams;
     public String rtmpUrl;
@@ -29,6 +28,8 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     public long userID;
     public AlaLiveUserInfoData userInfo;
     public String userName;
+    public int localBroadcastType = 0;
+    public int isAudio = 0;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -51,8 +52,8 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
             this.hlsUrl = jSONObject.optString("hls_url");
             this.flvUrl = jSONObject.optString("flv_url");
             this.audienceCount = jSONObject.optLong("audience_count");
-            this.liveType = jSONObject.optInt("live_type");
-            this.screenDirection = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
+            this.liveType = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE);
+            this.screenDirection = jSONObject.optInt("screen_direction");
             this.liveStatus = jSONObject.optInt("live_status");
             this.mediaPic = jSONObject.optString("media_pic");
             this.threadId = jSONObject.optLong("thread_id");

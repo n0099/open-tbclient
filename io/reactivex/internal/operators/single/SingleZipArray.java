@@ -8,17 +8,17 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] opf;
+    final aa<? extends T>[] oyO;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.opf;
+        aa<? extends T>[] aaVarArr = this.oyO;
         int length = aaVarArr.length;
         if (length == 1) {
-            aaVarArr[0].a(new a.C0965a(yVar, new a()));
+            aaVarArr[0].a(new a.C0962a(yVar, new a()));
             return;
         }
         ZipCoordinator zipCoordinator = new ZipCoordinator(yVar, length, this.zipper);
@@ -33,7 +33,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -5556924161382950569L;
         final y<? super R> actual;
@@ -102,7 +102,7 @@ public final class SingleZipArray<T, R> extends w<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class ZipSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements y<T> {
         private static final long serialVersionUID = 3323743579927613702L;
         final int index;
@@ -133,7 +133,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     final class a implements h<T, R> {
         a() {
         }

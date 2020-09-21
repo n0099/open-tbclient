@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public enum FieldNamingPolicy implements FieldNamingStrategy {
     IDENTITY { // from class: com.google.gson.FieldNamingPolicy.1
         @Override // com.google.gson.FieldNamingStrategy

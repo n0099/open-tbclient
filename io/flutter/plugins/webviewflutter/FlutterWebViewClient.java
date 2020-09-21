@@ -18,7 +18,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class FlutterWebViewClient {
     private static final String TAG = "FlutterWebViewClient";
     private boolean hasNavigationDelegate;
@@ -166,7 +166,7 @@ class FlutterWebViewClient {
 
     private c internalCreateWebViewClientCompat() {
         return new c() { // from class: io.flutter.plugins.webviewflutter.FlutterWebViewClient.2
-            @Override // androidx.webkit.c, android.webkit.WebViewClient
+            @Override // androidx.webkit.c, android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 return FlutterWebViewClient.this.shouldOverrideUrlLoading(webView, webResourceRequest);
             }
@@ -205,7 +205,7 @@ class FlutterWebViewClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         private final Map<String, String> headers;
         private final String url;

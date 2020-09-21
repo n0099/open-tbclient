@@ -4,18 +4,18 @@ import io.reactivex.c.h;
 import io.reactivex.internal.operators.flowable.FlowableRepeatWhen;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.processors.UnicastProcessor;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableRetryWhen<T> extends a<T, T> {
-    final h<? super io.reactivex.g<Throwable>, ? extends org.b.b<?>> onH;
+    final h<? super io.reactivex.g<Throwable>, ? extends org.a.b<?>> oxq;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super T> cVar) {
+    public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> efG = UnicastProcessor.NT(8).efG();
+        io.reactivex.processors.a<T> ejD = UnicastProcessor.Oy(8).ejD();
         try {
-            org.b.b bVar2 = (org.b.b) io.reactivex.internal.functions.a.k(this.onH.apply(efG), "handler returned a null Publisher");
-            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.omT);
-            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, efG, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.k(this.oxq.apply(ejD), "handler returned a null Publisher");
+            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.owE);
+            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, ejD, whenReceiver);
             whenReceiver.subscriber = retryWhenSubscriber;
             cVar.onSubscribe(retryWhenSubscriber);
             bVar2.subscribe(whenReceiver);
@@ -26,20 +26,20 @@ public final class FlowableRetryWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class RetryWhenSubscriber<T> extends FlowableRepeatWhen.WhenSourceSubscriber<T, Throwable> {
         private static final long serialVersionUID = -2680129890138081029L;
 
-        RetryWhenSubscriber(org.b.c<? super T> cVar, io.reactivex.processors.a<Throwable> aVar, org.b.d dVar) {
+        RetryWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Throwable> aVar, org.a.d dVar) {
             super(cVar, aVar, dVar);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             again(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.receiver.cancel();
             this.actual.onComplete();

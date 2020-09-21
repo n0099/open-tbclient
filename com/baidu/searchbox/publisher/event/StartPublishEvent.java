@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.event;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class StartPublishEvent {
     public boolean changeMusic;
     public String videoPath;

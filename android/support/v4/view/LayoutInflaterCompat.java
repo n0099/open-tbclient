@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class LayoutInflaterCompat {
     static final LayoutInflaterCompatBaseImpl IMPL;
     private static final String TAG = "LayoutInflaterCompatHC";
@@ -17,7 +17,7 @@ public final class LayoutInflaterCompat {
     private static Field sLayoutInflaterFactory2Field;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static class Factory2Wrapper implements LayoutInflater.Factory2 {
         final LayoutInflaterFactory mDelegateFactory;
 
@@ -59,7 +59,7 @@ public final class LayoutInflaterCompat {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     static class LayoutInflaterCompatBaseImpl {
         LayoutInflaterCompatBaseImpl() {
         }
@@ -88,7 +88,7 @@ public final class LayoutInflaterCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     static class LayoutInflaterCompatApi21Impl extends LayoutInflaterCompatBaseImpl {
         LayoutInflaterCompatApi21Impl() {
         }

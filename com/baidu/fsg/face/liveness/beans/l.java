@@ -2,7 +2,7 @@ package com.baidu.fsg.face.liveness.beans;
 
 import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public abstract class l extends BaseBean {
     protected String a;
 

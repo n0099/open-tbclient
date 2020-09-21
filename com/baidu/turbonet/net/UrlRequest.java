@@ -12,25 +12,25 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static abstract class StatusListener {
-        public abstract void Kw(int i);
+        public abstract void Lb(int i);
     }
 
-    void Kd(int i);
+    void KI(int i);
 
-    void Ke(int i);
+    void KJ(int i);
 
-    void Kf(int i);
+    void KK(int i);
 
-    void Th(String str);
+    void TG(String str);
 
-    void Ti(String str);
+    void TH(String str);
 
-    void Tj(String str);
+    void TI(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void dKs();
+    void dOq();
 
-    void dKt();
+    void dOr();
 
-    void dKu();
+    void dOs();
 
     Object getTag();
 
@@ -54,33 +54,33 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder {
-        String dqa;
+        String dsc;
         final Executor mExecutor;
         Object mTag;
         final String mUrl;
-        boolean nbB;
-        int nbC;
-        int nbD;
-        int nbE;
-        int nbF;
-        String nbG;
-        String nbH;
-        final Callback nbh;
-        boolean nbx;
-        boolean nby;
-        boolean nbz;
-        final TurbonetEngine ncT;
-        UploadDataProvider ndH;
-        Executor ndI;
-        boolean ndJ;
-        final ArrayList<Pair<String, String>> ndG = new ArrayList<>();
+        boolean nlA;
+        int nlB;
+        int nlC;
+        int nlD;
+        int nlE;
+        String nlF;
+        String nlG;
+        final Callback nlg;
+        boolean nlw;
+        boolean nlx;
+        boolean nly;
+        final TurbonetEngine nmS;
+        UploadDataProvider nnG;
+        Executor nnH;
+        boolean nnI;
+        final ArrayList<Pair<String, String>> nnF = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> nbw = Collections.emptyList();
+        Collection<Object> nlv = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         public @interface RequestPriority {
         }
 
@@ -98,29 +98,29 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.nbh = callback;
+            this.nlg = callback;
             this.mExecutor = executor;
-            this.ncT = turbonetEngine;
-            this.ndJ = false;
-            this.nbB = false;
-            this.nbC = 0;
-            this.nbD = 0;
-            this.nbE = 0;
-            this.nbF = 0;
+            this.nmS = turbonetEngine;
+            this.nnI = false;
+            this.nlA = false;
+            this.nlB = 0;
+            this.nlC = 0;
+            this.nlD = 0;
+            this.nlE = 0;
             this.mTag = null;
-            this.nbG = null;
-            this.nbH = null;
+            this.nlF = null;
+            this.nlG = null;
         }
 
-        public Builder Tt(String str) {
+        public Builder TS(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
-            this.dqa = str;
+            this.dsc = str;
             return this;
         }
 
-        public Builder gj(String str, String str2) {
+        public Builder gv(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.ndG.add(Pair.create(str, str2));
+                this.nnF.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder dLm() {
-            this.nbx = true;
+        public Builder dPk() {
+            this.nlw = true;
             return this;
         }
 
-        public Builder dLn() {
-            this.ndJ = true;
+        public Builder dPl() {
+            this.nnI = true;
             return this;
         }
 
-        public Builder dLo() {
-            this.nbz = true;
+        public Builder dPm() {
+            this.nly = true;
             return this;
         }
 
-        public Builder Ks(int i) {
-            this.nbC = i;
+        public Builder KX(int i) {
+            this.nlB = i;
             return this;
         }
 
-        public Builder Kt(int i) {
-            this.nbD = i;
+        public Builder KY(int i) {
+            this.nlC = i;
             return this;
         }
 
-        public Builder Ku(int i) {
-            this.nbE = i;
+        public Builder KZ(int i) {
+            this.nlD = i;
             return this;
         }
 
-        public Builder Tu(String str) {
-            this.nbG = str;
+        public Builder TT(String str) {
+            this.nlF = str;
             return this;
         }
 
-        public Builder Tv(String str) {
-            this.nbH = str;
+        public Builder TU(String str) {
+            this.nlG = str;
             return this;
         }
 
@@ -182,59 +182,59 @@ public interface UrlRequest {
             if (executor == null) {
                 throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            if (this.dqa == null) {
-                this.dqa = "POST";
+            if (this.dsc == null) {
+                this.dsc = "POST";
             }
-            this.ndH = uploadDataProvider;
-            this.ndI = executor;
+            this.nnG = uploadDataProvider;
+            this.nnH = executor;
             return this;
         }
 
-        public UrlRequest dLp() {
-            UrlRequest a = this.ncT.a(this.mUrl, this.nbh, this.mExecutor, this.mPriority, this.nbw, this.nbx, this.nby, this.nbz);
-            if (this.dqa != null) {
-                a.Th(this.dqa);
+        public UrlRequest dPn() {
+            UrlRequest a = this.nmS.a(this.mUrl, this.nlg, this.mExecutor, this.mPriority, this.nlv, this.nlw, this.nlx, this.nly);
+            if (this.dsc != null) {
+                a.TG(this.dsc);
             }
-            Iterator<Pair<String, String>> it = this.ndG.iterator();
+            Iterator<Pair<String, String>> it = this.nnF.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.ndH != null) {
-                a.a(this.ndH, this.ndI);
+            if (this.nnG != null) {
+                a.a(this.nnG, this.nnH);
             }
-            if (this.ndJ) {
-                a.dKt();
+            if (this.nnI) {
+                a.dOr();
             }
-            if (this.nbB) {
-                a.dKu();
+            if (this.nlA) {
+                a.dOs();
             }
-            if (this.nbC > 0) {
-                a.setTimeout(this.nbC);
+            if (this.nlB > 0) {
+                a.setTimeout(this.nlB);
             }
-            if (this.nbD > 0) {
-                a.Kd(this.nbD);
+            if (this.nlC > 0) {
+                a.KI(this.nlC);
             }
-            if (this.nbE > 0) {
-                a.Ke(this.nbE);
+            if (this.nlD > 0) {
+                a.KJ(this.nlD);
             }
-            if (this.nbF > 0) {
-                a.Kf(this.nbF);
+            if (this.nlE > 0) {
+                a.KK(this.nlE);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.nbG)) {
-                a.Ti(this.nbG);
+            if (!TextUtils.isEmpty(this.nlF)) {
+                a.TH(this.nlF);
             }
-            if (!TextUtils.isEmpty(this.nbH)) {
-                a.Tj(this.nbH);
+            if (!TextUtils.isEmpty(this.nlG)) {
+                a.TI(this.nlG);
             }
             return a;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Kv(int i) {
+        public static int La(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

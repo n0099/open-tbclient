@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.ala.recorder.video.gles.GLContext;
 @TargetApi(18)
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 class g {
     private EGLContext mEGLContext;
     private EGLDisplay mEGLDisplay;

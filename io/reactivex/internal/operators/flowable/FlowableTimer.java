@@ -7,37 +7,37 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableTimer extends io.reactivex.g<Long> {
     final long delay;
     final v scheduler;
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super Long> cVar) {
+    public void a(org.a.c<? super Long> cVar) {
         TimerSubscriber timerSubscriber = new TimerSubscriber(cVar);
         cVar.onSubscribe(timerSubscriber);
         timerSubscriber.setResource(this.scheduler.b(timerSubscriber, this.delay, this.unit));
     }
 
-    /* loaded from: classes7.dex */
-    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.a.d {
         private static final long serialVersionUID = -2809475196591179431L;
-        final org.b.c<? super Long> actual;
+        final org.a.c<? super Long> actual;
         volatile boolean requested;
 
-        TimerSubscriber(org.b.c<? super Long> cVar) {
+        TimerSubscriber(org.a.c<? super Long> cVar) {
             this.actual = cVar;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 this.requested = true;
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             DisposableHelper.dispose(this);
         }

@@ -53,7 +53,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             c next = it.next();
             if (next != null) {
-                jSONArray.put(next.dok());
+                jSONArray.put(next.drU());
             }
         }
         return jSONArray.toString();

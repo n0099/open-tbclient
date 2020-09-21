@@ -1,85 +1,52 @@
 package com.google.gson.internal.a;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.stream.JsonToken;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-/* loaded from: classes3.dex */
-public final class c extends TypeAdapter<Date> {
-    public static final TypeAdapterFactory nDS = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.c.1
-        @Override // com.google.gson.TypeAdapterFactory
-        public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            if (aVar.dXR() == Date.class) {
-                return new c();
-            }
-            return null;
-        }
-    };
-    private final List<DateFormat> dateFormats = new ArrayList();
+import com.google.gson.JsonIOException;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+/* loaded from: classes23.dex */
+final class c extends b {
+    private static Class nPP;
+    private final Object nPQ = ebN();
+    private final Field nPR = ebO();
 
-    public c() {
-        this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
-        if (!Locale.getDefault().equals(Locale.US)) {
-            this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
-        }
-        if (com.google.gson.internal.d.dXm()) {
-            this.dateFormats.add(com.google.gson.internal.g.dR(2, 2));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.TypeAdapter
-    public Date read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dXy() == JsonToken.NULL) {
-            aVar.dXD();
-            return null;
-        }
-        return deserializeToDate(aVar.dXC());
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
-        r0 = com.google.gson.internal.a.a.a.a(r3, new java.text.ParsePosition(0));
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private synchronized Date deserializeToDate(String str) {
-        Date a;
-        Iterator<DateFormat> it = this.dateFormats.iterator();
-        while (true) {
-            if (it.hasNext()) {
-                try {
-                    a = it.next().parse(str);
-                    break;
-                } catch (ParseException e) {
-                }
-            } else {
-                try {
-                    break;
-                } catch (ParseException e2) {
-                    throw new JsonSyntaxException(str, e2);
-                }
+    @Override // com.google.gson.internal.a.b
+    public void b(AccessibleObject accessibleObject) {
+        if (!c(accessibleObject)) {
+            try {
+                accessibleObject.setAccessible(true);
+            } catch (SecurityException e) {
+                throw new JsonIOException("Gson couldn't modify fields for " + accessibleObject + "\nand sun.misc.Unsafe not found.\nEither write a custom type adapter, or make fields accessible, or include sun.misc.Unsafe.", e);
             }
         }
-        return a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.TypeAdapter
-    public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
-        if (date == null) {
-            bVar.dXN();
-        } else {
-            bVar.UT(this.dateFormats.get(0).format(date));
+    boolean c(AccessibleObject accessibleObject) {
+        if (this.nPQ != null && this.nPR != null) {
+            try {
+                nPP.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.nPQ, accessibleObject, Long.valueOf(((Long) nPP.getMethod("objectFieldOffset", Field.class).invoke(this.nPQ, this.nPR)).longValue()), true);
+                return true;
+            } catch (Exception e) {
+            }
+        }
+        return false;
+    }
+
+    private static Object ebN() {
+        try {
+            nPP = Class.forName("sun.misc.Unsafe");
+            Field declaredField = nPP.getDeclaredField("theUnsafe");
+            declaredField.setAccessible(true);
+            return declaredField.get(null);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static Field ebO() {
+        try {
+            return AccessibleObject.class.getDeclaredField("override");
+        } catch (NoSuchFieldException e) {
+            return null;
         }
     }
 }

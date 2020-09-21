@@ -3,7 +3,7 @@ package com.baidu.vi;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.vi.AudioRecorder;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class a extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {

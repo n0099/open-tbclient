@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class DigestUtils {
     private static final int STREAM_BUFFER_LENGTH = 1024;
     private final MessageDigest messageDigest;
@@ -290,7 +290,7 @@ public class DigestUtils {
     }
 
     @Deprecated
-    public DigestUtils() {
+    private DigestUtils() {
         this.messageDigest = null;
     }
 

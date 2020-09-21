@@ -12,14 +12,14 @@ public class y extends a<z, aa> {
     private int mSkinType;
 
     public y(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.WI);
+        super(tbPageContext.getPageActivity(), z.Xa);
         this.mSkinType = 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: h */
-    public aa b(ViewGroup viewGroup) {
+    /* renamed from: i */
+    public aa c(ViewGroup viewGroup) {
         return new aa(LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false));
     }
 

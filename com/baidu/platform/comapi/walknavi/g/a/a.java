@@ -9,10 +9,9 @@ import android.widget.ListView;
 import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
 import com.baidu.platform.comapi.walknavi.a.b;
 import com.baidu.platform.comapi.wnplatform.p.h;
-import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private ViewGroup a;
     private LinearLayout b;
@@ -28,14 +27,14 @@ public class a {
     }
 
     public void a() {
-        this.b = (LinearLayout) this.a.findViewById(R.raw.pb_lottie_disagree_1);
+        this.b = (LinearLayout) this.a.findViewById(2131165270);
         if (this.c == null) {
-            this.c = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, R.layout.abc_alert_dialog_material, null);
+            this.c = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, 2130903049, null);
         }
-        this.e = this.c.findViewById(R.raw.lottie_watch);
-        this.f = this.c.findViewById(R.raw.pb_lottie_agree);
+        this.e = this.c.findViewById(2131165264);
+        this.f = this.c.findViewById(2131165266);
         this.b.addView(this.c);
-        this.d = (ListView) this.c.findViewById(R.raw.lottie_watch_1);
+        this.d = (ListView) this.c.findViewById(2131165265);
     }
 
     public void b() {

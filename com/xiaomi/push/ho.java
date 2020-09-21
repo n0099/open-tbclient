@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public enum ho {
     DeviceInfo(1),
     AppInstallList(2),
@@ -28,10 +28,10 @@ public enum ho {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f444a;
+    private final int f443a;
 
     ho(int i) {
-        this.f444a = i;
+        this.f443a = i;
     }
 
     public static ho a(int i) {
@@ -90,6 +90,6 @@ public enum ho {
     }
 
     public int a() {
-        return this.f444a;
+        return this.f443a;
     }
 }

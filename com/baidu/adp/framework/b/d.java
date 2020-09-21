@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public abstract class d extends f<HttpMessage, HttpMessageTask> {
     public d(int i) {
         super(i);
-        if (i != 0 && FrameHelper.Y(i) != FrameHelper.TYPE.HTTP) {
+        if (i != 0 && FrameHelper.Z(i) != FrameHelper.TYPE.HTTP) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

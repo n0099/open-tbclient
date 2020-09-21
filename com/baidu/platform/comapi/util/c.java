@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.util;
 
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class c implements ThreadFactory {
     private String a;
 

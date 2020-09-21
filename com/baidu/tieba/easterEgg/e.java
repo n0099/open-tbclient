@@ -5,32 +5,32 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class e {
-    private HttpMessageListener eDh = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
+    private HttpMessageListener eFm = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.hrR = rnSyncResponseMessage.getData();
-                if (e.this.hrS != null) {
-                    e.this.hrS.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.hyW = rnSyncResponseMessage.getData();
+                if (e.this.hyX != null) {
+                    e.this.hyX.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
     };
-    private com.baidu.tieba.easterEgg.a.a hrR;
-    private a hrS;
+    private com.baidu.tieba.easterEgg.a.a hyW;
+    private a hyX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes23.dex */
     public interface a {
         void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar);
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.eDh);
+        MessageManager.getInstance().registerListener(this.eFm);
     }
 
     public void startLoad() {
@@ -38,10 +38,10 @@ public class e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eDh);
+        MessageManager.getInstance().unRegisterListener(this.eFm);
     }
 
     public void a(a aVar) {
-        this.hrS = aVar;
+        this.hyX = aVar;
     }
 }

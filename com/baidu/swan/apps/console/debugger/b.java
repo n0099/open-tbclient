@@ -6,69 +6,69 @@ import android.util.Log;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static a ccw;
+    private static a cey;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String ccu = "";
-    private static String ccv = "";
-    private static int ccx = 0;
+    private static String cew = "";
+    private static String cex = "";
+    private static int cez = 0;
 
-    public static void kG(String str) {
-        ccu = str;
+    public static void kZ(String str) {
+        cew = str;
     }
 
-    public static void kH(String str) {
-        ccv = str;
+    public static void la(String str) {
+        cex = str;
     }
 
-    public static String adL() {
-        return ccu;
+    public static String aev() {
+        return cew;
     }
 
-    public static String adM() {
-        return ccv;
+    public static String aew() {
+        return cex;
     }
 
-    public static String adN() {
-        return ccw != null ? ccw.adK() + File.separator + ccv : "";
+    public static String aex() {
+        return cey != null ? cey.aeu() + File.separator + cex : "";
     }
 
-    public static String adO() {
-        return ccw != null ? ccw.adK() + File.separator + ccu : "";
+    public static String aey() {
+        return cey != null ? cey.aeu() + File.separator + cew : "";
     }
 
-    public static boolean adP() {
-        return ccx == 2;
+    public static boolean aez() {
+        return cez == 2;
     }
 
-    public static boolean adQ() {
-        return ccx == 1;
+    public static boolean aeA() {
+        return cez == 1;
     }
 
     public static void n(Bundle bundle) {
         String g = u.g(bundle, "extraWSUrl");
         String g2 = u.g(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(g)) {
-            ccw = new d();
-            ccx = 1;
+            cey = new d();
+            cez = 1;
         } else if (!TextUtils.isEmpty(g2)) {
-            ccw = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            ccx = 2;
+            cey = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            cez = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            ccx = 0;
-            ccw = null;
+            cez = 0;
+            cey = null;
             return;
         }
-        ccw.n(bundle);
+        cey.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (ccw != null) {
-            ccw.o(bundle);
+        if (cey != null) {
+            cey.o(bundle);
         }
     }
 }

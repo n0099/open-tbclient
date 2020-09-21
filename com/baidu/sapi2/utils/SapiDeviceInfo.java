@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class SapiDeviceInfo implements NoProguard {
     private static final int a = 11;
     private static final String c = "android";
@@ -171,7 +171,7 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static final class a {
         static Map<String, String> a = new HashMap();
 

@@ -3,41 +3,41 @@ package com.baidu.browser.core.permission;
 import com.baidu.m.a.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a aew = new a();
-    private Map<Integer, a.InterfaceC0210a> aev = new HashMap();
+    private static a aeO = new a();
+    private Map<Integer, a.InterfaceC0209a> aeN = new HashMap();
 
     private a() {
     }
 
-    public static a tq() {
-        return aew;
+    public static a tv() {
+        return aeO;
     }
 
-    public void a(int i, a.InterfaceC0210a interfaceC0210a) {
-        if (this.aev != null) {
+    public void a(int i, a.InterfaceC0209a interfaceC0209a) {
+        if (this.aeN != null) {
             synchronized (a.class) {
-                if (this.aev.containsKey(Integer.valueOf(i))) {
-                    this.aev.remove(Integer.valueOf(i));
+                if (this.aeN.containsKey(Integer.valueOf(i))) {
+                    this.aeN.remove(Integer.valueOf(i));
                 }
-                this.aev.put(Integer.valueOf(i), interfaceC0210a);
+                this.aeN.put(Integer.valueOf(i), interfaceC0209a);
             }
         }
     }
 
-    public void bi(int i) {
+    public void bm(int i) {
         synchronized (a.class) {
-            if (this.aev != null && this.aev.containsKey(Integer.valueOf(i))) {
-                this.aev.remove(Integer.valueOf(i));
+            if (this.aeN != null && this.aeN.containsKey(Integer.valueOf(i))) {
+                this.aeN.remove(Integer.valueOf(i));
             }
         }
     }
 
-    public a.InterfaceC0210a bj(int i) {
-        if (this.aev == null || !this.aev.containsKey(Integer.valueOf(i))) {
+    public a.InterfaceC0209a bn(int i) {
+        if (this.aeN == null || !this.aeN.containsKey(Integer.valueOf(i))) {
             return null;
         }
-        return this.aev.get(Integer.valueOf(i));
+        return this.aeN.get(Integer.valueOf(i));
     }
 }

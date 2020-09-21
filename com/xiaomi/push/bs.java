@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.xiaomi.push.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class bs extends ai.a {
     final /* synthetic */ bp a;
 
@@ -24,10 +24,10 @@ public class bs extends ai.a {
         cf cfVar;
         cf cfVar2;
         Context context;
-        cfVar = this.a.f138a;
+        cfVar = this.a.f137a;
         if (cfVar != null) {
-            cfVar2 = this.a.f138a;
-            context = this.a.f135a;
+            cfVar2 = this.a.f137a;
+            context = this.a.f134a;
             cfVar2.b(context);
             this.a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
         }

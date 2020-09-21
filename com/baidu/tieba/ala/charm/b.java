@@ -13,13 +13,13 @@ import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b implements c {
-    private String aAG;
-    private boolean bbJ;
-    private com.baidu.tieba.ala.charm.model.a fPQ;
-    private c.a fQf;
-    private CustomMessageListener fQg;
+    private String aBm;
+    private boolean bej;
+    private com.baidu.tieba.ala.charm.model.a fTb;
+    private c.a fTq;
+    private CustomMessageListener fTr;
     private String mGroupId;
     private String mLiveId;
     private String mOtherParams;
@@ -35,77 +35,77 @@ public class b implements c {
         this.mUserId = str;
         this.mGroupId = str2;
         this.mLiveId = str3;
-        this.bbJ = z;
-        this.aAG = str4;
+        this.bej = z;
+        this.aBm = str4;
         this.mOtherParams = str5;
         registerListener();
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(c.a aVar) {
-        this.fQf = aVar;
+        this.fTq = aVar;
     }
 
     @Override // com.baidu.tieba.ala.charm.c
-    public void buR() {
-        if (this.fPQ == null) {
-            this.fPQ = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0597a() { // from class: com.baidu.tieba.ala.charm.b.1
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0597a
+    public void bvV() {
+        if (this.fTb == null) {
+            this.fTb = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0593a() { // from class: com.baidu.tieba.ala.charm.b.1
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0593a
                 public void a(ALaCharmDataList aLaCharmDataList) {
                     b.this.b(aLaCharmDataList);
                 }
 
-                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0597a
-                public void ay(int i, String str) {
-                    if (b.this.fQf != null) {
-                        b.this.fQf.sU(str);
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0593a
+                public void az(int i, String str) {
+                    if (b.this.fTq != null) {
+                        b.this.fTq.tn(str);
                     }
                 }
             });
         }
-        this.fPQ.I(1, 20, 1);
+        this.fTb.I(1, 20, 1);
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void a(ALaCharmData aLaCharmData) {
         if (aLaCharmData != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
-            if (this.fQf != null) {
-                this.fQf.onClose();
+            if (this.fTq != null) {
+                this.fTq.onClose();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bbJ, this.aAG, null, aLaCharmData.user_name, this.mOtherParams)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.bej, this.aBm, null, aLaCharmData.user_name, this.mOtherParams)));
         }
     }
 
     @Override // com.baidu.tieba.ala.charm.c
     public void release() {
-        this.fQf = null;
-        if (this.fQg != null) {
-            MessageManager.getInstance().unRegisterListener(this.fQg);
+        this.fTq = null;
+        if (this.fTr != null) {
+            MessageManager.getInstance().unRegisterListener(this.fTr);
         }
-        if (this.fPQ != null) {
-            this.fPQ.onDestroy();
+        if (this.fTb != null) {
+            this.fTb.onDestroy();
         }
     }
 
     private void registerListener() {
-        this.fQg = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+        this.fTr = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.fQf != null) {
-                    b.this.fQf.onClose();
+                if (b.this.fTq != null) {
+                    b.this.fTq.onClose();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.fQg);
+        MessageManager.getInstance().registerListener(this.fTr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ALaCharmDataList aLaCharmDataList) {
         ArrayList<ALaCharmData> arrayList;
         String str;
-        if (this.fQf != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+        if (this.fTq != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
             int size = arrayList.size();
             if (size > 3) {
                 if (size >= 20) {
@@ -113,10 +113,10 @@ public class b implements c {
                 } else {
                     str = "没有更多了哦";
                 }
-                this.fQf.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                this.fTq.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
                 return;
             }
-            this.fQf.b(arrayList.subList(0, size), null, null);
+            this.fTq.b(arrayList.subList(0, size), null, null);
         }
     }
 }

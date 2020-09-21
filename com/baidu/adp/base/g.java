@@ -10,20 +10,20 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g Hq = null;
+    private static g Hy = null;
     private Resources mCurrentResources = null;
-    private ArrayList<String> Hr = null;
-    private HashSet<String> Hs = null;
+    private ArrayList<String> Hz = null;
+    private HashSet<String> HA = null;
 
-    public static g ld() {
-        if (Hq == null) {
+    public static g lh() {
+        if (Hy == null) {
             synchronized (g.class) {
-                if (Hq == null) {
-                    Hq = new g();
+                if (Hy == null) {
+                    Hy = new g();
                 }
             }
         }
-        return Hq;
+        return Hy;
     }
 
     public synchronized void setHostResources(Resources resources) {
@@ -38,24 +38,24 @@ public class g {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.Hs == null) {
-                this.Hs = new HashSet<>();
+            if (this.HA == null) {
+                this.HA = new HashSet<>();
             }
-            if (this.Hs.contains(str)) {
-                com.baidu.adp.plugin.b.a.py().f("plugin_load", "repeat_inject_res", str, str2);
+            if (this.HA.contains(str)) {
+                com.baidu.adp.plugin.b.a.pD().f("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.Hs.add(str);
+            this.HA.add(str);
         }
-        if (this.Hr == null) {
-            this.Hr = new ArrayList<>();
+        if (this.Hz == null) {
+            this.Hz = new ArrayList<>();
         }
-        if (!this.Hr.contains(str2)) {
+        if (!this.Hz.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 20) {
                 com.baidu.adp.plugin.util.d.callMethod(this.mCurrentResources.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.Hr.size() > 0) {
-                    Iterator<String> it = this.Hr.iterator();
+                if (this.Hz.size() > 0) {
+                    Iterator<String> it = this.Hz.iterator();
                     while (it.hasNext()) {
                         com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
@@ -64,7 +64,7 @@ public class g {
                 com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                 this.mCurrentResources = new Resources(assetManager, this.mCurrentResources.getDisplayMetrics(), this.mCurrentResources.getConfiguration());
             }
-            this.Hr.add(str2);
+            this.Hz.add(str2);
         }
     }
 

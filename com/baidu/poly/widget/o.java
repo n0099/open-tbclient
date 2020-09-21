@@ -3,7 +3,7 @@ package com.baidu.poly.widget;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class o implements Serializable {
     private String Wd;
     private String Xd;
@@ -15,7 +15,7 @@ public class o implements Serializable {
     private long ce;
 
     /* renamed from: de  reason: collision with root package name */
-    private String f970de;
+    private String f969de;
     private boolean ee;
     private int fe;
     private long ge;
@@ -37,7 +37,7 @@ public class o implements Serializable {
         this.ae = jSONObject.optInt("is_private");
         this.be = jSONObject.optInt("free_pay");
         this.va = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
-        this.f970de = jSONObject.optString("display_color");
+        this.f969de = jSONObject.optString("display_color");
         this.ee = jSONObject.optBoolean("flow");
         this.fe = jSONObject.optInt("parasitifer");
         this.he = jSONObject.optString("host_marketing_detail");
@@ -50,7 +50,7 @@ public class o implements Serializable {
     }
 
     public String M() {
-        return this.f970de;
+        return this.f969de;
     }
 
     public int N() {
@@ -94,6 +94,6 @@ public class o implements Serializable {
     }
 
     public String toString() {
-        return "PayChannelEntity{display_name='" + this.Wd + "', pay_channel='" + this.Xd + "', pay_text='" + this.pay_text + "', error_text='" + this.Yd + "', icon='" + this.icon + "', is_fold=" + this.Zd + ", is_selected=" + this._d + ", is_private=" + this.ae + ", free_pay=" + this.be + ", pre_pay_money=" + this.ce + ", enable=" + this.va + ", display_color='" + this.f970de + "', flow=" + this.ee + ", parasitifer=" + this.fe + '}';
+        return "PayChannelEntity{display_name='" + this.Wd + "', pay_channel='" + this.Xd + "', pay_text='" + this.pay_text + "', error_text='" + this.Yd + "', icon='" + this.icon + "', is_fold=" + this.Zd + ", is_selected=" + this._d + ", is_private=" + this.ae + ", free_pay=" + this.be + ", pre_pay_money=" + this.ce + ", enable=" + this.va + ", display_color='" + this.f969de + "', flow=" + this.ee + ", parasitifer=" + this.fe + '}';
     }
 }

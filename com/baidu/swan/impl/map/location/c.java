@@ -6,50 +6,50 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private b dBI;
-    private TextView dBW;
-    private View dBX;
-    private g dBY;
-    private e dBZ;
+    private b dDJ;
+    private TextView dDX;
+    private View dDY;
+    private g dDZ;
+    private e dEa;
     private TextView mSubTitle;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.dBI = bVar;
-        this.dBZ = eVar;
+        this.dDJ = bVar;
+        this.dEa = eVar;
     }
 
     private void init(View view) {
-        this.dBW = (TextView) view.findViewById(R.id.main_title);
+        this.dDX = (TextView) view.findViewById(R.id.main_title);
         this.mSubTitle = (TextView) view.findViewById(R.id.sub_title);
-        this.dBX = view.findViewById(R.id.select);
-        this.dBX.setVisibility(8);
+        this.dDY = view.findViewById(R.id.select);
+        this.dDY.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dBI.aSd();
-        this.dBY.isSelected = true;
-        this.dBI.notifyDataSetChanged();
-        if (this.dBZ != null) {
-            this.dBZ.a(this.dBY);
+        this.dDJ.aSP();
+        this.dDZ.isSelected = true;
+        this.dDJ.notifyDataSetChanged();
+        if (this.dEa != null) {
+            this.dEa.a(this.dDZ);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.dBY = gVar;
-            this.dBW.setText(z ? dd(gVar.dCd.name, str) : gVar.dCd.name);
+            this.dDZ = gVar;
+            this.dDX.setText(z ? dd(gVar.dEe.name, str) : gVar.dEe.name);
             this.mSubTitle.setVisibility(0);
-            this.mSubTitle.setText(gVar.dCd.address);
-            if (gVar.dCe || TextUtils.isEmpty(gVar.dCd.address)) {
+            this.mSubTitle.setText(gVar.dEe.address);
+            if (gVar.dEf || TextUtils.isEmpty(gVar.dEe.address)) {
                 this.mSubTitle.setVisibility(8);
             }
-            this.dBX.setVisibility(gVar.isSelected ? 0 : 8);
+            this.dDY.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 

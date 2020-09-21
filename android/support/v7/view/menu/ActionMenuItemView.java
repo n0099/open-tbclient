@@ -19,7 +19,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActionMenuItemView extends AppCompatTextView implements MenuView.ItemView, ActionMenuView.ActionMenuChildView, View.OnClickListener {
     private static final int MAX_ICON_SIZE = 32;
     private static final String TAG = "ActionMenuItemView";
@@ -35,7 +35,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
     private int mSavedPaddingLeft;
     private CharSequence mTitle;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class PopupCallback {
         public abstract ShowableListMenu getPopup();
     }
@@ -235,7 +235,7 @@ public class ActionMenuItemView extends AppCompatTextView implements MenuView.It
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     private class ActionMenuItemForwardingListener extends ForwardingListener {
         public ActionMenuItemForwardingListener() {
             super(ActionMenuItemView.this);

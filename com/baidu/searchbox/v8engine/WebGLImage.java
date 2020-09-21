@@ -13,7 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class WebGLImage {
     private static final boolean DEBUG = false;
     private static final String TAG = "WebGLImage";
@@ -292,7 +292,7 @@ public class WebGLImage {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes4.dex */
     private static class CanvasResult {
         @V8JavascriptField
         public String errMsg;
@@ -394,7 +394,7 @@ public class WebGLImage {
     }
 
     private static String getValidFileType(String str) {
-        if ("jpg".equalsIgnoreCase(str) || "image/jpg".equalsIgnoreCase(str)) {
+        if ("jpg".equalsIgnoreCase(str) || MimeType.Image.JPG.equalsIgnoreCase(str)) {
             return "jpg";
         }
         if ("jpeg".equalsIgnoreCase(str) || MimeType.Image.JPEG.equalsIgnoreCase(str)) {

@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.process.a.b.d;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public static boolean pH(String str) {
+    public static boolean qa(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }

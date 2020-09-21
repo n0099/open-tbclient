@@ -8,26 +8,26 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
 /* loaded from: classes.dex */
 public class LargeImageView extends DragImageView {
-    private b fbq;
+    private b fej;
 
     public LargeImageView(Context context) {
         super(context);
-        this.fbq = new b(this);
+        this.fej = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fbq = new b(this);
+        this.fej = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fbq = new b(this);
+        this.fej = new b(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.fbq.onTouchEvent(motionEvent)) {
+        if (this.fej.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -36,39 +36,39 @@ public class LargeImageView extends DragImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!this.fbq.onDraw(canvas)) {
+        if (!this.fej.onDraw(canvas)) {
             super.onDraw(canvas);
         }
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void computeScroll() {
-        this.fbq.computeScroll();
+        this.fej.computeScroll();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float reInitScaleValue(Bitmap bitmap) {
-        return this.fbq.reInitScaleValue();
+        return this.fej.reInitScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float getMinScaleValue() {
-        return this.fbq.getMinScaleValue();
+        return this.fej.getMinScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float getMaxScaleValue(Bitmap bitmap) {
-        return this.fbq.getMaxScaleValue();
+        return this.fej.getMaxScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     public void createLargeImageDelegate() {
-        this.fbq.setImageDatas(getImageBitmap(), getImageData());
+        this.fej.setImageDatas(getImageBitmap(), getImageData());
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        this.fbq.release();
+        this.fej.release();
         super.onDetachedFromWindow();
     }
 }

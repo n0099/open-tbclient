@@ -8,80 +8,80 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.data.bw;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class l {
-    private List<com.baidu.adp.widget.ListView.a> bbw = new LinkedList();
-    private BdTypeRecyclerView hAE;
-    private TbPageContext<?> ikN;
-    private j klV;
-    private c klW;
-    private e klX;
-    private d klY;
-    private f klZ;
-    private k kma;
-    private g kmb;
-    private h kmc;
-    private b kmd;
-    private m kme;
-    private i kmf;
+    private List<com.baidu.adp.widget.ListView.a> bdV = new LinkedList();
+    private BdTypeRecyclerView hHG;
+    private TbPageContext<?> irP;
+    private g kuA;
+    private h kuB;
+    private b kuC;
+    private m kuD;
+    private i kuE;
+    private j kuu;
+    private c kuv;
+    private e kuw;
+    private d kux;
+    private f kuy;
+    private k kuz;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.ikN = tbPageContext;
+        this.irP = tbPageContext;
         this.pageId = bdUniqueId;
-        this.hAE = bdTypeRecyclerView;
-        Jv();
+        this.hHG = bdTypeRecyclerView;
+        JZ();
     }
 
-    private void Jv() {
-        this.klV = new j(this.ikN, bw.ebb, this.pageId);
-        this.klV.a(this.hAE);
-        this.bbw.add(this.klV);
-        this.klW = new c(this.ikN, bw.ebg, this.pageId);
-        this.klW.a(this.hAE);
-        this.bbw.add(this.klW);
-        this.klX = new e(this.ikN, bw.ebe, this.pageId);
-        this.klX.a(this.hAE);
-        this.bbw.add(this.klX);
-        this.klY = new d(this.ikN, bw.ebf, this.pageId);
-        this.klY.a(this.hAE);
-        this.bbw.add(this.klY);
-        this.klZ = new f(this.ikN, bw.ebc, this.pageId);
-        this.klZ.a(this.hAE);
-        this.bbw.add(this.klZ);
-        this.kma = new k(this.ikN, bw.ebs, this.pageId);
-        this.kma.a(this.hAE);
-        this.bbw.add(this.kma);
-        this.kmb = new g(this.ikN, bw.ebl, this.pageId);
-        this.kmb.a(this.hAE);
-        this.bbw.add(this.kmb);
-        this.kmc = new h(this.ikN, bw.ebh, this.pageId);
-        this.kmc.a(this.hAE);
-        this.bbw.add(this.kmc);
-        this.kmd = new b(this.ikN, bw.ebk, this.pageId);
-        this.kmd.a(this.hAE);
-        this.bbw.add(this.kmd);
-        this.kme = new m(this.ikN, bj.dXJ);
-        this.kme.a(this.hAE);
-        this.bbw.add(this.kme);
-        this.kmf = new i(this.ikN, com.baidu.tieba.card.data.l.ebw);
-        this.bbw.add(this.kmf);
-        this.hAE.addAdapters(this.bbw);
+    private void JZ() {
+        this.kuu = new j(this.irP, bw.edl, this.pageId);
+        this.kuu.a(this.hHG);
+        this.bdV.add(this.kuu);
+        this.kuv = new c(this.irP, bw.edq, this.pageId);
+        this.kuv.a(this.hHG);
+        this.bdV.add(this.kuv);
+        this.kuw = new e(this.irP, bw.edo, this.pageId);
+        this.kuw.a(this.hHG);
+        this.bdV.add(this.kuw);
+        this.kux = new d(this.irP, bw.edp, this.pageId);
+        this.kux.a(this.hHG);
+        this.bdV.add(this.kux);
+        this.kuy = new f(this.irP, bw.edm, this.pageId);
+        this.kuy.a(this.hHG);
+        this.bdV.add(this.kuy);
+        this.kuz = new k(this.irP, bw.edC, this.pageId);
+        this.kuz.a(this.hHG);
+        this.bdV.add(this.kuz);
+        this.kuA = new g(this.irP, bw.edv, this.pageId);
+        this.kuA.a(this.hHG);
+        this.bdV.add(this.kuA);
+        this.kuB = new h(this.irP, bw.edr, this.pageId);
+        this.kuB.a(this.hHG);
+        this.bdV.add(this.kuB);
+        this.kuC = new b(this.irP, bw.edu, this.pageId);
+        this.kuC.a(this.hHG);
+        this.bdV.add(this.kuC);
+        this.kuD = new m(this.irP, bj.dZT);
+        this.kuD.a(this.hHG);
+        this.bdV.add(this.kuD);
+        this.kuE = new i(this.irP, com.baidu.tieba.card.data.l.edG);
+        this.bdV.add(this.kuE);
+        this.hHG.addAdapters(this.bdV);
     }
 
-    public void sm(boolean z) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+    public void su(boolean z) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
             if (aVar instanceof a) {
-                ((a) aVar).sl(z);
+                ((a) aVar).st(z);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.hAE.getAdapter().notifyDataSetChanged();
+        this.hHG.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<? extends q> list) {
-        this.hAE.setData(list);
+        this.hHG.setData(list);
     }
 }

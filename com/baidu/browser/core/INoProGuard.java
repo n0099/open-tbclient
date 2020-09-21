@@ -1,4 +1,4 @@
 package com.baidu.browser.core;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public interface INoProGuard {
 }

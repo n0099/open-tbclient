@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.aa;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean zA(int i) {
+    public static boolean zY(int i) {
         switch (i) {
             case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
             case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:
@@ -26,27 +26,27 @@ public class a {
             return false;
         }
         if ((aaVar.isNetSuccess() ? aaVar.getServerErrorCode() : aaVar.getNetErrorCode()) == 1990055) {
-            cvG();
+            cyZ();
             return true;
         }
         return false;
     }
 
-    public static void cvG() {
+    public static void cyZ() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.cvH();
+                    a.cza();
                 }
             });
         } else {
-            cvH();
+            cza();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void cvH() {
+    public static final void cza() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

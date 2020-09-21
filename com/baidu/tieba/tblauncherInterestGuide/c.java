@@ -13,9 +13,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends BaseAdapter {
-    private View.OnClickListener erH;
+    private View.OnClickListener etM;
     private Context mContext;
     private List<InterestFrsData.Card> mData;
 
@@ -24,7 +24,7 @@ public class c extends BaseAdapter {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.erH = onClickListener;
+        this.etM = onClickListener;
     }
 
     public void setData(List<InterestFrsData.Card> list) {
@@ -59,28 +59,28 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.hFK = (TbImageView) view.findViewById(R.id.pic);
-            aVar.bpu = (ImageView) view.findViewById(R.id.select_icon);
-            aVar.bpv = (RelativeLayout) view.findViewById(R.id.lay_select);
+            aVar.hML = (TbImageView) view.findViewById(R.id.pic);
+            aVar.bsD = (ImageView) view.findViewById(R.id.select_icon);
+            aVar.bsE = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.textView = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.mmx = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.mmx.setOnClickListener(this.erH);
+            aVar.mvW = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.mvW.setOnClickListener(this.etM);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.hFK.setTag(null);
-        aVar.bpv.setTag(null);
+        aVar.hML.setTag(null);
+        aVar.bsE.setTag(null);
         aVar.textView.setText("");
-        aVar.mmx.setTag(null);
+        aVar.mvW.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            d(aVar.bpu, card.getIs_like() == 1);
-            aVar.bpv.setTag(card);
-            aVar.mmx.setTag(card);
-            aVar.hFK.setTag(card.getIcon_url());
-            aVar.hFK.startLoad(card.getIcon_url(), 21, false);
+            d(aVar.bsD, card.getIs_like() == 1);
+            aVar.bsE.setTag(card);
+            aVar.mvW.setTag(card);
+            aVar.hML.setTag(card.getIcon_url());
+            aVar.hML.startLoad(card.getIcon_url(), 21, false);
             aVar.textView.setText(card.getFname());
         }
         return view;
@@ -94,12 +94,12 @@ public class c extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     private class a {
-        ImageView bpu;
-        RelativeLayout bpv;
-        TbImageView hFK;
-        FrameLayout mmx;
+        ImageView bsD;
+        RelativeLayout bsE;
+        TbImageView hML;
+        FrameLayout mvW;
         TextView textView;
 
         private a() {

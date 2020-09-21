@@ -7,37 +7,37 @@ import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class h implements o {
-    private CreateGroupStepActivity jkg;
-    private TbImageView jks;
-    private Button jkt;
+    private CreateGroupStepActivity jsK;
+    private TbImageView jsW;
+    private Button jsX;
     private int mIndex;
     private View mView;
 
     public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
-        this.jkg = createGroupStepActivity;
+        this.jsK = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_normal_tips, (ViewGroup) null);
-        this.jkt = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
-        this.jks = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
+        this.jsX = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
+        this.jsW = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
         this.mIndex = i;
-        this.jkt.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
-        c.b(this.jkg.getPageContext().getPageActivity(), c.jkl, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.jkg.getPageContext().getPageActivity(), c.jko, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.jkg.getPageContext().getPageActivity(), c.jkm, TbadkApplication.getInst().getSkinType() == 1);
+        this.jsX.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.jsK.getPageContext().getPageActivity(), c.jsP, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.jsK.getPageContext().getPageActivity(), c.jsS, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.jsK.getPageContext().getPageActivity(), c.jsQ, TbadkApplication.getInst().getSkinType() == 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cCF() {
-        this.jks.setBackgroundDrawable(null);
+    public void cGl() {
+        this.jsW.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cCG() {
+    public void cGm() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.jkg.getLayoutMode().setNightMode(z);
-        this.jkg.getLayoutMode().onModeChanged(this.mView);
-        this.jks.startLoad(c.a(this.jkg.getPageContext().getPageActivity(), c.jkp, z), 29, false);
+        this.jsK.getLayoutMode().setNightMode(z);
+        this.jsK.getLayoutMode().onModeChanged(this.mView);
+        this.jsW.startLoad(c.a(this.jsK.getPageContext().getPageActivity(), c.jsT, z), 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -46,22 +46,22 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cCz() {
+    public int cGf() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return this.jkg.getPageContext().getString(R.string.group_create_tips_normal);
+        return this.jsK.getPageContext().getString(R.string.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cCI() {
+    public String cGo() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cCJ() {
+    public boolean cGp() {
         return false;
     }
 
@@ -71,11 +71,11 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cCK() {
+    public boolean cGq() {
         return false;
     }
 
-    public Button cCO() {
-        return this.jkt;
+    public Button cGu() {
+        return this.jsX;
     }
 }

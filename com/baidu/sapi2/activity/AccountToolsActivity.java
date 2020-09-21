@@ -13,7 +13,7 @@ import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.f;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
     private AccountToolsResult a = new AccountToolsResult();
