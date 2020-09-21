@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int HJ;
-    private a HK;
+    private int HR;
+    private a HS;
 
-    public a lh() throws IOException {
+    public a ll() throws IOException {
         a aVar = new a();
-        aVar.HM = bp("/proc/uid_stat/" + this.HJ + "/tcp_rcv");
-        aVar.HN = bp("/proc/uid_stat/" + this.HJ + "/tcp_snd");
-        aVar.HL = d.g(aVar.HM + aVar.HN);
+        aVar.HV = br("/proc/uid_stat/" + this.HR + "/tcp_rcv");
+        aVar.HW = br("/proc/uid_stat/" + this.HR + "/tcp_snd");
+        aVar.HU = d.g(aVar.HV + aVar.HW);
         return aVar;
     }
 
-    public a li() throws IOException {
-        a lh = lh();
-        this.HK.HM = d.g(lh.HM - d.lg().HM);
-        this.HK.HN = d.g(lh.HN - d.lg().HN);
-        this.HK.HL = d.g(lh.HL - d.lg().HL);
-        return this.HK;
+    public a lm() throws IOException {
+        a ll = ll();
+        this.HS.HV = d.g(ll.HV - d.lk().HV);
+        this.HS.HW = d.g(ll.HW - d.lk().HW);
+        this.HS.HU = d.g(ll.HU - d.lk().HU);
+        return this.HS;
     }
 
-    public double bp(String str) {
+    public double br(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(li());
+                d.a(lm());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!le()) {
+            if (!li()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double HL = 0.0d;
-        double HM = 0.0d;
-        double HN = 0.0d;
+        double HU = 0.0d;
+        double HV = 0.0d;
+        double HW = 0.0d;
 
         public a() {
         }

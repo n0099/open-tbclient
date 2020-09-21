@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class f extends h {
     public f(com.facebook.imagepipeline.c.p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar) {
         super(pVar, fVar, ajVar);
@@ -11,7 +11,7 @@ public class f extends h {
     }
 
     @Override // com.facebook.imagepipeline.producers.h
-    protected String dVH() {
+    protected String dZF() {
         return "BitmapMemoryCacheGetProducer";
     }
 }

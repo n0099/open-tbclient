@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public class y extends a {
-    private boolean ajt;
-    private boolean emF;
+    private boolean ajR;
+    private boolean eoY;
     private int procType;
 
     public y(boolean z, int i) {
@@ -17,12 +17,12 @@ public class y extends a {
     }
 
     public y(boolean z, int i, boolean z2) {
-        this.ajt = true;
+        this.ajR = true;
         this.procType = 0;
-        this.emF = true;
-        this.ajt = z;
+        this.eoY = true;
+        this.ajR = z;
         this.procType = i;
-        this.emF = z2;
+        this.eoY = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -37,21 +37,21 @@ public class y extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.ajt;
+        return this.ajR;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bjI() {
+    public boolean bkD() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public boolean bjJ() {
+    public boolean bkE() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
-    public int bjK() {
+    public int bkF() {
         return this.procType;
     }
 
@@ -61,7 +61,7 @@ public class y extends a {
         if (v(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
             aVar2.setNeedCache(z2);
-            if (z2 && !iVar.emg) {
+            if (z2 && !iVar.eoz) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, av.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setSubFolder(true);
@@ -69,12 +69,12 @@ public class y extends a {
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(z);
-                cVar.ad(this.emF);
-                com.baidu.adp.lib.Disk.d.lG().c(cVar);
+                cVar.ac(this.eoY);
+                com.baidu.adp.lib.Disk.d.lK().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.Mn = eVar;
+                    aVar.My = eVar;
                 }
             }
         }

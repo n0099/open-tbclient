@@ -17,7 +17,7 @@ import javax.net.ssl.X509KeyManager;
 import javax.net.ssl.X509TrustManager;
 import javax.security.auth.x500.X500Principal;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class SSLParametersImpl implements Cloneable {
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
     private static volatile SSLParametersImpl defaultParameters;
@@ -47,7 +47,7 @@ public final class SSLParametersImpl implements Cloneable {
     byte[] applicationProtocols = EmptyArray.BYTE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public interface AliasChooser {
         String chooseClientAlias(X509KeyManager x509KeyManager, X500Principal[] x500PrincipalArr, String[] strArr);
 
@@ -55,7 +55,7 @@ public final class SSLParametersImpl implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public interface PSKCallbacks {
         String chooseClientPSKIdentity(PSKKeyManager pSKKeyManager, String str);
 

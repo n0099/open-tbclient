@@ -20,13 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class f {
-    private c alV;
+    private c amu;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes18.dex */
     public static class a {
         static boolean a(String str, int i) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -43,14 +43,14 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.alV = cVar;
+        this.amu = cVar;
     }
 
     private e X(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> N = this.alV.N(context);
+        List<b> N = this.amu.N(context);
         if (N != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
@@ -61,9 +61,9 @@ public class f {
             }
             for (b bVar : N) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.acg.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.acB.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        eVar = e.dn(com.baidu.cesium.f.c.a(file));
+                        eVar = e.dp(com.baidu.cesium.f.c.a(file));
                         if (eVar != null) {
                             return eVar;
                         }
@@ -204,7 +204,7 @@ public class f {
         }
     }
 
-    private e dq(String str) {
+    private e ds(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -265,15 +265,15 @@ public class f {
         return "0";
     }
 
-    private e us() {
+    private e uy() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return e.dn(com.baidu.cesium.f.c.a(file));
+            return e.dp(com.baidu.cesium.f.c.a(file));
         }
         return null;
     }
 
-    private e ut() {
+    private e uz() {
         return e.S(d("com.baidu.deviceid"), d("bd_setting_i"));
     }
 
@@ -281,12 +281,12 @@ public class f {
         File file = new File(this.l.getFilesDir(), "libcuid.so");
         String c = eVar.c();
         if (file.exists()) {
-            e dn = e.dn(com.baidu.cesium.f.c.a(file));
-            if (dn != null) {
-                if (dn.e()) {
-                    b(dn.c());
+            e dp = e.dp(com.baidu.cesium.f.c.a(file));
+            if (dp != null) {
+                if (dp.e()) {
+                    b(dp.c());
                 }
-            } else if (dn == null) {
+            } else if (dp == null) {
                 b(c);
             }
         } else {
@@ -298,12 +298,12 @@ public class f {
             if (TextUtils.isEmpty(d)) {
                 a("com.baidu.deviceid.v2", c);
             } else {
-                e dn2 = e.dn(d);
-                if (dn2 != null) {
-                    if (dn2.e()) {
-                        a("com.baidu.deviceid.v2", dn2.c());
+                e dp2 = e.dp(d);
+                if (dp2 != null) {
+                    if (dp2.e()) {
+                        a("com.baidu.deviceid.v2", dp2.c());
                     }
-                } else if (dn2 == null) {
+                } else if (dp2 == null) {
                     a("com.baidu.deviceid.v2", c);
                 }
             }
@@ -311,12 +311,12 @@ public class f {
         boolean c2 = c("android.permission.WRITE_EXTERNAL_STORAGE");
         if (c2) {
             if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                e us = us();
-                if (us != null) {
-                    if (us.e()) {
-                        e(us.c());
+                e uy = uy();
+                if (uy != null) {
+                    if (uy.e()) {
+                        e(uy.c());
                     }
-                } else if (us == null) {
+                } else if (uy == null) {
                     e(c);
                 }
             } else {
@@ -332,37 +332,37 @@ public class f {
             }
         }
         if (c2 && new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists()) {
-            e dq = dq(f(""));
-            if (dq == null) {
-                if (dq == null) {
+            e ds = ds(f(""));
+            if (ds == null) {
+                if (ds == null) {
                 }
-            } else if (dq.e()) {
-                b(dq.e, dq.d);
+            } else if (ds.e()) {
+                b(ds.e, ds.d);
             }
         }
     }
 
-    public e dp(String str) {
+    public e dr(String str) {
         e X = 0 == 0 ? X(this.l) : null;
         if (X == null) {
-            X = e.dn(d("com.baidu.deviceid.v2"));
+            X = e.dp(d("com.baidu.deviceid.v2"));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
-        e us = (X == null && c) ? us() : X;
-        if (us == null) {
-            us = ut();
+        e uy = (X == null && c) ? uy() : X;
+        if (uy == null) {
+            uy = uz();
         }
         boolean z = false;
-        if (us == null && c) {
+        if (uy == null && c) {
             z = true;
-            us = dq(f(""));
+            uy = ds(f(""));
         }
         if (!z) {
             f("");
         }
-        if (us != null) {
-            us.e();
+        if (uy != null) {
+            uy.e();
         }
-        return us;
+        return uy;
     }
 }

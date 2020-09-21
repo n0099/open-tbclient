@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class f implements IHttpRequest {
     private HttpRequestFactory qG;
     private l qJ;

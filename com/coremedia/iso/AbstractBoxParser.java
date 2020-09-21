@@ -7,14 +7,14 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     private static Logger LOG = Logger.getLogger(AbstractBoxParser.class.getName());
     ThreadLocal<ByteBuffer> header = new ThreadLocal<ByteBuffer>() { // from class: com.coremedia.iso.AbstractBoxParser.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: dNz */
+        /* renamed from: dRx */
         public ByteBuffer initialValue() {
             return ByteBuffer.allocate(32);
         }

@@ -1,7 +1,7 @@
 package com.google.protobuf.micro;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class ByteStringMicro {
     public static final ByteStringMicro EMPTY = new ByteStringMicro(new byte[0]);
     private final byte[] bytes;

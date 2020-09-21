@@ -15,26 +15,26 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class k implements w {
-    public boolean aMJ;
-    private AlaGiftShowPanel aOg;
-    private com.baidu.live.gift.biggift.a aOh;
-    private com.baidu.live.gift.smallgift.a aOi;
-    private com.baidu.live.gift.graffitiGift.a aOj;
-    private boolean aOk = false;
-    private boolean aOl = false;
-    CustomMessageListener aOm = new CustomMessageListener(2913031) { // from class: com.baidu.live.gift.k.2
+/* loaded from: classes4.dex */
+public class k implements x {
+    public boolean aOB;
+    private AlaGiftShowPanel aQf;
+    private com.baidu.live.gift.biggift.a aQg;
+    private com.baidu.live.gift.smallgift.a aQh;
+    private com.baidu.live.gift.graffitiGift.a aQi;
+    private boolean aQj = false;
+    private boolean aQk = false;
+    CustomMessageListener aQl = new CustomMessageListener(2913031) { // from class: com.baidu.live.gift.k.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.gift.a.c)) {
                 com.baidu.live.gift.a.c cVar = (com.baidu.live.gift.a.c) customResponsedMessage.getData();
-                k.this.a(cVar, cVar.aSR);
+                k.this.a(cVar, cVar.aVc);
             }
         }
     };
-    CustomMessageListener aOn = new CustomMessageListener(2913138) { // from class: com.baidu.live.gift.k.3
+    CustomMessageListener aQm = new CustomMessageListener(2913138) { // from class: com.baidu.live.gift.k.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -49,28 +49,28 @@ public class k implements w {
 
     public k(f fVar) {
         this.mContext = fVar.context;
-        this.aMJ = fVar.aMJ;
-        this.isLandscape = fVar.aMT;
-        this.aOg = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.h.gift_popshow_contain_layout, (ViewGroup) null);
-        this.aOh = new com.baidu.live.gift.biggift.a(this.mContext, this);
-        this.aOi = new com.baidu.live.gift.smallgift.a(this.mContext, this, fVar.aMS);
-        this.aOj = new com.baidu.live.gift.graffitiGift.a(this.mContext, this);
-        this.aOi.em(com.baidu.live.ab.a.a(this.mContext, this.aMJ, this.isLandscape, false));
-        this.aOh.dO(com.baidu.live.ab.a.a(this.mContext, this.aMJ, this.isLandscape, false));
-        this.aOh.dP(com.baidu.live.ab.a.h(this.aMJ, this.isLandscape));
-        Ey();
+        this.aOB = fVar.aOB;
+        this.isLandscape = fVar.aOL;
+        this.aQf = (AlaGiftShowPanel) LayoutInflater.from(fVar.context).inflate(a.h.gift_popshow_contain_layout, (ViewGroup) null);
+        this.aQg = new com.baidu.live.gift.biggift.a(this.mContext, this);
+        this.aQh = new com.baidu.live.gift.smallgift.a(this.mContext, this, fVar.aOK);
+        this.aQi = new com.baidu.live.gift.graffitiGift.a(this.mContext, this);
+        this.aQh.eq(com.baidu.live.ac.a.a(this.mContext, this.aOB, this.isLandscape, false));
+        this.aQg.dS(com.baidu.live.ac.a.a(this.mContext, this.aOB, this.isLandscape, false));
+        this.aQg.dT(com.baidu.live.ac.a.h(this.aOB, this.isLandscape));
+        EP();
     }
 
-    private void Ey() {
-        MessageManager.getInstance().registerListener(this.aOm);
-        MessageManager.getInstance().registerListener(this.aOn);
-        this.aOg.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.gift.k.1
+    private void EP() {
+        MessageManager.getInstance().registerListener(this.aQl);
+        MessageManager.getInstance().registerListener(this.aQm);
+        this.aQf.setConfigurationChangedListener(new AlaGiftShowPanel.a() { // from class: com.baidu.live.gift.k.1
             @Override // com.baidu.live.gift.AlaGiftShowPanel.a
             public void onConfigurationChanged(Configuration configuration) {
-                k.this.aOh.Fl();
-                k.this.aOh.Fq();
-                k.this.aOi.Fq();
-                k.this.aOj.GT();
+                k.this.aQg.FL();
+                k.this.aQg.FQ();
+                k.this.aQh.FQ();
+                k.this.aQi.Ht();
             }
         });
     }
@@ -78,14 +78,18 @@ public class k implements w {
     public void a(com.baidu.live.gift.a.c cVar, boolean z) {
         boolean z2 = false;
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            boolean z3 = a(cVar) || cVar.aTb;
-            if (!z3 || cVar.aTb || z || !this.aOl || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
+            boolean z3 = a(cVar) || cVar.aVn;
+            if (!z3 || cVar.aVn || z || !this.aQk || UtilHelper.getRealScreenOrientation(this.mContext) != 2) {
                 z2 = z3;
             }
             if (z2) {
-                if (!cVar.aTb || cVar.priority == 1) {
-                    if (z) {
-                        cVar.priority = 9;
+                if (!cVar.aVn || cVar.priority == 1) {
+                    if (z && cVar.aVh) {
+                        cVar.priority = 11;
+                    } else if (z) {
+                        cVar.priority = 7;
+                    } else if (cVar.aVh) {
+                        cVar.priority = 11;
                     } else {
                         cVar.priority = 7;
                     }
@@ -98,7 +102,7 @@ public class k implements w {
             if (z2) {
                 c(cVar);
                 r.g(cVar);
-            } else if (cVar.aSS.aNu != null && cVar.aSW >= 2 && !ListUtils.isEmpty(cVar.aSS.aNu.aOx)) {
+            } else if (cVar.aVd.aPo != null && cVar.aVi >= 2 && !ListUtils.isEmpty(cVar.aVd.aPo.aQw)) {
                 e(cVar);
                 r.g(cVar);
             } else {
@@ -115,51 +119,51 @@ public class k implements w {
     }
 
     private boolean b(com.baidu.live.gift.a.c cVar) {
-        if (cVar == null || cVar.aSS == null) {
+        if (cVar == null || cVar.aVd == null) {
             return false;
         }
-        return com.baidu.live.gift.b.b.GM().gl(cVar.aSS.DR());
+        return com.baidu.live.gift.b.b.Hn().gv(cVar.aVd.Eh());
     }
 
     private void c(com.baidu.live.gift.a.c cVar) {
-        Ez();
-        this.aOh.h(cVar);
-        this.aOh.Fk();
+        EQ();
+        this.aQg.h(cVar);
+        this.aQg.FK();
     }
 
-    public void Ez() {
-        this.aOi.Ez();
-        this.aOj.Ez();
+    public void EQ() {
+        this.aQh.EQ();
+        this.aQi.EQ();
     }
 
-    public void EA() {
-        this.aOi.EA();
-        this.aOj.EA();
+    public void ER() {
+        this.aQh.ER();
+        this.aQi.ER();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.live.gift.a.c cVar) {
-        this.aOi.d(cVar);
+        this.aQh.d(cVar);
     }
 
     private void e(com.baidu.live.gift.a.c cVar) {
-        this.aOj.e(cVar);
+        this.aQi.e(cVar);
     }
 
-    public void EB() {
+    public void ES() {
         int i = 0;
-        if (this.aOg != null) {
-            int childCount = this.aOg.getChildCount();
+        if (this.aQf != null) {
+            int childCount = this.aQf.getChildCount();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (!(this.aOg.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c)) {
-                    arrayList.add(this.aOg.getChildAt(i2));
+                if (!(this.aQf.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c)) {
+                    arrayList.add(this.aQf.getChildAt(i2));
                 }
             }
             while (true) {
                 int i3 = i;
                 if (i3 < arrayList.size()) {
-                    this.aOg.removeView((View) arrayList.get(i3));
+                    this.aQf.removeView((View) arrayList.get(i3));
                     i = i3 + 1;
                 } else {
                     arrayList.clear();
@@ -169,20 +173,20 @@ public class k implements w {
         }
     }
 
-    public void EC() {
+    public void ET() {
         int i = 0;
-        if (this.aOg != null) {
-            int childCount = this.aOg.getChildCount();
+        if (this.aQf != null) {
+            int childCount = this.aQf.getChildCount();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.aOg.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c) {
-                    arrayList.add(this.aOg.getChildAt(i2));
+                if (this.aQf.getChildAt(i2) instanceof com.baidu.live.gift.biggift.c) {
+                    arrayList.add(this.aQf.getChildAt(i2));
                 }
             }
             while (true) {
                 int i3 = i;
                 if (i3 < arrayList.size()) {
-                    this.aOg.removeView((View) arrayList.get(i3));
+                    this.aQf.removeView((View) arrayList.get(i3));
                     i = i3 + 1;
                 } else {
                     arrayList.clear();
@@ -193,15 +197,15 @@ public class k implements w {
     }
 
     public void M(View view) {
-        if (this.aOg.indexOfChild(view) < 0) {
-            this.aOg.addView(view);
+        if (this.aQf.indexOfChild(view) < 0) {
+            this.aQf.addView(view);
         }
     }
 
     public void a(View view, RelativeLayout.LayoutParams layoutParams) {
         if (layoutParams != null) {
-            if (this.aOg.indexOfChild(view) < 0) {
-                this.aOg.addView(view, layoutParams);
+            if (this.aQf.indexOfChild(view) < 0) {
+                this.aQf.addView(view, layoutParams);
                 return;
             }
             return;
@@ -209,79 +213,79 @@ public class k implements w {
         M(view);
     }
 
-    @Override // com.baidu.live.gift.w
+    @Override // com.baidu.live.gift.x
     public void onDestroy() {
-        if (!this.aOk) {
-            this.aOk = true;
-            if (this.aOh != null) {
-                this.aOh.onDestroy();
+        if (!this.aQj) {
+            this.aQj = true;
+            if (this.aQg != null) {
+                this.aQg.onDestroy();
             }
-            if (this.aOi != null) {
-                this.aOi.onDestroy();
+            if (this.aQh != null) {
+                this.aQh.onDestroy();
             }
-            if (this.aOj != null) {
-                this.aOj.onDestroy();
+            if (this.aQi != null) {
+                this.aQi.onDestroy();
             }
-            if (this.aOg != null) {
-                this.aOg.clearAnimation();
-                this.aOg.setConfigurationChangedListener(null);
-                this.aOg.removeAllViews();
+            if (this.aQf != null) {
+                this.aQf.clearAnimation();
+                this.aQf.setConfigurationChangedListener(null);
+                this.aQf.removeAllViews();
             }
-            MessageManager.getInstance().unRegisterListener(this.aOm);
-            MessageManager.getInstance().unRegisterListener(this.aOn);
+            MessageManager.getInstance().unRegisterListener(this.aQl);
+            MessageManager.getInstance().unRegisterListener(this.aQm);
             this.mContext = null;
         }
     }
 
-    @Override // com.baidu.live.gift.w
-    public View ED() {
-        return this.aOg;
+    @Override // com.baidu.live.gift.x
+    public View EU() {
+        return this.aQf;
     }
 
-    @Override // com.baidu.live.gift.w
-    public View EE() {
-        return this.aOi.EE();
+    @Override // com.baidu.live.gift.x
+    public View EV() {
+        return this.aQh.EV();
     }
 
-    @Override // com.baidu.live.gift.w
-    public void EF() {
-        if (this.aOg != null) {
-            this.aOg.onConfigurationChanged(null);
+    @Override // com.baidu.live.gift.x
+    public void EW() {
+        if (this.aQf != null) {
+            this.aQf.onConfigurationChanged(null);
         }
     }
 
-    @Override // com.baidu.live.gift.w
-    public void bj(boolean z) {
-        this.aOl = z;
-        if (this.aOj != null) {
-            this.aOj.bj(z);
+    @Override // com.baidu.live.gift.x
+    public void bk(boolean z) {
+        this.aQk = z;
+        if (this.aQi != null) {
+            this.aQi.bk(z);
         }
-        if (this.aOh != null) {
-            this.aOh.bj(z);
-        }
-    }
-
-    @Override // com.baidu.live.gift.w
-    public void EG() {
-        if (this.aOj != null) {
-            this.aOj.EG();
+        if (this.aQg != null) {
+            this.aQg.bk(z);
         }
     }
 
-    @Override // com.baidu.live.gift.w
-    public void dL(int i) {
-        if (this.aOh != null) {
-            this.aOh.dO(i);
-        }
-        if (this.aOi != null) {
-            this.aOi.em(i);
+    @Override // com.baidu.live.gift.x
+    public void EX() {
+        if (this.aQi != null) {
+            this.aQi.EX();
         }
     }
 
-    @Override // com.baidu.live.gift.w
-    public void dM(int i) {
-        if (this.aOh != null) {
-            this.aOh.dP(i);
+    @Override // com.baidu.live.gift.x
+    public void dP(int i) {
+        if (this.aQg != null) {
+            this.aQg.dS(i);
+        }
+        if (this.aQh != null) {
+            this.aQh.eq(i);
+        }
+    }
+
+    @Override // com.baidu.live.gift.x
+    public void dQ(int i) {
+        if (this.aQg != null) {
+            this.aQg.dT(i);
         }
     }
 }

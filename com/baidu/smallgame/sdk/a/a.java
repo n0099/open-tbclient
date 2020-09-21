@@ -4,27 +4,27 @@ import android.content.SharedPreferences;
 import com.baidu.smallgame.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static int bQb = 1;
-    private static int bQc = 2;
-    private static int bQd = 3;
-    private Map<String, String> bQe = new HashMap();
-    private Map<String, String> bQf = new HashMap();
-    private SharedPreferences bQg;
+    private static int bSb = 1;
+    private static int bSc = 2;
+    private static int bSd = 3;
+    private Map<String, String> bSe = new HashMap();
+    private Map<String, String> bSf = new HashMap();
+    private SharedPreferences bSg;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.bQg = sharedPreferences;
+        this.bSg = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == bQb) {
-            this.bQe.put(str, str2);
-        } else if (i == bQc) {
-            this.bQf.put(str, str2);
-        } else if (i == bQd) {
-            if (this.bQg != null) {
-                this.bQg.edit().putString(str, str2).commit();
+        if (i == bSb) {
+            this.bSe.put(str, str2);
+        } else if (i == bSc) {
+            this.bSf.put(str, str2);
+        } else if (i == bSd) {
+            if (this.bSg != null) {
+                this.bSg.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == bQb) {
-            str2 = this.bQe.get(str);
-        } else if (i == bQc) {
-            str2 = this.bQf.get(str);
-        } else if (i == bQd) {
-            if (this.bQg != null) {
-                str2 = this.bQg.getString(str, "");
+        if (i == bSb) {
+            str2 = this.bSe.get(str);
+        } else if (i == bSc) {
+            str2 = this.bSf.get(str);
+        } else if (i == bSd) {
+            if (this.bSg != null) {
+                str2 = this.bSg.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.bQe.clear();
+        this.bSe.clear();
     }
 }

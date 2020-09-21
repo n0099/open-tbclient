@@ -1,26 +1,26 @@
 package com.baidu.swan.apps.event.a;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
-    public String cio;
-    public String cqP;
-    public String cqQ;
-    public String cqR;
-    public String cqS;
+    public String ckp;
+    public String csS;
+    public String csT;
+    public String csU;
+    public String csV;
 
     public e() {
-        this.bXY = "route";
+        this.bZZ = "route";
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String mx(String str) {
-        String str2 = (com.baidu.swan.apps.event.a.A(str, "fromId", this.cqP) + com.baidu.swan.apps.event.a.A(str, "toId", this.cqQ)) + com.baidu.swan.apps.event.a.A(str, "toTabIndex", this.cqS);
-        if (!TextUtils.isEmpty(this.cio)) {
-            str2 = str2 + com.baidu.swan.apps.event.a.A(str, "routeType", this.cio);
+    public String mQ(String str) {
+        String str2 = (com.baidu.swan.apps.event.a.A(str, "fromId", this.csS) + com.baidu.swan.apps.event.a.A(str, "toId", this.csT)) + com.baidu.swan.apps.event.a.A(str, "toTabIndex", this.csV);
+        if (!TextUtils.isEmpty(this.ckp)) {
+            str2 = str2 + com.baidu.swan.apps.event.a.A(str, "routeType", this.ckp);
         }
-        if (!TextUtils.isEmpty(this.cqR)) {
-            return str2 + com.baidu.swan.apps.event.a.A(str, "toPage", this.cqR);
+        if (!TextUtils.isEmpty(this.csU)) {
+            return str2 + com.baidu.swan.apps.event.a.A(str, "toPage", this.csU);
         }
         return str2;
     }

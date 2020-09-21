@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.swan.apps.ap.u;
 import com.baidu.swan.facade.b.b;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class SwanEntryActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!u.checkActivityRefuseServiceAndFinish(this)) {
-            bCF();
+            bDR();
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        bCF();
+        bDR();
     }
 
     @Override // android.app.Activity
@@ -34,7 +34,7 @@ public class SwanEntryActivity extends Activity {
         });
     }
 
-    private void bCF() {
+    private void bDR() {
         String uri;
         Intent intent = getIntent();
         if (intent != null) {
@@ -45,7 +45,7 @@ public class SwanEntryActivity extends Activity {
                 uri = data == null ? null : data.toString();
             }
             if (!TextUtils.isEmpty(uri)) {
-                b.tt(uri);
+                b.tM(uri);
             }
         }
     }

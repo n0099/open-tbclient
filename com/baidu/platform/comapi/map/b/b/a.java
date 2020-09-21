@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map.b.b;
 import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     protected MapController a;
 

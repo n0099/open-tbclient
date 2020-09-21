@@ -4,18 +4,18 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.NoSuchElementException;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableElementAt<T> extends a<T, T> {
     final T defaultValue;
     final boolean errorOnFewer;
     final long index;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ElementAtSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = 4066607327284737757L;
         long count;
@@ -23,17 +23,17 @@ public final class FlowableElementAt<T> extends a<T, T> {
         boolean done;
         final boolean errorOnFewer;
         final long index;
-        org.b.d s;
+        org.a.d s;
 
-        ElementAtSubscriber(org.b.c<? super T> cVar, long j, T t, boolean z) {
+        ElementAtSubscriber(org.a.c<? super T> cVar, long j, T t, boolean z) {
             super(cVar);
             this.index = j;
             this.defaultValue = t;
             this.errorOnFewer = z;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -41,7 +41,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 long j = this.count;
@@ -55,7 +55,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -65,7 +65,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -83,7 +83,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
             }
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

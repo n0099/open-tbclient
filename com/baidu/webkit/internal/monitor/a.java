@@ -4,14 +4,14 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    C0852a a;
+    C0849a a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    public class C0852a {
+    /* loaded from: classes8.dex */
+    public class C0849a {
         boolean a;
         boolean b;
         long c;
@@ -20,7 +20,7 @@ public final class a {
         boolean f;
         Map<String, Long> g;
 
-        private C0852a() {
+        private C0849a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
@@ -28,7 +28,7 @@ public final class a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0852a(a aVar, byte b) {
+        public /* synthetic */ C0849a(a aVar, byte b) {
             this();
         }
 

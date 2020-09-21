@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface RequestResponseCode {
     public static final int COLLECT_EMOTION_DETAIL = 25031;
     public static final int COLLECT_SELECT_ALBUM = 25030;
@@ -84,6 +84,7 @@ public interface RequestResponseCode {
     public static final int REQUEST_MEMBER_GIFT = 24001;
     public static final int REQUEST_MISSON_DETAILS_TO_GUIDE = 24003;
     public static final int REQUEST_MOBILE_GAME = 25026;
+    public static final int REQUEST_MOBILE_MODIFY_NICKNAME_DIALOG = 25052;
     public static final int REQUEST_MODIFY_MARK = 17001;
     public static final int REQUEST_MODIFY_NICKNAME = 25020;
     public static final int REQUEST_MOTU_IMAGE = 12012;

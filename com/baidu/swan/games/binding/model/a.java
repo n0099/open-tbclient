@@ -1,61 +1,61 @@
 package com.baidu.swan.games.binding.model;
 
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    public JsFunction dqB;
-    public JsFunction dqC;
-    public JsFunction dqD;
+    public JsFunction dsE;
+    public JsFunction dsF;
+    public JsFunction dsG;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.dqB = cVar.uS("success");
-        aVar.dqC = cVar.uS("fail");
-        aVar.dqD = cVar.uS(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.dsE = cVar.vl("success");
+        aVar.dsF = cVar.vl("fail");
+        aVar.dsG = cVar.vl(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.dqB != null) {
-            this.dqB.call(obj);
+        if (this.dsE != null) {
+            this.dsE.call(obj);
         }
-        if (this.dqD != null) {
-            this.dqD.call(obj);
+        if (this.dsG != null) {
+            this.dsG.call(obj);
         }
-        a(this.dqC);
+        a(this.dsF);
     }
 
-    public void Y(Object obj) {
-        if (this.dqC != null) {
-            this.dqC.call(obj);
+    public void Z(Object obj) {
+        if (this.dsF != null) {
+            this.dsF.call(obj);
         }
-        if (this.dqD != null) {
-            this.dqD.call(obj);
+        if (this.dsG != null) {
+            this.dsG.call(obj);
         }
-        a(this.dqB);
+        a(this.dsE);
     }
 
     public void onSuccess() {
-        if (this.dqB != null) {
-            this.dqB.call();
+        if (this.dsE != null) {
+            this.dsE.call();
         }
-        if (this.dqD != null) {
-            this.dqD.call();
+        if (this.dsG != null) {
+            this.dsG.call();
         }
-        a(this.dqC);
+        a(this.dsF);
     }
 
     public void onFail() {
-        if (this.dqC != null) {
-            this.dqC.call();
+        if (this.dsF != null) {
+            this.dsF.call();
         }
-        if (this.dqD != null) {
-            this.dqD.call();
+        if (this.dsG != null) {
+            this.dsG.call();
         }
-        a(this.dqB);
+        a(this.dsE);
     }
 
     private void a(JsFunction jsFunction) {

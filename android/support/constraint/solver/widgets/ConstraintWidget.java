@@ -8,7 +8,7 @@ import android.support.media.ExifInterface;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class ConstraintWidget {
     protected static final int ANCHOR_BASELINE = 4;
     protected static final int ANCHOR_BOTTOM = 3;
@@ -117,7 +117,7 @@ public class ConstraintWidget {
     protected int mX;
     protected int mY;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public enum ContentAlignment {
         BEGIN,
         MIDDLE,
@@ -129,7 +129,7 @@ public class ConstraintWidget {
         RIGHT
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public enum DimensionBehaviour {
         FIXED,
         WRAP_CONTENT,

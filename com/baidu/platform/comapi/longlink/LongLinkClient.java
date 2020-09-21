@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.exception.ComInitException;
 import com.baidu.platform.comapi.exception.InvalidComException;
 import com.baidu.platform.comjni.base.longlink.NALongLink;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class LongLinkClient {
     private int a;
     private long b;

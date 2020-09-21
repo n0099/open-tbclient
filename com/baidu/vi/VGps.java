@@ -6,7 +6,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class VGps {
     private static int e = 3;
     @SuppressLint({"HandlerLeak"})

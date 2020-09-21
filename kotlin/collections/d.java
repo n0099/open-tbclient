@@ -7,9 +7,9 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a osi = new a(null);
+    public static final a oBP = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0970d(this, i, i2);
+        return new C0967d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    private static final class C0970d<E> extends d<E> implements RandomAccess {
-        private int osk;
-        private final d<E> osl;
-        private final int osm;
+    /* loaded from: classes5.dex */
+    private static final class C0967d<E> extends d<E> implements RandomAccess {
+        private int oBR;
+        private final d<E> oBS;
+        private final int oBT;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0970d(d<? extends E> dVar, int i, int i2) {
+        public C0967d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.m(dVar, "list");
-            this.osl = dVar;
-            this.osm = i;
-            d.osi.ai(this.osm, i2, this.osl.size());
-            this.osk = i2 - this.osm;
+            this.oBS = dVar;
+            this.oBT = i;
+            d.oBP.al(this.oBT, i2, this.oBS.size());
+            this.oBR = i2 - this.oBT;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.osi.dX(i, this.osk);
-            return this.osl.get(this.osm + i);
+            d.oBP.eb(i, this.oBR);
+            return this.oBS.get(this.oBT + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.osk;
+            return this.oBR;
         }
     }
 
@@ -89,19 +89,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return osi.a(this, (Collection) obj);
+            return oBP.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return osi.n(this);
+        return oBP.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public class b implements Iterator<E> {
         private int index;
 
@@ -140,7 +140,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     private class c extends d<E>.b implements ListIterator<E> {
         @Override // java.util.ListIterator
         public void add(E e) {
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.osi.dY(i, d.this.size());
+            d.oBP.ec(i, d.this.size());
             setIndex(i);
         }
 
@@ -185,7 +185,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -194,19 +194,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void dX(int i, int i2) {
+        public final void eb(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void dY(int i, int i2) {
+        public final void ec(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void ai(int i, int i2, int i3) {
+        public final void al(int i, int i2, int i3) {
             if (i < 0 || i2 > i3) {
                 throw new IndexOutOfBoundsException("fromIndex: " + i + ", toIndex: " + i2 + ", size: " + i3);
             }

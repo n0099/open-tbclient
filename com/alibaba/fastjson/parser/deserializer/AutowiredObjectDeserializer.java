@@ -2,7 +2,7 @@ package com.alibaba.fastjson.parser.deserializer;
 
 import java.lang.reflect.Type;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface AutowiredObjectDeserializer extends ObjectDeserializer {
     Set<Type> getAutowiredFor();
 }

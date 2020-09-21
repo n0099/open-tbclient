@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class LoadSo {
     static final String a = "3.0.0";
     static final String[] b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
@@ -18,7 +18,7 @@ public class LoadSo {
     private Bundle e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes6.dex */
     public class StatService {
         private static final String a = "sapi_bio_dynamic_load_so";
         private static final String b = "host_version";

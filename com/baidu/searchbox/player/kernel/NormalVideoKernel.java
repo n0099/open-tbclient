@@ -14,7 +14,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class NormalVideoKernel extends AbsVideoKernel {
     private static final String TAG = "NormalVideoKernel";
     private BVideoView mVideoView = new BVideoView(BDPlayerConfig.getAppContext());

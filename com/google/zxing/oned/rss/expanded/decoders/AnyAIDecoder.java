@@ -4,7 +4,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class AnyAIDecoder extends AbstractExpandedDecoder {
     private static final int HEADER_SIZE = 5;
 

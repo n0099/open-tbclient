@@ -1,5 +1,5 @@
 package com.vivo.push.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class x extends u {
     private String a;
     private long b;

@@ -1,25 +1,38 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class w {
-    public String eAI;
-    public boolean isShowRedDot;
-    public String tabCode;
-    public String tabName;
-    public int tabType;
+    public List<x> eCM;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null && jSONObject != null) {
-            this.tabType = jSONObject.optInt("tab_type");
-            this.tabName = jSONObject.optString("tab_name");
-            this.tabCode = jSONObject.optString("tab_code");
-            this.eAI = jSONObject.optString("tab_version");
+    public void V(JSONArray jSONArray) {
+        this.eCM = new ArrayList();
+        try {
+            if (jSONArray == null) {
+                com.baidu.tbadk.core.sharedPref.b.bjf().putString("key_index_tab_info_list", "[]");
+                return;
+            }
+            JSONArray jSONArray2 = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bjf().getString("key_index_tab_info_list", "[]"));
+            for (int i = 0; i < jSONArray.length(); i++) {
+                x xVar = new x();
+                x xVar2 = new x();
+                xVar.parserJson(jSONArray.getJSONObject(i));
+                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                    xVar2.parserJson(jSONArray2.getJSONObject(i2));
+                    if (xVar.tabCode != null && xVar.tabCode.equals(xVar2.tabCode)) {
+                        xVar.isShowRedDot = TextUtils.isEmpty(xVar2.eCN) || !xVar2.eCN.equals(xVar.eCN);
+                    }
+                }
+                if (!xVar.isDirtyData()) {
+                    this.eCM.add(xVar);
+                }
+            }
+            com.baidu.tbadk.core.sharedPref.b.bjf().putString("key_index_tab_info_list", jSONArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public boolean isDirtyData() {
-        return TextUtils.isEmpty(this.tabName) || this.tabType <= 0;
     }
 }

@@ -3,21 +3,21 @@ package io.reactivex.internal.util;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> NS(int i) {
+    public static <T> io.reactivex.internal.a.g<T> Ox(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
-    public static void a(org.b.d dVar, int i) {
+    public static void a(org.a.d dVar, int i) {
         dVar.request(i < 0 ? Long.MAX_VALUE : i);
     }
 
-    public static <T> boolean a(long j, org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> boolean a(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, b.P(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
+        } while (!atomicLong.compareAndSet(j2, b.M(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
         if (j2 == Long.MIN_VALUE) {
             b(j | Long.MIN_VALUE, cVar, queue, atomicLong, eVar);
             return true;
@@ -34,7 +34,7 @@ public final class i {
         }
     }
 
-    static <T> boolean b(long j, org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    static <T> boolean b(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j2 = j & Long.MIN_VALUE;
         while (true) {
             if (j2 != j) {
@@ -69,7 +69,7 @@ public final class i {
         }
     }
 
-    public static <T> void a(org.b.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
+    public static <T> void a(org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j;
         long j2;
         if (queue.isEmpty()) {

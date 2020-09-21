@@ -1,5 +1,5 @@
 package com.baidu.tieba.forumMember.bawu;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public interface i {
-    int ckd();
+    int cnq();
 }

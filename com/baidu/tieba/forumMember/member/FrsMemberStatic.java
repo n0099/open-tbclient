@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.tieba.frs.ai;
 import com.baidu.tieba.frs.aj;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class FrsMemberStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        aj.cnW().xv(3);
+        aj.crj().xU(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.hPh));
-                    absDelegateAdapterList.add(new l(null, m.hPs));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.hSE));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.hOK));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.hON));
-                    absDelegateAdapterList.add(new o(null, p.hPJ));
+                    absDelegateAdapterList.add(new i(null, j.hWh));
+                    absDelegateAdapterList.add(new l(null, m.hWs));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.hZE));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.hVK));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.hVN));
+                    absDelegateAdapterList.add(new o(null, p.hWJ));
                 }
             }
         });
@@ -38,7 +38,7 @@ public class FrsMemberStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ai)) {
                     ai aiVar = (ai) customResponsedMessage.getData();
                     e eVar = new e();
-                    eVar.setTag(aiVar.ePz);
+                    eVar.setTag(aiVar.eSq);
                     aiVar.a(3, eVar);
                 }
             }

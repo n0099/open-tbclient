@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CmdConfigCustom {
     public static final int ACTIVITY_IMBLACK_LIST = 2008001;
     public static final int ACTIVITY_REFRESH = 2003001;
@@ -21,6 +21,8 @@ public class CmdConfigCustom {
     public static final int CMD_ADVERT_SDK_SPLASH_CLICK = 2016311;
     public static final int CMD_AD_FRS_THREAD_CLICKED = 2016495;
     public static final int CMD_ALA_ANDROID_MAX = 2913000;
+    public static final int CMD_ALA_AUDIO_BASE = 2501000;
+    public static final int CMD_ALA_AUDIO_MAX = 3001000;
     public static final int CMD_ALA_BASE = 2911000;
     public static final int CMD_ALA_CHECK_LIVE_FORUM_BY_FID = 2911007;
     public static final int CMD_ALA_GET_LIVE_FORUM_URL = 2911006;

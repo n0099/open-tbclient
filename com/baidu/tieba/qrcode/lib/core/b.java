@@ -11,12 +11,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 final class b {
-    private static final Pattern lzu = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point lzv;
-    private Point lzw;
-    private Point lzx;
+    private static final Pattern lIk = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point lIl;
+    private Point lIm;
+    private Point lIn;
     private final Context mContext;
 
     public b(Context context) {
@@ -28,20 +28,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.lzv = a.fx(this.mContext);
+        this.lIl = a.fD(this.mContext);
         Point point = new Point();
-        point.x = this.lzv.x;
-        point.y = this.lzv.y;
-        int fw = a.fw(this.mContext);
-        if (fw == 0) {
-            point.x = this.lzv.y;
-            point.y = this.lzv.x;
+        point.x = this.lIl.x;
+        point.y = this.lIl.y;
+        int fC = a.fC(this.mContext);
+        if (fC == 0) {
+            point.x = this.lIl.y;
+            point.y = this.lIl.x;
         }
-        this.lzx = a(parameters, point);
-        if (fw == 0) {
-            this.lzw = new Point(this.lzx.y, this.lzx.x);
+        this.lIn = a(parameters, point);
+        if (fC == 0) {
+            this.lIm = new Point(this.lIn.y, this.lIn.x);
         } else {
-            this.lzw = this.lzx;
+            this.lIm = this.lIn;
         }
     }
 
@@ -49,15 +49,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dmq() {
-        return this.lzw;
+    public Point dpX() {
+        return this.lIm;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.lzx.x, this.lzx.y);
+        parameters.setPreviewSize(this.lIn.x, this.lIn.y);
         d(parameters);
-        camera.setDisplayOrientation(dmr());
+        camera.setDisplayOrientation(dpY());
         camera.setParameters(parameters);
     }
 
@@ -72,7 +72,7 @@ final class b {
         return null;
     }
 
-    public int dmr() {
+    public int dpY() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -148,7 +148,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = lzu.split(charSequence);
+        String[] split = lIk.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

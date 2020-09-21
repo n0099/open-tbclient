@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class l extends Handler {
     final /* synthetic */ IXAdInstanceInfo a;
     final /* synthetic */ b b;

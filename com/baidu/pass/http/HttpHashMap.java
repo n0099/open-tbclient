@@ -2,7 +2,7 @@ package com.baidu.pass.http;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HttpHashMap implements com.baidu.pass.a {
     private Map<String, String> a = new HashMap();
 

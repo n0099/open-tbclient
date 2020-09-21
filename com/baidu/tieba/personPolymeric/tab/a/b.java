@@ -16,22 +16,21 @@ import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.card.data.c;
 import com.baidu.tieba.card.p;
 import java.util.Iterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private TbPageContext efr;
-    private int gRa;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a lox;
-    private BdUniqueId mBdUniqueId;
-    private final CustomMessageListener loy = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private TbPageContext ehG;
+    private int gUI;
+    private com.baidu.tieba.personPolymeric.tab.fragments.a lxp;
+    private final CustomMessageListener lxq = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bw) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.lox != null && b.this.lox.djm()) {
-                b.this.aV((bw) customResponsedMessage.getData());
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bw) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.lxp != null && b.this.lxp.dmR()) {
+                b.this.aW((bw) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener loz = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener lxr = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,48 +39,49 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener loA = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener lxs = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                b.this.OD((String) customResponsedMessage.getData());
+                b.this.Pe((String) customResponsedMessage.getData());
             }
         }
     };
+    private BdUniqueId mBdUniqueId;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
-        this.efr = tbPageContext;
+        this.ehG = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.lox = aVar;
-        this.gRa = i;
-        this.loy.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.loy);
-        this.loz.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.loz);
-        this.loA.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.loA);
+        this.lxp = aVar;
+        this.gUI = i;
+        this.lxq.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lxq);
+        this.lxr.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lxr);
+        this.lxs.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lxs);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aV(final bw bwVar) {
+    public void aW(final bw bwVar) {
         CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
-        cardPersonDynamicThreadData.dUW = bwVar;
+        cardPersonDynamicThreadData.dXg = bwVar;
         cardPersonDynamicThreadData.forumId = String.valueOf(bwVar.getFid());
         cardPersonDynamicThreadData.threadId = bwVar.tid;
-        cardPersonDynamicThreadData.postId = bwVar.eep;
+        cardPersonDynamicThreadData.postId = bwVar.egz;
         cardPersonDynamicThreadData.isPrivacy = bwVar.isPrivacy;
         if (bwVar != null && bwVar.getBaijiahaoData() != null) {
-            cardPersonDynamicThreadData.hnW = bwVar.getBaijiahaoData().oriUgcNid;
+            cardPersonDynamicThreadData.hva = bwVar.getBaijiahaoData().oriUgcNid;
         }
-        p pVar = new p(this.efr);
-        pVar.nj(this.gRa == 1);
+        p pVar = new p(this.ehG);
+        pVar.np(this.gUI == 1);
         pVar.create();
         pVar.a(new p.a() { // from class: com.baidu.tieba.personPolymeric.tab.a.b.1
             @Override // com.baidu.tieba.card.p.a
             public void setPrivacy(boolean z) {
                 if (z) {
-                    l.showToast(b.this.efr.getPageActivity(), (int) R.string.thread_has_hide);
+                    l.showToast(b.this.ehG.getPageActivity(), (int) R.string.thread_has_hide);
                 }
                 b.this.a(z, bwVar);
             }
@@ -94,18 +94,18 @@ public class b {
     public void a(boolean z, bw bwVar) {
         bw i;
         boolean z2 = false;
-        if (bwVar != null && this.lox != null && !y.isEmpty(this.lox.cyT()) && this.lox.djl() != null && this.lox.djl().djn() != null) {
+        if (bwVar != null && this.lxp != null && !y.isEmpty(this.lxp.cCA()) && this.lxp.dmQ() != null && this.lxp.dmQ().dmS() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.lox.cyT().size()) {
+                if (i2 >= this.lxp.cCA().size()) {
                     break;
                 }
-                q qVar = this.lox.cyT().get(i2);
+                q qVar = this.lxp.cCA().get(i2);
                 if (qVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(qVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(bwVar.tid)) {
                     i.isPrivacy = z;
-                    c az = com.baidu.tieba.personPolymeric.tab.b.a.az(i);
-                    if (az != null) {
-                        this.lox.cyT().set(i2, az);
+                    c aA = com.baidu.tieba.personPolymeric.tab.b.a.aA(i);
+                    if (aA != null) {
+                        this.lxp.cCA().set(i2, aA);
                         z2 = true;
                         break;
                     }
@@ -113,17 +113,17 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.lox.djl().eR(this.lox.cyT());
+                this.lxp.dmQ().eZ(this.lxp.cCA());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OD(String str) {
+    public void Pe(String str) {
         boolean z;
         bw i;
-        if (!StringUtils.isNull(str) && this.lox != null && !y.isEmpty(this.lox.cyT()) && this.lox.djl() != null && this.lox.djl().djn() != null) {
-            Iterator<q> it = this.lox.cyT().iterator();
+        if (!StringUtils.isNull(str) && this.lxp != null && !y.isEmpty(this.lxp.cCA()) && this.lxp.dmQ() != null && this.lxp.dmQ().dmS() != null) {
+            Iterator<q> it = this.lxp.cCA().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -137,7 +137,7 @@ public class b {
                 }
             }
             if (z) {
-                this.lox.djl().eR(this.lox.cyT());
+                this.lxp.dmQ().eZ(this.lxp.cCA());
             }
         }
     }
@@ -146,8 +146,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         bw i;
-        if (!StringUtils.isNull(str) && this.lox != null && !y.isEmpty(this.lox.cyT()) && this.lox.djl() != null && this.lox.djl().djn() != null) {
-            Iterator<q> it = this.lox.cyT().iterator();
+        if (!StringUtils.isNull(str) && this.lxp != null && !y.isEmpty(this.lxp.cCA()) && this.lxp.dmQ() != null && this.lxp.dmQ().dmS() != null) {
+            Iterator<q> it = this.lxp.cCA().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -161,7 +161,7 @@ public class b {
                 }
             }
             if (z) {
-                this.lox.djl().eR(this.lox.cyT());
+                this.lxp.dmQ().eZ(this.lxp.cCA());
             }
         }
     }

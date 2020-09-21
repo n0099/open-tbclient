@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    void Xz();
+    void Yi();
 
     void a(b bVar);
 }

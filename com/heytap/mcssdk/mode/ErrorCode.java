@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class ErrorCode {
     public static final int APP_CALL_LIMITED = 13;
     public static final int ERROR = -2;

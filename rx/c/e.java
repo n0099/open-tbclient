@@ -1,12 +1,12 @@
 package rx.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class e extends d {
-    private static final e oKb = new e();
+    private static final e oTG = new e();
 
     private e() {
     }
 
-    public static d ekX() {
-        return oKb;
+    public static d eoV() {
+        return oTG;
     }
 }

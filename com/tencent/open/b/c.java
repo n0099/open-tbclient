@@ -12,7 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class c {
     private static String d;
     static String a = null;

@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class Utils {
     public static String a = "filecache-Utils";
     public static int b = 536870912;

@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IGuardClubLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class DefaultGuardClubLogger implements IGuardClubLogger {
     @Override // com.baidu.live.tbadk.log.IGuardClubLogger
     public void doAccessLiveGuardMemberLog(String str, String str2, String str3, String str4) {

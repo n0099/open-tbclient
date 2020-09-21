@@ -6,37 +6,37 @@ import com.baidu.tbadk.core.data.by;
 import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes.dex */
 public class ac extends bw {
-    public static final BdUniqueId mej = BdUniqueId.gen();
-    private boolean fKp = false;
-    private by mek;
-    private cb mel;
+    public static final BdUniqueId mnI = BdUniqueId.gen();
+    private boolean fND = false;
+    private by mnJ;
+    private cb mnK;
 
     @Override // com.baidu.tbadk.core.data.bw, com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mej;
+        return mnI;
     }
 
-    public boolean dwj() {
-        return this.fKp;
+    public boolean dAc() {
+        return this.fND;
     }
 
-    public void vZ(boolean z) {
-        this.fKp = z;
+    public void wi(boolean z) {
+        this.fND = z;
     }
 
-    public by dwk() {
-        return this.mek;
+    public by dAd() {
+        return this.mnJ;
     }
 
     public void a(by byVar) {
-        this.mek = byVar;
+        this.mnJ = byVar;
     }
 
-    public cb dwl() {
-        return this.mel;
+    public cb dAe() {
+        return this.mnK;
     }
 
     public void a(cb cbVar) {
-        this.mel = cbVar;
+        this.mnK = cbVar;
     }
 }

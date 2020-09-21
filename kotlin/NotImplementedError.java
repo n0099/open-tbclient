@@ -3,7 +3,7 @@ package kotlin;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class NotImplementedError extends Error {
     public NotImplementedError() {
         this(null, 1, null);

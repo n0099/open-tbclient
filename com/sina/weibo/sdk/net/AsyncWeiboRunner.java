@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class AsyncWeiboRunner {
     private Context mContext;
 
@@ -87,7 +87,7 @@ public class AsyncWeiboRunner {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes24.dex */
     public static class RequestRunner extends AsyncTask<Void, Void, AsyncTaskResult<String>> {
         private final Context mContext;
         private final String mHttpMethod;
@@ -133,7 +133,7 @@ public class AsyncWeiboRunner {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes24.dex */
     public static class AsyncTaskResult<T> {
         private WeiboException error;
         private T result;

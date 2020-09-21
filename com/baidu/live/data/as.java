@@ -1,22 +1,33 @@
 package com.baidu.live.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class as {
-    public List<Long> aIF;
+    public AlaLiveUserInfoData aJI;
+    public int rank;
+    public int type;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aIF = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("id");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aIF.add(Long.valueOf(optJSONArray.optLong(i)));
-                }
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aJI = new AlaLiveUserInfoData();
+                this.aJI.parserJson(optJSONObject);
             }
         }
+    }
+
+    public boolean Dj() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(as asVar) {
+        return asVar != null && asVar.type == this.type && asVar.rank == this.rank && this.aJI != null && asVar.aJI != null && asVar.aJI.userId == this.aJI.userId;
     }
 }

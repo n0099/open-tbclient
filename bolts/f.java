@@ -1,5 +1,5 @@
 package bolts;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public interface f<TTaskResult, TContinuationResult> {
     TContinuationResult a(g<TTaskResult> gVar) throws Exception;
 }

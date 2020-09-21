@@ -3,13 +3,13 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class d {
-    private static d eUT;
+    private static d eXJ;
 
-    public static d bvj() {
-        if (eUT == null) {
-            eUT = new d();
+    public static d bwn() {
+        if (eXJ == null) {
+            eXJ = new d();
         }
-        return eUT;
+        return eXJ;
     }
 
     public String getUrlByNet(String str) {

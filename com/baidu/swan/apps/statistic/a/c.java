@@ -4,90 +4,90 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String beB;
-    private long cXA;
-    private long cXB;
-    private int cXx;
-    private String cXy;
-    private String cXz;
+    private String bhp;
+    private long cZA;
+    private long cZB;
+    private int cZx;
+    private String cZy;
+    private String cZz;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.cXx = i;
-        this.beB = "0";
+        this.cZx = i;
+        this.bhp = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.cXx = i2;
-        this.beB = "1";
+        this.cZx = i2;
+        this.bhp = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.cXx = i2;
-        this.cXA = j;
-        this.cXB = j2;
+        this.cZx = i2;
+        this.cZA = j;
+        this.cZB = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.beB = "2";
+            this.bhp = "2";
         } else {
-            this.beB = "1";
+            this.bhp = "1";
         }
     }
 
-    public void rt(String str) {
-        this.cXy = str;
+    public void rM(String str) {
+        this.cZy = str;
     }
 
     public String getRequestUrl() {
         return this.mRequestUrl;
     }
 
-    public String aCH() {
-        return this.beB;
+    public String aDr() {
+        return this.bhp;
     }
 
-    public void ru(String str) {
-        this.cXz = str;
+    public void rN(String str) {
+        this.cZz = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.cXD == null) {
-            this.cXD = new JSONObject();
+        if (this.cZD == null) {
+            this.cZD = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.beB, "1") || TextUtils.equals(this.beB, "2")) {
-                this.cXD.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.bhp, "1") || TextUtils.equals(this.bhp, "2")) {
+                this.cZD.put("errorno", this.mErrCode);
             }
-            this.mRequestUrl = com.baidu.swan.apps.statistic.g.rn(this.mRequestUrl);
-            this.cXD.put("url", this.mRequestUrl);
-            this.cXD.put("netStatus", this.cXx);
+            this.mRequestUrl = com.baidu.swan.apps.statistic.g.rG(this.mRequestUrl);
+            this.cZD.put("url", this.mRequestUrl);
+            this.cZD.put("netStatus", this.cZx);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.cXD.put("msg", this.mMsg);
+                this.cZD.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.cXy)) {
-                this.cXD.put("pagetype", this.cXy);
+            if (!TextUtils.isEmpty(this.cZy)) {
+                this.cZD.put("pagetype", this.cZy);
             }
-            if (!TextUtils.isEmpty(this.cXz)) {
-                this.cXD.put("curpage", this.cXz);
+            if (!TextUtils.isEmpty(this.cZz)) {
+                this.cZD.put("curpage", this.cZz);
             }
-            if (!TextUtils.isEmpty(this.beB)) {
-                this.cXD.put("requesttype", this.beB);
+            if (!TextUtils.isEmpty(this.bhp)) {
+                this.cZD.put("requesttype", this.bhp);
             }
-            if (this.cXB - this.cXA > 0) {
-                this.cXD.put("startTime", this.cXA);
-                this.cXD.put("endTime", this.cXB);
+            if (this.cZB - this.cZA > 0) {
+                this.cZD.put("startTime", this.cZA);
+                this.cZD.put("endTime", this.cZB);
             }
         } catch (JSONException e) {
             if (DEBUG) {

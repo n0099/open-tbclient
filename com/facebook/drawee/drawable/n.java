@@ -2,7 +2,7 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.NinePatchDrawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class n extends m {
     public n(NinePatchDrawable ninePatchDrawable) {
         super(ninePatchDrawable);
@@ -10,12 +10,12 @@ public class n extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!dQz()) {
+        if (!dUx()) {
             super.draw(canvas);
             return;
         }
-        dQB();
-        dQA();
+        dUz();
+        dUy();
         canvas.clipPath(this.mPath);
         super.draw(canvas);
     }

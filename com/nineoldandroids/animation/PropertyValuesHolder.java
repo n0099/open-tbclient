@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class PropertyValuesHolder implements Cloneable {
     private Object mAnimatedValue;
     private TypeEvaluator mEvaluator;
@@ -369,7 +369,7 @@ public class PropertyValuesHolder implements Cloneable {
         return str;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     static class IntPropertyValuesHolder extends PropertyValuesHolder {
         int mIntAnimatedValue;
         IntKeyframeSet mIntKeyframeSet;
@@ -455,7 +455,7 @@ public class PropertyValuesHolder implements Cloneable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     static class FloatPropertyValuesHolder extends PropertyValuesHolder {
         float mFloatAnimatedValue;
         FloatKeyframeSet mFloatKeyframeSet;

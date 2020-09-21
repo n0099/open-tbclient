@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ah;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class d implements ah {
     private String avatar;
     private String errorMsg;
-    private int fKx;
+    private int fNL;
     private int forumId;
     private String forumName;
     private boolean isSigned;
-    private int lVT;
-    private int lVU;
-    private int lVV;
-    private int lVW;
-    private boolean lVX;
-    private boolean lVY;
-    private boolean lVZ;
-    private int lWa;
+    private boolean mfA;
+    private boolean mfB;
+    private int mfC;
+    private int mfv;
+    private int mfw;
+    private int mfx;
+    private int mfy;
+    private boolean mfz;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dtY() {
-        return this.lVT;
+    public int dxR() {
+        return this.mfv;
     }
 
-    public int dtZ() {
-        return this.fKx;
+    public int dxS() {
+        return this.fNL;
     }
 
-    public int dua() {
-        return this.lVU;
+    public int dxT() {
+        return this.mfw;
     }
 
-    public int dub() {
-        return this.lVV;
+    public int dxU() {
+        return this.mfx;
     }
 
-    public int duc() {
-        return this.lVW;
+    public int dxV() {
+        return this.mfy;
     }
 
-    public void Ht(int i) {
-        this.lVT = i;
+    public void HW(int i) {
+        this.mfv = i;
     }
 
-    public void Hu(int i) {
-        this.fKx = i;
+    public void HX(int i) {
+        this.fNL = i;
     }
 
-    public void Hv(int i) {
-        this.lVU = i;
+    public void HY(int i) {
+        this.mfw = i;
     }
 
-    public boolean bGH() {
+    public boolean bHX() {
         return this.isSigned;
     }
 
-    public void vO(boolean z) {
+    public void vW(boolean z) {
         this.isSigned = z;
-        this.lVT = 1;
+        this.mfv = 1;
     }
 
-    public boolean dud() {
-        return this.lVY;
+    public boolean dxW() {
+        return this.mfA;
     }
 
-    public void vP(boolean z) {
-        this.lVY = z;
-        this.lVT = 0;
+    public void vX(boolean z) {
+        this.mfA = z;
+        this.mfv = 0;
     }
 
-    public boolean due() {
-        return this.lVZ;
+    public boolean dxX() {
+        return this.mfB;
     }
 
-    public void vQ(boolean z) {
-        this.lVZ = z;
+    public void vY(boolean z) {
+        this.mfB = z;
     }
 
-    public int duf() {
-        return this.lWa;
+    public int dxY() {
+        return this.mfC;
     }
 
-    public void Hw(int i) {
-        this.lWa = i;
+    public void HZ(int i) {
+        this.mfC = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dug() {
-        return this.lVX;
+    public boolean dxZ() {
+        return this.mfz;
     }
 
-    public void vR(boolean z) {
-        this.lVX = z;
+    public void vZ(boolean z) {
+        this.mfz = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.lVT = jSONObject.optInt("is_sign_in");
-            this.fKx = jSONObject.optInt("cont_sign_num");
-            this.lVU = jSONObject.optInt("user_level");
-            this.lVV = jSONObject.optInt("user_exp");
-            this.lVW = jSONObject.optInt("need_exp");
-            if (this.lVT != 0) {
+            this.mfv = jSONObject.optInt("is_sign_in");
+            this.fNL = jSONObject.optInt("cont_sign_num");
+            this.mfw = jSONObject.optInt("user_level");
+            this.mfx = jSONObject.optInt("user_exp");
+            this.mfy = jSONObject.optInt("need_exp");
+            if (this.mfv != 0) {
                 this.isSigned = true;
-                this.lVY = false;
+                this.mfA = false;
             }
         }
     }

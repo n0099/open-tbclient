@@ -24,7 +24,7 @@ import com.baidu.k.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private static final String O = "VoiceSinWaveView";
     private static final int P = 4097;
@@ -70,7 +70,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     private ValueAnimator y;
     private ValueAnimator z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class a implements ValueAnimator.AnimatorUpdateListener {
         a() {
         }
@@ -81,7 +81,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class b implements ValueAnimator.AnimatorUpdateListener {
         final /* synthetic */ int[] a;
         final /* synthetic */ float[] b;
@@ -105,9 +105,9 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
     }
 
     /* renamed from: com.baidu.pass.ecommerce.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    class C0239c extends AnimatorListenerAdapter {
-        C0239c() {
+    /* loaded from: classes6.dex */
+    class C0237c extends AnimatorListenerAdapter {
+        C0237c() {
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -119,7 +119,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class d implements ValueAnimator.AnimatorUpdateListener {
         d() {
         }
@@ -132,7 +132,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class e extends Handler {
         private WeakReference<c> a;
 
@@ -152,7 +152,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class f extends Thread {
         private boolean a = false;
         private WeakReference<c> b;
@@ -185,7 +185,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         void a();
 
@@ -462,7 +462,7 @@ public class c extends View implements com.baidu.pass.ecommerce.d.d {
             this.z.setDuration(this.B);
             this.z.setInterpolator(new AccelerateInterpolator());
             this.z.addUpdateListener(new b(new int[]{0, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK, 0}, new float[]{0.0f, 0.2f, 0.5f, 0.8f, 1.0f}));
-            this.z.addListener(new C0239c());
+            this.z.addListener(new C0237c());
             this.z.start();
         }
     }

@@ -3,42 +3,42 @@ package com.baidu.tieba.pb.pb.main.emotion.view;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private SearchEmotionModel.a hFe;
-    private SearchEmotionModel kPG;
-    private String kPH;
-    private Runnable kPI = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a hMf;
+    private SearchEmotionModel kYi;
+    private String kYj;
+    private Runnable kYk = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.kPH) && b.this.hFe != null) {
-                if (b.this.kPG == null) {
-                    b.this.kPG = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.kYj) && b.this.hMf != null) {
+                if (b.this.kYi == null) {
+                    b.this.kYi = new SearchEmotionModel();
                 }
-                b.this.kPG.a(b.this.kPH, 0, 30, b.this.hFe);
+                b.this.kYi.a(b.this.kYj, 0, 30, b.this.hMf);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void NU(String str) {
+    public void Ov(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.kPH = "";
+            this.kYj = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.kPI);
-        this.mHandler.postDelayed(this.kPI, 300L);
-        this.kPH = str;
+        this.mHandler.removeCallbacks(this.kYk);
+        this.mHandler.postDelayed(this.kYk, 300L);
+        this.kYj = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.hFe = aVar;
+        this.hMf = aVar;
     }
 
-    public void coV() {
-        if (this.kPG != null) {
-            this.kPG.cancelLoadData();
+    public void csi() {
+        if (this.kYi != null) {
+            this.kYi.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.kPI);
+        this.mHandler.removeCallbacks(this.kYk);
     }
 }

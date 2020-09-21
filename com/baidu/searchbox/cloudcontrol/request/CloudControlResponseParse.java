@@ -13,7 +13,7 @@ import com.baidu.searchbox.config.AppConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes23.dex */
 public class CloudControlResponseParse {
     private static final String FAIL_VALID = "0";
     private static final String FILTER_VALID = "2";
@@ -154,9 +154,7 @@ public class CloudControlResponseParse {
             cloudControlUBCData.collectDegradegInfo(i, i2, i3, jSONArray);
         }
         this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_PUBPARAM, optString2);
-        if (TextUtils.equals(this.mRuntype, "1")) {
-            this.mSharedPrefsWrapper.putLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, System.currentTimeMillis());
-        }
+        this.mSharedPrefsWrapper.putLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, System.currentTimeMillis());
         if (optJSONObject2 == null) {
             CloudControlData cloudControlData3 = new CloudControlData();
             CloudControlErrorBean cloudControlErrorBean3 = new CloudControlErrorBean();

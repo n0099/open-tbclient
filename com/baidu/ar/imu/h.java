@@ -4,7 +4,7 @@ import android.hardware.SensorManager;
 import com.baidu.ar.arplay.representation.Matrix;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h implements Observer {
     private static final String TAG = h.class.getSimpleName();
     private static final float[] rO = {-1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
@@ -14,7 +14,7 @@ public class h implements Observer {
     private g rR;
 
     /* renamed from: rx  reason: collision with root package name */
-    private i f963rx;
+    private i f962rx;
     private float[] rS = new float[16];
     private float rT = -1.0f;
     private float rU = 10000.0f;
@@ -31,8 +31,8 @@ public class h implements Observer {
     private j a(b bVar, SensorManager sensorManager) {
         j kVar;
         if (bVar != b.RELATIVE) {
-            kVar = this.f963rx.fc() ? new k(sensorManager) : new d(sensorManager);
-        } else if (this.f963rx.eZ()) {
+            kVar = this.f962rx.fc() ? new k(sensorManager) : new d(sensorManager);
+        } else if (this.f962rx.eZ()) {
             kVar = new e(sensorManager);
             if (!this.rV) {
                 kVar.sm = true;
@@ -108,14 +108,14 @@ public class h implements Observer {
         if (iVar == null) {
             return false;
         }
-        this.f963rx = iVar;
+        this.f962rx = iVar;
         this.rR = gVar;
-        if (this.f963rx.eX() == b.RELATIVE && !this.f963rx.eZ()) {
+        if (this.f962rx.eX() == b.RELATIVE && !this.f962rx.eZ()) {
             this.rV = true;
         }
         try {
             if (this.rQ == null) {
-                this.rQ = a(this.f963rx.eX(), sensorManager);
+                this.rQ = a(this.f962rx.eX(), sensorManager);
             }
             if (this.rQ.fd()) {
                 this.rQ.start();
@@ -130,14 +130,14 @@ public class h implements Observer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void stop() {
-        if (this.rQ != null && this.f963rx != null && this.f963rx.eX() == b.RELATIVE && !this.rW && this.f963rx.eZ()) {
+        if (this.rQ != null && this.f962rx != null && this.f962rx.eX() == b.RELATIVE && !this.rW && this.f962rx.eZ()) {
             this.hj = this.rQ.sn.matrix;
             this.rW = true;
         }
         try {
             eW();
             this.rR = null;
-            this.f963rx = null;
+            this.f962rx = null;
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -146,22 +146,22 @@ public class h implements Observer {
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
         try {
-            if (this.f963rx == null || this.rR == null) {
+            if (this.f962rx == null || this.rR == null) {
                 return;
             }
             float[] fArr = this.rQ.fe().matrix;
-            if (this.f963rx.fb() || this.f963rx.fa()) {
+            if (this.f962rx.fb() || this.f962rx.fa()) {
                 i(fArr);
             }
             float[] ff = this.rQ.ff();
             f fVar = new f();
-            if (this.f963rx.fa()) {
+            if (this.f962rx.fa()) {
                 fVar.setMatrix(this.rS);
             } else {
                 fVar.setMatrix(fArr);
             }
             fVar.f(this.rM);
-            fVar.K(this.f963rx.eY());
+            fVar.K(this.f962rx.eY());
             fVar.h(ff);
             this.rR.onImuUpdate(fVar);
         } catch (Throwable th) {

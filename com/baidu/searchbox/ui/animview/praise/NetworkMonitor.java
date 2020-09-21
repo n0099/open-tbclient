@@ -8,16 +8,16 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.lang.ref.WeakReference;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class NetworkMonitor {
     private static String NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
     private ConnectivityManager mConnectivityManager;
     private Context mContext;
     private boolean mIsInit = false;
     private INetworkMonitorCb mNetworkMonitorCb;
-    private ConncetStatusReceiver mReceiver;
+    private ConnectStatusReceiver mReceiver;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface INetworkMonitorCb {
         void onNetworkStateChanged();
     }
@@ -31,7 +31,7 @@ public class NetworkMonitor {
             this.mConnectivityManager = (ConnectivityManager) this.mContext.getSystemService("connectivity");
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(NET_CHANGE_ACTION);
-            this.mReceiver = new ConncetStatusReceiver(this.mNetworkMonitorCb);
+            this.mReceiver = new ConnectStatusReceiver(this.mNetworkMonitorCb);
             this.mContext.registerReceiver(this.mReceiver, intentFilter);
             this.mIsInit = true;
         }
@@ -56,11 +56,11 @@ public class NetworkMonitor {
         return this.mIsInit && (activeNetworkInfo = this.mConnectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected();
     }
 
-    /* loaded from: classes12.dex */
-    private static class ConncetStatusReceiver extends BroadcastReceiver {
+    /* loaded from: classes11.dex */
+    private static class ConnectStatusReceiver extends BroadcastReceiver {
         private WeakReference<INetworkMonitorCb> mINetworkMonitorCb;
 
-        public ConncetStatusReceiver(INetworkMonitorCb iNetworkMonitorCb) {
+        public ConnectStatusReceiver(INetworkMonitorCb iNetworkMonitorCb) {
             this.mINetworkMonitorCb = new WeakReference<>(iNetworkMonitorCb);
         }
 

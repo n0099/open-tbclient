@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void zP(String str) {
+    public static void Al(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -47,7 +47,7 @@ public class j {
         }
     }
 
-    public static void biy() {
+    public static void bjt() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -67,7 +67,7 @@ public class j {
                                 mainDBDatabaseManager.notifySQLException(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.close(cursor);
                                 aq aqVar = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                                aqVar.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                                aqVar.dF("uid", TbadkCoreApplication.getCurrentAccount());
                                 aqVar.ai("obj_param1", i);
                                 TiebaStatic.log(aqVar);
                             } catch (Throwable th3) {
@@ -83,7 +83,7 @@ public class j {
                     i = 0;
                 }
                 aq aqVar2 = new aq(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
-                aqVar2.dD("uid", TbadkCoreApplication.getCurrentAccount());
+                aqVar2.dF("uid", TbadkCoreApplication.getCurrentAccount());
                 aqVar2.ai("obj_param1", i);
                 TiebaStatic.log(aqVar2);
             }

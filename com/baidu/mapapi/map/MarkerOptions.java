@@ -4,7 +4,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class MarkerOptions extends OverlayOptions {
     int a;
     Bundle c;
@@ -30,7 +30,7 @@ public final class MarkerOptions extends OverlayOptions {
     private boolean v = true;
     boolean b = true;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum MarkerAnimateType {
         none,
         drop,

@@ -1,6 +1,6 @@
 package com.baidu.ar.capture;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.ar.d.b {
     private byte[] kN;
 

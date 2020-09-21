@@ -15,7 +15,7 @@ import com.baidu.lbsapi.tools.Point;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements b {
     final /* synthetic */ InnerPanoramaView a;
 

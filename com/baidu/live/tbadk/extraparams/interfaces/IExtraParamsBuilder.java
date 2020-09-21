@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.extraparams.interfaces;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IExtraParamsBuilder {
     IExtraParams build();
 }

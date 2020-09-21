@@ -10,23 +10,23 @@ import com.baidu.spswitch.emotion.b;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 public class EmotionClassicFragment extends EmotionBaseFragment {
-    private BDEmotionBagLayout bQM;
-    private List<String> bQN = new ArrayList();
+    private BDEmotionBagLayout bSM;
+    private List<String> bSN = new ArrayList();
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.bQM = new BDEmotionBagLayout(getContext());
-        this.bQM.setLayoutParams(new ViewGroup.LayoutParams(-1, dip2px(getContext(), 260.0f)));
+        this.bSM = new BDEmotionBagLayout(getContext());
+        this.bSM.setLayoutParams(new ViewGroup.LayoutParams(-1, dip2px(getContext(), 260.0f)));
         initData();
-        this.bQM.setEmotionList(this.bQN);
-        return this.bQM;
+        this.bSM.setEmotionList(this.bSN);
+        return this.bSM;
     }
 
     private void initData() {
-        this.bQN = b.aY(getContext()).XF();
+        this.bSN = b.aX(getContext()).Yo();
     }
 
     public static int dip2px(Context context, float f) {

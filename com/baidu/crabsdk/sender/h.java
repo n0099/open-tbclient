@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class h {
-    private static SharedPreferences anu;
+    private static SharedPreferences anW;
     private static Context mContext;
 
     public static void a(int i) {
@@ -21,20 +21,20 @@ public final class h {
         calendar.set(13, 0);
         calendar.set(14, 0);
         long timeInMillis = calendar.getTimeInMillis();
-        if (anu != null) {
-            com.baidu.crabsdk.c.c.a(anu.edit().putLong("crash_switch_time", timeInMillis), true);
+        if (anW != null) {
+            com.baidu.crabsdk.c.c.a(anW.edit().putLong("crash_switch_time", timeInMillis), true);
         }
     }
 
     public static void a(long j) {
-        if (anu != null) {
-            com.baidu.crabsdk.c.c.a(anu.edit().putLong("crash_upload_time_nowifi", j), true);
+        if (anW != null) {
+            com.baidu.crabsdk.c.c.a(anW.edit().putLong("crash_upload_time_nowifi", j), true);
         }
     }
 
     private static void a(boolean z) {
-        if (anu != null) {
-            com.baidu.crabsdk.c.c.a(anu.edit().putBoolean("crash_switch", z), true);
+        if (anW != null) {
+            com.baidu.crabsdk.c.c.a(anW.edit().putBoolean("crash_switch", z), true);
         }
     }
 
@@ -43,7 +43,7 @@ public final class h {
     }
 
     public static boolean ab() {
-        long j = anu != null ? anu.getLong("crash_upload_time_nowifi", 0L) : 0L;
+        long j = anW != null ? anW.getLong("crash_upload_time_nowifi", 0L) : 0L;
         if (j == 0) {
             a(System.currentTimeMillis());
             return false;
@@ -60,7 +60,7 @@ public final class h {
         if (com.baidu.crabsdk.a.u == -1) {
             return true;
         }
-        if (anu == null || (i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", -1)) <= com.baidu.crabsdk.a.u) {
+        if (anW == null || (i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", -1)) <= com.baidu.crabsdk.a.u) {
             return com.baidu.crabsdk.a.y <= com.baidu.crabsdk.a.u;
         }
         com.baidu.crabsdk.c.a.w("exceed daily crash quota " + i + "/" + com.baidu.crabsdk.a.u);
@@ -68,7 +68,7 @@ public final class h {
     }
 
     public static void b(String str, String str2) {
-        SharedPreferences.Editor edit = anu.edit();
+        SharedPreferences.Editor edit = anW.edit();
         edit.putString(str, str2);
         com.baidu.crabsdk.c.c.a(edit, true);
         com.baidu.crabsdk.c.a.v("Encrypted key is: " + str2 + "; filename is: " + str);
@@ -79,7 +79,7 @@ public final class h {
         boolean z;
         boolean z2;
         int i = 0;
-        if (com.baidu.crabsdk.a.t == -1 || anu == null) {
+        if (com.baidu.crabsdk.a.t == -1 || anW == null) {
             return;
         }
         String h = com.baidu.crabsdk.c.c.h(th);
@@ -96,7 +96,7 @@ public final class h {
         if (z3) {
             com.baidu.crabsdk.a.x.put(h, 1);
         }
-        String string = anu.getString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", null);
+        String string = anW.getString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", null);
         try {
             if (TextUtils.isEmpty(string)) {
                 JSONArray jSONArray2 = new JSONArray();
@@ -127,34 +127,27 @@ public final class h {
                 }
                 jSONArray = jSONArray3.toString();
             }
-            com.baidu.crabsdk.c.c.a(anu.edit().putString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", jSONArray), true);
+            com.baidu.crabsdk.c.c.a(anW.edit().putString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", jSONArray), true);
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.w("addSameCrashUploadCount exception " + com.baidu.crabsdk.c.c.g(e));
         }
     }
 
-    public static String dG(String str) {
-        String string = anu.getString(str, "");
+    public static String dI(String str) {
+        String string = anW.getString(str, "");
         com.baidu.crabsdk.c.a.v("Get record appVN is: " + string);
         return string;
     }
 
-    public static boolean dX(String str) {
-        return dY(str) <= 2;
-    }
-
-    private static int dY(String str) {
-        if (anu != null) {
-            return anu.getInt(str, 0);
-        }
-        return 0;
+    public static boolean dZ(String str) {
+        return ea(str) <= 2;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            anu = context.getSharedPreferences("crab_crash_switch", 0);
-            if (com.baidu.crabsdk.a.t != -1 && anu != null) {
+            anW = context.getSharedPreferences("crab_crash_switch", 0);
+            if (com.baidu.crabsdk.a.t != -1 && anW != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
                 String[] strArr = new String[7];
                 for (int i = 1; i < 8; i++) {
@@ -162,7 +155,7 @@ public final class h {
                     calendar.add(5, -i);
                     strArr[i - 1] = simpleDateFormat.format(calendar.getTime());
                 }
-                SharedPreferences.Editor edit = anu.edit();
+                SharedPreferences.Editor edit = anW.edit();
                 for (int i2 = 0; i2 < 7; i2++) {
                     String str = strArr[i2];
                     edit.remove(str + "same_crash_oneday_count");
@@ -173,11 +166,11 @@ public final class h {
             }
             if (com.baidu.crabsdk.a.z != -1) {
                 try {
-                    String string = anu.getString("constant_crash", null);
+                    String string = anW.getString("constant_crash", null);
                     if (TextUtils.isEmpty(string) || new JSONObject(string).getInt("count") < com.baidu.crabsdk.a.z || com.baidu.crabsdk.a.Q == null) {
                         return;
                     }
-                    SharedPreferences.Editor edit2 = anu.edit();
+                    SharedPreferences.Editor edit2 = anW.edit();
                     edit2.remove("constant_crash");
                     if (edit2.commit()) {
                         com.baidu.crabsdk.a.Q.onCrashExceedCallback();
@@ -189,19 +182,26 @@ public final class h {
         }
     }
 
-    public static void j(String str) {
-        int dY = dY(str);
-        if (!com.baidu.crabsdk.a.D) {
-            dY++;
+    private static int ea(String str) {
+        if (anW != null) {
+            return anW.getInt(str, 0);
         }
-        if (anu != null) {
-            com.baidu.crabsdk.c.c.a(anu.edit().putInt(str, dY), true);
+        return 0;
+    }
+
+    public static void j(String str) {
+        int ea = ea(str);
+        if (!com.baidu.crabsdk.a.D) {
+            ea++;
+        }
+        if (anW != null) {
+            com.baidu.crabsdk.c.c.a(anW.edit().putInt(str, ea), true);
         }
     }
 
     public static void k(String str) {
-        if (anu != null) {
-            com.baidu.crabsdk.c.c.a(anu.edit().remove(str), true);
+        if (anW != null) {
+            com.baidu.crabsdk.c.c.a(anW.edit().remove(str), true);
         }
     }
 
@@ -209,9 +209,9 @@ public final class h {
         if (com.baidu.crabsdk.a.t == -1) {
             return true;
         }
-        if (anu != null) {
+        if (anW != null) {
             String h = com.baidu.crabsdk.c.c.h(th);
-            String string = anu.getString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", null);
+            String string = anW.getString(com.baidu.crabsdk.c.c.ak() + "same_crash_oneday_count", null);
             try {
                 if (!TextUtils.isEmpty(string)) {
                     JSONArray jSONArray = new JSONArray(string);
@@ -239,12 +239,12 @@ public final class h {
 
     public static void l(Throwable th) {
         String jSONObject;
-        if (com.baidu.crabsdk.a.z == -1 || anu == null) {
+        if (com.baidu.crabsdk.a.z == -1 || anW == null) {
             return;
         }
         String h = com.baidu.crabsdk.c.c.h(th);
         try {
-            String string = anu.getString("constant_crash", null);
+            String string = anW.getString("constant_crash", null);
             if (TextUtils.isEmpty(string)) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("crash", h);
@@ -261,14 +261,14 @@ public final class h {
                 jSONObject = jSONObject3.toString();
             }
             com.baidu.crabsdk.c.a.w("同一crash连续发生：" + jSONObject);
-            com.baidu.crabsdk.c.c.a(anu.edit().putString("constant_crash", jSONObject), true);
+            com.baidu.crabsdk.c.c.a(anW.edit().putString("constant_crash", jSONObject), true);
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.w("addConstantSameCrash exception " + com.baidu.crabsdk.c.c.g(e));
         }
     }
 
     public static void m(String str) {
-        SharedPreferences.Editor edit = anu.edit();
+        SharedPreferences.Editor edit = anW.edit();
         edit.putString(str, com.baidu.crabsdk.b.p.L());
         com.baidu.crabsdk.c.c.a(edit, true);
         com.baidu.crabsdk.c.a.v("FileName when write is: " + str);
@@ -276,7 +276,7 @@ public final class h {
 
     public static void o(String str) {
         try {
-            SharedPreferences.Editor edit = anu.edit();
+            SharedPreferences.Editor edit = anW.edit();
             edit.remove(str);
             com.baidu.crabsdk.c.c.a(edit, true);
             com.baidu.crabsdk.c.a.v("delete local appVN: " + str);
@@ -287,9 +287,9 @@ public final class h {
     }
 
     public static String p(String str) {
-        String string = anu.getString("key_" + str, "");
+        String string = anW.getString("key_" + str, "");
         if (TextUtils.isEmpty(string)) {
-            com.baidu.crabsdk.c.a.du("Not found the relative value. Key is: " + str);
+            com.baidu.crabsdk.c.a.dw("Not found the relative value. Key is: " + str);
             string = "NoEncrypt_" + com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
         }
         com.baidu.crabsdk.c.a.v("Decrypted key is: " + string + "; filename is: " + str);
@@ -298,7 +298,7 @@ public final class h {
 
     public static void q(String str) {
         try {
-            SharedPreferences.Editor edit = anu.edit();
+            SharedPreferences.Editor edit = anW.edit();
             edit.remove(str);
             com.baidu.crabsdk.c.c.a(edit, true);
             com.baidu.crabsdk.c.a.v("delete local key: " + str);
@@ -308,12 +308,12 @@ public final class h {
         }
     }
 
-    public static boolean vb() {
-        if (anu != null ? anu.getBoolean("crash_switch", true) : true) {
+    public static boolean vp() {
+        if (anW != null ? anW.getBoolean("crash_switch", true) : true) {
             com.baidu.crabsdk.c.a.v("CrashSwitch yes");
             return true;
         }
-        if (System.currentTimeMillis() > (anu != null ? anu.getLong("crash_switch_time", 0L) : 0L)) {
+        if (System.currentTimeMillis() > (anW != null ? anW.getLong("crash_switch_time", 0L) : 0L)) {
             com.baidu.crabsdk.c.a.v("CrashSwitch yes");
             return true;
         }
@@ -321,68 +321,68 @@ public final class h {
         return false;
     }
 
-    public static boolean vc() {
+    public static boolean vq() {
         int i;
         if (com.baidu.crabsdk.a.v == -1) {
             return true;
         }
-        if (anu == null || (i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", -1)) <= com.baidu.crabsdk.a.v) {
+        if (anW == null || (i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", -1)) <= com.baidu.crabsdk.a.v) {
             return com.baidu.crabsdk.a.A <= com.baidu.crabsdk.a.v;
         }
         com.baidu.crabsdk.c.a.w("exceed daily anr quota " + i + "/" + com.baidu.crabsdk.a.v);
         return false;
     }
 
-    public static boolean vd() {
+    public static boolean vr() {
         int i;
         if (com.baidu.crabsdk.a.w == -1) {
-            com.baidu.crabsdk.c.a.dt("canBlockUploadToday!");
+            com.baidu.crabsdk.c.a.dv("canBlockUploadToday!");
             return true;
-        } else if (anu != null && (i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", -1)) > com.baidu.crabsdk.a.w) {
+        } else if (anW != null && (i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", -1)) > com.baidu.crabsdk.a.w) {
             com.baidu.crabsdk.c.a.w("exceed daily block quota " + i + "/" + com.baidu.crabsdk.a.w);
             return false;
         } else if (com.baidu.crabsdk.a.B > com.baidu.crabsdk.a.w) {
             com.baidu.crabsdk.c.a.w("exceed daily block limit! can not upload block today!!");
             return false;
         } else {
-            com.baidu.crabsdk.c.a.dt("canBlockUploadToday!");
+            com.baidu.crabsdk.c.a.dv("canBlockUploadToday!");
             return true;
         }
     }
 
-    public static void ve() {
+    public static void vs() {
         if (com.baidu.crabsdk.a.u == -1) {
             return;
         }
-        if (anu != null) {
-            int i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", 0) + 1;
+        if (anW != null) {
+            int i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", 0) + 1;
             com.baidu.crabsdk.c.a.w("addCrashUploadCount todayCount: " + i);
-            com.baidu.crabsdk.c.c.a(anu.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", i), true);
+            com.baidu.crabsdk.c.c.a(anW.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_crash_count", i), true);
         }
         com.baidu.crabsdk.a.y++;
     }
 
-    public static void vf() {
+    public static void vt() {
         if (com.baidu.crabsdk.a.v == -1) {
             return;
         }
-        if (anu != null) {
-            int i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", 0) + 1;
+        if (anW != null) {
+            int i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", 0) + 1;
             com.baidu.crabsdk.c.a.w("addAnrUploadCount todayCount: " + i);
-            com.baidu.crabsdk.c.c.a(anu.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", i), true);
+            com.baidu.crabsdk.c.c.a(anW.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_anr_count", i), true);
         }
         com.baidu.crabsdk.a.A++;
     }
 
-    public static void vg() {
-        com.baidu.crabsdk.c.a.dt("### addBlockUploadCount = " + com.baidu.crabsdk.a.w);
+    public static void vu() {
+        com.baidu.crabsdk.c.a.dv("### addBlockUploadCount = " + com.baidu.crabsdk.a.w);
         if (com.baidu.crabsdk.a.w == -1) {
             return;
         }
-        if (anu != null) {
-            int i = anu.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", 0) + 1;
-            com.baidu.crabsdk.c.a.dt("addBlockUploadCount todayCount: " + i);
-            com.baidu.crabsdk.c.c.a(anu.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", i), false);
+        if (anW != null) {
+            int i = anW.getInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", 0) + 1;
+            com.baidu.crabsdk.c.a.dv("addBlockUploadCount todayCount: " + i);
+            com.baidu.crabsdk.c.c.a(anW.edit().putInt(com.baidu.crabsdk.c.c.ak() + "oneday_block_count", i), false);
         }
         com.baidu.crabsdk.a.B++;
     }

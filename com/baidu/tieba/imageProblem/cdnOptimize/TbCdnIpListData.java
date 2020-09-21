@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> jJR;
-    public int jJP = 0;
+    public ArrayList<ArrayList<String>> jSt;
+    public int jSr = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String jJQ = null;
-    boolean jJS = false;
-    public String jJT = null;
+    public String jSs = null;
+    boolean jSu = false;
+    public String jSv = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.jJP = optJSONObject.optInt("errorno");
+                    this.jSr = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.jJS = true;
+                    this.jSu = true;
                 } else {
-                    this.jJS = false;
+                    this.jSu = false;
                 }
-                this.jJT = jSONObject.optString("cdn_domain");
+                this.jSv = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.jJQ = optJSONObject2.optString("img_md5");
+                    this.jSs = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.jJR = arrayList;
+                        this.jSt = arrayList;
                     }
                 }
             } catch (Exception e) {

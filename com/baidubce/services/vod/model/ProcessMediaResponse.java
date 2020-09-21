@@ -1,7 +1,7 @@
 package com.baidubce.services.vod.model;
 
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class ProcessMediaResponse extends AbstractBceResponse {
     private String mediaId;
 

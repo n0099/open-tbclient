@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.support.v7.widget.ActivityChooserView;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class q extends a {
     private int mX = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int mY = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

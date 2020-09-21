@@ -5,18 +5,18 @@ import com.xiaomi.push.ek;
 import com.xiaomi.push.fs;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class fq extends fz {
     private fm a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fn f356a;
+    private fn f355a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Thread f357a;
+    private Thread f356a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f358a;
+    private byte[] f357a;
 
     public fq(XMPushService xMPushService, ft ftVar) {
         super(xMPushService, ftVar);
@@ -38,10 +38,10 @@ public class fq extends fz {
 
     private void h() {
         try {
-            this.a = new fm(this.f379a.getInputStream(), this);
-            this.f356a = new fn(this.f379a.getOutputStream(), this);
-            this.f357a = new fr(this, "Blob Reader (" + this.b + ")");
-            this.f357a.start();
+            this.a = new fm(this.f378a.getInputStream(), this);
+            this.f355a = new fn(this.f378a.getOutputStream(), this);
+            this.f356a = new fr(this, "Blob Reader (" + this.b + ")");
+            this.f356a.start();
         } catch (Exception e) {
             throw new gd("Error to init reader and writer", e);
         }
@@ -51,7 +51,7 @@ public class fq extends fz {
     @Override // com.xiaomi.push.fz, com.xiaomi.push.fs
     public synchronized void a() {
         h();
-        this.f356a.a();
+        this.f355a.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -61,15 +61,15 @@ public class fq extends fz {
             this.a.b();
             this.a = null;
         }
-        if (this.f356a != null) {
+        if (this.f355a != null) {
             try {
-                this.f356a.b();
+                this.f355a.b();
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
-            this.f356a = null;
+            this.f355a = null;
         }
-        this.f358a = null;
+        this.f357a = null;
         super.a(i, exc);
     }
 
@@ -89,7 +89,7 @@ public class fq extends fz {
                 c(13, null);
             }
         }
-        for (fs.a aVar : this.f368a.values()) {
+        for (fs.a aVar : this.f367a.values()) {
             aVar.a(flVar);
         }
     }
@@ -113,7 +113,7 @@ public class fq extends fz {
     @Override // com.xiaomi.push.fz
     /* renamed from: a  reason: collision with other method in class */
     protected void mo290a(boolean z) {
-        if (this.f356a == null) {
+        if (this.f355a == null) {
             throw new gd("The BlobWriter is null.");
         }
         fl a = a(z);
@@ -137,26 +137,26 @@ public class fq extends fz {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.xiaomi.push.fz, com.xiaomi.push.fs
     public synchronized byte[] a() {
-        if (this.f358a == null && !TextUtils.isEmpty(this.f365a)) {
+        if (this.f357a == null && !TextUtils.isEmpty(this.f364a)) {
             String m559a = com.xiaomi.push.service.be.m559a();
-            this.f358a = com.xiaomi.push.service.ay.a(this.f365a.getBytes(), (this.f365a.substring(this.f365a.length() / 2) + m559a.substring(m559a.length() / 2)).getBytes());
+            this.f357a = com.xiaomi.push.service.ay.a(this.f364a.getBytes(), (this.f364a.substring(this.f364a.length() / 2) + m559a.substring(m559a.length() / 2)).getBytes());
         }
-        return this.f358a;
+        return this.f357a;
     }
 
     @Override // com.xiaomi.push.fs
     public void b(fl flVar) {
-        if (this.f356a == null) {
+        if (this.f355a == null) {
             throw new gd("the writer is null.");
         }
         try {
-            int a = this.f356a.a(flVar);
+            int a = this.f355a.a(flVar);
             this.d = System.currentTimeMillis();
             String f = flVar.f();
             if (!TextUtils.isEmpty(f)) {
-                gx.a(this.f364a, f, a, false, true, System.currentTimeMillis());
+                gx.a(this.f363a, f, a, false, true, System.currentTimeMillis());
             }
-            for (fs.a aVar : this.f371b.values()) {
+            for (fs.a aVar : this.f370b.values()) {
                 aVar.a(flVar);
             }
         } catch (Exception e) {
@@ -169,7 +169,7 @@ public class fq extends fz {
         if (gjVar == null) {
             return;
         }
-        for (fs.a aVar : this.f368a.values()) {
+        for (fs.a aVar : this.f367a.values()) {
             aVar.a(gjVar);
         }
     }

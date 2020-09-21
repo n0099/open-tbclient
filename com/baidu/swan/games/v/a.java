@@ -2,17 +2,17 @@ package com.baidu.swan.games.v;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public com.baidu.swan.games.v.a.d dwY;
-    private int dwZ;
+    public com.baidu.swan.games.v.a.d dyZ;
+    private int dza;
     private long ts;
     public int type;
 
     public a(int i, com.baidu.swan.games.v.a.d dVar) {
         this.type = i;
-        this.dwY = dVar;
-        this.dwZ = d.aPp() ? 20 : 10;
+        this.dyZ = dVar;
+        this.dza = d.aQa() ? 20 : 10;
         this.ts = System.currentTimeMillis();
     }
 
@@ -20,10 +20,10 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.type);
-            jSONObject.put("stage", this.dwZ);
+            jSONObject.put("stage", this.dza);
             jSONObject.put("ts", this.ts);
-            if (this.dwY != null) {
-                jSONObject.put("msg", this.dwY.toJSON());
+            if (this.dyZ != null) {
+                jSONObject.put("msg", this.dyZ.toJSON());
             }
         } catch (JSONException e) {
         }

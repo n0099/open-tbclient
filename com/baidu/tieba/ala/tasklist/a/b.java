@@ -7,49 +7,49 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.data.ad;
+import com.baidu.live.data.ai;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.ala.tasklist.a.a gZt;
+    private com.baidu.tieba.ala.tasklist.a.a hdt;
     private Context mActivity;
-    private int gZu = -1;
-    private ArrayList<ad> egb = new ArrayList<>();
+    private int hdu = -1;
+    private ArrayList<ai> eiq = new ArrayList<>();
 
     public b(Context context, com.baidu.tieba.ala.tasklist.a.a aVar) {
         this.mActivity = context;
-        this.gZt = aVar;
+        this.hdt = aVar;
     }
 
-    public void setData(ArrayList<ad> arrayList) {
+    public void setData(ArrayList<ai> arrayList) {
         if (arrayList != null) {
-            this.egb.clear();
-            this.egb.addAll(arrayList);
+            this.eiq.clear();
+            this.eiq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.egb == null) {
+        if (this.eiq == null) {
             return 0;
         }
-        return this.egb.size();
+        return this.eiq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: va */
-    public ad getItem(int i) {
-        if (this.egb == null) {
+    /* renamed from: vt */
+    public ai getItem(int i) {
+        if (this.eiq == null) {
             return null;
         }
-        return this.egb.get(i);
+        return this.eiq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -71,45 +71,45 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private void a(a aVar, final ad adVar) {
-        if (adVar != null) {
-            aVar.gZx.setText(adVar.aHB);
-            aVar.gZy.setText(adVar.aHG);
-            aVar.gZz.setText(this.mActivity.getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(adVar.aHF)));
-            if (adVar.status == 3) {
-                aVar.gZz.setVisibility(8);
+    private void a(a aVar, final ai aiVar) {
+        if (aiVar != null) {
+            aVar.hdx.setText(aiVar.aIV);
+            aVar.hdy.setText(aiVar.aJa);
+            aVar.hdz.setText(this.mActivity.getResources().getString(a.i.ala_task_title_reward_mode, Integer.valueOf(aiVar.aIZ)));
+            if (aiVar.status == 3) {
+                aVar.hdz.setVisibility(8);
             } else {
-                aVar.gZz.setVisibility(0);
+                aVar.hdz.setVisibility(0);
             }
-            aVar.gZA.setTag(Integer.valueOf(adVar.aHA));
-            if (adVar.status == 2) {
+            aVar.hdA.setTag(Integer.valueOf(aiVar.aIU));
+            if (aiVar.status == 2) {
                 b(aVar);
-            } else if (adVar.status == 3) {
+            } else if (aiVar.status == 3) {
                 a(aVar, this.mActivity.getString(a.i.ala_task_status_success));
             } else {
-                b(aVar, adVar);
+                b(aVar, aiVar);
             }
-            aVar.gZA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
+            aVar.hdA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (adVar.status == 2 && b.this.gZt != null) {
-                        b.this.gZt.uY(adVar.aHA);
+                    if (aiVar.status == 2 && b.this.hdt != null) {
+                        b.this.hdt.vr(aiVar.aIU);
                     }
                 }
             });
         }
     }
 
-    private void b(a aVar, ad adVar) {
+    private void b(a aVar, ai aiVar) {
         String string;
-        if (adVar.CM()) {
-            if (this.gZu < 0) {
-                if (adVar.aHE != null) {
-                    this.gZu = adVar.aHE.aHJ;
+        if (aiVar.Dc()) {
+            if (this.hdu < 0) {
+                if (aiVar.aIY != null) {
+                    this.hdu = aiVar.aIY.aJd;
                 }
                 a(aVar);
                 return;
-            } else if (this.gZu == 0) {
+            } else if (this.hdu == 0) {
                 b(aVar);
                 return;
             } else {
@@ -117,8 +117,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        if (adVar.CN()) {
-            string = this.mActivity.getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(adVar.aHE.aHK));
+        if (aiVar.Dd()) {
+            string = this.mActivity.getResources().getString(a.i.ala_task_level_up_to_level_num, Integer.valueOf(aiVar.aIY.aJe));
         } else {
             string = this.mActivity.getString(a.i.ala_task_status_not_over);
         }
@@ -126,32 +126,32 @@ public class b extends BaseAdapter {
     }
 
     private void a(a aVar) {
-        aVar.gZA.setText(StringHelper.formatSecondsTime(this.gZu * 1000));
-        aVar.gZA.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
-        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_common_color_10260));
-        b(aVar.gZA, true);
+        aVar.hdA.setText(StringHelper.formatSecondsTime(this.hdu * 1000));
+        aVar.hdA.setBackgroundResource(a.f.ala_bg_rectangle_stroke_blue);
+        aVar.hdA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_common_color_10260));
+        b(aVar.hdA, true);
     }
 
     private void a(a aVar, String str) {
-        aVar.gZA.setText(str);
-        aVar.gZA.setBackgroundResource(a.f.sdk_transparent_bg);
-        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_d));
-        b(aVar.gZA, false);
+        aVar.hdA.setText(str);
+        aVar.hdA.setBackgroundResource(a.f.sdk_transparent_bg);
+        aVar.hdA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_d));
+        b(aVar.hdA, false);
     }
 
     private void b(a aVar) {
-        aVar.gZA.setText(this.mActivity.getString(a.i.ala_task_status_can_get));
+        aVar.hdA.setText(this.mActivity.getString(a.i.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
+            aVar.hdA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.hdA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.hdA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            aVar.gZA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
+            aVar.hdA.setBackgroundResource(a.f.ala_btn_bg_round_rectangle_blue);
         }
-        aVar.gZA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_g));
-        b(aVar.gZA, true);
+        aVar.hdA.setTextColor(this.mActivity.getResources().getColor(a.d.sdk_cp_cont_g));
+        b(aVar.hdA, true);
     }
 
     public void b(TextView textView, boolean z) {
@@ -171,26 +171,26 @@ public class b extends BaseAdapter {
     }
 
     public void k(Integer num) {
-        this.gZu = num.intValue();
-        ad CQ = CQ();
-        if (CQ != null) {
-            if (this.gZu == 0) {
-                CQ.status = 2;
-            } else if (this.gZu > 0) {
-                CQ.status = 1;
+        this.hdu = num.intValue();
+        ai Dg = Dg();
+        if (Dg != null) {
+            if (this.hdu == 0) {
+                Dg.status = 2;
+            } else if (this.hdu > 0) {
+                Dg.status = 1;
             } else {
-                CQ.status = 3;
+                Dg.status = 3;
             }
         }
         notifyDataSetChanged();
     }
 
-    public ad CQ() {
-        if (!ListUtils.isEmpty(this.egb)) {
-            Iterator<ad> it = this.egb.iterator();
+    public ai Dg() {
+        if (!ListUtils.isEmpty(this.eiq)) {
+            Iterator<ai> it = this.eiq.iterator();
             while (it.hasNext()) {
-                ad next = it.next();
-                if (next.CM()) {
+                ai next = it.next();
+                if (next.Dc()) {
                     return next;
                 }
             }
@@ -198,22 +198,22 @@ public class b extends BaseAdapter {
         return null;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public View egd;
-        public TextView gZA;
-        public TextView gZx;
-        public TextView gZy;
-        public TextView gZz;
+        public View eis;
+        public TextView hdA;
+        public TextView hdx;
+        public TextView hdy;
+        public TextView hdz;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gZx = (TextView) view.findViewById(a.g.tvTaskTitle);
-            this.gZy = (TextView) view.findViewById(a.g.tvTaskSubTitle);
-            this.gZz = (TextView) view.findViewById(a.g.tvTaskRewardNum);
-            this.gZA = (TextView) view.findViewById(a.g.tvTaskStatus);
-            this.egd = view.findViewById(a.g.divider);
+            this.hdx = (TextView) view.findViewById(a.g.tvTaskTitle);
+            this.hdy = (TextView) view.findViewById(a.g.tvTaskSubTitle);
+            this.hdz = (TextView) view.findViewById(a.g.tvTaskRewardNum);
+            this.hdA = (TextView) view.findViewById(a.g.tvTaskStatus);
+            this.eis = view.findViewById(a.g.divider);
         }
     }
 }

@@ -26,7 +26,9 @@ import com.baidu.searchbox.ui.animview.praise.PraiseInfoManager;
 import com.baidu.searchbox.ui.animview.praise.data.ComboPraiseConfig;
 import com.baidu.searchbox.ui.animview.praise.data.ComboPraiseUBC;
 import com.baidu.searchbox.ui.animview.praise.data.PraiseSourceDef;
+import com.baidu.searchbox.ui.animview.praise.element.IPraiseElementBuilder;
 import com.baidu.searchbox.ui.animview.praise.element.PraiseAnimElementBuilder;
+import com.baidu.searchbox.ui.animview.praise.element.PraiseAnimElementBuilderEx;
 import com.baidu.searchbox.ui.animview.praise.element.PraiseLevelAnimElement;
 import com.baidu.searchbox.ui.animview.praise.element.ShakeAnimElement;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.EruptionAnimatedGroup;
@@ -41,13 +43,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ComboPraiseView extends View implements IPraiseAnimListener {
     private static final int DEBUG_PAINT_COLOR = -65536;
     private static final int DEBUG_PAINT_STROKE_WIDTH = 10;
     private static final int DEBUG_PAINT_TEXT_SIZE = 15;
     private static final String DEBUG_TEXT_CONSTANT = "浮层显示中(DEBUG模式，仅用于测试)";
-    private static final int ERUPTION_ANIM_MAX_COUNTS = 8;
+    private static final int ERUPTION_ANIM_MAX_COUNTS = 2;
     private static final int ERUPTION_MAX_DURATION_MS = 1000;
     private static final int NUMBER_VISIBLE_MAX_CLICK_COUNTS = 2000;
     private static final int PERFORM_STATE_INIT = 0;
@@ -79,6 +81,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     private Paint mDebugPaint;
     private boolean mElementInitialed;
     private String mEruptionStrategy;
+    private boolean mFirstPraiseAnimEnabled;
     private int mHeight;
     private long mInitClickCounts;
     private int mInteractRandomNum;
@@ -104,7 +107,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     private static boolean ANCHOR_ZONE_SWITCH = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface IAction<T> {
         public static final int ACTION_BREAK = 1;
         public static final int ACTION_CONTINUE = 0;
@@ -125,6 +128,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         this.mLastSpeedLevel = ClickIntervalTracker.SpeedLevel.V0;
         this.mEruptionStrategy = "";
         this.mRunningAnimeCounts = 0;
+        this.mFirstPraiseAnimEnabled = false;
         init(context);
     }
 
@@ -141,6 +145,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         this.mLastSpeedLevel = ClickIntervalTracker.SpeedLevel.V0;
         this.mEruptionStrategy = "";
         this.mRunningAnimeCounts = 0;
+        this.mFirstPraiseAnimEnabled = false;
         init(context);
     }
 
@@ -157,6 +162,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         this.mLastSpeedLevel = ClickIntervalTracker.SpeedLevel.V0;
         this.mEruptionStrategy = "";
         this.mRunningAnimeCounts = 0;
+        this.mFirstPraiseAnimEnabled = false;
         init(context);
     }
 
@@ -208,6 +214,14 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         setUBC(comboPraiseConfig);
         setCallerSource(comboPraiseConfig);
         setBaseRect(comboPraiseConfig);
+        setOtherConfig(comboPraiseConfig);
+    }
+
+    private void setOtherConfig(ComboPraiseConfig comboPraiseConfig) {
+        if (comboPraiseConfig != null) {
+            this.mFirstPraiseAnimEnabled = comboPraiseConfig.mFirstPraiseAnimEnabled;
+            comboPraiseConfig.mFirstPraiseAnimEnabled = false;
+        }
     }
 
     private void setDebugInfo(ComboPraiseConfig comboPraiseConfig) {
@@ -396,20 +410,30 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             return true;
         } else {
             releaseResource();
-            HashMap hashMap = new HashMap();
-            hashMap.put(4, 8);
-            Map<Integer, List<IAnimatedElement>> build = new PraiseAnimElementBuilder(this.mContext, 0).setBaseLeft(this.mBaseRect.left).setBaseTop(this.mBaseRect.top).setBaseWidth(this.mBaseRect.width()).setBaseHeight(this.mBaseRect.height()).setDrawableCallback(this).setResourceProvider(this.mResourceProvider).setLayoutStrategy(this.mLayoutStrategy).setCanvasSize(this.mWidth, this.mHeight).setElementCnts(hashMap).build();
-            addDataToAnimateMap(build, 0);
-            addDataToAnimateMap(build, 1);
-            addDataToAnimateMap(build, 2);
-            addDataToAnimateMap(build, 3);
-            addDataToAnimateMap(build, 4);
+            Map<Integer, List<IAnimatedElement>> elementsWithPreBuild = getElementsWithPreBuild();
+            addDataToAnimateMap(elementsWithPreBuild, 0);
+            addDataToAnimateMap(elementsWithPreBuild, 1);
+            addDataToAnimateMap(elementsWithPreBuild, 2);
+            addDataToAnimateMap(elementsWithPreBuild, 3);
+            addDataToAnimateMap(elementsWithPreBuild, 4);
             this.mElementInitialed = true;
             if (DEBUG) {
                 Log.d(TAG, "generateAnimationIfNeeded success, LayoutStrategy:" + this.mLayoutStrategy + ", PkgTag:" + this.mPkgTag);
             }
             return true;
         }
+    }
+
+    private Map<Integer, List<IAnimatedElement>> getElements() {
+        HashMap hashMap = new HashMap();
+        hashMap.put(4, 2);
+        return new PraiseAnimElementBuilder(this.mContext, 0).setBaseLeft(this.mBaseRect.left).setBaseTop(this.mBaseRect.top).setBaseWidth(this.mBaseRect.width()).setBaseHeight(this.mBaseRect.height()).setDrawableCallback(this).setResourceProvider(this.mResourceProvider).setLayoutStrategy(this.mLayoutStrategy).setCanvasSize(this.mWidth, this.mHeight).setElementCnts(hashMap).build();
+    }
+
+    private Map<Integer, List<IAnimatedElement>> getElementsWithPreBuild() {
+        IPraiseElementBuilder.FetchConfig fetchConfig = new IPraiseElementBuilder.FetchConfig();
+        fetchConfig.setLeft(this.mBaseRect.left).setTop(this.mBaseRect.top).setWidth(this.mBaseRect.width()).setHeight(this.mBaseRect.height()).setDrawableCallback(this).setStrategy(this.mLayoutStrategy).setCanvasHeight(this.mHeight).setCanvasWidth(this.mWidth).setPkgTag(this.mPkgTag);
+        return PraiseAnimElementBuilderEx.getInstance().getResult(fetchConfig);
     }
 
     private void addDataToAnimateMap(Map<Integer, List<IAnimatedElement>> map, int i) {
@@ -420,14 +444,16 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             List<IAnimatedElement> list = map.get(Integer.valueOf(i));
             if (list != null && !list.isEmpty()) {
                 AnimHolder newInstance = AnimHolder.newInstance(i, list);
-                animHolderUnusedForEach(4, false, new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
-                    public int doAction(AnimHolder animHolder) {
-                        animHolder.mAnimatedElement.setVisibility(false);
-                        return 0;
-                    }
-                });
+                if (newInstance.mHeader != null) {
+                    newInstance.mHeader.animHolderUnusedForEach(new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.1
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
+                        public int doAction(AnimHolder animHolder) {
+                            animHolder.mAnimatedElement.setVisibility(false);
+                            return 0;
+                        }
+                    });
+                }
                 this.mAnimateMap.put(Integer.valueOf(i), newInstance);
                 initValueAnimator(i, newInstance);
             }
@@ -440,24 +466,26 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                 case 0:
                 case 1:
                 case 2:
+                case 4:
+                    if (animHolder.mHeader != null) {
+                        animHolder.mHeader.animHolderUnusedForEach(new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.2
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
+                            public int doAction(AnimHolder animHolder2) {
+                                animHolder2.mAnimator.setDuration(ComboPraiseView.this.getElementDuration(animHolder2, ClickIntervalTracker.SpeedLevel.V1));
+                                animHolder2.mAnimator.addUpdateListener(ComboPraiseView.this.getAnimatorUpdateListener(animHolder2));
+                                animHolder2.mAnimator.addListener(ComboPraiseView.this.getAnimatorListener(animHolder2));
+                                return 0;
+                            }
+                        });
+                        return;
+                    }
                     animHolder.mAnimator.setDuration(getElementDuration(animHolder, ClickIntervalTracker.SpeedLevel.V1));
                     animHolder.mAnimator.addUpdateListener(getAnimatorUpdateListener(animHolder));
                     animHolder.mAnimator.addListener(getAnimatorListener(animHolder));
                     return;
                 case 3:
                 default:
-                    return;
-                case 4:
-                    animHolderUnusedForEach(4, false, new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.2
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
-                        public int doAction(AnimHolder animHolder2) {
-                            animHolder2.mAnimator.setDuration(ComboPraiseView.this.getElementDuration(animHolder2, ClickIntervalTracker.SpeedLevel.V1));
-                            animHolder2.mAnimator.addUpdateListener(ComboPraiseView.this.getAnimatorUpdateListener(animHolder2));
-                            animHolder2.mAnimator.addListener(ComboPraiseView.this.getAnimatorListener(animHolder2));
-                            return 0;
-                        }
-                    });
                     return;
             }
         }
@@ -594,7 +622,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                     } else {
                         animHolder.mState = 0;
                         animHolder.mPerformCounts = 0L;
-                        setElementInvisible(animHolder.mKey);
+                        setElementInvisible(animHolder);
                         break;
                     }
                 case 1:
@@ -608,7 +636,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                     } else {
                         animHolder.mState = 0;
                         animHolder.mPerformCounts = 0L;
-                        setElementInvisible(animHolder.mKey);
+                        setElementInvisible(animHolder);
                         break;
                     }
                 case 2:
@@ -625,12 +653,14 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                         animHolder.mAnimator.setDuration(getElementDuration(animHolder, ClickIntervalTracker.SpeedLevel.V1));
                         animHolder.mAnimator.start();
                         animHolder.mState = 0;
-                        setElementInvisible(3);
+                        if (this.mAnimateMap != null) {
+                            setElementInvisible(this.mAnimateMap.get(3));
+                        }
                         this.mClickLocked = true;
                         return;
                     } else {
                         animHolder.mPerformCounts = 0L;
-                        setElementInvisible(animHolder.mKey);
+                        setElementInvisible(animHolder);
                         break;
                     }
             }
@@ -676,29 +706,28 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         }
     }
 
-    private void setElementInvisible(int i) {
-        AnimHolder animHolder;
-        if (this.mAnimateMap != null && !this.mAnimateMap.isEmpty()) {
-            AnimHolder animHolder2 = this.mAnimateMap.get(Integer.valueOf(i));
-            switch (animHolder2.mKey) {
+    private void setElementInvisible(AnimHolder animHolder) {
+        AnimHolder animHolder2;
+        if (animHolder != null) {
+            switch (animHolder.mKey) {
                 case 0:
-                    animHolder2.mAnimatedElement.setVisibility(false);
+                    animHolder.mAnimatedElement.setVisibility(false);
                     return;
                 case 1:
                 default:
                     return;
                 case 2:
-                    animHolder2.mAnimatedElement.setVisibility(false);
-                    if (this.mAnimateMap != null && (animHolder = this.mAnimateMap.get(1)) != null) {
-                        animHolder.mAnimatedElement.setVisibility(false);
+                    animHolder.mAnimatedElement.setVisibility(false);
+                    if (this.mAnimateMap != null && (animHolder2 = this.mAnimateMap.get(1)) != null) {
+                        animHolder2.mAnimatedElement.setVisibility(false);
                         return;
                     }
                     return;
                 case 3:
-                    animHolder2.mAnimatedElement.setVisibility(false);
+                    animHolder.mAnimatedElement.setVisibility(false);
                     return;
                 case 4:
-                    animHolder2.mAnimatedElement.setVisibility(false);
+                    animHolder.mAnimatedElement.setVisibility(false);
                     return;
             }
         }
@@ -717,8 +746,11 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             case 2:
                 return animHolder.mHasPendingClickEvent;
             case 4:
-                recycleUsedAnimHolder(animHolder.mKey, animHolder);
-                return false;
+                if (animHolder.mHeader != null) {
+                    animHolder.mHeader.recycleUsedAnimHolder(animHolder);
+                    return false;
+                }
+                return animHolder.mHasPendingClickEvent;
         }
     }
 
@@ -762,10 +794,17 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                     this.mPerformState = 1;
                     this.mInitClickCounts = this.mClickCounts - 1;
                     batchStartAnimation();
+                    if (PraiseEnvironment.isFirstPraiseAnimSupported(this.mPraiseSource) && this.mFirstPraiseAnimEnabled) {
+                        if (DEBUG) {
+                            Log.d(TAG, "FirstPraiseAnim trigger");
+                        }
+                        triggerPraiseLevelAnimationIfNeeded();
+                        break;
+                    }
                     break;
                 case 1:
                     triggerPraiseLevelAnimationIfNeeded();
-                    triggerEruptionAnimation();
+                    triggerEruptionAnimation(false);
                     break;
             }
             triggerPraiseNumberAnimation();
@@ -778,8 +817,8 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
             public int doAction(Map.Entry<Integer, AnimHolder> entry) {
                 AnimHolder value = entry.getValue();
-                if (value.mKey == 4) {
-                    ComboPraiseView.this.animHolderUsedForEach(value.mKey, false, new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.5.1
+                if (value.mHeader != null) {
+                    value.mHeader.animHolderUsedForEach(new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.5.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
                         public int doAction(AnimHolder animHolder) {
@@ -787,9 +826,9 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                             return 0;
                         }
                     });
-                } else {
-                    value.mHasPendingClickEvent = true;
+                    return 0;
                 }
+                value.mHasPendingClickEvent = true;
                 return 0;
             }
         });
@@ -802,10 +841,12 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
             public int doAction(Map.Entry<Integer, AnimHolder> entry) {
                 AnimHolder value = entry.getValue();
-                value.mPerformCounts = ComboPraiseView.this.mClickCounts - 1;
-                value.mState = 0;
-                value.mCurrentFraction = 0.0f;
-                value.mAnimatedElement.setVisibility(false);
+                if (value.mHeader == null) {
+                    value.mPerformCounts = ComboPraiseView.this.mClickCounts - 1;
+                    value.mState = 0;
+                    value.mCurrentFraction = 0.0f;
+                    value.mAnimatedElement.setVisibility(false);
+                }
                 switch (value.mKey) {
                     case 0:
                         if (!TextUtils.equals(ComboPraiseView.this.mPraiseSource, PraiseSourceDef.NA_PRAISE_SRC_FEED_VIDEO_LIST) && !TextUtils.equals(ComboPraiseView.this.mPraiseSource, PraiseSourceDef.NA_PRAISE_SRC_MINI_VIDEO_DETAIL_SCREEN)) {
@@ -828,7 +869,13 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
                         value.mAnimatedElement.setVisibility(true);
                         break;
                     case 4:
-                        ComboPraiseView.this.triggerEruptionAnimation();
+                        if (!PraiseEnvironment.isFirstPraiseAnimSupported(ComboPraiseView.this.mPraiseSource) || !ComboPraiseView.this.mFirstPraiseAnimEnabled) {
+                            ComboPraiseView.this.triggerEruptionAnimation(true);
+                            break;
+                        } else if (ComboPraiseView.DEBUG) {
+                            Log.d(ComboPraiseView.TAG, "FirstPraiseAnim trigger");
+                            break;
+                        }
                         break;
                 }
                 return 0;
@@ -837,41 +884,22 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void triggerEruptionAnimation() {
-        AnimHolder ununsedAnimHolder = getUnunsedAnimHolder(4);
-        if (ununsedAnimHolder != null) {
-            ununsedAnimHolder.mPerformCounts = this.mClickCounts - 1;
-            ununsedAnimHolder.mState = 0;
-            ununsedAnimHolder.mCurrentFraction = 0.0f;
-            ununsedAnimHolder.mAnimatedElement.setVisibility(false);
-            ununsedAnimHolder.mAnimatedElement.setInterpolator(new AccelerateDecelerateInterpolator());
-            ununsedAnimHolder.mAnimator.start();
-        }
-    }
-
-    private AnimHolder getUnunsedAnimHolder(int i) {
+    public void triggerEruptionAnimation(boolean z) {
         AnimHolder animHolder;
-        AnimHolder animHolder2 = null;
-        if (this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && (animHolder = this.mAnimateMap.get(Integer.valueOf(i))) != null && animHolder.mUnusedAnimHolder != null && !animHolder.mUnusedAnimHolder.isEmpty()) {
-            animHolder2 = animHolder.mUnusedAnimHolder.remove(0);
-            if (animHolder.mUsedAnimHolder == null) {
-                animHolder.mUsedAnimHolder = new ArrayList();
+        if (this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && (animHolder = this.mAnimateMap.get(4)) != null) {
+            if (animHolder.mHeader != null || z) {
+                if (animHolder.mHeader != null) {
+                    animHolder = animHolder.mHeader.getUnunsedAnimHolder();
+                }
+                if (animHolder != null) {
+                    animHolder.mPerformCounts = this.mClickCounts - 1;
+                    animHolder.mState = 0;
+                    animHolder.mCurrentFraction = 0.0f;
+                    animHolder.mAnimatedElement.setVisibility(false);
+                    animHolder.mAnimatedElement.setInterpolator(new AccelerateDecelerateInterpolator());
+                    animHolder.mAnimator.start();
+                }
             }
-            animHolder.mUsedAnimHolder.add(animHolder2);
-        }
-        return animHolder2;
-    }
-
-    private void recycleUsedAnimHolder(int i, AnimHolder animHolder) {
-        AnimHolder animHolder2;
-        if (this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && animHolder != null && (animHolder2 = this.mAnimateMap.get(Integer.valueOf(i))) != null) {
-            if (animHolder2.mUsedAnimHolder != null && !animHolder2.mUsedAnimHolder.isEmpty()) {
-                animHolder2.mUsedAnimHolder.remove(animHolder);
-            }
-            if (animHolder2.mUnusedAnimHolder == null) {
-                animHolder2.mUnusedAnimHolder = new ArrayList();
-            }
-            animHolder2.mUnusedAnimHolder.add(animHolder);
         }
     }
 
@@ -934,14 +962,21 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     }
 
     private void performEruptionAnimation(final Canvas canvas) {
-        animHolderUsedForEach(4, false, new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.7
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
-            public int doAction(AnimHolder animHolder) {
+        AnimHolder animHolder;
+        if (this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && (animHolder = this.mAnimateMap.get(4)) != null) {
+            if (animHolder.mHeader != null) {
+                animHolder.mHeader.animHolderUsedForEach(new IAction<AnimHolder>() { // from class: com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.7
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
+                    public int doAction(AnimHolder animHolder2) {
+                        animHolder2.mAnimatedElement.dispatchAnimate(canvas, animHolder2.mCurrentFraction, animHolder2.mPerformCounts);
+                        return 0;
+                    }
+                });
+            } else {
                 animHolder.mAnimatedElement.dispatchAnimate(canvas, animHolder.mCurrentFraction, animHolder.mPerformCounts);
-                return 0;
             }
-        });
+        }
     }
 
     private void performShakeAnimation(Canvas canvas) {
@@ -983,7 +1018,10 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView.IAction
             public int doAction(Map.Entry<Integer, AnimHolder> entry) {
-                entry.getValue().mAnimatedElement.releaseResouces();
+                if (entry.getValue().mHeader == null) {
+                    entry.getValue().mAnimatedElement.releaseResouces();
+                    return 0;
+                }
                 return 0;
             }
         });
@@ -1007,6 +1045,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         this.mClickLocked = false;
         this.mClickTracker.reset();
         PraiseInfoManager.getInstance().updatePraiseCounts(PraiseInfoManager.makePraiseInfoKey(this.mPraiseSource, this.mPraiseId), this.mClickCounts);
+        this.mFirstPraiseAnimEnabled = false;
         PraiseUBCHelper.endPraiseAnimeFlow(this.mUBC, !this.mIsDegradedMode ? 1 : 0);
         PraiseUBCHelper.praiseUBCEvent(this.mUBC, this.mIsDegradedMode ? 0 : 1, this.mClickCounts - this.mInitClickCounts, PraiseInfoManager.makePraiseInfoKey(this.mPraiseSource, this.mPraiseId));
         this.mIsDegradedMode = false;
@@ -1085,29 +1124,6 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         }
     }
 
-    private void animHolderUnusedForEach(int i, boolean z, IAction<AnimHolder> iAction) {
-        AnimHolder animHolder;
-        if (iAction != null && this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && (animHolder = this.mAnimateMap.get(Integer.valueOf(i))) != null) {
-            if ((z || iAction.doAction(animHolder) != 1) && animHolder.mUnusedAnimHolder != null && !animHolder.mUnusedAnimHolder.isEmpty()) {
-                Iterator<AnimHolder> it = animHolder.mUnusedAnimHolder.iterator();
-                while (it.hasNext() && iAction.doAction(it.next()) != 1) {
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void animHolderUsedForEach(int i, boolean z, IAction<AnimHolder> iAction) {
-        AnimHolder animHolder;
-        if (iAction != null && this.mAnimateMap != null && !this.mAnimateMap.isEmpty() && (animHolder = this.mAnimateMap.get(Integer.valueOf(i))) != null) {
-            if ((z || iAction.doAction(animHolder) != 1) && animHolder.mUsedAnimHolder != null && !animHolder.mUsedAnimHolder.isEmpty()) {
-                Iterator<AnimHolder> it = animHolder.mUsedAnimHolder.iterator();
-                while (it.hasNext() && iAction.doAction(it.next()) != 1) {
-                }
-            }
-        }
-    }
-
     private void fixStatusBarHeightIfNeeded() {
         if (!this.mStatusBarHeightFixed) {
             if (Build.VERSION.SDK_INT > 21) {
@@ -1143,18 +1159,71 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
+    public static class MultiAnimHolder extends AnimHolder {
+        public List<AnimHolder> mUnusedAnimHolder;
+        public List<AnimHolder> mUsedAnimHolder;
+
+        private MultiAnimHolder() {
+            super();
+        }
+
+        public void animHolderUnusedForEach(IAction<AnimHolder> iAction) {
+            if (iAction != null && this.mUnusedAnimHolder != null && !this.mUnusedAnimHolder.isEmpty()) {
+                Iterator<AnimHolder> it = this.mUnusedAnimHolder.iterator();
+                while (it.hasNext() && iAction.doAction(it.next()) != 1) {
+                }
+            }
+        }
+
+        public void animHolderUsedForEach(IAction<AnimHolder> iAction) {
+            if (iAction != null && this.mUsedAnimHolder != null && !this.mUsedAnimHolder.isEmpty()) {
+                Iterator<AnimHolder> it = this.mUsedAnimHolder.iterator();
+                while (it.hasNext() && iAction.doAction(it.next()) != 1) {
+                }
+            }
+        }
+
+        public AnimHolder getUnunsedAnimHolder() {
+            if (this.mUnusedAnimHolder == null || this.mUnusedAnimHolder.isEmpty()) {
+                return null;
+            }
+            AnimHolder remove = this.mUnusedAnimHolder.remove(0);
+            if (this.mUsedAnimHolder == null) {
+                this.mUsedAnimHolder = new ArrayList();
+            }
+            this.mUsedAnimHolder.add(remove);
+            remove.mUsedCnts++;
+            return remove;
+        }
+
+        public void recycleUsedAnimHolder(AnimHolder animHolder) {
+            if (animHolder != null && !(animHolder instanceof MultiAnimHolder)) {
+                animHolder.mAnimator.setStartDelay(0L);
+                if (this.mUsedAnimHolder != null && !this.mUsedAnimHolder.isEmpty()) {
+                    this.mUsedAnimHolder.remove(animHolder);
+                }
+                if (this.mUnusedAnimHolder == null) {
+                    this.mUnusedAnimHolder = new ArrayList();
+                }
+                this.mUnusedAnimHolder.add(animHolder);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes11.dex */
     public static class AnimHolder {
         public IAnimatedElement mAnimatedElement;
         public ValueAnimator mAnimator;
         public float mCurrentFraction;
         public boolean mHasPendingClickEvent;
+        public MultiAnimHolder mHeader;
         public int mKey;
         public long mPerformCounts;
         public int mShowType;
         public int mState;
-        public List<AnimHolder> mUnusedAnimHolder;
-        public List<AnimHolder> mUsedAnimHolder;
+        public int mUsedCnts;
 
         private AnimHolder() {
         }
@@ -1166,6 +1235,7 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         public static AnimHolder newInstance(int i, IAnimatedElement iAnimatedElement) {
             AnimHolder animHolder = new AnimHolder();
             animHolder.mKey = i;
+            animHolder.mUsedCnts = 0;
             animHolder.mState = 0;
             animHolder.mAnimatedElement = iAnimatedElement;
             animHolder.mAnimator = createValueAnimator(i);
@@ -1173,33 +1243,39 @@ public class ComboPraiseView extends View implements IPraiseAnimListener {
         }
 
         public static AnimHolder newInstance(int i, List<IAnimatedElement> list) {
-            AnimHolder animHolder;
-            AnimHolder animHolder2 = null;
-            if (list != null && !list.isEmpty()) {
-                int i2 = 0;
-                while (i2 < list.size()) {
-                    if (i2 == 0) {
-                        animHolder = newInstance(i, list.get(i2));
-                    } else {
-                        if (animHolder2.mUnusedAnimHolder == null) {
-                            animHolder2.mUnusedAnimHolder = new ArrayList();
-                        }
-                        animHolder2.mUnusedAnimHolder.add(newInstance(i, list.get(i2)));
-                        animHolder = animHolder2;
-                    }
-                    i2++;
-                    animHolder2 = animHolder;
-                }
+            int i2 = 0;
+            if (list == null || list.isEmpty()) {
+                return null;
             }
-            return animHolder2;
+            if (list.size() == 1) {
+                return newInstance(i, list.get(0));
+            }
+            MultiAnimHolder newHeaderInstance = newHeaderInstance(i);
+            while (true) {
+                int i3 = i2;
+                if (i3 >= list.size()) {
+                    return newHeaderInstance;
+                }
+                AnimHolder newInstance = newInstance(i, list.get(i3));
+                newInstance.mHeader = newHeaderInstance;
+                newHeaderInstance.mUnusedAnimHolder.add(newInstance);
+                i2 = i3 + 1;
+            }
+        }
+
+        private static MultiAnimHolder newHeaderInstance(int i) {
+            MultiAnimHolder multiAnimHolder = new MultiAnimHolder();
+            multiAnimHolder.mKey = i;
+            multiAnimHolder.mState = 0;
+            multiAnimHolder.mAnimatedElement = null;
+            multiAnimHolder.mAnimator = null;
+            multiAnimHolder.mUnusedAnimHolder = new ArrayList();
+            multiAnimHolder.mHeader = multiAnimHolder;
+            return multiAnimHolder;
         }
     }
 
     private void initInteractNum() {
-        if (((int) (Math.random() * 10.0d)) > 5) {
-            this.mInteractRandomNum = 8;
-        } else {
-            this.mInteractRandomNum = 1;
-        }
+        this.mInteractRandomNum = 1;
     }
 }

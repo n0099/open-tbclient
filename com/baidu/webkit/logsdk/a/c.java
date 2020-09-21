@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk.a;
 import android.os.Message;
 import android.text.TextUtils;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class c implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ String b;

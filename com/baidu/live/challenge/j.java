@@ -2,17 +2,19 @@ package com.baidu.live.challenge;
 
 import android.view.ViewGroup;
 import com.baidu.live.challenge.i;
-/* loaded from: classes7.dex */
-public interface j extends i.a, i.c, i.e, i.g, i.h, i.InterfaceC0166i, i.j, i.k, i.l {
+/* loaded from: classes4.dex */
+public interface j extends i.a, i.c, i.e, i.g, i.h, i.InterfaceC0168i, i.j, i.k, i.l, i.m {
     void a(i iVar);
 
     void a(k kVar);
 
     void b(ViewGroup viewGroup, boolean z);
 
-    void dG(int i);
+    void bg(boolean z);
 
-    void fL(String str);
+    void dK(int i);
+
+    void fQ(String str);
 
     boolean isActive();
 

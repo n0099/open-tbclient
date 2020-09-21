@@ -13,14 +13,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.card.s;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private ab iQC;
+    private ab iZi;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iQC = new ab() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.iZi = new ab() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new aq("c11273"));
@@ -28,14 +28,14 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.iQC);
+        a(this.iZi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bE */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: bF */
+    public a c(ViewGroup viewGroup) {
         return new a(new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext, viewGroup));
     }
 
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        s.cbY().e(new aq("c11272"));
-        aVar.iQE.a(cVar);
+        s.cfn().e(new aq("c11272"));
+        aVar.iZk.a(cVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        public com.baidu.tieba.homepage.personalize.b.a iQE;
+        public com.baidu.tieba.homepage.personalize.b.a iZk;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.iQE = aVar;
+            this.iZk = aVar;
         }
     }
 }

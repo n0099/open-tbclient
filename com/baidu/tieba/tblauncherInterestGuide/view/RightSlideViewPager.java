@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class RightSlideViewPager extends ViewPager {
     public RightSlideViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

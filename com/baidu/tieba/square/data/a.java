@@ -4,13 +4,13 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date lYl;
+    private Date mhN;
 
-    protected abstract void eb(JSONObject jSONObject) throws Exception;
+    protected abstract void ej(JSONObject jSONObject) throws Exception;
 
     public int getErrorCode() {
         return this.errorCode;
@@ -54,9 +54,9 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.lYl = new Date(optLong * 1000);
+                this.mhN = new Date(optLong * 1000);
             }
-            eb(jSONObject);
+            ej(jSONObject);
         } catch (Exception e) {
             setErrorMsg("网络不给力呀");
             e.printStackTrace();

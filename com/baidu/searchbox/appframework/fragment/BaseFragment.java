@@ -17,6 +17,8 @@ import android.widget.FrameLayout;
 import com.baidu.android.util.concurrent.UiThreadUtil;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.logs.LogPrinters;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
+import com.baidu.searchbox.appframework.AppFrameworkRuntime;
 import com.baidu.searchbox.appframework.BaseActivity;
 import com.baidu.searchbox.appframework.LibAppFrameworkConfig;
 import com.baidu.searchbox.config.AppConfig;
@@ -27,7 +29,7 @@ import com.baidu.searchbox.widget.SlideHelper;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import java.lang.reflect.Field;
-/* loaded from: classes18.dex */
+/* loaded from: classes4.dex */
 public class BaseFragment extends Fragment implements NightModeChangeListener {
     private static final boolean DEBUG_BASE = LibAppFrameworkConfig.GLOBAL_DEBUG;
     private static final int FIRST_CHILD_INDEX = 0;
@@ -318,6 +320,7 @@ public class BaseFragment extends Fragment implements NightModeChangeListener {
             @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
             public void onPanelOpened(View view2) {
                 BaseFragment.this.finishAfterSlide();
+                AppFrameworkRuntime.slideBackUBC(null, BaseFragment.this.getFrom(), BaseFragment.this.getPage(), BaseFragment.this.getSource());
             }
 
             @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
@@ -360,5 +363,22 @@ public class BaseFragment extends Fragment implements NightModeChangeListener {
         if (this.mSlideHelper != null) {
             this.mSlideHelper.showShadow(z);
         }
+    }
+
+    public boolean onBackPressed() {
+        AppFrameworkRuntime.backPressUBC(null, getFrom(), getPage(), getSource());
+        return false;
+    }
+
+    public String getFrom() {
+        return AppFrameworkConstants.DEFAULT_UBC_FROM;
+    }
+
+    public String getPage() {
+        return null;
+    }
+
+    public String getSource() {
+        return null;
     }
 }

@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-import com.baidu.live.utils.d;
-/* loaded from: classes7.dex */
+import com.baidu.live.utils.e;
+/* loaded from: classes4.dex */
 public class AlaMasterOperationBaseItemView extends LinearLayout {
-    private TextView cjo;
+    private TextView clp;
     private ImageView mIconView;
     public int mId;
 
@@ -22,7 +22,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
         setGravity(49);
         setPadding(0, context.getResources().getDimensionPixelSize(a.e.sdk_ds16), 0, 0);
         LayoutInflater.from(context).inflate(a.h.ala_gridview_item, this);
-        this.cjo = (TextView) findViewById(a.g.contentTv);
+        this.clp = (TextView) findViewById(a.g.contentTv);
         this.mIconView = (ImageView) findViewById(a.g.icon_img);
     }
 
@@ -33,7 +33,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextResId(int i) {
         if (i > 0) {
-            this.cjo.setText(i);
+            this.clp.setText(i);
         }
     }
 
@@ -44,20 +44,20 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
             if (drawable instanceof StateListDrawable) {
                 this.mIconView.setImageDrawable(drawable);
             } else {
-                this.mIconView.setImageDrawable(d.a(getResources(), i));
+                this.mIconView.setImageDrawable(e.a(getResources(), i));
             }
         }
     }
 
     protected void setTextColorResId(int i) {
-        this.cjo.setTextColor(getResources().getColor(i));
-        this.cjo.setAlpha(0.7f);
+        this.clp.setTextColor(getResources().getColor(i));
+        this.clp.setAlpha(0.7f);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.cjo.setEnabled(z);
+        this.clp.setEnabled(z);
         this.mIconView.setEnabled(z);
     }
 }

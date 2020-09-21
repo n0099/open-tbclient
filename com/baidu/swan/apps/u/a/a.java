@@ -7,29 +7,29 @@ import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a implements com.baidu.swan.apps.u.d.a {
     public static List<af.a> getStorageList() {
-        List<af.a> list = (List) b.aqu().nm("getStorageListCache");
+        List<af.a> list = (List) b.are().nF("getStorageListCache");
         if (list == null) {
             List<af.a> storageList = af.getStorageList();
-            b.aqu().p("getStorageListCache", storageList);
+            b.are().p("getStorageListCache", storageList);
             return storageList;
         }
         return list;
     }
 
     public static void g(Boolean bool) {
-        b.aqu().p("getNightModeStateCache", bool);
+        b.are().p("getNightModeStateCache", bool);
     }
 
-    public static Boolean eD(boolean z) {
-        Boolean bool = (Boolean) b.aqu().nm("getNightModeStateCache");
+    public static Boolean eB(boolean z) {
+        Boolean bool = (Boolean) b.are().nF("getNightModeStateCache");
         if (bool == null) {
-            return Boolean.valueOf(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState());
+            return Boolean.valueOf(com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState());
         }
         if (z) {
-            b.aqu().nn("getNightModeStateCache");
+            b.are().nG("getNightModeStateCache");
             return bool;
         }
         return bool;
@@ -52,11 +52,11 @@ public class a implements com.baidu.swan.apps.u.d.a {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (c.awm()) {
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aqu().nm(file.getAbsolutePath());
+        if (c.awV()) {
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.are().nF(file.getAbsolutePath());
             if (swanAppConfigData == null) {
                 SwanAppConfigData z = z(file);
-                b.aqu().p(file.getAbsolutePath(), z);
+                b.are().p(file.getAbsolutePath(), z);
                 return z;
             } else if (DEBUG) {
                 Log.d("SwanPreProcess", "adopt cached app.json");

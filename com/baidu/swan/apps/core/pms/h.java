@@ -8,7 +8,7 @@ import com.baidu.swan.apps.SwanAppActivity;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -36,10 +36,10 @@ public class h {
         }
         switch (c) {
             case 0:
-                lz(str2);
+                lS(str2);
                 return;
             case 1:
-                lA(str2);
+                lT(str2);
                 return;
             case 2:
                 M(str2, z);
@@ -49,14 +49,14 @@ public class h {
         }
     }
 
-    private static void lz(String str) {
+    private static void lS(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void lA(String str) {
+    private static void lT(String str) {
         com.baidu.swan.apps.console.c.bb("SwanAppPkgUpdateManager", "send update failed msg");
         c("updateFailed", str, null);
     }
@@ -77,7 +77,7 @@ public class h {
             bundle = new Bundle();
         }
         bundle.putString("eventType", str);
-        com.baidu.swan.apps.process.messaging.a.axs().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).u(str2));
+        com.baidu.swan.apps.process.messaging.a.ayb().a(new com.baidu.swan.apps.process.messaging.c(107, bundle).u(str2));
     }
 
     public static void m(Message message) {
@@ -98,11 +98,11 @@ public class h {
             }
             hashMap.put("data", jSONObject.toString());
             com.baidu.swan.apps.event.a.b bVar = new com.baidu.swan.apps.event.a.b("updateStatusChange", hashMap);
-            SwanAppActivity arI = com.baidu.swan.apps.v.f.arY().arI();
-            if (arI != null && arI.XP() == 1) {
-                com.baidu.swan.games.aa.a.aPC().am(string, bundle.getBoolean("hasUpdate"));
+            SwanAppActivity ast = com.baidu.swan.apps.v.f.asJ().ast();
+            if (ast != null && ast.Yy() == 1) {
+                com.baidu.swan.games.aa.a.aQn().am(string, bundle.getBoolean("hasUpdate"));
             } else {
-                com.baidu.swan.apps.v.f.arY().b(bVar);
+                com.baidu.swan.apps.v.f.asJ().b(bVar);
             }
         }
     }

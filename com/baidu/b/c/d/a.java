@@ -1,26 +1,26 @@
 package com.baidu.b.c.d;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private c acS;
+    private c adl;
 
     private a() {
     }
 
-    public static a sG() {
+    public static a sL() {
         a aVar = new a();
-        aVar.acS = new c();
-        aVar.acS.a("PKCS1Padding");
+        aVar.adl = new c();
+        aVar.adl.a("PKCS1Padding");
         return aVar;
     }
 
     public void a(int i, d dVar) {
-        this.acS.a(i, dVar, b.acM);
+        this.adl.a(i, dVar, b.adf);
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr == null) {
             throw new IllegalArgumentException("Null input buffer");
         }
-        return this.acS.k(bArr, 0, bArr.length);
+        return this.adl.k(bArr, 0, bArr.length);
     }
 }

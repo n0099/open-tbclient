@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class c extends af.a {
     public int mSkinType;
     public TextView title;

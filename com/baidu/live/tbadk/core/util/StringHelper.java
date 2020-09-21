@@ -24,7 +24,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;
@@ -79,6 +79,13 @@ public class StringHelper extends BdStringHelper {
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
         return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
+    }
+
+    public static String formatSecondsTimes(long j) {
+        StringBuilder sb = new StringBuilder();
+        Formatter formatter = new Formatter(sb, Locale.getDefault());
+        sb.setLength(0);
+        return formatter.format("%02d:%02d:%02d", Long.valueOf(j / 3600), Long.valueOf((j / 60) % 60), Long.valueOf(j % 60)).toString();
     }
 
     public static String getDateWeek(Date date2) {
@@ -1487,5 +1494,30 @@ public class StringHelper extends BdStringHelper {
 
     private static double round(double d, int i) {
         return new BigDecimal(Double.toString(d)).divide(new BigDecimal("1"), i, 4).doubleValue();
+    }
+
+    public static String formatYuyinValue(long j) {
+        String str;
+        try {
+            if (j < 10000) {
+                str = String.valueOf(j);
+            } else if (j < 100000000) {
+                str = stripTrailingZeros(roundDown((j * 1.0d) / 10000.0d, 1)) + "万";
+            } else {
+                str = stripTrailingZeros(roundDown((j * 1.0d) / 1.0E8d, 1)) + "亿";
+            }
+            return str;
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    private static String stripTrailingZeros(double d) {
+        BigDecimal bigDecimal = new BigDecimal(Double.toString(d));
+        return bigDecimal.toString().contains(".") ? bigDecimal.stripTrailingZeros().stripTrailingZeros().toPlainString() : bigDecimal.toString();
+    }
+
+    private static double roundDown(double d, int i) {
+        return new BigDecimal(Double.toString(d)).divide(new BigDecimal("1"), i, 1).doubleValue();
     }
 }

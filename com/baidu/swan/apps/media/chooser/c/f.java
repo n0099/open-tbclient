@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class f implements RecyclerView.OnItemTouchListener {
     private GestureDetectorCompat mGestureDetector;
     private RecyclerView mRecyclerView;
@@ -35,7 +35,7 @@ public abstract class f implements RecyclerView.OnItemTouchListener {
     public void onRequestDisallowInterceptTouchEvent(boolean z) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private class a extends GestureDetector.SimpleOnGestureListener {
         private a() {
         }

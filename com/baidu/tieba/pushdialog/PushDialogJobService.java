@@ -4,11 +4,11 @@ import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 @TargetApi(21)
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class PushDialogJobService extends JobService {
     @Override // android.app.job.JobService
     public boolean onStartJob(JobParameters jobParameters) {
-        PushDialogLoopManager.dlT().dlW();
+        PushDialogLoopManager.dpA().dpD();
         return false;
     }
 

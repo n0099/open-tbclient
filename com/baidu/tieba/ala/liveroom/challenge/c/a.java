@@ -19,45 +19,45 @@ import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
 import com.baidu.tieba.ala.liveroom.challenge.adapter.b;
 import com.baidu.tieba.ala.liveroom.challenge.message.GetChallengeMvpToastInfoResponseMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private long aCw;
-    private int aGy;
-    private Dialog aXy;
+    private long aDf;
+    private int aHN;
+    private Dialog aZV;
     private long challengeId;
     private Context context;
-    private CountDownTimer fQB;
-    private GetChallengeMvpToastInfoResponseMessage gtG;
-    private b gtH;
-    private i gtI;
+    private CountDownTimer fTL;
+    private GetChallengeMvpToastInfoResponseMessage gxn;
+    private b gxo;
+    private i gxp;
     private long liveId;
 
     public a(Context context, long j, long j2, long j3, i iVar, GetChallengeMvpToastInfoResponseMessage getChallengeMvpToastInfoResponseMessage) {
-        this.aGy = 10;
+        this.aHN = 10;
         this.context = context;
         this.liveId = j;
-        this.aCw = j2;
+        this.aDf = j2;
         this.challengeId = j3;
-        this.gtI = iVar;
-        this.gtG = getChallengeMvpToastInfoResponseMessage;
-        if (com.baidu.live.w.a.Nk().beJ != null) {
-            this.aGy = com.baidu.live.w.a.Nk().beJ.aGy;
-            if (this.aGy == 0) {
-                this.aGy = 10;
+        this.gxp = iVar;
+        this.gxn = getChallengeMvpToastInfoResponseMessage;
+        if (com.baidu.live.x.a.NN().bhy != null) {
+            this.aHN = com.baidu.live.x.a.NN().bhy.aHN;
+            if (this.aHN == 0) {
+                this.aHN = 10;
             }
         }
     }
 
-    public void Nv() {
-        if (this.context != null && this.gtG != null) {
+    public void NY() {
+        if (this.context != null && this.gxn != null) {
             View inflate = LayoutInflater.from(this.context).inflate(a.h.dialog_mvp_choose_punish, (ViewGroup) null);
-            this.aXy = new Dialog(this.context, a.j.sdk_TransparentDialog);
-            this.aXy.requestWindowFeature(1);
-            this.aXy.setCancelable(false);
-            this.aXy.setContentView(inflate);
-            this.aXy.setCanceledOnTouchOutside(false);
-            this.aXy.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.e.sdk_ds582);
-            this.aXy.getWindow().getAttributes().height = -2;
+            this.aZV = new Dialog(this.context, a.j.sdk_TransparentDialog);
+            this.aZV.requestWindowFeature(1);
+            this.aZV.setCancelable(false);
+            this.aZV.setContentView(inflate);
+            this.aZV.setCanceledOnTouchOutside(false);
+            this.aZV.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.e.sdk_ds582);
+            this.aZV.getWindow().getAttributes().height = -2;
             ImageView imageView = (ImageView) inflate.findViewById(a.g.close_imageView);
             TextView textView = (TextView) inflate.findViewById(a.g.desc_textView);
             AlphaGradientHListView alphaGradientHListView = (AlphaGradientHListView) inflate.findViewById(a.g.punish_listView);
@@ -67,10 +67,10 @@ public class a {
             TextView textView4 = (TextView) inflate.findViewById(a.g.know_textView);
             LinearLayout linearLayout2 = (LinearLayout) inflate.findViewById(a.g.countdown_layout);
             final TextView textView5 = (TextView) inflate.findViewById(a.g.countdown_textView);
-            if (!TextUtils.isEmpty(this.gtG.toast)) {
-                textView.setText(this.gtG.toast);
+            if (!TextUtils.isEmpty(this.gxn.toast)) {
+                textView.setText(this.gxn.toast);
             }
-            if (this.gtG.type == 0) {
+            if (this.gxn.type == 0) {
                 imageView.setVisibility(8);
                 alphaGradientHListView.setVisibility(8);
                 linearLayout.setVisibility(8);
@@ -79,7 +79,7 @@ public class a {
                 textView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.Fd();
+                        a.this.FD();
                     }
                 });
             } else {
@@ -89,52 +89,52 @@ public class a {
                 textView4.setVisibility(8);
                 linearLayout2.setVisibility(0);
                 textView2.setEnabled(false);
-                textView5.setText(this.aGy + "s");
+                textView5.setText(this.aHN + "s");
                 alphaGradientHListView.setDividerWidth(this.context.getResources().getDimensionPixelSize(a.e.sdk_ds18));
                 alphaGradientHListView.setSelector(this.context.getResources().getDrawable(a.f.sdk_transparent_bg));
-                this.gtH = new b(this.context, this.gtG.gqS);
-                alphaGradientHListView.setAdapter((ListAdapter) this.gtH);
+                this.gxo = new b(this.context, this.gxn.guo);
+                alphaGradientHListView.setAdapter((ListAdapter) this.gxo);
                 alphaGradientHListView.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.2
                     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
                     public void a(AdapterView<?> adapterView, View view, int i, long j) {
                         com.baidu.tieba.ala.liveroom.challenge.a.b bVar;
-                        if (a.this.gtH != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.gtH.getItem(i)) != null) {
-                            if (TextUtils.equals(a.this.gtH.gqx, bVar.id)) {
-                                a.this.gtH.gqx = "";
+                        if (a.this.gxo != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.gxo.getItem(i)) != null) {
+                            if (TextUtils.equals(a.this.gxo.gtO, bVar.id)) {
+                                a.this.gxo.gtO = "";
                                 textView2.setEnabled(false);
                             } else {
-                                a.this.gtH.gqx = bVar.id;
+                                a.this.gxo.gtO = bVar.id;
                                 textView2.setEnabled(true);
                             }
-                            a.this.gtH.notifyDataSetChanged();
+                            a.this.gxo.notifyDataSetChanged();
                         }
                     }
                 });
                 textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.aR(3, a.this.gtH.gqx);
+                        a.this.aS(3, a.this.gxo.gtO);
                         a.this.release();
                     }
                 });
                 textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.aR(2, "0");
+                        a.this.aS(2, "0");
                         a.this.release();
                     }
                 });
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.aR(1, "0");
+                        a.this.aS(1, "0");
                         a.this.release();
                     }
                 });
-                if (this.fQB != null) {
-                    this.fQB.cancel();
+                if (this.fTL != null) {
+                    this.fTL.cancel();
                 }
-                this.fQB = new CountDownTimer(this.aGy * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
+                this.fTL = new CountDownTimer(this.aHN * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
                     @Override // android.os.CountDownTimer
                     public void onTick(long j) {
                         textView5.setText((j / 1000) + "s");
@@ -142,20 +142,20 @@ public class a {
 
                     @Override // android.os.CountDownTimer
                     public void onFinish() {
-                        a.this.aR(1, "0");
-                        a.this.Fd();
+                        a.this.aS(1, "0");
+                        a.this.FD();
                     }
                 };
-                this.fQB.start();
+                this.fTL.start();
             }
-            this.aXy.show();
+            this.aZV.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fd() {
-        if (this.aXy != null && this.aXy.isShowing()) {
-            Context context = this.aXy.getContext();
+    public void FD() {
+        if (this.aZV != null && this.aZV.isShowing()) {
+            Context context = this.aZV.getContext();
             if (context != null && (context instanceof Activity)) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -167,25 +167,25 @@ public class a {
                 }
             }
             try {
-                this.aXy.dismiss();
+                this.aZV.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.aXy = null;
+        this.aZV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aR(int i, String str) {
-        if (this.gtI != null) {
-            this.gtI.a(this.challengeId, this.liveId, this.aCw, i, str);
+    public void aS(int i, String str) {
+        if (this.gxp != null) {
+            this.gxp.a(this.challengeId, this.liveId, this.aDf, i, str);
         }
     }
 
     public void release() {
-        if (this.fQB != null) {
-            this.fQB.cancel();
+        if (this.fTL != null) {
+            this.fTL.cancel();
         }
-        Fd();
+        FD();
     }
 }

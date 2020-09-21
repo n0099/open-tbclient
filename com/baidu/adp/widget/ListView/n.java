@@ -7,17 +7,17 @@ import android.view.View;
 import com.baidu.tbadk.TbSingleton;
 /* loaded from: classes.dex */
 public class n {
-    private k Wo;
-    private o Wp;
-    private int Wq;
-    private com.baidu.tbadk.n.a.a Wr;
+    private k WG;
+    private o WH;
+    private int WI;
+    private com.baidu.tbadk.n.a.a WJ;
     private int mCurrentPosition;
     private float mLastX;
     private float mLastY;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private VelocityTracker mVelocityTracker;
-    private RecyclerView.OnChildAttachStateChangeListener Ws = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.n.1
+    private RecyclerView.OnChildAttachStateChangeListener WK = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.n.1
         @Override // android.support.v7.widget.RecyclerView.OnChildAttachStateChangeListener
         public void onChildViewAttachedToWindow(View view) {
             n.this.E(view);
@@ -31,7 +31,7 @@ public class n {
     private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.adp.widget.ListView.n.2
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            n.this.aN(i);
+            n.this.aR(i);
         }
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
@@ -57,8 +57,8 @@ public class n {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
                 int i = (n.this.mOrientation == 2 ? y - n.this.mLastY : x - n.this.mLastX) >= 0.0f ? 2 : 1;
-                if (i != n.this.Wq) {
-                    n.this.Wq = i;
+                if (i != n.this.WI) {
+                    n.this.WI = i;
                     n.this.mVelocityTracker.clear();
                 }
                 n.this.mVelocityTracker.addMovement(motionEvent);
@@ -87,8 +87,8 @@ public class n {
     };
 
     public n(l lVar) {
-        this.Wo = new k(lVar);
-        this.Wp = new o(lVar);
+        this.WG = new k(lVar);
+        this.WH = new o(lVar);
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -96,78 +96,78 @@ public class n {
             if (this.mRecyclerView != null) {
                 this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
                 this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.Ws);
+                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.WK);
             }
             this.mRecyclerView = recyclerView;
             this.mOrientation = i;
             if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-                this.Wp.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
+                this.WH.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
             } else {
-                this.Wo.a(this.mRecyclerView, this.mOrientation);
+                this.WG.a(this.mRecyclerView, this.mOrientation);
             }
             this.mRecyclerView.addOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.addOnChildAttachStateChangeListener(this.Ws);
+            this.mRecyclerView.addOnChildAttachStateChangeListener(this.WK);
         }
     }
 
-    public void rc() {
+    public void rh() {
         if (this.mRecyclerView != null) {
             this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.Ws);
+            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.WK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(float f, float f2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Wp.a(f, f2, this.mCurrentPosition);
+            this.WH.a(f, f2, this.mCurrentPosition);
         }
-        this.Wo.a(f, f2, this.mCurrentPosition);
+        this.WG.a(f, f2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(int i, int i2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Wp.j(i, i2, this.mCurrentPosition);
+            this.WH.j(i, i2, this.mCurrentPosition);
         }
-        this.Wo.j(i, i2, this.mCurrentPosition);
+        this.WG.j(i, i2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aN(int i) {
+    public void aR(int i) {
         if (i == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                if (this.Wr == null) {
-                    this.Wr = new com.baidu.tbadk.n.a.a("anim_switch_slide");
+                if (this.WJ == null) {
+                    this.WJ = new com.baidu.tbadk.n.a.a("anim_switch_slide");
                 }
-                this.Wr.buv();
+                this.WJ.bvz();
             }
-        } else if (i == 0 && this.Wr != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.Wr.buw();
+        } else if (i == 0 && this.WJ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+            this.WJ.bvA();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Wp.aM(i);
+            this.WH.aQ(i);
         }
-        this.Wo.aM(i);
+        this.WG.aQ(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Wp.C(view);
+            this.WH.C(view);
         } else {
-            this.Wo.C(view);
+            this.WG.C(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.Wp.D(view);
+            this.WH.D(view);
         } else {
-            this.Wo.D(view);
+            this.WG.D(view);
         }
     }
 

@@ -1,23 +1,23 @@
 package com.baidu.tieba.InjectPlugin.a;
 
 import android.util.SparseArray;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class e {
-    private static final e fkr = new e();
-    private SparseArray<d> fks = new SparseArray<>();
+    private static final e fnk = new e();
+    private SparseArray<d> fnl = new SparseArray<>();
 
     private e() {
     }
 
-    public static e bzv() {
-        return fkr;
+    public static e bAE() {
+        return fnk;
     }
 
     public void a(int i, d dVar) {
-        this.fks.put(i, dVar);
+        this.fnl.put(i, dVar);
     }
 
-    public d rR(int i) {
-        return this.fks.get(i);
+    public d si(int i) {
+        return this.fnl.get(i);
     }
 }

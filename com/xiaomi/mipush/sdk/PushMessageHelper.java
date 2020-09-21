@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.ip;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PushMessageHelper {
     public static final String ERROR_MESSAGE = "error_message";
     public static final String ERROR_TYPE = "error_type";

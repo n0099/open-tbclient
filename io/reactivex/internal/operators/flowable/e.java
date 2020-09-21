@@ -1,15 +1,15 @@
 package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.internal.subscriptions.EmptySubscription;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class e extends io.reactivex.g<Object> implements io.reactivex.internal.a.e<Object> {
-    public static final io.reactivex.g<Object> onq = new e();
+    public static final io.reactivex.g<Object> owZ = new e();
 
     private e() {
     }
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super Object> cVar) {
+    public void a(org.a.c<? super Object> cVar) {
         EmptySubscription.complete(cVar);
     }
 

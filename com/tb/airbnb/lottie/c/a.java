@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class a {
     public static com.tb.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -18,7 +18,7 @@ public class a {
             jsonReader.endArray();
             r.m(arrayList);
         } else {
-            arrayList.add(new com.tb.airbnb.lottie.e.a(p.g(jsonReader, com.tb.airbnb.lottie.d.f.kZ())));
+            arrayList.add(new com.tb.airbnb.lottie.e.a(p.g(jsonReader, com.tb.airbnb.lottie.d.f.la())));
         }
         return new com.tb.airbnb.lottie.model.a.e(arrayList);
     }

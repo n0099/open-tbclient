@@ -9,13 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int hok = R.color.cp_bg_line_c;
-    private static final int hol = R.color.cp_bg_line_c;
-    private View hoi;
-    private View hoj;
-    private int hom;
+    private static final int hvo = R.color.cp_bg_line_c;
+    private static final int hvp = R.color.cp_bg_line_c;
+    private View hvm;
+    private View hvn;
+    private int hvq;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -26,35 +26,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.hom = hol;
+        this.hvq = hvp;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hom = hol;
+        this.hvq = hvp;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hom = hol;
+        this.hvq = hvp;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
-        this.hoi = findViewById(R.id.card_divider_top_margin);
+        this.hvm = findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(R.id.card_divider_tv);
-        this.hoj = findViewById(R.id.bottom_line);
+        this.hvn = findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.cp_bg_line_d);
-        ap.setBackgroundColor(this.hoi, R.color.cp_bg_line_c);
+        ap.setBackgroundColor(this.hvm, R.color.cp_bg_line_c);
         ap.setViewTextColor(this.mTitle, R.color.cp_cont_d);
-        ap.setBackgroundColor(this.hoj, this.hom);
+        ap.setBackgroundColor(this.hvn, this.hvq);
     }
 
     public void setTitleText(String str) {
@@ -66,11 +66,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.hom = i;
-        ap.setBackgroundColor(this.hoj, this.hom);
+        this.hvq = i;
+        ap.setBackgroundColor(this.hvn, this.hvq);
     }
 
     public View getBotttomLine() {
-        return this.hoj;
+        return this.hvn;
     }
 }

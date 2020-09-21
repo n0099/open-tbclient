@@ -2,30 +2,30 @@ package com.tb.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class m extends a<PointF, PointF> {
     private final PointF DC;
-    private final a<Float, Float> ojb;
-    private final a<Float, Float> ojc;
+    private final a<Float, Float> osL;
+    private final a<Float, Float> osM;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
         this.DC = new PointF();
-        this.ojb = aVar;
-        this.ojc = aVar2;
+        this.osL = aVar;
+        this.osM = aVar2;
         setProgress(getProgress());
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
     public void setProgress(float f) {
-        this.ojb.setProgress(f);
-        this.ojc.setProgress(f);
-        this.DC.set(this.ojb.getValue().floatValue(), this.ojc.getValue().floatValue());
+        this.osL.setProgress(f);
+        this.osM.setProgress(f);
+        this.DC.set(this.osL.getValue().floatValue(), this.osM.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).iR();
+                this.listeners.get(i2).iS();
                 i = i2 + 1;
             } else {
                 return;
@@ -35,7 +35,7 @@ public class m extends a<PointF, PointF> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tb.airbnb.lottie.a.b.a
-    /* renamed from: jo */
+    /* renamed from: jp */
     public PointF getValue() {
         return a(null, 0.0f);
     }

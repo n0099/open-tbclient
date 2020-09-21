@@ -3,24 +3,24 @@ package com.baidu.swan.games.glsurface;
 import android.content.Context;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b dtr;
-    private Queue<DuMixGameSurfaceView> dtt = new ArrayDeque();
+    private static volatile b dvt;
+    private Queue<DuMixGameSurfaceView> dvu = new ArrayDeque();
 
-    public static b aOa() {
-        if (dtr == null) {
+    public static b aOL() {
+        if (dvt == null) {
             synchronized (b.class) {
-                if (dtr == null) {
-                    dtr = new b();
+                if (dvt == null) {
+                    dvt = new b();
                 }
             }
         }
-        return dtr;
+        return dvt;
     }
 
-    public DuMixGameSurfaceView dy(Context context) {
+    public DuMixGameSurfaceView dx(Context context) {
         return new DuMixGameSurfaceView(context);
     }
 }

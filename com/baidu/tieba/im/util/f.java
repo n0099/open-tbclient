@@ -3,7 +3,7 @@ package com.baidu.tieba.im.util;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.widget.EditText;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class f {
     public static int getTextLength(EditText editText) {
         if (editText == null) {

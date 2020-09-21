@@ -10,16 +10,16 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private static final byte[] a = new byte[0];
-    private f acT;
-    private d acV;
+    private f adm;
+    private d ado;
     private int b;
     private byte[] f;
     private int g;
     private int h;
-    private OAEPParameterSpec acU = null;
+    private OAEPParameterSpec adn = null;
     private String j = "SHA-1";
     private String c = "PKCS1Padding";
 
@@ -42,23 +42,23 @@ public final class c {
             throw new InvalidKeyException("only support helios key");
         }
         this.b = z ? 1 : 4;
-        this.acV = dVar;
-        int a2 = b.a(this.acV.sH());
+        this.ado = dVar;
+        int a2 = b.a(this.ado.sM());
         this.h = a2;
         this.g = 0;
         if (this.c == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.acT = f.a(3, a2, secureRandom);
+            this.adm = f.a(3, a2, secureRandom);
             this.f = new byte[a2];
         } else if (this.c == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.acT = f.a(this.b <= 2 ? 2 : 1, a2, secureRandom);
+            this.adm = f.a(this.b <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
-                this.f = new byte[this.acT.a()];
+                this.f = new byte[this.adm.a()];
             } else {
                 this.f = new byte[a2];
             }
@@ -72,9 +72,9 @@ public final class c {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.acT = f.a(4, a2, secureRandom, oAEPParameterSpec);
+            this.adm = f.a(4, a2, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.f = new byte[this.acT.a()];
+                this.f = new byte[this.adm.a()];
             } else {
                 this.f = new byte[a2];
             }
@@ -89,14 +89,14 @@ public final class c {
         try {
             switch (this.b) {
                 case 1:
-                    a2 = b.a(this.acT.k(this.f, 0, this.g), this.acV);
+                    a2 = b.a(this.adm.k(this.f, 0, this.g), this.ado);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a2 = this.acT.b(b.a(b.k(this.f, 0, this.g), this.acV));
+                    a2 = this.adm.b(b.a(b.k(this.f, 0, this.g), this.ado));
                     break;
                 default:
                     throw new AssertionError("Internal error");

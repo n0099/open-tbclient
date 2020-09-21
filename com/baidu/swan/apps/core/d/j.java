@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
@@ -35,36 +36,36 @@ import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes8.dex */
-public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.b.b {
+/* loaded from: classes3.dex */
+public class j extends c implements a.InterfaceC0427a, com.baidu.swan.games.u.a.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private OrientationEventListener bRG;
-    private com.baidu.swan.apps.res.widget.floatlayer.a bRJ;
-    private boolean cdv;
-    private DuMixGameSurfaceView ciH;
-    private ImageView ciI;
-    private View ciJ;
-    private ImageView ciK;
-    private FrameLayout ciL;
-    private View ciM;
-    private com.baidu.swan.games.view.d ciN;
-    private com.baidu.swan.games.view.d ciO;
-    private TextView ciQ;
-    private b ciR;
-    private a ciS;
-    private GameCloseGuidePopView ciU;
-    private View ciW;
-    private boolean ciX;
+    private OrientationEventListener bTG;
+    private com.baidu.swan.apps.res.widget.floatlayer.a bTJ;
+    private boolean cfw;
+    private DuMixGameSurfaceView ckI;
+    private ImageView ckJ;
+    private View ckK;
+    private ImageView ckL;
+    private FrameLayout ckM;
+    private View ckN;
+    private com.baidu.swan.games.view.d ckO;
+    private com.baidu.swan.games.view.d ckP;
+    private TextView ckR;
+    private b ckS;
+    private a ckT;
+    private GameCloseGuidePopView ckV;
+    private View ckX;
+    private boolean ckY;
     private AudioManager mAudioManager;
     private boolean mHasAudioFocus;
     private View mMenu;
-    private com.baidu.swan.games.u.a.b.a ciP = new com.baidu.swan.games.u.a.b.a();
-    private com.baidu.swan.games.view.b bVq = new com.baidu.swan.games.view.b();
+    private com.baidu.swan.games.u.a.b.a ckQ = new com.baidu.swan.games.u.a.b.a();
+    private com.baidu.swan.games.view.b bXr = new com.baidu.swan.games.view.b();
     private volatile boolean mIsForeground = true;
-    private String ciT = "landscape";
-    private boolean ciV = false;
+    private String ckU = "landscape";
+    private boolean ckW = false;
 
-    public static j ahD() {
+    public static j ain() {
         return new j();
     }
 
@@ -74,7 +75,7 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
         p.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.core.d.j.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.games.m.a.aOt().a(j.this.chq, j.this.getContext());
+                com.baidu.swan.games.m.a.aPe().a(j.this.cjs, j.this.getContext());
             }
         }, "SwanGamePageHistory");
     }
@@ -85,43 +86,43 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
             Log.d("SwanGameFragment", "onCreateView obj: " + this);
         }
         View inflate = layoutInflater.inflate(a.g.ai_games_fragment, viewGroup, false);
-        ak(inflate);
-        ahE();
+        am(inflate);
+        aio();
         return inflate;
     }
 
-    public void ak(View view) {
+    public void am(View view) {
         FrameLayout frameLayout = (FrameLayout) view.findViewById(a.f.ai_games_layout);
-        this.ciL = frameLayout;
-        this.ciH = com.baidu.swan.games.j.a.aNC().aNE();
-        if (this.ciH != null && this.ciH.getParent() == null) {
-            frameLayout.addView(this.ciH, 0, new FrameLayout.LayoutParams(-1, -1));
+        this.ckM = frameLayout;
+        this.ckI = com.baidu.swan.games.j.a.aOn().aOp();
+        if (this.ckI != null && this.ckI.getParent() == null) {
+            frameLayout.addView(this.ckI, 0, new FrameLayout.LayoutParams(-1, -1));
             if (DEBUG) {
                 Log.d("SwanGameFragment", "SwanGameCoreRuntime GameSurfaceView is added");
             }
         }
-        if (DEBUG && !com.baidu.swan.apps.ad.a.a.awR()) {
+        if (DEBUG && !com.baidu.swan.apps.ad.a.a.axA()) {
             View inflate = ((ViewStub) view.findViewById(a.f.ai_games_fps_text_view_stub)).inflate();
             if (inflate != null) {
-                this.ciQ = (TextView) inflate.findViewById(a.f.ai_games_fps_text);
+                this.ckR = (TextView) inflate.findViewById(a.f.ai_games_fps_text);
             }
-            ahP();
+            aiz();
         }
-        an(view);
-        this.ciO = new com.baidu.swan.games.view.d((FrameLayout) view.findViewById(a.f.ai_games_na_layout));
-        this.ciN = new com.baidu.swan.games.view.d(this.ciL);
+        ap(view);
+        this.ckP = new com.baidu.swan.games.view.d((FrameLayout) view.findViewById(a.f.ai_games_na_layout));
+        this.ckO = new com.baidu.swan.games.view.d(this.ckM);
     }
 
-    private void ahE() {
-        if (this.ciH != null) {
-            this.ciH.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.core.d.j.2
+    private void aio() {
+        if (this.ckI != null) {
+            this.ckI.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.core.d.j.2
                 @Override // android.view.View.OnSystemUiVisibilityChangeListener
                 public void onSystemUiVisibilityChange(int i) {
                     if (j.DEBUG) {
                         Log.d("SwanGameFragment", "onSystemUiVisibilityChange:" + i + ",mIsForeground:" + j.this.mIsForeground);
                     }
-                    if (j.this.mIsForeground || j.this.ahF()) {
-                        com.baidu.swan.apps.ap.e.L(j.this.mActivity);
+                    if (j.this.mIsForeground || j.this.aip()) {
+                        com.baidu.swan.apps.ap.e.N(j.this.mActivity);
                     }
                 }
             });
@@ -129,135 +130,135 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahF() {
-        f XX = XX();
-        return XX != null && (XX.ahm() instanceof j);
+    public boolean aip() {
+        f YG = YG();
+        return YG != null && (YG.ahW() instanceof j);
     }
 
-    private void an(View view) {
+    private void ap(View view) {
         this.mMenu = view.findViewById(a.f.titlebar_right_menu);
-        this.ciI = (ImageView) view.findViewById(a.f.titlebar_right_menu_img);
-        this.ciJ = view.findViewById(a.f.titlebar_right_menu_line);
-        this.ciK = (ImageView) view.findViewById(a.f.titlebar_right_menu_exit);
-        this.ciI.setImageDrawable(getResources().getDrawable(a.e.aiapps_action_bar_single_menu_white_selector));
-        this.ciK.setImageDrawable(getResources().getDrawable(a.e.aiapps_action_bar_exit_white_selector));
-        this.ciJ.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
+        this.ckJ = (ImageView) view.findViewById(a.f.titlebar_right_menu_img);
+        this.ckK = view.findViewById(a.f.titlebar_right_menu_line);
+        this.ckL = (ImageView) view.findViewById(a.f.titlebar_right_menu_exit);
+        this.ckJ.setImageDrawable(getResources().getDrawable(a.e.aiapps_action_bar_single_menu_white_selector));
+        this.ckL.setImageDrawable(getResources().getDrawable(a.e.aiapps_action_bar_exit_white_selector));
+        this.ckK.setBackgroundResource(a.c.aiapps_action_bar_menu_line_white);
         this.mMenu.setBackgroundResource(a.e.aiapps_action_bar_right_menu_bg_solid);
-        this.ciI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.j.3
+        this.ckJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.j.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                j.this.aga();
+                j.this.agK();
                 com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-                fVar.mValue = "menu";
+                fVar.mValue = UgcConstant.MENU;
                 j.this.a(fVar);
             }
         });
-        this.ciK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.j.4
+        this.ckL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!j.DEBUG || !com.baidu.swan.apps.ad.a.a.awP()) {
-                    if (com.baidu.swan.apps.runtime.e.azI() != null && com.baidu.swan.apps.p.c.anB().anC()) {
-                        j.this.lt("exitButton");
+                if (!j.DEBUG || !com.baidu.swan.apps.ad.a.a.axy()) {
+                    if (com.baidu.swan.apps.runtime.e.aAr() != null && com.baidu.swan.apps.p.c.aol().aom()) {
+                        j.this.lM("exitButton");
                         return;
                     }
-                    com.baidu.swan.apps.p.b anw = new com.baidu.swan.apps.p.b().anw();
-                    if (anw.isShow()) {
-                        com.baidu.swan.apps.p.c.anB().a(j.this.mActivity, anw.getImageUrl(), anw.anA(), j.this.agr());
+                    com.baidu.swan.apps.p.b aog = new com.baidu.swan.apps.p.b().aog();
+                    if (aog.isShow()) {
+                        com.baidu.swan.apps.p.c.aol().a(j.this.mActivity, aog.getImageUrl(), aog.aok(), j.this.ahb());
                         return;
                     }
-                    j.this.lt("exitButton");
+                    j.this.lM("exitButton");
                 }
             }
         });
     }
 
-    public boolean lt(String str) {
+    public boolean lM(String str) {
         String currentDate = com.baidu.swan.games.view.recommend.popview.c.getCurrentDate();
         if (TextUtils.equals(currentDate, com.baidu.swan.games.view.recommend.popview.c.getString("date"))) {
             if (TextUtils.equals(str, "exitButton")) {
-                ahH();
+                air();
             }
             return false;
         }
-        this.ciW = com.baidu.swan.games.m.a.aOv().a(this.mActivity, ahG());
-        if (this.ciW != null) {
-            this.ciL.addView(this.ciW);
-            this.ciX = true;
+        this.ckX = com.baidu.swan.games.m.a.aPg().a(this.mActivity, aiq());
+        if (this.ckX != null) {
+            this.ckM.addView(this.ckX);
+            this.ckY = true;
             com.baidu.swan.games.view.recommend.popview.c.putString("date", currentDate);
             return true;
         }
-        if (this.ciU == null) {
-            this.ciU = new GameCloseGuidePopView(getContext());
-            this.ciU.setOnClickListener(new GameCloseGuidePopView.a() { // from class: com.baidu.swan.apps.core.d.j.5
+        if (this.ckV == null) {
+            this.ckV = new GameCloseGuidePopView(getContext());
+            this.ckV.setOnClickListener(new GameCloseGuidePopView.a() { // from class: com.baidu.swan.apps.core.d.j.5
                 @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-                public void ahS() {
-                    if (j.this.ciU != null) {
-                        j.this.ciL.removeView(j.this.ciU);
+                public void aiC() {
+                    if (j.this.ckV != null) {
+                        j.this.ckM.removeView(j.this.ckV);
                     }
                 }
 
                 @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-                public void ahT() {
-                    j.this.ahH();
+                public void aiD() {
+                    j.this.air();
                 }
 
                 @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-                public void ahU() {
-                    j.this.ahH();
+                public void aiE() {
+                    j.this.air();
                 }
             });
         }
-        this.ciL.addView(this.ciU);
+        this.ckM.addView(this.ckV);
         com.baidu.swan.games.view.recommend.popview.c.putString("date", currentDate);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c.a agr() {
+    public c.a ahb() {
         return new c.a() { // from class: com.baidu.swan.apps.core.d.j.6
             @Override // com.baidu.swan.apps.p.c.a
-            public void agO() {
-                j.this.ahH();
+            public void ahy() {
+                j.this.air();
             }
         };
     }
 
-    private GameCloseGuidePopView.a ahG() {
+    private GameCloseGuidePopView.a aiq() {
         return new GameCloseGuidePopView.a() { // from class: com.baidu.swan.apps.core.d.j.7
             @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-            public void ahS() {
+            public void aiC() {
             }
 
             @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-            public void ahT() {
-                if (j.this.ciW != null) {
-                    j.this.ciL.removeView(j.this.ciW);
-                    j.this.ciW = null;
+            public void aiD() {
+                if (j.this.ckX != null) {
+                    j.this.ckM.removeView(j.this.ckX);
+                    j.this.ckX = null;
                 }
-                j.this.ahH();
+                j.this.air();
             }
 
             @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.a
-            public void ahU() {
+            public void aiE() {
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahH() {
+    public void air() {
         if (this.mActivity != null) {
             this.mActivity.moveTaskToBack(true);
         }
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "close";
         a(fVar);
-        ((SwanAppActivity) this.mActivity).gn(1);
-        ap.aFx().ko(2);
+        ((SwanAppActivity) this.mActivity).gx(1);
+        ap.aGh().kz(2);
     }
 
-    private void ahI() {
-        if (ah.cK(this.mActivity)) {
-            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.aoJ(), a.h.aiapps_game_not_support_split_screen).showToast();
+    private void ais() {
+        if (ah.cJ(this.mActivity)) {
+            com.baidu.swan.apps.res.widget.b.d.k(com.baidu.swan.apps.t.a.apu(), a.h.aiapps_game_not_support_split_screen).showToast();
             this.mActivity.finishAndRemoveTask();
         }
     }
@@ -265,7 +266,7 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        ahI();
+        ais();
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment
@@ -285,137 +286,137 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
 
     @Override // com.baidu.swan.games.u.a.b.b
     @NonNull
-    public com.baidu.swan.games.u.a.b.a ahJ() {
-        return this.ciP;
+    public com.baidu.swan.games.u.a.b.a ait() {
+        return this.ckQ;
     }
 
     @NonNull
-    public com.baidu.swan.games.view.b ahK() {
-        return this.bVq;
+    public com.baidu.swan.games.view.b aiu() {
+        return this.bXr;
     }
 
-    public com.baidu.swan.games.view.d ahL() {
-        return this.ciO;
+    public com.baidu.swan.games.view.d aiv() {
+        return this.ckP;
     }
 
-    public com.baidu.swan.games.view.d ahM() {
-        return this.ciN;
+    public com.baidu.swan.games.view.d aiw() {
+        return this.ckO;
     }
 
     public void resume() {
         requestAudioFocus();
-        if (this.ciH != null && this.ciH.getV8Engine() != null) {
-            final com.baidu.swan.games.f.a v8Engine = this.ciH.getV8Engine();
+        if (this.ckI != null && this.ckI.getV8Engine() != null) {
+            final com.baidu.swan.games.f.a v8Engine = this.ckI.getV8Engine();
             if (DEBUG) {
                 Log.d("SwanGameFragment", "resume() obj: " + this + " ,v8Engine: " + v8Engine);
             }
             this.mIsForeground = true;
-            this.ciH.onResume();
-            com.baidu.swan.games.audio.b.b.aLf().onResume();
+            this.ckI.onResume();
+            com.baidu.swan.games.audio.b.b.aLQ().onResume();
             com.baidu.swan.games.z.b.w(v8Engine);
             if (this.mActivity != null && (this.mActivity instanceof SwanAppActivity)) {
-                v8Engine.dispatchEvent(new com.baidu.swan.games.p.e(((SwanAppActivity) this.mActivity).XZ()));
+                v8Engine.dispatchEvent(new com.baidu.swan.games.p.e(((SwanAppActivity) this.mActivity).YI()));
             }
             v8Engine.onResume();
-            if (this.ciL != null && this.ciM != null) {
+            if (this.ckM != null && this.ckN != null) {
                 ak.c(new Runnable() { // from class: com.baidu.swan.apps.core.d.j.8
                     @Override // java.lang.Runnable
                     public void run() {
-                        j.this.ciL.removeView(j.this.ciM);
+                        j.this.ckM.removeView(j.this.ckN);
                     }
                 }, 500L);
             }
             if (this.mActivity != null && (this.mActivity instanceof SwanAppActivity)) {
                 boolean isLandScape = ((SwanAppActivity) this.mActivity).isLandScape();
-                if (!this.ciN.aQo()) {
+                if (!this.ckO.aRa()) {
                     this.mActivity.setRequestedOrientation(isLandScape ? 0 : 1);
-                    this.ciN.gP(isLandScape);
-                    this.ciO.gP(isLandScape);
+                    this.ckO.gN(isLandScape);
+                    this.ckP.gN(isLandScape);
                 }
-                com.baidu.swan.apps.ap.e.L(this.mActivity);
+                com.baidu.swan.apps.ap.e.N(this.mActivity);
             }
-            if (this.bRG == null) {
-                this.bRG = new OrientationEventListener(this.mActivity, 3) { // from class: com.baidu.swan.apps.core.d.j.9
+            if (this.bTG == null) {
+                this.bTG = new OrientationEventListener(this.mActivity, 3) { // from class: com.baidu.swan.apps.core.d.j.9
                     @Override // android.view.OrientationEventListener
                     public void onOrientationChanged(int i) {
-                        if (!j.this.ciN.aQo()) {
-                            if (260 < i && i < 280 && j.this.ciT != "landscape") {
+                        if (!j.this.ckO.aRa()) {
+                            if (260 < i && i < 280 && j.this.ckU != "landscape") {
                                 j.this.mActivity.setRequestedOrientation(0);
-                                j.this.ciT = "landscape";
-                                com.baidu.swan.games.z.a.b(v8Engine, j.this.ciT);
+                                j.this.ckU = "landscape";
+                                com.baidu.swan.games.z.a.b(v8Engine, j.this.ckU);
                                 if (j.DEBUG) {
-                                    Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.ciT);
+                                    Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.ckU);
                                 }
-                            } else if (80 < i && i < 100 && j.this.ciT != "landscapeReverse") {
+                            } else if (80 < i && i < 100 && j.this.ckU != "landscapeReverse") {
                                 j.this.mActivity.setRequestedOrientation(8);
-                                j.this.ciT = "landscapeReverse";
-                                com.baidu.swan.games.z.a.b(v8Engine, j.this.ciT);
+                                j.this.ckU = "landscapeReverse";
+                                com.baidu.swan.games.z.a.b(v8Engine, j.this.ckU);
                                 if (j.DEBUG) {
-                                    Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.ciT);
+                                    Log.d("SwanGameFragment", "onOrientationChanged: " + j.this.ckU);
                                 }
                             }
                         }
                     }
                 };
             }
-            if (this.bRG.canDetectOrientation() && this.mActivity != null && ((SwanAppActivity) this.mActivity).isLandScape()) {
-                this.bRG.enable();
+            if (this.bTG.canDetectOrientation() && this.mActivity != null && ((SwanAppActivity) this.mActivity).isLandScape()) {
+                this.bTG.enable();
             } else {
-                this.bRG.disable();
+                this.bTG.disable();
             }
-            com.baidu.swan.games.b.d.aKH().startMonitor();
-            com.baidu.swan.apps.media.b.eK(true);
-            if (this.ciN != null) {
-                this.ciN.aoa();
+            com.baidu.swan.games.b.d.aLs().startMonitor();
+            com.baidu.swan.apps.media.b.eI(true);
+            if (this.ckO != null) {
+                this.ckO.aoK();
             }
-            if (this.ciO != null) {
-                this.ciO.aoa();
+            if (this.ckP != null) {
+                this.ckP.aoK();
             }
-            ahI();
+            ais();
         }
     }
 
     public void pause() {
         this.mIsForeground = false;
         abandonAudioFocus();
-        if (this.ciM == null) {
-            this.ciM = new View(this.mActivity);
+        if (this.ckN == null) {
+            this.ckN = new View(this.mActivity);
         }
-        this.ciL.removeView(this.ciM);
-        this.ciL.addView(this.ciM, new FrameLayout.LayoutParams(-1, -1));
-        if (this.ciU != null) {
-            this.ciL.removeView(this.ciU);
-            this.ciU = null;
+        this.ckM.removeView(this.ckN);
+        this.ckM.addView(this.ckN, new FrameLayout.LayoutParams(-1, -1));
+        if (this.ckV != null) {
+            this.ckM.removeView(this.ckV);
+            this.ckV = null;
         }
-        if (this.ciN != null) {
-            this.ciN.anZ();
+        if (this.ckO != null) {
+            this.ckO.aoJ();
         }
-        if (this.ciO != null) {
-            this.ciO.anZ();
+        if (this.ckP != null) {
+            this.ckP.aoJ();
         }
-        if (this.ciH != null && this.ciH.getV8Engine() != null) {
-            com.baidu.swan.games.f.a v8Engine = this.ciH.getV8Engine();
+        if (this.ckI != null && this.ckI.getV8Engine() != null) {
+            com.baidu.swan.games.f.a v8Engine = this.ckI.getV8Engine();
             if (DEBUG) {
                 Log.d("SwanGameFragment", "pause() obj: " + this + " ,v8Engine: " + v8Engine);
             }
-            if (!v8Engine.aNg()) {
+            if (!v8Engine.aNR()) {
                 v8Engine.onPause();
                 v8Engine.dispatchEvent(new JSEvent("apphide"));
                 com.baidu.swan.games.z.b.v(v8Engine);
-                EventTarget aNb = v8Engine.aNb();
-                if (aNb instanceof com.baidu.swan.games.binding.c) {
-                    ((com.baidu.swan.games.binding.c) aNb).hideKeyboard();
+                EventTarget aNM = v8Engine.aNM();
+                if (aNM instanceof com.baidu.swan.games.binding.c) {
+                    ((com.baidu.swan.games.binding.c) aNM).hideKeyboard();
                 }
             }
-            com.baidu.swan.games.audio.b.b.aLf().pauseAll();
-            com.baidu.swan.games.b.d.aKH().aKJ();
-            com.baidu.swan.apps.media.b.eK(false);
-            this.ciH.onPause();
-            if (this.bRG != null) {
-                this.bRG.disable();
+            com.baidu.swan.games.audio.b.b.aLQ().pauseAll();
+            com.baidu.swan.games.b.d.aLs().aLu();
+            com.baidu.swan.apps.media.b.eI(false);
+            this.ckI.onPause();
+            if (this.bTG != null) {
+                this.bTG.disable();
             }
-            if (this.cht != null && this.cht.isShowing()) {
-                this.cht.dismiss(false);
+            if (this.cjv != null && this.cjv.isShowing()) {
+                this.cjv.dismiss(false);
             }
         }
     }
@@ -446,178 +447,178 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     public void onDestroy() {
         if (DEBUG) {
             Log.d("SwanGameFragment", "onDestroy() obj: " + this);
-            aet();
+            afd();
         }
-        if (this.ciH != null) {
-            this.ciH.setOnSystemUiVisibilityChangeListener(null);
-            this.ciH.onDestroy();
+        if (this.ckI != null) {
+            this.ckI.setOnSystemUiVisibilityChangeListener(null);
+            this.ckI.onDestroy();
         }
-        if (this.ciX) {
-            this.ciW = null;
-            com.baidu.swan.games.m.a.aOv().release();
+        if (this.ckY) {
+            this.ckX = null;
+            com.baidu.swan.games.m.a.aPg().release();
         }
-        if (this.ciN != null) {
-            this.ciN.aQr();
+        if (this.ckO != null) {
+            this.ckO.aRd();
         }
-        if (this.ciO != null) {
-            this.ciO.aQr();
+        if (this.ckP != null) {
+            this.ckP.aRd();
         }
-        this.bVq.abP();
+        this.bXr.acy();
         com.baidu.swan.apps.media.b.destroy();
-        com.baidu.swan.games.glsurface.a.b.gG(false);
-        com.baidu.swan.games.glsurface.a.b.aOc();
+        com.baidu.swan.games.glsurface.a.b.gE(false);
+        com.baidu.swan.games.glsurface.a.b.aON();
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aga() {
+    protected void agK() {
         Context context = getContext();
         if (context instanceof Activity) {
             w.forceHiddenSoftInput(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
         }
-        abt();
-        if (com.baidu.swan.apps.runtime.e.azJ() != null) {
-            this.cht.setScreenOrientation(com.baidu.swan.apps.runtime.e.azJ().azM().getOrientation());
+        acc();
+        if (com.baidu.swan.apps.runtime.e.aAs() != null) {
+            this.cjv.setScreenOrientation(com.baidu.swan.apps.runtime.e.aAs().aAv().getOrientation());
         }
-        this.cht.a(com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState(), agJ(), this.chu, false);
+        this.cjv.a(com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState(), aht(), this.cjw, false);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean abn() {
+    protected boolean abW() {
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean agb() {
+    public boolean agL() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aaM() {
-        if (com.baidu.l.a.TM()) {
-            return com.baidu.l.a.TM();
+    public boolean abv() {
+        if (com.baidu.l.a.Uv()) {
+            return com.baidu.l.a.Uv();
         }
-        if (com.baidu.swan.apps.runtime.e.azI() != null && com.baidu.swan.apps.p.c.anB().anC()) {
-            return lt("backButton");
+        if (com.baidu.swan.apps.runtime.e.aAr() != null && com.baidu.swan.apps.p.c.aol().aom()) {
+            return lM("backButton");
         }
-        com.baidu.swan.apps.p.b anw = new com.baidu.swan.apps.p.b().anw();
-        if (anw.isShow()) {
-            com.baidu.swan.apps.p.c.anB().a(this.mActivity, anw.getImageUrl(), anw.anA(), agr());
+        com.baidu.swan.apps.p.b aog = new com.baidu.swan.apps.p.b().aog();
+        if (aog.isShow()) {
+            com.baidu.swan.apps.p.c.aol().a(this.mActivity, aog.getImageUrl(), aog.aok(), ahb());
             return true;
         }
-        return lt("backButton");
+        return lM("backButton");
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void abt() {
-        FragmentActivity aUT = aUT();
-        if (aUT != null) {
-            if (this.ciV) {
-                if (this.cht != null && this.cht.isShowing()) {
-                    this.cht.dismiss(false);
+    protected void acc() {
+        FragmentActivity aVF = aVF();
+        if (aVF != null) {
+            if (this.ckW) {
+                if (this.cjv != null && this.cjv.isShowing()) {
+                    this.cjv.dismiss(false);
                 }
-                this.cht = null;
-                this.ciV = false;
+                this.cjv = null;
+                this.ckW = false;
             }
-            if (this.chu == null) {
-                this.chu = new SwanAppMenuHeaderView(getContext());
+            if (this.cjw == null) {
+                this.cjw = new SwanAppMenuHeaderView(getContext());
             }
-            if (this.cht == null) {
-                this.cht = new com.baidu.swan.menu.h(aUT, this.mMenu, 0, com.baidu.swan.apps.t.a.aoN(), new com.baidu.swan.apps.view.c.b());
-                this.cht.lB(com.baidu.swan.apps.ap.e.aEz());
-                this.ciP.b(this.cht);
-                com.baidu.swan.games.q.a arM = com.baidu.swan.apps.v.f.arY().arM();
-                if (arM != null) {
-                    arM.a(this.cht);
+            if (this.cjv == null) {
+                this.cjv = new com.baidu.swan.menu.h(aVF, this.mMenu, 0, com.baidu.swan.apps.t.a.apy(), new com.baidu.swan.apps.view.c.b());
+                this.cjv.lM(com.baidu.swan.apps.ap.e.aFj());
+                this.ckQ.b(this.cjv);
+                com.baidu.swan.games.q.a asx = com.baidu.swan.apps.v.f.asJ().asx();
+                if (asx != null) {
+                    asx.a(this.cjv);
                 }
-                new com.baidu.swan.apps.menu.a(this.cht, this, this.chu).atP();
+                new com.baidu.swan.apps.menu.a(this.cjv, this, this.cjw).auy();
             }
         }
     }
 
-    public com.baidu.swan.menu.h ahN() {
-        return this.cht;
+    public com.baidu.swan.menu.h aix() {
+        return this.cjv;
     }
 
-    public void ec(boolean z) {
-        this.ciV = z;
+    public void ea(boolean z) {
+        this.ckW = z;
     }
 
-    public boolean ahO() {
+    public boolean aiy() {
         return !this.mIsForeground;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public void age() {
-        if (this.ciH != null && this.ciH.getV8Engine() != null) {
-            this.ciH.getV8Engine().dispatchEvent(new JSEvent("sharebtn"));
+    public void agO() {
+        if (this.ckI != null && this.ckI.getV8Engine() != null) {
+            this.ckI.getV8Engine().dispatchEvent(new JSEvent("sharebtn"));
         }
     }
 
-    private void ahP() {
-        if (this.cdv) {
+    private void aiz() {
+        if (this.cfw) {
             if (DEBUG) {
                 Log.d("SwanGameFragment", "Fps monitor already started");
                 return;
             }
             return;
         }
-        this.cdv = true;
-        this.ciR = new b();
-        this.ciR.sendEmptyMessage(0);
+        this.cfw = true;
+        this.ckS = new b();
+        this.ckS.sendEmptyMessage(0);
         if (DEBUG) {
             Log.d("SwanGameFragment", "Start fps monitor");
         }
     }
 
-    private void aet() {
-        if (!this.cdv) {
+    private void afd() {
+        if (!this.cfw) {
             if (DEBUG) {
                 Log.d("SwanGameFragment", "fps monitor not started yet");
                 return;
             }
             return;
         }
-        this.cdv = false;
-        if (this.ciR != null) {
-            this.ciR.removeMessages(0);
-            this.ciR = null;
+        this.cfw = false;
+        if (this.ckS != null) {
+            this.ckS.removeMessages(0);
+            this.ckS = null;
         }
         if (DEBUG) {
             Log.d("SwanGameFragment", "Stop fps monitor");
         }
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0432a
-    public com.baidu.swan.apps.res.widget.floatlayer.a XS() {
-        if (this.bRJ == null && this.ciO != null && this.ciO.aQn() != null) {
-            this.bRJ = new com.baidu.swan.apps.res.widget.floatlayer.a(this, this.ciO.aQn(), 0);
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0427a
+    public com.baidu.swan.apps.res.widget.floatlayer.a YB() {
+        if (this.bTJ == null && this.ckP != null && this.ckP.aQZ() != null) {
+            this.bTJ = new com.baidu.swan.apps.res.widget.floatlayer.a(this, this.ckP.aQZ(), 0);
         }
-        return this.bRJ;
+        return this.bTJ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         private b() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (j.this.ciQ != null) {
-                String valueOf = String.valueOf(j.this.ciH == null ? 0 : j.this.ciH.getFPS());
-                j.this.ciQ.setText(valueOf);
+            if (j.this.ckR != null) {
+                String valueOf = String.valueOf(j.this.ckI == null ? 0 : j.this.ckI.getFPS());
+                j.this.ckR.setText(valueOf);
                 if (j.DEBUG) {
                     Log.d("SwanGameFragment", "gameFps:" + valueOf);
                 }
             }
-            j.this.ciR.sendEmptyMessageDelayed(0, 500L);
+            j.this.ckS.sendEmptyMessageDelayed(0, 500L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class a implements AudioManager.OnAudioFocusChangeListener {
         private a() {
         }
@@ -627,7 +628,7 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.d.j.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!j.this.ahQ()) {
+                    if (!j.this.aiA()) {
                         switch (i) {
                             case -2:
                                 if (j.DEBUG) {
@@ -651,17 +652,17 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     }
 
     private void requestAudioFocus() {
-        if (!ahQ() && !this.mHasAudioFocus) {
+        if (!aiA() && !this.mHasAudioFocus) {
             if (this.mAudioManager == null) {
                 this.mAudioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
                 if (this.mAudioManager == null) {
                     return;
                 }
             }
-            if (this.ciS == null) {
-                this.ciS = new a();
+            if (this.ckT == null) {
+                this.ckT = new a();
             }
-            this.mHasAudioFocus = this.mAudioManager.requestAudioFocus(this.ciS, 3, 1) == 1;
+            this.mHasAudioFocus = this.mAudioManager.requestAudioFocus(this.ckT, 3, 1) == 1;
             if (DEBUG) {
                 Log.d("SwanGameFragment", "   requestAudioFocus");
             }
@@ -672,10 +673,10 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     @Override // com.baidu.swan.apps.core.d.c
     public void abandonAudioFocus() {
         if (this.mHasAudioFocus) {
-            if (this.mAudioManager != null && this.ciS != null) {
-                this.mAudioManager.abandonAudioFocus(this.ciS);
+            if (this.mAudioManager != null && this.ckT != null) {
+                this.mAudioManager.abandonAudioFocus(this.ckT);
                 this.mAudioManager = null;
-                this.ciS = null;
+                this.ckT = null;
             }
             this.mHasAudioFocus = false;
             if (DEBUG) {
@@ -685,16 +686,16 @@ public class j extends c implements a.InterfaceC0432a, com.baidu.swan.games.u.a.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ahQ() {
-        com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        boolean booleanValue = azI != null ? azI.aAa().b("key_audio_is_mix_with_other", (Boolean) false).booleanValue() : false;
+    public boolean aiA() {
+        com.baidu.swan.apps.runtime.e aAr = com.baidu.swan.apps.runtime.e.aAr();
+        boolean booleanValue = aAr != null ? aAr.aAJ().b("key_audio_is_mix_with_other", (Boolean) false).booleanValue() : false;
         if (DEBUG) {
             Log.d("SwanGameFragment", "   isMixWithOther -> " + booleanValue);
         }
         return booleanValue;
     }
 
-    public View ahR() {
+    public View aiB() {
         return this.mMenu;
     }
 }

@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class g<TResult> {
     private static volatile a Al;
     private Exception Am;
@@ -25,7 +25,7 @@ public class g<TResult> {
     private final Object lock = new Object();
     private List<f<TResult, Void>> Ap = new ArrayList();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a(g<?> gVar, UnobservedTaskException unobservedTaskException);
     }

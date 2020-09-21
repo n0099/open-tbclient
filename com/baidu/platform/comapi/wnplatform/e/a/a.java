@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.wnplatform.e.a;
 
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private StringBuilder a = new StringBuilder();
     private boolean b = false;

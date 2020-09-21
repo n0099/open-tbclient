@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi;
 
 import com.baidu.mapapi.map.BaiduMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements Runnable {
     final /* synthetic */ b a;
 

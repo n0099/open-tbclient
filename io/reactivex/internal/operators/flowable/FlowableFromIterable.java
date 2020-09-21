@@ -4,21 +4,21 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
-    final Iterable<? extends T> onr;
+    final Iterable<? extends T> oxa;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super T> cVar) {
+    public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.onr.iterator());
+            a(cVar, this.oxa.iterator());
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    public static <T> void a(org.b.c<? super T> cVar, Iterator<? extends T> it) {
+    public static <T> void a(org.a.c<? super T> cVar, Iterator<? extends T> it) {
         try {
             if (!it.hasNext()) {
                 EmptySubscription.complete(cVar);
@@ -33,7 +33,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -76,7 +76,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
             this.it = null;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
@@ -87,19 +87,19 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void cancel() {
             this.cancelled = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
 
-        IteratorSubscription(org.b.c<? super T> cVar, Iterator<? extends T> it) {
+        IteratorSubscription(org.a.c<? super T> cVar, Iterator<? extends T> it) {
             super(it);
             this.actual = cVar;
         }
@@ -107,7 +107,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
         @Override // io.reactivex.internal.operators.flowable.FlowableFromIterable.BaseRangeSubscription
         void fastPath() {
             Iterator<? extends T> it = this.it;
-            org.b.c<? super T> cVar = this.actual;
+            org.a.c<? super T> cVar = this.actual;
             while (!this.cancelled) {
                 try {
                     Object obj = (T) it.next();
@@ -148,7 +148,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
         @Override // io.reactivex.internal.operators.flowable.FlowableFromIterable.BaseRangeSubscription
         void slowPath(long j) {
             Iterator<? extends T> it = this.it;
-            org.b.c<? super T> cVar = this.actual;
+            org.a.c<? super T> cVar = this.actual;
             long j2 = 0;
             while (true) {
                 if (j2 != j) {
@@ -207,7 +207,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final io.reactivex.internal.a.a<? super T> actual;

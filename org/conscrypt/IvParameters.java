@@ -5,19 +5,19 @@ import java.security.AlgorithmParametersSpi;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class IvParameters extends AlgorithmParametersSpi {
     private byte[] iv;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public static class AES extends IvParameters {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public static class ChaCha20 extends IvParameters {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public static class DESEDE extends IvParameters {
     }
 

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static String o = "BDLocConfigManager";
     public boolean a;
@@ -40,7 +40,7 @@ public class a {
     private SharedPreferences p;
     private long q;
     private String r;
-    private C0204a s;
+    private C0203a s;
     private boolean t;
     private String u;
     private String v;
@@ -48,12 +48,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0204a extends com.baidu.location.e.f {
+    /* loaded from: classes3.dex */
+    public class C0203a extends com.baidu.location.e.f {
         String a = null;
         boolean b = false;
 
-        public C0204a() {
+        public C0203a() {
             this.k = new HashMap();
         }
 
@@ -96,7 +96,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static final a a = new a();
     }
@@ -167,7 +167,7 @@ public class a {
             }
         }
         if (this.s == null) {
-            this.s = new C0204a();
+            this.s = new C0203a();
         }
         this.s.a(str3);
     }

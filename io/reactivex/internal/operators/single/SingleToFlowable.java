@@ -5,8 +5,8 @@ import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.y;
-import org.b.c;
-/* loaded from: classes7.dex */
+import org.a.c;
+/* loaded from: classes25.dex */
 public final class SingleToFlowable<T> extends g<T> {
     final aa<? extends T> source;
 
@@ -19,7 +19,7 @@ public final class SingleToFlowable<T> extends g<T> {
         this.source.a(new SingleToFlowableObserver(cVar));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements y<T> {
         private static final long serialVersionUID = 187782011903685568L;
         io.reactivex.disposables.b d;
@@ -46,7 +46,7 @@ public final class SingleToFlowable<T> extends g<T> {
             this.actual.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.d.dispose();

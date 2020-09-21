@@ -14,26 +14,26 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.i;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class HotTopicPkView extends View {
     private int ds30;
-    private boolean fir;
+    private boolean flj;
     private boolean isLeft;
-    private int jch;
-    private int jci;
-    private int jcj;
-    private int jck;
-    private Drawable jcl;
-    private Drawable jcm;
-    private Drawable jcn;
-    private int jco;
-    private int jcp;
-    private int jcq;
-    private int jcr;
-    private RectF jcs;
-    private RectF jct;
-    private i jcu;
-    private HotTopicActivity jcv;
+    private int jkN;
+    private int jkO;
+    private int jkP;
+    private int jkQ;
+    private Drawable jkR;
+    private Drawable jkS;
+    private Drawable jkT;
+    private int jkU;
+    private int jkV;
+    private int jkW;
+    private int jkX;
+    private RectF jkY;
+    private RectF jkZ;
+    private i jla;
+    private HotTopicActivity jlb;
     private int mSkinType;
     private Paint paint;
     private int width;
@@ -41,7 +41,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.fir = false;
+        this.flj = false;
         this.isLeft = false;
         init(context);
     }
@@ -49,7 +49,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fir = false;
+        this.flj = false;
         this.isLeft = false;
         init(context);
     }
@@ -57,7 +57,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fir = false;
+        this.flj = false;
         this.isLeft = false;
         init(context);
     }
@@ -68,42 +68,42 @@ public class HotTopicPkView extends View {
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
         this.ds30 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
-        cAA();
-        this.jcn = ap.getDrawable(R.drawable.icon_pic_vs);
-        this.jco = this.jcl.getIntrinsicWidth();
-        this.jcp = this.jcl.getIntrinsicHeight();
-        this.jcq = this.jcn.getIntrinsicWidth();
-        this.jcr = this.jcn.getIntrinsicHeight();
-        this.jcs = new RectF(0.0f, 0.0f, this.jco, this.jcp);
-        this.jck = (this.jcp - this.jcr) / 2;
+        cEh();
+        this.jkT = ap.getDrawable(R.drawable.icon_pic_vs);
+        this.jkU = this.jkR.getIntrinsicWidth();
+        this.jkV = this.jkR.getIntrinsicHeight();
+        this.jkW = this.jkT.getIntrinsicWidth();
+        this.jkX = this.jkT.getIntrinsicHeight();
+        this.jkY = new RectF(0.0f, 0.0f, this.jkU, this.jkV);
+        this.jkQ = (this.jkV - this.jkX) / 2;
     }
 
     public void setData(i iVar, HotTopicActivity hotTopicActivity) {
         if (iVar != null && hotTopicActivity != null) {
-            this.jcu = iVar;
-            this.jcv = hotTopicActivity;
+            this.jla = iVar;
+            this.jlb = hotTopicActivity;
             invalidate();
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.jcu.iYQ != 0) {
+        if (this.jla.jhv != 0) {
             return true;
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.jcs.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.jcu.iZG++;
-                    this.jcu.iYQ = 1;
-                } else if (this.jct.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.jcu.iZJ++;
-                    this.jcu.iYQ = 2;
+                if (this.jkY.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.jla.jim++;
+                    this.jla.jhv = 1;
+                } else if (this.jkZ.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.jla.jip++;
+                    this.jla.jhv = 2;
                 }
-                cAA();
-                if (this.jcu.iYQ != 0) {
-                    if (this.jcu.iZG + this.jcu.iZJ > 50) {
-                        this.fir = true;
+                cEh();
+                if (this.jla.jhv != 0) {
+                    if (this.jla.jim + this.jla.jip > 50) {
+                        this.flj = true;
                         new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.HotTopicPkView.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -114,14 +114,14 @@ public class HotTopicPkView extends View {
                                     } catch (InterruptedException e) {
                                     }
                                 }
-                                HotTopicPkView.this.fir = false;
+                                HotTopicPkView.this.flj = false;
                                 HotTopicPkView.this.postInvalidate();
                             }
                         }).start();
                     } else {
                         invalidate();
                     }
-                    this.jcv.czI();
+                    this.jlb.cDp();
                     return true;
                 }
                 return true;
@@ -133,12 +133,12 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.jch = this.jcp;
+        this.jkN = this.jkV;
         this.width = View.MeasureSpec.getSize(i);
-        setMeasuredDimension(this.width, this.jch + this.ds30);
-        this.jci = (this.width - (this.jco * 2)) - 100;
-        if (this.jct == null) {
-            this.jct = new RectF(this.width - this.jco, 0.0f, this.width, this.jch);
+        setMeasuredDimension(this.width, this.jkN + this.ds30);
+        this.jkO = (this.width - (this.jkU * 2)) - 100;
+        if (this.jkZ == null) {
+            this.jkZ = new RectF(this.width - this.jkU, 0.0f, this.width, this.jkN);
         }
     }
 
@@ -152,80 +152,80 @@ public class HotTopicPkView extends View {
     }
 
     private void V(Canvas canvas) {
-        if (this.jcu.iZG == 0 && this.jcu.iZJ == 0) {
-            this.jcj = (int) ((0.5d * this.jci) + this.jco + 50.0d);
+        if (this.jla.jim == 0 && this.jla.jip == 0) {
+            this.jkP = (int) ((0.5d * this.jkO) + this.jkU + 50.0d);
         } else {
-            this.jcj = (int) (((((float) this.jcu.iZG) / ((float) (this.jcu.iZG + this.jcu.iZJ))) * this.jci) + this.jco + 50.0f);
+            this.jkP = (int) (((((float) this.jla.jim) / ((float) (this.jla.jim + this.jla.jip))) * this.jkO) + this.jkU + 50.0f);
         }
-        if (this.jcu.iYQ == 2) {
+        if (this.jla.jhv == 2) {
             this.paint.setColor(ap.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.paint.setColor(ap.getColor(R.color.cp_other_b));
         }
-        canvas.drawRect(this.jco / 2.0f, this.jck, this.jcj, this.jch - this.jck, this.paint);
-        if (this.jcu.iYQ == 1) {
+        canvas.drawRect(this.jkU / 2.0f, this.jkQ, this.jkP, this.jkN - this.jkQ, this.paint);
+        if (this.jla.jhv == 1) {
             this.paint.setColor(ap.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.paint.setColor(ap.getColor(R.color.cp_link_tip_a));
         }
-        canvas.drawRect(this.jcj, this.jck, this.width - (this.jco / 2.0f), this.jch - this.jck, this.paint);
+        canvas.drawRect(this.jkP, this.jkQ, this.width - (this.jkU / 2.0f), this.jkN - this.jkQ, this.paint);
     }
 
     private void W(Canvas canvas) {
-        cAA();
-        this.jcl.setBounds(0, 0, this.jco, this.jcp);
-        this.jcl.draw(canvas);
-        this.jcm.setBounds(this.width - this.jco, 0, this.width, this.jcp);
-        this.jcm.draw(canvas);
+        cEh();
+        this.jkR.setBounds(0, 0, this.jkU, this.jkV);
+        this.jkR.draw(canvas);
+        this.jkS.setBounds(this.width - this.jkU, 0, this.width, this.jkV);
+        this.jkS.draw(canvas);
     }
 
     private void X(Canvas canvas) {
-        this.jcn = ap.getDrawable(R.drawable.icon_pic_vs);
-        if (this.fir) {
+        this.jkT = ap.getDrawable(R.drawable.icon_pic_vs);
+        if (this.flj) {
             if (this.isLeft) {
-                this.jcn.setBounds((this.jcj - (this.jcq / 2)) - 3, this.jck, ((this.jcj - (this.jcq / 2)) - 3) + this.jcq, this.jck + this.jcr);
-                this.jcn.draw(canvas);
+                this.jkT.setBounds((this.jkP - (this.jkW / 2)) - 3, this.jkQ, ((this.jkP - (this.jkW / 2)) - 3) + this.jkW, this.jkQ + this.jkX);
+                this.jkT.draw(canvas);
             } else {
-                this.jcn.setBounds((this.jcj - (this.jcq / 2)) + 3, this.jck, (this.jcj - (this.jcq / 2)) + 3 + this.jcq, this.jck + this.jcr);
-                this.jcn.draw(canvas);
+                this.jkT.setBounds((this.jkP - (this.jkW / 2)) + 3, this.jkQ, (this.jkP - (this.jkW / 2)) + 3 + this.jkW, this.jkQ + this.jkX);
+                this.jkT.draw(canvas);
             }
             this.isLeft = !this.isLeft;
             return;
         }
-        this.jcn.setBounds(this.jcj - (this.jcq / 2), this.jck, (this.jcj - (this.jcq / 2)) + this.jcq, this.jck + this.jcr);
-        this.jcn.draw(canvas);
+        this.jkT.setBounds(this.jkP - (this.jkW / 2), this.jkQ, (this.jkP - (this.jkW / 2)) + this.jkW, this.jkQ + this.jkX);
+        this.jkT.draw(canvas);
     }
 
     private void C(Canvas canvas) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds25);
         this.paint.setTextSize(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        if (this.jcu.iYQ == 2) {
+        if (this.jla.jhv == 2) {
             this.paint.setColor(ap.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.paint.setColor(ap.getColor(R.color.cp_other_b));
         }
-        canvas.drawText(at.numberUniformFormat(this.jcu.iZG), this.jco, this.jch + dimensionPixelSize, this.paint);
-        if (this.jcu.iYQ == 1) {
+        canvas.drawText(at.numberUniformFormat(this.jla.jim), this.jkU, this.jkN + dimensionPixelSize, this.paint);
+        if (this.jla.jhv == 1) {
             this.paint.setColor(ap.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.paint.setColor(ap.getColor(R.color.cp_link_tip_a));
         }
-        canvas.drawText(at.numberUniformFormat(this.jcu.iZJ), (this.width - this.jco) - ((int) this.paint.measureText(at.numberUniformFormat(this.jcu.iZJ))), dimensionPixelSize + this.jch, this.paint);
+        canvas.drawText(at.numberUniformFormat(this.jla.jip), (this.width - this.jkU) - ((int) this.paint.measureText(at.numberUniformFormat(this.jla.jip))), dimensionPixelSize + this.jkN, this.paint);
     }
 
-    private void cAA() {
-        if (this.jcu == null) {
-            this.jcl = ap.getDrawable(R.drawable.icon_pk_red_n);
-            this.jcm = ap.getDrawable(R.drawable.icon_pk_blule_n);
-        } else if (this.jcu.iYQ == 1) {
-            this.jcl = ap.getDrawable(R.drawable.icon_pk_red_s);
-            this.jcm = ap.getDrawable(R.drawable.icon_pk_blule_d);
-        } else if (this.jcu.iYQ == 2) {
-            this.jcm = ap.getDrawable(R.drawable.icon_pk_blule_s);
-            this.jcl = ap.getDrawable(R.drawable.icon_pk_red_d);
+    private void cEh() {
+        if (this.jla == null) {
+            this.jkR = ap.getDrawable(R.drawable.icon_pk_red_n);
+            this.jkS = ap.getDrawable(R.drawable.icon_pk_blule_n);
+        } else if (this.jla.jhv == 1) {
+            this.jkR = ap.getDrawable(R.drawable.icon_pk_red_s);
+            this.jkS = ap.getDrawable(R.drawable.icon_pk_blule_d);
+        } else if (this.jla.jhv == 2) {
+            this.jkS = ap.getDrawable(R.drawable.icon_pk_blule_s);
+            this.jkR = ap.getDrawable(R.drawable.icon_pk_red_d);
         } else {
-            this.jcl = ap.getDrawable(R.drawable.icon_pk_red_n);
-            this.jcm = ap.getDrawable(R.drawable.icon_pk_blule_n);
+            this.jkR = ap.getDrawable(R.drawable.icon_pk_red_n);
+            this.jkS = ap.getDrawable(R.drawable.icon_pk_blule_n);
         }
     }
 }

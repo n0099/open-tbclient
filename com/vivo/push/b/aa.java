@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class aa extends com.vivo.push.y {
     private HashMap<String, String> a;
     private long b;

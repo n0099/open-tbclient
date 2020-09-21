@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static Intent a(Context context) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");

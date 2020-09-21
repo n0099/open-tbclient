@@ -8,16 +8,16 @@ import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private PushDialogActivity lyE;
+    private PushDialogActivity lHu;
     private long taskId;
     private String tid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PushDialogActivity pushDialogActivity) {
-        this.lyE = pushDialogActivity;
-        this.lyE.registerListener(new com.baidu.adp.framework.listener.a(1003412, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
+        this.lHu = pushDialogActivity;
+        this.lHu.registerListener(new com.baidu.adp.framework.listener.a(1003412, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
@@ -27,12 +27,12 @@ public class a {
                 }
             }
         });
-        Intent intent = this.lyE.getIntent();
+        Intent intent = this.lHu.getIntent();
         if (intent != null) {
             this.tid = intent.getStringExtra("thread_id");
             this.taskId = intent.getLongExtra("task_id", 0L);
             if (StringUtils.isNull(this.tid)) {
-                this.lyE.finish();
+                this.lHu.finish();
             }
         }
     }
@@ -41,8 +41,8 @@ public class a {
     public void loadData() {
         long j = com.baidu.adp.lib.f.b.toLong(this.tid, 0L);
         if (j == 0) {
-            if (this.lyE != null) {
-                this.lyE.a(false, null);
+            if (this.lHu != null) {
+                this.lHu.a(false, null);
                 return;
             }
             return;
@@ -55,15 +55,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.lyE != null) {
-            this.lyE.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (this.lHu != null) {
+            this.lHu.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.lyE != null) {
-            this.lyE.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        if (this.lHu != null) {
+            this.lHu.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 

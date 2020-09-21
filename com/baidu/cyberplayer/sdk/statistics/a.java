@@ -5,7 +5,7 @@ import android.content.pm.PackageManager;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static a a;
     private boolean c = false;

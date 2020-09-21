@@ -3,26 +3,26 @@ package com.baidu.swan.apps.inlinewidget.b;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.b.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.swan.apps.inlinewidget.b<a> {
     public b(@NonNull a aVar) {
         super(aVar);
-        ((a) this.ctm).a(new a.InterfaceC0407a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0407a
+        ((a) this.cvs).a(new a.InterfaceC0402a() { // from class: com.baidu.swan.apps.inlinewidget.b.b.1
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0402a
             public void z(Bundle bundle) {
-                if (b.this.ctl != null) {
-                    b.this.ctl.onCallback(b.this, "onMediaMetadataExtracted", bundle);
+                if (b.this.cvr != null) {
+                    b.this.cvr.onCallback(b.this, "onMediaMetadataExtracted", bundle);
                 }
             }
 
-            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0407a
+            @Override // com.baidu.swan.apps.inlinewidget.b.a.InterfaceC0402a
             public void onRelease() {
-                if (b.this.ctl != null) {
-                    b.this.ctl = null;
+                if (b.this.cvr != null) {
+                    b.this.cvr = null;
                 }
             }
         });
-        this.ctk.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
-        this.ctk.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
+        this.cvq.a(new com.baidu.swan.apps.inlinewidget.b.a.a());
+        this.cvq.a(new com.baidu.swan.apps.inlinewidget.b.a.b());
     }
 }

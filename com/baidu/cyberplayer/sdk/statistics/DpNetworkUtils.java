@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;

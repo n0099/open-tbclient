@@ -6,185 +6,185 @@ public final class b {
 
     /* loaded from: classes5.dex */
     public static final class a {
-        public static final int zues_filter_slide_in_top_anim = 2130968934;
-        public static final int zues_filter_slide_out_top_anim = 2130968935;
-        public static final int zues_scalein_end = 2130968936;
-        public static final int zues_scalein_switch = 2130968937;
-        public static final int zues_sweetalert_error_frame_in = 2130968938;
-        public static final int zues_sweetalert_error_x_in = 2130968939;
-        public static final int zues_sweetalert_modal_in = 2130968940;
-        public static final int zues_sweetalert_modal_out = 2130968941;
-        public static final int zues_sweetalert_success_bow_roate = 2130968942;
-        public static final int zues_sweetalert_success_mask_layout = 2130968943;
+        public static final int zues_filter_slide_in_top_anim = 2131034482;
+        public static final int zues_filter_slide_out_top_anim = 2131034483;
+        public static final int zues_scalein_end = 2131034484;
+        public static final int zues_scalein_switch = 2131034485;
+        public static final int zues_sweetalert_error_frame_in = 2131034486;
+        public static final int zues_sweetalert_error_x_in = 2131034487;
+        public static final int zues_sweetalert_modal_in = 2131034488;
+        public static final int zues_sweetalert_modal_out = 2131034489;
+        public static final int zues_sweetalert_success_bow_roate = 2131034490;
+        public static final int zues_sweetalert_success_mask_layout = 2131034491;
     }
 
     /* renamed from: tv.chushou.zues.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1008b {
-        public static final int error_stroke_color = 2131428997;
-        public static final int float_transparent = 2131429004;
-        public static final int kas_btn_bg_color = 2131429108;
-        public static final int kas_btn_bg_pressed_color = 2131429109;
-        public static final int red_btn_bg_color = 2131429300;
-        public static final int red_btn_bg_pressed_color = 2131429301;
-        public static final int status_color_dark = 2131430012;
-        public static final int status_color_lignt = 2131430013;
-        public static final int success_stroke_color = 2131430036;
-        public static final int sweet_dialog_bg_color = 2131430120;
-        public static final int trans_success_stroke_color = 2131430199;
-        public static final int warning_stroke_color = 2131430422;
-        public static final int zues_00A699 = 2131430452;
-        public static final int zues_484848 = 2131430453;
-        public static final int zues_deepgray = 2131430454;
-        public static final int zues_default_placeholder_bg = 2131430455;
-        public static final int zues_psts_tab_bg_pressed = 2131430456;
-        public static final int zues_red = 2131430457;
-        public static final int zues_red_normal = 2131430458;
-        public static final int zues_text_color = 2131430459;
-        public static final int zues_white = 2131430460;
+    public static final class C1005b {
+        public static final int error_stroke_color = 2131494536;
+        public static final int float_transparent = 2131494543;
+        public static final int kas_btn_bg_color = 2131494647;
+        public static final int kas_btn_bg_pressed_color = 2131494648;
+        public static final int red_btn_bg_color = 2131494839;
+        public static final int red_btn_bg_pressed_color = 2131494840;
+        public static final int status_color_dark = 2131495564;
+        public static final int status_color_lignt = 2131495565;
+        public static final int success_stroke_color = 2131495588;
+        public static final int sweet_dialog_bg_color = 2131495669;
+        public static final int trans_success_stroke_color = 2131495749;
+        public static final int warning_stroke_color = 2131495972;
+        public static final int zues_00A699 = 2131496002;
+        public static final int zues_484848 = 2131496003;
+        public static final int zues_deepgray = 2131496004;
+        public static final int zues_default_placeholder_bg = 2131496005;
+        public static final int zues_psts_tab_bg_pressed = 2131496006;
+        public static final int zues_red = 2131496007;
+        public static final int zues_red_normal = 2131496008;
+        public static final int zues_text_color = 2131496009;
+        public static final int zues_white = 2131496010;
     }
 
     /* loaded from: classes5.dex */
     public static final class c {
-        public static final int zues_alert_spac_h = 2131298927;
-        public static final int zues_alert_width = 2131298928;
-        public static final int zues_common_circle_width = 2131298929;
-        public static final int zues_dlg_radius_size_4 = 2131298930;
-        public static final int zues_gift_layout_avatar_size = 2131298931;
-        public static final int zues_gift_layout_frame_size = 2131298932;
-        public static final int zues_keyboard_pannel_max_height = 2131298933;
-        public static final int zues_keyboard_pannel_min_height = 2131298934;
-        public static final int zues_psts_image_height = 2131298935;
-        public static final int zues_psts_image_width = 2131298936;
-        public static final int zues_psts_red_image_dot_size = 2131298937;
-        public static final int zues_psts_red_text_dot_padding = 2131298938;
-        public static final int zues_psts_red_text_dot_size = 2131298939;
-        public static final int zues_psts_text_draw_padding = 2131298940;
+        public static final int zues_alert_spac_h = 2131364480;
+        public static final int zues_alert_width = 2131364481;
+        public static final int zues_common_circle_width = 2131364482;
+        public static final int zues_dlg_radius_size_4 = 2131364483;
+        public static final int zues_gift_layout_avatar_size = 2131364484;
+        public static final int zues_gift_layout_frame_size = 2131364485;
+        public static final int zues_keyboard_pannel_max_height = 2131364486;
+        public static final int zues_keyboard_pannel_min_height = 2131364487;
+        public static final int zues_psts_image_height = 2131364488;
+        public static final int zues_psts_image_width = 2131364489;
+        public static final int zues_psts_red_image_dot_size = 2131364490;
+        public static final int zues_psts_red_text_dot_padding = 2131364491;
+        public static final int zues_psts_red_text_dot_size = 2131364492;
+        public static final int zues_psts_text_draw_padding = 2131364493;
     }
 
     /* loaded from: classes5.dex */
     public static final class d {
-        public static final int zues_bg_cancel_selector = 2130845999;
-        public static final int zues_bg_confirm_selector = 2130846000;
-        public static final int zues_bg_onebt_selector = 2130846001;
-        public static final int zues_bg_red_dot_rectangle = 2130846002;
-        public static final int zues_btn_gift_icon = 2130846003;
-        public static final int zues_default_gift_color = 2130846004;
-        public static final int zues_icon_0 = 2130846005;
-        public static final int zues_icon_1 = 2130846006;
-        public static final int zues_icon_2 = 2130846007;
-        public static final int zues_icon_3 = 2130846008;
-        public static final int zues_icon_4 = 2130846009;
-        public static final int zues_icon_5 = 2130846010;
-        public static final int zues_icon_6 = 2130846011;
-        public static final int zues_icon_7 = 2130846012;
-        public static final int zues_icon_8 = 2130846013;
-        public static final int zues_icon_9 = 2130846014;
-        public static final int zues_icon_x_n = 2130846015;
-        public static final int zues_psts_dot_bg = 2130846016;
-        public static final int zues_psts_tab_background = 2130846017;
-        public static final int zues_psts_text_red_dot = 2130846018;
-        public static final int zues_show_gift_animation = 2130846019;
-        public static final int zues_sweetalert_dialog_background = 2130846020;
-        public static final int zues_sweetalert_dialog_background_input = 2130846021;
-        public static final int zues_sweetalert_error_center_x = 2130846022;
-        public static final int zues_sweetalert_error_circle = 2130846023;
-        public static final int zues_sweetalert_kas_button_background = 2130846024;
-        public static final int zues_sweetalert_red_button_background = 2130846025;
-        public static final int zues_sweetalert_success_bow = 2130846026;
-        public static final int zues_sweetalert_success_circle = 2130846027;
-        public static final int zues_sweetalert_warning_circle = 2130846028;
-        public static final int zues_sweetalert_warning_sigh = 2130846029;
-        public static final int zues_sweetalert_white_button_background = 2130846030;
+        public static final int zues_bg_cancel_selector = 2130846073;
+        public static final int zues_bg_confirm_selector = 2130846074;
+        public static final int zues_bg_onebt_selector = 2130846075;
+        public static final int zues_bg_red_dot_rectangle = 2130846076;
+        public static final int zues_btn_gift_icon = 2130846077;
+        public static final int zues_default_gift_color = 2130846078;
+        public static final int zues_icon_0 = 2130846079;
+        public static final int zues_icon_1 = 2130846080;
+        public static final int zues_icon_2 = 2130846081;
+        public static final int zues_icon_3 = 2130846082;
+        public static final int zues_icon_4 = 2130846083;
+        public static final int zues_icon_5 = 2130846084;
+        public static final int zues_icon_6 = 2130846085;
+        public static final int zues_icon_7 = 2130846086;
+        public static final int zues_icon_8 = 2130846087;
+        public static final int zues_icon_9 = 2130846088;
+        public static final int zues_icon_x_n = 2130846089;
+        public static final int zues_psts_dot_bg = 2130846090;
+        public static final int zues_psts_tab_background = 2130846091;
+        public static final int zues_psts_text_red_dot = 2130846092;
+        public static final int zues_show_gift_animation = 2130846093;
+        public static final int zues_sweetalert_dialog_background = 2130846094;
+        public static final int zues_sweetalert_dialog_background_input = 2130846095;
+        public static final int zues_sweetalert_error_center_x = 2130846096;
+        public static final int zues_sweetalert_error_circle = 2130846097;
+        public static final int zues_sweetalert_kas_button_background = 2130846098;
+        public static final int zues_sweetalert_red_button_background = 2130846099;
+        public static final int zues_sweetalert_success_bow = 2130846100;
+        public static final int zues_sweetalert_success_circle = 2130846101;
+        public static final int zues_sweetalert_warning_circle = 2130846102;
+        public static final int zues_sweetalert_warning_sigh = 2130846103;
+        public static final int zues_sweetalert_white_button_background = 2130846104;
     }
 
     /* loaded from: classes5.dex */
     public static final class e {
-        public static final int cancel_button = 2131692272;
-        public static final int center = 2131689839;
-        public static final int centerCrop = 2131689951;
-        public static final int centerInside = 2131689952;
-        public static final int confirm_button = 2131690818;
-        public static final int content_text = 2131696748;
-        public static final int custom_image = 2131700799;
-        public static final int error_frame = 2131700800;
-        public static final int error_x = 2131700801;
-        public static final int et_input = 2131699130;
-        public static final int fitBottomStart = 2131689953;
-        public static final int fitCenter = 2131689954;
-        public static final int fitEnd = 2131689955;
-        public static final int fitStart = 2131689956;
-        public static final int fitXY = 2131689957;
-        public static final int fl_gift = 2131700808;
-        public static final int focusCrop = 2131689958;
-        public static final int iv_gift_bg = 2131700809;
-        public static final int iv_gift_icon = 2131697935;
-        public static final int iv_gift_user = 2131700811;
-        public static final int iv_gift_user_frame = 2131700812;
-        public static final int ll_numb = 2131700815;
-        public static final int load_more_description = 2131700798;
-        public static final int loading = 2131689911;
-        public static final int mask_left = 2131698816;
-        public static final int mask_right = 2131698817;
-        public static final int middle_btn = 2131700807;
-        public static final int none = 2131689863;
-        public static final int normal = 2131689872;
-        public static final int progress_dialog = 2131700805;
-        public static final int rl_user_avatar = 2131700810;
-        public static final int success_frame = 2131700802;
-        public static final int success_tick = 2131700803;
-        public static final int text = 2131689805;
-        public static final int title_text = 2131690402;
-        public static final int tv_gift_desc = 2131697939;
-        public static final int tv_gift_user = 2131700814;
-        public static final int tv_text_content = 2131700813;
-        public static final int vertial_view = 2131700806;
-        public static final int warning_frame = 2131700804;
-        public static final int warp = 2131689976;
-        public static final int weight = 2131689977;
-        public static final int x = 2131689982;
-        public static final int y = 2131689983;
-        public static final int z = 2131689984;
-        public static final int zues_fresco_url_tag = 2131689827;
-        public static final int zues_psts_tab_tag = 2131689828;
-        public static final int zues_swiperefresh_recyclerview = 2131689829;
-        public static final int zues_viewholder_tag = 2131689830;
+        public static final int cancel_button = 2131757849;
+        public static final int center = 2131755371;
+        public static final int centerCrop = 2131755483;
+        public static final int centerInside = 2131755484;
+        public static final int confirm_button = 2131756368;
+        public static final int content_text = 2131762363;
+        public static final int custom_image = 2131766553;
+        public static final int error_frame = 2131766554;
+        public static final int error_x = 2131766555;
+        public static final int et_input = 2131764705;
+        public static final int fitBottomStart = 2131755485;
+        public static final int fitCenter = 2131755486;
+        public static final int fitEnd = 2131755487;
+        public static final int fitStart = 2131755488;
+        public static final int fitXY = 2131755489;
+        public static final int fl_gift = 2131766562;
+        public static final int focusCrop = 2131755490;
+        public static final int iv_gift_bg = 2131766563;
+        public static final int iv_gift_icon = 2131763596;
+        public static final int iv_gift_user = 2131766565;
+        public static final int iv_gift_user_frame = 2131766566;
+        public static final int ll_numb = 2131766569;
+        public static final int load_more_description = 2131766552;
+        public static final int loading = 2131755443;
+        public static final int mask_left = 2131764544;
+        public static final int mask_right = 2131764545;
+        public static final int middle_btn = 2131766561;
+        public static final int none = 2131755395;
+        public static final int normal = 2131755404;
+        public static final int progress_dialog = 2131766559;
+        public static final int rl_user_avatar = 2131766564;
+        public static final int success_frame = 2131766556;
+        public static final int success_tick = 2131766557;
+        public static final int text = 2131755336;
+        public static final int title_text = 2131755940;
+        public static final int tv_gift_desc = 2131763600;
+        public static final int tv_gift_user = 2131766568;
+        public static final int tv_text_content = 2131766567;
+        public static final int vertial_view = 2131766560;
+        public static final int warning_frame = 2131766558;
+        public static final int warp = 2131755508;
+        public static final int weight = 2131755509;
+        public static final int x = 2131755514;
+        public static final int y = 2131755515;
+        public static final int z = 2131755516;
+        public static final int zues_fresco_url_tag = 2131755359;
+        public static final int zues_psts_tab_tag = 2131755360;
+        public static final int zues_swiperefresh_recyclerview = 2131755361;
+        public static final int zues_viewholder_tag = 2131755362;
     }
 
     /* loaded from: classes5.dex */
     public static final class f {
-        public static final int zues_recyclerview_load_more_footer = 2130905676;
-        public static final int zues_sweetalert_dialog = 2130905677;
-        public static final int zues_sweetalert_dialog_three_btn = 2130905678;
-        public static final int zues_sweetalert_dialog_withinput = 2130905679;
-        public static final int zues_widget_play_show_gift_item = 2130905680;
+        public static final int zues_recyclerview_load_more_footer = 2130971250;
+        public static final int zues_sweetalert_dialog = 2130971251;
+        public static final int zues_sweetalert_dialog_three_btn = 2130971252;
+        public static final int zues_sweetalert_dialog_withinput = 2130971253;
+        public static final int zues_widget_play_show_gift_item = 2130971254;
     }
 
     /* loaded from: classes5.dex */
     public static final class g {
-        public static final int app_name = 2131231836;
-        public static final int str_input_nickname = 2131236539;
-        public static final int zues_dynamics_time_format_01 = 2131237869;
-        public static final int zues_dynamics_time_format_02 = 2131237870;
-        public static final int zues_dynamics_time_format_03 = 2131237871;
-        public static final int zues_dynamics_time_format_07 = 2131237872;
-        public static final int zues_dynamics_time_format_08 = 2131237873;
-        public static final int zues_dynamics_time_format_10 = 2131237874;
-        public static final int zues_load_more_loading = 2131237875;
-        public static final int zues_str_bai_wan = 2131237876;
-        public static final int zues_str_day_ago = 2131237877;
-        public static final int zues_str_hour_ago = 2131237878;
-        public static final int zues_str_min_ago = 2131237879;
-        public static final int zues_str_qian = 2131237880;
-        public static final int zues_str_wan = 2131237881;
-        public static final int zues_str_yi = 2131237882;
+        public static final int app_name = 2131297397;
+        public static final int str_input_nickname = 2131302171;
+        public static final int zues_dynamics_time_format_01 = 2131303503;
+        public static final int zues_dynamics_time_format_02 = 2131303504;
+        public static final int zues_dynamics_time_format_03 = 2131303505;
+        public static final int zues_dynamics_time_format_07 = 2131303506;
+        public static final int zues_dynamics_time_format_08 = 2131303507;
+        public static final int zues_dynamics_time_format_10 = 2131303508;
+        public static final int zues_load_more_loading = 2131303509;
+        public static final int zues_str_bai_wan = 2131303510;
+        public static final int zues_str_day_ago = 2131303511;
+        public static final int zues_str_hour_ago = 2131303512;
+        public static final int zues_str_min_ago = 2131303513;
+        public static final int zues_str_qian = 2131303514;
+        public static final int zues_str_wan = 2131303515;
+        public static final int zues_str_yi = 2131303516;
     }
 
     /* loaded from: classes5.dex */
     public static final class h {
-        public static final int zues_alert_dialog = 2131362599;
-        public static final int zues_dialog_white_button = 2131362600;
-        public static final int zues_littlebig_deepgray_normal = 2131362601;
+        public static final int zues_alert_dialog = 2131428141;
+        public static final int zues_dialog_white_button = 2131428142;
+        public static final int zues_littlebig_deepgray_normal = 2131428143;
     }
 
     /* loaded from: classes5.dex */

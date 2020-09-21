@@ -6,7 +6,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableSkipLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -15,26 +15,26 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
     final TimeUnit unit;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new SkipLastTimedSubscriber(cVar, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes7.dex */
-    static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class SkipLastTimedSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -5677354903406201275L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         volatile boolean cancelled;
         final boolean delayError;
         volatile boolean done;
         Throwable error;
         final io.reactivex.internal.queue.a<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        org.b.d s;
+        org.a.d s;
         final v scheduler;
         final long time;
         final TimeUnit unit;
 
-        SkipLastTimedSubscriber(org.b.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar, int i, boolean z) {
+        SkipLastTimedSubscriber(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v vVar, int i, boolean z) {
             this.actual = cVar;
             this.time = j;
             this.unit = timeUnit;
@@ -43,8 +43,8 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
             this.delayError = z;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -52,26 +52,26 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             this.queue.offer(Long.valueOf(this.scheduler.a(this.unit)), t);
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             drain();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -79,7 +79,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -94,7 +94,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
             long j;
             if (getAndIncrement() == 0) {
                 int i = 1;
-                org.b.c<? super T> cVar = this.actual;
+                org.a.c<? super T> cVar = this.actual;
                 io.reactivex.internal.queue.a<Object> aVar = this.queue;
                 boolean z = this.delayError;
                 TimeUnit timeUnit = this.unit;
@@ -138,7 +138,7 @@ public final class FlowableSkipLastTimed<T> extends a<T, T> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.b.c<? super T> cVar, boolean z3) {
+        boolean checkTerminated(boolean z, boolean z2, org.a.c<? super T> cVar, boolean z3) {
             if (this.cancelled) {
                 this.queue.clear();
                 return true;

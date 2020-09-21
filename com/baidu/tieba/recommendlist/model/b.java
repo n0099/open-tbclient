@@ -11,18 +11,18 @@ import com.baidu.tieba.recommendlist.data.AlaRecommendLiveData;
 import com.baidu.tieba.recommendlist.data.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends BdBaseModel {
     public long duration;
     public boolean hasMore;
-    public long lLf;
-    private a lLi;
-    public List<AlaRecommendLiveData> lLj;
-    public List<AlaRecommendLiveData> lLk;
-    private long lLl;
-    private HttpMessageListener lLm;
+    public long lTZ;
+    private a lUc;
+    public List<AlaRecommendLiveData> lUd;
+    public List<AlaRecommendLiveData> lUe;
+    private long lUf;
+    private HttpMessageListener lUg;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void g(List<IAdapterData> list, int i, int i2);
 
@@ -31,9 +31,9 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lLl = 0L;
+        this.lUf = 0L;
         this.duration = 1800000L;
-        this.lLm = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.recommendlist.model.b.1
+        this.lUg = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.recommendlist.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,8 +41,8 @@ public class b extends BdBaseModel {
                 int i2;
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021193 && (httpResponsedMessage instanceof AlaRecommendLiveResponseMessage)) {
                     if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                        if (b.this.lLi != null) {
-                            b.this.lLi.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.lUc != null) {
+                            b.this.lUc.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
@@ -53,87 +53,87 @@ public class b extends BdBaseModel {
                         i2 = 0;
                     } else {
                         com.baidu.tieba.recommendlist.model.a aVar = (com.baidu.tieba.recommendlist.model.a) httpResponsedMessage.getOrginalMessage();
-                        int i3 = aVar.XX;
-                        int i4 = aVar.lLh;
+                        int i3 = aVar.Yq;
+                        int i4 = aVar.lUb;
                         i2 = i3;
                         i = i4;
                     }
                     if (i2 == 0) {
-                        b.this.lLj = new ArrayList();
-                        b.this.lLk = new ArrayList();
+                        b.this.lUd = new ArrayList();
+                        b.this.lUe = new ArrayList();
                     } else {
-                        if (b.this.lLj == null) {
-                            b.this.lLj = new ArrayList();
+                        if (b.this.lUd == null) {
+                            b.this.lUd = new ArrayList();
                         }
-                        if (b.this.lLk == null) {
-                            b.this.lLk = new ArrayList();
+                        if (b.this.lUe == null) {
+                            b.this.lUe = new ArrayList();
                         }
                     }
-                    if (alaRecommendLiveResponseMessage.lLo != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.lLo.list)) {
-                        b.this.lLj.addAll(alaRecommendLiveResponseMessage.lLo.list);
+                    if (alaRecommendLiveResponseMessage.lUi != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.lUi.list)) {
+                        b.this.lUd.addAll(alaRecommendLiveResponseMessage.lUi.list);
                     }
-                    if (alaRecommendLiveResponseMessage.lLp != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.lLp.list)) {
-                        b.this.lLk.addAll(alaRecommendLiveResponseMessage.lLp.list);
-                        b.this.hasMore = alaRecommendLiveResponseMessage.lLp.iDa == 1;
+                    if (alaRecommendLiveResponseMessage.lUj != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.lUj.list)) {
+                        b.this.lUe.addAll(alaRecommendLiveResponseMessage.lUj.list);
+                        b.this.hasMore = alaRecommendLiveResponseMessage.lUj.iKv == 1;
                     } else {
                         b.this.hasMore = false;
                     }
                     ArrayList arrayList = new ArrayList();
-                    if (b.this.lLj != null && !b.this.lLj.isEmpty()) {
+                    if (b.this.lUd != null && !b.this.lUd.isEmpty()) {
                         c cVar = new c(0);
-                        cVar.count = b.this.lLj.size();
+                        cVar.count = b.this.lUd.size();
                         arrayList.add(cVar);
-                        for (int i5 = 0; i5 < b.this.lLj.size(); i5 += 2) {
+                        for (int i5 = 0; i5 < b.this.lUd.size(); i5 += 2) {
                             com.baidu.tieba.recommendlist.data.a aVar2 = new com.baidu.tieba.recommendlist.data.a();
                             aVar2.type = 0;
-                            aVar2.lLc = b.this.lLj.get(i5);
-                            if (i5 + 1 < b.this.lLj.size()) {
-                                aVar2.lLd = b.this.lLj.get(i5 + 1);
+                            aVar2.lTW = b.this.lUd.get(i5);
+                            if (i5 + 1 < b.this.lUd.size()) {
+                                aVar2.lTX = b.this.lUd.get(i5 + 1);
                             }
                             arrayList.add(aVar2);
                         }
                     }
-                    if (b.this.lLk != null && !b.this.lLk.isEmpty()) {
+                    if (b.this.lUe != null && !b.this.lUe.isEmpty()) {
                         arrayList.add(new c(1));
-                        for (int i6 = 0; i6 < b.this.lLk.size(); i6 += 2) {
+                        for (int i6 = 0; i6 < b.this.lUe.size(); i6 += 2) {
                             com.baidu.tieba.recommendlist.data.a aVar3 = new com.baidu.tieba.recommendlist.data.a();
                             aVar3.type = 1;
-                            aVar3.lLc = b.this.lLk.get(i6);
-                            if (i6 + 1 < b.this.lLk.size()) {
-                                aVar3.lLd = b.this.lLk.get(i6 + 1);
+                            aVar3.lTW = b.this.lUe.get(i6);
+                            if (i6 + 1 < b.this.lUe.size()) {
+                                aVar3.lTX = b.this.lUe.get(i6 + 1);
                             }
                             arrayList.add(aVar3);
                         }
                     }
-                    if (b.this.lLi != null) {
-                        b.this.lLi.g(arrayList, ListUtils.getCount(b.this.lLj), i);
+                    if (b.this.lUc != null) {
+                        b.this.lUc.g(arrayList, ListUtils.getCount(b.this.lUd), i);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.lLm);
+        MessageManager.getInstance().registerListener(this.lUg);
     }
 
-    public void m(long j, int i) {
+    public void p(long j, int i) {
         com.baidu.tieba.recommendlist.model.a aVar = new com.baidu.tieba.recommendlist.model.a();
-        aVar.lLh = i;
+        aVar.lUb = i;
         if (i == 0) {
-            this.lLf = 0L;
+            this.lTZ = 0L;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lLl >= this.duration) {
-            this.lLf = 0L;
+        if (currentTimeMillis - this.lUf >= this.duration) {
+            this.lTZ = 0L;
         }
-        this.lLl = currentTimeMillis;
-        if (this.lLf == 0) {
-            this.lLf = System.currentTimeMillis();
+        this.lUf = currentTimeMillis;
+        if (this.lTZ == 0) {
+            this.lTZ = System.currentTimeMillis();
             i = 0;
         }
         aVar.setTag(getUniqueId());
         aVar.liveId = j;
-        aVar.lLf = this.lLf;
-        aVar.XX = i;
-        aVar.lLg = 1;
+        aVar.lTZ = this.lTZ;
+        aVar.Yq = i;
+        aVar.lUa = 1;
         aVar.setParams();
         MessageManager.getInstance().sendMessage(aVar);
     }
@@ -145,9 +145,9 @@ public class b extends BdBaseModel {
 
     public void reset() {
         cancelMessage();
-        this.lLf = 0L;
-        this.lLj = null;
-        this.lLk = null;
+        this.lTZ = 0L;
+        this.lUd = null;
+        this.lUe = null;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -156,17 +156,17 @@ public class b extends BdBaseModel {
         return false;
     }
 
-    public boolean btQ() {
-        return (this.lLj == null || this.lLj.isEmpty()) && (this.lLk == null || this.lLk.isEmpty());
+    public boolean buU() {
+        return (this.lUd == null || this.lUd.isEmpty()) && (this.lUe == null || this.lUe.isEmpty());
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lLm);
+        MessageManager.getInstance().unRegisterListener(this.lUg);
         cancelMessage();
-        this.lLi = null;
+        this.lUc = null;
     }
 
     public void a(a aVar) {
-        this.lLi = aVar;
+        this.lUc = aVar;
     }
 }

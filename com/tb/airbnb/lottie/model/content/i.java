@@ -2,22 +2,22 @@ package com.tb.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class i implements b {
     private final Path.FillType EN;
     private final boolean Fo;
     private final String name;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.d ojA;
+    private final com.tb.airbnb.lottie.model.a.a otc;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.a ojs;
+    private final com.tb.airbnb.lottie.model.a.d otk;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.tb.airbnb.lottie.model.a.a aVar, @Nullable com.tb.airbnb.lottie.model.a.d dVar) {
         this.name = str;
         this.Fo = z;
         this.EN = fillType;
-        this.ojs = aVar;
-        this.ojA = dVar;
+        this.otc = aVar;
+        this.otk = dVar;
     }
 
     public String getName() {
@@ -25,16 +25,16 @@ public class i implements b {
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.a edU() {
-        return this.ojs;
+    public com.tb.airbnb.lottie.model.a.a ehR() {
+        return this.otc;
     }
 
     @Nullable
-    public com.tb.airbnb.lottie.model.a.d edu() {
-        return this.ojA;
+    public com.tb.airbnb.lottie.model.a.d ehr() {
+        return this.otk;
     }
 
-    public Path.FillType jO() {
+    public Path.FillType jP() {
         return this.EN;
     }
 

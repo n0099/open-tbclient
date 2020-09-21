@@ -30,7 +30,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class BdSailor implements INoProGuard {
     public static final String LOG_TAG = BdSailor.class.getSimpleName();
     protected static BdSailor sInstance;
@@ -93,7 +93,7 @@ public class BdSailor implements INoProGuard {
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.tt().a(getAppContext());
+        com.baidu.browser.sailor.webkit.update.a.ty().a(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -430,7 +430,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().aeK = this.mClient;
+        BdSailorPlatform.getStatic().afc = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {

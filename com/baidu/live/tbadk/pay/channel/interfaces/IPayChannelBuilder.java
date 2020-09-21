@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.pay.channel.interfaces;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IPayChannelBuilder {
     IPayChannel build();
 }

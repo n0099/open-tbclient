@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class LoadingAnimView extends View {
-    private float cMM;
+    private float cOM;
     private ValueAnimator mAnimator;
     private Bitmap mBitmap;
     private Camera mCamera;
@@ -24,19 +24,19 @@ public class LoadingAnimView extends View {
 
     public LoadingAnimView(Context context) {
         super(context);
-        this.cMM = 0.0f;
+        this.cOM = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cMM = 0.0f;
+        this.cOM = 0.0f;
         init();
     }
 
     public LoadingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cMM = 0.0f;
+        this.cOM = 0.0f;
         init();
     }
 
@@ -50,7 +50,7 @@ public class LoadingAnimView extends View {
 
     public void startAnim() {
         if (this.mAnimator != null) {
-            ayM();
+            azv();
         }
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         this.mAnimator.setDuration(750L);
@@ -62,11 +62,11 @@ public class LoadingAnimView extends View {
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 0.4f) {
-                    LoadingAnimView.this.cMM = (floatValue / 0.4f) * 0.25f;
+                    LoadingAnimView.this.cOM = (floatValue / 0.4f) * 0.25f;
                 } else if (floatValue < 0.6f) {
-                    LoadingAnimView.this.cMM = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
+                    LoadingAnimView.this.cOM = (((floatValue - 0.4f) / 0.2f) * 0.5f) + 0.25f;
                 } else {
-                    LoadingAnimView.this.cMM = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
+                    LoadingAnimView.this.cOM = (((floatValue - 0.6f) / 0.4f) * 0.25f) + 0.75f;
                 }
                 LoadingAnimView.this.postInvalidate();
             }
@@ -77,7 +77,7 @@ public class LoadingAnimView extends View {
     }
 
     public void stopAnim() {
-        ayM();
+        azv();
         clearAnimation();
     }
 
@@ -91,12 +91,12 @@ public class LoadingAnimView extends View {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_load_footer_image_color));
-            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.cMM - 0.5d))) * 0.3d) + 0.3d)));
+            this.mPaint.setAlpha((int) (255.0d * (((1.0d - (2.0d * Math.abs(this.cOM - 0.5d))) * 0.3d) + 0.3d)));
             this.mCanvas.drawCircle(measuredWidth / 2.0f, measuredHeight / 2.0f, dip2px, this.mPaint);
             this.mMatrix.reset();
             this.mCamera.save();
             this.mCamera.setLocation(0.0f, 0.0f, -100.0f);
-            this.mCamera.rotateY(this.cMM * 360.0f);
+            this.mCamera.rotateY(this.cOM * 360.0f);
             this.mCamera.getMatrix(this.mMatrix);
             this.mCamera.restore();
             this.mMatrix.preTranslate((-measuredWidth) / 2.0f, (-measuredHeight) / 2.0f);
@@ -112,7 +112,7 @@ public class LoadingAnimView extends View {
         this.mCanvas = new Canvas(this.mBitmap);
     }
 
-    private void ayM() {
+    private void azv() {
         if (this.mAnimator != null) {
             this.mAnimator.setRepeatCount(0);
             this.mAnimator.removeAllUpdateListeners();

@@ -19,43 +19,43 @@ import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveTabYanzhiModel extends BdBaseModel {
-    private String eVx;
-    private String fEW;
-    private boolean fFn;
-    private long fFt;
-    private c fFx;
-    private a fFy;
+    private String eYo;
+    private long fIF;
+    private c fIJ;
+    private a fIK;
+    private String fIi;
+    private boolean fIz;
     private boolean hasMore;
     private int mPn;
     private TbPageContext mTbPageContext;
-    private HttpMessageListener fFz = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel.1
+    private HttpMessageListener fIL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabYanzhiModel.this.mCurTag) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabYanzhiModel.this.fFy != null) {
-                        AlaLiveTabYanzhiModel.this.fFy.f(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabYanzhiModel.this.fFn);
+                    if (AlaLiveTabYanzhiModel.this.fIK != null) {
+                        AlaLiveTabYanzhiModel.this.fIK.f(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabYanzhiModel.this.fIz);
                     }
                 } else {
                     j jVar = alaTabLiveResponsedMessage.tabAllLiveInfo;
-                    if (AlaLiveTabYanzhiModel.this.fFn) {
-                        AlaLiveTabYanzhiModel.this.fFx.a(jVar);
+                    if (AlaLiveTabYanzhiModel.this.fIz) {
+                        AlaLiveTabYanzhiModel.this.fIJ.a(jVar);
                         AlaLiveTabYanzhiModel.e(AlaLiveTabYanzhiModel.this);
                     } else {
-                        AlaLiveTabFragment.fEj++;
-                        if (AlaLiveTabYanzhiModel.this.fFx != null) {
-                            AlaLiveTabYanzhiModel.this.fFx.clear();
+                        AlaLiveTabFragment.fHv++;
+                        if (AlaLiveTabYanzhiModel.this.fIJ != null) {
+                            AlaLiveTabYanzhiModel.this.fIJ.clear();
                         }
-                        AlaLiveTabYanzhiModel.this.fFx = new c(jVar, AlaLiveTabYanzhiModel.this.eVx, AlaLiveTabYanzhiModel.this.fEW);
+                        AlaLiveTabYanzhiModel.this.fIJ = new c(jVar, AlaLiveTabYanzhiModel.this.eYo, AlaLiveTabYanzhiModel.this.fIi);
                     }
-                    AlaLiveTabYanzhiModel.this.hasMore = AlaLiveTabYanzhiModel.this.fFx.hasMore();
-                    if (AlaLiveTabYanzhiModel.this.fFy != null) {
-                        AlaLiveTabYanzhiModel.this.fFy.f(AlaLiveTabYanzhiModel.this.hasMore, AlaLiveTabYanzhiModel.this.fFx.getData());
+                    AlaLiveTabYanzhiModel.this.hasMore = AlaLiveTabYanzhiModel.this.fIJ.hasMore();
+                    if (AlaLiveTabYanzhiModel.this.fIK != null) {
+                        AlaLiveTabYanzhiModel.this.fIK.f(AlaLiveTabYanzhiModel.this.hasMore, AlaLiveTabYanzhiModel.this.fIJ.getData());
                     }
                 }
-                AlaLiveTabYanzhiModel.this.fFn = false;
+                AlaLiveTabYanzhiModel.this.fIz = false;
             }
         }
     };
@@ -76,28 +76,28 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
 
     public AlaLiveTabYanzhiModel(TbPageContext tbPageContext, a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.fFy = aVar;
+        this.fIK = aVar;
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.fFz);
+        MessageManager.getInstance().registerListener(this.fIL);
     }
 
     public void refresh() {
-        this.fFt = System.currentTimeMillis();
-        this.fFn = false;
+        this.fIF = System.currentTimeMillis();
+        this.fIz = false;
         this.mPn = 1;
-        E(this.mPn, 0, AlaLiveTabFragment.fEj);
+        E(this.mPn, 0, AlaLiveTabFragment.fHv);
     }
 
-    public void bFE() {
-        if (this.hasMore && !this.fFn) {
+    public void bGU() {
+        if (this.hasMore && !this.fIz) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.fFt >= 1800000) {
-                this.fFt = currentTimeMillis;
+            if (currentTimeMillis - this.fIF >= 1800000) {
+                this.fIF = currentTimeMillis;
             }
-            this.fFn = true;
-            E(this.mPn + 1, 1, AlaLiveTabFragment.fEj - 1);
+            this.fIz = true;
+            E(this.mPn + 1, 1, AlaLiveTabFragment.fHv - 1);
         }
     }
 
@@ -118,17 +118,17 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         }
         httpMessage.addParam("network", str);
         httpMessage.addParam("ua_str", l.getEquipmentWidth(this.mTbPageContext.getPageActivity()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + l.getEquipmentHeight(this.mTbPageContext.getPageActivity()) + "_android_" + TbConfig.getVersion());
-        httpMessage.addParam("session_id", this.fFt);
+        httpMessage.addParam("session_id", this.fIF);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);
-        httpMessage.addParam("fid", this.eVx);
-        httpMessage.addParam("fname", this.fEW);
+        httpMessage.addParam("fid", this.eYo);
+        httpMessage.addParam("fname", this.fIi);
         httpMessage.setTag(this.mCurTag);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fFz);
+        MessageManager.getInstance().unRegisterListener(this.fIL);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -141,8 +141,8 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         return false;
     }
 
-    public void dT(String str, String str2) {
-        this.eVx = str;
-        this.fEW = str2;
+    public void dV(String str, String str2) {
+        this.eYo = str;
+        this.fIi = str2;
     }
 }

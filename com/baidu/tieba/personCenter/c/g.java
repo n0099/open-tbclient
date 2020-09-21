@@ -4,25 +4,25 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class g extends com.baidu.tieba.card.data.b implements q {
-    public static BdUniqueId lfn = BdUniqueId.gen();
-    public List<a> dKh;
+    public static BdUniqueId loh = BdUniqueId.gen();
+    public List<a> dMl;
     public UserData mUserData;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a {
-        public int lfo;
+        public int loi;
         public String text;
         public int type;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lfn;
+        return loh;
     }
 
-    public void eJ(List<a> list) {
-        this.dKh = list;
+    public void eR(List<a> list) {
+        this.dMl = list;
     }
 }

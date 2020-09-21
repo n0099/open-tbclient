@@ -3,7 +3,7 @@ package android.arch.a.a;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes25.dex */
 public abstract class c {
     public abstract void c(@NonNull Runnable runnable);
 

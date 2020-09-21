@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import pl.droidsonroids.gif.InputSource;
 import pl.droidsonroids.gif.annotations.Beta;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GifDrawableBuilder {
     private ScheduledThreadPoolExecutor mExecutor;
     private InputSource mInputSource;

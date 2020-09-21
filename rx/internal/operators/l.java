@@ -6,7 +6,7 @@ import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.g;
 import rx.internal.util.a.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class l<T> implements d.b<T, T> {
     private final int bufferSize;
     private final boolean delayError;
@@ -33,7 +33,7 @@ public final class l<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
         final rx.j<? super T> child;
         final boolean delayError;
@@ -41,18 +41,18 @@ public final class l<T> implements d.b<T, T> {
         Throwable error;
         volatile boolean finished;
         final int limit;
-        final g.a oGt;
+        final g.a oPY;
         final Queue<Object> queue;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong oGu = new AtomicLong();
+        final AtomicLong oPZ = new AtomicLong();
 
         public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.oGt = gVar.createWorker();
+            this.oPY = gVar.createWorker();
             this.delayError = z;
             i = i <= 0 ? rx.internal.util.g.SIZE : i;
             this.limit = i - (i >> 2);
-            if (ae.ekP()) {
+            if (ae.eoN()) {
                 this.queue = new rx.internal.util.a.q(i);
             } else {
                 this.queue = new rx.internal.util.atomic.c(i);
@@ -71,7 +71,7 @@ public final class l<T> implements d.b<T, T> {
                     }
                 }
             });
-            jVar.add(this.oGt);
+            jVar.add(this.oPY);
             jVar.add(this);
         }
 
@@ -106,8 +106,8 @@ public final class l<T> implements d.b<T, T> {
         }
 
         protected void schedule() {
-            if (this.oGu.getAndIncrement() == 0) {
-                this.oGt.c(this);
+            if (this.oPZ.getAndIncrement() == 0) {
+                this.oPY.c(this);
             }
         }
 
@@ -145,7 +145,7 @@ public final class l<T> implements d.b<T, T> {
                 }
                 if (j4 != j2 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
                     this.emitted = j2;
-                    j3 = this.oGu.addAndGet(-j3);
+                    j3 = this.oPZ.addAndGet(-j3);
                 } else {
                     return;
                 }

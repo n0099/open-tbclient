@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class PolystarShape implements b {
     private final Type Db;
     private final m<PointF, PointF> ED;
@@ -14,7 +14,7 @@ public class PolystarShape implements b {
     private final com.airbnb.lottie.model.a.b Fh;
     private final String name;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         Star(1),
         Polygon(2);
@@ -52,35 +52,35 @@ public class PolystarShape implements b {
         return this.name;
     }
 
-    public Type kb() {
+    public Type kc() {
         return this.Db;
     }
 
-    public com.airbnb.lottie.model.a.b kc() {
+    public com.airbnb.lottie.model.a.b kd() {
         return this.Fd;
     }
 
-    public m<PointF, PointF> jE() {
+    public m<PointF, PointF> jF() {
         return this.ED;
     }
 
-    public com.airbnb.lottie.model.a.b jG() {
+    public com.airbnb.lottie.model.a.b jH() {
         return this.EF;
     }
 
-    public com.airbnb.lottie.model.a.b kd() {
+    public com.airbnb.lottie.model.a.b ke() {
         return this.Fe;
     }
 
-    public com.airbnb.lottie.model.a.b ke() {
+    public com.airbnb.lottie.model.a.b kf() {
         return this.Ff;
     }
 
-    public com.airbnb.lottie.model.a.b kf() {
+    public com.airbnb.lottie.model.a.b kg() {
         return this.Fg;
     }
 
-    public com.airbnb.lottie.model.a.b kg() {
+    public com.airbnb.lottie.model.a.b kh() {
         return this.Fh;
     }
 

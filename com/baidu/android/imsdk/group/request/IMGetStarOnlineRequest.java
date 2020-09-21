@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.live.tbadk.core.atomdata.AlaCharmCardActivityConfig;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +38,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
                 int i4 = jSONObject.getInt("error_code");
                 String optString = jSONObject.optString("error_msg", "");
                 if (i4 == 0 && jSONObject.has("response_params")) {
-                    i3 = jSONObject.getJSONObject("response_params").getInt(AlaCharmCardActivityConfig.ONLINE_COUNT);
+                    i3 = jSONObject.getJSONObject("response_params").getInt("online_count");
                 }
                 i = i4;
                 str = optString;

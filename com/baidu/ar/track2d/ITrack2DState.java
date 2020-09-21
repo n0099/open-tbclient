@@ -1,8 +1,8 @@
 package com.baidu.ar.track2d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ITrack2DState {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum DistanceState {
         NORMAL,
         TOO_FAR,

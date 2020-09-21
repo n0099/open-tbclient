@@ -1,73 +1,99 @@
 package com.baidu.tieba.ala.liveroom.master.a;
 
-import com.baidu.live.data.ag;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.data.al;
 import com.baidu.tieba.ala.liveroom.data.f;
 import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
-    protected int bMf;
-    protected com.baidu.tieba.ala.liveroom.data.e gDf;
-    protected AlaMasterLiveRoomOpearator gED;
-    protected b gEE;
-    protected f gqf;
+    protected int bOf;
+    protected com.baidu.tieba.ala.liveroom.data.e gGG;
+    protected AlaMasterLiveRoomOpearator gIa;
+    protected b gIb;
+    protected com.baidu.tieba.ala.liveroom.m.b gqQ;
+    private CustomMessageListener grN = new CustomMessageListener(2913227) { // from class: com.baidu.tieba.ala.liveroom.master.a.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage.getData() instanceof com.baidu.live.data.b) {
+                com.baidu.live.data.b bVar = (com.baidu.live.data.b) customResponsedMessage.getData();
+                if (a.this.gqQ != null) {
+                    a.this.gqQ.eh(bVar.url, bVar.aDF);
+                }
+            }
+        }
+    };
+    protected f gtv;
 
-    public abstract void aT(int i, String str);
+    public abstract void aU(int i, String str);
 
-    public abstract void bUO();
+    public abstract void bWy();
 
     public a(f fVar) {
-        this.gqf = fVar;
+        this.gtv = fVar;
+        initListener();
+        Gf();
     }
 
-    public void ai(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
-        this.gED = alaMasterLiveRoomOpearator;
+    private void initListener() {
+        MessageManager.getInstance().registerListener(this.grN);
+    }
+
+    private void Gf() {
+        this.gqQ = new com.baidu.tieba.ala.liveroom.m.b(this.gtv.pageContext.getPageActivity());
+    }
+
+    public void ah(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
+        this.gIa = alaMasterLiveRoomOpearator;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(short s, Object obj) {
-        this.bMf = s;
+        this.bOf = s;
         switch (s) {
             case 2:
-                if (this.gED != null) {
-                    this.gED.bTC();
+                if (this.gIa != null) {
+                    this.gIa.bVn();
                     return;
                 }
                 return;
             case 3:
-                if (this.gED != null) {
-                    this.gED.bTD();
+                if (this.gIa != null) {
+                    this.gIa.bVo();
                     return;
                 }
                 return;
             case 4:
-                if (this.gED != null) {
+                if (this.gIa != null) {
                     com.baidu.tieba.ala.liveroom.data.e eVar = obj instanceof com.baidu.tieba.ala.liveroom.data.e ? (com.baidu.tieba.ala.liveroom.data.e) obj : null;
-                    this.gED.d(eVar);
-                    if (this.gEE != null) {
-                        this.gEE.b(eVar);
+                    this.gIa.d(eVar);
+                    if (this.gIb != null) {
+                        this.gIb.b(eVar);
                     }
-                    if (eVar != null && eVar.gxC) {
-                        this.gqf.gxL.a((short) 5, null);
+                    if (eVar != null && eVar.gAN) {
+                        this.gtv.gAW.a((short) 5, null);
                         return;
                     }
                     return;
                 }
                 return;
             case 5:
-                if (this.gED != null) {
-                    this.gED.b(obj instanceof ag ? (ag) obj : null);
+                if (this.gIa != null) {
+                    this.gIa.b(obj instanceof al ? (al) obj : null);
                     return;
                 }
                 return;
             case 6:
-                if (this.gED != null) {
-                    this.gED.bTI();
+                if (this.gIa != null) {
+                    this.gIa.bVt();
                     return;
                 }
                 return;
             case 7:
-                if (this.gED != null) {
-                    this.gED.bTJ();
+                if (this.gIa != null) {
+                    this.gIa.bVu();
                     return;
                 }
                 return;
@@ -76,8 +102,8 @@ public abstract class a {
                 if (obj instanceof Short) {
                     s2 = ((Short) obj).shortValue();
                 }
-                if (this.gED != null) {
-                    this.gED.g(s2);
+                if (this.gIa != null) {
+                    this.gIa.g(s2);
                     return;
                 }
                 return;
@@ -87,64 +113,68 @@ public abstract class a {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.gDf = eVar;
-        bUO();
+        this.gGG = eVar;
+        bWy();
     }
 
-    public void c(ag agVar) {
-        if (this.gqf != null && this.gqf.gxL != null) {
-            this.gqf.gxL.a((short) 5, agVar);
+    public void c(al alVar) {
+        if (this.gtv != null && this.gtv.gAW != null) {
+            this.gtv.gAW.a((short) 5, alVar);
         }
     }
 
-    public void aU(int i, String str) {
-        if (this.gED != null) {
-            this.gED.onError(i, str);
+    public void aV(int i, String str) {
+        if (this.gIa != null) {
+            this.gIa.onError(i, str);
         }
     }
 
     public void i(short s) {
-        if (this.gqf != null && this.gqf.gxL != null) {
-            this.gqf.gxL.a((short) 8, Short.valueOf(s));
+        if (this.gtv != null && this.gtv.gAW != null) {
+            this.gtv.gAW.a((short) 8, Short.valueOf(s));
         }
     }
 
-    public void bUP() {
-        if (this.gED != null) {
-            this.gED.bTM();
+    public void bWz() {
+        if (this.gIa != null) {
+            this.gIa.bVx();
         }
     }
 
-    public void bUQ() {
-        if (this.gED != null) {
-            this.gED.bTN();
+    public void bWA() {
+        if (this.gIa != null) {
+            this.gIa.bVy();
         }
     }
 
     public void onPause() {
-        if (this.gED != null) {
-            this.gED.onPause();
+        if (this.gIa != null) {
+            this.gIa.onPause();
         }
     }
 
-    public boolean bUR() {
-        if (this.gED != null) {
-            return this.gED.bTK();
+    public boolean bWB() {
+        if (this.gIa != null) {
+            return this.gIa.bVv();
         }
         return false;
     }
 
-    public void bUS() {
-        if (this.gED != null) {
-            this.gED.bTL();
+    public void bWC() {
+        if (this.gIa != null) {
+            this.gIa.bVw();
         }
     }
 
-    public boolean bUT() {
-        return this.bMf == 5;
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.grN);
+    }
+
+    public boolean bWD() {
+        return this.bOf == 5;
     }
 
     public void a(b bVar) {
-        this.gEE = bVar;
+        this.gIb = bVar;
     }
 }

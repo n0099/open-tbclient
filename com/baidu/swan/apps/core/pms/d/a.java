@@ -14,46 +14,46 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<Integer> cln = i.N(0, 1010, 1011, 1012, 1020, 1015);
-    private static final Map<String, Long> clo = new ConcurrentHashMap();
-    private static int clp = -2;
-    private static final c<String, String> clq = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
+    private static final Set<Integer> cnp = i.N(0, 1010, 1011, 1012, 1020, 1015);
+    private static final Map<String, Long> cnq = new ConcurrentHashMap();
+    private static int cnr = -2;
+    private static final c<String, String> cns = new c<String, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
-        /* renamed from: lF */
-        public String J(String str) {
+        /* renamed from: lY */
+        public String K(String str) {
             return str;
         }
     };
-    private static final c<b.a, String> clr = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
+    private static final c<b.a, String> cnu = new c<b.a, String>() { // from class: com.baidu.swan.apps.core.pms.d.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ap.e.c
         /* renamed from: a */
-        public String J(b.a aVar) {
+        public String K(b.a aVar) {
             return aVar == null ? "" : aVar.getBundleId();
         }
     };
 
-    private static boolean lB(@NonNull String str) {
+    private static boolean lU(@NonNull String str) {
         Long l;
-        if (clp == -2) {
-            clp = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_predownload_one_sm_interval", -1);
+        if (cnr == -2) {
+            cnr = com.baidu.swan.apps.t.a.apx().getSwitch("swan_predownload_one_sm_interval", -1);
         }
-        if (clp < 0) {
-            return !clo.containsKey(str);
+        if (cnr < 0) {
+            return !cnq.containsKey(str);
         }
-        return clp == 0 || (l = clo.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (clp * 1000));
+        return cnr == 0 || (l = cnq.get(str)) == null || System.currentTimeMillis() - l.longValue() > ((long) (cnr * 1000));
     }
 
-    public static boolean hl(int i) {
-        return cln.contains(Integer.valueOf(i));
+    public static boolean hu(int i) {
+        return cnp.contains(Integer.valueOf(i));
     }
 
     public static boolean c(com.baidu.swan.pms.model.a aVar) {
-        return aVar != null && hl(aVar.errorNo);
+        return aVar != null && hu(aVar.errorNo);
     }
 
     public static boolean N(@Nullable String str, boolean z) {
@@ -63,15 +63,15 @@ public final class a {
             return false;
         }
         if (z) {
-            clo.put(str, Long.valueOf(System.currentTimeMillis()));
+            cnq.put(str, Long.valueOf(System.currentTimeMillis()));
             z2 = true;
         } else {
-            z2 = !clo.containsKey(str);
+            z2 = !cnq.containsKey(str);
         }
-        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(lB(str)))).booleanValue();
+        return ((Boolean) n(new StringBuilder().append(str2).append(" should").toString(), Boolean.valueOf(z2))).booleanValue() || ((Boolean) n(new StringBuilder().append(str2).append(" AB").toString(), Boolean.valueOf(lU(str)))).booleanValue();
     }
 
-    public static boolean lC(String str) {
+    public static boolean lV(String str) {
         return N(str, false);
     }
 
@@ -79,15 +79,15 @@ public final class a {
         if (str2 != null && str != null) {
             str = str + str2;
         }
-        return lC(str);
+        return lV(str);
     }
 
     public static List<String> g(Collection<String> collection) {
-        return a(clq, collection);
+        return a(cns, collection);
     }
 
     public static List<b.a> h(Collection<b.a> collection) {
-        return a(clr, collection);
+        return a(cnu, collection);
     }
 
     public static <SwanItemT> List<SwanItemT> a(@NonNull c<SwanItemT, String> cVar, Collection<SwanItemT> collection, boolean z) {
@@ -96,7 +96,7 @@ public final class a {
             Iterator<SwanItemT> it = collection.iterator();
             while (it.hasNext()) {
                 SwanItemT next = it.next();
-                if (N(next == null ? "" : cVar.J(next), z)) {
+                if (N(next == null ? "" : cVar.K(next), z)) {
                     arrayList.add(next);
                 }
             }
@@ -109,7 +109,7 @@ public final class a {
         return a(cVar, collection, false);
     }
 
-    public static boolean lD(String str) {
+    public static boolean lW(String str) {
         return N(str, true);
     }
 
@@ -117,14 +117,14 @@ public final class a {
         if (str2 != null) {
             str = str + str2;
         }
-        return lD(str);
+        return lW(str);
     }
 
-    public static boolean lE(@Nullable String str) {
+    public static boolean lX(@Nullable String str) {
         if (str == null) {
             return false;
         }
-        Iterator<Map.Entry<String, Long>> it = clo.entrySet().iterator();
+        Iterator<Map.Entry<String, Long>> it = cnq.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Long> next = it.next();
             if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
@@ -136,7 +136,7 @@ public final class a {
 
     private static <T> T n(String str, T t) {
         if (DEBUG) {
-            Log.i("PreDownloadUtils", "Recorded=" + clo.size() + " # " + str + " => " + t);
+            Log.i("PreDownloadUtils", "Recorded=" + cnq.size() + " # " + str + " => " + t);
         }
         return t;
     }

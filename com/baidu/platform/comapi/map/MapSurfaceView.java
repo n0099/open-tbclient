@@ -36,7 +36,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListener, MapRenderModeChangeListener, MapViewInterface, af {
     private static int s = 0;
     private static final ExecutorService y = Executors.newSingleThreadExecutor();
@@ -66,8 +66,8 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
     private boolean x;
     private int z;
 
-    /* loaded from: classes20.dex */
-    private class a implements f.InterfaceC0244f {
+    /* loaded from: classes3.dex */
+    private class a implements f.InterfaceC0242f {
         private int b;
 
         private a() {
@@ -119,7 +119,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             return "0x" + Integer.toHexString(i);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0244f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.b, 2, 12344});
         }
@@ -128,7 +128,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
             throw new RuntimeException(b(str, i));
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0244f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0242f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             if (!egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 Log.e("MapContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);
@@ -142,7 +142,7 @@ public class MapSurfaceView extends RenderSurfaceView implements View.OnKeyListe
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class b extends GestureDetector.SimpleOnGestureListener {
         private b() {
         }

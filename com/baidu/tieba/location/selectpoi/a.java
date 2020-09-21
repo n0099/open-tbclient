@@ -10,33 +10,33 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private boolean hIq = false;
-    private com.baidu.tieba.location.data.a jVr;
-    private SearchLocationActivity jVs;
-    private NoDataView jVt;
+    private boolean hPr = false;
+    private com.baidu.tieba.location.data.a kdT;
+    private SearchLocationActivity kdU;
+    private NoDataView kdV;
 
     public a(SearchLocationActivity searchLocationActivity) {
-        this.jVs = searchLocationActivity;
+        this.kdU = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jVr == null || this.jVr.cOc() == null || this.jVr.cOc().isEmpty()) {
-            this.hIq = false;
+        if (this.kdT == null || this.kdT.cRH() == null || this.kdT.cRH().isEmpty()) {
+            this.hPr = false;
             return 1;
         }
-        this.hIq = true;
-        return this.jVr.cOc().size();
+        this.hPr = true;
+        return this.kdT.cRH().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.jVr == null || this.jVr.cOc() == null || this.jVr.cOc().isEmpty()) {
+        if (this.kdT == null || this.kdT.cRH() == null || this.kdT.cRH().isEmpty()) {
             return null;
         }
-        return this.jVr.cOc().get(i);
+        return this.kdT.cRH().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,57 +46,57 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.hIq) {
-            return bV(viewGroup);
+        if (!this.hPr) {
+            return bW(viewGroup);
         }
-        C0740a c0740a = null;
-        if (view != null && (view.getTag() instanceof C0740a)) {
-            c0740a = (C0740a) view.getTag();
+        C0737a c0737a = null;
+        if (view != null && (view.getTag() instanceof C0737a)) {
+            c0737a = (C0737a) view.getTag();
         }
-        if (c0740a == null) {
-            view = LayoutInflater.from(this.jVs.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0740a = cF(view);
-            view.setTag(c0740a);
+        if (c0737a == null) {
+            view = LayoutInflater.from(this.kdU.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
+            c0737a = cO(view);
+            view.setTag(c0737a);
         }
-        C0740a c0740a2 = c0740a;
-        c0740a2.jVu.setText(this.jVr.cOc().get(i).getName());
-        ap.setBackgroundColor(c0740a2.gVd, R.color.cp_bg_line_c);
-        ap.setViewTextColor(c0740a2.jVu, R.color.cp_cont_b, 1);
+        C0737a c0737a2 = c0737a;
+        c0737a2.kdW.setText(this.kdT.cRH().get(i).getName());
+        ap.setBackgroundColor(c0737a2.gYK, R.color.cp_bg_line_c);
+        ap.setViewTextColor(c0737a2.kdW, R.color.cp_cont_b, 1);
         ap.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.location.data.a aVar) {
-        this.jVr = aVar;
+        this.kdT = aVar;
     }
 
-    public boolean cOg() {
-        return this.hIq;
+    public boolean cRL() {
+        return this.hPr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public class C0740a {
-        View gVd;
-        TextView jVu;
+    /* loaded from: classes22.dex */
+    public class C0737a {
+        View gYK;
+        TextView kdW;
 
-        private C0740a() {
+        private C0737a() {
         }
     }
 
-    public C0740a cF(View view) {
-        C0740a c0740a = new C0740a();
-        c0740a.jVu = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0740a.gVd = view.findViewById(R.id.location_search_line);
-        return c0740a;
+    public C0737a cO(View view) {
+        C0737a c0737a = new C0737a();
+        c0737a.kdW = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0737a.gYK = view.findViewById(R.id.location_search_line);
+        return c0737a;
     }
 
-    public View bV(ViewGroup viewGroup) {
+    public View bW(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.jVt = NoDataViewFactory.a(this.jVs.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.oK(R.string.text_try_to_chage_location), null);
-        this.jVt.onChangeSkinType(this.jVs.getPageContext(), skinType);
-        this.jVt.setVisibility(0);
-        return this.jVt;
+        this.kdV = NoDataViewFactory.a(this.kdU.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.oW(R.string.text_try_to_chage_location), null);
+        this.kdV.onChangeSkinType(this.kdU.getPageContext(), skinType);
+        this.kdV.setVisibility(0);
+        return this.kdV;
     }
 }

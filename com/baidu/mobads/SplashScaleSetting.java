@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SplashScaleSetting {
     private static int a = 0;
     public final int TYPE_CENTER_CROP = 0;

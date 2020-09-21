@@ -2,13 +2,13 @@ package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableRange extends io.reactivex.g<Integer> {
     final int end;
     final int start;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super Integer> cVar) {
+    public void a(org.a.c<? super Integer> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
             cVar.onSubscribe(new RangeConditionalSubscription((io.reactivex.internal.a.a) cVar, this.start, this.end));
         } else {
@@ -16,7 +16,7 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static abstract class BaseRangeSubscription extends BasicQueueSubscription<Integer> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -58,7 +58,7 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
             this.index = this.end;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
@@ -69,18 +69,18 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void cancel() {
             this.cancelled = true;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class RangeSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
-        final org.b.c<? super Integer> actual;
+        final org.a.c<? super Integer> actual;
 
-        RangeSubscription(org.b.c<? super Integer> cVar, int i, int i2) {
+        RangeSubscription(org.a.c<? super Integer> cVar, int i, int i2) {
             super(i, i2);
             this.actual = cVar;
         }
@@ -88,7 +88,7 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
         @Override // io.reactivex.internal.operators.flowable.FlowableRange.BaseRangeSubscription
         void fastPath() {
             int i = this.end;
-            org.b.c<? super Integer> cVar = this.actual;
+            org.a.c<? super Integer> cVar = this.actual;
             for (int i2 = this.index; i2 != i; i2++) {
                 if (!this.cancelled) {
                     cVar.onNext(Integer.valueOf(i2));
@@ -105,7 +105,7 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
         void slowPath(long j) {
             int i = this.end;
             int i2 = this.index;
-            org.b.c<? super Integer> cVar = this.actual;
+            org.a.c<? super Integer> cVar = this.actual;
             long j2 = 0;
             while (true) {
                 if (j2 != j && i2 != i) {
@@ -139,7 +139,7 @@ public final class FlowableRange extends io.reactivex.g<Integer> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class RangeConditionalSubscription extends BaseRangeSubscription {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super Integer> actual;

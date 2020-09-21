@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class Sha2Crypt {
     private static final int ROUNDS_DEFAULT = 5000;
     private static final int ROUNDS_MAX = 999999999;

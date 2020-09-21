@@ -1,7 +1,7 @@
 package com.baidu.ala.dumixar;
 
 import android.media.MediaCodec;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public interface OnFilteredFrameUpdateListener {
     void onFilteredFrameUpdate(byte[] bArr, MediaCodec.BufferInfo bufferInfo);
 }

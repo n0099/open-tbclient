@@ -1,52 +1,56 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.i;
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.util.StringUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class az extends BaseData {
-    public int aEH;
-    public ArrayList<i> aJg = new ArrayList<>();
+/* loaded from: classes4.dex */
+public class az {
+    public int aJY;
+    public int aJZ;
+    public String id;
+    public String intro;
+    public int live_status;
+    public String metaKey;
+    public String name;
+    public String name_show;
+    public String portrait;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        i.a aVar;
-        JSONArray optJSONArray;
         if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.aEH = optJSONObject.optInt("interval");
-                }
-                if (this.aEH <= 0) {
-                    this.aEH = 5;
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
-                if (optJSONObject2 == null) {
-                    aVar = null;
-                } else {
-                    aVar = new i.a(optJSONObject2);
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("live_activity_new");
-                long optLong = jSONObject.optLong("time", 0L);
-                if (optJSONObject3 != null && (optJSONArray = optJSONObject3.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject4 != null) {
-                            i iVar = new i();
-                            iVar.a(aVar);
-                            iVar.parseJson(optJSONObject4);
-                            iVar.serverTime = optLong;
-                            this.aJg.add(iVar);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            this.id = jSONObject.optString("id");
+            this.metaKey = jSONObject.optString("meta_key");
+            this.name = jSONObject.optString("name");
+            this.name_show = jSONObject.optString("name_show");
+            this.portrait = jSONObject.optString("bd_portrait");
+            if (StringUtils.isNull(this.portrait)) {
+                this.portrait = jSONObject.optString("portrait");
             }
+            this.intro = jSONObject.optString("intro");
+            this.live_status = jSONObject.optInt("live_status");
+            this.aJY = jSONObject.optInt("live_id");
+            this.aJZ = jSONObject.optInt("has_concerned");
         }
+    }
+
+    public String getNameShow() {
+        return TextUtils.isEmpty(this.name_show) ? this.name : this.name_show;
+    }
+
+    public String toString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("id", this.id);
+            jSONObject.put("name", this.name);
+            jSONObject.put("name_show", this.name_show);
+            jSONObject.put("portrait", this.portrait);
+            jSONObject.put("intro", this.intro);
+            jSONObject.put("live_status", this.live_status);
+            jSONObject.put("live_id", this.aJY);
+            jSONObject.put("has_concerned", this.aJZ);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject.toString();
     }
 }

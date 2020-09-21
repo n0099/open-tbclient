@@ -3,7 +3,7 @@ package com.baidu.sofire.k;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a {
     Context a;
     c b;

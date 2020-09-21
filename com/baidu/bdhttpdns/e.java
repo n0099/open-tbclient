@@ -11,7 +11,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 final class e {
     private static String b = a();
     private static Pattern a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
@@ -30,7 +30,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, dd(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, df(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -71,7 +71,7 @@ final class e {
         return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
     }
 
-    private static Key dd(String str) {
+    private static Key df(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
@@ -99,7 +99,7 @@ final class e {
     private static String e(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, dd(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(2, df(str), new IvParameterSpec("01020304".getBytes()));
             return new String(cipher.doFinal(bArr));
         } catch (Exception e) {
             return null;

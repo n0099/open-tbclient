@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext fYJ;
-    private d fYK;
+    private TbPageContext gbX;
+    private d gbY;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fYJ = tbPageContext;
+        this.gbX = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.fYK = new d(this.fYJ);
-        ((ViewGroup) getView()).addView(this.fYK.getView());
+        this.gbY = new d(this.gbX);
+        ((ViewGroup) getView()).addView(this.gbY.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fYK != null) {
-            this.fYK.onChangeSkinType(tbPageContext, i);
+        if (this.gbY != null) {
+            this.gbY.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dUW != null && this.fYK != null) {
-            this.fYK.a(cVar.dUW);
+        if (cVar != null && cVar.dXg != null && this.gbY != null) {
+            this.gbY.a(cVar.dXg);
         }
     }
 
@@ -45,19 +45,19 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     public void onClick(View view) {
     }
 
-    public void c(com.baidu.tieba.ala.e eVar) {
-        if (this.fYK != null) {
-            this.fYK.d(eVar);
+    public void c(com.baidu.tieba.ala.f fVar) {
+        if (this.gbY != null) {
+            this.gbY.d(fVar);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a extends af.a {
-        public f fYL;
+        public f gbZ;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.fYL = fVar;
+            this.gbZ = fVar;
         }
     }
 }

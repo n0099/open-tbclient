@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends aa {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -26,28 +26,28 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e aoO = com.baidu.swan.apps.t.a.aoO();
+        com.baidu.swan.apps.adaptation.a.e apz = com.baidu.swan.apps.t.a.apz();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.t.a.aoJ();
+                context = com.baidu.swan.apps.t.a.apu();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put(DpStatConstants.KEY_USER_ID, aoO == null ? "" : aoO.bk(context));
-        jSONObject.put("zid", aoO == null ? "" : com.baidu.swan.apps.t.a.apC().cb(context));
+        jSONObject.put(DpStatConstants.KEY_USER_ID, apz == null ? "" : apz.bj(context));
+        jSONObject.put("zid", apz == null ? "" : com.baidu.swan.apps.t.a.aqm().ca(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ak.aFm());
+        jSONObject.put("imei", ak.aFW());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", "android");
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ak.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.dJ(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.dI(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", aoO == null ? "" : aoO.bl(context));
+        jSONObject.put("cuid", apz == null ? "" : apz.bk(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

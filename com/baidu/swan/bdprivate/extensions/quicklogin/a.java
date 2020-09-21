@@ -5,51 +5,51 @@ import com.baidu.swan.bdprivate.b;
 /* loaded from: classes3.dex */
 public class a {
     private String agreeText;
-    private boolean dgL;
-    private String dgM;
-    private String dgN;
+    private boolean diO;
+    private String diP;
+    private String diQ;
     private String encryptPhoneNum;
     private boolean hasHistory;
     private int loginMode;
 
-    public int aGK() {
+    public int aHu() {
         return this.loginMode;
     }
 
-    public void kB(int i) {
+    public void kM(int i) {
         this.loginMode = i;
     }
 
-    public boolean aGL() {
-        return this.dgL;
+    public boolean aHv() {
+        return this.diO;
     }
 
-    public void gp(boolean z) {
-        this.dgL = z;
+    public void gn(boolean z) {
+        this.diO = z;
     }
 
-    public String aGM() {
+    public String aHw() {
         return this.encryptPhoneNum;
     }
 
-    public void tl(String str) {
+    public void tE(String str) {
         this.encryptPhoneNum = str;
     }
 
-    public boolean aGN() {
+    public boolean aHx() {
         return this.hasHistory;
     }
 
-    public void gq(boolean z) {
+    public void go(boolean z) {
         this.hasHistory = z;
     }
 
-    public void tm(String str) {
-        this.dgM = str;
+    public void tF(String str) {
+        this.diP = str;
     }
 
-    public String aGO() {
-        String str = this.dgM;
+    public String aHy() {
+        String str = this.diP;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:
@@ -73,20 +73,20 @@ public class a {
         }
         switch (c) {
             case 0:
-                this.dgN = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+                this.diQ = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
                 break;
             case 1:
-                this.dgN = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+                this.diQ = "https://ms.zzx9.cn/html/oauth/protocol2.html";
                 break;
             case 2:
-                this.dgN = "https://wap.cmpassport.com/resources/html/contract.html";
+                this.diQ = "https://wap.cmpassport.com/resources/html/contract.html";
                 break;
         }
-        return this.dgN;
+        return this.diQ;
     }
 
-    public String aGP() {
-        String str = this.dgM;
+    public String aHz() {
+        String str = this.diP;
         char c = 65535;
         switch (str.hashCode()) {
             case 2154:

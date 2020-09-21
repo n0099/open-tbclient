@@ -14,9 +14,9 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class e {
-    private static e bAL;
+    private static e bEi;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -24,22 +24,22 @@ public class e {
     private e() {
     }
 
-    public static synchronized e SR() {
+    public static synchronized e TI() {
         e eVar;
         synchronized (e.class) {
-            if (bAL == null) {
+            if (bEi == null) {
                 b = Utils.f();
-                bAL = new e();
+                bEi = new e();
             }
-            eVar = bAL;
+            eVar = bEi;
         }
         return eVar;
     }
 
     private String a(Context context, d dVar) {
-        if (dVar.SQ() == d.a.LIB_TYPE_JAR) {
+        if (dVar.TH() == d.a.LIB_TYPE_JAR) {
             return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.b(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
-        } else if (dVar.SQ() == d.a.LIB_TYPE_SO) {
+        } else if (dVar.TH() == d.a.LIB_TYPE_SO) {
             String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
             return TextUtils.isEmpty(findLibrary) ? c + File.separator + b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
         } else {
@@ -67,7 +67,7 @@ public class e {
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a = a(context, dVar);
             dVar.a(a);
-            if (dVar.SQ() == d.a.LIB_TYPE_SO) {
+            if (dVar.TH() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(a).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
@@ -168,12 +168,12 @@ public class e {
         return (i & 28) == i;
     }
 
-    public String dq(int i) {
-        d fH = fH(i);
-        if (fH == null) {
+    public String du(int i) {
+        d fQ = fQ(i);
+        if (fQ == null) {
             return null;
         }
-        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fH.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fH.b() + ".zip";
+        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fQ.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fQ.b() + ".zip";
     }
 
     public boolean e(int i) {
@@ -184,15 +184,15 @@ public class e {
         return (i & 64) == i;
     }
 
-    public d fH(int i) {
+    public d fQ(int i) {
         return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
-    public boolean fI(int i) {
+    public boolean fR(int i) {
         return (i & 896) == i;
     }
 
-    public boolean fJ(int i) {
+    public boolean fS(int i) {
         return (i & 3) == i;
     }
 

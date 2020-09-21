@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class EditTextPasteFilterUtils {
     public static final String EDITTEXT_PASTE_INTERCEPTOR_KEY = "textPasteInteceptor";
     public static final String EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR = "\\|";

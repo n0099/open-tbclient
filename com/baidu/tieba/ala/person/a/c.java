@@ -1,18 +1,59 @@
 package com.baidu.tieba.ala.person.a;
 
-import com.baidu.mobstat.Config;
+import com.baidu.live.data.az;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
     public int has_more;
-    public int pn;
-    public int ps;
+    public List<az> user_list;
+
+    public void parserJson(String str) {
+        JSONObject jSONObject;
+        try {
+            jSONObject = new JSONObject(str);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            jSONObject = null;
+        }
+        parserJson(jSONObject);
+    }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.ps = jSONObject.optInt("ps");
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.user_list = new ArrayList(optJSONArray.length());
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        az azVar = new az();
+                        azVar.parserJson(optJSONObject);
+                        this.user_list.add(azVar);
+                    }
+                }
+            }
             this.has_more = jSONObject.optInt("has_more");
         }
+    }
+
+    public String toString() {
+        JSONObject jSONObject = new JSONObject();
+        JSONArray jSONArray = new JSONArray();
+        if (this.user_list != null && !this.user_list.isEmpty()) {
+            for (az azVar : this.user_list) {
+                jSONArray.put(azVar.toString());
+            }
+        }
+        try {
+            jSONObject.put("user_list", jSONArray.toString());
+            jSONObject.put("has_more", this.has_more);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject.toString();
     }
 }

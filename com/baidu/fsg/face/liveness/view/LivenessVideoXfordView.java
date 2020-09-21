@@ -16,7 +16,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class LivenessVideoXfordView extends FrameLayout {
     private static final float a = 230.0f;
     private static final float b = 20.0f;
@@ -42,14 +42,14 @@ public class LivenessVideoXfordView extends FrameLayout {
     private int v;
     private a w;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     public enum VideoXfordViewState {
         FAILURE,
         SUCCESSING,
         SUCCESSED
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes16.dex */
     public interface a {
         void a();
     }

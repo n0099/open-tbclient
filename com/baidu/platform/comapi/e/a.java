@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.b.c;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private c c = null;
     private static JSONObject b = null;

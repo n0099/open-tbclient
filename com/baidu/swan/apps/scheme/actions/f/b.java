@@ -3,14 +3,14 @@ package com.baidu.swan.apps.scheme.actions.f;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "LocationResult";
     public final double altitude;
-    public final double cTF;
-    public final double cTG = 0.0d;
-    public final double cTH;
+    public final double cVF;
+    public final double cVG = 0.0d;
+    public final double cVH;
     public final String city;
     public final String cityCode;
     public final String coorType;
@@ -29,9 +29,9 @@ public class b {
         this.longitude = d;
         this.latitude = d2;
         this.speed = f;
-        this.cTF = d3;
+        this.cVF = d3;
         this.altitude = d4;
-        this.cTH = d3;
+        this.cVH = d3;
         this.country = str2;
         this.countryCode = str3;
         this.city = str4;
@@ -48,10 +48,10 @@ public class b {
             jSONObject.put("longitude", this.longitude);
             jSONObject.put("latitude", this.latitude);
             jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.cTF);
+            jSONObject.put("accuracy", this.cVF);
             jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.cTG);
-            jSONObject.put("horizontalAccuracy", this.cTH);
+            jSONObject.put("verticalAccuracy", this.cVG);
+            jSONObject.put("horizontalAccuracy", this.cVH);
             jSONObject.put("country", this.country);
             jSONObject.put("countryCode", this.countryCode);
             jSONObject.put("city", this.city);

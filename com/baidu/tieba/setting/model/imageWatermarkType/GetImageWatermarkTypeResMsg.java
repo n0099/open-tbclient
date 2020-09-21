@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.model.imageWatermarkType;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class GetImageWatermarkTypeResMsg extends JsonHttpResponsedMessage {
     public static final int INVALID_TYPE = -1;
     public int mMaskType;

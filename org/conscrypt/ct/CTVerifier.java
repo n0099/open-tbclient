@@ -10,7 +10,7 @@ import org.conscrypt.NativeCrypto;
 import org.conscrypt.OpenSSLX509Certificate;
 import org.conscrypt.ct.SignedCertificateTimestamp;
 import org.conscrypt.ct.VerifiedSCT;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class CTVerifier {
     private final CTLogStore store;
 

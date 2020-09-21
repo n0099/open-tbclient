@@ -9,26 +9,26 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class d {
     private Context g;
     private String h;
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray nfY;
+    private JSONArray nqa;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public static final d nfZ = new d((byte) 0);
+        public static final d nqb = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> dMq() {
+    public final Map<String, g> dQo() {
         return this.k;
     }
 
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d dMr() {
-        return a.nfZ;
+    public static d dQp() {
+        return a.nqb;
     }
 
     public final void a(Context context) {
@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult TO(String str) {
-        if (this.nfY == null) {
+    public final SampleResult Uq(String str) {
+        if (this.nqa == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.TW(this.k.get(str).getGroup());
+                return i.Uy(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.nfY.length(); i++) {
-            JSONObject optJSONObject = this.nfY.optJSONObject(i);
+        for (int i = 0; i < this.nqa.length(); i++) {
+            JSONObject optJSONObject = this.nqa.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.TW(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.Uy(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

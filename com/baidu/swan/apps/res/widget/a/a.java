@@ -12,11 +12,11 @@ import android.widget.PopupWindow;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
-    protected d cPF;
-    protected b.a cPG;
-    private InterfaceC0427a cPH;
+    protected d cRF;
+    protected b.a cRG;
+    private InterfaceC0422a cRH;
     private float mBgDarkAlpha;
     protected Context mContext;
     private boolean mCurrentMode;
@@ -32,12 +32,12 @@ public abstract class a {
     protected final View mViewToAttach;
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0427a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0422a {
         void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface b {
     }
 
@@ -52,16 +52,16 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.cPG = aVar;
+        this.cRG = aVar;
     }
 
     public void show() {
-        if (com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState() != this.mCurrentMode) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState();
+        this.mCurrentMode = com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState();
     }
 
     public void dismiss() {
@@ -108,14 +108,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.cPH != null) {
-            this.cPH.onMenuItemUpdated(list);
+        if (this.cRH != null) {
+            this.cRH.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.cPF != null) {
-            this.cPF.onShowMenu();
+        if (this.cRF != null) {
+            this.cRF.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -137,15 +137,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.cPF != null) {
-                        a.this.cPF.onDismissMenu();
+                    if (a.this.cRF != null) {
+                        a.this.cRF.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.cPF != null) {
-                this.cPF.onDismissMenu();
+            if (this.cRF != null) {
+                this.cRF.onDismissMenu();
                 return;
             }
             return;

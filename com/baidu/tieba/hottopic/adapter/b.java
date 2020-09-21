@@ -6,44 +6,44 @@ import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.data.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bbw = new ArrayList();
-    private BdTypeListView fCT;
-    private d iXg;
-    private c iXh;
-    private m iXi;
+    private List<com.baidu.adp.widget.ListView.a> bdV = new ArrayList();
+    private BdTypeListView fGf;
+    private d jfM;
+    private c jfN;
+    private m jfO;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.iXg = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.iYY);
-        this.iXh = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.iYX);
-        this.iXi = new m(hotRanklistActivity, o.jad);
-        this.bbw.add(this.iXg);
-        this.bbw.add(this.iXh);
-        this.bbw.add(this.iXi);
-        this.fCT = bdTypeListView;
-        this.fCT.addAdapters(this.bbw);
+        this.jfM = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.jhD);
+        this.jfN = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.jhC);
+        this.jfO = new m(hotRanklistActivity, o.jiJ);
+        this.bdV.add(this.jfM);
+        this.bdV.add(this.jfN);
+        this.bdV.add(this.jfO);
+        this.fGf = bdTypeListView;
+        this.fGf.addAdapters(this.bdV);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cAg() != null) {
-            arrayList = jVar.cAg();
+        if (jVar.cDN() != null) {
+            arrayList = jVar.cDN();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.iXi != null) {
-            this.iXi.czw();
+        if (this.jfO != null) {
+            this.jfO.cDd();
         }
-        if (this.iXg != null) {
-            this.iXg.JO(str);
+        if (this.jfM != null) {
+            this.jfM.Kq(str);
         }
-        if (this.fCT != null) {
-            this.fCT.setData(arrayList);
+        if (this.fGf != null) {
+            this.fGf.setData(arrayList);
         }
     }
 }

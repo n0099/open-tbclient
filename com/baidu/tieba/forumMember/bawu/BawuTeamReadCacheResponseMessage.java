@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     private BawuTeam mBawuTeamInfo;
     private int mIsPrivateForum;

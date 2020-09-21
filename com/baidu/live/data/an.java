@@ -1,39 +1,6 @@
 package com.baidu.live.data;
-
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class an {
-    public AlaLiveUserInfoData aIn;
-    public int rank;
-    public int type;
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.rank = jSONObject.optInt("rank");
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.aIn = new AlaLiveUserInfoData();
-                this.aIn.parserJson(optJSONObject);
-            }
-        }
-    }
-
-    public boolean CT() {
-        return this.type == 1;
-    }
-
-    public boolean isFirst() {
-        return this.rank == 1;
-    }
-
-    public boolean a(an anVar) {
-        if (anVar != null && anVar.type == this.type && anVar.rank == this.rank) {
-            if (this.aIn == null || anVar.aIn == null) {
-                return true;
-            }
-            return anVar.aIn.userId == this.aIn.userId;
-        }
-        return false;
-    }
+    public long mTDouScores = 0;
+    public long mPetalTotal = 0;
 }

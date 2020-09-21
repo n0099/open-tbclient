@@ -1,5 +1,5 @@
 package com.baidu.mapapi;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class OpenLogUtil {
     private static ModuleName a;
 

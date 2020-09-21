@@ -11,20 +11,20 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final io.reactivex.g<T> omT;
+    final io.reactivex.g<T> owE;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.omT.a((j) blockingFlowableIterator);
+        this.owE.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
-    /* loaded from: classes7.dex */
-    static final class BlockingFlowableIterator<T> extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
+    /* loaded from: classes25.dex */
+    static final class BlockingFlowableIterator<T> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
         volatile boolean done;
@@ -56,7 +56,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.efB();
+                    io.reactivex.internal.util.c.ejy();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {
@@ -92,14 +92,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
             throw new NoSuchElementException();
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(this.batchSize);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.queue.offer(t)) {
                 SubscriptionHelper.cancel(this);
@@ -109,14 +109,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
             signalConsumer();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             signalConsumer();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             signalConsumer();

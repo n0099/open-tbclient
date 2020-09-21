@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class SVGAPlayer extends SVGAImageView {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SVGAPlayer(Context context) {

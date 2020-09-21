@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.packageManager.pluginSettings;
 /* loaded from: classes.dex */
 public interface d {
-    void qt();
+    void qy();
 
-    void qu();
+    void qz();
 }

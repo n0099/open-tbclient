@@ -1,8 +1,8 @@
 package com.baidu.live.follow.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z, String str, boolean z2);
     }

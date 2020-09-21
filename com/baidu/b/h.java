@@ -11,15 +11,15 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h {
     private static boolean b = false;
-    private a.C0090a acr;
-    c adb;
-    private com.baidu.b.b.c adf;
+    private a.C0091a acK;
+    c adu;
+    private com.baidu.b.b.c adx;
     private Context c;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final String[] a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
         private String b;
@@ -94,9 +94,9 @@ public class h {
             throw new NullPointerException("context should not be null!!!");
         }
         this.c = context.getApplicationContext();
-        this.acr = aVar.sJ().cV("bohrium");
-        this.acr.a();
-        this.adb = cVar;
+        this.acK = aVar.sO().cX("bohrium");
+        this.acK.a();
+        this.adu = cVar;
         a(aVar);
     }
 
@@ -136,15 +136,15 @@ public class h {
 
     private void a(com.baidu.b.e.a aVar) {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
-        a.C0088a c0088a = new a.C0088a();
-        c0088a.a = this.c;
-        c0088a.acm = aVar;
+        a.C0089a c0089a = new a.C0089a();
+        c0089a.a = this.c;
+        c0089a.acF = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
-            aVar2.a(c0088a);
+            aVar2.a(c0089a);
             aVar2.a(cVar2);
         }
-        this.adf = cVar;
+        this.adx = cVar;
     }
 
     private static String c(String str) {
@@ -180,16 +180,16 @@ public class h {
     public a a() {
         a.d dVar = new a.d();
         dVar.a = true;
-        List<com.baidu.b.b.a> a2 = this.adf.a();
-        Collections.sort(a2, com.baidu.b.b.a.acj);
-        List<b> N = this.adb.N(this.c);
+        List<com.baidu.b.b.a> a2 = this.adx.a();
+        Collections.sort(a2, com.baidu.b.b.a.acE);
+        List<b> N = this.adu.N(this.c);
         if (N != null) {
             for (b bVar : N) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.b.b.a aVar : a2) {
-                        a.e a3 = aVar.a(bVar.acg.packageName, dVar);
-                        if (a3 != null && a3.a() && a3.aco != null) {
-                            return a3.aco;
+                        a.e a3 = aVar.a(bVar.acB.packageName, dVar);
+                        if (a3 != null && a3.a() && a3.acH != null) {
+                            return a3.acH;
                         }
                     }
                     continue;

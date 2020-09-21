@@ -18,17 +18,17 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.m;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ConcernForumThreadUserInfoLayout extends LinearLayout {
-    private bw afL;
-    private View.OnClickListener aiT;
-    private View.OnClickListener euA;
-    public ClickableHeaderImageView euH;
-    private View.OnClickListener eud;
-    public TextView euw;
-    public TextView eux;
-    private TextView evd;
-    private View eve;
+    private bw agf;
+    private View.OnClickListener ajn;
+    public TextView ewA;
+    public TextView ewB;
+    private View.OnClickListener ewE;
+    public ClickableHeaderImageView ewL;
+    private View.OnClickListener ewh;
+    private TextView exh;
+    private View exi;
     private int mSkinType;
 
     public ConcernForumThreadUserInfoLayout(Context context) {
@@ -42,13 +42,13 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public ConcernForumThreadUserInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.euA = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.ConcernForumThreadUserInfoLayout.1
+        this.ewE = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.ConcernForumThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ConcernForumThreadUserInfoLayout.this.afL != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.afL.beI())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.afL.beI(), m.beq())));
-                    if (ConcernForumThreadUserInfoLayout.this.eud != null) {
-                        ConcernForumThreadUserInfoLayout.this.eud.onClick(view);
+                if (ConcernForumThreadUserInfoLayout.this.agf != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.agf.bfC())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.agf.bfC(), m.bfk())));
+                    if (ConcernForumThreadUserInfoLayout.this.ewh != null) {
+                        ConcernForumThreadUserInfoLayout.this.ewh.onClick(view);
                     }
                 }
             }
@@ -58,49 +58,49 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_forum_thread_user_info_layout, (ViewGroup) this, true);
-        this.euH = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
-        this.euw = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-        this.eux = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
-        this.evd = (TextView) inflate.findViewById(R.id.thread_info_address);
-        this.eve = inflate.findViewById(R.id.divider);
+        this.ewL = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
+        this.ewA = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
+        this.ewB = (TextView) inflate.findViewById(R.id.thread_user_name_and_reply_time);
+        this.exh = (TextView) inflate.findViewById(R.id.thread_info_address);
+        this.exi = inflate.findViewById(R.id.divider);
         setGravity(16);
         initHeaderImg();
-        this.euw.setOnClickListener(this.euA);
+        this.ewA.setOnClickListener(this.ewE);
     }
 
     private void initHeaderImg() {
-        if (this.euH != null) {
-            this.euH.setDefaultResource(17170445);
-            this.euH.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            this.euH.setDefaultBgResource(R.color.cp_bg_line_e);
-            this.euH.setIsRound(true);
-            this.euH.setOnClickListener(this.euA);
+        if (this.ewL != null) {
+            this.ewL.setDefaultResource(17170445);
+            this.ewL.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+            this.ewL.setDefaultBgResource(R.color.cp_bg_line_e);
+            this.ewL.setIsRound(true);
+            this.ewL.setOnClickListener(this.ewE);
         }
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.aiT = onClickListener;
-        if (this.euH != null) {
-            this.euH.setAfterClickListener(this.aiT);
+        this.ajn = onClickListener;
+        if (this.ewL != null) {
+            this.ewL.setAfterClickListener(this.ajn);
         }
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.eud = onClickListener;
+        this.ewh = onClickListener;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.euH != null) {
-            this.euH.setPageId(bdUniqueId);
+        if (this.ewL != null) {
+            this.ewL.setPageId(bdUniqueId);
         }
     }
 
     public ClickableHeaderImageView getHeaderImg() {
-        return this.euH;
+        return this.ewL;
     }
 
     public TextView getUserName() {
-        return this.eux;
+        return this.ewB;
     }
 
     public boolean getIsSimpleThread() {

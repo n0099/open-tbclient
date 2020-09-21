@@ -12,7 +12,7 @@ import com.nineoldandroids.animation.Animator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class ValueAnimator extends Animator {
     static final int ANIMATION_FRAME = 1;
     static final int ANIMATION_START = 0;
@@ -88,7 +88,7 @@ public class ValueAnimator extends Animator {
     private Interpolator mInterpolator = sDefaultInterpolator;
     private ArrayList<AnimatorUpdateListener> mUpdateListeners = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(ValueAnimator valueAnimator);
     }
@@ -210,7 +210,7 @@ public class ValueAnimator extends Animator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public static class AnimationHandler extends Handler {
         private AnimationHandler() {
         }

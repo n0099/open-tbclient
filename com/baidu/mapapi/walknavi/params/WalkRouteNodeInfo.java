@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.params;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class WalkRouteNodeInfo extends a {
     @Override // com.baidu.mapapi.walknavi.params.a
     public String getBuildingID() {

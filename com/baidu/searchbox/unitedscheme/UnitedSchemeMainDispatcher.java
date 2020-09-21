@@ -3,7 +3,6 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeInterceptChain;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -20,7 +19,7 @@ import rx.d;
 import rx.e;
 import rx.functions.f;
 import rx.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static final String CONTENT_KEY_EXT = "ext";
     public static final String CONTENT_KEY_FROM = "from";
@@ -100,10 +99,10 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity2 = null;
         } else {
             String param = unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
-            UnitedSchemeEntity m33clone = unitedSchemeEntity.m33clone();
-            m33clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
+            UnitedSchemeEntity m32clone = unitedSchemeEntity.m32clone();
+            m32clone.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
             unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
-            unitedSchemeEntity2 = m33clone;
+            unitedSchemeEntity2 = m32clone;
         }
         String allPath = unitedSchemeEntity.getAllPath();
         if (redirectSchemes.get(allPath) != null) {
@@ -118,18 +117,18 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             return true;
         }
-        UnitedSchemeEntity m33clone2 = unitedSchemeEntity.m33clone();
-        String path = m33clone2.getPath(true);
+        UnitedSchemeEntity m32clone2 = unitedSchemeEntity.m32clone();
+        String path = m32clone2.getPath(true);
         if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
-            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m33clone2, callbackHandler);
-            if (m33clone2.result != null) {
-                int optInt = m33clone2.result.optInt("status", -1);
+            boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m32clone2, callbackHandler);
+            if (m32clone2.result != null) {
+                int optInt = m32clone2.result.optInt("status", -1);
                 if (optInt != 301 && optInt != 302) {
                     doUBCForOutsideAndInside(unitedSchemeEntity, optInt);
                     if (optInt != 0) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, m33clone2, m33clone2.result);
+                        UnitedSchemeUtility.callCallback(callbackHandler, m32clone2, m32clone2.result);
                     }
-                    unitedSchemeEntity.result = m33clone2.result;
+                    unitedSchemeEntity.result = m32clone2.result;
                     return dispatch;
                 }
             } else if (dispatch) {
@@ -139,10 +138,10 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         }
         boolean dispatch2 = super.dispatch(context, unitedSchemeEntity, callbackHandler);
         if (!dispatch2 && unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) != null) {
-            unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m33clone2.getSource());
+            unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m32clone2.getSource());
             dispatch2 = dispatch(context, unitedSchemeEntity, callbackHandler);
         }
-        JSONObject selectResult = selectResult(m33clone2, unitedSchemeEntity);
+        JSONObject selectResult = selectResult(m32clone2, unitedSchemeEntity);
         if (dispatch2 && unitedSchemeEntity.result == null) {
             doUBCForOutsideAndInside(unitedSchemeEntity, dispatch2 ? 0 : -2);
         } else if (selectResult != null) {
@@ -367,7 +366,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString());
+                jSONObject2.put("scheme", unitedSchemeEntity.getUri().toString());
                 jSONObject.put("ext", jSONObject2);
                 jSONObject.put("value", String.valueOf(i));
                 if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
@@ -375,7 +374,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 } else {
                     jSONObject.put("from", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
                 }
-                jSONObject.put("type", SuspensionBallEntity.KEY_SCHEME);
+                jSONObject.put("type", "scheme");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -383,7 +382,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             if (!TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
                 JSONObject jSONObject3 = new JSONObject();
                 try {
-                    jSONObject3.put(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString());
+                    jSONObject3.put("scheme", unitedSchemeEntity.getUri().toString());
                     jSONObject3.put("errorcode", i);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

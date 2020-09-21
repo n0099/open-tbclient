@@ -6,34 +6,34 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class j implements i {
-    private final CharSequence otP;
-    private final g otX;
-    private final Matcher otY;
+    private final g oDE;
+    private final Matcher oDF;
+    private final CharSequence oDw;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.m(matcher, "matcher");
         kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
-        this.otY = matcher;
-        this.otP = charSequence;
-        this.otX = new a();
+        this.oDF = matcher;
+        this.oDw = charSequence;
+        this.oDE = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult egP() {
-        return this.otY;
+    public final MatchResult ekM() {
+        return this.oDF;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h egN() {
+    public kotlin.b.h ekK() {
         kotlin.b.h a2;
-        a2 = k.a(egP());
+        a2 = k.a(ekM());
         return a2;
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends kotlin.collections.a<f> implements h {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -53,7 +53,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.egP().groupCount() + 1;
+            return j.this.ekM().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -66,11 +66,11 @@ public final class j implements i {
             return kotlin.sequences.e.c(kotlin.collections.o.i(kotlin.collections.o.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f NZ(int i) {
+        public f OE(int i) {
             kotlin.b.h a;
-            a = k.a(j.this.egP(), i);
-            if (a.egE().intValue() >= 0) {
-                String group = j.this.egP().group(i);
+            a = k.a(j.this.ekM(), i);
+            if (a.ekB().intValue() >= 0) {
+                String group = j.this.ekM().group(i);
                 kotlin.jvm.internal.q.l((Object) group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -79,13 +79,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i egO() {
+    public i ekL() {
         i a2;
-        int end = (egP().end() == egP().start() ? 1 : 0) + egP().end();
-        if (end <= this.otP.length()) {
-            Matcher matcher = this.otY.pattern().matcher(this.otP);
+        int end = (ekM().end() == ekM().start() ? 1 : 0) + ekM().end();
+        if (end <= this.oDw.length()) {
+            Matcher matcher = this.oDF.pattern().matcher(this.oDw);
             kotlin.jvm.internal.q.l((Object) matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.otP);
+            a2 = k.a(matcher, end, this.oDw);
             return a2;
         }
         return null;

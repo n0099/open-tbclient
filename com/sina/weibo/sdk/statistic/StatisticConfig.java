@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.statistic;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class StatisticConfig {
     private static final long DEFAULT_UPLOAD_INTERVAL = 90000;
     private static final long MAX_UPLOAD_INTERVAL = 28800000;

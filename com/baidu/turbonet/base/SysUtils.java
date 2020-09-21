@@ -7,10 +7,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class SysUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Boolean mZR;
+    private static Boolean njQ;
 
     static {
         $assertionsDisabled = !SysUtils.class.desiredAssertionStatus();
@@ -19,7 +19,7 @@ public class SysUtils {
     private SysUtils() {
     }
 
-    private static int dKe() {
+    private static int dOc() {
         FileReader fileReader;
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -58,22 +58,22 @@ public class SysUtils {
 
     @CalledByNative
     public static boolean isLowEndDevice() {
-        if (mZR == null) {
-            mZR = Boolean.valueOf(dKf());
+        if (njQ == null) {
+            njQ = Boolean.valueOf(dOd());
         }
-        return mZR.booleanValue();
+        return njQ.booleanValue();
     }
 
-    private static boolean dKf() {
+    private static boolean dOd() {
         if ($assertionsDisabled || CommandLine.isInitialized()) {
-            if (CommandLine.dJV().Td("enable-low-end-device-mode")) {
+            if (CommandLine.dNT().TC("enable-low-end-device-mode")) {
                 return true;
             }
-            if (CommandLine.dJV().Td("disable-low-end-device-mode")) {
+            if (CommandLine.dNT().TC("disable-low-end-device-mode")) {
                 return false;
             }
-            int dKe = dKe();
-            return dKe > 0 && dKe / 1024 <= 512;
+            int dOc = dOc();
+            return dOc > 0 && dOc / 1024 <= 512;
         }
         throw new AssertionError();
     }

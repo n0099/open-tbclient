@@ -5,11 +5,11 @@ import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class d implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> ag(@Nullable List<String> list) {
+    public List<String> ak(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }

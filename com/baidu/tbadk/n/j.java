@@ -3,104 +3,104 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class j extends l {
-    public static int eSj = 100;
-    public static int eSk = 10;
+    public static int eUZ = 100;
+    public static int eVa = 10;
 
-    public static void bum() {
-        if (m.buo().bup()) {
-            if (b.eSo > eSk) {
-                b.bui();
+    public static void bvq() {
+        if (m.bvs().bvt()) {
+            if (b.eVe > eVa) {
+                b.bvm();
             }
-            if (a.eSl > eSk) {
-                a.bui();
+            if (a.eVb > eVa) {
+                a.bvm();
             }
         }
     }
 
-    public static void f(boolean z, boolean z2, boolean z3) {
-        a.eSl++;
+    public static void g(boolean z, boolean z2, boolean z3) {
+        a.eVb++;
         if (z2) {
-            a.eSm++;
+            a.eVc++;
         } else if (z3) {
-            a.eSn++;
+            a.eVd++;
         }
-        if (a.eSl > eSj) {
-            a.bui();
+        if (a.eVb > eUZ) {
+            a.bvm();
         }
     }
 
     public void c(f fVar) {
-        if (m.buo().bup()) {
-            if (b.eSo < eSj) {
-                b.eSp += fVar.KT;
-                b.eSq += fVar.eRF;
-                b.eSr += fVar.eRG;
-                b.eSs += fVar.eRH;
-                b.eSu += fVar.costTime;
-                b.eSt += fVar.eRI;
-                b.eSo++;
+        if (m.bvs().bvt()) {
+            if (b.eVe < eUZ) {
+                b.eVf += fVar.Lc;
+                b.eVg += fVar.eUw;
+                b.eVh += fVar.eUx;
+                b.eVi += fVar.eUy;
+                b.eVk += fVar.costTime;
+                b.eVj += fVar.eUz;
+                b.eVe++;
                 return;
             }
-            b.bui();
+            b.bvm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int eSl;
-        public static int eSm;
-        public static int eSn;
+        public static int eVb;
+        public static int eVc;
+        public static int eVd;
 
-        public static void bui() {
-            com.baidu.adp.lib.stats.a mN = l.mN();
-            mN.append("action", "imbusy");
-            mN.append("totalNum", String.valueOf(eSl));
-            mN.append("tfailNum", String.valueOf(eSm));
-            mN.append("qfailNum", String.valueOf(eSn));
-            BdStatisticsManager.getInstance().performance("im", mN);
+        public static void bvm() {
+            com.baidu.adp.lib.stats.a mS = l.mS();
+            mS.append("action", "imbusy");
+            mS.append("totalNum", String.valueOf(eVb));
+            mS.append("tfailNum", String.valueOf(eVc));
+            mS.append("qfailNum", String.valueOf(eVd));
+            BdStatisticsManager.getInstance().performance("im", mS);
             resetData();
         }
 
         public static void resetData() {
-            eSl = 0;
-            eSm = 0;
-            eSn = 0;
+            eVb = 0;
+            eVc = 0;
+            eVd = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int eSo;
-        public static long eSp;
-        public static long eSq;
-        public static long eSr;
-        public static int eSs;
-        public static int eSt;
-        public static long eSu;
+        public static int eVe;
+        public static long eVf;
+        public static long eVg;
+        public static long eVh;
+        public static int eVi;
+        public static int eVj;
+        public static long eVk;
 
-        public static void bui() {
-            com.baidu.adp.lib.stats.a mN = l.mN();
-            mN.append("action", "imcost");
-            mN.append("dect", String.valueOf(eSp));
-            mN.append("dlsize", String.valueOf(eSq));
-            mN.append("dbt", String.valueOf(eSr));
-            mN.append("pnum", String.valueOf(eSs));
-            mN.append("reqcost", String.valueOf(eSu));
-            mN.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(eSt));
-            mN.append("totalNum", String.valueOf(eSo));
-            BdStatisticsManager.getInstance().performance("im", mN);
-            bun();
+        public static void bvm() {
+            com.baidu.adp.lib.stats.a mS = l.mS();
+            mS.append("action", "imcost");
+            mS.append("dect", String.valueOf(eVf));
+            mS.append("dlsize", String.valueOf(eVg));
+            mS.append("dbt", String.valueOf(eVh));
+            mS.append("pnum", String.valueOf(eVi));
+            mS.append("reqcost", String.valueOf(eVk));
+            mS.append(com.baidu.fsg.face.base.b.c.i, String.valueOf(eVj));
+            mS.append("totalNum", String.valueOf(eVe));
+            BdStatisticsManager.getInstance().performance("im", mS);
+            bvr();
         }
 
-        public static void bun() {
-            eSo = 0;
-            eSp = 0L;
-            eSq = 0L;
-            eSr = 0L;
-            eSs = 0;
-            eSt = 0;
+        public static void bvr() {
+            eVe = 0;
+            eVf = 0L;
+            eVg = 0L;
+            eVh = 0L;
+            eVi = 0;
+            eVj = 0;
         }
     }
 }

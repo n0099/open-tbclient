@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.BdDatabaseNewCreatedMessage;
 import com.baidu.live.adp.base.db.PhoneDatabaseHelper;
 import com.baidu.live.adp.framework.MessageManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BdCacheSQLiteHelper extends PhoneDatabaseHelper {
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_CACHE_META_INFO = "cache_meta_info";

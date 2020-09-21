@@ -17,7 +17,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes6.dex */
 public class a {
-    public static Animation M(Context context, int i) throws Resources.NotFoundException {
+    public static Animation O(Context context, int i) throws Resources.NotFoundException {
         XmlResourceParser xmlResourceParser = null;
         try {
             try {

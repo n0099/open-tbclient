@@ -2,7 +2,7 @@ package com.baidu.mapapi.common;
 
 import android.text.TextUtils;
 import com.baidu.mapsdkplatform.comapi.util.h;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SysOSUtil {
     public static float getDensity() {
         return h.c;

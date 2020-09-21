@@ -1,16 +1,26 @@
 package com.baidu.tieba.personPolymeric;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class b {
-    private static b lko = new b();
+    private static b ltk = new b();
     private long creatTime = 0;
-    private long lkp = 0;
-    private long lkq = 0;
-    private long eRX = 0;
+    private long ltl = 0;
+    private long ltm = 0;
+    private long eUN = 0;
     private long beginTime = 0;
-    private long lkr = 0;
-    private long lks = 0;
+    private long ltn = 0;
+    private long lto = 0;
 
     private b() {
+    }
+
+    public void reset() {
+        this.creatTime = 0L;
+        this.ltl = 0L;
+        this.ltm = 0L;
+        this.eUN = 0L;
+        this.beginTime = 0L;
+        this.ltn = 0L;
+        this.lto = 0L;
     }
 
     public String toString() {
@@ -20,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.lks);
+        stringBuffer.append(this.lto);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.lkr);
+        stringBuffer.append(this.ltn);
         stringBuffer.append(" drawTime:");
-        stringBuffer.append(this.eRX);
+        stringBuffer.append(this.eUN);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.lkq);
+        stringBuffer.append(this.ltm);
         return stringBuffer.toString();
     }
 
-    public static b dif() {
-        return lko;
+    public static b dlK() {
+        return ltk;
     }
 
     public long getCreateTime() {
@@ -42,55 +52,55 @@ public class b {
         this.creatTime = j;
     }
 
-    public long aVY() {
+    public long aWK() {
         return this.beginTime;
     }
 
-    public void cq(long j) {
+    public void cr(long j) {
         this.beginTime = j;
     }
 
-    public long dgy() {
-        return this.eRX;
+    public long dkb() {
+        return this.eUN;
     }
 
-    public void fI(long j) {
-        this.eRX = j;
+    public void fW(long j) {
+        this.eUN = j;
     }
 
     public long getRefreshTime() {
-        return this.lkr;
+        return this.ltn;
     }
 
     public void setRefreshTime(long j) {
-        this.lkr = j;
+        this.ltn = j;
     }
 
-    public long dgz() {
-        return this.lks;
+    public long dkc() {
+        return this.lto;
     }
 
-    public void fJ(long j) {
-        if (this.lks == 0) {
-            this.lks = j;
+    public void fX(long j) {
+        if (this.lto == 0) {
+            this.lto = j;
         }
     }
 
-    public long dig() {
-        return this.lkp;
+    public long dlL() {
+        return this.ltl;
     }
 
-    public void fL(long j) {
-        if (this.lkp == 0) {
-            this.lkp = j;
+    public void fZ(long j) {
+        if (this.ltl == 0) {
+            this.ltl = j;
         }
     }
 
-    public long dih() {
-        return this.lkq;
+    public long dlM() {
+        return this.ltm;
     }
 
-    public void fM(long j) {
-        this.lkq = j;
+    public void ga(long j) {
+        this.ltm = j;
     }
 }

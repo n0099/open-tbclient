@@ -17,67 +17,67 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class c {
     private final String EXTRA_DATA = CashierData.EXT_DATA;
-    private final String bGr = "actionType";
-    private final String bGs = "payUrl";
-    private final String bGt = "H5";
-    private b bGu;
+    private final String bIs = "actionType";
+    private final String bIt = "payUrl";
+    private final String bIu = "H5";
+    private b bIv;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     class a extends com.baidu.poly.a.a.a<Map<String, String>> {
-        final /* synthetic */ m bFY;
-        final /* synthetic */ String bGp;
+        final /* synthetic */ m bHZ;
+        final /* synthetic */ String bIq;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.poly.a.j.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0269a implements Runnable {
-            final /* synthetic */ com.baidu.poly.widget.c bGm;
-            final /* synthetic */ String bGn;
+        /* loaded from: classes9.dex */
+        public class RunnableC0267a implements Runnable {
+            final /* synthetic */ com.baidu.poly.widget.c bIn;
+            final /* synthetic */ String bIo;
 
-            RunnableC0269a(com.baidu.poly.widget.c cVar, String str) {
-                this.bGm = cVar;
-                this.bGn = str;
+            RunnableC0267a(com.baidu.poly.widget.c cVar, String str) {
+                this.bIn = cVar;
+                this.bIo = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.poly.widget.c cVar = this.bGm;
+                com.baidu.poly.widget.c cVar = this.bIn;
                 if (cVar != null && cVar.isShowing()) {
-                    this.bGm.dismiss();
+                    this.bIn.dismiss();
                 }
-                a.this.bFY.a(0, this.bGn);
+                a.this.bHZ.a(0, this.bIo);
             }
         }
 
         a(String str, m mVar) {
-            this.bGp = str;
-            this.bFY = mVar;
+            this.bIq = str;
+            this.bHZ = mVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         public void a(Map<String, String> map) {
-            d.bFT = map.get(CashierData.ORDERID);
+            d.bHU = map.get(CashierData.ORDERID);
             if (!map.containsKey("parentType")) {
-                c.this.c(map, this.bGp, this.bFY);
+                c.this.c(map, this.bIq, this.bHZ);
                 return;
             }
             String str = map.get("parentType");
             if (TextUtils.isEmpty(str)) {
-                c.this.c(map, this.bGp, this.bFY);
+                c.this.c(map, this.bIq, this.bHZ);
             } else if (4 != Integer.parseInt(str)) {
-                c.this.c(map, this.bGp, this.bFY);
+                c.this.c(map, this.bIq, this.bHZ);
             } else {
                 String a = com.baidu.poly.util.b.a(0, map.get(CashierData.ORDERID), "Successful payment");
-                com.baidu.poly.widget.c cVar = new com.baidu.poly.widget.c(View.inflate(this.bFY.getContext(), b.f.pay_success, null), -1, -1, true);
+                com.baidu.poly.widget.c cVar = new com.baidu.poly.widget.c(View.inflate(this.bHZ.getContext(), b.f.pay_success, null), -1, -1, true);
                 cVar.setClippingEnabled(false);
                 cVar.setFocusable(false);
                 cVar.setOutsideTouchable(false);
-                cVar.showAtLocation(this.bFY, 0, 0, 0);
-                new Handler().postDelayed(new RunnableC0269a(cVar, a), 2000L);
+                cVar.showAtLocation(this.bHZ, 0, 0, 0);
+                new Handler().postDelayed(new RunnableC0267a(cVar, a), 2000L);
                 com.baidu.poly.a.h.a.j("8");
                 com.baidu.poly.util.d.info("WalletList->pay() 命中0单元");
             }
@@ -91,13 +91,13 @@ public class c {
             } else {
                 message = th != null ? th.getMessage() : null;
             }
-            this.bFY.a("launchpayment error msg is " + message, str);
-            d.a(new com.baidu.poly.a.h.b("1").hZ(new com.baidu.poly.a.i.a("launchpayment error --> " + str, th).U()));
+            this.bHZ.a("launchpayment error msg is " + message, str);
+            d.a(new com.baidu.poly.a.h.b("1").is(new com.baidu.poly.a.i.a("launchpayment error --> " + str, th).U()));
         }
     }
 
     public c(b bVar) {
-        this.bGu = bVar;
+        this.bIv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -128,7 +128,7 @@ public class c {
                 return;
             }
         }
-        this.bGu.a(map, str, mVar);
+        this.bIv.a(map, str, mVar);
     }
 
     private boolean d(Context context) {
@@ -145,7 +145,7 @@ public class c {
     }
 
     public void b(Bundle bundle, String str, m mVar) {
-        com.baidu.poly.a.b.b.TT().a(bundle, new a(str, mVar), str);
+        com.baidu.poly.a.b.b.UC().a(bundle, new a(str, mVar), str);
     }
 
     private void a(Activity activity, String str, Map<String, String> map) {

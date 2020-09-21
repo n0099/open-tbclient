@@ -10,25 +10,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class hi {
     private static boolean a = false;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     static class a implements Runnable {
         private Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        private hl f436a;
+        private hl f435a;
 
         public a(Context context, hl hlVar) {
-            this.f436a = hlVar;
+            this.f435a = hlVar;
             this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hi.c(this.a, this.f436a);
+            hi.c(this.a, this.f435a);
         }
     }
 

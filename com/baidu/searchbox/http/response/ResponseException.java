@@ -1,5 +1,7 @@
 package com.baidu.searchbox.http.response;
 
+import android.text.TextUtils;
+import java.io.IOException;
 import java.net.SocketTimeoutException;
 /* loaded from: classes14.dex */
 public class ResponseException {
@@ -11,8 +13,12 @@ public class ResponseException {
         return exc != null && exc.getMessage().contains("Canceled");
     }
 
+    public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {
+        return new IOException(" no network connected\n" + exc.toString(), exc);
+    }
+
     public static boolean isNoNetwork(Exception exc) {
-        return exc != null && " no network connected".equals(exc.getMessage());
+        return (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(" no network connected")) ? false : true;
     }
 
     public static boolean isOnlyWifiException(Exception exc) {

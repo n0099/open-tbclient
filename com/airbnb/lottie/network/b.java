@@ -20,14 +20,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b {
     private final a Gu;
     private final Context appContext;
     private final String url;
 
     public static m<e> v(Context context, String str) {
-        return new b(context, str).kK();
+        return new b(context, str).kL();
     }
 
     private b(Context context, String str) {
@@ -36,37 +36,37 @@ public class b {
         this.Gu = new a(this.appContext, str);
     }
 
-    private m<e> kK() {
+    private m<e> kL() {
         return new m<>(new Callable<l<e>>() { // from class: com.airbnb.lottie.network.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: iD */
+            /* renamed from: iE */
             public l<e> call() throws Exception {
-                return b.this.kL();
+                return b.this.kM();
             }
         });
     }
 
     @WorkerThread
-    public l<e> kL() {
-        e kM = kM();
-        if (kM != null) {
-            return new l<>(kM);
+    public l<e> kM() {
+        e kN = kN();
+        if (kN != null) {
+            return new l<>(kN);
         }
         d.debug("Animation for " + this.url + " not found in cache. Fetching from network.");
-        return kN();
+        return kO();
     }
 
     @WorkerThread
     @Nullable
-    private e kM() {
+    private e kN() {
         l<e> c;
-        Pair<FileExtension, InputStream> kJ = this.Gu.kJ();
-        if (kJ == null) {
+        Pair<FileExtension, InputStream> kK = this.Gu.kK();
+        if (kK == null) {
             return null;
         }
-        FileExtension fileExtension = kJ.first;
-        InputStream inputStream = kJ.second;
+        FileExtension fileExtension = kK.first;
+        InputStream inputStream = kK.second;
         if (fileExtension == FileExtension.Zip) {
             c = f.a(new ZipInputStream(inputStream), this.url);
         } else {
@@ -79,16 +79,16 @@ public class b {
     }
 
     @WorkerThread
-    private l<e> kN() {
+    private l<e> kO() {
         try {
-            return kO();
+            return kP();
         } catch (IOException e) {
             return new l<>(e);
         }
     }
 
     @WorkerThread
-    private l kO() throws IOException {
+    private l kP() throws IOException {
         FileExtension fileExtension;
         l<e> a;
         d.debug("Fetching " + this.url);

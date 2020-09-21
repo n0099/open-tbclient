@@ -10,16 +10,16 @@ import kotlin.jvm.internal.q;
 import kotlin.text.l;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class c {
-    private static final String TV() {
-        Context Us = g.Us();
-        q.l((Object) Us, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = Us.getPackageManager();
+    private static final String UE() {
+        Context Vb = g.Vb();
+        q.l((Object) Vb, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = Vb.getPackageManager();
         try {
-            Context Us2 = g.Us();
-            q.l((Object) Us2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(Us2.getPackageName(), 0).versionName;
+            Context Vb2 = g.Vb();
+            q.l((Object) Vb2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(Vb2.getPackageName(), 0).versionName;
             q.l((Object) str, "packageInfo.versionName");
             return str;
         } catch (PackageManager.NameNotFoundException e) {
@@ -33,12 +33,12 @@ public final class c {
             cVar.g("channel", "cashiersdk");
             cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
             cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", TV());
+            cVar.g("appVersion", UE());
             cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }
     }
 
-    public static final com.baidu.poly.a.a.b ad(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b ag(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();

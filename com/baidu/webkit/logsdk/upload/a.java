@@ -1,7 +1,7 @@
 package com.baidu.webkit.logsdk.upload;
 
 import android.text.TextUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public String a;
     public int b;

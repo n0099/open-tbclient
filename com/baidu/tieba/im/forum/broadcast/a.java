@@ -3,7 +3,7 @@ package com.baidu.tieba.im.forum.broadcast;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public interface a extends f.c {
     void a(ErrorData errorData);
 
@@ -11,7 +11,7 @@ public interface a extends f.c {
 
     void a(com.baidu.tieba.im.forum.broadcast.data.a aVar);
 
-    void bFE();
+    void bGU();
 
     void refresh();
 }

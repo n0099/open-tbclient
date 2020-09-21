@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class b extends Drawable {
-    private boolean odm;
-    private int odn;
-    private final com.opensource.svgaplayer.a.b odo;
-    private final f odp;
-    private final c odq;
+    private boolean omX;
+    private int omY;
+    private final com.opensource.svgaplayer.a.b omZ;
+    private final f ona;
+    private final c onb;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.m(fVar, "videoItem");
         q.m(cVar, "dynamicItem");
-        this.odp = fVar;
-        this.odq = cVar;
-        this.odm = true;
+        this.ona = fVar;
+        this.onb = cVar;
+        this.omX = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.odo = new com.opensource.svgaplayer.a.b(this.odp, this.odq);
+        this.omZ = new com.opensource.svgaplayer.a.b(this.ona, this.onb);
     }
 
-    public final f ebe() {
-        return this.odp;
+    public final f efc() {
+        return this.ona;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,20 +36,20 @@ public final class b extends Drawable {
         q.m(fVar, "videoItem");
     }
 
-    public final void yE(boolean z) {
-        if (this.odm != z) {
-            this.odm = z;
+    public final void yM(boolean z) {
+        if (this.omX != z) {
+            this.omX = z;
             invalidateSelf();
         }
     }
 
-    public final int ebd() {
-        return this.odn;
+    public final int efb() {
+        return this.omY;
     }
 
-    public final void Nz(int i) {
-        if (this.odn != i) {
-            this.odn = i;
+    public final void Oe(int i) {
+        if (this.omY != i) {
+            this.omY = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.odm && canvas != null) {
-            this.odo.a(canvas, this.odn, this.scaleType);
+        if (!this.omX && canvas != null) {
+            this.omZ.a(canvas, this.omY, this.scaleType);
         }
     }
 

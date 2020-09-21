@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.s;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.videopb.e.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
@@ -19,8 +19,8 @@ public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.vid
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cs */
-    public com.baidu.tieba.pb.videopb.e.a b(ViewGroup viewGroup) {
+    /* renamed from: ct */
+    public com.baidu.tieba.pb.videopb.e.a c(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
         cardForumHeadLayout.setPadding(l.getDimens(this.mContext, R.dimen.tbds32), 0, 0, 0);
@@ -37,9 +37,9 @@ public class c extends com.baidu.adp.widget.ListView.a<s, com.baidu.tieba.pb.vid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, s sVar, com.baidu.tieba.pb.videopb.e.a aVar) {
         if (sVar != null) {
-            aVar.setData(sVar.dUW);
+            aVar.setData(sVar.dXg);
         }
-        aVar.bkF();
+        aVar.blA();
         return view;
     }
 }

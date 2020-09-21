@@ -14,7 +14,7 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class Config {
     public static final Companion Companion = new Companion(null);
     public static final String FLOATING_CLOSE_WARNING = "floating_close_warning";
@@ -37,7 +37,7 @@ public class Config {
     private final Set<String> filter = new LinkedHashSet();
 
     @h
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public static final class Companion {
         private Companion() {
         }

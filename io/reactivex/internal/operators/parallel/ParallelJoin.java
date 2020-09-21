@@ -12,28 +12,28 @@ import io.reactivex.parallel.a;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> ooZ;
+    final a<? extends T> oyI;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.ooZ.efo(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.oyI.ejl(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.ooZ.efo(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.oyI.ejl(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.ooZ.a(joinSubscription.subscribers);
+        this.oyI.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3100232009247827843L;
         final c<? super T> actual;
@@ -61,7 +61,7 @@ public final class ParallelJoin<T> extends g<T> {
             this.done.lazySet(i);
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
@@ -69,7 +69,7 @@ public final class ParallelJoin<T> extends g<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -93,7 +93,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = 6312374661811000451L;
 
@@ -260,7 +260,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = -5737965195918321883L;
 
@@ -429,7 +429,7 @@ public final class ParallelJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class JoinInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = 8410034718427740355L;
         final int limit;
@@ -444,24 +444,24 @@ public final class ParallelJoin<T> extends g<T> {
             this.limit = i - (i >> 2);
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(this.prefetch);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             this.parent.onNext(this, t);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.parent.onComplete();
         }

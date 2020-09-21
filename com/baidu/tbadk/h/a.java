@@ -1,7 +1,7 @@
 package com.baidu.tbadk.h;
 /* loaded from: classes.dex */
 public interface a<T> {
-    void am(T t);
+    void an(T t);
 
     void onError(int i, String str);
 

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ItemizedOverlay extends Overlay {
     MapView a;
 

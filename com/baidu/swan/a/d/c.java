@@ -6,7 +6,7 @@ import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes4.dex */
+/* loaded from: classes24.dex */
 public class c extends HttpCommonRequest<a> {
     public c(a aVar) {
         super(aVar);
@@ -14,7 +14,7 @@ public class c extends HttpCommonRequest<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: aTl */
+    /* renamed from: aTX */
     public a newBuilder() {
         return new a(this);
     }
@@ -31,7 +31,7 @@ public class c extends HttpCommonRequest<a> {
         return this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes24.dex */
     public static class a extends HttpCommonRequestBuilder<a> {
         public a(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
@@ -47,7 +47,7 @@ public class c extends HttpCommonRequest<a> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: aSV */
+        /* renamed from: aTH */
         public c build() {
             return new c(this);
         }

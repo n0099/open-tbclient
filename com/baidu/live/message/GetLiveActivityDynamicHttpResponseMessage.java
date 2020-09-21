@@ -1,11 +1,11 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.ba;
+import com.baidu.live.data.bf;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ba beR;
+    private bf bhF;
 
     public GetLiveActivityDynamicHttpResponseMessage() {
         super(1021126);
@@ -15,8 +15,8 @@ public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsed
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.beR = new ba();
-            this.beR.parserJson(jSONObject);
+            this.bhF = new bf();
+            this.bhF.parserJson(jSONObject);
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class g {
-    public static boolean bit() {
+    public static boolean bjo() {
         boolean z = true;
         if (IsFullScreenSwitch.isOn()) {
             String trim = Build.MODEL.trim();
@@ -32,19 +32,19 @@ public class g {
         return false;
     }
 
-    public static boolean biu() {
+    public static boolean bjp() {
         return at.equals(Build.MODEL.trim(), "ANE-AL00");
     }
 
-    public static boolean biv() {
+    public static boolean bjq() {
         return at.equals(Build.MODEL.trim(), "vivo X20A");
     }
 
-    public static boolean biw() {
+    public static boolean bjr() {
         return at.equals(Build.MODEL.trim(), "PCLM50");
     }
 
-    public static boolean bix() {
+    public static boolean bjs() {
         return at.equals(Build.MODEL.trim(), "MI 5X");
     }
 
@@ -52,7 +52,7 @@ public class g {
         return RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static String adB() {
+    public static String ael() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -65,7 +65,7 @@ public class g {
         return (!TextUtils.isEmpty(str) && str.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER);
     }
 
-    public static boolean dW(Context context) {
+    public static boolean dV(Context context) {
         SensorManager sensorManager;
         if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null) {
             return false;

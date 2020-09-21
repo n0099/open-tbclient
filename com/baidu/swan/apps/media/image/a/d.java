@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.Uri;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface d {
     Point a(Context context, Bitmap bitmap) throws Exception;
 

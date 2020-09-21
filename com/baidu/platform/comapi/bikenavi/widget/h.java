@@ -15,7 +15,7 @@ import com.baidu.mapapi.bikenavi.controllers.BNavigatorWrapper;
 import com.baidu.mapapi.bikenavi.model.a;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h extends com.baidu.platform.comapi.walknavi.g.c.b {
     private Activity a;
     private com.baidu.platform.comapi.bikenavi.c.b b;
@@ -36,7 +36,7 @@ public class h extends com.baidu.platform.comapi.walknavi.g.c.b {
     }
 
     private void a(View view) {
-        this.h = (RelativeLayout) view.findViewById(R.raw.lottie_full_screen_refresh_2);
+        this.h = (RelativeLayout) view.findViewById(2131165220);
         BNavigatorWrapper.getWNavigator();
         com.baidu.mapapi.bikenavi.model.b p = com.baidu.platform.comapi.walknavi.b.a().p();
         if (p == null || !p.b()) {
@@ -101,18 +101,18 @@ public class h extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     private void b(View view) {
         if (view != null) {
-            this.g = view.findViewById(R.raw.lottie_photo);
-            this.c = (ImageView) view.findViewById(R.raw.lottie_push_permission_dialog_animation);
-            this.d = (TextView) view.findViewById(R.raw.lottie_push_permission_dialog_animation_1);
-            this.e = (TextView) view.findViewById(R.raw.lottie_pull_refresh);
-            this.f = (TextView) view.findViewById(R.raw.lottie_pull_refresh_1);
+            this.g = view.findViewById(2131165221);
+            this.c = (ImageView) view.findViewById(2131165224);
+            this.d = (TextView) view.findViewById(2131165225);
+            this.e = (TextView) view.findViewById(2131165222);
+            this.f = (TextView) view.findViewById(2131165223);
         }
     }
 
     public void c() {
         if (this.g.getVisibility() == 8) {
             this.g.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_fade_in);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.layout.abc_action_bar_title_item);
             this.g.setAnimation(c);
             c.setAnimationListener(new i(this));
             c.start();
@@ -121,7 +121,7 @@ public class h extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     public void d() {
         if (this.g.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_grow_fade_in_from_bottom);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.layout.abc_action_menu_item_layout);
             c.setAnimationListener(new j(this));
             this.g.startAnimation(c);
         }

@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TBSpecificationButtonConfig {
-    protected int ewF;
-    int ewG;
-    int ewH;
-    IconType ewJ;
-    private int ewL;
-    boolean ewM;
-    protected a ewT;
-    boolean ewR = true;
-    int aiD = 0;
-    GradientDrawable.Orientation ewS = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] ewI = new int[2];
-    int ewN = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int ewO = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int ewP = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int ewQ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
+    protected int eyM;
+    int eyN;
+    int eyO;
+    IconType eyQ;
+    private int eyS;
+    boolean eyT;
+    protected a eza;
+    boolean eyY = true;
+    int aiX = 0;
+    GradientDrawable.Orientation eyZ = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] eyP = new int[2];
+    int eyU = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int eyV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int eyW = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int eyX = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
     int minWidth = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     int minHeight = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int ewK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    int eyR = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -40,66 +40,66 @@ public abstract class TBSpecificationButtonConfig {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void blj();
+        void bme();
 
-        void blk();
+        void bmf();
 
-        void bll();
+        void bmg();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract Drawable aa(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable blm() {
-        return oW(this.ewI[0]);
+    public Drawable bmh() {
+        return pi(this.eyP[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable bln() {
-        return oW(this.ewI[1]);
+    public Drawable bmi() {
+        return pi(this.eyP[1]);
     }
 
-    private Drawable oW(int i) {
+    private Drawable pi(int i) {
         Drawable drawable;
-        if (this.ewJ == IconType.SVG) {
-            drawable = SvgManager.bjq().c(i, ap.getColor(this.aiD, this.ewL > 0 ? this.ewL : this.ewF), SvgManager.SvgResourceStateType.NORMAL);
-        } else if (this.ewJ == IconType.WEBP) {
-            drawable = WebPManager.a(i, ap.getColor(this.aiD, this.ewL > 0 ? this.ewL : this.ewF), null);
+        if (this.eyQ == IconType.SVG) {
+            drawable = SvgManager.bkl().c(i, ap.getColor(this.aiX, this.eyS > 0 ? this.eyS : this.eyM), SvgManager.SvgResourceStateType.NORMAL);
+        } else if (this.eyQ == IconType.WEBP) {
+            drawable = WebPManager.a(i, ap.getColor(this.aiX, this.eyS > 0 ? this.eyS : this.eyM), null);
         } else {
-            drawable = ap.getDrawable(this.aiD, i);
+            drawable = ap.getDrawable(this.aiX, i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.ewK, this.ewK);
+            drawable.setBounds(0, 0, this.eyR, this.eyR);
         }
         return drawable;
     }
 
     public void a(int i, int i2, IconType iconType) {
-        if (this.ewI[0] != i || this.ewI[1] != i2 || this.ewJ != iconType) {
-            this.ewI[0] = i;
-            this.ewI[1] = i2;
-            this.ewJ = iconType;
-            if (this.ewT != null) {
-                this.ewT.blk();
+        if (this.eyP[0] != i || this.eyP[1] != i2 || this.eyQ != iconType) {
+            this.eyP[0] = i;
+            this.eyP[1] = i2;
+            this.eyQ = iconType;
+            if (this.eza != null) {
+                this.eza.bmf();
             }
         }
     }
 
-    public void oX(int i) {
-        if (i > 0 && this.ewK != i) {
-            this.ewK = i;
-            if (this.ewT != null) {
-                this.ewT.blj();
+    public void pj(int i) {
+        if (i > 0 && this.eyR != i) {
+            this.eyR = i;
+            if (this.eza != null) {
+                this.eza.bme();
             }
         }
     }
 
-    public void oY(@ColorRes int i) {
-        if (this.ewL != i) {
-            this.ewL = i;
-            if (this.ewT != null) {
-                this.ewT.blk();
+    public void pk(@ColorRes int i) {
+        if (this.eyS != i) {
+            this.eyS = i;
+            if (this.eza != null) {
+                this.eza.bmf();
             }
         }
     }
@@ -113,21 +113,25 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void oZ(int i) {
-        this.ewN = i;
-        this.ewO = i;
+    public void pl(int i) {
+        this.eyU = i;
+        this.eyV = i;
     }
 
     public void ba(int i, int i2) {
-        this.ewN = i;
-        this.ewO = i2;
+        this.eyU = i;
+        this.eyV = i2;
     }
 
-    public void pa(int i) {
-        this.ewP = i;
+    public void pm(int i) {
+        this.eyW = i;
     }
 
     public void a(GradientDrawable.Orientation orientation) {
-        this.ewS = orientation;
+        this.eyZ = orientation;
+    }
+
+    public void po(int i) {
+        this.eyX = i;
     }
 }

@@ -5,15 +5,15 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.swan.apps.process.a.b.c.c {
-    private com.baidu.swan.apps.adlanding.download.a.a djP;
-    private SwanAppDownloadAction.SwanAppDownloadType djQ;
+    private com.baidu.swan.apps.adlanding.download.a.a dlR;
+    private SwanAppDownloadAction.SwanAppDownloadType dlS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.baidu.swan.apps.adlanding.download.a.a aVar, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        this.djP = aVar;
-        this.djQ = swanAppDownloadType;
+        this.dlR = aVar;
+        this.dlS = swanAppDownloadType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ public class d extends com.baidu.swan.apps.process.a.b.c.c {
             int i = result.getInt("state", SwanAdDownloadState.NOT_START.value());
             int i2 = result.getInt("progress", 0);
             SwanAdDownloadState convert = SwanAdDownloadState.convert(i);
-            this.djP.a(convert, i2);
-            this.djP.b(convert, i2);
+            this.dlR.a(convert, i2);
+            this.dlR.b(convert, i2);
             String string = result.getString("packageName", "");
             if (!TextUtils.isEmpty(string)) {
-                this.djP.iO(string);
+                this.dlR.jh(string);
             }
-            if (this.djQ == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.djP.dA(true);
+            if (this.dlS == SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+                this.dlR.dy(true);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public boolean axk() {
+    public boolean axT() {
         return false;
     }
 

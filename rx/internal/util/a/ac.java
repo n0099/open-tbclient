@@ -1,8 +1,8 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 abstract class ac<E> extends ad<E> {
-    protected long oJy;
-    protected E[] oJz;
-    protected int opq;
+    protected long oTd;
+    protected E[] oTe;
+    protected int oyZ;
     protected long producerLookAhead;
 }

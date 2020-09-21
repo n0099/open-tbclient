@@ -1,9 +1,7 @@
 package com.baidu.live.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface d {
-    boolean Mh();
+    void ML();
 
-    void a(c cVar);
-
-    void b(c cVar);
+    void release();
 }

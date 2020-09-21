@@ -17,7 +17,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ChinaTelecomSdkWrap {
     private static final int a = 30000;
     private static final int b = 15000;
@@ -25,7 +25,7 @@ public class ChinaTelecomSdkWrap {
     private static String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface PreLoginCallback {
         void onError(int i);
 

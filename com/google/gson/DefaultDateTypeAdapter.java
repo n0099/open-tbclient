@@ -1,7 +1,7 @@
 package com.google.gson;
 
-import com.google.gson.internal.d;
-import com.google.gson.internal.g;
+import com.google.gson.internal.c;
+import com.google.gson.internal.f;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.a;
 import com.google.gson.stream.b;
@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     private static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
     private final List<DateFormat> dateFormats;
@@ -28,8 +28,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (d.dXm()) {
-            this.dateFormats.add(g.dR(2, 2));
+        if (c.ebk()) {
+            this.dateFormats.add(f.dV(2, 2));
         }
     }
 
@@ -50,8 +50,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateInstance(i));
         }
-        if (d.dXm()) {
-            this.dateFormats.add(g.MT(i));
+        if (c.ebk()) {
+            this.dateFormats.add(f.Ny(i));
         }
     }
 
@@ -66,8 +66,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
-        if (d.dXm()) {
-            this.dateFormats.add(g.dR(i, i2));
+        if (c.ebk()) {
+            this.dateFormats.add(f.dV(i, i2));
         }
     }
 
@@ -82,22 +82,22 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dXN();
+            bVar.ebL();
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.UT(this.dateFormats.get(0).format(date));
+            bVar.Vv(this.dateFormats.get(0).format(date));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(a aVar) throws IOException {
-        if (aVar.dXy() == JsonToken.NULL) {
-            aVar.dXD();
+        if (aVar.ebw() == JsonToken.NULL) {
+            aVar.ebB();
             return null;
         }
-        Date deserializeToDate = deserializeToDate(aVar.dXC());
+        Date deserializeToDate = deserializeToDate(aVar.ebA());
         if (this.dateType != Date.class) {
             if (this.dateType == Timestamp.class) {
                 return new Timestamp(deserializeToDate.getTime());
@@ -111,7 +111,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
-        r0 = com.google.gson.internal.a.a.a.a(r4, new java.text.ParsePosition(0));
+        r0 = com.google.gson.internal.bind.a.a.a(r4, new java.text.ParsePosition(0));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

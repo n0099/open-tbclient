@@ -1,7 +1,7 @@
 package com.nineoldandroids.animation;
 
 import android.view.animation.Interpolator;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public abstract class Keyframe implements Cloneable {
     float mFraction;
     Class mValueType;
@@ -64,7 +64,7 @@ public abstract class Keyframe implements Cloneable {
         return this.mValueType;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     static class ObjectKeyframe extends Keyframe {
         Object mValue;
 
@@ -95,7 +95,7 @@ public abstract class Keyframe implements Cloneable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     static class IntKeyframe extends Keyframe {
         int mValue;
 
@@ -137,7 +137,7 @@ public abstract class Keyframe implements Cloneable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     static class FloatKeyframe extends Keyframe {
         float mValue;
 

@@ -5,19 +5,19 @@ import android.text.TextUtils;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class p {
     private p() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes14.dex */
     public static class a {
-        private static final p dKd = new p();
+        private static final p dMh = new p();
     }
 
-    public static p aWc() {
-        return a.dKd;
+    public static p aWO() {
+        return a.dMh;
     }
 
     public final void onEvent(String str) {
@@ -36,61 +36,61 @@ public class p {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-            if (e.aVF() != null || !TextUtils.isEmpty(str)) {
-                n.aWb().k(str, str2, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.WR()) {
+            if (e.aWr() != null || !TextUtils.isEmpty(str)) {
+                n.aWN().k(str, str2, i);
                 return;
             }
             return;
         }
         try {
-            aVG().ubcOnEvent(str, s.xp(str2), i);
+            aWs().ubcOnEvent(str, s.xI(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
-            if (e.aVF() != null || !TextUtils.isEmpty(str)) {
-                n.aWb().a(str, jSONObject, i);
+        if (com.baidu.pyramid.runtime.multiprocess.a.WR()) {
+            if (e.aWr() != null || !TextUtils.isEmpty(str)) {
+                n.aWN().a(str, jSONObject, i);
                 return;
             }
             return;
         }
         try {
-            aVG().ubcOnEvent(str, s.cP(jSONObject), i);
+            aWs().ubcOnEvent(str, s.cS(jSONObject), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
     public Flow j(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.Wi()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.WR()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return n.aWb().j(str, str2, i);
+            return n.aWN().j(str, str2, i);
         }
-        return l(str, s.xp(str2), i);
+        return l(str, s.xI(str2), i);
     }
 
     public void upload() {
-        n.aWb().upload();
+        n.aWN().upload();
     }
 
-    public void aWd() {
-        n.aWb().aVz();
+    public void aWP() {
+        n.aWN().aWl();
     }
 
-    private IRemoteUBCService aVG() throws RemoteException {
-        return e.aVG();
+    private IRemoteUBCService aWs() throws RemoteException {
+        return e.aWs();
     }
 
     private Flow l(String str, String str2, int i) {
         Flow flow;
         try {
-            flow = aVG().ubcBeginFlow(str, str2, i);
+            flow = aWs().ubcBeginFlow(str, str2, i);
         } catch (RemoteException e) {
             e.printStackTrace();
             flow = null;

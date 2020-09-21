@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class bv extends bx {
     public bv(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr, str3);
@@ -23,10 +23,10 @@ public class bv extends bx {
     }
 
     private void a(long j) {
-        if (this.f161a == null || this.f161a.length <= 0) {
+        if (this.f160a == null || this.f160a.length <= 0) {
             return;
         }
-        this.f161a[0] = String.valueOf(j);
+        this.f160a[0] = String.valueOf(j);
     }
 
     @Override // com.xiaomi.push.cb.a
@@ -34,7 +34,7 @@ public class bv extends bx {
         if (obj instanceof Long) {
             long longValue = ((Long) obj).longValue();
             long a = ch.a(a());
-            long j = bt.f142a;
+            long j = bt.f141a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;

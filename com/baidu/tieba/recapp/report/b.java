@@ -12,37 +12,37 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b lHC;
-    private List<JSONObject> lHD;
-    private List<JSONObject> lHE;
-    private List<JSONObject> lHF;
+    private static b lQw;
+    private List<JSONObject> lQx;
+    private List<JSONObject> lQy;
+    private List<JSONObject> lQz;
 
-    public static b dof() {
-        if (lHC == null) {
+    public static b drP() {
+        if (lQw == null) {
             synchronized (b.class) {
-                if (lHC == null) {
-                    lHC = new b();
+                if (lQw == null) {
+                    lQw = new b();
                 }
             }
         }
-        return lHC;
+        return lQw;
     }
 
-    public synchronized void eW(List<JSONObject> list) {
-        if (this.lHD == null) {
-            this.lHD = new ArrayList();
+    public synchronized void fe(List<JSONObject> list) {
+        if (this.lQx == null) {
+            this.lQx = new ArrayList();
         }
-        this.lHD.clear();
-        this.lHD.addAll(list);
+        this.lQx.clear();
+        this.lQx.addAll(list);
     }
 
-    public String dog() {
+    public String drQ() {
         synchronized (this) {
-            if (y.isEmpty(this.lHD)) {
+            if (y.isEmpty(this.lQx)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lHD) {
+            for (JSONObject jSONObject : this.lQx) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -56,21 +56,21 @@ public class b {
         }
     }
 
-    public synchronized void eX(List<JSONObject> list) {
-        if (this.lHE == null) {
-            this.lHE = new ArrayList();
+    public synchronized void ff(List<JSONObject> list) {
+        if (this.lQy == null) {
+            this.lQy = new ArrayList();
         }
-        this.lHE.clear();
-        this.lHE.addAll(list);
+        this.lQy.clear();
+        this.lQy.addAll(list);
     }
 
-    public String doh() {
+    public String drR() {
         synchronized (this) {
-            if (y.isEmpty(this.lHE)) {
+            if (y.isEmpty(this.lQy)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lHE) {
+            for (JSONObject jSONObject : this.lQy) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -84,21 +84,21 @@ public class b {
         }
     }
 
-    public synchronized void eY(List<JSONObject> list) {
-        if (this.lHF == null) {
-            this.lHF = new ArrayList();
+    public synchronized void fg(List<JSONObject> list) {
+        if (this.lQz == null) {
+            this.lQz = new ArrayList();
         }
-        this.lHF.clear();
-        this.lHF.addAll(list);
+        this.lQz.clear();
+        this.lQz.addAll(list);
     }
 
-    public String doi() {
+    public String drS() {
         synchronized (this) {
-            if (y.isEmpty(this.lHF)) {
+            if (y.isEmpty(this.lQz)) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (JSONObject jSONObject : this.lHF) {
+            for (JSONObject jSONObject : this.lQz) {
                 if (jSONObject != null) {
                     jSONArray.put(jSONObject);
                 }
@@ -112,10 +112,10 @@ public class b {
         }
     }
 
-    public synchronized void doj() {
-        if (this.lHF != null) {
-            this.lHF.clear();
-            this.lHF = null;
+    public synchronized void drT() {
+        if (this.lQz != null) {
+            this.lQz.clear();
+            this.lQz = null;
         }
     }
 

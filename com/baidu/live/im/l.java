@@ -9,31 +9,33 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes7.dex */
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class l implements ILoginListener {
-    private static volatile l bbp;
-    private boolean bbn = false;
-    private a bbo;
+    private static volatile l bdO;
+    private boolean bdM = false;
+    private a bdN;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void o(int i, String str);
+        void p(int i, String str);
     }
 
     private l() {
     }
 
-    public static l Jo() {
-        if (bbp == null) {
+    public static l JS() {
+        if (bdO == null) {
             synchronized (l.class) {
-                if (bbp == null) {
-                    bbp = new l();
+                if (bdO == null) {
+                    bdO = new l();
                 }
             }
         }
-        return bbp;
+        return bdO;
     }
 
     public void init(Context context) {
@@ -42,19 +44,19 @@ public class l implements ILoginListener {
         BIMManager.setProductLine(context, 3, "4.10.0");
         String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
         BIMManager.enableDebugMode(true);
-        if (TbConfig.IM_ENV_DEBUG) {
+        if (TbConfig.IM_ENV_DEBUG || isDebug()) {
             BIMManager.init(context, Constants.APPID_TIEBA, 1, cuid);
             i = 1;
         } else {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.bbn = true;
+        this.bdM = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.bbo = aVar;
+        this.bdN = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -69,15 +71,15 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void Jp() {
+    public void JT() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.bbo != null) {
-            this.bbo.o(i, str);
-            this.bbo = null;
+        if (this.bdN != null) {
+            this.bdN.p(i, str);
+            this.bdN = null;
         }
     }
 
@@ -90,6 +92,16 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        Jp();
+        JT();
+    }
+
+    public static boolean isDebug() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("test_checkoutImEnvRD", false);
+        Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
+        if (process.containsKey("test_checkoutImEnvRD")) {
+            return ((Boolean) process.get("test_checkoutImEnvRD")).booleanValue();
+        }
+        return false;
     }
 }

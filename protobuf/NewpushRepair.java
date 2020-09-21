@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class NewpushRepair extends Message {
     public static final String DEFAULT_FOLLOWTYPE = "";
     public static final List<NewpushGroupRepair> DEFAULT_GROUPS = Collections.emptyList();
@@ -33,7 +33,7 @@ public final class NewpushRepair extends Message {
         this.groups = immutableCopyOf(builder.groups);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<NewpushRepair> {
         public String followType;
         public List<NewpushGroupRepair> groups;

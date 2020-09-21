@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class DpRTCSession {
     private c a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
 

@@ -16,7 +16,7 @@ import com.tb.airbnb.lottie.e;
 import com.tb.airbnb.lottie.h;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";

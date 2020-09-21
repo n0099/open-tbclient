@@ -5,20 +5,20 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
-    final org.b.b<U> onu;
+    final org.a.b<U> oxd;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(mVar);
         mVar.onSubscribe(takeUntilMainMaybeObserver);
-        this.onu.subscribe(takeUntilMainMaybeObserver.other);
+        this.oxd.subscribe(takeUntilMainMaybeObserver.other);
         this.source.a(takeUntilMainMaybeObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -2187421758664251153L;
         final m<? super T> actual;
@@ -84,7 +84,7 @@ public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<d> implements j<U> {
             private static final long serialVersionUID = -1266041316834525931L;
             final TakeUntilMainMaybeObserver<?, U> parent;
@@ -93,24 +93,24 @@ public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
                 this.parent = takeUntilMainMaybeObserver;
             }
 
-            @Override // io.reactivex.j, org.b.c
+            @Override // io.reactivex.j, org.a.c
             public void onSubscribe(d dVar) {
                 if (SubscriptionHelper.setOnce(this, dVar)) {
                     dVar.request(Long.MAX_VALUE);
                 }
             }
 
-            @Override // org.b.c
+            @Override // org.a.c
             public void onNext(Object obj) {
                 this.parent.otherComplete();
             }
 
-            @Override // org.b.c
+            @Override // org.a.c
             public void onError(Throwable th) {
                 this.parent.otherError(th);
             }
 
-            @Override // org.b.c
+            @Override // org.a.c
             public void onComplete() {
                 this.parent.otherComplete();
             }

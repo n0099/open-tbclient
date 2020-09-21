@@ -1,5 +1,5 @@
 package cn.com.chinatelecom.account.api.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b {
     public static final byte[] a = {123, 98, 114};
     public static final byte[] b = {123, 98};

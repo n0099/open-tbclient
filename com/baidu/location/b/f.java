@@ -4,7 +4,7 @@ import com.baidu.location.b.d;
 import java.util.Timer;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f extends TimerTask {
     final /* synthetic */ Timer a;
     final /* synthetic */ d.b b;

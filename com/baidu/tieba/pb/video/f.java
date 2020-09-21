@@ -18,33 +18,33 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.o;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class f {
-    private TbPageContext efr;
-    private View.OnClickListener frt = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.f.1
+    private TbPageContext ehG;
+    private View.OnClickListener fuF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == f.this.kUr || view == f.this.kUs || view == f.this.kUv) {
-                f.this.cZ(view);
+            if (view == f.this.lcV || view == f.this.lcW || view == f.this.lcZ) {
+                f.this.dh(view);
             }
         }
     };
-    private View jPO;
-    private HeadImageView kUr;
-    private TextView kUs;
-    private RelativeLayout kUt;
-    private TextView kUu;
-    private ImageView kUv;
-    private PbVideoFullUserInfoLikeButton kUw;
-    private e kUx;
-    private View.OnClickListener kUy;
-    private LinearLayout kUz;
+    private View jYr;
+    private HeadImageView lcV;
+    private TextView lcW;
+    private RelativeLayout lcX;
+    private TextView lcY;
+    private ImageView lcZ;
+    private PbVideoFullUserInfoLikeButton lda;
+    private e ldb;
+    private View.OnClickListener ldc;
+    private LinearLayout ldd;
 
     public f(TbPageContext tbPageContext, FrameLayout frameLayout) {
-        this.efr = tbPageContext;
-        this.jPO = y(tbPageContext);
+        this.ehG = tbPageContext;
+        this.jYr = y(tbPageContext);
         initView();
-        frameLayout.addView(this.jPO);
+        frameLayout.addView(this.jYr);
     }
 
     private View y(TbPageContext<?> tbPageContext) {
@@ -55,80 +55,80 @@ public class f {
     }
 
     private void initView() {
-        this.kUt = (RelativeLayout) this.jPO.findViewById(R.id.pbVideoFullUserInfoPanel);
-        this.kUr = (HeadImageView) this.jPO.findViewById(R.id.pbVideoFullPhoto);
-        this.kUr.setOnClickListener(this.frt);
-        this.kUz = (LinearLayout) this.jPO.findViewById(R.id.pbVideoFullNameLayout);
-        ap.setBackgroundResource(this.kUz, R.drawable.video_author_bg);
-        this.kUs = (TextView) this.jPO.findViewById(R.id.pbVideoFullUserName);
-        this.kUs.setOnClickListener(this.frt);
-        this.kUu = (TextView) this.jPO.findViewById(R.id.pbVideoFullAttention);
-        this.kUu.setOnClickListener(this.frt);
-        this.kUv = (ImageView) this.jPO.findViewById(R.id.pbVideoFullChannelIcon);
-        this.kUw = (PbVideoFullUserInfoLikeButton) this.jPO.findViewById(R.id.pbVideoFullLikeButton);
-        this.kUw.setTextSize(0, l.getDimens(this.efr.getPageActivity(), R.dimen.tbds30));
-        this.kUx = new e(this.efr, this.kUw);
-        this.kUr.setRadius(l.getDimens(this.efr.getPageActivity(), R.dimen.ds40));
+        this.lcX = (RelativeLayout) this.jYr.findViewById(R.id.pbVideoFullUserInfoPanel);
+        this.lcV = (HeadImageView) this.jYr.findViewById(R.id.pbVideoFullPhoto);
+        this.lcV.setOnClickListener(this.fuF);
+        this.ldd = (LinearLayout) this.jYr.findViewById(R.id.pbVideoFullNameLayout);
+        ap.setBackgroundResource(this.ldd, R.drawable.video_author_bg);
+        this.lcW = (TextView) this.jYr.findViewById(R.id.pbVideoFullUserName);
+        this.lcW.setOnClickListener(this.fuF);
+        this.lcY = (TextView) this.jYr.findViewById(R.id.pbVideoFullAttention);
+        this.lcY.setOnClickListener(this.fuF);
+        this.lcZ = (ImageView) this.jYr.findViewById(R.id.pbVideoFullChannelIcon);
+        this.lda = (PbVideoFullUserInfoLikeButton) this.jYr.findViewById(R.id.pbVideoFullLikeButton);
+        this.lda.setTextSize(0, l.getDimens(this.ehG.getPageActivity(), R.dimen.tbds30));
+        this.ldb = new e(this.ehG, this.lda);
+        this.lcV.setRadius(l.getDimens(this.ehG.getPageActivity(), R.dimen.ds40));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZ(View view) {
-        if (this.kUy != null) {
-            this.kUy.onClick(view);
+    public void dh(View view) {
+        if (this.ldc != null) {
+            this.ldc.onClick(view);
         }
     }
 
     public void a(PostData postData, bw bwVar, o oVar) {
-        this.kUw.setVisibility(0);
-        this.kUu.setVisibility(8);
+        this.lda.setVisibility(0);
+        this.lcY.setVisibility(8);
         v(postData);
-        if (aJ(bwVar)) {
-            this.kUu.setVisibility(8);
-            this.kUw.setVisibility(8);
+        if (aK(bwVar)) {
+            this.lcY.setVisibility(8);
+            this.lda.setVisibility(8);
         }
     }
 
-    private boolean aJ(bw bwVar) {
-        if (bwVar == null || bwVar.beE() == null || bwVar.beE().getUserId() == null) {
+    private boolean aK(bw bwVar) {
+        if (bwVar == null || bwVar.bfy() == null || bwVar.bfy().getUserId() == null) {
             return false;
         }
-        return TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), bwVar.beE().getUserId());
+        return TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), bwVar.bfy().getUserId());
     }
 
     private void v(PostData postData) {
-        this.kUv.setVisibility(8);
-        this.kUr.setUserId(postData.beE().getUserId());
-        this.kUr.setUserName(postData.beE().getUserName());
-        this.kUr.setIsBigV(postData.beE().isBigV());
-        this.kUs.setText(postData.beE().getName_show());
-        this.kUs.setTag(postData.beE().getUserId());
-        this.kUr.startLoad(postData.beE().getAvater(), 28, false);
-        this.kUx.a(postData.beE());
+        this.lcZ.setVisibility(8);
+        this.lcV.setUserId(postData.bfy().getUserId());
+        this.lcV.setUserName(postData.bfy().getUserName());
+        this.lcV.setIsBigV(postData.bfy().isBigV());
+        this.lcW.setText(postData.bfy().getName_show());
+        this.lcW.setTag(postData.bfy().getUserId());
+        this.lcV.startLoad(postData.bfy().getAvater(), 28, false);
+        this.ldb.a(postData.bfy());
     }
 
     public void ax(float f) {
-        this.kUt.setAlpha(f);
+        this.lcX.setAlpha(f);
     }
 
-    public View ddw() {
-        return this.kUt;
+    public View dha() {
+        return this.lcX;
     }
 
     public void onChangeSkin(int i) {
-        if (this.kUw != null) {
-            this.kUw.onChangeSkinType(i);
+        if (this.lda != null) {
+            this.lda.onChangeSkinType(i);
         }
-        ap.setViewTextColor(this.kUu, R.color.cp_cont_a);
-        if (this.kUs != null) {
-            ap.setViewTextColor(this.kUs, R.color.cp_cont_a);
+        ap.setViewTextColor(this.lcY, R.color.cp_cont_a);
+        if (this.lcW != null) {
+            ap.setViewTextColor(this.lcW, R.color.cp_cont_a);
         }
-        if (this.kUv != null) {
-            ap.setBackgroundResource(this.kUv, R.drawable.icon_weiba);
+        if (this.lcZ != null) {
+            ap.setBackgroundResource(this.lcZ, R.drawable.icon_weiba);
         }
     }
 
     public void V(View.OnClickListener onClickListener) {
-        this.kUy = onClickListener;
+        this.ldc = onClickListener;
     }
 
     public void onDestroy() {

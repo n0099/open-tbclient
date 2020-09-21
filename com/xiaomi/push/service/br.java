@@ -4,7 +4,7 @@ import com.xiaomi.push.ek;
 import com.xiaomi.push.ft;
 import com.xiaomi.push.fw;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class br extends ft {
     final /* synthetic */ XMPushService a;
 

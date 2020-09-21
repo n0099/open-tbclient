@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudcontrol.constant;
-/* loaded from: classes11.dex */
+/* loaded from: classes23.dex */
 public class CloudControlConstant {
     public static final String CONNECT_RUN_TYPE = "lcs";
     public static final String COOL_RUN_TIME = "0";

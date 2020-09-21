@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.walknavi.e.d;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class WalkNaviLaunchParam {
     private LatLng a;
     private LatLng b;

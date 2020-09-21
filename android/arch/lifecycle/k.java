@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes12.dex */
 public class k extends Lifecycle {
     private final WeakReference<j> zd;
     private android.arch.a.b.a<i, a> zb = new android.arch.a.b.a<>();
@@ -202,7 +202,7 @@ public class k extends Lifecycle {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         Lifecycle.State zc;
         h zj;

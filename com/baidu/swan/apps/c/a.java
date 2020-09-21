@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.c;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a implements b {
     @Override // com.baidu.swan.apps.c.b
     public void a(JSONObject jSONObject, c cVar, d dVar) {

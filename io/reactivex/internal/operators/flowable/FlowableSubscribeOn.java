@@ -5,7 +5,7 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableSubscribeOn<T> extends a<T, T> {
     final boolean nonScheduledRequests;
     final v scheduler;
@@ -17,24 +17,24 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super T> cVar) {
-        v.c efd = this.scheduler.efd();
-        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, efd, this.omT, this.nonScheduledRequests);
+    public void a(org.a.c<? super T> cVar) {
+        v.c eja = this.scheduler.eja();
+        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, eja, this.owE, this.nonScheduledRequests);
         cVar.onSubscribe(subscribeOnSubscriber);
-        efd.G(subscribeOnSubscriber);
+        eja.G(subscribeOnSubscriber);
     }
 
-    /* loaded from: classes7.dex */
-    static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements j<T>, Runnable, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = 8094547886072529208L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         final boolean nonScheduledRequests;
-        org.b.b<T> source;
+        org.a.b<T> source;
         final v.c worker;
-        final AtomicReference<org.b.d> s = new AtomicReference<>();
+        final AtomicReference<org.a.d> s = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
-        SubscribeOnSubscriber(org.b.c<? super T> cVar, v.c cVar2, org.b.b<T> bVar, boolean z) {
+        SubscribeOnSubscriber(org.a.c<? super T> cVar, v.c cVar2, org.a.b<T> bVar, boolean z) {
             this.actual = cVar;
             this.worker = cVar2;
             this.source = bVar;
@@ -44,13 +44,13 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
         @Override // java.lang.Runnable
         public void run() {
             lazySet(Thread.currentThread());
-            org.b.b<T> bVar = this.source;
+            org.a.b<T> bVar = this.source;
             this.source = null;
             bVar.subscribe(this);
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this.s, dVar)) {
                 long andSet = this.requested.getAndSet(0L);
                 if (andSet != 0) {
@@ -59,33 +59,33 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             this.actual.onNext(t);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.actual.onError(th);
             this.worker.dispose();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.actual.onComplete();
             this.worker.dispose();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                org.b.d dVar = this.s.get();
+                org.a.d dVar = this.s.get();
                 if (dVar != null) {
                     requestUpstream(j, dVar);
                     return;
                 }
                 io.reactivex.internal.util.b.a(this.requested, j);
-                org.b.d dVar2 = this.s.get();
+                org.a.d dVar2 = this.s.get();
                 if (dVar2 != null) {
                     long andSet = this.requested.getAndSet(0L);
                     if (andSet != 0) {
@@ -95,7 +95,7 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
             }
         }
 
-        void requestUpstream(long j, org.b.d dVar) {
+        void requestUpstream(long j, org.a.d dVar) {
             if (this.nonScheduledRequests || Thread.currentThread() == get()) {
                 dVar.request(j);
             } else {
@@ -103,19 +103,19 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             SubscriptionHelper.cancel(this.s);
             this.worker.dispose();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         public static final class a implements Runnable {
             private final long n;
-            private final org.b.d s;
+            private final org.a.d s;
 
-            a(org.b.d dVar, long j) {
+            a(org.a.d dVar, long j) {
                 this.s = dVar;
                 this.n = j;
             }

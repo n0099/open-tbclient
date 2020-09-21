@@ -22,9 +22,9 @@ public interface a {
 
     void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar);
 
-    void a(Context context, a.InterfaceC0464a interfaceC0464a);
+    void a(Context context, a.InterfaceC0459a interfaceC0459a);
 
-    void a(Context context, a.InterfaceC0466a interfaceC0466a);
+    void a(Context context, a.InterfaceC0461a interfaceC0461a);
 
     void a(Context context, SwanAppPhoneLoginDialog.a aVar, String str);
 
@@ -36,9 +36,9 @@ public interface a {
 
     void b(c cVar);
 
-    String dc(Context context);
+    String db(Context context);
 
-    aa df(Context context);
+    aa de(Context context);
 
     String getBduss(Context context);
 

@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -25,6 +25,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int changeSex;
     public long charmCount;
     public int clubMemberLevel;
+    public int contribution;
     public int createTime;
     public String description;
     public JSONObject extraUserInfo;
@@ -36,10 +37,10 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int hasTiebaName;
     public int isAdmin;
     public int isAdminOnline;
+    public int isBjh;
     public int isBlock;
     public int isBluediamondMember;
     public int isLogin;
-    public boolean isNewGiftPriceStrategy = false;
     public boolean isNewUser;
     public int isOfficial;
     public int isUegBlock;
@@ -54,7 +55,9 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public String location;
     public AlaLiveUserPermData mPermInfo;
     public String metaKey;
+    public int needRename;
     public String nickName;
+    public int nobleRoleId;
     public String passName;
     public int petalNum;
     public String portrait;
@@ -67,10 +70,14 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public long userId;
     public String userName;
     public int userStatus;
+    public int userType;
+    public String userUk;
     public int verifyInfoStatus;
     public int verifyStatus;
     public int verifyType;
     public int verifyVideoStatus;
+    public boolean isNewGiftPriceStrategy = false;
+    public int logined = 0;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -81,6 +88,8 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 this.mPermInfo.parserJson(optJSONObject);
             }
             this.userId = jSONObject.optLong("user_id");
+            this.nobleRoleId = jSONObject.optInt("noble_role_id");
+            this.logined = jSONObject.optInt("logined");
             this.metaKey = jSONObject.optString("meta_key");
             this.alaId = jSONObject.optLong("ala_id");
             this.nickName = jSONObject.optString("user_nickname");
@@ -104,6 +113,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.followCount = jSONObject.optInt("follow_count");
             this.charmCount = jSONObject.optLong("charm_count");
             this.totalPrice = jSONObject.optLong("total_price");
+            this.contribution = jSONObject.optInt("contribution");
             this.userStatus = jSONObject.optInt("user_status");
             this.liveStatus = jSONObject.optInt("live_status");
             this.isLogin = jSONObject.optInt(ImageViewerConfig.IS_LOGIN);
@@ -133,6 +143,13 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.canUseChallenge = jSONObject.optInt("challenge_switch", 0) == 1;
             this.isNewGiftPriceStrategy = jSONObject.optInt("new_gift_t_dou_strategy", 0) == 1;
             this.isNewUser = jSONObject.optInt("is_new_user") == 1;
+            if (jSONObject.has("user_uk")) {
+                this.userUk = jSONObject.optString("user_uk");
+            } else if (jSONObject.has("uk")) {
+                this.userUk = jSONObject.optString("uk");
+            }
+            this.userType = jSONObject.optInt("user_type");
+            this.needRename = jSONObject.optInt("need_rename");
             praseMarkList(jSONObject);
             if (jSONObject.has("verify_video_status")) {
                 this.verifyVideoStatus = jSONObject.optInt("verify_video_status");
@@ -235,6 +252,8 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("challenge_switch", this.canUseChallenge ? 1 : 0);
             jSONObject.put("new_gift_t_dou_strategy", this.isNewGiftPriceStrategy ? 1 : 0);
             jSONObject.put("is_new_user", this.isNewUser ? 1 : 0);
+            jSONObject.put("user_uk", this.userUk);
+            jSONObject.put("user_type", this.userType);
             if (this.live_mark_info_new != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (AlaLiveMarkData alaLiveMarkData : this.live_mark_info_new) {
@@ -260,5 +279,21 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             return jsonObject.toString();
         }
         return null;
+    }
+
+    public String getUserTypeStr() {
+        if (this.userType == 1) {
+            return "owner";
+        }
+        if (this.userType == 2) {
+            return "host";
+        }
+        if (this.userType == 3) {
+            return "accompany";
+        }
+        if (this.userType == 4) {
+            return "guest";
+        }
+        return "guest";
     }
 }

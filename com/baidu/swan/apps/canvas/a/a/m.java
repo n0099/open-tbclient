@@ -3,7 +3,7 @@ package com.baidu.swan.apps.canvas.a.a;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class m extends a {
     private Rect mRect;
 

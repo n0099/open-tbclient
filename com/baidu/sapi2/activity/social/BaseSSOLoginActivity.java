@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes19.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     public static final String EXTRA_PARAM_EXTRAS_JSON = "extraJson";
     public static final String LOAD_THIRD_PARTY_SCENE_FROM = "sceneFrom";
@@ -410,7 +410,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        this.rootView = (RelativeLayout) findViewById(a.C0161a.root_view);
+        this.rootView = (RelativeLayout) findViewById(a.C0162a.root_view);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {

@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.log;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.log.bdimpl.MobileBaiduFeedDiversionLogger;
+import com.baidu.live.tbadk.log.defimpl.DefalutYuyinLiveLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultCommonLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultFeedDiversionLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultFirstChargeLogger;
@@ -32,10 +33,11 @@ import com.baidu.live.tbadk.log.qmimpl.QuanminLiveGoodsLogger;
 import com.baidu.live.tbadk.log.qmimpl.QuanminLiveIMLogger;
 import com.baidu.live.tbadk.log.qmimpl.QuanminLiveRecordLogger;
 import com.baidu.live.tbadk.log.qmimpl.QuanminYuanPackageLogger;
+import com.baidu.live.tbadk.log.qmimpl.QuanminYuyinLiveLogger;
 import com.baidu.live.tbadk.log.tbimpl.TiebaMigrateFromTiebaLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LogManager {
     public static ICommonLogger getCommonLogger() {
         if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -85,6 +87,10 @@ public class LogManager {
             return new QuanminGiftLogger();
         }
         return new DefaultGiftLogger();
+    }
+
+    public static IYuyinLiveLogger getYuyinLiveLogger() {
+        return TbadkCoreApplication.getInst().isQuanmin() ? new QuanminYuyinLiveLogger() : new DefalutYuyinLiveLogger();
     }
 
     public static ILiveIMLogger getLiveIMLogger() {

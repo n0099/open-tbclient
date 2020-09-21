@@ -12,20 +12,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements n {
-    private EditorTools aaA;
-    private int aaB;
-    private int aiD;
-    private int[] eMT;
+    private EditorTools aaS;
+    private int aaT;
+    private int aiX;
+    private int[] ePK;
     private boolean[] flags;
     private int mType;
-    public static int eMU = 1;
+    public static int ePL = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
         this.flags = new boolean[]{false, false, false, false, false};
-        this.eMT = new int[]{0, 0};
-        this.aiD = 0;
+        this.ePK = new int[]{0, 0};
+        this.aiX = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -61,8 +61,8 @@ public class SendView extends TextView implements n {
                     this.flags[2] = false;
                     this.flags[3] = false;
                     this.flags[4] = false;
-                    this.eMT[0] = 0;
-                    this.eMT[1] = 0;
+                    this.ePK[0] = 0;
+                    this.ePK[1] = 0;
                     break;
                 case 10:
                     this.flags[2] = true;
@@ -73,14 +73,14 @@ public class SendView extends TextView implements n {
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.eLH != null) {
-                            if (aVar2.eLH.getChosedFiles() != null) {
-                                this.eMT[0] = aVar2.eLH.getChosedFiles().size();
+                        if (aVar2.eNZ != null) {
+                            if (aVar2.eNZ.getChosedFiles() != null) {
+                                this.ePK[0] = aVar2.eNZ.getChosedFiles().size();
                             } else {
-                                this.eMT[0] = 0;
+                                this.ePK[0] = 0;
                             }
                         }
-                        if (this.eMT[0] > 0) {
+                        if (this.ePK[0] > 0) {
                             this.flags[1] = true;
                             break;
                         } else {
@@ -91,9 +91,9 @@ public class SendView extends TextView implements n {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.eMT;
+                    int[] iArr = this.ePK;
                     iArr[0] = iArr[0] - 1;
-                    if (this.eMT[0] > 0) {
+                    if (this.ePK[0] > 0) {
                         this.flags[1] = true;
                         break;
                     } else {
@@ -108,30 +108,30 @@ public class SendView extends TextView implements n {
                     this.flags[3] = false;
                     break;
             }
-            qm(this.mType);
+            qD(this.mType);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.aaA = editorTools;
+        this.aaS = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.aaA != null) {
-            this.aaA.b(aVar);
+        if (this.aaS != null) {
+            this.aaS.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.aaB = i;
+        this.aaT = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.aaB;
+        return this.aaT;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -151,7 +151,7 @@ public class SendView extends TextView implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
-        this.aiD = i;
+        this.aiX = i;
         int color = ap.getColor(i, R.color.cp_link_tip_a);
         setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.l(color, 0.3f), c.l(color, 0.5f), color}));
     }
@@ -160,14 +160,14 @@ public class SendView extends TextView implements n {
         this.mType = i;
     }
 
-    public void qm(int i) {
+    public void qD(int i) {
         if (i == ALL) {
             if (this.flags[0] || this.flags[1] || this.flags[2] || this.flags[3] || this.flags[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == eMU) {
+        } else if (i == ePL) {
             if (this.flags[1]) {
                 setEnabled(true);
             } else {

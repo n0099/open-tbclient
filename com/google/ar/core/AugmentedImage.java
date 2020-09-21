@@ -1,5 +1,5 @@
 package com.google.ar.core;
-/* loaded from: classes11.dex */
+/* loaded from: classes24.dex */
 public class AugmentedImage extends TrackableBase {
     /* JADX INFO: Access modifiers changed from: package-private */
     public AugmentedImage(long j, Session session) {

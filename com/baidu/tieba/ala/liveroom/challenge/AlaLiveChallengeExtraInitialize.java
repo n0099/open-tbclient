@@ -6,13 +6,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.challenge.f;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveChallengeExtraInitialize {
     static {
-        bPk();
+        bQw();
     }
 
-    private static void bPk() {
+    private static void bQw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913114, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.liveroom.challenge.AlaLiveChallengeExtraInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<f> run(CustomMessage<TbPageContext> customMessage) {
@@ -28,7 +28,7 @@ public class AlaLiveChallengeExtraInitialize {
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.challenge.c> run(CustomMessage<com.baidu.live.challenge.c> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.bQn().a(customMessage.getData());
+                    com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.bRH().a(customMessage.getData());
                 }
                 return null;
             }

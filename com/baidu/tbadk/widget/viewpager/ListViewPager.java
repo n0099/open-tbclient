@@ -9,23 +9,23 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.SwipeBackLayout;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private boolean eqn;
-    private float fiS;
-    private float fiT;
+    private boolean ess;
+    private float flJ;
+    private float flK;
+    private float flL;
     private float lastX;
-    private float lastY;
     private GestureDetector mGestureDetector;
     private SwipeBackLayout.c mSwipeControlInterface;
 
     public ListViewPager(Context context) {
         super(context);
-        this.eqn = false;
+        this.ess = false;
         init();
     }
 
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eqn = false;
+        this.ess = false;
         init();
     }
 
@@ -53,7 +53,7 @@ public class ListViewPager extends ViewPager {
         if (isInvalidPointer(motionEvent)) {
             return true;
         }
-        if (this.eqn) {
+        if (this.ess) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -75,7 +75,7 @@ public class ListViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.eqn) {
+        if (this.ess) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -93,7 +93,7 @@ public class ListViewPager extends ViewPager {
                     this.mSwipeControlInterface.enableSwipeBack();
                 }
                 this.lastX = motionEvent.getX();
-                this.lastY = motionEvent.getY();
+                this.flJ = motionEvent.getY();
                 break;
             case 1:
             case 3:
@@ -101,19 +101,19 @@ public class ListViewPager extends ViewPager {
                     this.mSwipeControlInterface.enableSwipeBack();
                 }
                 this.lastX = 0.0f;
-                this.lastY = 0.0f;
-                this.fiS = 0.0f;
-                this.fiT = 0.0f;
+                this.flJ = 0.0f;
+                this.flK = 0.0f;
+                this.flL = 0.0f;
                 break;
             case 2:
                 if (this.mSwipeControlInterface != null) {
                     this.mSwipeControlInterface.enableSwipeBack();
                 }
-                this.fiS = motionEvent.getX() - this.lastX;
-                this.fiT = motionEvent.getY() - this.lastY;
+                this.flK = motionEvent.getX() - this.lastX;
+                this.flL = motionEvent.getY() - this.flJ;
                 this.lastX = motionEvent.getX();
-                this.lastY = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.fiS) > Math.abs(this.fiT)) {
+                this.flJ = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.flK) > Math.abs(this.flL)) {
                     requestParentInterceptTouchEvent(true);
                     break;
                 }
@@ -145,6 +145,6 @@ public class ListViewPager extends ViewPager {
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.eqn = z;
+        this.ess = z;
     }
 }

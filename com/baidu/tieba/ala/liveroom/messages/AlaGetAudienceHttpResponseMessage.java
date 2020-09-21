@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
-import com.baidu.live.data.k;
+import com.baidu.live.data.n;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private k fRj;
+    private n fUu;
 
     public AlaGetAudienceHttpResponseMessage() {
         super(1021129);
@@ -16,12 +16,12 @@ public class AlaGetAudienceHttpResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fRj = new k();
-            this.fRj.parserJson(optJSONObject);
+            this.fUu = new n();
+            this.fUu.parserJson(optJSONObject);
         }
     }
 
-    public k bIw() {
-        return this.fRj;
+    public n bJE() {
+        return this.fUu;
     }
 }

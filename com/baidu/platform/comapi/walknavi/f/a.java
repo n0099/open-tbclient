@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.f;
 import com.baidu.platform.comapi.wnplatform.n.c;
 import com.baidu.platform.comapi.wnplatform.p.j;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private boolean a = false;
     private c b = null;

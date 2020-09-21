@@ -9,10 +9,10 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public final class a<T> implements Closeable, Cloneable {
-    private static Class<a> njM = a.class;
-    private static final c<Closeable> nls = new c<Closeable>() { // from class: com.facebook.common.references.a.1
+    private static Class<a> ntL = a.class;
+    private static final c<Closeable> nvs = new c<Closeable>() { // from class: com.facebook.common.references.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.references.c
         /* renamed from: f */
@@ -24,16 +24,16 @@ public final class a<T> implements Closeable, Cloneable {
         }
     };
     @GuardedBy("this")
-    private boolean PQ = false;
-    private final SharedReference<T> nlr;
+    private boolean Qk = false;
+    private final SharedReference<T> nvr;
 
     private a(SharedReference<T> sharedReference) {
-        this.nlr = (SharedReference) g.checkNotNull(sharedReference);
-        sharedReference.dOU();
+        this.nvr = (SharedReference) g.checkNotNull(sharedReference);
+        sharedReference.dSS();
     }
 
     private a(T t, c<T> cVar) {
-        this.nlr = new SharedReference<>(t, cVar);
+        this.nvr = new SharedReference<>(t, cVar);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T::Ljava/io/Closeable;>(TT;)Lcom/facebook/common/references/a<TT;>; */
@@ -41,7 +41,7 @@ public final class a<T> implements Closeable, Cloneable {
         if (closeable == null) {
             return null;
         }
-        return new a(closeable, nls);
+        return new a(closeable, nvs);
     }
 
     public static <T> a<T> a(@PropagatesNullable T t, c<T> cVar) {
@@ -52,29 +52,29 @@ public final class a<T> implements Closeable, Cloneable {
     }
 
     public synchronized T get() {
-        g.checkState(!this.PQ);
-        return this.nlr.get();
+        g.checkState(!this.Qk);
+        return this.nvr.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: dOR */
+    /* renamed from: dSP */
     public synchronized a<T> clone() {
         g.checkState(isValid());
-        return new a<>(this.nlr);
+        return new a<>(this.nvr);
     }
 
     @Nullable
-    public synchronized a<T> dOS() {
+    public synchronized a<T> dSQ() {
         return isValid() ? clone() : null;
     }
 
     public synchronized boolean isValid() {
-        return !this.PQ;
+        return !this.Qk;
     }
 
-    public int dOT() {
+    public int dSR() {
         if (isValid()) {
-            return System.identityHashCode(this.nlr.get());
+            return System.identityHashCode(this.nvr.get());
         }
         return 0;
     }
@@ -82,9 +82,9 @@ public final class a<T> implements Closeable, Cloneable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (!this.PQ) {
-                this.PQ = true;
-                this.nlr.dOV();
+            if (!this.Qk) {
+                this.Qk = true;
+                this.nvr.dST();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class a<T> implements Closeable, Cloneable {
     @Nullable
     public static <T> a<T> b(@Nullable a<T> aVar) {
         if (aVar != null) {
-            return aVar.dOS();
+            return aVar.dSQ();
         }
         return null;
     }
@@ -129,8 +129,8 @@ public final class a<T> implements Closeable, Cloneable {
     protected void finalize() throws Throwable {
         try {
             synchronized (this) {
-                if (!this.PQ) {
-                    com.facebook.common.c.a.c(njM, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.nlr)), this.nlr.get().getClass().getName());
+                if (!this.Qk) {
+                    com.facebook.common.c.a.c(ntL, "Finalized without closing: %x %x (type = %s)", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.nvr)), this.nvr.get().getClass().getName());
                     close();
                 }
             }

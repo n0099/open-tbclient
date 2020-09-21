@@ -3,7 +3,7 @@ package com.baidu.sofire.m;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class c implements com.baidu.sofire.j.b {
     b a;
     String b;

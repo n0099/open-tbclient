@@ -1,39 +1,39 @@
 package com.baidu.live.view.input;
 
-import com.baidu.live.data.r;
+import com.baidu.live.data.u;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        boolean JJ();
+        boolean JM();
 
-        boolean Ji();
+        int JR();
 
-        int Jn();
+        boolean Kn();
 
-        void QQ();
+        void RA();
 
-        void QR();
+        void Rz();
     }
 
-    void Fb();
+    void FB();
 
-    List<String> Mi();
+    List<String> MQ();
 
     void a(a aVar);
 
-    void b(r rVar, String str);
+    void b(u uVar, String str);
 
     void b(boolean z, int i, int i2, String str);
 
     void d(TbPageContext tbPageContext);
 
-    void dz(int i);
+    void dD(int i);
 
-    void gx(String str);
+    void gH(String str);
 
     void release();
 }

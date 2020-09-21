@@ -4,17 +4,17 @@ import com.baidu.ala.data.SdkLiveInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g {
-    public SdkLiveInfoData fEH;
+    public SdkLiveInfoData fHT;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("live_info")) != null) {
-            this.fEH = new SdkLiveInfoData();
-            this.fEH.fromJson(optJSONObject);
+            this.fHT = new SdkLiveInfoData();
+            this.fHT.fromJson(optJSONObject);
         }
     }
 
     public boolean isValid() {
-        return this.fEH != null && ((long) com.baidu.adp.lib.f.b.toInt(this.fEH.liveId, 0)) > 0;
+        return this.fHT != null && ((long) com.baidu.adp.lib.f.b.toInt(this.fHT.liveId, 0)) > 0;
     }
 }

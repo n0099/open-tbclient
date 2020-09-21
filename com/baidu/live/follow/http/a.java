@@ -1,7 +1,7 @@
 package com.baidu.live.follow.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private String liveId;
 
@@ -13,7 +13,7 @@ public class a extends HttpMessage {
         addParam("id", str);
     }
 
-    public void gc(String str) {
+    public void gi(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

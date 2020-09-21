@@ -9,22 +9,22 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private DetailPraiseView gHV;
-    private b gHW;
-    private boolean gHX;
+    private DetailPraiseView gLw;
+    private b gLx;
+    private boolean gLy;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a gHY = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a gLz = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bWi() {
-            if (a.this.gHW != null) {
-                a.this.gHW.m(a.this.gHV, 12);
+        public void bXS() {
+            if (a.this.gLx != null) {
+                a.this.gLx.n(a.this.gLw, 12);
             }
         }
     };
-    private CustomMessageListener fPT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener fTe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,60 +40,60 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fPT.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fPT);
+        this.fTe.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fTe);
     }
 
     public void b(b bVar) {
-        this.gHW = bVar;
+        this.gLx = bVar;
     }
 
-    public void mC(boolean z) {
-        if (this.gHX && z) {
+    public void mG(boolean z) {
+        if (this.gLy && z) {
             z = false;
         }
-        if (this.gHV != null) {
-            this.gHV.setShowPraise(z);
+        if (this.gLw != null) {
+            this.gLw.setShowPraise(z);
         }
     }
 
-    public void mD(boolean z) {
-        this.gHX = z;
+    public void mH(boolean z) {
+        this.gLy = z;
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.gHX && z) {
+        if (this.gLy && z) {
             z = false;
         }
-        if (this.gHV != null) {
-            this.gHV.setPraiseEnable(z);
+        if (this.gLw != null) {
+            this.gLw.setPraiseEnable(z);
         }
     }
 
-    public void az(ViewGroup viewGroup) {
+    public void aA(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.gHV == null) {
-                this.gHV = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.gLw == null) {
+                this.gLw = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.gHV.setOnDoubleClickListener(this.gHY);
-            if (this.gHV.getParent() != null) {
-                ((ViewGroup) this.gHV.getParent()).removeView(this.gHV);
+            this.gLw.setOnDoubleClickListener(this.gLz);
+            if (this.gLw.getParent() != null) {
+                ((ViewGroup) this.gLw.getParent()).removeView(this.gLw);
             }
-            viewGroup.addView(this.gHV, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.gLw, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bKO() {
-        if (this.gHV != null) {
-            this.gHV.bKO();
+    public void bLY() {
+        if (this.gLw != null) {
+            this.gLw.bLY();
         }
     }
 
-    public void Fb() {
-        MessageManager.getInstance().unRegisterListener(this.fPT);
+    public void FB() {
+        MessageManager.getInstance().unRegisterListener(this.fTe);
     }
 
     public View getView() {
-        return this.gHV;
+        return this.gLw;
     }
 }

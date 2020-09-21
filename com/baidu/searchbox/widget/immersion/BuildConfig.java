@@ -1,5 +1,5 @@
 package com.baidu.searchbox.widget.immersion;
-/* loaded from: classes12.dex */
+/* loaded from: classes17.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.widget.immersion";
     public static final String BUILD_TYPE = "release";

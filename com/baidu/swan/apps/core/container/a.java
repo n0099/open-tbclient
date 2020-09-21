@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.container;
 
 import android.support.annotation.NonNull;
 import android.webkit.ValueCallback;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 

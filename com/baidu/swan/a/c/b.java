@@ -8,11 +8,11 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes4.dex */
+/* loaded from: classes24.dex */
 public class b {
     @NonNull
     public static HttpRequestBuilder d(@NonNull com.baidu.swan.a.b.a aVar) {
-        HttpCommonRequestBuilder aTa;
+        HttpCommonRequestBuilder aTM;
         String str = aVar.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -67,34 +67,34 @@ public class b {
         }
         switch (c) {
             case 0:
-                return a.aSW().getRequest();
+                return a.aTI().getRequest();
             case 1:
-                return a.aSW().headerRequest();
+                return a.aTI().headerRequest();
             case 2:
-                aTa = a.aSW().aSY();
+                aTM = a.aTI().aTK();
                 break;
             case 3:
-                aTa = a.aSW().postRequest();
+                aTM = a.aTI().postRequest();
                 break;
             case 4:
-                aTa = a.aSW().putRequest();
+                aTM = a.aTI().putRequest();
                 break;
             case 5:
-                aTa = a.aSW().deleteRequest();
+                aTM = a.aTI().deleteRequest();
                 break;
             case 6:
-                aTa = a.aSW().aSZ();
+                aTM = a.aTI().aTL();
                 break;
             case 7:
-                aTa = a.aSW().aTa();
+                aTM = a.aTI().aTM();
                 break;
             default:
-                return a.aSW().getRequest();
+                return a.aTI().getRequest();
         }
         if (aVar.requestBody != null) {
-            aTa.requestBody(aVar.requestBody);
-            return aTa;
+            aTM.requestBody(aVar.requestBody);
+            return aTM;
         }
-        return aTa;
+        return aTM;
     }
 }

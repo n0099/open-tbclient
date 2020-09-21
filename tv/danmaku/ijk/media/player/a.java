@@ -2,10 +2,10 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public abstract class a implements b {
     private b.e a;
-    private b.InterfaceC1020b b;
+    private b.InterfaceC1017b b;
     private b.a c;
     private b.f d;
     private b.h e;
@@ -42,8 +42,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1020b interfaceC1020b) {
-        this.b = interfaceC1020b;
+    public final void a(b.InterfaceC1017b interfaceC1017b) {
+        this.b = interfaceC1017b;
     }
 
     public final void a(b.c cVar) {

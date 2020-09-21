@@ -11,10 +11,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class af extends af.a {
-    private CustomMessageListener jXV;
-    private String kGO;
+    private String kPo;
+    private CustomMessageListener kgy;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class af extends af.a {
 
     public af(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.jXV = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
+        this.kgy = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.af.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class af extends af.a {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.jXV.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jXV);
+        this.kgy.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.kgy);
         onChangeSkinType();
     }
 
     public void ao(String str, int i) {
-        this.kGO = str;
+        this.kPo = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -70,8 +70,8 @@ public class af extends af.a {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.kGO != null) {
-            this.mTextView.setText(this.kGO);
+        if (this.kPo != null) {
+            this.mTextView.setText(this.kPo);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

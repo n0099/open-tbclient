@@ -4,7 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.fsg.base.utils.support.ViewHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class b implements View.OnTouchListener {
     final /* synthetic */ BdActionBar a;
 

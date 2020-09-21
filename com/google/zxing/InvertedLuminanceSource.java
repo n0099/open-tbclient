@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class InvertedLuminanceSource extends LuminanceSource {
     private final LuminanceSource delegate;
 

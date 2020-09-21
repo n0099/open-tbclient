@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class i {
-    public static boolean D(Context context, String str) {
-        return c(context, str, "BAIDUZID", aJ(ExtraParamsManager.getBaiduzid(), hz(str)));
+    public static boolean G(Context context, String str) {
+        return c(context, str, "BAIDUZID", aJ(ExtraParamsManager.getBaiduzid(), hV(str)));
     }
 
-    public static boolean E(Context context, String str) {
-        return c(context, str, "BAIDUCUID", aK(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), hz(str)));
+    public static boolean H(Context context, String str) {
+        return c(context, str, "BAIDUCUID", aK(ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()), hV(str)));
     }
 
     private static boolean c(Context context, String str, String str2, String str3) {
@@ -25,14 +25,14 @@ public class i {
             return false;
         }
         try {
-            String hz = hz(str);
-            if (TextUtils.isEmpty(hz)) {
+            String hV = hV(str);
+            if (TextUtils.isEmpty(hV)) {
                 return false;
             }
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String[] split = cookieManager.getCookie(hz).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = cookieManager.getCookie(hV).split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             if (split.length > 0) {
                 z = true;
                 for (String str4 : split) {
@@ -50,7 +50,7 @@ public class i {
                 z = true;
             }
             if (z) {
-                cookieManager.setCookie(hz, str2 + ETAG.EQUAL + str3);
+                cookieManager.setCookie(hV, str2 + ETAG.EQUAL + str3);
                 CookieSyncManager.getInstance().sync();
                 return true;
             }
@@ -60,7 +60,7 @@ public class i {
         }
     }
 
-    public static String hz(String str) {
+    public static String hV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

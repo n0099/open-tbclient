@@ -7,7 +7,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservableTimer extends q<Long> {
     final long delay;
     final v scheduler;
@@ -20,7 +20,7 @@ public final class ObservableTimer extends q<Long> {
         timerObserver.setResource(this.scheduler.b(timerObserver, this.delay, this.unit));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = -2809475196591179431L;
         final u<? super Long> actual;

@@ -6,56 +6,56 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> onc;
-    final a<? extends T> ooZ;
+    final Callable<R> owM;
+    final a<? extends T> oyI;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
-    public void a(org.b.c<? super R>[] cVarArr) {
+    public void a(org.a.c<? super R>[] cVarArr) {
         if (b(cVarArr)) {
             int length = cVarArr.length;
-            org.b.c<? super Object>[] cVarArr2 = new org.b.c[length];
+            org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.onc.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.owM.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.ooZ.a(cVarArr2);
+            this.oyI.a(cVarArr2);
         }
     }
 
-    void a(org.b.c<?>[] cVarArr, Throwable th) {
-        for (org.b.c<?> cVar : cVarArr) {
+    void a(org.a.c<?>[] cVarArr, Throwable th) {
+        for (org.a.c<?> cVar : cVarArr) {
             EmptySubscription.error(th, cVar);
         }
     }
 
     @Override // io.reactivex.parallel.a
-    public int efo() {
-        return this.ooZ.efo();
+    public int ejl() {
+        return this.oyI.ejl();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ParallelReduceSubscriber<T, R> extends DeferredScalarSubscriber<T, R> {
         private static final long serialVersionUID = 8200530050639449080L;
         R accumulator;
         boolean done;
         final c<R, ? super T, R> reducer;
 
-        ParallelReduceSubscriber(org.b.c<? super R> cVar, R r, c<R, ? super T, R> cVar2) {
+        ParallelReduceSubscriber(org.a.c<? super R> cVar, R r, c<R, ? super T, R> cVar2) {
             super(cVar);
             this.accumulator = r;
             this.reducer = cVar2;
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -64,7 +64,7 @@ public final class ParallelReduce<T, R> extends a<R> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
@@ -77,7 +77,7 @@ public final class ParallelReduce<T, R> extends a<R> {
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -88,7 +88,7 @@ public final class ParallelReduce<T, R> extends a<R> {
             this.actual.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -98,7 +98,7 @@ public final class ParallelReduce<T, R> extends a<R> {
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

@@ -15,13 +15,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e extends com.baidu.b.b.a {
-    private f acx;
+    private f acP;
     private Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements Comparable<a> {
         private static final String[] a = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
         private final int b;
@@ -32,10 +32,10 @@ public class e extends com.baidu.b.b.a {
 
         public static a a(byte b, boolean z) {
             int i = b & 255;
-            return z ? bg(i >> 4) : bg(i & 15);
+            return z ? bk(i >> 4) : bk(i & 15);
         }
 
-        public static a bg(int i) {
+        public static a bk(int i) {
             if (i < 0 || i >= 16) {
                 throw new IllegalArgumentException("invalid idx " + i);
             }
@@ -67,28 +67,28 @@ public class e extends com.baidu.b.b.a {
             return this.b;
         }
 
-        public byte sF() {
+        public byte sK() {
             return (byte) this.b;
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     class b {
         private int d;
         private int b = 33;
-        private a[] acy = new a[this.b];
+        private a[] acQ = new a[this.b];
 
         public b() {
         }
 
         private void b(int i) {
-            if (i - this.acy.length > 0) {
-                int length = this.acy.length;
+            if (i - this.acQ.length > 0) {
+                int length = this.acQ.length;
                 int i2 = length + (length >> 1);
                 if (i2 - i >= 0) {
                     i = i2;
                 }
-                this.acy = (a[]) Arrays.copyOf(this.acy, i);
+                this.acQ = (a[]) Arrays.copyOf(this.acQ, i);
             }
         }
 
@@ -98,7 +98,7 @@ public class e extends com.baidu.b.b.a {
 
         public void b(a aVar) {
             b(this.d + 1);
-            a[] aVarArr = this.acy;
+            a[] aVarArr = this.acQ;
             int i = this.d;
             this.d = i + 1;
             aVarArr[i] = aVar;
@@ -107,34 +107,34 @@ public class e extends com.baidu.b.b.a {
         public byte[] b() {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             for (int i = 0; i < this.d / 2; i++) {
-                byteArrayOutputStream.write((byte) ((bg(i * 2).sF() & 255) | ((bg((i * 2) + 1).sF() & 255) << 4)));
+                byteArrayOutputStream.write((byte) ((bk(i * 2).sK() & 255) | ((bk((i * 2) + 1).sK() & 255) << 4)));
             }
             if (this.d % 2 != 0) {
-                byteArrayOutputStream.write((byte) (bg(this.d - 1).sF() & 255));
+                byteArrayOutputStream.write((byte) (bk(this.d - 1).sK() & 255));
             }
             return byteArrayOutputStream.toByteArray();
         }
 
-        public a bg(int i) {
+        public a bk(int i) {
             if (i >= this.d) {
                 throw new IndexOutOfBoundsException("idx " + i + " size " + this.d);
             }
-            return this.acy[i];
+            return this.acQ[i];
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     static class c {
         private List<a> a = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes20.dex */
+        /* loaded from: classes3.dex */
         public static class a {
             private int a;
-            private a acA;
+            private a acS;
 
             public a(a aVar) {
-                this.acA = aVar;
+                this.acS = aVar;
             }
 
             public void a() {
@@ -156,7 +156,7 @@ public class e extends com.baidu.b.b.a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     static class d {
         byte[] a;
         byte b;
@@ -179,13 +179,13 @@ public class e extends com.baidu.b.b.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.b.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0089e {
+    /* loaded from: classes3.dex */
+    public static class C0090e {
         public int a;
         public int b;
         public int c = 16;
 
-        C0089e() {
+        C0090e() {
         }
 
         public String toString() {
@@ -194,7 +194,7 @@ public class e extends com.baidu.b.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class f {
         private Method a;
         private Method b;
@@ -215,9 +215,9 @@ public class e extends com.baidu.b.b.a {
 
         void a() {
             try {
-                this.a = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sA()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
-                this.b = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sB()), new Class[]{String.class, Uri.class, Integer.TYPE});
-                this.c = com.baidu.b.a.e.a(ContentResolver.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sC()), new Class[]{Uri.class, Integer.TYPE});
+                this.a = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sF()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                this.b = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sG()), new Class[]{String.class, Uri.class, Integer.TYPE});
+                this.c = com.baidu.b.a.e.a(ContentResolver.class, com.baidu.b.a.e.a(com.baidu.b.a.d.sH()), new Class[]{Uri.class, Integer.TYPE});
                 this.d = com.baidu.b.a.e.a(Context.class, com.baidu.b.a.e.a(com.baidu.b.a.d.g()), new Class[]{Uri.class, Integer.TYPE});
                 this.e = com.baidu.b.a.e.a(ContentResolver.class, com.baidu.b.a.e.a(com.baidu.b.a.d.h()), new Class[]{Uri.class, Integer.TYPE});
             } catch (Exception e) {
@@ -227,15 +227,15 @@ public class e extends com.baidu.b.b.a {
 
     public e() {
         super("upc", 9000000L);
-        this.acx = new f();
-        this.acx.a();
+        this.acP = new f();
+        this.acP.a();
     }
 
-    private a a(String str, int i, List<c.a> list, int i2, C0089e c0089e) {
+    private a a(String str, int i, List<c.a> list, int i2, C0090e c0090e) {
         for (c.a aVar : list) {
-            if (a(str, i, aVar.acA, i2, c0089e)) {
+            if (a(str, i, aVar.acS, i2, c0090e)) {
                 aVar.a();
-                return aVar.acA;
+                return aVar.acS;
             }
         }
         return null;
@@ -253,7 +253,7 @@ public class e extends com.baidu.b.b.a {
         return String.format("content://%s/dic/v1/%s", a(str), aVar.a());
     }
 
-    private boolean a(String str, int i, a aVar, int i2, C0089e c0089e) {
+    private boolean a(String str, int i, a aVar, int i2, C0090e c0090e) {
         int i3;
         Uri parse = Uri.parse(a(str, i, aVar));
         int i4 = 0;
@@ -262,9 +262,9 @@ public class e extends com.baidu.b.b.a {
                 i3 = -1;
                 break;
             }
-            if (c0089e != null) {
+            if (c0090e != null) {
                 try {
-                    c0089e.a++;
+                    c0090e.a++;
                 } catch (Throwable th) {
                     try {
                         Thread.sleep(5L);
@@ -273,14 +273,14 @@ public class e extends com.baidu.b.b.a {
                     i4++;
                 }
             }
-            i3 = this.acx.a(this.d, parse, 0, i2, 1);
+            i3 = this.acP.a(this.d, parse, 0, i2, 1);
             break;
         }
         if (i3 == 0) {
             return true;
         }
-        if (c0089e != null) {
-            c0089e.b++;
+        if (c0090e != null) {
+            c0090e.b++;
         }
         return false;
     }
@@ -295,7 +295,7 @@ public class e extends com.baidu.b.b.a {
                 break;
             }
             try {
-                i2 = this.acx.a(this.d, parse, 0, i, 1);
+                i2 = this.acP.a(this.d, parse, 0, i, 1);
                 break;
             } catch (Throwable th) {
                 try {
@@ -320,7 +320,7 @@ public class e extends com.baidu.b.b.a {
         boolean z;
         byte[] bArr;
         if (Build.VERSION.SDK_INT < 26) {
-            return a.e.sD();
+            return a.e.sI();
         }
         int i = -1;
         try {
@@ -328,27 +328,27 @@ public class e extends com.baidu.b.b.a {
         } catch (PackageManager.NameNotFoundException e) {
         }
         if (i < 0) {
-            return a.e.sD();
+            return a.e.sI();
         }
-        C0089e c0089e = new C0089e();
+        C0090e c0090e = new C0090e();
         b bVar = new b();
         c cVar = new c();
         c cVar2 = new c();
         for (int i2 = 0; i2 < 16; i2++) {
-            a bg = a.bg(i2);
-            if (a(str, bg, i)) {
-                cVar.b(bg);
+            a bk = a.bk(i2);
+            if (a(str, bk, i)) {
+                cVar.b(bk);
             } else {
-                cVar2.b(bg);
+                cVar2.b(bk);
             }
         }
         for (int i3 = 0; i3 < 32; i3++) {
-            a a2 = a(str, i3, cVar.a(), i, c0089e);
+            a a2 = a(str, i3, cVar.a(), i, c0090e);
             if (a2 == null) {
-                a2 = a(str, i3, cVar2.a(), i, c0089e);
+                a2 = a(str, i3, cVar2.a(), i, c0090e);
             }
             if (a2 == null) {
-                return a.e.sD();
+                return a.e.sI();
             }
             bVar.b(a2);
         }
@@ -364,9 +364,9 @@ public class e extends com.baidu.b.b.a {
             }
             byte b5 = bArr2[i5];
             a a3 = a.a(b5, false);
-            if (a(str, 32, a3, i, c0089e)) {
+            if (a(str, 32, a3, i, c0090e)) {
                 a a4 = a.a(b5, true);
-                if (a(str, 33, a4, i, c0089e)) {
+                if (a(str, 33, a4, i, c0090e)) {
                     b bVar2 = new b();
                     bVar2.b(a3);
                     bVar2.b(a4);
@@ -379,12 +379,12 @@ public class e extends com.baidu.b.b.a {
         if (b2 == null) {
             b bVar3 = new b();
             for (int i6 = 32; i6 < 34; i6++) {
-                a a5 = a(str, i6, cVar.a(), i, c0089e);
+                a a5 = a(str, i6, cVar.a(), i, c0090e);
                 if (a5 == null) {
-                    a5 = a(str, i6, cVar2.a(), i, c0089e);
+                    a5 = a(str, i6, cVar2.a(), i, c0090e);
                 }
                 if (a5 == null) {
-                    return a.e.sD();
+                    return a.e.sI();
                 }
                 bVar3.b(a5);
             }
@@ -397,9 +397,9 @@ public class e extends com.baidu.b.b.a {
         if (z) {
             b bVar4 = new b();
             for (int i7 = 34; i7 < 94; i7++) {
-                a a6 = a(str, i7, cVar.a(), i, c0089e);
+                a a6 = a(str, i7, cVar.a(), i, c0090e);
                 if (a6 == null) {
-                    a6 = a(str, i7, cVar2.a(), i, c0089e);
+                    a6 = a(str, i7, cVar2.a(), i, c0090e);
                 }
                 if (a6 == null) {
                     break;
@@ -409,7 +409,7 @@ public class e extends com.baidu.b.b.a {
             if (bVar4.a() > 0) {
                 bArr = bVar4.b();
                 d dVar2 = new d(b4, b3.byteValue(), bArr);
-                return dVar2 != null ? a.e.sD() : a.e.a(dVar2.a());
+                return dVar2 != null ? a.e.sI() : a.e.a(dVar2.a());
             }
         }
         bArr = null;
@@ -420,6 +420,6 @@ public class e extends com.baidu.b.b.a {
 
     @Override // com.baidu.b.b.a
     public void a(a.c cVar) {
-        this.d = this.ach.a;
+        this.d = this.acC.a;
     }
 }

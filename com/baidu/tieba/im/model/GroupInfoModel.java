@@ -19,7 +19,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     public static final String ACTION_FROM = "activity_from";
     public static final String DEFAULT_INVITE_MSG = "default_invite_msg";
@@ -110,12 +110,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     private RequestGroupInfoMessage createMessage(long j, int i) {
         RequestGroupInfoMessage requestGroupInfoMessage = new RequestGroupInfoMessage();
         requestGroupInfoMessage.setGroupId(j);
-        LocalViewSize.ImageSize biO = LocalViewSize.biN().biO();
-        LocalViewSize.ImageSize biP = LocalViewSize.biN().biP();
-        requestGroupInfoMessage.setBigHeight(biP.height);
-        requestGroupInfoMessage.setBigWidth(biP.width);
-        requestGroupInfoMessage.setSmallHeight(biO.height);
-        requestGroupInfoMessage.setSmallWidth(biO.width);
+        LocalViewSize.ImageSize bjJ = LocalViewSize.bjI().bjJ();
+        LocalViewSize.ImageSize bjK = LocalViewSize.bjI().bjK();
+        requestGroupInfoMessage.setBigHeight(bjK.height);
+        requestGroupInfoMessage.setBigWidth(bjK.width);
+        requestGroupInfoMessage.setSmallHeight(bjJ.height);
+        requestGroupInfoMessage.setSmallWidth(bjJ.width);
         if (i == 4) {
             requestGroupInfoMessage.setFrom(TbEnum.GroupInfoSource.FROM_FORUM_GROUP_RECOMMEND);
         } else if (i == 5) {
@@ -137,12 +137,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     private RequestGroupInfoLocalMessage createLocalMessage(long j, int i) {
         RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = new RequestGroupInfoLocalMessage();
         requestGroupInfoLocalMessage.setGroupId(j);
-        LocalViewSize.ImageSize biO = LocalViewSize.biN().biO();
-        LocalViewSize.ImageSize biP = LocalViewSize.biN().biP();
-        requestGroupInfoLocalMessage.setBigHeight(biP.height);
-        requestGroupInfoLocalMessage.setBigWidth(biP.width);
-        requestGroupInfoLocalMessage.setSmallHeight(biO.height);
-        requestGroupInfoLocalMessage.setSmallWidth(biO.width);
+        LocalViewSize.ImageSize bjJ = LocalViewSize.bjI().bjJ();
+        LocalViewSize.ImageSize bjK = LocalViewSize.bjI().bjK();
+        requestGroupInfoLocalMessage.setBigHeight(bjK.height);
+        requestGroupInfoLocalMessage.setBigWidth(bjK.width);
+        requestGroupInfoLocalMessage.setSmallHeight(bjJ.height);
+        requestGroupInfoLocalMessage.setSmallWidth(bjJ.width);
         if (i == 4) {
             requestGroupInfoLocalMessage.setFrom(TbEnum.GroupInfoSource.FROM_FORUM_GROUP_RECOMMEND);
         } else if (i == 5) {
@@ -189,11 +189,11 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public ArrayList<String> getBigUrlList() {
-        if (this.mData == null || this.mData.cHe() == null || this.mData.cHe().size() <= 0) {
+        if (this.mData == null || this.mData.cKK() == null || this.mData.cKK().size() <= 0) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (PhotoUrlData photoUrlData : this.mData.cHe()) {
+        for (PhotoUrlData photoUrlData : this.mData.cKK()) {
             if (photoUrlData != null) {
                 arrayList.add(photoUrlData.getBigurl());
             }
@@ -203,8 +203,8 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public HashMap<String, ImageUrlData> getAssistUrls() {
         HashMap<String, ImageUrlData> hashMap = new HashMap<>();
-        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
-            for (PhotoUrlData photoUrlData : this.mData.cHe()) {
+        if (this.mData != null && this.mData.cKK() != null && this.mData.cKK().size() > 0) {
+            for (PhotoUrlData photoUrlData : this.mData.cKK()) {
                 if (photoUrlData != null) {
                     String bigurl = photoUrlData.getBigurl();
                     ImageUrlData imageUrlData = new ImageUrlData();
@@ -227,12 +227,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
-            int size = this.mData.cHe().size();
-            List<PhotoUrlData> cHe = this.mData.cHe();
+        if (this.mData != null && this.mData.cKK() != null && this.mData.cKK().size() > 0) {
+            int size = this.mData.cKK().size();
+            List<PhotoUrlData> cKK = this.mData.cKK();
             for (int i = 1; i < size; i++) {
-                if (cHe.get(i) != null && !picId.equals(cHe.get(i).getPicId())) {
-                    sb.append(cHe.get(i).getPicId());
+                if (cKK.get(i) != null && !picId.equals(cKK.get(i).getPicId())) {
+                    sb.append(cKK.get(i).getPicId());
                     if (i != size - 1) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
@@ -252,12 +252,12 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0) {
-            List<PhotoUrlData> cHe = this.mData.cHe();
-            int size = cHe.size();
+        if (this.mData != null && this.mData.cKK() != null && this.mData.cKK().size() > 0) {
+            List<PhotoUrlData> cKK = this.mData.cKK();
+            int size = cKK.size();
             for (int i = 1; i < size; i++) {
-                if (cHe.get(i) != null) {
-                    sb.append(cHe.get(i).getPicId());
+                if (cKK.get(i) != null) {
+                    sb.append(cKK.get(i).getPicId());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
@@ -269,10 +269,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public void delePhotoData() {
-        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0 && this.mChangePhotoUrlData != null) {
-            for (PhotoUrlData photoUrlData : this.mData.cHe()) {
+        if (this.mData != null && this.mData.cKK() != null && this.mData.cKK().size() > 0 && this.mChangePhotoUrlData != null) {
+            for (PhotoUrlData photoUrlData : this.mData.cKK()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
-                    this.mData.cHe().remove(photoUrlData);
+                    this.mData.cKK().remove(photoUrlData);
                     return;
                 }
             }
@@ -281,47 +281,47 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
 
     public void addPhotoData() {
         if (this.mData != null && this.mChangePhotoUrlData != null) {
-            if (this.mData.cHe() == null) {
+            if (this.mData.cKK() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.mChangePhotoUrlData);
-                this.mData.dP(arrayList);
+                this.mData.dX(arrayList);
                 return;
             }
-            if (this.mData.cHe().size() > 0 && this.mData.cHe().get(0) != null && TextUtils.isEmpty(this.mData.cHe().get(0).getPicId())) {
-                this.mData.cHe().remove(0);
+            if (this.mData.cKK().size() > 0 && this.mData.cKK().get(0) != null && TextUtils.isEmpty(this.mData.cKK().get(0).getPicId())) {
+                this.mData.cKK().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.cHe().add(photoUrlData);
+            this.mData.cKK().add(photoUrlData);
         }
     }
 
     public void updataPortraitData() {
-        if (this.mData != null && this.mData.cHe() != null && this.mData.cHe().size() > 0 && this.mChangePhotoUrlData != null) {
+        if (this.mData != null && this.mData.cKK() != null && this.mData.cKK().size() > 0 && this.mChangePhotoUrlData != null) {
             int i = 0;
             while (true) {
-                if (i >= this.mData.cHe().size()) {
+                if (i >= this.mData.cKK().size()) {
                     i = -1;
                     break;
-                } else if (this.mData.cHe().get(i) == null || this.mData.cHe().get(i).getPicId() == null || !this.mData.cHe().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
+                } else if (this.mData.cKK().get(i) == null || this.mData.cKK().get(i).getPicId() == null || !this.mData.cKK().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
                     i++;
                 } else {
-                    this.mData.cHe().remove(i);
+                    this.mData.cKK().remove(i);
                     break;
                 }
             }
-            if (this.mData.cHe().size() > 0 && this.mData.cHe().get(0) != null && TextUtils.isEmpty(this.mData.cHe().get(0).getPicId())) {
-                this.mData.cHe().remove(0);
+            if (this.mData.cKK().size() > 0 && this.mData.cKK().get(0) != null && TextUtils.isEmpty(this.mData.cKK().get(0).getPicId())) {
+                this.mData.cKK().remove(0);
             }
-            this.mData.cHe().add(i, this.mData.cHe().get(0));
-            this.mData.cHe().remove(0);
+            this.mData.cKK().add(i, this.mData.cKK().get(0));
+            this.mData.cKK().remove(0);
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.cHe().add(0, photoUrlData);
+            this.mData.cKK().add(0, photoUrlData);
         }
     }
 
@@ -333,10 +333,10 @@ public class GroupInfoModel extends BdBaseModel<GroupInfoActivity> {
     }
 
     public boolean removeMemberByUid(String str) {
-        if (str != null && this.mData != null && this.mData.cHd() != null && this.mData.cHd().size() > 0) {
-            for (MemberData memberData : this.mData.cHd()) {
+        if (str != null && this.mData != null && this.mData.cKJ() != null && this.mData.cKJ().size() > 0) {
+            for (MemberData memberData : this.mData.cKJ()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
-                    this.mData.cHd().remove(memberData);
+                    this.mData.cKJ().remove(memberData);
                     return true;
                 }
             }

@@ -2,16 +2,16 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class RequestHotRanklistMessage extends NetMessage {
     private String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f983common;
+    private CommonReq f982common;
     private long fid;
     private String list_type;
     private String need_tab_list;
@@ -21,11 +21,11 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f983common = commonReq;
+        this.f982common = commonReq;
     }
 
     public CommonReq getCommon() {
-        return this.f983common;
+        return this.f982common;
     }
 
     public String getCallFrom() {
@@ -60,13 +60,13 @@ public class RequestHotRanklistMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1236common = getCommon();
+            builder.f1237common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();
             builder.fid = Long.valueOf(this.fid);
             if (z) {
-                t.a(builder, true);
+                u.a(builder, true);
             }
             TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
             builder2.data = builder.build(false);

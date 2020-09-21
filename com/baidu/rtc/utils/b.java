@@ -3,9 +3,9 @@ package com.baidu.rtc.utils;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private a bPj;
+    private a bRj;
     private boolean mIsRegisted = false;
     private TelephonyManager mTelephonyManager = null;
     private boolean mIsCalling = false;
@@ -15,23 +15,23 @@ public class b {
             super.onCallStateChanged(i, str);
             switch (i) {
                 case 0:
-                    if (b.this.bPj != null && b.this.mIsCalling) {
-                        b.this.bPj.onInterruptionEnd();
+                    if (b.this.bRj != null && b.this.mIsCalling) {
+                        b.this.bRj.onInterruptionEnd();
                         b.this.mIsCalling = false;
                         return;
                     }
                     return;
                 case 1:
                     b.this.mIsCalling = true;
-                    if (b.this.bPj != null) {
-                        b.this.bPj.onInterruptionBegin();
+                    if (b.this.bRj != null) {
+                        b.this.bRj.onInterruptionBegin();
                         return;
                     }
                     return;
                 case 2:
                     b.this.mIsCalling = true;
-                    if (b.this.bPj != null) {
-                        b.this.bPj.onInterruptionBegin();
+                    if (b.this.bRj != null) {
+                        b.this.bRj.onInterruptionBegin();
                         return;
                     }
                     return;
@@ -41,7 +41,7 @@ public class b {
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void onInterruptionBegin();
 
@@ -49,8 +49,8 @@ public class b {
     }
 
     public b(a aVar) {
-        this.bPj = null;
-        this.bPj = aVar;
+        this.bRj = null;
+        this.bRj = aVar;
     }
 
     public void register(Context context) {

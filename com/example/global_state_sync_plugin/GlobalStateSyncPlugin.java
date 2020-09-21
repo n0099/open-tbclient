@@ -10,7 +10,7 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-import com.baidu.tbadk.a.a.f;
+import com.baidu.tbadk.a.a.k;
 import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.a.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +23,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes16.dex */
 public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static MethodChannel mMethodChannel;
     private static boolean updatingThemeDataByFlutter = false;
@@ -81,7 +81,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         }
     };
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes16.dex */
     public enum GlobalStateSubType {
         kGlobalStateSubTypeNone,
         kGlobalStateSubTypeSyncAll,
@@ -94,7 +94,7 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         kGlobalStateSubTypeCount
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes16.dex */
     public enum GlobalStateType {
         kGlobalStateTheme,
         kGlobalStateSyncData,
@@ -228,13 +228,13 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.bik().getString("baidu_finance", null));
+        hashMap2.put("financeURL", b.bjf().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.bik().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.bjf().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
-        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.bik().getInt("key_is_show_shoubai_dynamic_guide", 0)));
-        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.bik().getInt("baidu_financial_display", 1)));
+        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.bjf().getInt("key_is_show_shoubai_dynamic_guide", 0)));
+        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.bjf().getInt("baidu_financial_display", 1)));
         hashMap2.put("experimentID", getExperimentID());
         hashMap.put("syncData", hashMap2);
         hashMap.put("configInfo", hashMap3);
@@ -246,9 +246,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     }
 
     private static String getExperimentID() {
-        e j = d.j(f.dRr);
-        if (j != null && !at.isEmpty(j.dRq)) {
-            String str = j.dRq;
+        e j = d.j(k.dTB);
+        if (j != null && !at.isEmpty(j.dTA)) {
+            String str = j.dTA;
             char c = 65535;
             switch (str.hashCode()) {
                 case 1687628:
@@ -354,9 +354,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String bjk = ap.bjk();
+        String bkf = ap.bkf();
         HashMap hashMap2 = new HashMap();
-        hashMap.put("mode", bjk);
+        hashMap.put("mode", bkf);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

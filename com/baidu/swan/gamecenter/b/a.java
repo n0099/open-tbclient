@@ -2,7 +2,7 @@ package com.baidu.swan.gamecenter.b;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends com.baidu.swan.gamecenter.c.a {
     public a() {
         super("echo");
@@ -14,7 +14,7 @@ public class a extends com.baidu.swan.gamecenter.c.a {
         String optString = jSONObject.optString("message");
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optInt == 0) {
-            bVar.al(optJSONObject);
+            bVar.ao(optJSONObject);
             return null;
         }
         bVar.onFail(optInt, optString);

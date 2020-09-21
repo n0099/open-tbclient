@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes.sampleentry;
 
 import com.coremedia.iso.boxes.Box;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public interface SampleEntry extends Box {
     int getDataReferenceIndex();
 

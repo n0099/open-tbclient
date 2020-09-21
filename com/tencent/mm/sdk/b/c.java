@@ -1,7 +1,7 @@
 package com.tencent.mm.sdk.b;
 
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c {
     private static final long[] q = {300, 200, 300, 200};
     private static final TimeZone GMT = TimeZone.getTimeZone("GMT");

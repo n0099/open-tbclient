@@ -3,7 +3,7 @@ package android.arch.lifecycle;
 import android.arch.lifecycle.Lifecycle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-/* loaded from: classes20.dex */
+/* loaded from: classes14.dex */
 public class u {
     private final Handler mHandler = new Handler();
     private a zE;
@@ -43,7 +43,7 @@ public class u {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes14.dex */
     public static class a implements Runnable {
         final Lifecycle.Event zF;
         private boolean zG = false;

@@ -30,7 +30,7 @@ import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public final class FileUtils {
     private static final int BUFFER_SIZE = 1024;
     private static final boolean DEBUG = false;
@@ -268,7 +268,39 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [471=4] */
+    public static boolean saveToFileWithReturn(String str, File file, boolean z) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return saveToFileWithReturn(new ByteArrayInputStream(str.getBytes()), file, z);
+    }
+
+    public static boolean saveToFileWithReturn(InputStream inputStream, File file, boolean z) {
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            fileOutputStream = new FileOutputStream(file, z);
+            try {
+                r0 = copyStream(inputStream, fileOutputStream) != 0;
+                Closeables.closeSafely(fileOutputStream);
+            } catch (FileNotFoundException e) {
+                Closeables.closeSafely(fileOutputStream);
+                return r0;
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream2 = fileOutputStream;
+                Closeables.closeSafely(fileOutputStream2);
+                throw th;
+            }
+        } catch (FileNotFoundException e2) {
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        return r0;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [513=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v3, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     public static long copyFile(File file, File file2) {
@@ -367,7 +399,7 @@ public final class FileUtils {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [559=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [601=4] */
     public static void saveToGzip(byte[] bArr, File file) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayInputStream byteArrayInputStream = null;
@@ -433,7 +465,7 @@ public final class FileUtils {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [624=4, 626=4, 627=4, 628=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [666=4, 668=4, 669=4, 670=4] */
     public static boolean cache(Context context, String str, byte[] bArr, int i) {
         boolean z = false;
         if (bArr == null) {
@@ -649,7 +681,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [851=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [893=4] */
     public static boolean unGzipFile(File file, File file2) {
         GZIPInputStream gZIPInputStream;
         FileInputStream fileInputStream;
@@ -715,7 +747,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [913=4, 923=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [965=4, 955=4] */
     public static boolean unzipFile(String str, String str2) {
         BufferedInputStream bufferedInputStream;
         FileOutputStream fileOutputStream;
@@ -830,7 +862,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1033=4] */
     public static boolean unzipFileFromAsset(String str, String str2, Context context) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
@@ -970,7 +1002,7 @@ public final class FileUtils {
         return str;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1114=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1156=4] */
     @Nullable
     public static String readAssetData(Context context, String str) {
         InputStream inputStream;

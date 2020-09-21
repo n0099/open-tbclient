@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean btV() {
+    private static boolean buZ() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void g(Object obj, String str) {
-        if (btV()) {
+        if (buZ()) {
             if (obj != null) {
                 str = obj.getClass().getSimpleName() + " : " + str;
             }
@@ -32,13 +32,13 @@ public class c {
     }
 
     public static final void printLog(String str) {
-        if (btV()) {
+        if (buZ()) {
             Log.d("TbPageKeyHelper", str);
         }
     }
 
     private static final void c(FragmentManager fragmentManager) {
-        if (btV()) {
+        if (buZ()) {
             List<Fragment> fragments = fragmentManager.getFragments();
             if (!y.isEmpty(fragments)) {
                 printLog("FragmentManager---->" + fragmentManager);
@@ -54,21 +54,21 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (btV() && bVar != null) {
+        if (buZ() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            String btU = bVar.btU();
-            ArrayList<String> btS = bVar.btS();
-            ArrayList<String> btT = bVar.btT();
+            String buY = bVar.buY();
+            ArrayList<String> buW = bVar.buW();
+            ArrayList<String> buX = bVar.buX();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentPageKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("prePageKey=").append(btU).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(btS.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(btT.toString());
+            sb.append("prePageKey=").append(buY).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("preList=").append(buW.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(buX.toString());
             g(bVar, sb.toString());
         }
     }
 
-    public static Activity eh(Context context) {
+    public static Activity ej(Context context) {
         g(context, "currentContext");
         Context context2 = context;
         while (context2 instanceof ContextWrapper) {
@@ -83,23 +83,23 @@ public class c {
         return null;
     }
 
-    public static b ei(Context context) {
+    public static b ek(Context context) {
         printLog("======================Start==============================");
         printLog("context : " + context);
-        Activity eh = eh(context);
+        Activity ej = ej(context);
         if (!(context instanceof Activity)) {
             g(context, "context is not Activity, so getCurrentActivity()");
-            eh = TbadkCoreApplication.getInst().getCurrentActivity();
+            ej = TbadkCoreApplication.getInst().getCurrentActivity();
         }
-        b ad = ad(eh);
-        if (ad == null) {
+        b ah = ah(ej);
+        if (ah == null) {
             g(context, "------Not Activity，No TbPageExtra!------");
         }
         printLog("**************************End**************************");
-        return ad;
+        return ah;
     }
 
-    private static b ad(Activity activity) {
+    private static b ah(Activity activity) {
         if (activity instanceof BaseFragmentActivity) {
             BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
             g(baseFragmentActivity, "context is BaseFragmentActivity");

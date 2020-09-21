@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CmdConfigHttp {
     public static final int AGREE_ME_HTTP_CMD = 1002211;
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
@@ -20,6 +20,8 @@ public class CmdConfigHttp {
     public static final int CMD_ALA_VERIFY_STRATEGY = 1003303;
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
+    public static final int CMD_AUDIO_LIVE_HTTP_BASE_CMD = 1031000;
+    public static final int CMD_AUDIO_LIVE_HTTP_MAX_CMD = 1040999;
     public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
     public static final int CMD_BAR_ZHU_INFORMATION = 1003357;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;

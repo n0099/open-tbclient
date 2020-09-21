@@ -8,32 +8,32 @@ import java.util.ArrayList;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    public static g<String, ArrayList<String>> IB = new e();
-    public static g<String, String> IC = new e();
+    public static g<String, ArrayList<String>> IK = new e();
+    public static g<String, String> IL = new e();
     private static Application mContext;
 
     public static void init(Application application) {
         mContext = application;
         try {
-            lv();
+            lz();
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("CmdRouter", "初始化失败!", e);
         }
     }
 
-    private static void lv() throws PackageManager.NameNotFoundException, InterruptedException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        Set<String> lw;
-        if (h.lw().size() == 0) {
-            lw = a.a(mContext, "com.baidu.tieba.route");
+    private static void lz() throws PackageManager.NameNotFoundException, InterruptedException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Set<String> lA;
+        if (h.lA().size() == 0) {
+            lA = a.a(mContext, "com.baidu.tieba.route");
         } else {
-            lw = h.lw();
+            lA = h.lA();
         }
-        Log.e("CmdRouter", lw.toString());
-        for (String str : lw) {
+        Log.e("CmdRouter", lA.toString());
+        for (String str : lA) {
             if (str.startsWith("com.baidu.tieba.route.")) {
-                IC.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
-                IB.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+                IL.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
+                IK.d(((d) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
             }
         }
     }

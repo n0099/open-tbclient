@@ -1,21 +1,18 @@
 package com.baidu.searchbox.ui.animview.praise.element;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.v4.internal.view.SupportMenu;
 import com.airbnb.lottie.g;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class WaveAnimElement extends BaseAnimatedElement {
     private static final boolean DEBUG = false;
-    private Context mCtx;
-    private g mLottieDrawable;
+    protected g mLottieDrawable;
 
-    public WaveAnimElement(Context context, Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
+    public WaveAnimElement(Drawable.Callback callback, BaseAnimatedElement.ScaleType scaleType) {
         super(callback, scaleType);
-        this.mCtx = context;
     }
 
     @Override // com.baidu.searchbox.ui.animview.base.BaseAnimatedElement

@@ -11,36 +11,36 @@ import com.baidu.tieba.homepage.tabfeed.data.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private final List<bw> iSK = new ArrayList();
+    private final List<bw> jbq = new ArrayList();
 
     public c a(boolean z, com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         c cVar = new c();
-        cVar.fkC = z;
+        cVar.fnv = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.iSF = aVar.cyP();
-        cVar.iSG = aVar.cyQ();
-        ArrayList<bw> cgB = aVar.cgB();
+        cVar.jbl = aVar.cCw();
+        cVar.jbm = aVar.cCx();
+        ArrayList<bw> cjQ = aVar.cjQ();
         if (z) {
-            if (!y.isEmpty(cgB)) {
-                this.iSK.clear();
-                this.iSK.addAll(cgB);
+            if (!y.isEmpty(cjQ)) {
+                this.jbq.clear();
+                this.jbq.addAll(cjQ);
             }
-        } else if (!y.isEmpty(cgB)) {
-            this.iSK.addAll(cgB);
+        } else if (!y.isEmpty(cjQ)) {
+            this.jbq.addAll(cjQ);
         }
         ArrayList<q> arrayList = new ArrayList<>();
-        arrayList.addAll(this.iSK);
-        a(arrayList, aVar.cyN());
-        a(arrayList, aVar.cyO());
-        a(arrayList, aVar.cyR());
-        a(arrayList, aVar.cyS());
-        cVar.iSE = aE(arrayList);
+        arrayList.addAll(this.jbq);
+        a(arrayList, aVar.cCu());
+        a(arrayList, aVar.cCv());
+        a(arrayList, aVar.cCy());
+        a(arrayList, aVar.cCz());
+        cVar.jbk = aG(arrayList);
         return cVar;
     }
 
-    private ArrayList<q> aE(ArrayList<q> arrayList) {
+    private ArrayList<q> aG(ArrayList<q> arrayList) {
         ArrayList<q> arrayList2 = new ArrayList<>();
         Iterator<q> it = arrayList.iterator();
         int i = 0;
@@ -49,93 +49,93 @@ public class a {
             if (next instanceof bw) {
                 bw bwVar = (bw) next;
                 int[] imageWidthAndHeight = bwVar.getImageWidthAndHeight();
-                if (bwVar.getType() == bw.eaW) {
+                if (bwVar.getType() == bw.edg) {
                     bv bvVar = new bv();
-                    bvVar.dUW = bwVar;
+                    bvVar.dXg = bwVar;
                     bvVar.position = i;
-                    bvVar.eaC = true;
+                    bvVar.ecM = true;
                     arrayList2.add(bvVar);
                     bv bvVar2 = new bv();
-                    bvVar2.dUW = bwVar;
+                    bvVar2.dXg = bwVar;
                     bvVar2.position = i;
-                    if (bwVar.bgz()) {
-                        bvVar2.eaH = true;
-                    } else if (bwVar.bfK() == 1) {
-                        bvVar2.eaF = true;
-                        bvVar2.eaT = imageWidthAndHeight[0];
-                        bvVar2.eaU = imageWidthAndHeight[1];
-                    } else if (bwVar.bfK() >= 2) {
-                        bvVar2.eaG = true;
+                    if (bwVar.bht()) {
+                        bvVar2.ecR = true;
+                    } else if (bwVar.bgE() == 1) {
+                        bvVar2.ecP = true;
+                        bvVar2.edd = imageWidthAndHeight[0];
+                        bvVar2.ede = imageWidthAndHeight[1];
+                    } else if (bwVar.bgE() >= 2) {
+                        bvVar2.ecQ = true;
                     } else {
-                        bvVar2.eaD = true;
+                        bvVar2.ecN = true;
                     }
                     arrayList2.add(bvVar2);
-                    if (bwVar.bgH() != null) {
+                    if (bwVar.bhB() != null) {
                         bv bvVar3 = new bv();
-                        bvVar3.eaO = true;
-                        bvVar3.dUW = bwVar;
+                        bvVar3.ecY = true;
+                        bvVar3.dXg = bwVar;
                         bvVar3.position = i;
                         arrayList2.add(bvVar3);
                     }
-                    if (!y.isEmpty(bwVar.bgK()) || !y.isEmpty(bwVar.bgL())) {
+                    if (!y.isEmpty(bwVar.bhE()) || !y.isEmpty(bwVar.bhF())) {
                         bv bvVar4 = new bv();
-                        bvVar4.dUW = bwVar;
+                        bvVar4.dXg = bwVar;
                         bvVar4.position = i;
-                        if (y.getCount(bwVar.bgK()) + y.getCount(bwVar.bgL()) == 1) {
-                            bvVar4.eaQ = true;
-                        } else if (y.getCount(bwVar.bgK()) + y.getCount(bwVar.bgL()) > 1) {
-                            bvVar4.eaR = true;
+                        if (y.getCount(bwVar.bhE()) + y.getCount(bwVar.bhF()) == 1) {
+                            bvVar4.eda = true;
+                        } else if (y.getCount(bwVar.bhE()) + y.getCount(bwVar.bhF()) > 1) {
+                            bvVar4.edb = true;
                         }
                         arrayList2.add(bvVar4);
                     }
                     bv bvVar5 = new bv();
-                    bvVar5.eaN = true;
-                    bvVar5.dUW = bwVar;
+                    bvVar5.ecX = true;
+                    bvVar5.dXg = bwVar;
                     bvVar5.position = i;
                     arrayList2.add(bvVar5);
                     bv bvVar6 = new bv();
-                    bvVar6.eaI = true;
-                    bvVar6.dUW = bwVar;
+                    bvVar6.ecS = true;
+                    bvVar6.dXg = bwVar;
                     bvVar6.position = i;
                     arrayList2.add(bvVar6);
-                } else if (bwVar.getType() == bw.ebs) {
+                } else if (bwVar.getType() == bw.edC) {
                     bv bvVar7 = new bv();
-                    bvVar7.dUW = bwVar;
+                    bvVar7.dXg = bwVar;
                     bvVar7.position = i;
-                    bvVar7.eaC = true;
+                    bvVar7.ecM = true;
                     arrayList2.add(bvVar7);
                     bv bvVar8 = new bv();
-                    bvVar8.dUW = bwVar;
+                    bvVar8.dXg = bwVar;
                     bvVar8.position = i;
-                    bvVar8.eaK = true;
+                    bvVar8.ecU = true;
                     arrayList2.add(bvVar8);
-                    if (bwVar.bgH() != null) {
+                    if (bwVar.bhB() != null) {
                         bv bvVar9 = new bv();
-                        bvVar9.eaO = true;
-                        bvVar9.dUW = bwVar;
+                        bvVar9.ecY = true;
+                        bvVar9.dXg = bwVar;
                         bvVar9.position = i;
                         arrayList2.add(bvVar9);
                     }
                     bv bvVar10 = new bv();
-                    bvVar10.eaN = true;
-                    bvVar10.dUW = bwVar;
+                    bvVar10.ecX = true;
+                    bvVar10.dXg = bwVar;
                     bvVar10.position = i;
                     arrayList2.add(bvVar10);
                     bv bvVar11 = new bv();
-                    bvVar11.eaI = true;
-                    bvVar11.dUW = bwVar;
+                    bvVar11.ecS = true;
+                    bvVar11.dXg = bwVar;
                     bvVar11.position = i;
                     arrayList2.add(bvVar11);
-                } else if (bwVar.getType() == bw.ebk && bwVar.bdm()) {
+                } else if (bwVar.getType() == bw.edu && bwVar.beg()) {
                     bwVar.position = i;
                     arrayList2.add(bwVar);
-                } else if (k.aa(bwVar)) {
+                } else if (k.ab(bwVar)) {
                     k kVar = new k(bwVar);
                     kVar.tid = bwVar.getTid();
                     arrayList2.add(kVar);
                 } else {
                     bv bvVar12 = new bv();
-                    bvVar12.dUW = bwVar;
+                    bvVar12.dXg = bwVar;
                     bvVar12.position = i;
                     arrayList2.add(bvVar12);
                 }
@@ -147,7 +147,7 @@ public class a {
             }
             i++;
         }
-        com.baidu.tbadk.a.a.a.aG(arrayList2);
+        com.baidu.tbadk.a.a.a.aK(arrayList2);
         return arrayList2;
     }
 
@@ -174,6 +174,6 @@ public class a {
     }
 
     public boolean hasData() {
-        return (this.iSK == null || y.isEmpty(this.iSK)) ? false : true;
+        return (this.jbq == null || y.isEmpty(this.jbq)) ? false : true;
     }
 }

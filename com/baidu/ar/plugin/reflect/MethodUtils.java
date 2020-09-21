@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class MethodUtils {
     private static Map<String, Method> sMethodCache = new HashMap();
 

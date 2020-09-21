@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.b.a;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GiftBagItemView extends a<GiftBagWrapperData> {
     private TbImageView mGiftBagPic;
 

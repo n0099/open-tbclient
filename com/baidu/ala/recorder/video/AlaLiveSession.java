@@ -29,7 +29,7 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     private static final int MIN_SURFACE_CHANGE = 10;
     private static final String TAG = AlaLiveSession.class.getSimpleName();
@@ -100,19 +100,19 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     private CameraListener mCameraListener = new CameraListener() { // from class: com.baidu.ala.recorder.video.AlaLiveSession.5
         @Override // com.baidu.ala.recorder.video.listener.CameraListener
         public boolean onCameraOpen(Camera camera, int i) {
-            AlaLiveSession.LogPrint("mCameraListener.onCameraOpen | ");
+            AlaLiveSession.logPrint("mCameraListener.onCameraOpen | ");
             return AlaLiveSession.this.doOnCameraOpen(camera, i);
         }
 
         @Override // com.baidu.ala.recorder.video.listener.CameraListener
         public void onSurfaceChanged(int i, int i2) {
-            AlaLiveSession.LogPrint("mCameraListener.onSurfaceChanged width: " + i + " height:" + i2);
+            AlaLiveSession.logPrint("mCameraListener.onSurfaceChanged width: " + i + " height:" + i2);
             AlaLiveSession.this.doOnSurfaceChanged(i, i2);
         }
 
         @Override // com.baidu.ala.recorder.video.listener.CameraListener
         public ImageFilter getImageFilter() {
-            AlaLiveSession.LogPrint("mCameraListener.getImageFilterDelegate | ");
+            AlaLiveSession.logPrint("mCameraListener.getImageFilterDelegate | ");
             if (AlaLiveSession.this.mCameraOperator != null) {
                 return AlaLiveSession.this.mCameraOperator.getImageFilter();
             }
@@ -126,7 +126,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
 
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-            AlaLiveSession.LogPrint("mTextureViewListener.onSurfaceTextureAvailable | " + i + " | " + i2);
+            AlaLiveSession.logPrint("mTextureViewListener.onSurfaceTextureAvailable | " + i + " | " + i2);
             AlaLiveSession.this.mSurfaceCreated = true;
             if (!AlaLiveSession.this.mIsPreviewStoped) {
                 AlaLiveSession.this.startRecord();
@@ -135,19 +135,22 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
 
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-            AlaLiveSession.LogPrint("mTextureViewListener.onSurfaceTextureSizeChanged | " + i + " | " + i2);
+            AlaLiveSession.logPrint("mTextureViewListener.onSurfaceTextureSizeChanged | " + i + " | " + i2);
             AlaLiveSession.this.mCameraMgr.postSurfaceChanged(i, i2);
         }
 
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
         public void onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-            AlaLiveSession.LogPrint("mTextureViewListener.onSurfaceTextureSizeChanged ");
-            AlaLiveSession.this.stopRecord();
+            AlaLiveSession.logPrint("mTextureViewListener.onSurfaceTextureDestroyed ");
+            AlaLiveSession.this.mSurfaceCreated = false;
+            AlaLiveSession.this.mIsVideoThreadRun = false;
+            AlaLiveSession.this.mIsPreviewStoped = true;
+            AlaLiveSession.this.mCameraMgr.postStopCamera();
         }
 
         @Override // com.baidu.ala.recorder.video.listener.TextureViewListener
         public void onConfigurationChanged(Configuration configuration) {
-            AlaLiveSession.LogPrint("mTextureViewListener.onSurfaceTextureSizeChanged ");
+            AlaLiveSession.logPrint("mTextureViewListener.onSurfaceTextureSizeChanged ");
             AlaLiveSession.this.mCameraMgr.postResetCamera();
         }
 
@@ -589,7 +592,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
             this.mCameraOperator = createCameraOperator(true, this.mBeautyType);
             this.mCameraOperator.setVideoConfig(this.mVideoConfig);
             this.mCameraOperator.getImageFilter().setupImageOutput(this.mImageOutput);
-            LogPrint("checkNeedCreateOperator mNeedBeauty | " + this.mNeedBeauty);
+            logPrint("checkNeedCreateOperator mNeedBeauty | " + this.mNeedBeauty);
         }
     }
 
@@ -645,7 +648,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
             }
         }
         if (this.mScreenDrawer == null || this.mEncoderDrawer == null) {
-            LogPrint("doOnCameraOpen error mScreenDrawer = null or mEncoderDrawer = null");
+            logPrint("doOnCameraOpen error mScreenDrawer = null or mEncoderDrawer = null");
             return false;
         }
         if (!this.mScreenDrawer.isCreated()) {
@@ -692,6 +695,6 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void LogPrint(String str) {
+    public static void logPrint(String str) {
     }
 }

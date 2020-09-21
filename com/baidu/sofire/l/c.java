@@ -4,7 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class c implements com.baidu.sofire.j.b {
     private b a = null;
     private String b;

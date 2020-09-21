@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes14.dex */
 public class ReceiverManager {
     private static ReceiverManager sInstance = new ReceiverManager();
     private List<BaseBroadcastReceiver> mReceivers = new ArrayList();

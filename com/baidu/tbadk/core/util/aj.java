@@ -8,8 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj extends Thread {
-    private String ekw;
-    private boolean ekx;
+    private String emL;
+    private boolean emM;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -17,19 +17,19 @@ public class aj extends Thread {
     public aj(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.ekw = null;
+        this.emL = null;
         this.mObjTp = null;
-        this.ekx = false;
+        this.emM = false;
         this.mType = str;
-        this.ekx = z;
+        this.emM = z;
     }
 
     public aj(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.ekw = null;
+        this.emL = null;
         this.mObjTp = null;
-        this.ekx = false;
+        this.emM = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -39,7 +39,7 @@ public class aj extends Thread {
         String str;
         super.run();
         if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.ekx) {
+            if (this.emM) {
                 str = TbConfig.IN_PV_ADDRESS;
             } else {
                 str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -49,8 +49,8 @@ public class aj extends Thread {
             if (this.mParam != null) {
                 aaVar.addPostData("st_param", this.mParam);
             }
-            if (this.ekw != null) {
-                aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.ekw);
+            if (this.emL != null) {
+                aaVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.emL);
             }
             if (this.mObjTp != null) {
                 aaVar.addPostData("obj_tp", this.mObjTp);

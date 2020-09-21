@@ -5,7 +5,7 @@ import android.view.SurfaceHolder;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class m implements ak {
     public static boolean d = false;
     public int a;

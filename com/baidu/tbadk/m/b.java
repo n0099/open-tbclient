@@ -4,20 +4,21 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
+    private static final int FIX_MAX_COST = 5;
+    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
 
     public abstract int getMaxCost();
 
     public abstract boolean isCurrentPageCanBeAddToSourceTrace();
 
-    public boolean a(d dVar) {
+    public boolean canStat(d dVar) {
         if (dVar == null || dVar.isDirtyData()) {
             return false;
         }
         if (dVar.isRouteStat) {
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), 6));
         } else {
-            int maxCostFromServer = getMaxCost() > e.bua().getMaxCostFromServer() ? e.bua().getMaxCostFromServer() : getMaxCost();
+            int maxCostFromServer = getMaxCost() > e.bve().getMaxCostFromServer() ? e.bve().getMaxCostFromServer() : getMaxCost();
             dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), maxCostFromServer <= 5 ? maxCostFromServer : 5));
         }
         return true;
@@ -25,7 +26,7 @@ public abstract class b {
 
     private void updataSwitchStaus(boolean z) {
         if (this.isSwitchOpen != z) {
-            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
+            com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
             this.isSwitchOpen = z;
         }
     }
@@ -37,7 +38,7 @@ public abstract class b {
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
             updataSwitchStaus(false);
             return false;
-        } else if (!e.bua().isSmallFlowOpen()) {
+        } else if (!e.bve().isSmallFlowOpen()) {
             updataSwitchStaus(false);
             return false;
         } else {

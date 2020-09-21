@@ -9,72 +9,72 @@ import java.util.ArrayList;
 import tbclient.GeneralResource;
 import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private ArrayList<q> hBp;
-    private ArrayList<bq> hBq;
-    private bj hBr;
-    private c hBs;
-    private boolean hBt;
+    private ArrayList<q> hIr;
+    private ArrayList<bq> hIs;
+    private bj hIt;
+    private c hIu;
+    private boolean hIv;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hBp = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.hIr = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 bw bwVar = new bw();
                 bwVar.a(threadInfo);
-                bwVar.beg();
-                this.hBp.add(bwVar);
+                bwVar.bfa();
+                this.hIr.add(bwVar);
             }
-            this.hBq = new ArrayList<>();
+            this.hIs = new ArrayList<>();
             if (!y.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
                     bq bqVar = new bq();
                     bqVar.a(generalResource);
-                    this.hBq.add(bqVar);
+                    this.hIs.add(bqVar);
                 }
             }
-            this.hBr = new bj();
-            this.hBr.aL(dataRes.recommend_forum_info);
+            this.hIt = new bj();
+            this.hIt.aP(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.hBs = new c();
-                this.hBs.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.hBs.module_name = dataRes.hot_userrank_entry.module_name;
-                this.hBs.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.hIu = new c();
+                this.hIu.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.hIu.module_name = dataRes.hot_userrank_entry.module_name;
+                this.hIu.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.hBt = dataRes.is_new_url.intValue() == 1;
+            this.hIv = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<q> cgB() {
-        return this.hBp;
+    public ArrayList<q> cjQ() {
+        return this.hIr;
     }
 
-    public ArrayList<bq> cgC() {
-        return this.hBq;
+    public ArrayList<bq> cjR() {
+        return this.hIs;
     }
 
-    public bj cgD() {
-        return this.hBr;
+    public bj cjS() {
+        return this.hIt;
     }
 
-    public c cgE() {
-        return this.hBs;
+    public c cjT() {
+        return this.hIu;
     }
 
-    public boolean cgF() {
-        return this.hBt;
+    public boolean cjU() {
+        return this.hIv;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: cgG */
+    /* renamed from: cjV */
     public a clone() {
         a aVar = new a();
-        aVar.hBp = this.hBp;
-        aVar.hBq = this.hBq;
-        aVar.hBr = this.hBr;
-        aVar.hBs = this.hBs;
-        aVar.hBt = this.hBt;
+        aVar.hIr = this.hIr;
+        aVar.hIs = this.hIs;
+        aVar.hIt = this.hIt;
+        aVar.hIu = this.hIu;
+        aVar.hIv = this.hIv;
         return aVar;
     }
 }

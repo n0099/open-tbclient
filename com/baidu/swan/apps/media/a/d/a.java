@@ -20,18 +20,18 @@ import java.io.IOException;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] cCg;
-    private ByteBuffer[] cCh;
+    private ByteBuffer[] cEg;
+    private ByteBuffer[] cEh;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
     private MediaCodec mMediaCodec;
     private int mSampleRate;
-    private long cCi = 0;
-    private ByteArrayOutputStream aeP = new ByteArrayOutputStream();
+    private long cEi = 0;
+    private ByteArrayOutputStream afh = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -87,8 +87,8 @@ public class a {
                         this.mMediaCodec = MediaCodec.createByCodecName(selectCodec.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.cCg = this.mMediaCodec.getInputBuffers();
-                        this.cCh = this.mMediaCodec.getOutputBuffers();
+                        this.cEg = this.mMediaCodec.getInputBuffers();
+                        this.cEh = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -160,7 +160,7 @@ public class a {
         return null;
     }
 
-    private long bl(long j) {
+    private long bm(long j) {
         if (this.mSampleRate == 0) {
             return 0L;
         }
@@ -170,10 +170,10 @@ public class a {
     private byte[] m(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int is = is(i3);
+        int iC = iC(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((is << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((iC << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -181,7 +181,7 @@ public class a {
         return bArr;
     }
 
-    private int is(int i) {
+    private int iC(int i) {
         switch (i) {
             case 7350:
                 return 12;
@@ -220,13 +220,13 @@ public class a {
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.cCg[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.cEg[dequeueInputBuffer];
                 byteBuffer.clear();
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, bl(this.cCi), 0);
-                    this.cCi++;
+                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, bm(this.cEi), 0);
+                    this.cEi++;
                 } catch (IllegalArgumentException | BufferOverflowException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -236,7 +236,7 @@ public class a {
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.cCh[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.cEh[dequeueOutputBuffer];
                 try {
                     byteBuffer2.position(this.mBufferInfo.offset);
                     byteBuffer2.limit(this.mBufferInfo.offset + i);
@@ -244,7 +244,7 @@ public class a {
                     try {
                         byteBuffer2.get(m, 7, i);
                         byteBuffer2.position(this.mBufferInfo.offset);
-                        this.aeP.write(m);
+                        this.afh.write(m);
                         this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                         dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
@@ -258,15 +258,15 @@ public class a {
                     }
                 }
             }
-            bArr = this.aeP.toByteArray();
+            bArr = this.afh.toByteArray();
             try {
-                this.aeP.flush();
+                this.afh.flush();
             } catch (IOException e4) {
                 if (DEBUG) {
                     e4.printStackTrace();
                 }
             }
-            this.aeP.reset();
+            this.afh.reset();
         }
         return bArr;
     }

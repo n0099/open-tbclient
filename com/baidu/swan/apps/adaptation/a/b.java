@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface b {
-    void bg(Context context);
+    void bf(Context context);
 }

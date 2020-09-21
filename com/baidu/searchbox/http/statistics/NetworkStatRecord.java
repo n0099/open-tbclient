@@ -13,6 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class NetworkStatRecord {
+    public static final int DEFAULT_FROM_ID = 0;
+    public static final int DEFAULT_SUBFROM_ID = 0;
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
     public List<InetAddress> addressList;
     public String bdTraceId;
@@ -22,6 +24,7 @@ public class NetworkStatRecord {
     public JSONObject extraUserInfo;
     public int ipStack;
     public boolean isConnReused;
+    public boolean isConnected;
     public String localIP;
     public String netType;
     public String protocol;
@@ -45,6 +48,7 @@ public class NetworkStatRecord {
     public long readOverTs = -1;
     public int netEngine = -1;
     public int from = 0;
+    public int subFrom = 0;
 
     public JSONObject toUBCJson() {
         JSONObject jSONObject = new JSONObject();
@@ -127,12 +131,14 @@ public class NetworkStatRecord {
                 jSONObject.put("user_log", this.extraUserInfo.toString());
             }
             jSONObject.put("from", this.from);
+            jSONObject.put("subFrom", this.subFrom);
             jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
             jSONObject.put("ipStack", this.ipStack);
             jSONObject.put("useFallback", this.useFallbackConn ? "1" : "0");
             if (!TextUtils.isEmpty(this.bdTraceId)) {
                 jSONObject.put("bdTraceId", this.bdTraceId);
             }
+            jSONObject.put("isConnected", this.isConnected ? "1" : "0");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -140,7 +146,7 @@ public class NetworkStatRecord {
     }
 
     public String toString() {
-        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + '}';
+        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", subFrom=" + this.subFrom + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + '}';
     }
 
     private String getStackTraceString(Throwable th) {

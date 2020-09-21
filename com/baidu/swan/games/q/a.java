@@ -8,9 +8,9 @@ import java.util.Iterator;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    private final ArrayList<Integer> duR = new ArrayList<>();
+    private final ArrayList<Integer> dwS = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -23,15 +23,15 @@ public final class a {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f arY = f.arY();
-                        q.l((Object) arY, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f XX = arY.XX();
-                        j jVar = XX != null ? (j) XX.q(j.class) : null;
-                        com.baidu.swan.menu.h ahN = jVar != null ? jVar.ahN() : null;
-                        if (ahN != null && jVar != null) {
-                            jVar.ec(true);
+                        f asJ = f.asJ();
+                        q.l((Object) asJ, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f YG = asJ.YG();
+                        j jVar = YG != null ? (j) YG.q(j.class) : null;
+                        com.baidu.swan.menu.h aix = jVar != null ? jVar.aix() : null;
+                        if (aix != null && jVar != null) {
+                            jVar.ea(true);
                         }
-                        return a(ahN, str2);
+                        return a(aix, str2);
                     }
                     break;
             }
@@ -40,13 +40,13 @@ public final class a {
     }
 
     private final boolean a(com.baidu.swan.menu.h hVar, String str) {
-        Integer vD = b.vD(str);
-        if (vD != null) {
-            if (!this.duR.contains(vD)) {
-                this.duR.add(vD);
+        Integer vW = b.vW(str);
+        if (vW != null) {
+            if (!this.dwS.contains(vW)) {
+                this.dwS.add(vW);
             }
             if (hVar != null) {
-                hVar.lA(vD.intValue());
+                hVar.lL(vW.intValue());
             }
             return true;
         }
@@ -54,13 +54,13 @@ public final class a {
     }
 
     public final void a(com.baidu.swan.menu.h hVar) {
-        if (!this.duR.isEmpty()) {
-            Iterator<Integer> it = this.duR.iterator();
+        if (!this.dwS.isEmpty()) {
+            Iterator<Integer> it = this.dwS.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (hVar != null) {
                     q.l((Object) next, "id");
-                    hVar.lA(next.intValue());
+                    hVar.lL(next.intValue());
                 }
             }
         }

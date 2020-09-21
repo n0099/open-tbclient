@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class h extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -44,15 +44,15 @@ public class h extends UnitedSchemeBaseDispatcher {
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
             String optString3 = optParamsAsJo.optString("cb");
-            com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-            if (azI == null) {
+            com.baidu.swan.apps.runtime.e aAr = com.baidu.swan.apps.runtime.e.aAr();
+            if (aAr == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (azI.azC() == null) {
+            } else if (aAr.aAl() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(azI, unitedSchemeEntity, callbackHandler, optString2, azI.getAppKey(), optString3);
+                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(aAr, unitedSchemeEntity, callbackHandler, optString2, aAr.getAppKey(), optString3);
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start PAYMENT");
                     return bVar.bS("mapp_request_duxiaoman", optString);

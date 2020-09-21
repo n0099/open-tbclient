@@ -7,23 +7,23 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.a;
 import com.baidu.tieba.ala.liveroom.turntable.lucky.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b implements a {
-    private int exk;
-    private CountDownTimer fQB;
-    private a.InterfaceC0641a gJJ;
-    private ViewGroup gJK;
-    private int gJL;
-    private FrameLayout gJM;
-    private TurnTableLuckyBubbleView gJN;
-    private Handler gJO;
-    private com.baidu.tieba.ala.liveroom.turntable.a gJP;
-    private long gJQ;
-    private boolean gJR;
+    private int ezr;
+    private CountDownTimer fTL;
+    private a.InterfaceC0638a gNa;
+    private ViewGroup gNb;
+    private FrameLayout gNc;
+    private TurnTableLuckyBubbleView gNd;
+    private Handler gNe;
+    private com.baidu.tieba.ala.liveroom.turntable.a gNf;
+    private long gNg;
+    private boolean gNh;
+    private int mBottomMargin;
     private Context mContext;
     private String mLiveId;
 
@@ -32,88 +32,88 @@ public class b implements a {
     }
 
     public void d(ViewGroup viewGroup, int i, int i2) {
-        this.gJK = viewGroup;
-        this.exk = i;
-        this.gJL = i2;
+        this.gNb = viewGroup;
+        this.ezr = i;
+        this.mBottomMargin = i2;
     }
 
-    public void a(String str, a.InterfaceC0641a interfaceC0641a) {
-        Fb();
-        this.gJR = true;
+    public void a(String str, a.InterfaceC0638a interfaceC0638a) {
+        FB();
+        this.gNh = true;
         this.mLiveId = str;
-        this.gJJ = interfaceC0641a;
-        bWH();
+        this.gNa = interfaceC0638a;
+        bYo();
     }
 
     public void bQ(int i, int i2) {
-        if (i != this.exk || i2 != this.gJL) {
-            this.exk = i;
-            this.gJL = i2;
-            if (this.gJM != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gJM.getLayoutParams();
+        if (i != this.ezr || i2 != this.mBottomMargin) {
+            this.ezr = i;
+            this.mBottomMargin = i2;
+            if (this.gNc != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gNc.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = this.exk * 2;
-                    layoutParams.bottomMargin = this.gJL;
+                    layoutParams.width = this.ezr * 2;
+                    layoutParams.bottomMargin = this.mBottomMargin;
                 }
-                this.gJM.setLayoutParams(layoutParams);
+                this.gNc.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public void mF(boolean z) {
-        this.gJR = z;
-        if (this.gJM != null && this.gJM.getParent() != null) {
-            this.gJM.setVisibility(z ? 0 : 8);
+    public void mJ(boolean z) {
+        this.gNh = z;
+        if (this.gNc != null && this.gNc.getParent() != null) {
+            this.gNc.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void Fb() {
+    public void FB() {
         this.mLiveId = "";
-        bIo();
-        this.gJJ = null;
-        if (this.gJO != null) {
-            this.gJO.removeCallbacksAndMessages(null);
+        bJw();
+        this.gNa = null;
+        if (this.gNe != null) {
+            this.gNe.removeCallbacksAndMessages(null);
         }
-        if (this.gJM != null) {
-            this.gJM.removeAllViews();
-            if (this.gJK != null) {
-                this.gJK.removeView(this.gJM);
+        if (this.gNc != null) {
+            this.gNc.removeAllViews();
+            if (this.gNb != null) {
+                this.gNb.removeView(this.gNc);
             }
-            this.gJM = null;
-            this.gJN = null;
+            this.gNc = null;
+            this.gNd = null;
         }
     }
 
     public void release() {
-        Fb();
-        if (this.gJP != null) {
-            this.gJP.release();
-            this.gJP = null;
+        FB();
+        if (this.gNf != null) {
+            this.gNf.release();
+            this.gNf = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWH() {
-        be beVar = com.baidu.live.w.a.Nk().bkd;
-        if (beVar == null || beVar.aJD == null || beVar.aJD.aLt) {
+    public void bYo() {
+        bj bjVar = com.baidu.live.x.a.NN().bmW;
+        if (bjVar == null || bjVar.aKT == null || bjVar.aKT.aNb) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
-                if (this.gJP == null) {
-                    this.gJP = new com.baidu.tieba.ala.liveroom.turntable.c();
-                    this.gJP.a(new com.baidu.tieba.ala.liveroom.turntable.b() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.1
-                        @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0640a
+                if (this.gNf == null) {
+                    this.gNf = new com.baidu.tieba.ala.liveroom.turntable.c();
+                    this.gNf.a(new com.baidu.tieba.ala.liveroom.turntable.b() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.1
+                        @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0637a
                         public void a(String str, c cVar) {
                             super.a(str, cVar);
                             b.this.a(true, str, cVar);
                         }
 
-                        @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0640a
-                        public void aV(int i, String str) {
-                            super.aV(i, str);
+                        @Override // com.baidu.tieba.ala.liveroom.turntable.b, com.baidu.tieba.ala.liveroom.turntable.a.InterfaceC0637a
+                        public void aW(int i, String str) {
+                            super.aW(i, str);
                             b.this.a(false, (String) null, (c) null);
                         }
                     });
                 }
-                this.gJP.GA(this.mLiveId);
+                this.gNf.GT(this.mLiveId);
             }
         }
     }
@@ -121,129 +121,129 @@ public class b implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, c cVar) {
         if (!z) {
-            bWI();
+            bYp();
         } else if (TextUtils.isEmpty(this.mLiveId)) {
         } else {
             if (TextUtils.isEmpty(str) || this.mLiveId.equals(str)) {
-                if (cVar != null && cVar.gJX == 1 && cVar.gJY - cVar.currentTime > 0) {
+                if (cVar != null && cVar.gNn == 1 && cVar.gNo - cVar.currentTime > 0) {
                     a(cVar);
-                    if (this.gJN != null && cVar.gJZ != null) {
-                        this.gJN.setContent(cVar.gJZ.giftName, cVar.gJZ.gKa);
+                    if (this.gNd != null && cVar.gNp != null) {
+                        this.gNd.setContent(cVar.gNp.giftName, cVar.gNp.gNq);
                     }
                 } else {
-                    bIo();
-                    bFN();
+                    bJw();
+                    bHd();
                 }
-                bWI();
+                bYp();
             }
         }
     }
 
-    private void bWI() {
-        if (this.gJO == null) {
-            this.gJO = new Handler();
+    private void bYp() {
+        if (this.gNe == null) {
+            this.gNe = new Handler();
         }
-        this.gJO.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
+        this.gNe.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.bWH();
+                b.this.bYo();
             }
         }, 5000L);
     }
 
     private void a(c cVar) {
-        if (this.gJQ != cVar.gJY) {
-            bIo();
-            this.gJQ = cVar.gJY;
-            long j = cVar.gJY - cVar.currentTime;
-            a(cVar.gJZ, j);
+        if (this.gNg != cVar.gNo) {
+            bJw();
+            this.gNg = cVar.gNo;
+            long j = cVar.gNo - cVar.currentTime;
+            a(cVar.gNp, j);
             final long j2 = 100 + (j * 1000);
-            this.fQB = new CountDownTimer(j2, 1000L) { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.3
+            this.fTL = new CountDownTimer(j2, 1000L) { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.3
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
-                    b.this.z(j3, j2);
+                    b.this.u(j3, j2);
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    b.this.bWJ();
+                    b.this.bYq();
                 }
             };
-            this.fQB.start();
+            this.fTL.start();
         }
     }
 
-    private void bIo() {
-        this.gJQ = 0L;
-        if (this.fQB != null) {
-            this.fQB.cancel();
-            this.fQB = null;
+    private void bJw() {
+        this.gNg = 0L;
+        if (this.fTL != null) {
+            this.fTL.cancel();
+            this.fTL = null;
         }
     }
 
     private void a(c.a aVar, long j) {
         String str = aVar.giftName;
-        if (this.gJK != null && !TextUtils.isEmpty(str)) {
-            if (this.gJN == null) {
-                this.gJN = new TurnTableLuckyBubbleView(this.mContext);
+        if (this.gNb != null && !TextUtils.isEmpty(str)) {
+            if (this.gNd == null) {
+                this.gNd = new TurnTableLuckyBubbleView(this.mContext);
             }
-            if (this.gJM == null) {
-                this.gJM = new FrameLayout(this.mContext);
-                this.gJM.setBackgroundColor(0);
+            if (this.gNc == null) {
+                this.gNc = new FrameLayout(this.mContext);
+                this.gNc.setBackgroundColor(0);
             }
-            if (this.gJM.indexOfChild(this.gJN) < 0) {
+            if (this.gNc.indexOfChild(this.gNd) < 0) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 1;
-                this.gJM.addView(this.gJN, layoutParams);
+                this.gNc.addView(this.gNd, layoutParams);
             }
-            if (this.gJK.indexOfChild(this.gJM) < 0) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.exk * 2, -2);
+            if (this.gNb.indexOfChild(this.gNc) < 0) {
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.ezr * 2, -2);
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(12);
-                layoutParams2.bottomMargin = this.gJL;
-                this.gJK.addView(this.gJM, layoutParams2);
+                layoutParams2.bottomMargin = this.mBottomMargin;
+                this.gNb.addView(this.gNc, layoutParams2);
             }
-            this.gJM.setVisibility(this.gJR ? 0 : 8);
-            this.gJN.setContent(str, aVar.gKa);
+            this.gNc.setVisibility(this.gNh ? 0 : 8);
+            this.gNd.setContent(str, aVar.gNq);
         }
-        if (this.gJJ != null) {
-            this.gJJ.a(100.0f, j + "s");
+        if (this.gNa != null) {
+            this.gNa.a(100.0f, j + "s");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void z(long j, long j2) {
-        if (this.gJJ != null) {
+    public void u(long j, long j2) {
+        if (this.gNa != null) {
             long j3 = j / 1000;
             if (j3 >= 1) {
-                this.gJJ.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
+                this.gNa.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
             } else {
-                bWJ();
+                bYq();
             }
         }
     }
 
-    private void bFN() {
-        if (this.gJM != null) {
-            this.gJM.removeAllViews();
-            if (this.gJK != null) {
-                this.gJK.removeView(this.gJM);
+    private void bHd() {
+        if (this.gNc != null) {
+            this.gNc.removeAllViews();
+            if (this.gNb != null) {
+                this.gNb.removeView(this.gNc);
             }
-            this.gJM = null;
-            this.gJN = null;
+            this.gNc = null;
+            this.gNd = null;
         }
-        if (this.gJJ != null) {
-            this.gJJ.a(0.0f, "");
+        if (this.gNa != null) {
+            this.gNa.a(0.0f, "");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWJ() {
-        bIo();
-        bFN();
-        if (this.gJO != null) {
-            this.gJO.removeCallbacksAndMessages(null);
+    public void bYq() {
+        bJw();
+        bHd();
+        if (this.gNe != null) {
+            this.gNe.removeCallbacksAndMessages(null);
         }
-        bWH();
+        bYo();
     }
 }

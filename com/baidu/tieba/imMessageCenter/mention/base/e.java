@@ -9,60 +9,60 @@ import com.baidu.tieba.card.aa;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class e {
-    private BdTypeRecyclerView Wu;
-    private List<com.baidu.adp.widget.ListView.a> bbw = new LinkedList();
-    private ArrayList<q> hsy;
-    private b jGE;
-    private b jGF;
-    private b jGG;
-    private b jGH;
-    private b jGI;
+    private BdTypeRecyclerView WM;
+    private List<com.baidu.adp.widget.ListView.a> bdV = new LinkedList();
+    private ArrayList<q> hzD;
+    private b jPg;
+    private b jPh;
+    private b jPi;
+    private b jPj;
+    private b jPk;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.Wu = bdTypeRecyclerView;
+            this.WM = bdTypeRecyclerView;
             x(tbPageContext);
         }
     }
 
     private void x(TbPageContext tbPageContext) {
-        this.jGE = new b(tbPageContext, a.jGn);
-        this.jGF = new b(tbPageContext, a.jGo);
-        this.jGG = new b(tbPageContext, a.jGr);
-        this.jGH = new b(tbPageContext, a.jGq);
-        this.jGI = new b(tbPageContext, a.jGp);
-        this.bbw.add(this.jGE);
-        this.bbw.add(this.jGF);
-        this.bbw.add(this.jGG);
-        this.bbw.add(this.jGH);
-        this.bbw.add(this.jGI);
-        this.Wu.addAdapters(this.bbw);
+        this.jPg = new b(tbPageContext, a.jOP);
+        this.jPh = new b(tbPageContext, a.jOQ);
+        this.jPi = new b(tbPageContext, a.jOT);
+        this.jPj = new b(tbPageContext, a.jOS);
+        this.jPk = new b(tbPageContext, a.jOR);
+        this.bdV.add(this.jPg);
+        this.bdV.add(this.jPh);
+        this.bdV.add(this.jPi);
+        this.bdV.add(this.jPj);
+        this.bdV.add(this.jPk);
+        this.WM.addAdapters(this.bdV);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
         }
     }
 
     public void setData(ArrayList<q> arrayList) {
-        this.Wu.setData(arrayList);
-        this.hsy = arrayList;
+        this.WM.setData(arrayList);
+        this.hzD = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.Wu.getAdapter().notifyDataSetChanged();
+        this.WM.getAdapter().notifyDataSetChanged();
     }
 
-    public void BY(int i) {
-        if (this.Wu != null) {
-            this.Wu.removeItem(i);
+    public void Cz(int i) {
+        if (this.WM != null) {
+            this.WM.removeItem(i);
         }
     }
 
     public void e(ab abVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
             if (aVar != null) {
                 aVar.a(abVar);
             }
@@ -70,7 +70,7 @@ public class e {
     }
 
     public void a(ac acVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bbw) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.bdV) {
             if (aVar != null) {
                 aVar.a(acVar);
             }
@@ -78,8 +78,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(aa aaVar) {
-        this.jGI.setOnCardSubClickListener(aaVar);
-        this.jGH.setOnCardSubClickListener(aaVar);
-        this.jGG.setOnCardSubClickListener(aaVar);
+        this.jPk.setOnCardSubClickListener(aaVar);
+        this.jPj.setOnCardSubClickListener(aaVar);
+        this.jPi.setOnCardSubClickListener(aaVar);
     }
 }

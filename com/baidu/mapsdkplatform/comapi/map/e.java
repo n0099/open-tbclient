@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.mapapi.map.MapLayer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class e {
     static final /* synthetic */ int[] a = new int[MapLayer.values().length];
 

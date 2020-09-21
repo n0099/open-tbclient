@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.image.loader.interfaces;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IImageLoader {
     void cancelLoad(String str);
 

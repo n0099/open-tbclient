@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static int a() {
         return Opcodes.PUTFIELD;

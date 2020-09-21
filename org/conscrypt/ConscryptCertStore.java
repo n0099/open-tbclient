@@ -2,7 +2,7 @@ package org.conscrypt;
 
 import java.security.cert.X509Certificate;
 import java.util.Set;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public interface ConscryptCertStore {
     Set<X509Certificate> findAllIssuers(X509Certificate x509Certificate);
 

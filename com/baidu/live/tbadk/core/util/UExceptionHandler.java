@@ -29,7 +29,7 @@ import java.io.PrintStream;
 import java.io.Writer;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final String HPROF_FILE_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "tblive" + File.separator + "oom" + File.separator;
     private static final String OOM = "java.lang.OutOfMemoryError";

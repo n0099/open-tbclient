@@ -1,24 +1,31 @@
 package com.baidu.live.t;
-/* loaded from: classes7.dex */
-public class a {
-    private b bhx;
-    private c bhy;
 
-    public static a MF() {
-        return C0189a.bhz;
-    }
+import android.view.ViewGroup;
+import com.baidu.live.data.u;
+import com.baidu.live.liveroom.g.d;
+/* loaded from: classes4.dex */
+public interface a {
+    void BQ();
 
-    public void a(c cVar) {
-        this.bhy = cVar;
-    }
+    void D(int i, int i2);
 
-    public b MG() {
-        return this.bhx;
-    }
+    d Nh();
 
-    /* renamed from: com.baidu.live.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0189a {
-        private static final a bhz = new a();
-    }
+    com.baidu.live.liveroom.g.b Ni();
+
+    void a(ViewGroup viewGroup, ViewGroup viewGroup2);
+
+    void a(b bVar);
+
+    void a(c cVar);
+
+    void close();
+
+    boolean isOpen();
+
+    void onClose();
+
+    void onDestroy();
+
+    void p(u uVar);
 }

@@ -8,19 +8,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class q {
     private static final double[] a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
     private HashMap<String, c> b = new HashMap<>();
     private HashMap<String, String> c = new HashMap<>();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static q a = new q();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b {
         int a = 0;
         double b = 0.0d;
@@ -29,7 +29,7 @@ public class q {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class c {
         private boolean b;
         private boolean c;

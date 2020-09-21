@@ -13,17 +13,17 @@ import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLKeyException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 class a {
-    public String dqa;
+    public String dsc;
     public long mRequestTime;
     public long mStartTime;
     public String mUrl;
-    public int ncq = -14;
-    public int ncr = -1;
-    public long ncs = -1;
-    public long nct = -1;
-    public long bVA = -1;
+    public int nmp = -14;
+    public int nmq = -1;
+    public long nmr = -1;
+    public long nms = -1;
+    public long bXB = -1;
 
     public a(String str) {
         this.mRequestTime = -1L;
@@ -33,46 +33,46 @@ class a {
         this.mRequestTime = System.currentTimeMillis();
     }
 
-    public void dKF() {
-        this.nct = (System.nanoTime() / 1000) - this.mStartTime;
+    public void dOD() {
+        this.nms = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
-    public void dKG() {
-        this.bVA = (System.nanoTime() / 1000) - this.mStartTime;
+    public void dOE() {
+        this.bXB = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
     public void a(TurbonetEngine turbonetEngine) {
-        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.dqa, Integer.valueOf(this.ncq), Integer.valueOf(this.ncr), Long.valueOf(this.ncs), Long.valueOf(this.mRequestTime), Long.valueOf(this.nct), Long.valueOf(this.bVA)));
-        turbonetEngine.a(this.mUrl, this.dqa, this.ncq, this.ncr, this.ncs, this.mRequestTime, this.nct, this.bVA);
+        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.dsc, Integer.valueOf(this.nmp), Integer.valueOf(this.nmq), Long.valueOf(this.nmr), Long.valueOf(this.mRequestTime), Long.valueOf(this.nms), Long.valueOf(this.bXB)));
+        turbonetEngine.a(this.mUrl, this.dsc, this.nmp, this.nmq, this.nmr, this.mRequestTime, this.nms, this.bXB);
     }
 
     public void A(Exception exc) {
         if (exc instanceof SocketTimeoutException) {
-            this.ncq = -1;
+            this.nmp = -1;
         } else if (exc instanceof UnknownHostException) {
-            this.ncq = -2;
+            this.nmp = -2;
         } else if (exc instanceof ConnectException) {
-            this.ncq = -5;
+            this.nmp = -5;
         } else if (exc instanceof ProtocolException) {
-            this.ncq = -3;
+            this.nmp = -3;
         } else if (exc instanceof BindException) {
-            this.ncq = -4;
+            this.nmp = -4;
         } else if (exc instanceof SSLHandshakeException) {
-            this.ncq = -8;
+            this.nmp = -8;
         } else if (exc instanceof SSLProtocolException) {
-            this.ncq = -9;
+            this.nmp = -9;
         } else if (exc instanceof RemoteException) {
-            this.ncq = -13;
+            this.nmp = -13;
         } else if (exc instanceof NoRouteToHostException) {
-            this.ncq = -6;
+            this.nmp = -6;
         } else if (exc instanceof PortUnreachableException) {
-            this.ncq = -7;
+            this.nmp = -7;
         } else if (exc instanceof SSLKeyException) {
-            this.ncq = -10;
+            this.nmp = -10;
         } else if (exc instanceof SSLPeerUnverifiedException) {
-            this.ncq = -11;
+            this.nmp = -11;
         } else {
-            this.ncq = -14;
+            this.nmp = -14;
         }
     }
 }

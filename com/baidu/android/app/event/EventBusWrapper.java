@@ -11,7 +11,7 @@ import rx.d;
 import rx.functions.b;
 import rx.g;
 import rx.schedulers.Schedulers;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public final class EventBusWrapper {
     public static final boolean DEBUG = false;
     private static final int LAZY_POST_MSG = 2;
@@ -39,7 +39,7 @@ public final class EventBusWrapper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class LazySubscriber {
         final b action;
         final int mode;
@@ -63,7 +63,7 @@ public final class EventBusWrapper {
     }
 
     public static <T> d<T> register(Object obj, Class<T> cls) {
-        return RxBus.get().isRegistered(obj, cls) ? d.ejT() : RxBus.get().register(obj, cls);
+        return RxBus.get().isRegistered(obj, cls) ? d.enQ() : RxBus.get().register(obj, cls);
     }
 
     public static <T> void register(Object obj, Class<T> cls, b<T> bVar) {
@@ -80,13 +80,13 @@ public final class EventBusWrapper {
             };
             d<T> register = RxBus.get().register(obj, cls);
             if (i == 0) {
-                register.c(a.ekd()).b(bVar).a(bVar2).ejW().ejL();
+                register.c(a.eoa()).b(bVar).a(bVar2).enT().enI();
             } else if (i == 1) {
-                register.c(Schedulers.computation()).b(bVar).a(bVar2).ejW().ejL();
+                register.c(Schedulers.computation()).b(bVar).a(bVar2).enT().enI();
             } else if (i == 2) {
-                register.b(bVar).a(bVar2).ejW().ejL();
+                register.b(bVar).a(bVar2).enT().enI();
             } else {
-                register.b(bVar).a(bVar2).ejW().ejL();
+                register.b(bVar).a(bVar2).enT().enI();
             }
         }
     }
@@ -98,7 +98,7 @@ public final class EventBusWrapper {
                 @Override // rx.functions.b
                 public void call(Throwable th) {
                 }
-            }).ejW().ejL();
+            }).enT().enI();
         }
     }
 
@@ -124,11 +124,11 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnMainThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.ejT();
+            return d.enQ();
         }
         d register = register(obj, cls);
         if (register != null) {
-            return register.c(a.ekd());
+            return register.c(a.eoa());
         }
         return null;
     }
@@ -166,7 +166,7 @@ public final class EventBusWrapper {
 
     public static <T> d<T> registerOnBackgroundThread(Object obj, Class<T> cls) {
         if (RxBus.get().isRegistered(obj, cls)) {
-            return d.ejT();
+            return d.enQ();
         }
         d register = register(obj, cls);
         if (register != null) {

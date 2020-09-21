@@ -2,7 +2,7 @@ package com.baidu.sofire.i;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class y {
     private static String a = "";
 

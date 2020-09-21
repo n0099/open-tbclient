@@ -36,7 +36,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     private static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
     private static final String TAG = "FlutterActivityAndFragmentDelegate";
@@ -53,7 +53,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     private XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface Host extends FlutterEngineConfigurator, FlutterEngineProvider, SplashScreenProvider {
         @Override // io.flutter.embedding.android.FlutterEngineConfigurator
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);

@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class az extends PostData {
-    public static final BdUniqueId dZv = BdUniqueId.gen();
-    public String dXO;
-    public String dXP;
-    public String dXQ;
-    public int dXq;
-    public String dZA;
-    public String dZB;
-    public String dZw;
-    public String dZx;
-    public String dZy;
-    public List<String> dZz;
+    public static final BdUniqueId ebF = BdUniqueId.gen();
+    public int dZA;
+    public String dZY;
+    public String dZZ;
+    public String eaa;
+    public String ebG;
+    public String ebH;
+    public String ebI;
+    public List<String> ebJ;
+    public String ebK;
+    public String ebL;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.dZw = recommendBook.recommend_text;
-            this.dZx = recommendBook.suggest_text;
-            this.dZy = recommendBook.suggest_url;
-            this.dXO = recommendBook.book_id;
-            this.dXq = recommendBook.book_type.intValue();
-            this.dXQ = recommendBook.book_cover;
-            this.dXP = recommendBook.book_title;
-            this.dZz = recommendBook.book_tips;
-            this.dZA = recommendBook.botton_text;
-            this.dZB = recommendBook.subscript_icon;
+            this.ebG = recommendBook.recommend_text;
+            this.ebH = recommendBook.suggest_text;
+            this.ebI = recommendBook.suggest_url;
+            this.dZY = recommendBook.book_id;
+            this.dZA = recommendBook.book_type.intValue();
+            this.eaa = recommendBook.book_cover;
+            this.dZZ = recommendBook.book_title;
+            this.ebJ = recommendBook.book_tips;
+            this.ebK = recommendBook.botton_text;
+            this.ebL = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.dXO)) ? false : true;
+        return (this == null || StringUtils.isNull(this.dZY)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return dZv;
+        return ebF;
     }
 }

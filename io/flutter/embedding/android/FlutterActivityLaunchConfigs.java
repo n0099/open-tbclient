@@ -1,5 +1,5 @@
 package io.flutter.embedding.android;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class FlutterActivityLaunchConfigs {
     static final String DART_ENTRYPOINT_META_DATA_KEY = "io.flutter.Entrypoint";
     static final String DEFAULT_BACKGROUND_MODE = BackgroundMode.opaque.name();
@@ -13,7 +13,7 @@ public class FlutterActivityLaunchConfigs {
     static final String NORMAL_THEME_META_DATA_KEY = "io.flutter.embedding.android.NormalTheme";
     static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.embedding.android.SplashScreenDrawable";
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public enum BackgroundMode {
         opaque,
         transparent

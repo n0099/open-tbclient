@@ -3,10 +3,10 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class CheckPostRequestMessage extends NetMessage {
     private String forumName;
     public String ori_ugc_nid;
@@ -66,7 +66,7 @@ public class CheckPostRequestMessage extends NetMessage {
         builder.ori_ugc_nid = this.ori_ugc_nid;
         builder.ori_ugc_vid = this.ori_ugc_vid;
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BaseNpcModel {
     private String a = "";
     private String b = "";

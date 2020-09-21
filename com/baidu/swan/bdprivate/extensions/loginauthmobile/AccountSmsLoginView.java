@@ -15,19 +15,19 @@ public class AccountSmsLoginView extends SmsLoginView {
     public AccountSmsLoginView(Context context) {
         super(context);
         this.mContext = context;
-        aGx();
+        aHh();
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aGx();
+        aHh();
     }
 
     public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        aGx();
+        aHh();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -46,7 +46,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         }, 100L);
     }
 
-    public void aGx() {
+    public void aHh() {
         ((EditText) findViewById(b.e.phone)).requestFocus();
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.AccountSmsLoginView.2
             @Override // java.lang.Runnable

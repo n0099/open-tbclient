@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class SapiShareClient {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_FACE_LOGIN_MODEL = "FACE_LOGIN_MODEL";
@@ -54,7 +54,7 @@ public final class SapiShareClient {
     private static SapiContext l = SapiContext.getInstance();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class a implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
@@ -63,17 +63,17 @@ public final class SapiShareClient {
         final /* synthetic */ HandlerThread e;
 
         /* renamed from: com.baidu.sapi2.share.SapiShareClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        class ServiceConnectionC0297a implements ServiceConnection {
+        /* loaded from: classes25.dex */
+        class ServiceConnectionC0295a implements ServiceConnection {
             final /* synthetic */ Runnable a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes12.dex */
-            class RunnableC0298a implements Runnable {
+            /* loaded from: classes25.dex */
+            class RunnableC0296a implements Runnable {
                 final /* synthetic */ IBinder a;
                 final /* synthetic */ ServiceConnection b;
 
-                RunnableC0298a(IBinder iBinder, ServiceConnection serviceConnection) {
+                RunnableC0296a(IBinder iBinder, ServiceConnection serviceConnection) {
                     this.a = iBinder;
                     this.b = serviceConnection;
                 }
@@ -105,21 +105,21 @@ public final class SapiShareClient {
                     }
                     a.this.a.remove(0);
                     if (!a.this.a.isEmpty()) {
-                        ServiceConnectionC0297a serviceConnectionC0297a = ServiceConnectionC0297a.this;
-                        a.this.b.post(serviceConnectionC0297a.a);
+                        ServiceConnectionC0295a serviceConnectionC0295a = ServiceConnectionC0295a.this;
+                        a.this.b.post(serviceConnectionC0295a.a);
                         return;
                     }
                     a.this.e.quit();
                 }
             }
 
-            ServiceConnectionC0297a(Runnable runnable) {
+            ServiceConnectionC0295a(Runnable runnable) {
                 this.a = runnable;
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.b.post(new RunnableC0298a(iBinder, this));
+                a.this.b.post(new RunnableC0296a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -139,7 +139,7 @@ public final class SapiShareClient {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    if (!SapiShareClient.k.context.bindService((Intent) this.a.get(0), new ServiceConnectionC0297a(this), 1)) {
+                    if (!SapiShareClient.k.context.bindService((Intent) this.a.get(0), new ServiceConnectionC0295a(this), 1)) {
                         this.a.remove(0);
                         if (!this.a.isEmpty()) {
                             this.b.post(this);
@@ -155,24 +155,24 @@ public final class SapiShareClient {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class b implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ Handler b;
         final /* synthetic */ SapiAccount c;
         final /* synthetic */ HandlerThread d;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         class a implements ServiceConnection {
             final /* synthetic */ Runnable a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes12.dex */
-            class RunnableC0299a implements Runnable {
+            /* loaded from: classes25.dex */
+            class RunnableC0297a implements Runnable {
                 final /* synthetic */ IBinder a;
                 final /* synthetic */ ServiceConnection b;
 
-                RunnableC0299a(IBinder iBinder, ServiceConnection serviceConnection) {
+                RunnableC0297a(IBinder iBinder, ServiceConnection serviceConnection) {
                     this.a = iBinder;
                     this.b = serviceConnection;
                 }
@@ -214,7 +214,7 @@ public final class SapiShareClient {
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                b.this.b.post(new RunnableC0299a(iBinder, this));
+                b.this.b.post(new RunnableC0297a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -248,24 +248,24 @@ public final class SapiShareClient {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     static class c implements Runnable {
         final /* synthetic */ List a;
         final /* synthetic */ boolean b;
         final /* synthetic */ Handler c;
         final /* synthetic */ HandlerThread d;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         class a implements ServiceConnection {
             final /* synthetic */ Runnable a;
 
             /* renamed from: com.baidu.sapi2.share.SapiShareClient$c$a$a  reason: collision with other inner class name */
-            /* loaded from: classes12.dex */
-            class RunnableC0300a implements Runnable {
+            /* loaded from: classes25.dex */
+            class RunnableC0298a implements Runnable {
                 final /* synthetic */ IBinder a;
                 final /* synthetic */ ServiceConnection b;
 
-                RunnableC0300a(IBinder iBinder, ServiceConnection serviceConnection) {
+                RunnableC0298a(IBinder iBinder, ServiceConnection serviceConnection) {
                     this.a = iBinder;
                     this.b = serviceConnection;
                 }
@@ -325,7 +325,7 @@ public final class SapiShareClient {
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                c.this.c.post(new RunnableC0300a(iBinder, this));
+                c.this.c.post(new RunnableC0298a(iBinder, this));
             }
 
             @Override // android.content.ServiceConnection
@@ -366,7 +366,7 @@ public final class SapiShareClient {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     class d implements Application.ActivityLifecycleCallbacks {
         d() {
         }

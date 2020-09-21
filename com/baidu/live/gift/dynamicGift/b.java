@@ -8,43 +8,43 @@ import android.os.Message;
 import android.util.LruCache;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private LruCache<String, c> aTE;
-    private ArrayList<String> aTF;
-    private a aTJ;
-    private com.baidu.live.gift.c aTL;
-    private int aTw;
+    private int aVL;
+    private LruCache<String, c> aVT;
+    private ArrayList<String> aVU;
+    private a aVY;
+    private com.baidu.live.gift.c aWa;
     private Handler mHandler;
     private int mImageCount;
     private int mScreenHeight;
-    private int aTD = 0;
-    private int aTG = 0;
-    private int aTH = 0;
+    private int aVS = 0;
+    private int aVV = 0;
+    private int aVW = 0;
     private volatile boolean isInit = false;
-    private int aTI = 1;
+    private int aVX = 1;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.live.gift.dynamicGift.b.2
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    b.this.Gv();
-                    b.this.Gu();
+                    b.this.GV();
+                    b.this.GU();
                     b.this.isInit = true;
                     break;
                 case 2:
-                    b.this.Gv();
+                    b.this.GV();
                     break;
             }
             return true;
         }
     };
-    private HandlerThread aTK = new HandlerThread("read_image_thread");
+    private HandlerThread aVZ = new HandlerThread("read_image_thread");
 
     public b() {
-        this.aTK.start();
-        this.mHandler = new Handler(this.aTK.getLooper(), this.mHandlerCallback);
-        this.aTE = new LruCache<String, c>(3) { // from class: com.baidu.live.gift.dynamicGift.b.1
+        this.aVZ.start();
+        this.mHandler = new Handler(this.aVZ.getLooper(), this.mHandlerCallback);
+        this.aVT = new LruCache<String, c>(3) { // from class: com.baidu.live.gift.dynamicGift.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.util.LruCache
@@ -58,14 +58,14 @@ public class b {
     }
 
     public void setScreen(int i, int i2) {
-        this.aTw = i;
+        this.aVL = i;
         this.mScreenHeight = i2;
     }
 
-    public c ek(int i) {
-        if (i < this.mImageCount && i < this.aTF.size()) {
-            this.aTG = i;
-            c cVar = this.aTE.get(this.aTF.get(i));
+    public c eo(int i) {
+        if (i < this.mImageCount && i < this.aVU.size()) {
+            this.aVV = i;
+            c cVar = this.aVT.get(this.aVU.get(i));
             if (cVar == null) {
                 Message obtain = Message.obtain();
                 obtain.what = 1;
@@ -93,19 +93,19 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Gu() {
-        int i = this.aTH;
+    public void GU() {
+        int i = this.aVW;
         while (true) {
             int i2 = i;
-            if (i2 < this.aTF.size() && this.aTE.size() < this.aTE.maxSize()) {
-                c gC = this.aTJ.gC(this.aTF.get(i2));
-                if (gC == null || gC.bitmap == null || this.aTE.size() >= this.aTE.maxSize()) {
+            if (i2 < this.aVU.size() && this.aVT.size() < this.aVT.maxSize()) {
+                c gM = this.aVY.gM(this.aVU.get(i2));
+                if (gM == null || gM.bitmap == null || this.aVT.size() >= this.aVT.maxSize()) {
                     break;
                 }
-                this.aTE.put(this.aTF.get(i2), gC);
-                this.aTH = (this.aTH + 1) % this.aTF.size();
-                if (this.aTH < this.aTG) {
-                    this.aTH = this.aTG + 1;
+                this.aVT.put(this.aVU.get(i2), gM);
+                this.aVW = (this.aVW + 1) % this.aVU.size();
+                if (this.aVW < this.aVV) {
+                    this.aVW = this.aVV + 1;
                 }
                 i = i2 + 1;
             } else {
@@ -114,19 +114,19 @@ public class b {
         }
     }
 
-    public void gB(String str) {
-        this.aTE.remove(str);
+    public void gL(String str) {
+        this.aVT.remove(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gv() {
+    public void GV() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.aTG) {
-                c cVar = this.aTE.get(this.aTF.get(i2));
-                if (cVar != null && cVar.aUh) {
-                    this.aTE.remove(this.aTF.get(i2));
+            if (i2 < this.aVV) {
+                c cVar = this.aVT.get(this.aVU.get(i2));
+                if (cVar != null && cVar.aWw) {
+                    this.aVT.remove(this.aVU.get(i2));
                 }
                 i = i2 + 1;
             } else {
@@ -136,19 +136,19 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.aTE != null) {
-            this.aTE.evictAll();
+        if (this.aVT != null) {
+            this.aVT.evictAll();
         }
     }
 
     public void onDestroy() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
-        this.aTK.quit();
+        this.aVZ.quit();
         clearCache();
     }
 
-    public boolean Gs() {
+    public boolean GS() {
         return this.isInit;
     }
 
@@ -161,17 +161,17 @@ public class b {
             this.mHandler.removeMessages(1);
             this.mHandler.removeMessages(2);
             this.isInit = false;
-            this.aTI = 1;
-            this.aTG = 0;
-            this.aTH = 0;
-            this.aTL = cVar;
-            if (this.aTL.getDynamicGiftPicPathList().size() < this.aTL.aMN.aMM.frame_count) {
-                this.mImageCount = this.aTL.getDynamicGiftPicPathList().size();
+            this.aVX = 1;
+            this.aVV = 0;
+            this.aVW = 0;
+            this.aWa = cVar;
+            if (this.aWa.getDynamicGiftPicPathList().size() < this.aWa.aOF.aOE.frame_count) {
+                this.mImageCount = this.aWa.getDynamicGiftPicPathList().size();
             } else {
-                this.mImageCount = this.aTL.aMN.aMM.frame_count;
+                this.mImageCount = this.aWa.aOF.aOE.frame_count;
             }
-            this.aTF = this.aTL.getDynamicGiftPicPathList();
-            this.aTJ = new a();
+            this.aVU = this.aWa.getDynamicGiftPicPathList();
+            this.aVY = new a();
             clearCache();
             Message obtain = Message.obtain();
             obtain.what = 1;
@@ -179,29 +179,29 @@ public class b {
         }
     }
 
-    public void Gw() {
-        this.aTI = 2;
+    public void GW() {
+        this.aVX = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class a {
         private a() {
         }
 
-        public c gC(String str) {
-            return h(str, b.this.aTw, b.this.mScreenHeight);
+        public c gM(String str) {
+            return h(str, b.this.aVL, b.this.mScreenHeight);
         }
 
         public c h(String str, int i, int i2) {
             if (new File(str).exists()) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = b.this.aTI;
+                options.inSampleSize = b.this.aVX;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                 c cVar = new c(str);
                 cVar.bitmap = decodeFile;
-                cVar.aUg = options.inSampleSize;
+                cVar.aWv = options.inSampleSize;
                 return cVar;
             }
             return null;

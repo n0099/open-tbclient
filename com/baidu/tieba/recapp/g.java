@@ -24,7 +24,7 @@ public interface g {
     public interface d {
     }
 
-    boolean Do(String str);
+    boolean DL(String str);
 
     void a(Context context, String[] strArr, boolean z);
 

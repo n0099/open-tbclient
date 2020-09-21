@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.download;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
@@ -23,6 +23,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
+    public static final int FILE_DOWNLOAD_TYPE_PK_RANK_START = 21;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
     private String app_icon;

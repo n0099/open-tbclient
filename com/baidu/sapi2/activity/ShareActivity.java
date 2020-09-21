@@ -22,7 +22,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ShareActivity extends BaseActivity {
     private static final String u = "share_fail_reason";
     private static final String v = "share_account";

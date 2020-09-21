@@ -31,7 +31,7 @@ import com.baidu.sapi2.utils.i;
 import com.baidu.sapi2.utils.k;
 import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     protected View bottomBackView;
     protected View dividerLine;
@@ -272,17 +272,17 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO == null || (i2 = webDTO.closeExitAnimId) == 0) {
             i2 = i6;
         }
-        int i7 = i == 0 ? a.C0160a.sapi_sdk_slide_right_in : i;
-        int i8 = i2 == 0 ? a.C0160a.sapi_sdk_slide_right_out : i2;
+        int i7 = i == 0 ? a.C0161a.sapi_sdk_slide_right_in : i;
+        int i8 = i2 == 0 ? a.C0161a.sapi_sdk_slide_right_out : i2;
         if (z) {
-            int i9 = a.C0160a.sapi_sdk_slide_left_out;
+            int i9 = a.C0161a.sapi_sdk_slide_left_out;
             if (webDTO == null || (i4 = webDTO.openExitAnimId) == 0) {
                 i4 = i9;
             }
             overridePendingTransition(i7, i4);
             return;
         }
-        int i10 = a.C0160a.sapi_sdk_slide_left_in;
+        int i10 = a.C0161a.sapi_sdk_slide_left_in;
         if (webDTO == null || (i3 = webDTO.closeEnterAnimId) == 0) {
             i3 = i10;
         }

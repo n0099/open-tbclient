@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.guide;
 
 import android.view.LayoutInflater;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface Component {
     public static final int ANCHOR_BOTTOM = 4;
     public static final int ANCHOR_LEFT = 1;

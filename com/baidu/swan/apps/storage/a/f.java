@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class f extends aa {
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getStorage");
@@ -28,22 +28,22 @@ public class f extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String aA = com.baidu.swan.apps.api.module.i.a.aA(optParamsAsJo);
-        if (aA == null) {
+        String aD = com.baidu.swan.apps.api.module.i.a.aD(optParamsAsJo);
+        if (aD == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String string = eVar.azT().aCP().getString(aA, null);
-        if (string == null && com.baidu.swan.apps.storage.c.cXX) {
+        String string = eVar.aAC().aDz().getString(aD, null);
+        if (string == null && com.baidu.swan.apps.storage.c.cZX) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "data not found");
             return false;
         }
-        JSONObject jR = com.baidu.swan.apps.api.module.i.a.jR(string);
-        if (jR == null) {
+        JSONObject kk = com.baidu.swan.apps.api.module.i.a.kk(string);
+        if (kk == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
             return false;
         }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jR, 0));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(kk, 0));
         return true;
     }
 }

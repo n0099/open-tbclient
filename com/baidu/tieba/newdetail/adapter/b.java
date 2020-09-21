@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kmi);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.kuH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bX */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: bY */
+    public a c(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
         linearLayout.setPadding(l.getDimens(viewGroup.getContext(), R.dimen.tbds44), 0, l.getDimens(viewGroup.getContext(), R.dimen.tbds44), l.getDimens(viewGroup.getContext(), R.dimen.tbds12));
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public static class a extends af.a {
-        private TextView dSD;
-        private View egd;
-        private int iLX;
+        private TextView dUN;
+        private View eis;
+        private int iUD;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.iLX = 3;
-            this.dSD = textView;
-            this.egd = view2;
+            this.iUD = 3;
+            this.dUN = textView;
+            this.eis = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.dSD.setText(cVar.title);
-                this.egd.setVisibility(cVar.jZs ? 0 : 8);
+                this.dUN.setText(cVar.title);
+                this.eis.setVisibility(cVar.khV ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.iLX != i) {
-                ap.setViewTextColor(this.dSD, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.egd, R.color.cp_bg_line_c);
-                this.iLX = i;
+            if (this.iUD != i) {
+                ap.setViewTextColor(this.dUN, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.eis, R.color.cp_bg_line_c);
+                this.iUD = i;
             }
         }
     }

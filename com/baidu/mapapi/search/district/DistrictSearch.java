@@ -4,7 +4,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.platform.core.a.d;
 import com.baidu.platform.core.a.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class DistrictSearch extends l {
     private e a;
     private boolean b = false;

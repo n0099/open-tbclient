@@ -5,30 +5,30 @@ import com.facebook.cache.common.b;
 import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.nativecode.NativeBlurFilter;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class a extends com.facebook.imagepipeline.request.a {
-    private b nkF;
-    private final int nyb;
-    private final int nyc;
+    private final int nHY;
+    private final int nHZ;
+    private b nuF;
 
     public a(int i, int i2) {
         g.checkArgument(i > 0);
         g.checkArgument(i2 > 0);
-        this.nyb = i;
-        this.nyc = i2;
+        this.nHY = i;
+        this.nHZ = i2;
     }
 
     @Override // com.facebook.imagepipeline.request.a
-    public void ai(Bitmap bitmap) {
-        NativeBlurFilter.h(bitmap, this.nyb, this.nyc);
+    public void ah(Bitmap bitmap) {
+        NativeBlurFilter.h(bitmap, this.nHY, this.nHZ);
     }
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     @Nullable
-    public b dVw() {
-        if (this.nkF == null) {
-            this.nkF = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.nyb), Integer.valueOf(this.nyc)));
+    public b dZu() {
+        if (this.nuF == null) {
+            this.nuF = new com.facebook.cache.common.g(String.format(null, "i%dr%d", Integer.valueOf(this.nHY), Integer.valueOf(this.nHZ)));
         }
-        return this.nkF;
+        return this.nuF;
     }
 }

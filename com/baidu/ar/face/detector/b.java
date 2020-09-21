@@ -1,5 +1,5 @@
 package com.baidu.ar.face.detector;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.ar.c.a {
     private static final String TAG = d.class.getSimpleName();
     private String nT = "additional_thread";

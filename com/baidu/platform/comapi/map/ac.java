@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map;
 import android.os.Bundle;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class ac implements com.baidu.platform.comjni.map.basemap.a {
     static final String a = ac.class.getName();
     HashMap<Long, InnerOverlay> b = new HashMap<>();

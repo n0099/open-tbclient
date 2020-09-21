@@ -1,25 +1,25 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public interface n {
     void a(h<?, ?> hVar);
 
     void b(h<?, ?> hVar);
 
-    void dSc();
+    void dWa();
 
-    void dSd();
+    void dWb();
 
-    void dSe();
+    void dWc();
 
-    void dSf();
+    void dWd();
 
-    void dSg();
+    void dWe();
 
-    void dSh();
+    void dWf();
 
-    void dSi();
+    void dWg();
 
-    void dSj();
+    void dWh();
 
     void p(com.facebook.cache.common.b bVar);
 

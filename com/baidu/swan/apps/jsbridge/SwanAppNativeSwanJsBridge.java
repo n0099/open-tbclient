@@ -5,7 +5,7 @@ import android.webkit.JavascriptInterface;
 import com.baidu.swan.apps.ap.i;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SwanAppNativeSwanJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
@@ -24,8 +24,8 @@ public class SwanAppNativeSwanJsBridge {
     @JavascriptInterface
     public String getAPIs(int i) {
         if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.axf() ? i.A(i, false) : "";
-        } else if (!i.aEA()) {
+            return com.baidu.swan.apps.ad.a.a.axO() ? i.A(i, false) : "";
+        } else if (!i.aFk()) {
             return "";
         } else {
             return i.A(i, false);

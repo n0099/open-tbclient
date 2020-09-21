@@ -8,7 +8,7 @@ import io.reactivex.y;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class SingleTimeout<T> extends w<T> {
     final aa<? extends T> other;
     final v scheduler;
@@ -24,7 +24,7 @@ public final class SingleTimeout<T> extends w<T> {
         this.source.a(timeoutMainObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TimeoutMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 37497744973048446L;
         final y<? super T> actual;
@@ -32,7 +32,7 @@ public final class SingleTimeout<T> extends w<T> {
         aa<? extends T> other;
         final AtomicReference<io.reactivex.disposables.b> task = new AtomicReference<>();
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         static final class TimeoutFallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements y<T> {
             private static final long serialVersionUID = 2071387740092105509L;
             final y<? super T> actual;

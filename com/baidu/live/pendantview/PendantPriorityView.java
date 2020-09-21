@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PendantPriorityView extends LinearLayout {
-    protected int bgE;
+    protected int bjv;
 
     public PendantPriorityView(Context context) {
         this(context, null);
@@ -19,25 +19,25 @@ public class PendantPriorityView extends LinearLayout {
 
     public PendantPriorityView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgE = 0;
+        this.bjv = 0;
         setOrientation(1);
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        int T = T(view);
-        if (T >= 0) {
-            super.addView(view, T, layoutParams);
+        int V = V(view);
+        if (V >= 0) {
+            super.addView(view, V, layoutParams);
             if (view instanceof PendantChildView) {
                 PendantChildView pendantChildView = (PendantChildView) view;
-                if (this.bgE >= 0) {
+                if (this.bjv >= 0) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pendantChildView.getLayoutParams();
                     if (layoutParams2 != null) {
                         int priority = pendantChildView.getPriority();
                         if (priority == 105 || priority == 0 || priority == 100 || priority == 20 || priority == 90) {
                             layoutParams2.bottomMargin = 0;
                         } else {
-                            layoutParams2.bottomMargin = this.bgE;
+                            layoutParams2.bottomMargin = this.bjv;
                         }
                     }
                     view.setLayoutParams(layoutParams2);
@@ -47,14 +47,14 @@ public class PendantPriorityView extends LinearLayout {
     }
 
     public void setDefaultItemMargin(int i) {
-        this.bgE = i;
+        this.bjv = i;
     }
 
-    protected int T(View view) {
-        return U(view);
+    protected int V(View view) {
+        return W(view);
     }
 
-    private int U(View view) {
+    private int W(View view) {
         if (!(view instanceof PendantChildView)) {
             return -1;
         }

@@ -2,7 +2,7 @@ package com.baidu.ar.face;
 
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.face.a.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private boolean needHeadPose = false;
@@ -23,27 +23,27 @@ public class b {
         this.nu = z;
     }
 
-    public a.C0082a a(a.b bVar) {
-        a.C0082a c0082a = null;
+    public a.C0083a a(a.b bVar) {
+        a.C0083a c0083a = null;
         switch (bVar.pQ) {
             case 0:
                 this.nv = 1;
-                c0082a = bVar.pN;
+                c0083a = bVar.pN;
                 break;
             case 1:
                 this.nv = 1;
-                c0082a = bVar.pO;
+                c0083a = bVar.pO;
                 break;
             case 2:
                 this.nv = 4;
-                c0082a = bVar.pP;
+                c0083a = bVar.pP;
                 break;
             default:
                 com.baidu.ar.g.b.b(TAG, "createFaceParams() device not support!!!");
                 break;
         }
         this.nw = this.nv;
-        return c0082a;
+        return c0083a;
     }
 
     public void b(String str, int i) {

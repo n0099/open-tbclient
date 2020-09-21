@@ -5,128 +5,128 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class attr {
         public static final int adjustViewBounds = 0x7f010155;
-        public static final int autoHide = 0x7f01028c;
-        public static final int beforeExpandHeight = 0x7f0101f6;
+        public static final int autoHide = 0x7f010290;
+        public static final int beforeExpandHeight = 0x7f0101fa;
         public static final int borderSurroundContent = 0x7f01014f;
         public static final int borderWidth = 0x7f01014d;
         public static final int border_color = 0x7f01016d;
         public static final int border_width = 0x7f01016c;
-        public static final int bottomHeight = 0x7f010480;
-        public static final int bottomOffset = 0x7f01047e;
+        public static final int bottomHeight = 0x7f010486;
+        public static final int bottomOffset = 0x7f010484;
         public static final int columnOrientation = 0x7f01019f;
         public static final int corner_radius = 0x7f01016b;
-        public static final int count = 0x7f01028d;
-        public static final int direction = 0x7f010378;
-        public static final int drawable = 0x7f01028a;
-        public static final int empty_view = 0x7f01037d;
-        public static final int expandDistance = 0x7f0101f7;
+        public static final int count = 0x7f010291;
+        public static final int direction = 0x7f01037c;
+        public static final int drawable = 0x7f01028e;
+        public static final int empty_view = 0x7f010381;
+        public static final int expandDistance = 0x7f0101fb;
         public static final int foregroundColor = 0x7f010156;
         public static final int gifIcon = 0x7f010151;
         public static final int hasBorder = 0x7f01014c;
         public static final int isRound = 0x7f01014b;
         public static final int is_oval = 0x7f01016f;
-        public static final int layout_clear = 0x7f01021d;
+        public static final int layout_clear = 0x7f010221;
         public static final int layout_column = 0x7f0101a2;
-        public static final int leftOffset = 0x7f010277;
-        public static final int leftWidth = 0x7f010279;
+        public static final int leftOffset = 0x7f01027b;
+        public static final int leftWidth = 0x7f01027d;
         public static final int maxHeight = 0x7f010154;
         public static final int maxWidth = 0x7f010153;
-        public static final int max_height = 0x7f010379;
+        public static final int max_height = 0x7f01037d;
         public static final int radius = 0x7f010146;
-        public static final int refresher_content = 0x7f01037c;
-        public static final int refresher_head = 0x7f01037b;
-        public static final int rightOffset = 0x7f010278;
-        public static final int rightWidth = 0x7f01027a;
+        public static final int refresher_content = 0x7f010380;
+        public static final int refresher_head = 0x7f01037f;
+        public static final int rightOffset = 0x7f01027c;
+        public static final int rightWidth = 0x7f01027e;
         public static final int round_background = 0x7f01016e;
-        public static final int sdk_borderColor = 0x7f010511;
-        public static final int sdk_drawerType = 0x7f010512;
+        public static final int sdk_borderColor = 0x7f010525;
+        public static final int sdk_drawerType = 0x7f010526;
         public static final int sdk_nightBackground = 0x7f010063;
         public static final int sdk_nightSrc = 0x7f010064;
         public static final int sdk_nightTextColor = 0x7f010065;
-        public static final int selector = 0x7f01028b;
+        public static final int selector = 0x7f01028f;
         public static final int showGifIcon = 0x7f010150;
-        public static final int spacing = 0x7f01023c;
+        public static final int spacing = 0x7f010240;
         public static final int spacingLeft = 0x7f0101a0;
         public static final int spacingRight = 0x7f0101a1;
-        public static final int tapBack = 0x7f01027c;
-        public static final int threshold_height = 0x7f01037a;
-        public static final int topHeight = 0x7f01047f;
-        public static final int topOffset = 0x7f01047d;
-        public static final int transBackground = 0x7f01027d;
-        public static final int transTrack = 0x7f01027b;
+        public static final int tapBack = 0x7f010280;
+        public static final int threshold_height = 0x7f01037e;
+        public static final int topHeight = 0x7f010485;
+        public static final int topOffset = 0x7f010483;
+        public static final int transBackground = 0x7f010281;
+        public static final int transTrack = 0x7f01027f;
     }
 
     /* loaded from: classes3.dex */
     public static final class color {
-        public static final int sdk_swipe_layout_night_bg = 0x7f0b0a51;
-        public static final int sdk_swipe_layout_normal_bg = 0x7f0b0a52;
-        public static final int sdk_transparent = 0x7f0b0a5a;
+        public static final int sdk_swipe_layout_night_bg = 0x7f0c0a61;
+        public static final int sdk_swipe_layout_normal_bg = 0x7f0c0a62;
+        public static final int sdk_transparent = 0x7f0c0a6a;
     }
 
     /* loaded from: classes3.dex */
     public static final class dimen {
-        public static final int sdk_adp_list_view_pull_maxoffset = 0x7f090957;
+        public static final int sdk_adp_list_view_pull_maxoffset = 0x7f0a096b;
     }
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int sdk_bg_switch_close = 0x7f021a4d;
-        public static final int sdk_bg_switch_open = 0x7f021a4e;
-        public static final int sdk_btn_handle = 0x7f021a60;
-        public static final int sdk_listview_pull_refresh01 = 0x7f021b0e;
-        public static final int sdk_listview_pull_refresh02 = 0x7f021b0f;
+        public static final int sdk_bg_switch_close = 0x7f021aab;
+        public static final int sdk_bg_switch_open = 0x7f021aac;
+        public static final int sdk_btn_handle = 0x7f021abe;
+        public static final int sdk_listview_pull_refresh01 = 0x7f021b6c;
+        public static final int sdk_listview_pull_refresh02 = 0x7f021b6d;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f967common = 0x7f0f01b0;
-        public static final int pull_content = 0x7f0f2056;
-        public static final int pull_image = 0x7f0f0bdb;
-        public static final int pull_root = 0x7f0f2054;
-        public static final int pull_text = 0x7f0f2057;
-        public static final int pull_time = 0x7f0f2058;
-        public static final int shader = 0x7f0f01b1;
+        public static final int f966common = 0x7f1001ac;
+        public static final int pull_content = 0x7f1020c3;
+        public static final int pull_image = 0x7f100c04;
+        public static final int pull_root = 0x7f1020c1;
+        public static final int pull_text = 0x7f1020c4;
+        public static final int pull_time = 0x7f1020c5;
+        public static final int shader = 0x7f1001ad;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int sdk_pull_view = 0x7f030781;
+        public static final int sdk_pull_view = 0x7f04079c;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
-        public static final int sdk_adp_label_name = 0x7f0813f2;
-        public static final int sdk_adp_loading = 0x7f0813f3;
-        public static final int sdk_adp_pull_to_refresh = 0x7f0813f4;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f0813f5;
-        public static final int sdk_adp_release_to_refresh = 0x7f0813f6;
-        public static final int sdk_dialog_cancel = 0x7f08141a;
-        public static final int sdk_dialog_ok = 0x7f08141b;
-        public static final int sdk_error_unkown_try_again = 0x7f081425;
-        public static final int sdk_im_error_codec = 0x7f081437;
-        public static final int sdk_im_error_default = 0x7f081438;
-        public static final int sdk_load_res_failed = 0x7f08145f;
-        public static final int sdk_location_all_offline = 0x7f081463;
-        public static final int sdk_location_gps_offline = 0x7f081465;
-        public static final int sdk_location_net_offline = 0x7f081466;
-        public static final int sdk_location_out_time = 0x7f081467;
-        public static final int sdk_neterror = 0x7f08146e;
-        public static final int sdk_prompt = 0x7f0814d7;
-        public static final int sdk_send_error = 0x7f0814ee;
-        public static final int sdk_share_to = 0x7f0814f4;
-        public static final int sdk_voice_err_other = 0x7f081541;
-        public static final int sdk_waiting = 0x7f081542;
+        public static final int sdk_adp_label_name = 0x7f091427;
+        public static final int sdk_adp_loading = 0x7f091428;
+        public static final int sdk_adp_pull_to_refresh = 0x7f091429;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f09142a;
+        public static final int sdk_adp_release_to_refresh = 0x7f09142b;
+        public static final int sdk_dialog_cancel = 0x7f091451;
+        public static final int sdk_dialog_ok = 0x7f091452;
+        public static final int sdk_error_unkown_try_again = 0x7f09145c;
+        public static final int sdk_im_error_codec = 0x7f09146e;
+        public static final int sdk_im_error_default = 0x7f09146f;
+        public static final int sdk_load_res_failed = 0x7f091496;
+        public static final int sdk_location_all_offline = 0x7f09149a;
+        public static final int sdk_location_gps_offline = 0x7f09149c;
+        public static final int sdk_location_net_offline = 0x7f09149d;
+        public static final int sdk_location_out_time = 0x7f09149e;
+        public static final int sdk_neterror = 0x7f0914a6;
+        public static final int sdk_prompt = 0x7f091530;
+        public static final int sdk_send_error = 0x7f09154a;
+        public static final int sdk_share_to = 0x7f091551;
+        public static final int sdk_voice_err_other = 0x7f09159e;
+        public static final int sdk_waiting = 0x7f09159f;
     }
 
     /* loaded from: classes3.dex */
     public static final class style {
-        public static final int sdk_AppBaseTheme = 0x7f0a02a4;
-        public static final int sdk_AppTheme = 0x7f0a02a5;
-        public static final int sdk_DialogTheme = 0x7f0a02a7;
-        public static final int sdk_swipeback_activity_style = 0x7f0a0083;
-        public static final int sdk_window_translucent = 0x7f0a02bf;
+        public static final int sdk_AppBaseTheme = 0x7f0b02a8;
+        public static final int sdk_AppTheme = 0x7f0b02a9;
+        public static final int sdk_DialogTheme = 0x7f0b02ab;
+        public static final int sdk_swipeback_activity_style = 0x7f0b0083;
+        public static final int sdk_window_translucent = 0x7f0b02c4;
     }
 
     /* loaded from: classes3.dex */

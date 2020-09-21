@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class CodedInputStreamMicro {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;

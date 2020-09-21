@@ -5,10 +5,10 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static final String a = BdSailor.class.getName();
-    private static a aeM;
+    private static a afe;
     public Context b;
     public WebView c;
     private boolean e;
@@ -17,10 +17,10 @@ public final class a {
     }
 
     public static void b() {
-        a ts = ts();
-        ts.f();
-        ts.b = null;
-        aeM = null;
+        a tx = tx();
+        tx.f();
+        tx.b = null;
+        afe = null;
     }
 
     private void f() {
@@ -31,15 +31,15 @@ public final class a {
         }
     }
 
-    public static a ts() {
-        if (aeM == null) {
-            aeM = new a();
-        } else if (aeM.c != null && (aeM.e ^ BdZeusUtil.isWebkitLoaded())) {
+    public static a tx() {
+        if (afe == null) {
+            afe = new a();
+        } else if (afe.c != null && (afe.e ^ BdZeusUtil.isWebkitLoaded())) {
             Log.d(a, "BdWebViewSingleton, re-new instance need because of the kernel changed");
-            aeM.f();
-            aeM.e();
+            afe.f();
+            afe.e();
         }
-        return aeM;
+        return afe;
     }
 
     public final boolean c() {

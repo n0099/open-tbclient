@@ -7,37 +7,37 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String appId;
     String appKey;
-    JSONArray ccJ;
-    String ccK;
+    JSONArray ceL;
+    String ceM;
     String page;
 
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String gL(int i) {
-        if (this.ccJ == null) {
+    public String gU(int i) {
+        if (this.ceL == null) {
             return "";
         }
-        String optString = this.ccJ.optString(i);
+        String optString = this.ceL.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.ccK;
+            return "http://" + optString + ":" + this.ceM;
         }
         return "";
     }
 
-    public static c aN(JSONObject jSONObject) {
+    public static c aQ(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.ccJ = jSONObject.getJSONArray("host");
+            cVar.ceL = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.ccK = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.ceM = jSONObject.getString(ClientCookie.PORT_ATTR);
             cVar.page = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException e) {

@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public enum CreativeType {
     IMAGE(0),
     FLASH(1),

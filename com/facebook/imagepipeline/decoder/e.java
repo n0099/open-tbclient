@@ -4,26 +4,26 @@ import com.facebook.common.internal.g;
 import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes25.dex */
 public class e {
-    private final com.facebook.common.memory.a nlq;
-    private boolean nwO;
-    private int nwK = 0;
-    private int nwJ = 0;
-    private int nwL = 0;
-    private int nwN = 0;
-    private int nwM = 0;
-    private int nwI = 0;
+    private boolean nGL;
+    private final com.facebook.common.memory.a nvq;
+    private int nGH = 0;
+    private int nGG = 0;
+    private int nGI = 0;
+    private int nGK = 0;
+    private int nGJ = 0;
+    private int nGF = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.nlq = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.nvq = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.nwI != 6 && eVar.getSize() > this.nwK) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.nlq.get(16384), this.nlq);
+        if (this.nGF != 6 && eVar.getSize() > this.nGH) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.nvq.get(16384), this.nvq);
             try {
-                com.facebook.common.util.c.a(fVar, this.nwK);
+                com.facebook.common.util.c.a(fVar, this.nGH);
                 return u(fVar);
             } catch (IOException e) {
                 l.v(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean u(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.nwM;
-        while (this.nwI != 6 && (read = inputStream.read()) != -1) {
+        int i = this.nGJ;
+        while (this.nGF != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.nwK++;
-                if (this.nwO) {
-                    this.nwI = 6;
-                    this.nwO = false;
+                this.nGH++;
+                if (this.nGL) {
+                    this.nGF = 6;
+                    this.nGL = false;
                     return false;
                 }
-                switch (this.nwI) {
+                switch (this.nGF) {
                     case 0:
                         if (read == 255) {
-                            this.nwI = 1;
+                            this.nGF = 1;
                             break;
                         } else {
-                            this.nwI = 6;
+                            this.nGF = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.nwI = 2;
+                            this.nGF = 2;
                             break;
                         } else {
-                            this.nwI = 6;
+                            this.nGF = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.nwI = 3;
+                            this.nGF = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.nwI = 3;
+                            this.nGF = 3;
                             break;
                         } else if (read == 0) {
-                            this.nwI = 2;
+                            this.nGF = 2;
                             break;
                         } else if (read == 217) {
-                            this.nwO = true;
-                            LM(this.nwK - 2);
-                            this.nwI = 2;
+                            this.nGL = true;
+                            Mr(this.nGH - 2);
+                            this.nGF = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                LM(this.nwK - 2);
+                                Mr(this.nGH - 2);
                             }
-                            if (LL(read)) {
-                                this.nwI = 4;
+                            if (Mq(read)) {
+                                this.nGF = 4;
                                 break;
                             } else {
-                                this.nwI = 2;
+                                this.nGF = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.nwI = 5;
+                        this.nGF = 5;
                         break;
                     case 5:
-                        int i2 = ((this.nwJ << 8) + read) - 2;
+                        int i2 = ((this.nGG << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.nwK = i2 + this.nwK;
-                        this.nwI = 2;
+                        this.nGH = i2 + this.nGH;
+                        this.nGF = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.nwJ = read;
+                this.nGG = read;
             } catch (IOException e) {
                 l.v(e);
             }
         }
-        if (this.nwI == 6 || this.nwM == i) {
+        if (this.nGF == 6 || this.nGJ == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean LL(int i) {
+    private static boolean Mq(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void LM(int i) {
-        if (this.nwL > 0) {
-            this.nwN = i;
+    private void Mr(int i) {
+        if (this.nGI > 0) {
+            this.nGK = i;
         }
-        int i2 = this.nwL;
-        this.nwL = i2 + 1;
-        this.nwM = i2;
+        int i2 = this.nGI;
+        this.nGI = i2 + 1;
+        this.nGJ = i2;
     }
 
-    public int dUm() {
-        return this.nwN;
+    public int dYk() {
+        return this.nGK;
     }
 
-    public int dUn() {
-        return this.nwM;
+    public int dYl() {
+        return this.nGJ;
     }
 
-    public boolean dUo() {
-        return this.nwO;
+    public boolean dYm() {
+        return this.nGL;
     }
 }

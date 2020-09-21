@@ -5,33 +5,33 @@ import com.baidu.tbadk.core.util.y;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
-    private SparseArray<List<b>> ahT = new SparseArray<>();
+    private SparseArray<List<b>> aio = new SparseArray<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface b {
-        boolean a(C0095a c0095a);
+        boolean a(C0096a c0096a);
     }
 
     public void c(int i, b bVar) {
-        if (this.ahT == null) {
-            this.ahT = new SparseArray<>();
+        if (this.aio == null) {
+            this.aio = new SparseArray<>();
         }
-        List<b> list = this.ahT.get(i);
+        List<b> list = this.aio.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.ahT.put(i, list);
+            this.aio.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.ahT.remove(i);
+            this.aio.remove(i);
             return;
         }
-        List<b> list = this.ahT.get(i);
+        List<b> list = this.aio.get(i);
         if (!y.isEmpty(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -42,13 +42,13 @@ public class a {
         }
     }
 
-    public boolean b(C0095a c0095a) {
-        List<b> list = this.ahT.get(c0095a.ahU);
+    public boolean b(C0096a c0096a) {
+        List<b> list = this.aio.get(c0096a.aip);
         if (y.isEmpty(list)) {
             return false;
         }
         for (b bVar : list) {
-            if (bVar != null && bVar.a(c0095a)) {
+            if (bVar != null && bVar.a(c0096a)) {
                 return true;
             }
         }
@@ -56,30 +56,30 @@ public class a {
     }
 
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public static class C0095a {
-        private int ahU;
-        private Object ahV;
+    /* loaded from: classes20.dex */
+    public static class C0096a {
+        private int aip;
+        private Object aiq;
 
-        public C0095a(int i, Object obj) {
-            this.ahU = i;
-            this.ahV = obj;
+        public C0096a(int i, Object obj) {
+            this.aip = i;
+            this.aiq = obj;
         }
 
-        public C0095a(int i) {
-            this.ahU = i;
+        public C0096a(int i) {
+            this.aip = i;
         }
 
         public int getActionType() {
-            return this.ahU;
+            return this.aip;
         }
 
         public void setExtraData(Object obj) {
-            this.ahV = obj;
+            this.aiq = obj;
         }
 
-        public Object tX() {
-            return this.ahV;
+        public Object ud() {
+            return this.aiq;
         }
     }
 }

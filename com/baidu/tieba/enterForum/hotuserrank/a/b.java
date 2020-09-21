@@ -1,14 +1,14 @@
 package com.baidu.tieba.enterForum.hotuserrank.a;
 
 import com.baidu.tbadk.core.data.MetaData;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    public String hxK;
-    public String hxL;
-    public String hxM;
-    public MetaData hxN;
+    public String hEM;
+    public String hEN;
+    public String hEO;
+    public MetaData hEP;
     public String rankNum;
     public String userName;
-    public boolean hxO = false;
-    public boolean hxB = false;
+    public boolean hEQ = false;
+    public boolean hEE = false;
 }

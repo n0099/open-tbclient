@@ -6,36 +6,36 @@ import com.baidu.swan.c.i;
 import com.baidu.swan.pms.node.Node;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class b {
-    private static volatile b dGA;
-    private a dGB = new a();
+    private static volatile b dIE;
+    private a dIF = new a();
 
-    public static b aUz() {
-        if (dGA == null) {
+    public static b aVl() {
+        if (dIE == null) {
             synchronized (b.class) {
-                if (dGA == null) {
-                    dGA = new b();
+                if (dIE == null) {
+                    dIE = new b();
                 }
             }
         }
-        return dGA;
+        return dIE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String aUA() {
-        return this.dGB.getString("ceres_info", "0");
+    public String aVm() {
+        return this.dIF.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String aUB() {
-        return this.dGB.getString("global_info", "0");
+    public String aVn() {
+        return this.dIF.getString("global_info", "0");
     }
 
     private b() {
     }
 
-    public com.baidu.swan.pms.node.a.a cx(JSONObject jSONObject) {
+    public com.baidu.swan.pms.node.a.a cA(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -57,11 +57,11 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.dGB.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.dIF.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new com.baidu.swan.pms.node.a.a(optJSONArray, optJSONObject3);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes24.dex */
     private static class a extends i {
         private a() {
             super("updatecore_node_ceres");

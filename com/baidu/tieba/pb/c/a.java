@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.s.c;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
     public static void a(BdUniqueId bdUniqueId, f fVar, PostData postData, int i, int i2) {
         String str = null;
@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             aq aqVar = new aq("common_exp");
             a(aqVar, fVar, postData, i, i2, false, str);
-            c.dvJ().a(bdUniqueId, str2, aqVar);
+            c.dzC().a(bdUniqueId, str2, aqVar);
         }
     }
 
@@ -67,21 +67,21 @@ public class a {
     }
 
     private static aq a(aq aqVar, f fVar, PostData postData, int i, int i2, boolean z, String str) {
-        aqVar.dD("page_type", PageStayDurationConstants.PageName.PB).ai("obj_floor", i).ai("obj_isad", z ? 1 : 0).dD("fid", fVar.getForumId() + "").dD("tid", fVar.getThreadId() + "").dD("obj_id", str + "").ai("post_type", i2);
+        aqVar.dF("page_type", PageStayDurationConstants.PageName.PB).ai("obj_floor", i).ai("obj_isad", z ? 1 : 0).dF("fid", fVar.getForumId() + "").dF("tid", fVar.getThreadId() + "").dF("obj_id", str + "").ai("post_type", i2);
         if (postData != null) {
-            aqVar.dD("pid", postData.getId() + "");
+            aqVar.dF("pid", postData.getId() + "");
         }
-        if (fVar.cVm() != null) {
-            aqVar.ai("thread_type", fVar.cVm().threadType);
-            BaijiahaoData baijiahaoData = fVar.cVm().getBaijiahaoData();
+        if (fVar.cYR() != null) {
+            aqVar.ai("thread_type", fVar.cYR().threadType);
+            BaijiahaoData baijiahaoData = fVar.cYR().getBaijiahaoData();
             if (baijiahaoData != null) {
-                aqVar.dD("ugc_nid", baijiahaoData.oriUgcNid);
-                aqVar.dD("ugc_vid", baijiahaoData.oriUgcVid);
+                aqVar.dF("ugc_nid", baijiahaoData.oriUgcNid);
+                aqVar.dF("ugc_vid", baijiahaoData.oriUgcVid);
                 aqVar.ai("ori_ugc_type", baijiahaoData.oriUgcType);
             }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            aqVar.dD("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eAa);
+            aqVar.dF("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().eCe);
         }
         return aqVar;
     }

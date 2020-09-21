@@ -19,7 +19,7 @@ public class b extends ActivityDelegation implements com.baidu.swan.apps.ap.e.b<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ap.e.b
     /* renamed from: B */
-    public void I(Bundle bundle) {
+    public void J(Bundle bundle) {
         this.mResult.putBundle("result", bundle);
         finish();
     }

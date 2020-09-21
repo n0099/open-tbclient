@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.topic.topictab;
 
 import com.baidu.adp.widget.ListView.q;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public interface a {
     void loadData();
 

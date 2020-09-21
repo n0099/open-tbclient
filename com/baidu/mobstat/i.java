@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class i {
     private long a;
     private String b;

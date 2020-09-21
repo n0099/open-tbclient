@@ -31,7 +31,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ShareStorage {
     public static final int SHARE_ACCOUNT_BACKGROUND_TO_FOREGROUND = 1;
     public static final int SHARE_ACCOUNT_GET_TPL_STOKEN = 5;
@@ -50,7 +50,7 @@ public class ShareStorage {
     public boolean readSpFromChmodFile = false;
     private Context a = SapiAccountManager.getInstance().getConfignation().context;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class StorageModel {
         String a;
         public String app;
@@ -63,7 +63,7 @@ public class ShareStorage {
         public String url;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static class a extends GetUserInfoCallback {
             final /* synthetic */ b a;
             final /* synthetic */ Context b;
@@ -213,16 +213,16 @@ public class ShareStorage {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class a implements b {
         final /* synthetic */ int a;
 
         /* renamed from: com.baidu.sapi2.share.ShareStorage$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        class RunnableC0301a implements Runnable {
+        /* loaded from: classes25.dex */
+        class RunnableC0299a implements Runnable {
             final /* synthetic */ StorageModel a;
 
-            RunnableC0301a(StorageModel storageModel) {
+            RunnableC0299a(StorageModel storageModel) {
                 this.a = storageModel;
             }
 
@@ -258,11 +258,11 @@ public class ShareStorage {
 
         @Override // com.baidu.sapi2.share.ShareStorage.b
         public void a(StorageModel storageModel) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0301a(storageModel)));
+            ThreadPoolService.getInstance().run(new TPRunnable(new RunnableC0299a(storageModel)));
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface b {
         void a(StorageModel storageModel);
     }

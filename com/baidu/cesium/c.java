@@ -18,9 +18,9 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class c {
-    private com.baidu.cesium.c.d.d alR;
+    private com.baidu.cesium.c.d.d amq;
     private List<b> g;
 
     public c() {
@@ -40,7 +40,7 @@ public class c {
     }
 
     private void a() {
-        this.alR = new com.baidu.cesium.c.d.e(d.a(), d.b());
+        this.amq = new com.baidu.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -59,9 +59,9 @@ public class c {
     }
 
     private static byte[] a(byte[] bArr, com.baidu.cesium.c.d.d dVar) {
-        com.baidu.cesium.c.d.a up = com.baidu.cesium.c.d.a.up();
-        up.a(2, dVar);
-        return up.a(bArr);
+        com.baidu.cesium.c.d.a uv = com.baidu.cesium.c.d.a.uv();
+        uv.a(2, dVar);
+        return uv.a(bArr);
     }
 
     private String[] a(Signature[] signatureArr) {
@@ -99,7 +99,7 @@ public class c {
                                 JSONObject jSONObject = new JSONObject(new String(a));
                                 b bVar = new b();
                                 bVar.b = jSONObject.getInt("priority");
-                                bVar.acg = resolveInfo.activityInfo.applicationInfo;
+                                bVar.acB = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
                                 }
@@ -113,7 +113,7 @@ public class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.alR);
+                                            byte[] a2 = a(com.baidu.cesium.d.a.a(string2.getBytes()), this.amq);
                                             if (a2 != null && Arrays.equals(a2, com.baidu.cesium.d.c.a(a))) {
                                                 bVar.c = true;
                                             }

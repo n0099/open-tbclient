@@ -6,7 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.view.View;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static void a(Context context, View view, boolean z, String str, String str2, boolean z2) {
         float dimension;

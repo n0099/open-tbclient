@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends a implements SensorEventListener {
     public static int a = 0;
     private SensorManager f;

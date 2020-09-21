@@ -1,17 +1,17 @@
 package com.baidu.q.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes25.dex */
 public interface c {
-    void KI(int i);
+    void Ln(int i);
 
-    void Ua(String str);
+    void UC(String str);
 
-    void Ub(String str);
+    void UD(String str);
 
-    void Uc(String str);
+    void UE(String str);
 
-    boolean dMU();
+    boolean dQS();
 
-    c dNe();
+    c dRc();
 
     String getAAID();
 
@@ -23,7 +23,7 @@ public interface c {
 
     boolean isSupport();
 
-    void xM(boolean z);
+    void xV(boolean z);
 
-    void xN(boolean z);
+    void xW(boolean z);
 }

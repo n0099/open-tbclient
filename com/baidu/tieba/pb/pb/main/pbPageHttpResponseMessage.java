@@ -7,7 +7,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private String cacheKey;
     private Context context;
@@ -55,7 +55,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.kwG = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.kFf = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -66,7 +66,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.f();
-        this.pbData.DP(2);
+        this.pbData.Eq(2);
         this.pbData.a(pbPageResIdl.data, this.context);
         if (pbPageResIdl.data != null) {
             String str = "";
@@ -78,7 +78,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             if (a != null) {
                 arrayList.add(a);
             }
-            com.baidu.tieba.recapp.report.b.dof().eY(arrayList);
+            com.baidu.tieba.recapp.report.b.drP().fg(arrayList);
         }
         BdLog.detailException(null);
     }
@@ -88,10 +88,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                j.cXi().a(this.cacheKey, this.isFromMark, bArr);
+                j.daL().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                j.cXi().n(this.cacheKey, bArr);
+                j.daL().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

@@ -9,10 +9,10 @@ import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
 import com.baidu.tieba.personExtra.RecommendGodReqMsg;
 import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class c {
-    private a kgY;
-    private boolean kgZ;
+    private a kpy;
+    private boolean kpz;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,25 +28,25 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.gcq;
+                        c.this.pageNum = c.this.recommendGodData.gfD;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.lnb)) {
-                            error = c.this.kgZ ? 3 : 2;
+                        if (y.isEmpty(c.this.recommendGodData.lvY)) {
+                            error = c.this.kpz ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.kgY != null) {
-                        c.this.kgY.a(c.this.recommendGodData, error);
+                    if (c.this.kpy != null) {
+                        c.this.kpy.a(c.this.recommendGodData, error);
                     }
                 }
             }
         }
     };
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes23.dex */
     public interface a {
         void a(q qVar, int i);
     }
@@ -61,9 +61,9 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.kgZ = false;
+            this.kpz = false;
         } else {
-            this.kgZ = true;
+            this.kpz = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.kgY = aVar;
+        this.kpy = aVar;
     }
 }

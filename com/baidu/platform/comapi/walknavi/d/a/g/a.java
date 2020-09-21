@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.util.Log;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static int a = 5;
 

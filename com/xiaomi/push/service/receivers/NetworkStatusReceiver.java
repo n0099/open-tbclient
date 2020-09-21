@@ -19,32 +19,32 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f928b;
+    private boolean f927b;
     private static int a = 1;
     private static int b = 1;
     private static int c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static BlockingQueue<Runnable> f925a = new LinkedBlockingQueue();
+    private static BlockingQueue<Runnable> f924a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f926a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f925a);
+    private static ThreadPoolExecutor f925a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f924a);
 
     /* renamed from: a  reason: collision with other field name */
-    private static boolean f927a = false;
+    private static boolean f926a = false;
 
     public NetworkStatusReceiver() {
-        this.f928b = false;
-        this.f928b = true;
+        this.f927b = false;
+        this.f927b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
-        this.f928b = false;
-        f927a = true;
+        this.f927b = false;
+        f926a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,14 +92,14 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     }
 
     public static boolean a() {
-        return f927a;
+        return f926a;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f928b) {
+        if (this.f927b) {
             return;
         }
-        f926a.execute(new a(this, context));
+        f925a.execute(new a(this, context));
     }
 }

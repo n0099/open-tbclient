@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.data.f;
 import com.baidu.tieba.ala.liveroom.data.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class c extends a {
     private final Handler mHandler;
 
@@ -16,41 +16,41 @@ public class c extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
     public void a(short s, Object obj) {
-        int i = this.bMf;
+        int i = this.bOf;
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.gED.g(obj instanceof g ? ((g) obj).gxQ : null);
-                this.gqf.gxI.startRecord();
-                this.gqf.gxL.a((short) 2, null);
+                this.gIa.g(obj instanceof g ? ((g) obj).gBb : null);
+                this.gtv.gAT.startRecord();
+                this.gtv.gAW.a((short) 2, null);
                 return;
             case 2:
             default:
                 return;
             case 3:
                 if (i == 7 || i == 5) {
-                    this.gqf.gxL.a((short) 5, null);
+                    this.gtv.gAW.a((short) 5, null);
                     return;
                 } else {
-                    this.gqf.gxL.a((short) 2, null);
+                    this.gtv.gAW.a((short) 2, null);
                     return;
                 }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bUO() {
-        if (this.gqf != null && this.gqf.gxL != null && this.bMf != 4) {
-            this.gqf.gxL.a((short) 4, this.gDf);
+    public void bWy() {
+        if (this.gtv != null && this.gtv.gAW != null && this.bOf != 4) {
+            this.gtv.gAW.a((short) 4, this.gGG);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void aT(int i, String str) {
+    public void aU(int i, String str) {
         if (i == 0) {
-            this.gqf.gxL.a((short) 3, null);
-        } else if (this.gED != null) {
-            this.gED.onError(i, str);
+            this.gtv.gAW.a((short) 3, null);
+        } else if (this.gIa != null) {
+            this.gIa.onError(i, str);
         }
     }
 
@@ -61,21 +61,21 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bUP() {
-        super.bUP();
-        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.gqf != null && this.gqf.gxI != null) {
-            this.gqf.gxI.enterBackground();
+    public void bWz() {
+        super.bWz();
+        if (TbadkCoreApplication.getInst().getResumeNum() <= 0 && this.gtv != null && this.gtv.gAT != null) {
+            this.gtv.gAT.enterBackground();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void bUQ() {
-        super.bUQ();
+    public void bWA() {
+        super.bWA();
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.gqf != null && c.this.gqf.gxI != null) {
-                    c.this.gqf.gxI.enterForeground();
+                if (c.this.gtv != null && c.this.gtv.gAT != null) {
+                    c.this.gtv.gAT.enterForeground();
                 }
             }
         });

@@ -1,7 +1,7 @@
 package io.reactivex.exceptions;
 
 import io.reactivex.internal.util.ExceptionHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class a {
     public static RuntimeException v(Throwable th) {
         throw ExceptionHelper.L(th);

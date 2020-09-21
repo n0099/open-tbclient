@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.commonutils.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private int a;
     private int b;

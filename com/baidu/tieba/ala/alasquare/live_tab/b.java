@@ -9,42 +9,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private BdTypeRecyclerView Wu;
-    private List<com.baidu.adp.widget.ListView.a> bbw;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a fEh;
-    private d fEt;
-    private boolean fEu = false;
+    private BdTypeRecyclerView WM;
+    private List<com.baidu.adp.widget.ListView.a> bdV;
+    private d fHF;
+    private boolean fHG = false;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a fHt;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Wu = bdTypeRecyclerView;
-        Jv();
+        this.WM = bdTypeRecyclerView;
+        JZ();
     }
 
-    private void Jv() {
-        this.bbw = new ArrayList();
-        this.fEt = new d(this.mPageContext);
-        this.fEt.kC(this.fEu);
-        this.fEh = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bbw.add(this.fEt);
-        this.bbw.add(this.fEh);
-        this.Wu.addAdapters(this.bbw);
+    private void JZ() {
+        this.bdV = new ArrayList();
+        this.fHF = new d(this.mPageContext);
+        this.fHF.kE(this.fHG);
+        this.fHt = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bdV.add(this.fHF);
+        this.bdV.add(this.fHt);
+        this.WM.addAdapters(this.bdV);
     }
 
     public void setData(List<q> list) {
-        this.Wu.setData(list);
+        this.WM.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Wu != null) {
-            this.Wu.getListAdapter().notifyDataSetChanged();
+        if (this.WM != null) {
+            this.WM.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void kC(boolean z) {
-        this.fEu = z;
+    public void kE(boolean z) {
+        this.fHG = z;
     }
 }

@@ -4,7 +4,7 @@ import io.reactivex.c.g;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class CallbackCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, g<Throwable>, io.reactivex.disposables.b {
     private static final long serialVersionUID = -4361286194466301354L;
     final io.reactivex.c.a onComplete;

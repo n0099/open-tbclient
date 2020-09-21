@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.route.BikingRoutePlanOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.platform.base.e {
     public b(BikingRoutePlanOption bikingRoutePlanOption) {
         a(bikingRoutePlanOption);

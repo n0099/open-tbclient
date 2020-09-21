@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PoiDetailResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailResult> CREATOR = new a();
     public String address;

@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements h {
-    private Drawable Xu;
-    private m eKm;
-    private boolean eKn;
+    private Drawable XM;
+    private m eMD;
+    private boolean eME;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -25,9 +25,9 @@ public class BLauncher extends ImageView implements h {
     public BLauncher(Context context, m mVar) {
         super(context);
         this.mSkinType = 0;
-        this.eKn = false;
+        this.eME = false;
         if (mVar != null) {
-            this.eKm = mVar;
+            this.eMD = mVar;
             setIcon();
             setToolId(mVar.id);
         }
@@ -38,13 +38,13 @@ public class BLauncher extends ImageView implements h {
     }
 
     public void setIcon() {
-        if (this.eKm != null) {
-            if (this.eKm.eLr) {
-                setImageDrawable(SvgManager.bjq().x(this.eKm.eLo, this.eKm.eLp, this.mSkinType));
-            } else if (this.eKm.eLs) {
-                setImageDrawable(WebPManager.a(this.eKm.eLo, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
+        if (this.eMD != null) {
+            if (this.eMD.eNI) {
+                setImageDrawable(SvgManager.bkl().x(this.eMD.eNF, this.eMD.eNG, this.mSkinType));
+            } else if (this.eMD.eNJ) {
+                setImageDrawable(WebPManager.a(this.eMD.eNF, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
             } else {
-                ap.setImageResource(this, this.eKm.eLo, this.mSkinType);
+                ap.setImageResource(this, this.eMD.eNF, this.mSkinType);
             }
         }
     }
@@ -65,23 +65,23 @@ public class BLauncher extends ImageView implements h {
 
     @Override // com.baidu.tbadk.editortools.h
     public void hide() {
-        bru();
+        bst();
         setVisibility(8);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.eKm.eLy) {
-            this.Xu = ap.getDrawable(R.drawable.icon_news_red_dot);
+        if (this.eMD.eNP) {
+            this.XM = ap.getDrawable(R.drawable.icon_news_red_dot);
             int width = getWidth();
-            int intrinsicHeight = this.Xu.getIntrinsicHeight();
-            this.Xu.setBounds(getWidth() - this.Xu.getIntrinsicWidth(), 0, width, intrinsicHeight);
-            this.Xu.draw(canvas);
+            int intrinsicHeight = this.XM.getIntrinsicHeight();
+            this.XM.setBounds(getWidth() - this.XM.getIntrinsicWidth(), 0, width, intrinsicHeight);
+            this.XM.draw(canvas);
         }
     }
 
-    public void BM(String str) {
+    public void Ci(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -112,7 +112,7 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    public void bru() {
+    public void bst() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -124,8 +124,8 @@ public class BLauncher extends ImageView implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void brv() {
-        this.eKm.eLy = false;
+    public void bsu() {
+        this.eMD.eNP = false;
         invalidate();
     }
 
@@ -133,9 +133,9 @@ public class BLauncher extends ImageView implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bru();
+                bst();
             } else if (aVar.data instanceof String) {
-                BM((String) aVar.data);
+                Ci((String) aVar.data);
             }
         }
     }
@@ -155,11 +155,11 @@ public class BLauncher extends ImageView implements h {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.eKn;
+        return this.eME;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.eKn = z;
+        this.eME = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

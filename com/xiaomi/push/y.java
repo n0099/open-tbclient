@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class y {
     public static final String[] a = {"jpg", "png", "bmp", "gif", WebpUtils.TYPE_IMG_WEBP};
 

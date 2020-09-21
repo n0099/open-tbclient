@@ -1,6 +1,6 @@
 package com.baidu.megapp.ma;
 
 import android.app.Application;
-/* loaded from: classes20.dex */
+/* loaded from: classes14.dex */
 public abstract class MAApplication extends Application {
 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long dUs = 604800000;
+    private static long dWC = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void L(File file) {
@@ -44,25 +44,25 @@ public class a {
             /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.j.a$1$1] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                long j = b.bik().getLong("key_clear_resource", 0L);
+                long j = b.bjf().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (j == 0) {
-                    b.bik().putLong("key_clear_resource", currentTimeMillis);
+                    b.bjf().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.dUs) {
+                if (currentTimeMillis - j > a.dWC) {
                     new Thread() { // from class: com.baidu.tbadk.j.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.bir();
+                                c.bjm();
                                 a.L(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }
                         }
                     }.start();
-                    b.bik().putLong("key_clear_resource", currentTimeMillis);
+                    b.bjf().putLong("key_clear_resource", currentTimeMillis);
                 }
             }
         });

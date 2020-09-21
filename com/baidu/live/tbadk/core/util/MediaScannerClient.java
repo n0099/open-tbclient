@@ -5,7 +5,7 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.util.media.MimeType;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     private boolean completed;
     private int length;
@@ -17,7 +17,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     private String mPath;
     private String[] mPaths;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }

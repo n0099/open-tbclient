@@ -9,11 +9,10 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
-import com.baidu.searchbox.suspensionball.SuspensionBallUbc;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class SpeedStatData {
     private static final String TAG = "SpeedStatData";
 
@@ -128,7 +127,7 @@ public class SpeedStatData {
                 jSONObject2.put("url", threadSpeedStat2.url);
                 if (!TextUtils.isEmpty(threadSpeedStat2.ip)) {
                     jSONObject2.put(TableDefine.UserInfoColumns.COLUMN_IP, threadSpeedStat2.ip);
-                    jSONObject2.put(SuspensionBallUbc.VALUE_DT, threadSpeedStat2.dt + "");
+                    jSONObject2.put("dt", threadSpeedStat2.dt + "");
                 }
                 jSONObject2.put("drs", threadSpeedStat2.drs);
                 if (threadSpeedStat2.downEndTime - threadSpeedStat2.downStartTime > 0 && threadSpeedStat2.downEndTime > 0) {

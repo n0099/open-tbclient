@@ -1,25 +1,70 @@
 package com.baidu.live.utils;
 
-import android.text.style.ForegroundColorSpan;
-import android.text.style.URLSpan;
-/* loaded from: classes7.dex */
+import android.text.TextUtils;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.util.WebviewHelper;
+import com.baidu.webkit.internal.ETAG;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class b {
-    public int bqn;
-    public int bqo;
-    public int bqp;
-    public boolean bqq = false;
-    private ForegroundColorSpan bqr;
-    private URLSpan bqs;
-    public String mUrl;
-
-    public b(ForegroundColorSpan foregroundColorSpan) {
-        this.bqr = foregroundColorSpan;
-        this.bqp = foregroundColorSpan.getForegroundColor();
+    public static String a(int i, String str, boolean z, String str2, String str3, String str4, String str5, String str6) {
+        String str7;
+        if (!TextUtils.isEmpty(str)) {
+            if (i == 2) {
+                Map<String, Object> a = a(z, str2, str3, str4, str5);
+                a.put(UbcStatConstant.KEY_CONTENT_ROOM, 1);
+                str7 = WebviewHelper.addQueryParams(str, a);
+                if (!TextUtils.isEmpty(str6)) {
+                    str7 = str7 + ETAG.ITEM_SEPARATOR + str6;
+                }
+            } else {
+                if (i == 1) {
+                    str = WebviewHelper.addQueryParams(str, a(z, str2, str3, str4, str5));
+                }
+                str7 = !TextUtils.isEmpty(str6) ? str + ETAG.ITEM_SEPARATOR + str6 : str;
+            }
+            return str7;
+        }
+        return str;
     }
 
-    public void a(URLSpan uRLSpan) {
-        this.bqs = uRLSpan;
-        this.mUrl = uRLSpan.getURL();
-        this.bqq = true;
+    public static String a(int i, String str, boolean z, String str2, String str3, String str4, String str5, Map<String, Object> map) {
+        if (!TextUtils.isEmpty(str)) {
+            Map<String, Object> a = a(z, str2, str3, str4, str5);
+            if (i == 2) {
+                a.put(UbcStatConstant.KEY_CONTENT_ROOM, 1);
+            }
+            if (map != null) {
+                a.putAll(map);
+            }
+            return WebviewHelper.addQueryParams(str, a);
+        }
+        return str;
+    }
+
+    public static Map<String, Object> a(boolean z, String str, String str2, String str3, String str4) {
+        HashMap hashMap = new HashMap();
+        if (z) {
+            hashMap.put("is_host", 1);
+        }
+        if (!TextUtils.isEmpty(str)) {
+            hashMap.put("user_id", str);
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            hashMap.put("charm_user_id", str2);
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            hashMap.put("room_id", str3);
+        }
+        if (!TextUtils.isEmpty(str4)) {
+            hashMap.put("live_id", str4);
+        }
+        hashMap.put("subapp_type", TbConfig.getSubappType());
+        hashMap.put("_client_type", "2");
+        hashMap.put(HttpRequest.SDK_VERSION, TbConfig.SDK_VERSION);
+        return hashMap;
     }
 }

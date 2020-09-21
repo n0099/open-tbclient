@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.j;
 
 import com.baidu.live.tbadk.apk.ApkData;
 import com.baidu.live.tbadk.apk.ApkStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface f {
-    void Ge(String str);
+    void GC(String str);
 
     ApkStatus a(ApkData apkData);
 

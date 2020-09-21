@@ -1,7 +1,7 @@
 package com.baidu.ar.b.b;
 
 import com.baidu.ar.arplay.core.engine.pixel.FramePixels;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class c<T> extends com.baidu.ar.c.a {
     private int cD;
     FramePixels cj;

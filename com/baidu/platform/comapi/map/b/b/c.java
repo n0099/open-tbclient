@@ -4,7 +4,7 @@ import android.util.Pair;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapStatus;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends a {
     private boolean b;
     private long c;
@@ -45,11 +45,11 @@ public class c extends a {
 
     @Override // com.baidu.platform.comapi.map.b.b.a
     public void b(com.baidu.platform.comapi.map.b.a.b bVar) {
-        a.C0242a c0242a = bVar.b;
-        a.C0242a c0242a2 = bVar.c;
+        a.C0240a c0240a = bVar.b;
+        a.C0240a c0240a2 = bVar.c;
         MapStatus mapStatus = this.a.getMapStatus();
-        double d = c0242a2.a.b - c0242a.a.b;
-        double d2 = c0242a2.b.b - c0242a.b.b;
+        double d = c0240a2.a.b - c0240a.a.b;
+        double d2 = c0240a2.b.b - c0240a.b.b;
         if (d * d2 > 0.0d) {
             a(d, mapStatus);
         } else if (d * d2 == 0.0d) {

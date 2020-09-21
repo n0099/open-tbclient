@@ -7,50 +7,50 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String eSw = "tb_perfor_samllflow_time";
-    private static volatile m eSz;
-    private long eSy;
-    private boolean ayp = false;
-    private long eSx = 86400;
-    private long eSv = com.baidu.tbadk.core.sharedPref.b.bik().getLong(eSw, 0);
+    private static String eVm = "tb_perfor_samllflow_time";
+    private static volatile m eVp;
+    private long eVo;
+    private boolean ayR = false;
+    private long eVn = 86400;
+    private long eVl = com.baidu.tbadk.core.sharedPref.b.bjf().getLong(eVm, 0);
 
-    public static m buo() {
-        if (eSz == null) {
+    public static m bvs() {
+        if (eVp == null) {
             synchronized (m.class) {
-                if (eSz == null) {
-                    eSz = new m();
+                if (eVp == null) {
+                    eVp = new m();
                 }
             }
         }
-        return eSz;
+        return eVp;
     }
 
     private m() {
-        this.eSy = 0L;
-        this.eSy = this.eSx;
+        this.eVo = 0L;
+        this.eVo = this.eVn;
     }
 
-    public boolean bup() {
-        if (!this.ayp || (System.currentTimeMillis() - this.eSv) / 1000 <= this.eSy) {
-            return this.ayp;
+    public boolean bvt() {
+        if (!this.ayR || (System.currentTimeMillis() - this.eVl) / 1000 <= this.eVo) {
+            return this.ayR;
         }
         return false;
     }
 
-    public void jD(boolean z) {
+    public void jE(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.eSv || currentTimeMillis - this.eSv >= this.eSy) {
-                this.eSv = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSw, this.eSv);
+            if (0 == this.eVl || currentTimeMillis - this.eVl >= this.eVo) {
+                this.eVl = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.bjf().putLong(eVm, this.eVl);
             }
         } else {
-            this.eSv = 0L;
-            com.baidu.tbadk.core.sharedPref.b.bik().putLong(eSw, this.eSv);
+            this.eVl = 0L;
+            com.baidu.tbadk.core.sharedPref.b.bjf().putLong(eVm, this.eVl);
         }
-        this.ayp = z;
+        this.ayR = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.but().buu();
+            n.bvx().bvy();
         }
     }
 
@@ -73,7 +73,7 @@ public class m {
         return "2G";
     }
 
-    public static String qB(int i) {
+    public static String qS(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long buq() {
+    public long bvu() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +96,8 @@ public class m {
         }
     }
 
-    public l qC(int i) {
-        if (bup()) {
+    public l qT(int i) {
+        if (bvt()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -153,9 +153,9 @@ public class m {
         return null;
     }
 
-    public void da(long j) {
+    public void db(long j) {
         if (j > 0) {
-            this.eSy = j;
+            this.eVo = j;
         }
     }
 

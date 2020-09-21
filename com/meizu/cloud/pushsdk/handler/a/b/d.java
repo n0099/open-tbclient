@@ -2,14 +2,14 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     String a;
     String b;
     String c;
     String d;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private String a;
         private String b;

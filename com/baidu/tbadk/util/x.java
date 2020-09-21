@@ -1,33 +1,56 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Environment;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 /* loaded from: classes.dex */
-public class x {
-    public static final String bvE() {
-        com.baidu.q.a dMW = com.baidu.q.c.ga(TbadkCoreApplication.getInst()).dMW();
-        if (dMW == null) {
-            return null;
+public final class x {
+    public static boolean isEMUI() {
+        return G("ro.build.version.emui", "ro.build.hw_emui_api_level");
+    }
+
+    private static boolean G(String... strArr) {
+        if (strArr == null || strArr.length == 0) {
+            return false;
         }
         try {
-            JSONObject jSONObject = new JSONObject();
-            String dMV = dMW.dMV();
-            if (!TextUtils.isEmpty(dMV)) {
-                jSONObject.put("v", dMV);
+            a bwM = a.bwM();
+            for (String str : strArr) {
+                if (bwM.getProperty(str) != null) {
+                    return true;
+                }
             }
-            jSONObject.put(Config.STAT_SDK_CHANNEL, dMW.getStatusCode());
-            jSONObject.put("sup", dMW.isSupport() ? 1 : 0);
-            jSONObject.put("tl", dMW.dMU() ? 1 : 0);
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                e.printStackTrace();
-                return null;
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static final class a {
+        private static a eYs;
+        private final Properties eYt = new Properties();
+
+        private a() throws IOException {
+            this.eYt.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+        }
+
+        public static a bwM() throws IOException {
+            if (eYs == null) {
+                synchronized (a.class) {
+                    if (eYs == null) {
+                        eYs = new a();
+                    }
+                }
             }
-            return null;
+            return eYs;
+        }
+
+        public String getProperty(String str) {
+            return this.eYt.getProperty(str);
         }
     }
 }

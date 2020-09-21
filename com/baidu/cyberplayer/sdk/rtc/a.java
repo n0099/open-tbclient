@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 import android.content.Context;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static a a = null;
 

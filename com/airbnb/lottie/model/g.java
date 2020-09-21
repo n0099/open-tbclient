@@ -6,12 +6,12 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.LruCache;
 import com.baidu.android.common.logging.Log;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class g {
     private static final g Et = new g();
     private final LruCache<String, com.airbnb.lottie.e> Eu = new LruCache<>(Log.FILE_LIMETE);
 
-    public static g jA() {
+    public static g jB() {
         return Et;
     }
 

@@ -1,45 +1,86 @@
 package com.baidu.tieba.ala.g;
-/* loaded from: classes7.dex */
-public class a {
-    public static String ep(long j) {
-        int i;
-        int i2;
-        int i3;
-        int i4 = (int) (j / 1000);
-        if (3600 <= i4) {
-            int i5 = i4 / 3600;
-            i4 -= i5 * 3600;
-            i = i5;
-        } else {
-            i = 0;
-        }
-        if (60 <= i4) {
-            int i6 = i4 / 60;
-            i2 = i4 - (i6 * 60);
-            i3 = i6;
-        } else {
-            i2 = i4;
-            i3 = 0;
-        }
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        StringBuilder sb = new StringBuilder();
-        if (i < 10) {
-            sb.append("0").append(i).append(":");
-        } else {
-            sb.append(i).append(":");
-        }
-        if (i3 < 10) {
-            sb.append("0").append(i3).append(":");
-        } else {
-            sb.append(i3).append(":");
-        }
-        if (i2 < 10) {
-            sb.append("0").append(i2);
-        } else {
-            sb.append(i2);
-        }
-        return sb.toString();
+
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.task.HttpMessageTask;
+import com.baidu.live.adp.lib.stats.AlaStatManager;
+import com.baidu.live.adp.lib.stats.AlaStatsItem;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ala.messages.AcceptPkResponseMessage;
+/* loaded from: classes4.dex */
+public class a extends BdBaseModel {
+    private HttpMessageListener messageListener;
+
+    /* renamed from: com.baidu.tieba.ala.g.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0599a {
+        void aY(int i, String str);
+
+        void ep(long j);
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void v(long j, long j2) {
+        HttpMessage httpMessage = new HttpMessage(1021211);
+        httpMessage.addParam("anchor_id", j);
+        httpMessage.addParam("rival_anchor_id", j2);
+        sendMessage(httpMessage);
+    }
+
+    public void a(InterfaceC0599a interfaceC0599a) {
+        bZE();
+        b(interfaceC0599a);
+    }
+
+    private void b(final InterfaceC0599a interfaceC0599a) {
+        this.messageListener = new HttpMessageListener(1021211) { // from class: com.baidu.tieba.ala.g.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021211 && (httpResponsedMessage instanceof AcceptPkResponseMessage)) {
+                    AcceptPkResponseMessage acceptPkResponseMessage = (AcceptPkResponseMessage) httpResponsedMessage;
+                    if (acceptPkResponseMessage.getError() != 0 || !acceptPkResponseMessage.isSuccess()) {
+                        interfaceC0599a.aY(acceptPkResponseMessage.getError(), acceptPkResponseMessage.getErrorString());
+                        return;
+                    }
+                    interfaceC0599a.ep(acceptPkResponseMessage.bZA());
+                    AlaStatsItem alaStatsItem = new AlaStatsItem();
+                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.bZA()));
+                    alaStatsItem.addValue("lodId", Long.valueOf(acceptPkResponseMessage.getLogId()));
+                    alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(acceptPkResponseMessage.getError()));
+                    AlaStatManager.getInstance().debug("pk_competition_accept_pk", alaStatsItem);
+                }
+            }
+        };
+        registerListener(this.messageListener);
+    }
+
+    private void bZE() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021211, TbConfig.SERVER_ADDRESS + "ala/pksolo/acceptPk");
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setResponsedClass(AcceptPkResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void bZF() {
+        MessageManager.getInstance().unRegisterListener(this.messageListener);
+        MessageManager.getInstance().unRegisterTask(1021211);
     }
 }

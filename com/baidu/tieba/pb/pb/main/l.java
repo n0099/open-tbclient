@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class l extends af.a {
-    private ViewGroup kBc;
+    private ViewGroup kJz;
     private View mRootView;
     private TextView mTitle;
     private View mTopLine;
@@ -16,7 +16,7 @@ public class l extends af.a {
         super(view);
         this.mRootView = view;
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.kBc = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.kJz = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
     }
 
@@ -26,7 +26,7 @@ public class l extends af.a {
 
     public void onChangeSkinType() {
         com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.cp_bg_line_c);
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kBc, R.color.cp_bg_line_e);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.kJz, R.color.cp_bg_line_e);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.cp_cont_b);
     }
 
@@ -34,7 +34,7 @@ public class l extends af.a {
         return this.mRootView;
     }
 
-    public void DX(int i) {
+    public void Ey(int i) {
         if (this.mRootView != null) {
             this.mRootView.setVisibility(i);
         }

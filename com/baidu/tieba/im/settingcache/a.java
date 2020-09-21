@@ -5,28 +5,28 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.r;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.l;
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> jza = new HashMap<>();
+    protected HashMap<String, ChatSetting> jHC = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
-    public abstract void a(ChatSetting chatSetting, l<Void> lVar);
+    public abstract void a(ChatSetting chatSetting, m<Void> mVar);
 
-    protected abstract com.baidu.adp.lib.cache.l<String> cIh();
+    protected abstract l<String> cLN();
 
-    public abstract ChatSetting eT(String str, String str2);
+    public abstract ChatSetting fg(String str, String str2);
 
     public void y(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.jza) {
-            this.jza.clear();
+        synchronized (this.jHC) {
+            this.jHC.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -34,14 +34,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + UgcConstant.AT_RULE_TAG;
-            synchronized (this.jza) {
-                com.baidu.adp.lib.cache.l<String> cIh = cIh();
-                List<l.b<String>> b = r.b(cIh);
+            synchronized (this.jHC) {
+                l<String> cLN = cLN();
+                List<l.b<String>> b = r.b(cLN);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = cIh.get(str4)) != null) {
-                            this.jza.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = cLN.get(str4)) != null) {
+                            this.jHC.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -50,41 +50,41 @@ public abstract class a {
     }
 
     public void z(String str, String str2, boolean z) {
-        ChatSetting eT = eT(str, str2);
-        if (eT != null) {
-            eT.setAcceptNotify(z);
-            a(eT);
+        ChatSetting fg = fg(str, str2);
+        if (fg != null) {
+            fg.setAcceptNotify(z);
+            a(fg);
         }
     }
 
-    public void a(String str, String str2, boolean z, com.baidu.tbadk.util.l<Void> lVar) {
-        ChatSetting eT = eT(str, str2);
-        if (eT != null) {
-            eT.setAcceptNotify(z);
-            a(eT, lVar);
+    public void a(String str, String str2, boolean z, m<Void> mVar) {
+        ChatSetting fg = fg(str, str2);
+        if (fg != null) {
+            fg.setAcceptNotify(z);
+            a(fg, mVar);
         }
     }
 
-    public boolean eU(String str, String str2) {
-        ChatSetting eT = eT(str, str2);
-        if (eT == null) {
+    public boolean fh(String str, String str2) {
+        ChatSetting fg = fg(str, str2);
+        if (fg == null) {
             return false;
         }
-        return eT.isAcceptNotify();
+        return fg.isAcceptNotify();
     }
 
-    public void a(final String str, final String str2, com.baidu.tbadk.util.l<Boolean> lVar) {
-        ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
+    public void a(final String str, final String str2, m<Boolean> mVar) {
+        ae.b(new ad<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ac
+            @Override // com.baidu.tbadk.util.ad
             public Boolean doInBackground() {
-                ChatSetting eT = a.this.eT(str, str2);
-                if (eT == null) {
+                ChatSetting fg = a.this.fg(str, str2);
+                if (fg == null) {
                     return false;
                 }
-                return Boolean.valueOf(eT.isAcceptNotify());
+                return Boolean.valueOf(fg.isAcceptNotify());
             }
-        }, lVar);
+        }, mVar);
     }
 }

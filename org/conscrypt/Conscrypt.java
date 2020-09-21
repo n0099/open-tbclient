@@ -14,7 +14,7 @@ import javax.net.ssl.SSLSessionContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public final class Conscrypt {
     private Conscrypt() {
     }

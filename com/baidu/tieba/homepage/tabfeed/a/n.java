@@ -6,9 +6,9 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, com.baidu.adp.widget.ListView.b<SpecialTopicLayout>> {
-    private v akK;
+    private v alj;
     private TbPageContext mPageContext;
 
     public n(TbPageContext tbPageContext) {
@@ -17,14 +17,14 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, co
     }
 
     public void a(v vVar) {
-        this.akK = vVar;
+        this.alj = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bC */
-    public com.baidu.adp.widget.ListView.b<SpecialTopicLayout> b(ViewGroup viewGroup) {
+    /* renamed from: bD */
+    public com.baidu.adp.widget.ListView.b<SpecialTopicLayout> c(ViewGroup viewGroup) {
         SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.mPageContext);
         specialTopicLayout.setShowMore(true);
         return new com.baidu.adp.widget.ListView.b<>(specialTopicLayout);
@@ -34,7 +34,7 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, co
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, com.baidu.adp.widget.ListView.b<SpecialTopicLayout> bVar) {
-        bVar.qK().F(specialColumnListData);
+        bVar.qP().G(specialColumnListData);
         return bVar.getView();
     }
 }

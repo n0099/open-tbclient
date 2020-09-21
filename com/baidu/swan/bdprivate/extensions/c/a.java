@@ -26,38 +26,38 @@ public class a extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b tj(String str) {
+    public com.baidu.swan.apps.api.c.b tC(String str) {
         return a(str, new c("getCommonSysInfo") { // from class: com.baidu.swan.bdprivate.extensions.c.a.1
             @Override // com.baidu.swan.apps.api.a.c
-            protected boolean abK() {
-                return com.baidu.swan.apps.runtime.d.azE().axR() && com.baidu.swan.apps.runtime.d.azE().azA().azU().ra("mapp_i_get_common_sys_info");
+            protected boolean act() {
+                return com.baidu.swan.apps.runtime.d.aAn().ayA() && com.baidu.swan.apps.runtime.d.aAn().aAj().aAD().rt("mapp_i_get_common_sys_info");
             }
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
             protected com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull final c.a aVar) {
-                e azJ = e.azJ();
-                if (azJ == null) {
+                e aAs = e.aAs();
+                if (aAs == null) {
                     if (d.DEBUG) {
                         Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: null swan runtime");
                     }
                     return new com.baidu.swan.apps.api.c.b(1001, "null swan runtime");
                 }
-                azJ.azU().b(com.baidu.swan.apps.runtime.d.azE(), "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.a.1.1
+                aAs.aAD().b(com.baidu.swan.apps.runtime.d.aAn(), "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.a.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ap.e.b
                     /* renamed from: a */
-                    public void I(h<b.d> hVar) {
+                    public void J(h<b.d> hVar) {
                         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            aVar.b(a.this.aGw());
+                            aVar.b(a.this.aHg());
                             return;
                         }
                         int errorCode = hVar.getErrorCode();
-                        String gC = com.baidu.swan.apps.setting.oauth.c.gC(errorCode);
+                        String gL = com.baidu.swan.apps.setting.oauth.c.gL(errorCode);
                         if (d.DEBUG) {
-                            Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: auth fail(" + errorCode + ", " + gC + ")");
+                            Log.e("Api-getCommonSysInfo", "getCommonSysInfo failed: auth fail(" + errorCode + ", " + gL + ")");
                         }
-                        aVar.b(new com.baidu.swan.apps.api.c.b(errorCode, gC));
+                        aVar.b(new com.baidu.swan.apps.api.c.b(errorCode, gL));
                     }
                 });
                 return new com.baidu.swan.apps.api.c.b(0);
@@ -65,24 +65,24 @@ public class a extends d {
 
             @Override // com.baidu.swan.apps.api.a.c
             @NonNull
-            protected com.baidu.swan.apps.api.c.b ap(@NonNull JSONObject jSONObject) {
-                return a.this.aGw();
+            protected com.baidu.swan.apps.api.c.b as(@NonNull JSONObject jSONObject) {
+                return a.this.aHg();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public com.baidu.swan.apps.api.c.b aGw() {
-        com.baidu.swan.apps.runtime.d azE = com.baidu.swan.apps.runtime.d.azE();
-        String bl = com.baidu.swan.apps.t.a.aoO().bl(azE);
-        String aFm = ak.aFm();
+    public com.baidu.swan.apps.api.c.b aHg() {
+        com.baidu.swan.apps.runtime.d aAn = com.baidu.swan.apps.runtime.d.aAn();
+        String bk = com.baidu.swan.apps.t.a.apz().bk(aAn);
+        String aFW = ak.aFW();
         String str = "";
         String str2 = "";
         String str3 = "";
         Bundle bundle = new Bundle();
         bundle.putString("httpUrl", ".baidu.com");
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(azE, C0469a.class, bundle);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(aAn, C0464a.class, bundle);
         if (callOnMainWithContentProvider.isOk()) {
             str = callOnMainWithContentProvider.mResult.getString("zid");
             str2 = callOnMainWithContentProvider.mResult.getString("uid");
@@ -90,14 +90,14 @@ public class a extends d {
         }
         String cookieValue = ai.getCookieValue(str3, "BAIDUID");
         String cookieValue2 = ai.getCookieValue(str3, "H_WISE_SIDS");
-        String uuid = com.baidu.swan.uuid.b.dJ(AppRuntime.getAppContext()).getUUID();
+        String uuid = com.baidu.swan.uuid.b.dI(AppRuntime.getAppContext()).getUUID();
         if (DEBUG) {
-            Log.d("Api-getCommonSysInfo", "cuid = " + bl + ", imei = " + aFm + ", zid = " + str + ", uid = " + str2 + ", baiduId = " + cookieValue + ", sid = " + cookieValue2 + ", uuid = " + uuid);
+            Log.d("Api-getCommonSysInfo", "cuid = " + bk + ", imei = " + aFW + ", zid = " + str + ", uid = " + str2 + ", baiduId = " + cookieValue + ", sid = " + cookieValue2 + ", uuid = " + uuid);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bl);
-            jSONObject.put("imei", aFm);
+            jSONObject.put("cuid", bk);
+            jSONObject.put("imei", aFW);
             jSONObject.put("zid", str);
             jSONObject.put("uid", str2);
             jSONObject.put("baidu_id", cookieValue);
@@ -119,17 +119,17 @@ public class a extends d {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.bdprivate.extensions.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0469a extends ProviderDelegation {
-        private C0469a() {
+    public static class C0464a extends ProviderDelegation {
+        private C0464a() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             String string = bundle.getString("httpUrl");
             Bundle bundle2 = new Bundle();
-            bundle2.putString("zid", com.baidu.swan.bdprivate.a.a.cb(com.baidu.swan.apps.runtime.d.azE()));
-            bundle2.putString("uid", com.baidu.swan.apps.t.a.aoO().bk(com.baidu.swan.apps.runtime.d.azE()));
-            bundle2.putString("cookie", TextUtils.isEmpty(string) ? "" : com.baidu.swan.apps.t.a.apj().aau().getCookie(string));
+            bundle2.putString("zid", com.baidu.swan.bdprivate.a.a.ca(com.baidu.swan.apps.runtime.d.aAn()));
+            bundle2.putString("uid", com.baidu.swan.apps.t.a.apz().bj(com.baidu.swan.apps.runtime.d.aAn()));
+            bundle2.putString("cookie", TextUtils.isEmpty(string) ? "" : com.baidu.swan.apps.t.a.apT().abd().getCookie(string));
             return bundle2;
         }
     }

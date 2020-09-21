@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.conscrypt.ct.VerifiedSCT;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class CTVerificationResult {
     private final ArrayList<VerifiedSCT> validSCTs = new ArrayList<>();
     private final ArrayList<VerifiedSCT> invalidSCTs = new ArrayList<>();

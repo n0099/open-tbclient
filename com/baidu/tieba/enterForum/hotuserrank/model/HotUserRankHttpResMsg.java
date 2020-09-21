@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.enterForum.hotuserrank.a.c;
 import com.squareup.wire.Wire;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class HotUserRankHttpResMsg extends HttpResponsedMessage {
     private c pageData;
 

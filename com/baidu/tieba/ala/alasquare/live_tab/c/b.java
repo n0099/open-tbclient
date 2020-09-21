@@ -15,49 +15,49 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
     private List<q> dataList;
-    private List<q> fHq;
+    private List<q> fKC;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> fHr = new ArrayList();
-    private List<SdkLiveInfoData> fHo = new ArrayList();
-    private List<q> fHp = new ArrayList();
+    private List<String> fKD = new ArrayList();
+    private List<SdkLiveInfoData> fKA = new ArrayList();
+    private List<q> fKB = new ArrayList();
 
     public b(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bGp();
+        bHF();
     }
 
-    private void bGp() {
-        this.fHq = new ArrayList();
+    private void bHF() {
+        this.fKC = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.fEG = this.stageLiveInfo;
-            this.fHq.add(fVar);
-            this.fHr.add(this.stageLiveInfo.fEH.liveId);
+            fVar.fHS = this.stageLiveInfo;
+            this.fKC.add(fVar);
+            this.fKD.add(this.stageLiveInfo.fHT.liveId);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<q> bGq = bGq();
-            if (!y.isEmpty(bGq)) {
-                this.fHq.addAll(bGq);
+            ArrayList<q> bHG = bHG();
+            if (!y.isEmpty(bHG)) {
+                this.fKC.addAll(bHG);
             }
         }
-        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.fEz)) {
+        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.fHL)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.fEB = this.officialRecommendLiveInfo;
-            this.fHq.add(cVar);
+            cVar.fHN = this.officialRecommendLiveInfo;
+            this.fKC.add(cVar);
         }
-        this.dataList = new ArrayList(this.fHq);
+        this.dataList = new ArrayList(this.fKC);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<q> bGq() {
-        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.fEz;
+    private ArrayList<q> bHG() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.fHL;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -65,14 +65,14 @@ public class b {
         for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.liveId;
-                if (!this.fHr.contains(str)) {
+                if (!this.fKD.contains(str)) {
                     arrayList2.add(sdkLiveInfoData);
-                    this.fHr.add(str);
+                    this.fKD.add(str);
                 }
             }
         }
         if (arrayList2 == null || arrayList2.size() >= 2) {
-            return bC(arrayList2);
+            return bH(arrayList2);
         }
         return null;
     }
@@ -90,7 +90,7 @@ public class b {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.fEz;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.fHL;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -100,37 +100,37 @@ public class b {
             SdkLiveInfoData next = it.next();
             if (next != null) {
                 String str = next.liveId;
-                if (!this.fHr.contains(str)) {
+                if (!this.fKD.contains(str)) {
                     arrayList2.add(next);
-                    this.fHr.add(str);
+                    this.fKD.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.fHo.addAll(arrayList2);
-        this.fHp = bC(this.fHo);
-        return !y.isEmpty(this.fHp);
+        this.fKA.addAll(arrayList2);
+        this.fKB = bH(this.fKA);
+        return !y.isEmpty(this.fKB);
     }
 
-    private ArrayList<q> bC(List<SdkLiveInfoData> list) {
+    private ArrayList<q> bH(List<SdkLiveInfoData> list) {
         ArrayList<q> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.fCy = list.get(i);
+            aVar.fFK = list.get(i);
             aVar.isLeft = true;
-            eVar.fED = aVar;
+            eVar.fHP = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.fCy = list.get(i + 1);
-                eVar.fEE = aVar2;
+                aVar2.fFK = list.get(i + 1);
+                eVar.fHQ = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.fCz = true;
+                aVar.fFL = true;
             }
             arrayList.add(eVar);
         }
@@ -146,8 +146,8 @@ public class b {
         if (!y.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!y.isEmpty(this.fHp)) {
-            arrayList.addAll(this.fHp);
+        if (!y.isEmpty(this.fKB)) {
+            arrayList.addAll(this.fKB);
         }
         return arrayList;
     }
@@ -157,20 +157,20 @@ public class b {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.fHq != null) {
-            this.fHq.clear();
+        if (this.fKC != null) {
+            this.fKC.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.fHr != null) {
-            this.fHr.clear();
+        if (this.fKD != null) {
+            this.fKD.clear();
         }
-        if (this.fHo != null) {
-            this.fHo.clear();
+        if (this.fKA != null) {
+            this.fKA.clear();
         }
-        if (this.fHp != null) {
-            this.fHp.clear();
+        if (this.fKB != null) {
+            this.fKB.clear();
         }
     }
 }

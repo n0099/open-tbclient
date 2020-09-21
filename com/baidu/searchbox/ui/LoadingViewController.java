@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface LoadingViewController {
     void addLoadingViewHidedListener(LoadingViewHidedListener loadingViewHidedListener);
 

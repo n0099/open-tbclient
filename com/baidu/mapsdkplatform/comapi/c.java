@@ -8,7 +8,7 @@ import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static boolean a;
 

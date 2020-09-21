@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes.dex */
 public class j<V extends af.a> extends a<i, V> {
-    private a<q, V> VQ;
+    private a<q, V> Wj;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: com.baidu.adp.widget.ListView.af$a */
@@ -23,46 +23,46 @@ public class j<V extends af.a> extends a<i, V> {
     }
 
     public void a(a aVar) {
-        this.VQ = aVar;
+        this.Wj = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public V b(ViewGroup viewGroup) {
-        if (this.VQ == null) {
+    public V c(ViewGroup viewGroup) {
+        if (this.Wj == null) {
             return null;
         }
-        if (this.UM == this.VQ.qE()) {
-            return this.VQ.c(viewGroup);
+        if (this.Vf == this.Wj.qJ()) {
+            return this.Wj.d(viewGroup);
         }
-        if (this.UM == this.VQ.qF()) {
-            return this.VQ.d(viewGroup);
+        if (this.Vf == this.Wj.qK()) {
+            return this.Wj.e(viewGroup);
         }
-        if (this.UM == this.VQ.qG()) {
-            return this.VQ.e(viewGroup);
+        if (this.Vf == this.Wj.qL()) {
+            return this.Wj.f(viewGroup);
         }
-        if (this.UM == this.VQ.qH()) {
-            return this.VQ.f(viewGroup);
+        if (this.Vf == this.Wj.qM()) {
+            return this.Wj.g(viewGroup);
         }
-        return this.VQ.b(viewGroup);
+        return this.Wj.c(viewGroup);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public View a2(int i, View view, ViewGroup viewGroup, i iVar, V v) {
-        if (this.VQ == null) {
+        if (this.Wj == null) {
             return null;
         }
-        if (this.UM == this.VQ.qE()) {
-            return this.VQ.b(i, view, viewGroup, iVar.qO(), v);
+        if (this.Vf == this.Wj.qJ()) {
+            return this.Wj.b(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.UM == this.VQ.qF()) {
-            return this.VQ.c(i, view, viewGroup, iVar.qO(), v);
+        if (this.Vf == this.Wj.qK()) {
+            return this.Wj.c(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.UM == this.VQ.qG()) {
-            return this.VQ.d(i, view, viewGroup, iVar.qO(), v);
+        if (this.Vf == this.Wj.qL()) {
+            return this.Wj.d(i, view, viewGroup, iVar.qT(), v);
         }
-        if (this.UM == this.VQ.qH()) {
-            return this.VQ.e(i, view, viewGroup, iVar.qO(), v);
+        if (this.Vf == this.Wj.qM()) {
+            return this.Wj.e(i, view, viewGroup, iVar.qT(), v);
         }
-        return this.VQ.a(i, view, viewGroup, iVar.qO(), v);
+        return this.Wj.a(i, view, viewGroup, iVar.qT(), v);
     }
 }

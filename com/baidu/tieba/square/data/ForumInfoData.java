@@ -3,7 +3,7 @@ package com.baidu.tieba.square.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class ForumInfoData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 1;
     public String forum_name = "";

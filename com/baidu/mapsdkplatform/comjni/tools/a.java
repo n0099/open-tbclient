@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comjni.tools.ParcelItem;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();

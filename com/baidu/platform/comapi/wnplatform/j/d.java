@@ -12,7 +12,7 @@ import com.baidu.platform.comapi.wnplatform.e.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private c a = null;
     private a b = null;

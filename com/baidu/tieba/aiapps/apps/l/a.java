@@ -1,32 +1,59 @@
 package com.baidu.tieba.aiapps.apps.l;
 
-import android.os.Parcelable;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.apps.ap.p;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes19.dex */
-public class a extends ActivityDelegation {
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    protected boolean onExec() {
-        p.postOnIO(new b(getAgent(), this.mParams, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
-            @Override // com.baidu.swan.apps.media.chooser.c.d
-            public void a(boolean z, String str, Object obj) {
-                if (z && (obj instanceof ArrayList)) {
-                    ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                    if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
-                        Iterator<? extends Parcelable> it = arrayList.iterator();
-                        while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).atm());
-                        }
-                    }
-                    a.this.mResult.putParcelableArrayList("mediaModels", arrayList);
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.process.messaging.service.e;
+import com.baidu.swan.veloce.c;
+/* loaded from: classes24.dex */
+public class a implements com.baidu.swan.veloce.a {
+    @Override // com.baidu.swan.veloce.a
+    public Bundle g(String str, Bundle bundle) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        char c = 65535;
+        switch (str.hashCode()) {
+            case -504534151:
+                if (str.equals("veloce_sync_account_info")) {
+                    c = 0;
+                    break;
                 }
-                a.this.finish();
-            }
-        }), "delegation compress files");
-        return false;
+                break;
+        }
+        switch (c) {
+            case 0:
+                return ai(bundle);
+            default:
+                return c.i(str, bundle);
+        }
+    }
+
+    private Bundle ai(Bundle bundle) {
+        if (bundle == null) {
+        }
+        return null;
+    }
+
+    @Override // com.baidu.swan.veloce.a
+    public void aXt() {
+        p.aFx();
+        p.aFw();
+        p.aFy();
+        try {
+            new UnitedSchemeMainDispatcher();
+            SwanLauncher.ame();
+            e.ayP();
+        } catch (Exception e) {
+        }
+    }
+
+    @Override // com.baidu.swan.veloce.a
+    public void xV(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.swan.facade.b.b.tM(str);
+        }
     }
 }

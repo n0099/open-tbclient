@@ -1,5 +1,5 @@
 package com.baidu.rtc.camera.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public interface a {
     void a(byte[] bArr, int i, int i2, int i3, long j);
 

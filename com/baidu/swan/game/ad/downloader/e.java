@@ -13,7 +13,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ap.ak;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static boolean ad(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
@@ -60,7 +60,7 @@ public class e {
         Uri uriForFile;
         if (com.baidu.swan.apps.ap.c.hasNougat()) {
             try {
-                if (ak.aFn()) {
+                if (ak.aFX()) {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
                 } else {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".swan.fileprovider", file);
@@ -85,7 +85,7 @@ public class e {
         return true;
     }
 
-    public static boolean af(Context context, String str) {
+    public static boolean ai(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class e {
         return false;
     }
 
-    public static String ag(Context context, @NonNull String str) {
+    public static String aj(Context context, @NonNull String str) {
         PackageInfo packageArchiveInfo;
         File file = new File(str);
         if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) == null) {

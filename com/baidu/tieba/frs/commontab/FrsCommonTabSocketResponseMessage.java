@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class FrsCommonTabSocketResponseMessage extends MvcSocketResponsedMessage<d, GeneralTabListResIdl> {
     public FrsCommonTabSocketResponseMessage() {
         super(309622);

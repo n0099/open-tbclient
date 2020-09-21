@@ -2,7 +2,7 @@ package com.baidu.swan.apps.v.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.b.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 class b implements a {
     @Override // com.baidu.swan.apps.v.a.a
     public void onPause() {
@@ -11,7 +11,7 @@ class b implements a {
             @Override // com.baidu.swan.config.e.a
             /* renamed from: e */
             public void run(@NonNull e eVar) {
-                eVar.aaW();
+                eVar.abF();
             }
         });
     }
@@ -23,13 +23,13 @@ class b implements a {
             @Override // com.baidu.swan.config.e.a
             /* renamed from: e */
             public void run(@NonNull e eVar) {
-                eVar.aaX();
+                eVar.abG();
             }
         });
     }
 
     private void a(@NonNull com.baidu.swan.config.e.a<e> aVar) {
-        for (e eVar : com.baidu.swan.apps.core.turbo.d.ajS().ajQ().values()) {
+        for (e eVar : com.baidu.swan.apps.core.turbo.d.akC().akA().values()) {
             if (eVar != null) {
                 aVar.run(eVar);
             }

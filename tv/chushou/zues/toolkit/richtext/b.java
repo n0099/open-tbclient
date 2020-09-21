@@ -21,7 +21,7 @@ import tv.chushou.zues.widget.a.c;
 import tv.chushou.zues.widget.a.e;
 /* loaded from: classes6.dex */
 public class b {
-    public static ArrayList<RichText> WU(String str) {
+    public static ArrayList<RichText> Xv(String str) {
         String[] split;
         ArrayList<RichText> arrayList = new ArrayList<>();
         if (!h.isEmpty(str)) {
@@ -40,9 +40,9 @@ public class b {
                         richText2.mContent = substring;
                         arrayList.add(richText2);
                     }
-                    RichText WV = WV(str2.substring(indexOf + "<![JSON[".length()));
-                    if (WV != null) {
-                        arrayList.add(WV);
+                    RichText Xw = Xw(str2.substring(indexOf + "<![JSON[".length()));
+                    if (Xw != null) {
+                        arrayList.add(Xw);
                     }
                 }
             }
@@ -86,16 +86,16 @@ public class b {
                         int a = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
                         int length = cVar.length();
                         if (view instanceof SimpleDraweeSpanTextView) {
-                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dQW(), h.elS());
-                            a2.setController(com.facebook.drawee.a.a.c.dPw().xW(true).Ux(richText.mImage).dQn());
+                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dUU(), h.epQ());
+                            a2.setController(com.facebook.drawee.a.a.c.dTu().yf(true).UZ(richText.mImage).dUl());
                             cVar.append(" ");
                             cVar.a(a2, length, length, 20, a, true, 2);
                         }
                     }
-                    Drawable WY = h.WY(richText.mImage);
-                    Drawable Xa = WY == null ? h.Xa(richText.mImage) : WY;
-                    if (Xa != null) {
-                        Drawable newDrawable = Xa.getConstantState().newDrawable();
+                    Drawable Xz = h.Xz(richText.mImage);
+                    Drawable XB = Xz == null ? h.XB(richText.mImage) : Xz;
+                    if (XB != null) {
+                        Drawable newDrawable = XB.getConstantState().newDrawable();
                         int intrinsicWidth = newDrawable.getIntrinsicWidth();
                         int intrinsicHeight = newDrawable.getIntrinsicHeight();
                         int a3 = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
@@ -131,7 +131,7 @@ public class b {
                             }
                         }
                         if (aVar != 0) {
-                            r1 = aVar.Vd(r1);
+                            r1 = aVar.VF(r1);
                         }
                         if (arrayList2.size() > 0) {
                             cVar.a(r1, arrayList2);
@@ -141,12 +141,12 @@ public class b {
                     }
                 } else if (richText.mType == 5) {
                     String str3 = "res_" + richText.mDrawableId;
-                    Drawable WY2 = h.WY(str3);
-                    if (WY2 == null) {
-                        drawable = h.emv().getDrawable(richText.mDrawableId);
+                    Drawable Xz2 = h.Xz(str3);
+                    if (Xz2 == null) {
+                        drawable = h.eqt().getDrawable(richText.mDrawableId);
                         h.P(str3, drawable);
                     } else {
-                        drawable = WY2;
+                        drawable = Xz2;
                     }
                     if (drawable != null) {
                         Drawable newDrawable2 = drawable.getConstantState().newDrawable();
@@ -169,7 +169,7 @@ public class b {
                             }
                         }
                         if (aVar != 0) {
-                            r12 = aVar.Vd(r12);
+                            r12 = aVar.VF(r12);
                         }
                         cVar.a(r12, new ForegroundColorSpan(i2));
                     }
@@ -207,16 +207,16 @@ public class b {
                         int a = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
                         int length = cVar.length();
                         if (view instanceof SimpleDraweeSpanTextView) {
-                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dQW(), h.elS());
-                            a2.setController(com.facebook.drawee.a.a.c.dPw().Ux(richText.mImage).dQn());
+                            com.facebook.drawee.view.b a2 = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(context.getResources()).dUU(), h.epQ());
+                            a2.setController(com.facebook.drawee.a.a.c.dTu().UZ(richText.mImage).dUl());
                             cVar.append(" ");
                             cVar.a(a2, length, length, 20, a, true, 2);
                         }
                     }
-                    Drawable WY = h.WY(richText.mImage);
-                    Drawable Xa = WY == null ? h.Xa(richText.mImage) : WY;
-                    if (Xa != null) {
-                        Drawable newDrawable = Xa.getConstantState().newDrawable();
+                    Drawable Xz = h.Xz(richText.mImage);
+                    Drawable XB = Xz == null ? h.XB(richText.mImage) : Xz;
+                    if (XB != null) {
+                        Drawable newDrawable = XB.getConstantState().newDrawable();
                         int intrinsicWidth = newDrawable.getIntrinsicWidth();
                         int intrinsicHeight = newDrawable.getIntrinsicHeight();
                         int a3 = (int) tv.chushou.zues.utils.a.a(1, i + 3, context);
@@ -268,7 +268,7 @@ public class b {
                             }
                         }
                         if (aVar != 0) {
-                            r1 = aVar.Vd(r1);
+                            r1 = aVar.VF(r1);
                         }
                         if (arrayList2.size() > 0) {
                             cVar.a(r1, arrayList2);
@@ -278,12 +278,12 @@ public class b {
                     }
                 } else if (richText.mType == 5) {
                     String str5 = "res_" + richText.mDrawableId;
-                    Drawable WY2 = h.WY(str5);
-                    if (WY2 == null) {
-                        drawable = h.emv().getDrawable(richText.mDrawableId);
+                    Drawable Xz2 = h.Xz(str5);
+                    if (Xz2 == null) {
+                        drawable = h.eqt().getDrawable(richText.mDrawableId);
                         h.P(str5, drawable);
                     } else {
-                        drawable = WY2;
+                        drawable = Xz2;
                     }
                     if (drawable != null) {
                         Drawable newDrawable2 = drawable.getConstantState().newDrawable();
@@ -300,15 +300,15 @@ public class b {
                         if (!h.isEmpty(str) && !str6.endsWith(str)) {
                             str6 = str6 + str;
                         }
-                        String Vd = aVar != 0 ? aVar.Vd(str6) : str6;
+                        String VF = aVar != 0 ? aVar.VF(str6) : str6;
                         String str7 = "";
                         if (hashMap != null) {
-                            str7 = hashMap.get(tv.chushou.zues.utils.a.OD(i2));
+                            str7 = hashMap.get(tv.chushou.zues.utils.a.Pi(i2));
                         }
                         if (h.isEmpty(str7)) {
-                            cVar.a(Vd, new ForegroundColorSpan(i2));
+                            cVar.a(VF, new ForegroundColorSpan(i2));
                         } else {
-                            cVar.a(Vd, new ForegroundColorSpan(Color.parseColor(str7)));
+                            cVar.a(VF, new ForegroundColorSpan(Color.parseColor(str7)));
                         }
                     }
                 }
@@ -319,7 +319,7 @@ public class b {
         }
     }
 
-    private static RichText WV(String str) {
+    private static RichText Xw(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             RichText richText = new RichText();

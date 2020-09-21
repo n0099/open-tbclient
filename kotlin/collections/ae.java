@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class ae implements Iterator<Long> {
     public abstract long nextLong();
 
@@ -13,7 +13,7 @@ public abstract class ae implements Iterator<Long> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: egg */
+    /* renamed from: ekd */
     public final Long next() {
         return Long.valueOf(nextLong());
     }

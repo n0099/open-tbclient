@@ -11,32 +11,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private HashMap<String, Integer> ltA;
-    private boolean lty;
-    private boolean ltz;
+    private boolean lCp;
+    private boolean lCq;
+    private HashMap<String, Integer> lCr;
 
-    public void dY(JSONObject jSONObject) {
+    public void eg(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.lty;
-            this.lty = jSONObject.optInt("switch", 0) == 1;
-            this.ltz = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.lCp;
+            this.lCp = jSONObject.optInt("switch", 0) == 1;
+            this.lCq = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.ltA = new HashMap<>();
+                this.lCr = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.ltA.put(optString, 0);
+                        this.lCr.put(optString, 0);
                     }
                 }
             }
-            if (this.lty) {
+            if (this.lCp) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
                     intent.putExtra("pcdn", true);
                     TbadkCoreApplication.getInst().getContext().startService(intent);
-                    e.mS().postDelayed(new Runnable() { // from class: com.baidu.tieba.play.cyberPlayer.a.1
+                    e.mX().postDelayed(new Runnable() { // from class: com.baidu.tieba.play.cyberPlayer.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
@@ -47,21 +47,21 @@ public class a {
         }
     }
 
-    public boolean dki() {
-        if (this.lty) {
+    public boolean dnP() {
+        if (this.lCp) {
             c.init();
         }
-        return this.lty;
+        return this.lCp;
     }
 
-    public boolean dkj() {
-        return this.ltz;
+    public boolean dnQ() {
+        return this.lCq;
     }
 
-    public boolean x(Uri uri) {
-        if (this.ltA == null || uri == null) {
+    public boolean y(Uri uri) {
+        if (this.lCr == null || uri == null) {
             return false;
         }
-        return this.ltA.containsKey(uri.getHost());
+        return this.lCr.containsKey(uri.getHost());
     }
 }

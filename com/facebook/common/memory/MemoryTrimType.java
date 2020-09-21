@@ -1,5 +1,5 @@
 package com.facebook.common.memory;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public enum MemoryTrimType {
     OnCloseToDalvikHeapLimit(0.5d),
     OnSystemLowMemoryWhileAppInForeground(0.5d),

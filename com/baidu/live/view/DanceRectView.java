@@ -12,11 +12,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class DanceRectView extends View {
-    private RectF[] bts;
-    private a[] btt;
-    private float btu;
+    private RectF[] bwL;
+    private a[] bwM;
+    private float bwN;
     private int mColor;
     private Paint mPaint;
     private float mRadius;
@@ -28,13 +28,13 @@ public class DanceRectView extends View {
     }
 
     public void startAnim() {
-        if (this.btt != null && this.mValueAnimator != null) {
-            QF();
+        if (this.bwM != null && this.mValueAnimator != null) {
+            Rp();
             this.mValueAnimator.start();
         }
     }
 
-    public void QC() {
+    public void Rm() {
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
         }
@@ -43,11 +43,11 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.btu = (i2 - getPaddingTop()) - getPaddingBottom();
+        this.bwN = (i2 - getPaddingTop()) - getPaddingBottom();
         float paddingLeft = (((i - getPaddingLeft()) - getPaddingRight()) * 1.0f) / 7.0f;
         int paddingLeft2 = getPaddingLeft();
         for (int i5 = 0; i5 < 4; i5++) {
-            this.bts[i5].set(paddingLeft2, this.btu * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
+            this.bwL[i5].set(paddingLeft2, this.bwN * i5, paddingLeft2 + paddingLeft, i2 - getPaddingBottom());
             paddingLeft2 = (int) (paddingLeft2 + (2.0f * paddingLeft));
         }
     }
@@ -55,20 +55,20 @@ public class DanceRectView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bts != null && this.btt != null) {
+        if (this.bwL != null && this.bwM != null) {
             for (int i = 0; i < 4; i++) {
-                this.bts[i].top = getPaddingTop() + (this.btu * this.btt[i].bty);
-                canvas.drawRoundRect(this.bts[i], this.mRadius, this.mRadius, this.mPaint);
+                this.bwL[i].top = getPaddingTop() + (this.bwN * this.bwM[i].bwR);
+                canvas.drawRoundRect(this.bwL[i], this.mRadius, this.mRadius, this.mPaint);
             }
         }
     }
 
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
-        sr();
-        QD();
-        QE();
-        QG();
+        sw();
+        Rn();
+        Ro();
+        Rq();
     }
 
     private void initAttrs(AttributeSet attributeSet) {
@@ -78,41 +78,41 @@ public class DanceRectView extends View {
         obtainStyledAttributes.recycle();
     }
 
-    private void sr() {
+    private void sw() {
         this.mPaint = new Paint(1);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setColor(this.mColor);
     }
 
-    private void QD() {
-        this.bts = new RectF[4];
+    private void Rn() {
+        this.bwL = new RectF[4];
         for (int i = 0; i < 4; i++) {
-            this.bts[i] = new RectF();
+            this.bwL[i] = new RectF();
         }
     }
 
-    private void QE() {
-        this.btt = new a[4];
+    private void Ro() {
+        this.bwM = new a[4];
         for (int i = 0; i < 4; i++) {
-            this.btt[i] = new a();
-            this.btt[i].btw = 0.25f;
+            this.bwM[i] = new a();
+            this.bwM[i].bwP = 0.25f;
         }
-        QF();
+        Rp();
     }
 
-    private void QF() {
+    private void Rp() {
         int i = 0;
         while (i < 4) {
-            this.btt[i].btz = i != 0;
-            a aVar = this.btt[i];
+            this.bwM[i].bwS = i != 0;
+            a aVar = this.bwM[i];
             float f = (i * 1.0f) / 4.0f;
-            this.btt[i].bty = f;
-            aVar.btx = f;
+            this.bwM[i].bwR = f;
+            aVar.bwQ = f;
             i++;
         }
     }
 
-    private void QG() {
+    private void Rq() {
         this.mValueAnimator = ValueAnimator.ofFloat(0.0f, 0.25f);
         this.mValueAnimator.setDuration(150L);
         this.mValueAnimator.setInterpolator(new LinearInterpolator());
@@ -121,16 +121,16 @@ public class DanceRectView extends View {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                for (a aVar : DanceRectView.this.btt) {
-                    aVar.QH();
+                for (a aVar : DanceRectView.this.bwM) {
+                    aVar.Rr();
                 }
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
                 super.onAnimationRepeat(animator);
-                for (a aVar : DanceRectView.this.btt) {
-                    aVar.QI();
+                for (a aVar : DanceRectView.this.bwM) {
+                    aVar.Rs();
                 }
                 DanceRectView.this.invalidate();
             }
@@ -138,7 +138,7 @@ public class DanceRectView extends View {
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.view.DanceRectView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                for (a aVar : DanceRectView.this.btt) {
+                for (a aVar : DanceRectView.this.bwM) {
                     aVar.v(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
                 DanceRectView.this.invalidate();
@@ -147,58 +147,58 @@ public class DanceRectView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        float btw;
-        float btx;
-        float bty;
-        boolean btz;
+        float bwP;
+        float bwQ;
+        float bwR;
+        boolean bwS;
 
         private a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void QH() {
-            if (this.bty <= 0.0f) {
-                this.bty = 0.0f;
-                this.btx = 0.0f;
-                this.btz = false;
-            } else if (this.bty >= 1.0f - this.btw) {
-                float f = 1.0f - this.btw;
-                this.bty = f;
-                this.btx = f;
-                this.btz = true;
+        public void Rr() {
+            if (this.bwR <= 0.0f) {
+                this.bwR = 0.0f;
+                this.bwQ = 0.0f;
+                this.bwS = false;
+            } else if (this.bwR >= 1.0f - this.bwP) {
+                float f = 1.0f - this.bwP;
+                this.bwR = f;
+                this.bwQ = f;
+                this.bwS = true;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void v(float f) {
             float f2 = 0.0f;
-            if (f != 0.0f && f != this.btw) {
-                if (this.btz) {
-                    float f3 = this.btx - f;
+            if (f != 0.0f && f != this.bwP) {
+                if (this.bwS) {
+                    float f3 = this.bwQ - f;
                     if (f3 >= 0.0f) {
                         f2 = f3;
                     }
                 } else {
-                    f2 = this.btx + f;
-                    if (f2 > 1.0f - this.btw) {
-                        f2 = 1.0f - this.btw;
+                    f2 = this.bwQ + f;
+                    if (f2 > 1.0f - this.bwP) {
+                        f2 = 1.0f - this.bwP;
                     }
                 }
-                this.bty = f2;
+                this.bwR = f2;
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void QI() {
-            if (this.btz) {
-                this.bty = this.btx - this.btw;
+        public void Rs() {
+            if (this.bwS) {
+                this.bwR = this.bwQ - this.bwP;
             } else {
-                this.bty = this.btx + this.btw;
+                this.bwR = this.bwQ + this.bwP;
             }
-            this.btx = this.bty;
-            QH();
+            this.bwQ = this.bwR;
+            Rr();
         }
     }
 }

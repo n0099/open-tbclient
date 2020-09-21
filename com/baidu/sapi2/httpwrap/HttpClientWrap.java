@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class HttpClientWrap {
     private PassHttpClient a = new PassHttpClient();
     private Context b;

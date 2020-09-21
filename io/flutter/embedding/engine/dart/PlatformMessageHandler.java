@@ -2,7 +2,7 @@ package io.flutter.embedding.engine.dart;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public interface PlatformMessageHandler {
     void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i);
 

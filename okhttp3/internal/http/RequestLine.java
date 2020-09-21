@@ -3,7 +3,7 @@ package okhttp3.internal.http;
 import java.net.Proxy;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class RequestLine {
     private RequestLine() {
     }

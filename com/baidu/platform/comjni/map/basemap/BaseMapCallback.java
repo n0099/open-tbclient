@@ -3,7 +3,7 @@ package com.baidu.platform.comjni.map.basemap;
 import android.os.Bundle;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BaseMapCallback {
     private static final ConcurrentHashMap<Long, a> a = new ConcurrentHashMap<>(2);
     private static final ConcurrentHashMap<Long, com.baidu.mapsdkplatform.comjni.a.a.a> b = new ConcurrentHashMap<>(2);

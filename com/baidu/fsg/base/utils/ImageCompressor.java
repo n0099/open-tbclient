@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class ImageCompressor {
     public static final int UNCONSTRAINED = -1;
 

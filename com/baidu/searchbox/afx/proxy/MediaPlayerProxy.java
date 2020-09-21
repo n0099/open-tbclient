@@ -1,20 +1,25 @@
 package com.baidu.searchbox.afx.proxy;
 
+import android.app.ActivityManager;
+import android.content.pm.ConfigurationInfo;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.view.Surface;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.PlayerProxy;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     private static final String TAG = "MediaPlayerProxy";
     private GLTextureView mGLTextureView;
-    private MediaPlayer mMediaPlayer = new MediaPlayer();
     private long mStartTimeMs;
+    private long mPrepareTime = -1;
+    private MediaPlayer mMediaPlayer = new MediaPlayer();
 
     public MediaPlayerProxy() {
         this.mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.1
@@ -26,16 +31,32 @@ public class MediaPlayerProxy extends PlayerProxy {
                     MediaPlayerProxy.this.mGLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                            if (MediaPlayerProxy.this.mGLTextureView != null) {
+                                MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                            }
                         }
                     });
+                }
+                if (MediaPlayerProxy.this.mOnReportListener != null) {
+                    MediaPlayerProxy.this.mOnReportListener.onSuccess(new PlaySuccessInfo(MediaPlayerProxy.this.mSourcePath, String.valueOf(System.currentTimeMillis() / 1000), String.valueOf(MediaPlayerProxy.this.mPrepareTime / 1000)));
                 }
             }
         });
         this.mMediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.2
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                return MediaPlayerProxy.this.mOnVideoErrorListener != null && MediaPlayerProxy.this.mOnVideoErrorListener.onError(new ErrorInfo(16, "MediaPlayer解码错误", new RuntimeException(new StringBuilder().append("MediaPlayer Error (").append(i).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(i2).append(")").toString())));
+                String str = "-1";
+                if (mediaPlayer != null) {
+                    str = String.valueOf(mediaPlayer.getCurrentPosition());
+                }
+                String glVersion = MediaPlayerProxy.this.getGlVersion();
+                String sourcePath = MediaPlayerProxy.this.getSourcePath();
+                String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + ")");
+                if (MediaPlayerProxy.this.mOnReportListener != null) {
+                    MediaPlayerProxy.this.mOnReportListener.onError(new ErrorInfo(16, ErrorInfo.MEDIAPLAYER_DECODING_ERROR_ERRORMSG, runtimeException, str, glVersion, sourcePath, valueOf));
+                }
+                return MediaPlayerProxy.this.mOnVideoErrorListener != null && MediaPlayerProxy.this.mOnVideoErrorListener.onError(new ErrorInfo(16, ErrorInfo.MEDIAPLAYER_DECODING_ERROR_ERRORMSG, runtimeException, str, glVersion, sourcePath, valueOf));
             }
         });
         this.mMediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.3
@@ -102,6 +123,16 @@ public class MediaPlayerProxy extends PlayerProxy {
         this.mGLTextureView = gLTextureView;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public String getGlVersion() {
+        ActivityManager activityManager;
+        ConfigurationInfo deviceConfigurationInfo;
+        if (this.mGLTextureView == null || (activityManager = (ActivityManager) this.mGLTextureView.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) == null || (deviceConfigurationInfo = activityManager.getDeviceConfigurationInfo()) == null) {
+            return null;
+        }
+        return deviceConfigurationInfo.getGlEsVersion();
+    }
+
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void play() {
         if (this.mMediaPlayer != null) {
@@ -116,6 +147,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                                 if (MediaPlayerProxy.this.mGLTextureView != null) {
                                     MediaPlayerProxy.this.mGLTextureView.setRenderMode(1);
                                 }
+                                MediaPlayerProxy.this.mPrepareTime = System.currentTimeMillis();
                                 MediaPlayerProxy.this.mMediaPlayer.start();
                                 MediaPlayerProxy.super.play();
                             }
@@ -134,8 +166,14 @@ public class MediaPlayerProxy extends PlayerProxy {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                String glVersion = getGlVersion();
+                String sourcePath = getSourcePath();
+                String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                if (this.mOnReportListener != null) {
+                    this.mOnReportListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e, "-1", glVersion, sourcePath, valueOf));
+                }
                 if (this.mOnVideoErrorListener != null) {
-                    this.mOnVideoErrorListener.onError(new ErrorInfo(1, "MediaPlayer播放源出错", e));
+                    this.mOnVideoErrorListener.onError(new ErrorInfo(1, ErrorInfo.MEDIAPLAYER_PLAY_SOURCE_ERROR_ERRORMSG, e, "-1", glVersion, sourcePath, valueOf));
                 }
             }
         }
@@ -149,6 +187,13 @@ public class MediaPlayerProxy extends PlayerProxy {
                     this.mMediaPlayer.prepareAsync();
                     this.mPlayerState = PlayerProxy.PlayerState.PREPARING;
                 } catch (IllegalStateException e) {
+                    String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                    if (this.mOnReportListener != null) {
+                        this.mOnReportListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e, "-1", null, getSourcePath(), valueOf));
+                    }
+                    if (this.mOnVideoErrorListener != null) {
+                        this.mOnVideoErrorListener.onError(new ErrorInfo(2, ErrorInfo.OPENGL_ENVIRONMENT_ERROR_ERRORMSG, e, "-1", null, getSourcePath(), valueOf));
+                    }
                     throw e;
                 }
             }
@@ -179,7 +224,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                     this.mGLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                            if (MediaPlayerProxy.this.mGLTextureView != null) {
+                                MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                            }
                         }
                     });
                 }

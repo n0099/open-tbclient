@@ -14,10 +14,10 @@ import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessa
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0592a fKG;
+    private InterfaceC0588a fNU;
     private boolean isLoading;
     private TbPageContext mPageContext;
-    private HttpMessageListener fKE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
+    private HttpMessageListener fNS = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -25,11 +25,11 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mCurTag) {
                 SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                 if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                    if (a.this.fKG != null) {
-                        a.this.fKG.ay(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.fNU != null) {
+                        a.this.fNU.az(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
-                } else if (a.this.fKG != null) {
-                    a.this.fKG.b(specialLiveResponseMessage.getData());
+                } else if (a.this.fNU != null) {
+                    a.this.fNU.b(specialLiveResponseMessage.getData());
                 }
             }
         }
@@ -38,15 +38,15 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.alasquare.special_forum.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0592a {
-        void ay(int i, String str);
+    public interface InterfaceC0588a {
+        void az(int i, String str);
 
         void b(h hVar);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0592a interfaceC0592a) {
+    public a(TbPageContext tbPageContext, InterfaceC0588a interfaceC0588a) {
         this.mPageContext = tbPageContext;
-        this.fKG = interfaceC0592a;
+        this.fNU = interfaceC0588a;
         registerTask();
         registerListener();
     }
@@ -58,7 +58,7 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.fKE);
+        MessageManager.getInstance().registerListener(this.fNS);
     }
 
     public void loadData() {
@@ -76,6 +76,6 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        MessageManager.getInstance().unRegisterListener(this.fKE);
+        MessageManager.getInstance().unRegisterListener(this.fNS);
     }
 }

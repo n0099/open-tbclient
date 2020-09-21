@@ -11,7 +11,7 @@ import com.tb.airbnb.lottie.model.layer.Layer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class s {
     public static Layer d(com.tb.airbnb.lottie.d dVar) {
         Rect it = dVar.it();
@@ -226,14 +226,14 @@ public class s {
                     str = str2;
                     break;
                 case 5:
-                    i = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.kZ());
+                    i = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.la());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
                     str = str2;
                     break;
                 case 6:
-                    i2 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.kZ());
+                    i2 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.la());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
@@ -378,14 +378,14 @@ public class s {
                     str = str2;
                     break;
                 case 16:
-                    i4 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.kZ());
+                    i4 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.la());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;
                     str = str2;
                     break;
                 case 17:
-                    i5 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.kZ());
+                    i5 = (int) (jsonReader.nextInt() * com.tb.airbnb.lottie.d.f.la());
                     nextString = str4;
                     j = j2;
                     layerType = layerType2;

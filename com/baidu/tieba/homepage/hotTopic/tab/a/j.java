@@ -7,20 +7,20 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iLQ);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.iUw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bB */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: bC */
+    public a c(ViewGroup viewGroup) {
         HotTopicTabThreadItem hotTopicTabThreadItem = new HotTopicTabThreadItem(viewGroup.getContext());
-        hotTopicTabThreadItem.setOnItemCoverListener(this.ahY);
+        hotTopicTabThreadItem.setOnItemCoverListener(this.ait);
         hotTopicTabThreadItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         a aVar = new a(hotTopicTabThreadItem);
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,23 +40,23 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private HotTopicTabThreadItem iLL;
+        private HotTopicTabThreadItem iUr;
 
         a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.iLL = hotTopicTabThreadItem;
+            this.iUr = hotTopicTabThreadItem;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
             if (eVar != null) {
-                this.iLL.a(eVar);
+                this.iUr.a(eVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.iLL.onChangeSkinType(i);
+            this.iUr.onChangeSkinType(i);
         }
     }
 }

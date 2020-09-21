@@ -4,22 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c bEA;
+    private static volatile c bGB;
 
-    public static synchronized c TO() {
+    public static synchronized c Ux() {
         c cVar;
         synchronized (c.class) {
-            if (bEA == null) {
+            if (bGB == null) {
                 synchronized (c.class) {
-                    if (bEA == null) {
-                        bEA = new c();
+                    if (bGB == null) {
+                        bGB = new c();
                     }
                 }
             }
-            cVar = bEA;
+            cVar = bGB;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.TN().e(activity, str, aVar);
+        b.Uw().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.TN().f(activity, str, aVar);
+        b.Uw().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.TN().b(context, jSONObject, aVar);
+        b.Uw().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.TN().g(context, jSONObject);
+        b.Uw().g(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.TN().b(activity, jSONObject, aVar);
+        b.Uw().b(activity, jSONObject, aVar);
         return true;
     }
 }

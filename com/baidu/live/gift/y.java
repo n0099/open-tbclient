@@ -1,17 +1,9 @@
 package com.baidu.live.gift;
-
-import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface y {
-    View Fc();
+    void FB();
 
-    void bk(boolean z);
+    void gE(String str);
 
-    void bl(boolean z);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    void release();
 }

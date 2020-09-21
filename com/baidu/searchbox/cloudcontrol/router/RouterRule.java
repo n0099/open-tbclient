@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.RuleResult;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-/* loaded from: classes11.dex */
+/* loaded from: classes23.dex */
 public class RouterRule {
     public RuleResult apply(String str) {
         if (TextUtils.isEmpty(str)) {

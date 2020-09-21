@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends ClickableSpan {
     private int mColor;
     private String mUrl;

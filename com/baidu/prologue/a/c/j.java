@@ -10,11 +10,11 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j {
-    public static final boolean DEBUG = com.baidu.prologue.a.b.a.bKm.get().UU();
+    public static final boolean DEBUG = com.baidu.prologue.a.b.a.bMm.get().VD();
 
-    public static boolean H(@NonNull Context context, @NonNull String str) {
+    public static boolean K(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
@@ -43,7 +43,7 @@ public class j {
         return z;
     }
 
-    public static boolean I(@NonNull Context context, @NonNull String str) {
+    public static boolean L(@NonNull Context context, @NonNull String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

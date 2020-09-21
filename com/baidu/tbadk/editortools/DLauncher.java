@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements h {
-    private m eKm;
-    private TextView eKo;
-    private int eKp;
+    private m eMD;
+    private TextView eMF;
+    private int eMG;
     private int mId;
     private int mSkinType;
     private String mText;
@@ -24,60 +24,60 @@ public class DLauncher extends RelativeLayout implements h {
         super(context);
         this.mSkinType = 0;
         if (mVar != null) {
-            this.eKm = mVar;
+            this.eMD = mVar;
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(R.dimen.ds144));
-            this.eKo = new TextView(context);
+            this.eMF = new TextView(context);
             setName(mVar.name);
             setIcon();
             setToolId(mVar.id);
             layoutParams.addRule(13);
-            this.eKo.setGravity(17);
-            this.eKo.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-            this.eKp = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-            addView(this.eKo, layoutParams);
+            this.eMF.setGravity(17);
+            this.eMF.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+            this.eMG = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+            addView(this.eMF, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.h
     public void setName(String str) {
-        this.eKo.setText(str);
+        this.eMF.setText(str);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.eKo.setEnabled(z);
+        this.eMF.setEnabled(z);
     }
 
     public void setIcon() {
         Drawable drawable;
-        int i = this.eKm.eLq;
+        int i = this.eMD.eNH;
         if (i <= 0) {
-            i = this.eKm.eLo;
+            i = this.eMD.eNF;
         }
-        if (TextUtils.isEmpty(this.eKo.getText())) {
-            if (this.eKm.eLr) {
-                this.eKo.setBackgroundDrawable(SvgManager.bjq().x(i, this.eKm.eLp, this.mSkinType));
+        if (TextUtils.isEmpty(this.eMF.getText())) {
+            if (this.eMD.eNI) {
+                this.eMF.setBackgroundDrawable(SvgManager.bkl().x(i, this.eMD.eNG, this.mSkinType));
                 return;
-            } else if (this.eKm.eLs) {
-                this.eKo.setBackgroundDrawable(WebPManager.a(this.eKm.eLo, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
+            } else if (this.eMD.eNJ) {
+                this.eMF.setBackgroundDrawable(WebPManager.a(this.eMD.eNF, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
                 return;
             } else {
-                ap.setBackgroundResource(this.eKo, i, this.mSkinType);
+                ap.setBackgroundResource(this.eMF, i, this.mSkinType);
                 return;
             }
         }
-        if (this.eKm.eLr) {
-            drawable = SvgManager.bjq().x(i, this.eKm.eLp, this.mSkinType);
-        } else if (this.eKm.eLs) {
-            drawable = WebPManager.a(this.eKm.eLo, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        if (this.eMD.eNI) {
+            drawable = SvgManager.bkl().x(i, this.eMD.eNG, this.mSkinType);
+        } else if (this.eMD.eNJ) {
+            drawable = WebPManager.a(this.eMD.eNF, ap.getColor(this.mSkinType, R.color.cp_cont_b), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         } else {
             drawable = ap.getDrawable(this.mSkinType, i);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.ds70), getResources().getDimensionPixelSize(R.dimen.ds72));
-            this.eKo.setCompoundDrawables(null, drawable, null, null);
+            this.eMF.setCompoundDrawables(null, drawable, null, null);
         }
     }
 
@@ -96,8 +96,8 @@ public class DLauncher extends RelativeLayout implements h {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.eKo.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.eKo.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.eMF.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.eMF.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -105,12 +105,12 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void BM(String str) {
-        BN(str);
+    public void Ci(String str) {
+        Cj(str);
         this.mTip.setVisibility(0);
     }
 
-    private void BN(String str) {
+    private void Cj(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -132,7 +132,7 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void bru() {
+    public void bst() {
         this.mText = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -143,9 +143,9 @@ public class DLauncher extends RelativeLayout implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bru();
+                bst();
             } else if (aVar.data instanceof String) {
-                BM((String) aVar.data);
+                Ci((String) aVar.data);
             }
         }
     }
@@ -163,8 +163,8 @@ public class DLauncher extends RelativeLayout implements h {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         ap.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
-        this.eKo.setTextColor(ap.aP(R.color.cp_cont_f, i));
-        if (this.eKm != null) {
+        this.eMF.setTextColor(ap.aP(R.color.cp_cont_f, i));
+        if (this.eMD != null) {
             setIcon();
             if (this.mTip != null) {
                 ap.setViewTextColor(this.mTip, R.color.common_color_10225, 1, i);
@@ -179,7 +179,7 @@ public class DLauncher extends RelativeLayout implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void brv() {
+    public void bsu() {
     }
 
     public String getText() {

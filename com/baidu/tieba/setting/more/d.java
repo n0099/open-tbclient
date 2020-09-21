@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public interface d {
-    void GR(int i);
+    void Hu(int i);
 }

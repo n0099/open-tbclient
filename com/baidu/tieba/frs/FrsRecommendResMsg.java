@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class FrsRecommendResMsg extends JsonHttpResponsedMessage {
     private String mPushMsg;
     private int mPushStatus;

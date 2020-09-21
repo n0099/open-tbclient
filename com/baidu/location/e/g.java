@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g implements Runnable {
     final /* synthetic */ f a;
 

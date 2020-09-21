@@ -29,7 +29,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class NavigationBar extends RelativeLayout {
     private View barBgView;
     private int containerWidth;
@@ -66,14 +66,14 @@ public class NavigationBar extends RelativeLayout {
     private View mUnloginView;
     private View topCoverBgView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum ControlAlign {
         HORIZONTAL_LEFT,
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum ControlType {
         BACK_BUTTON
     }

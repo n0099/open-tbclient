@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice;
 
 import com.baidu.live.tbadk.core.util.NetWorkErr;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class PushConstants {
     public static final int LOGIN_TYPE_API_KEY = 0;
 

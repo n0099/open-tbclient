@@ -11,49 +11,49 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
-    final h<? super T, ? extends org.b.b<? extends U>> mapper;
+    final h<? super T, ? extends org.a.b<? extends U>> mapper;
     final int maxConcurrency;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super U> cVar) {
-        if (!g.a(this.omT, cVar, this.mapper)) {
-            this.omT.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+    protected void a(org.a.c<? super U> cVar) {
+        if (!g.a(this.owE, cVar, this.mapper)) {
+            this.owE.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
-    public static <T, U> j<T> a(org.b.c<? super U> cVar, h<? super T, ? extends org.b.b<? extends U>> hVar, boolean z, int i, int i2) {
+    public static <T, U> j<T> a(org.a.c<? super U> cVar, h<? super T, ? extends org.a.b<? extends U>> hVar, boolean z, int i, int i2) {
         return new MergeSubscriber(cVar, hVar, z, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    public static final class MergeSubscriber<T, U> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -2117620485640801370L;
-        final org.b.c<? super U> actual;
+        final org.a.c<? super U> actual;
         final int bufferSize;
         volatile boolean cancelled;
         final boolean delayErrors;
         volatile boolean done;
         long lastId;
         int lastIndex;
-        final h<? super T, ? extends org.b.b<? extends U>> mapper;
+        final h<? super T, ? extends org.a.b<? extends U>> mapper;
         final int maxConcurrency;
         volatile io.reactivex.internal.a.f<U> queue;
         int scalarEmitted;
         final int scalarLimit;
         long uniqueId;
-        org.b.d upstream;
+        org.a.d upstream;
         static final InnerSubscriber<?, ?>[] EMPTY = new InnerSubscriber[0];
         static final InnerSubscriber<?, ?>[] CANCELLED = new InnerSubscriber[0];
         final AtomicThrowable errs = new AtomicThrowable();
         final AtomicReference<InnerSubscriber<?, ?>[]> subscribers = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
-        MergeSubscriber(org.b.c<? super U> cVar, h<? super T, ? extends org.b.b<? extends U>> hVar, boolean z, int i, int i2) {
+        MergeSubscriber(org.a.c<? super U> cVar, h<? super T, ? extends org.a.b<? extends U>> hVar, boolean z, int i, int i2) {
             this.actual = cVar;
             this.mapper = hVar;
             this.delayErrors = z;
@@ -63,8 +63,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             this.subscribers.lazySet(EMPTY);
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.actual.onSubscribe(this);
@@ -80,11 +80,11 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: io.reactivex.internal.operators.flowable.FlowableFlatMap$MergeSubscriber<T, U> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    org.b.b bVar = (org.b.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null Publisher");
                     if (bVar instanceof Callable) {
                         try {
                             Object call = ((Callable) bVar).call();
@@ -278,7 +278,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             drainLoop();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -290,7 +290,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -298,7 +298,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -306,7 +306,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             io.reactivex.internal.a.f<U> fVar;
             if (!this.cancelled) {
@@ -342,7 +342,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             int i;
             int i2;
             U u;
-            org.b.c<? super U> cVar = this.actual;
+            org.a.c<? super U> cVar = this.actual;
             int i3 = 1;
             while (!checkTerminate()) {
                 io.reactivex.internal.a.f<U> fVar = this.queue;
@@ -593,8 +593,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public static final class InnerSubscriber<T, U> extends AtomicReference<org.b.d> implements io.reactivex.disposables.b, j<U> {
+    /* loaded from: classes25.dex */
+    public static final class InnerSubscriber<T, U> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         final int bufferSize;
         volatile boolean done;
@@ -612,8 +612,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             this.limit = this.bufferSize >> 2;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
@@ -633,7 +633,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(U u) {
             if (this.fusionMode != 2) {
                 this.parent.tryEmit(u, this);
@@ -642,13 +642,13 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             lazySet(SubscriptionHelper.CANCELLED);
             this.parent.innerError(this, th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             this.parent.drain();

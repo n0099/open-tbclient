@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class q implements Thread.UncaughtExceptionHandler {
     public static String a = "";
     private static Thread.UncaughtExceptionHandler b;
@@ -16,7 +16,7 @@ public class q implements Thread.UncaughtExceptionHandler {
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str);
     }

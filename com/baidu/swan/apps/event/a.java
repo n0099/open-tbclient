@@ -13,7 +13,7 @@ import com.baidu.swan.apps.performance.b.c;
 import com.baidu.swan.apps.performance.h;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -25,24 +25,24 @@ public final class a {
         String A2;
         if (aVar != null && aVar2 != null) {
             h.E("postMessage", "dispatchJSEvent start.");
-            if (c.awp()) {
+            if (c.awY()) {
                 if (aVar.isWebView()) {
-                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.bXY + "');";
+                    str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Event('" + aVar2.bZZ + "');";
                     A2 = "";
                 } else {
                     str = "var " + NotificationCompat.CATEGORY_EVENT + " = new Object();";
-                    A2 = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXY);
+                    A2 = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bZZ);
                 }
-                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(A2).append(aVar2.mx(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(A2).append(aVar2.mQ(NotificationCompat.CATEGORY_EVENT)).append(" ").append(d(aVar)).append(".dispatchEvent(").append(NotificationCompat.CATEGORY_EVENT).append(");").append("})();").toString();
             } else {
                 if (aVar.isWebView()) {
-                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bXY);
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bZZ);
                     A = "";
                 } else {
                     format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                    A = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bXY);
+                    A = A(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bZZ);
                 }
-                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, A + aVar2.mx(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, A + aVar2.mQ(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), NotificationCompat.CATEGORY_EVENT));
             }
             h.E("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
@@ -86,7 +86,7 @@ public final class a {
             return "";
         }
         String quote = JSONObject.quote(str3);
-        return c.awp() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
+        return c.awY() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -99,7 +99,7 @@ public final class a {
             return "";
         }
         if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
-            return c.awp() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+            return c.awY() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
         }
         return A(str, str2, String.valueOf(obj));
     }

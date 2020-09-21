@@ -1,7 +1,7 @@
 package androidx.webkit;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes17.dex */
 public abstract class b {
     @NonNull
     public abstract CharSequence getDescription();

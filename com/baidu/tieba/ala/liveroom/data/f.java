@@ -5,66 +5,66 @@ import android.widget.FrameLayout;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class f {
-    public AlaLiveRecorder gxI;
-    public FrameLayout gxJ;
-    public ViewGroup gxK;
-    public com.baidu.tieba.ala.liveroom.master.a.d gxL;
-    public com.baidu.live.ar.h gxM;
-    public AlaLiveRecorderPerfData gxN;
-    public com.baidu.live.tieba.e.b gxO;
-    public com.baidu.live.liveroom.middleware.a gxP;
-    public com.baidu.tieba.ala.liveroom.p.d gxi;
-    public AlaLiveView gxj;
+    public AlaLiveRecorder gAT;
+    public FrameLayout gAU;
+    public ViewGroup gAV;
+    public com.baidu.tieba.ala.liveroom.master.a.d gAW;
+    public com.baidu.live.ar.h gAX;
+    public AlaLiveRecorderPerfData gAY;
+    public com.baidu.live.tieba.e.b gAZ;
+    public com.baidu.tieba.ala.liveroom.q.d gAu;
+    public AlaLiveView gAv;
+    public com.baidu.live.liveroom.middleware.a gBa;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int bRb() {
+    public int bSx() {
         return this.liveType;
     }
 
-    public void tW(int i) {
+    public void up(int i) {
         this.liveType = i;
-        if (this.gxL != null) {
-            this.gxL.uy(i);
+        if (this.gAW != null) {
+            this.gAW.uR(i);
         }
     }
 
     public void f(short s) {
-        if (this.gxL != null) {
-            this.gxL.f(s);
+        if (this.gAW != null) {
+            this.gAW.f(s);
         }
     }
 
-    public void Qt() {
-        if (this.gxL != null) {
-            this.gxL.Qt();
+    public void Rb() {
+        if (this.gAW != null) {
+            this.gAW.Rb();
         }
     }
 
-    public void aXJ() {
-        if (this.gxL != null) {
-            this.gxL.aXJ();
+    public void aYv() {
+        if (this.gAW != null) {
+            this.gAW.aYv();
         }
     }
 
-    public void bRc() {
-        if (this.gxL != null) {
-            this.gxL.bRc();
+    public void bSy() {
+        if (this.gAW != null) {
+            this.gAW.bSy();
         }
     }
 
-    public void bRd() {
-        if (this.gxL != null) {
-            this.gxL.bRd();
+    public void bSz() {
+        if (this.gAW != null) {
+            this.gAW.bSz();
         }
     }
 
-    public void bRe() {
-        if (this.gxL != null) {
-            this.gxL.bRe();
+    public void bSA() {
+        if (this.gAW != null) {
+            this.gAW.bSA();
         }
     }
 }

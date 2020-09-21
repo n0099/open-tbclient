@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Enumeration;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EnumerationSerializer implements ObjectSerializer {
     public static EnumerationSerializer instance = new EnumerationSerializer();
 

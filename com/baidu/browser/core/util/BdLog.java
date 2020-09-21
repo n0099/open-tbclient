@@ -5,17 +5,17 @@ import android.util.Log;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public final class BdLog {
-    private static FileOutputStream aex;
+    private static FileOutputStream aeP;
     private static boolean sDebug = true;
-    private static boolean aey = false;
-    private static String aez = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String aeA = aez + "baiduliulanqi_log.txt";
-    private static String aeB = aez + "baiduliulanqi_lasttime_log.txt";
-    private static boolean aeC = false;
+    private static boolean aeQ = false;
+    private static String aeR = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String aeS = aeR + "baiduliulanqi_log.txt";
+    private static String aeT = aeR + "baiduliulanqi_lasttime_log.txt";
+    private static boolean aeU = false;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     private enum LogLevel {
         DEBUG,
         ERROR,
@@ -88,7 +88,7 @@ public final class BdLog {
                     break;
                 }
         }
-        if (aey) {
+        if (aeQ) {
             R(str, str2);
         }
     }
@@ -96,15 +96,15 @@ public final class BdLog {
     private static void R(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(aez);
+                File file = new File(aeR);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (aex == null) {
-                    aex = new FileOutputStream(aeA);
+                if (aeP == null) {
+                    aeP = new FileOutputStream(aeS);
                 }
-                aex.write((str + " : " + str2).getBytes("UTF-8"));
-                aex.write("\n".getBytes());
+                aeP.write((str + " : " + str2).getBytes("UTF-8"));
+                aeP.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

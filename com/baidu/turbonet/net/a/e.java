@@ -4,21 +4,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class e extends InputStream {
     private ByteBuffer mBuffer;
-    private final d neH;
-    private boolean neI;
-    private IOException neJ;
+    private final d noH;
+    private boolean noI;
+    private IOException noJ;
 
     public e(d dVar) {
-        this.neH = dVar;
+        this.noH = dVar;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        dLO();
-        if (dLP()) {
+        dPM();
+        if (dPN()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        dLO();
-        if (dLP()) {
+        dPM();
+        if (dPN()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.neJ = iOException;
-        this.neI = true;
+        this.noJ = iOException;
+        this.noI = true;
         this.mBuffer = null;
     }
 
-    private void dLO() throws IOException {
-        if (this.neI) {
-            if (this.neJ != null) {
-                throw this.neJ;
+    private void dPM() throws IOException {
+        if (this.noI) {
+            if (this.noJ != null) {
+                throw this.noJ;
             }
-        } else if (!dLP()) {
+        } else if (!dPN()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.neH.p(this.mBuffer);
-            if (this.neJ != null) {
-                throw this.neJ;
+            this.noH.p(this.mBuffer);
+            if (this.noJ != null) {
+                throw this.noJ;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean dLP() {
+    private boolean dPN() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

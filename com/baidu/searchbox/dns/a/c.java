@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.a;
 
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class c implements b {
     private HashMap<String, String> q = new HashMap<>();
     private final Object r = new Object();

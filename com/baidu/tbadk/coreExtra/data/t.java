@@ -1,67 +1,63 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private EmotionGroupType eAG;
-    private int height;
-    private String name;
-    private String pid;
-    private String pname;
-    private String url;
-    private int width;
+    private Hashtable<String, String> eCJ = new Hashtable<>();
+    private Hashtable<String, String> eCK = new Hashtable<>();
 
-    public String getName() {
-        return this.name;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+                BdLog.e("consumepath is:" + jSONObject.toString());
+                a(this.eCJ, optJSONArray);
+                a(this.eCK, optJSONArray2);
+                BdLog.e("pay mPayCashierType:" + this.eCJ.toString());
+                BdLog.e("pay mPayCashierType:" + this.eCK.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public void setName(String str) {
-        this.name = str;
+    private void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length = jSONArray.length();
+        if (length > 0) {
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        hashtable.put(next, optJSONObject.get(next));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
-    public EmotionGroupType bmP() {
-        return this.eAG;
-    }
-
-    public void a(EmotionGroupType emotionGroupType) {
-        this.eAG = emotionGroupType;
-    }
-
-    public String bmQ() {
-        return this.pname;
-    }
-
-    public void AV(String str) {
-        this.pname = str;
-    }
-
-    public String getPid() {
-        return this.pid;
-    }
-
-    public void setPid(String str) {
-        this.pid = str;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
+    public boolean aq(int i, String str) {
+        if (str == null) {
+            return true;
+        }
+        String str2 = null;
+        if (i == 1) {
+            str2 = this.eCK.get(str);
+        } else if (i == 2) {
+            str2 = this.eCJ.get(str);
+        }
+        if (StringUtils.isNull(str2)) {
+            return true;
+        }
+        return str2.equals("3");
     }
 }

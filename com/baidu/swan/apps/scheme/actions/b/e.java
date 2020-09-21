@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.scheme.actions.b;
 
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,10 +11,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e extends b {
-    private static final String cTd = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
-    private static final String cTe = SchemeConfig.getSchemeHead() + "://swangame/%s";
+    private static final String cVd = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    private static final String cVe = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
     public e(j jVar) {
         super(jVar, "/swanAPI/getFavor");
@@ -24,9 +23,9 @@ public class e extends b {
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONArray jSONArray = new JSONArray();
-        List<SwanFavorItemData> amB = SwanFavorDataManager.amA().amB();
-        if (amB.size() > 0) {
-            for (SwanFavorItemData swanFavorItemData : amB) {
+        List<SwanFavorItemData> anl = SwanFavorDataManager.ank().anl();
+        if (anl.size() > 0) {
+            for (SwanFavorItemData swanFavorItemData : anl) {
                 jSONArray.put(b(swanFavorItemData));
             }
         }
@@ -49,11 +48,11 @@ public class e extends b {
             jSONObject.put("title", swanFavorItemData.getAppName());
             jSONObject.put("frameType", swanFavorItemData.getAppFrameType());
             if (swanFavorItemData.getAppFrameType() == 1) {
-                str = String.format(cTe, swanFavorItemData.getAppKey());
+                str = String.format(cVe, swanFavorItemData.getAppKey());
             } else {
-                str = cTd + swanFavorItemData.getAppKey() + "\"}";
+                str = cVd + swanFavorItemData.getAppKey() + "\"}";
             }
-            jSONObject.put(SuspensionBallEntity.KEY_SCHEME, str);
+            jSONObject.put("scheme", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.c;
 import com.baidu.afd.d;
 import com.baidu.afd.h;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -15,7 +14,7 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
     private d adFacadeData;
     public boolean autoPlay;
@@ -66,8 +65,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.lDP)) {
-            this.operateData.lDP = this.userName;
+        if (TextUtils.isEmpty(this.operateData.lMJ)) {
+            this.operateData.lMJ = this.userName;
         }
     }
 
@@ -118,7 +117,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
             jSONObject.put("user_portrait", this.userPortrait);
             jSONObject.put("user_name", this.userPortrait);
             jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
-            jSONObject.put(SuspensionBallEntity.KEY_SCHEME, this.userPortrait);
+            jSONObject.put("scheme", this.userPortrait);
             jSONObject.put("tag_name", this.userPortrait);
             JSONObject jSONObject2 = new JSONObject();
             if (this.video != null) {
@@ -134,8 +133,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, i {
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put("tail_frame", this.tailFrame.toJson());
             jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.rm() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.rm().ext);
+            if (this.adFacadeData != null && this.adFacadeData.rr() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.rr().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();

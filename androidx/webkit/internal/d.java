@@ -5,16 +5,18 @@ import android.webkit.WebView;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
+import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
+/* loaded from: classes17.dex */
 public class d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes17.dex */
     private static class a {
         static final g zS = new g(d.hS().hM());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes17.dex */
     public static class b {
         static final e zT = d.hV();
     }
@@ -36,7 +38,7 @@ public class d {
             return new androidx.webkit.internal.a();
         }
         try {
-            return new f((org.a.a.c) org.a.a.a.a.a(org.a.a.c.class, hU()));
+            return new f((WebViewProviderFactoryBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderFactoryBoundaryInterface.class, hU()));
         } catch (ClassNotFoundException e) {
             return new androidx.webkit.internal.a();
         } catch (IllegalAccessException e2) {

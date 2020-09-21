@@ -6,13 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
-/* loaded from: classes4.dex */
+import org.chromium.support_lib_boundary.SafeBrowsingResponseBoundaryInterface;
+import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
+import org.chromium.support_lib_boundary.util.Features;
+/* loaded from: classes17.dex */
 public class b extends androidx.webkit.a {
     private SafeBrowsingResponse zN;
-    private org.a.a.a zO;
+    private SafeBrowsingResponseBoundaryInterface zO;
 
     public b(@NonNull InvocationHandler invocationHandler) {
-        this.zO = (org.a.a.a) org.a.a.a.a.a(org.a.a.a.class, invocationHandler);
+        this.zO = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, invocationHandler);
     }
 
     public b(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
@@ -27,21 +30,21 @@ public class b extends androidx.webkit.a {
         return this.zN;
     }
 
-    private org.a.a.a hP() {
+    private SafeBrowsingResponseBoundaryInterface hP() {
         if (this.zO == null) {
-            this.zO = (org.a.a.a) org.a.a.a.a.a(org.a.a.a.class, d.hT().a(this.zN));
+            this.zO = (SafeBrowsingResponseBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(SafeBrowsingResponseBoundaryInterface.class, d.hT().a(this.zN));
         }
         return this.zO;
     }
 
     @Override // androidx.webkit.a
     @SuppressLint({"NewApi"})
-    public void Z(boolean z) {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL");
+    public void showInterstitial(boolean z) {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature(Features.SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL);
         if (feature.isSupportedByFramework()) {
             hO().showInterstitial(z);
         } else if (feature.isSupportedByWebView()) {
-            hP().Z(z);
+            hP().showInterstitial(z);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }

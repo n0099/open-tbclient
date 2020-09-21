@@ -15,7 +15,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class BaiduMapNavigation {
     private static boolean a = true;
 

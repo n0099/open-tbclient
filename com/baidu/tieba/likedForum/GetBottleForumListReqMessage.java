@@ -3,10 +3,10 @@ package com.baidu.tieba.likedForum;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.RecommendForumListForBottle.DataReq;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleReqIdl;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class GetBottleForumListReqMessage extends NetMessage {
     private BdUniqueId mRequestId;
 
@@ -27,7 +27,7 @@ public class GetBottleForumListReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                t.a(builder, true);
+                u.a(builder, true);
             }
             RecommendForumListForBottleReqIdl.Builder builder2 = new RecommendForumListForBottleReqIdl.Builder();
             builder2.data = builder.build(false);

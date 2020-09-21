@@ -29,12 +29,12 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static int requestId = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes17.dex */
     public enum ImageLoadingError {
         Invalid,
         Succeed,
@@ -76,7 +76,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
             }
             final long currentTimeMillis = System.currentTimeMillis();
             if (intValue == 1) {
-                Resources resources = g.ld().getResources();
+                Resources resources = g.lh().getResources();
                 if (resources != null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("key", str);
@@ -84,7 +84,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                     String androidNameFromIos = ResNameTransform.getAndroidNameFromIos(str);
                     int identifier = resources.getIdentifier(androidNameFromIos, "drawable", BdBaseApplication.getInst().getPackageName());
                     boolean z2 = false;
-                    if (booleanValue && (androidNameFromIos.contains("_mask_") || androidNameFromIos.contains("_pure_"))) {
+                    if (booleanValue && (androidNameFromIos.contains("_mask_") || androidNameFromIos.contains("_pure_") || ResNameTransform.isSvg(androidNameFromIos))) {
                         if (methodCall.hasArgument("patternColor")) {
                             int i3 = 0;
                             if (methodCall.argument("patternColor") instanceof Integer) {
@@ -92,9 +92,9 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             } else if (methodCall.argument("patternColor") instanceof Long) {
                                 i3 = ((Long) methodCall.argument("patternColor")).intValue();
                             }
-                            a = SvgManager.bjq().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
+                            a = SvgManager.bkl().b(identifier, i3, SvgManager.SvgResourceStateType.NORMAL);
                         } else {
-                            a = SvgManager.bjq().a(identifier, null);
+                            a = SvgManager.bkl().a(identifier, null);
                         }
                         int i4 = 1;
                         if (a != null) {
@@ -145,7 +145,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 final HashMap hashMap2 = new HashMap();
                 hashMap2.put("key", str);
                 hashMap2.put("startTime", Long.valueOf(currentTimeMillis));
-                c.mM().a(str, 44, new b<a>() { // from class: com.example.image_loader_plugin.ImageLoaderPlugin.1
+                c.mR().a(str, 44, new b<a>() { // from class: com.example.image_loader_plugin.ImageLoaderPlugin.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.e.b
@@ -165,7 +165,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                             ImageLoaderPlugin.access$108();
                             hashMap2.put("requestId", Integer.valueOf(ImageLoaderPlugin.requestId));
                             hashMap3 = new HashMap();
-                            hashMap3.put("codecCost", Long.valueOf(aVar.UB.costTime));
+                            hashMap3.put("codecCost", Long.valueOf(aVar.UW.costTime));
                             hashMap3.put("isBundleFile", false);
                             hashMap3.put("netType", j.netTypeNameInLowerCase());
                             hashMap3.put(CameraActivityConfig.KEY_CONTENT_TYPE, String.valueOf(i5));
@@ -191,7 +191,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 }, 0, 0, BdUniqueId.gen(), new Object[0]);
             }
         } else if ("cancel".equals(methodCall.method)) {
-            c.mM().l((String) methodCall.arguments(), 44);
+            c.mR().l((String) methodCall.arguments(), 44);
         } else {
             result.notImplemented();
         }
@@ -222,7 +222,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, MethodChannel.MethodCal
     }
 
     private boolean shouldMonitorPerformance(int i) {
-        return m.buo().bup() && i % 100 == 0;
+        return m.bvs().bvt() && i % 100 == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

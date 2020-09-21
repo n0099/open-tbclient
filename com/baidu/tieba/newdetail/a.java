@@ -3,13 +3,13 @@ package com.baidu.tieba.newdetail;
 import android.view.View;
 import com.baidu.tieba.hottopic.data.d;
 import com.baidu.tieba.hottopic.data.e;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC0751a {
-        void Dn(int i);
+    /* loaded from: classes20.dex */
+    public interface InterfaceC0748a {
+        void DO(int i);
 
         void a(int i, long j, long j2, int i2);
 
@@ -20,35 +20,35 @@ public interface a {
         void e(e eVar);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface b {
+        void C(long j, long j2);
+
         void C(boolean z, int i);
 
-        void Dq(int i);
+        void DR(int i);
 
-        void Dr(int i);
+        void DS(int i);
 
-        void Ds(int i);
+        void DT(int i);
 
-        d Dt(int i);
-
-        void F(long j, long j2);
+        d DU(int i);
 
         void a(d dVar, boolean z, int i);
 
-        void bGe();
+        void bHu();
 
-        void cSr();
+        void cVW();
 
-        void cSs();
+        void cVX();
 
-        void cSt();
+        void cVY();
 
-        e cSu();
+        e cVZ();
 
-        int cSv();
+        int cWa();
 
-        void cSw();
+        void cWb();
 
         void d(long j, long j2, int i);
 
@@ -66,6 +66,6 @@ public interface a {
 
         void resume();
 
-        void sk(boolean z);
+        void ss(boolean z);
     }
 }

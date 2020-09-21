@@ -6,6 +6,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -25,7 +27,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.android.app.event.EventBusWrapper;
+import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
@@ -35,12 +39,16 @@ import com.baidu.searchbox.ui.animview.praise.PraiseEnvironment;
 import com.baidu.searchbox.ui.animview.praise.PraiseInfoManager;
 import com.baidu.searchbox.ui.animview.praise.data.ComboPraiseUBC;
 import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import com.baidu.searchbox.ui.animview.praise.ioc.ComboPraiseRuntime;
+import com.baidu.searchbox.ui.animview.praise.ioc.ILoginStatusListener;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.praise.resource.CoolPraiseIconResource;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
-/* loaded from: classes12.dex */
+import com.baidu.searchbox.ui.animview.util.LinkageControlUtil;
+/* loaded from: classes11.dex */
 public class CoolPraiseView extends LinearLayout {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
+    private static final String NET_ERROR_TIP = "网络不给力，请稍后重试";
     private static final int REMOVE_VIEW_DELAY_TIME_MS = 200;
     private static final int START_DELAY_TIME_MS = 560;
     private static final String TAG = "CoolPraiseView";
@@ -71,37 +79,37 @@ public class CoolPraiseView extends LinearLayout {
     private String mPraiseSource;
     private int mPraisedRes;
     private Drawable mPraisedResDrawable;
-    private int mPraisedTextRes;
+    private ColorStateList mPraisedTextColorStateList;
     private boolean mReversePraiseStatus;
     private boolean mStatusProtecting;
     private int mUnPraisedRes;
     private Drawable mUnPraisedResDrawable;
-    private int mUnPraisedTextRes;
+    private ColorStateList mUnPraisedTextColorStateList;
     private LinearLayout mWrapperLayout;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface ExtraTouchEventListener {
         void onTouchEvent(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface OnClickPraiseListener {
         void onClick(boolean z, int i);
     }
 
-    static /* synthetic */ int access$2108(CoolPraiseView coolPraiseView) {
+    static /* synthetic */ int access$2308(CoolPraiseView coolPraiseView) {
         int i = coolPraiseView.mGuidePlayRepeatCount;
         coolPraiseView.mGuidePlayRepeatCount = i + 1;
         return i;
     }
 
-    static /* synthetic */ int access$508(CoolPraiseView coolPraiseView) {
+    static /* synthetic */ int access$608(CoolPraiseView coolPraiseView) {
         int i = coolPraiseView.mPraiseCount;
         coolPraiseView.mPraiseCount = i + 1;
         return i;
     }
 
-    static /* synthetic */ int access$510(CoolPraiseView coolPraiseView) {
+    static /* synthetic */ int access$610(CoolPraiseView coolPraiseView) {
         int i = coolPraiseView.mPraiseCount;
         coolPraiseView.mPraiseCount = i - 1;
         return i;
@@ -114,8 +122,6 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseCount = 0;
         this.mUnPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_unlike_icon_selector;
         this.mPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_like_icon_selector;
-        this.mUnPraisedTextRes = -1;
-        this.mPraisedTextRes = -1;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -133,8 +139,6 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseCount = 0;
         this.mUnPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_unlike_icon_selector;
         this.mPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_like_icon_selector;
-        this.mUnPraisedTextRes = -1;
-        this.mPraisedTextRes = -1;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -152,8 +156,6 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseCount = 0;
         this.mUnPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_unlike_icon_selector;
         this.mPraisedRes = com.baidu.android.common.widget.praise.R.drawable.comment_item_like_icon_selector;
-        this.mUnPraisedTextRes = -1;
-        this.mPraisedTextRes = -1;
         this.mDisableAnimation = false;
         this.mPraiseIdPrefix = "";
         this.mLocation = new int[4];
@@ -211,8 +213,12 @@ public class CoolPraiseView extends LinearLayout {
         return this.mIsPraised;
     }
 
-    public String displayLikeCount(int i, String str) {
+    public static String displayLikeCount(int i, String str) {
         return i > 9999 ? String.valueOf((((int) ((i / 1000.0d) + 0.5d)) / 10.0d) + str) : String.valueOf(i);
+    }
+
+    public static String getLikeCountWithTenThousand(int i) {
+        return displayLikeCount(i, AppRuntime.getAppContext().getResources().getString(com.baidu.android.common.widget.praise.R.string.common_comment_ten_thousand));
     }
 
     public void setPraise(boolean z) {
@@ -224,29 +230,31 @@ public class CoolPraiseView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void setPraiseUnProtected(boolean z) {
         this.mIsPraised = z;
+        if (this.mUnPraisedTextColorStateList == null) {
+            this.mUnPraisedTextColorStateList = AppRuntime.getAppContext().getResources().getColorStateList(com.baidu.android.common.widget.praise.R.color.comment_item_unlike_text_color_selector);
+        }
+        if (this.mPraisedTextColorStateList == null) {
+            this.mPraisedTextColorStateList = AppRuntime.getAppContext().getResources().getColorStateList(com.baidu.android.common.widget.praise.R.color.comment_item_like_text_color_selector);
+        }
         if (z) {
             if (this.mPraisedResDrawable != null) {
                 this.mPraiseIcon.setImageDrawable(this.mPraisedResDrawable);
             } else {
                 this.mPraiseIcon.setImageDrawable(AppRuntime.getAppContext().getResources().getDrawable(this.mPraisedRes));
             }
-            if (this.mPraisedTextRes < 0) {
-                this.mPraiseCntsView.setTextColor(AppRuntime.getAppContext().getResources().getColorStateList(com.baidu.android.common.widget.praise.R.color.comment_item_like_text_color_selector));
-                return;
-            } else {
-                this.mPraiseCntsView.setTextColor(AppRuntime.getAppContext().getResources().getColor(this.mPraisedTextRes));
+            if (this.mPraisedTextColorStateList != null) {
+                this.mPraiseCntsView.setTextColor(this.mPraisedTextColorStateList);
                 return;
             }
+            return;
         }
         if (this.mUnPraisedResDrawable != null) {
             this.mPraiseIcon.setImageDrawable(this.mUnPraisedResDrawable);
         } else {
             this.mPraiseIcon.setImageDrawable(AppRuntime.getAppContext().getResources().getDrawable(this.mUnPraisedRes));
         }
-        if (this.mUnPraisedTextRes < 0) {
-            this.mPraiseCntsView.setTextColor(AppRuntime.getAppContext().getResources().getColorStateList(com.baidu.android.common.widget.praise.R.color.comment_item_unlike_text_color_selector));
-        } else {
-            this.mPraiseCntsView.setTextColor(AppRuntime.getAppContext().getResources().getColorStateList(this.mUnPraisedTextRes));
+        if (this.mUnPraisedTextColorStateList != null) {
+            this.mPraiseCntsView.setTextColor(this.mUnPraisedTextColorStateList);
         }
     }
 
@@ -259,14 +267,37 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
+    public CoolPraiseView setPraiseStateTextRes(int i, int i2, int i3, int i4) {
+        return setPraiseStateTextRes(getPressedColorStateList(i, i2), getPressedColorStateList(i3, i4));
+    }
+
+    private static ColorStateList getPressedColorStateList(int i, int i2) {
+        return new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{i2, i});
+    }
+
     public CoolPraiseView setPraiseStateTextRes(int i, int i2) {
-        this.mUnPraisedTextRes = i;
-        this.mPraisedTextRes = i2;
+        ColorStateList colorStateList;
+        ColorStateList colorStateList2 = null;
+        try {
+            colorStateList = AppRuntime.getAppContext().getResources().getColorStateList(i);
+            try {
+                colorStateList2 = AppRuntime.getAppContext().getResources().getColorStateList(i2);
+            } catch (Resources.NotFoundException e) {
+            }
+        } catch (Resources.NotFoundException e2) {
+            colorStateList = null;
+        }
+        return setPraiseStateTextRes(colorStateList, colorStateList2);
+    }
+
+    public CoolPraiseView setPraiseStateTextRes(ColorStateList colorStateList, ColorStateList colorStateList2) {
+        this.mUnPraisedTextColorStateList = colorStateList;
+        this.mPraisedTextColorStateList = colorStateList2;
         setPraise(this.mIsPraised);
         return this;
     }
 
-    public synchronized void setPraiseIconResByName(final String str, final boolean z, final int i, final int i2) {
+    public synchronized void setPraiseIconResByName(final String str, final boolean z, final int i, final int i2, final Runnable runnable) {
         postDelayed(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -293,15 +324,30 @@ public class CoolPraiseView extends LinearLayout {
                 CoolPraiseView.this.setPraise(CoolPraiseView.this.mIsPraised);
                 CoolPraiseView.this.requestLayout();
                 CoolPraiseView.this.invalidate();
+                if (runnable != null) {
+                    runnable.run();
+                }
             }
         }, 50L);
     }
 
+    public synchronized void setPraiseIconResByName(String str, boolean z, int i, int i2) {
+        setPraiseIconResByName(str, z, i, i2, null);
+    }
+
+    @Deprecated
     public CoolPraiseView setPraiseTextColor(int i) {
-        this.mPraiseCntsView.setTextColor(i);
+        ColorStateList colorStateList = new ColorStateList(new int[][]{new int[0]}, new int[]{i});
+        if (this.mIsPraised) {
+            this.mPraisedTextColorStateList = colorStateList;
+        } else {
+            this.mUnPraisedTextColorStateList = colorStateList;
+        }
+        this.mPraiseCntsView.setTextColor(colorStateList);
         return this;
     }
 
+    @Deprecated
     public CoolPraiseView setPraiseIcon(int i) {
         this.mPraiseIcon.setImageDrawable(getResources().getDrawable(i));
         return this;
@@ -322,6 +368,7 @@ public class CoolPraiseView extends LinearLayout {
         this.mPraiseSource = str;
         if (this.mComboPraiseManager != null) {
             this.mComboPraiseManager.setPraiseSource(this.mPraiseSource);
+            setPraiseCount(this.mPraiseCount);
         }
         return this;
     }
@@ -339,8 +386,14 @@ public class CoolPraiseView extends LinearLayout {
         if (i <= 0) {
             this.mPraiseCount = 0;
             this.mPraiseCntsView.setText(getResources().getString(com.baidu.android.common.widget.praise.R.string.common_comment_like));
+            if (PraiseEnvironment.isFirstPraiseAnimSupported(this.mPraiseSource)) {
+                if (DEBUG) {
+                    Log.d(TAG, "isFirstPraiseAnimSupported return true");
+                }
+                this.mPraiseCntsView.setText(getResources().getString(com.baidu.android.common.widget.praise.R.string.common_comment_firstpraise));
+            }
         } else {
-            this.mPraiseCntsView.setText(displayLikeCount(i, getResources().getString(com.baidu.android.common.widget.praise.R.string.common_comment_ten_thousand)));
+            this.mPraiseCntsView.setText(getLikeCountWithTenThousand(i));
         }
         return this;
     }
@@ -364,16 +417,69 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
+    private boolean doLoginIfNecessary() {
+        if (!PraiseEnvironment.isPraiseLoginSupported(this.mPraiseSource)) {
+            if (DEBUG) {
+                Log.d(TAG, "isPraiseLoginSupported return false, so doLoginIfNecessary=true");
+                return true;
+            }
+            return true;
+        } else if (this.mPraiseAnimBlock) {
+            if (DEBUG) {
+                Log.d(TAG, "mPraiseAnimBlock is true, so doLoginIfNecessary=false");
+            }
+            return false;
+        } else if (!NetWorkUtils.isNetworkConnected()) {
+            this.mPraiseAnimBlock = true;
+            UniversalToast.makeText(this.mContext, NET_ERROR_TIP).showToast();
+            if (DEBUG) {
+                Log.d(TAG, "isNetworkConnected return false, so doLoginIfNecessary=false");
+            }
+            return false;
+        } else if (ComboPraiseRuntime.getContext().isLogin()) {
+            if (DEBUG) {
+                Log.d(TAG, "isLogin return true, so doLoginIfNecessary=true");
+                return true;
+            }
+            return true;
+        } else {
+            ComboPraiseRuntime.getContext().doLogin(this.mContext, new ILoginStatusListener() { // from class: com.baidu.searchbox.ui.CoolPraiseView.2
+                @Override // com.baidu.searchbox.ui.animview.praise.ioc.ILoginStatusListener
+                public void loginSuccess() {
+                    if (CoolPraiseView.DEBUG) {
+                        Log.d(CoolPraiseView.TAG, "loginSuccess, performClick");
+                    }
+                    CoolPraiseView.this.performClick();
+                }
+
+                @Override // com.baidu.searchbox.ui.animview.praise.ioc.ILoginStatusListener
+                public void loginFail() {
+                    if (CoolPraiseView.DEBUG) {
+                        Log.d(CoolPraiseView.TAG, "loginFail");
+                    }
+                }
+            });
+            this.mPraiseAnimBlock = true;
+            if (DEBUG) {
+                Log.d(TAG, "doLogin, so doLoginIfNecessary=false");
+            }
+            return false;
+        }
+    }
+
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if ((!PraiseEnvironment.isCancelPraiseEnabled(this.mPraiseSource) || !this.mIsPraised) && !this.mDisableAnimation && ComboPraiseManager.isPraiseEnabled(this.mPraiseSource) && !this.mPraiseAnimBlock) {
+        if (doLoginIfNecessary() && ((!PraiseEnvironment.isCancelPraiseEnabled(this.mPraiseSource) || !this.mIsPraised) && !this.mDisableAnimation && ComboPraiseManager.isPraiseEnabled(this.mPraiseSource) && !this.mPraiseAnimBlock)) {
             if (DEBUG) {
                 Log.d(TAG, "Praise Animation Triggered");
-                if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+                if (DeviceUtil.OSInfo.hasKitKat()) {
                     Log.d(TAG, "pos1:" + MotionEvent.actionToString(motionEvent.getAction()));
                 } else {
                     Log.d(TAG, "pos1:" + motionEvent.getAction());
                 }
+            }
+            if (this.mPraiseCount == 0 && !this.mStatusProtecting) {
+                this.mComboPraiseManager.setFirstPraiseAnimEnabled(true);
             }
             this.mComboPraiseManager.onTouchForNA(motionEvent);
             if (this.mExtraTouchEventListener != null) {
@@ -388,6 +494,7 @@ public class CoolPraiseView extends LinearLayout {
                 case 1:
                 case 3:
                     this.mStatusProtecting = false;
+                    LinkageControlUtil.notifyEnableLinkageScroll();
                     break;
             }
             if (this.mPraiseAnimPrevented) {
@@ -402,7 +509,7 @@ public class CoolPraiseView extends LinearLayout {
         }
         if (DEBUG) {
             Log.d(TAG, "Praise Animation disabled or prevented or praised");
-            if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+            if (DeviceUtil.OSInfo.hasKitKat()) {
                 Log.d(TAG, "pos2:" + MotionEvent.actionToString(motionEvent.getAction()));
             } else {
                 Log.d(TAG, "pos2:" + motionEvent.getAction());
@@ -419,11 +526,12 @@ public class CoolPraiseView extends LinearLayout {
                 break;
             case 1:
             case 3:
-                this.mPraiseAnimBlock = false;
                 if (this.mExtraTouchEventListener != null) {
                     this.mExtraTouchEventListener.onTouchEvent(motionEvent);
                 }
                 this.mStatusProtecting = false;
+                this.mPraiseAnimBlock = false;
+                LinkageControlUtil.notifyEnableLinkageScroll();
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -495,19 +603,19 @@ public class CoolPraiseView extends LinearLayout {
     }
 
     private void setup() {
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.CoolPraiseView.2
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.CoolPraiseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (CoolPraiseView.this.isPraiseEnabled()) {
                     if (CoolPraiseView.this.mIsPraised) {
                         if (PraiseEnvironment.isCancelPraiseEnabled(CoolPraiseView.this.mPraiseSource)) {
-                            CoolPraiseView.access$510(CoolPraiseView.this);
+                            CoolPraiseView.access$610(CoolPraiseView.this);
                             CoolPraiseView.this.setPraiseUnProtected(false);
                             CoolPraiseView.this.setPraiseCount(CoolPraiseView.this.mPraiseCount);
                             PraiseInfoManager.getInstance().updatePraiseCounts(PraiseInfoManager.makePraiseInfoKey(CoolPraiseView.this.mPraiseSource, CoolPraiseView.this.mPraiseIdPrefix + CoolPraiseView.this.mPraiseId), 0L);
                         }
                     } else {
-                        CoolPraiseView.access$508(CoolPraiseView.this);
+                        CoolPraiseView.access$608(CoolPraiseView.this);
                         CoolPraiseView.this.setPraiseUnProtected(true);
                         CoolPraiseView.this.setPraiseCount(CoolPraiseView.this.mPraiseCount);
                     }
@@ -536,7 +644,7 @@ public class CoolPraiseView extends LinearLayout {
             Log.d(TAG, "initPraiseManager");
         }
         this.mComboPraiseManager = new ComboPraiseManager((Activity) this.mContext, "");
-        this.mComboPraiseManager.setPraiseManagerCallback(new IPraiseManagerCallback() { // from class: com.baidu.searchbox.ui.CoolPraiseView.3
+        this.mComboPraiseManager.setPraiseManagerCallback(new IPraiseManagerCallback() { // from class: com.baidu.searchbox.ui.CoolPraiseView.4
             @Override // com.baidu.searchbox.ui.animview.praise.IPraiseManagerCallback
             public int getAnchorLeft() {
                 CoolPraiseView.this.initPraiseLocation();
@@ -583,14 +691,14 @@ public class CoolPraiseView extends LinearLayout {
                 return CoolPraiseView.this.mPraiseIdPrefix + CoolPraiseView.this.mPraiseId;
             }
         });
-        this.mComboPraiseManager.setPraiseAnimListener(new IExPraiseAnimListener() { // from class: com.baidu.searchbox.ui.CoolPraiseView.4
+        this.mComboPraiseManager.setPraiseAnimListener(new IExPraiseAnimListener() { // from class: com.baidu.searchbox.ui.CoolPraiseView.5
             @Override // com.baidu.searchbox.ui.animview.praise.IPraiseAnimListener
             public void onPraiseAnimStart() {
                 if (CoolPraiseView.DEBUG) {
                     Log.d(CoolPraiseView.TAG, "onPraiseAnimStart--" + CoolPraiseView.this.mPraiseId);
                 }
                 if (!CoolPraiseView.this.mIsPraised) {
-                    CoolPraiseView.access$508(CoolPraiseView.this);
+                    CoolPraiseView.access$608(CoolPraiseView.this);
                     CoolPraiseView.this.setPraiseCount(CoolPraiseView.this.mPraiseCount);
                     CoolPraiseView.this.setPraiseUnProtected(true);
                     if (CoolPraiseView.this.mOnClickPraiseListener != null) {
@@ -602,7 +710,23 @@ public class CoolPraiseView extends LinearLayout {
                     CoolPraiseView.this.mIsPraised = !CoolPraiseView.this.mIsPraised;
                     CoolPraiseView.this.mReversePraiseStatus = true;
                 }
-                EventBusWrapper.post(new PraiseAnimState(1));
+                if (CoolPraiseView.this.mStatusProtecting) {
+                    LinkageControlUtil.notifyDisableLinkageScroll();
+                }
+                EventBusWrapper.post(new PraiseAnimState(1, CoolPraiseView.this));
+            }
+
+            @Override // com.baidu.searchbox.ui.animview.praise.IExPraiseAnimListener
+            public void onPraiseAnimPrevented(int i) {
+                if (CoolPraiseView.DEBUG) {
+                    Log.d(CoolPraiseView.TAG, "onPraiseAnimPrevented--" + CoolPraiseView.this.mPraiseId + ", reason:" + i);
+                }
+                if (i == 1) {
+                    CoolPraiseView.this.mIsAnimCancelling = true;
+                }
+                CoolPraiseView.this.mPraiseAnimPrevented = true;
+                LinkageControlUtil.notifyDisableLinkageScroll();
+                EventBusWrapper.post(new PraiseAnimState(3, CoolPraiseView.this));
             }
 
             @Override // com.baidu.searchbox.ui.animview.praise.IPraiseAnimListener
@@ -617,7 +741,7 @@ public class CoolPraiseView extends LinearLayout {
                 if (CoolPraiseView.this.mIsAnimCancelling) {
                     CoolPraiseView.this.mIsAnimCancelling = false;
                     if (CoolPraiseView.this.mIsPraised) {
-                        CoolPraiseView.access$510(CoolPraiseView.this);
+                        CoolPraiseView.access$610(CoolPraiseView.this);
                         CoolPraiseView.this.setPraiseCount(CoolPraiseView.this.mPraiseCount);
                         CoolPraiseView.this.setPraiseUnProtected(false);
                         if (CoolPraiseView.this.mOnClickPraiseListener != null) {
@@ -628,19 +752,10 @@ public class CoolPraiseView extends LinearLayout {
                         }
                     }
                 }
-                EventBusWrapper.post(new PraiseAnimState(2));
-            }
-
-            @Override // com.baidu.searchbox.ui.animview.praise.IExPraiseAnimListener
-            public void onPraiseAnimPrevented(int i) {
-                if (CoolPraiseView.DEBUG) {
-                    Log.d(CoolPraiseView.TAG, "onPraiseAnimPrevented--" + CoolPraiseView.this.mPraiseId + ", reason:" + i);
-                }
-                if (i == 1) {
-                    CoolPraiseView.this.mIsAnimCancelling = true;
-                }
-                CoolPraiseView.this.mPraiseAnimPrevented = true;
-                EventBusWrapper.post(new PraiseAnimState(2));
+                CoolPraiseView.this.mStatusProtecting = false;
+                CoolPraiseView.this.mPraiseAnimBlock = false;
+                LinkageControlUtil.notifyEnableLinkageScroll();
+                EventBusWrapper.post(new PraiseAnimState(2, CoolPraiseView.this));
             }
         });
     }
@@ -655,19 +770,31 @@ public class CoolPraiseView extends LinearLayout {
         return this;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static class PraiseAnimState {
+        public static final int ANIM_STATE_PREVENTED = 3;
         public static final int ANIM_STATE_STARTED = 1;
         public static final int ANIM_STATE_STOPPED = 2;
-        private int mAnimState;
+        private int animState;
+        private CoolPraiseView praiseView;
 
         public PraiseAnimState(int i) {
-            this.mAnimState = -1;
-            this.mAnimState = i;
+            this.animState = -1;
+            this.animState = i;
+        }
+
+        public PraiseAnimState(int i, CoolPraiseView coolPraiseView) {
+            this.animState = -1;
+            this.animState = i;
+            this.praiseView = coolPraiseView;
         }
 
         public int getAnimState() {
-            return this.mAnimState;
+            return this.animState;
+        }
+
+        public CoolPraiseView getPraiseView() {
+            return this.praiseView;
         }
     }
 
@@ -743,7 +870,7 @@ public class CoolPraiseView extends LinearLayout {
 
     public void cancelGuidePlay() {
         if (isGuideAnimPlaying()) {
-            post(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.5
+            post(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.6
                 @Override // java.lang.Runnable
                 public void run() {
                     if (CoolPraiseView.this.mGuideAnimator != null) {
@@ -780,11 +907,11 @@ public class CoolPraiseView extends LinearLayout {
         this.mCopyPressedImageView.setPivotX(0.0f);
         this.mCopyPressedImageView.setPivotY(this.mPraiseIcon.getHeight());
         this.mCopyPressedImageView.invalidate();
-        this.mGuideAnimator.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.ui.CoolPraiseView.6
+        this.mGuideAnimator.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.ui.CoolPraiseView.7
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (CoolPraiseView.this.mGuidePlayRepeatCount >= 1) {
-                    CoolPraiseView.this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.6.1
+                    CoolPraiseView.this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.7.1
                         @Override // java.lang.Runnable
                         public void run() {
                             CoolPraiseView.this.mGuidePlayRootView.removeView(CoolPraiseView.this.mCopyPressedImageView);
@@ -796,7 +923,7 @@ public class CoolPraiseView extends LinearLayout {
                 }
                 CoolPraiseView.this.mGuideAnimator.setStartDelay(560L);
                 CoolPraiseView.this.mGuideAnimator.start();
-                CoolPraiseView.access$2108(CoolPraiseView.this);
+                CoolPraiseView.access$2308(CoolPraiseView.this);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -814,10 +941,10 @@ public class CoolPraiseView extends LinearLayout {
         layoutParams.leftMargin = i - (this.mCoolPraiseGuideLottieView.getRealWidth() / 2);
         layoutParams.topMargin = i2 - this.mCoolPraiseGuideLottieView.getRealHeigth();
         this.mGuidePlayRootView.addView(this.mCoolPraiseGuideLottieView, layoutParams);
-        this.mCoolPraiseGuideLottieView.setAnimatorListenerAdapter(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.ui.CoolPraiseView.7
+        this.mCoolPraiseGuideLottieView.setAnimatorListenerAdapter(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.ui.CoolPraiseView.8
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                CoolPraiseView.this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.7.1
+                CoolPraiseView.this.mMainHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.ui.CoolPraiseView.8.1
                     @Override // java.lang.Runnable
                     public void run() {
                         CoolPraiseView.this.mGuidePlayRootView.removeView(CoolPraiseView.this.mCoolPraiseGuideLottieView);

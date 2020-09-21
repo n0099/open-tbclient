@@ -13,14 +13,14 @@ import com.tb.airbnb.lottie.g;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class b {
     private static final Object Ea = new Object();
     private String Eb;
     private final Map<String, g> Ed;
     private final Context context;
     @Nullable
-    private com.tb.airbnb.lottie.b ojn;
+    private com.tb.airbnb.lottie.b osX;
 
     public b(Drawable.Callback callback, String str, com.tb.airbnb.lottie.b bVar, Map<String, g> map) {
         this.Eb = str;
@@ -39,7 +39,7 @@ public class b {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
-        this.ojn = bVar;
+        this.osX = bVar;
     }
 
     @Nullable
@@ -63,8 +63,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.ojn != null) {
-            Bitmap fetchBitmap = this.ojn.fetchBitmap(gVar);
+        if (this.osX != null) {
+            Bitmap fetchBitmap = this.osX.fetchBitmap(gVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;

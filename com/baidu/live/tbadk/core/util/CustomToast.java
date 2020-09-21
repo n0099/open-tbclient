@@ -5,7 +5,7 @@ import android.widget.Toast;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CustomToast {
     private static final int TOAST_DURATION = 2000;
     private static Toast mToast;

@@ -10,60 +10,60 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableBuffer<T, C extends Collection<? super T>> extends io.reactivex.internal.operators.flowable.a<T, C> {
     final Callable<C> bufferSupplier;
     final int size;
     final int skip;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super C> cVar) {
+    public void a(org.a.c<? super C> cVar) {
         if (this.size == this.skip) {
-            this.omT.a((j) new a(cVar, this.size, this.bufferSupplier));
+            this.owE.a((j) new a(cVar, this.size, this.bufferSupplier));
         } else if (this.skip > this.size) {
-            this.omT.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.owE.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         } else {
-            this.omT.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.owE.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class a<T, C extends Collection<? super T>> implements j<T>, org.b.d {
-        final org.b.c<? super C> actual;
+    /* loaded from: classes25.dex */
+    static final class a<T, C extends Collection<? super T>> implements j<T>, org.a.d {
+        final org.a.c<? super C> actual;
         C buffer;
         final Callable<C> bufferSupplier;
         boolean done;
         int index;
-        org.b.d s;
+        org.a.d s;
         final int size;
 
-        a(org.b.c<? super C> cVar, int i, Callable<C> callable) {
+        a(org.a.c<? super C> cVar, int i, Callable<C> callable) {
             this.actual = cVar;
             this.size = i;
             this.bufferSupplier = callable;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.Q(j, this.size));
+                this.s.request(io.reactivex.internal.util.b.N(j, this.size));
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.s.cancel();
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 C c = this.buffer;
@@ -90,7 +90,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -100,7 +100,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -113,50 +113,50 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -5616169793639412593L;
-        final org.b.c<? super C> actual;
+        final org.a.c<? super C> actual;
         C buffer;
         final Callable<C> bufferSupplier;
         boolean done;
         int index;
-        org.b.d s;
+        org.a.d s;
         final int size;
         final int skip;
 
-        PublisherBufferSkipSubscriber(org.b.c<? super C> cVar, int i, int i2, Callable<C> callable) {
+        PublisherBufferSkipSubscriber(org.a.c<? super C> cVar, int i, int i2, Callable<C> callable) {
             this.actual = cVar;
             this.size = i;
             this.skip = i2;
             this.bufferSupplier = callable;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.s.request(io.reactivex.internal.util.b.P(io.reactivex.internal.util.b.Q(j, this.size), io.reactivex.internal.util.b.Q(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.M(io.reactivex.internal.util.b.N(j, this.size), io.reactivex.internal.util.b.N(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.Q(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.N(this.skip, j));
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.s.cancel();
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 C c = this.buffer;
@@ -184,7 +184,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -195,7 +195,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -209,22 +209,22 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements io.reactivex.c.e, j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements io.reactivex.c.e, j<T>, org.a.d {
         private static final long serialVersionUID = -7370244972039324525L;
-        final org.b.c<? super C> actual;
+        final org.a.c<? super C> actual;
         final Callable<C> bufferSupplier;
         volatile boolean cancelled;
         boolean done;
         int index;
         long produced;
-        org.b.d s;
+        org.a.d s;
         final int size;
         final int skip;
         final AtomicBoolean once = new AtomicBoolean();
         final ArrayDeque<C> buffers = new ArrayDeque<>();
 
-        PublisherBufferOverlappingSubscriber(org.b.c<? super C> cVar, int i, int i2, Callable<C> callable) {
+        PublisherBufferOverlappingSubscriber(org.a.c<? super C> cVar, int i, int i2, Callable<C> callable) {
             this.actual = cVar;
             this.size = i;
             this.skip = i2;
@@ -236,25 +236,25 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             return this.cancelled;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j) && !i.a(j, this.actual, this.buffers, this, this)) {
                 if (!this.once.get() && this.once.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.P(this.size, io.reactivex.internal.util.b.Q(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.M(this.size, io.reactivex.internal.util.b.N(this.skip, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.Q(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.N(this.skip, j));
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.cancelled = true;
             this.s.cancel();
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -263,7 +263,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.util.ArrayDeque<C extends java.util.Collection<? super T>> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 ArrayDeque<C> arrayDeque = this.buffers;
@@ -294,7 +294,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -305,7 +305,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;

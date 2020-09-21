@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class MsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_LINK = "";
@@ -27,6 +27,8 @@ public final class MsgInfo extends Message {
     public final Integer msgType;
     @ProtoField(tag = 9, type = Message.Datatype.INT64)
     public final Long recordId;
+    @ProtoField(tag = 19, type = Message.Datatype.INT64)
+    public final Long serviceId;
     @ProtoField(tag = 17, type = Message.Datatype.INT64)
     public final Long sid;
     @ProtoField(tag = 14, type = Message.Datatype.STRING)
@@ -56,6 +58,7 @@ public final class MsgInfo extends Message {
     public static final Integer DEFAULT_ISFRIEND = 0;
     public static final Long DEFAULT_SID = 0L;
     public static final Integer DEFAULT_FOLLOWSTATUS = 0;
+    public static final Long DEFAULT_SERVICEID = 0L;
 
     private MsgInfo(Builder builder, boolean z) {
         super(builder);
@@ -139,9 +142,14 @@ public final class MsgInfo extends Message {
             }
             if (builder.followStatus == null) {
                 this.followStatus = DEFAULT_FOLLOWSTATUS;
-                return;
             } else {
                 this.followStatus = builder.followStatus;
+            }
+            if (builder.serviceId == null) {
+                this.serviceId = DEFAULT_SERVICEID;
+                return;
+            } else {
+                this.serviceId = builder.serviceId;
                 return;
             }
         }
@@ -163,9 +171,10 @@ public final class MsgInfo extends Message {
         this.isFriend = builder.isFriend;
         this.sid = builder.sid;
         this.followStatus = builder.followStatus;
+        this.serviceId = builder.serviceId;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<MsgInfo> {
         public String content;
         public Integer createTime;
@@ -177,6 +186,7 @@ public final class MsgInfo extends Message {
         public Long msgId;
         public Integer msgType;
         public Long recordId;
+        public Long serviceId;
         public Long sid;
         public String stat;
         public Integer status;
@@ -210,6 +220,7 @@ public final class MsgInfo extends Message {
                 this.isFriend = msgInfo.isFriend;
                 this.sid = msgInfo.sid;
                 this.followStatus = msgInfo.followStatus;
+                this.serviceId = msgInfo.serviceId;
             }
         }
 

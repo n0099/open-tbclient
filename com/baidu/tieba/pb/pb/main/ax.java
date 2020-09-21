@@ -8,47 +8,47 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ax extends com.baidu.tbadk.core.view.userLike.c {
-    private bw ajz;
-    private String ala;
+    private bw ajX;
+    private String alA;
     public boolean isBigV;
-    public boolean kKE;
-    private int kKF;
-    private int kKG;
+    public boolean kTe;
+    private int kTf;
+    private int kTg;
     private TbPageContext mPageContext;
 
     public ax(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.kKE = false;
+        this.kTe = false;
         this.isBigV = false;
-        this.kKF = 0;
-        this.kKF = i;
+        this.kTf = 0;
+        this.kTf = i;
         this.mPageContext = tbPageContext;
-        if (this.kKF == 1) {
-            super.zm("4");
-        } else if (this.kKF == 3) {
-            super.zm("5");
+        if (this.kTf == 1) {
+            super.zH("4");
+        } else if (this.kTf == 3) {
+            super.zH("5");
         } else if (i == 4 || i == 5 || i == 6) {
-            super.zm("4");
+            super.zH("4");
         } else {
-            super.zm("0");
+            super.zH("0");
         }
     }
 
     public void setThreadData(bw bwVar) {
-        this.ajz = bwVar;
+        this.ajX = bwVar;
     }
 
     public void setTid(String str) {
-        this.ala = str;
+        this.alA = str;
     }
 
-    public void Et(int i) {
-        this.kKG = i;
+    public void EU(int i) {
+        this.kTg = i;
     }
 
-    private int dah() {
+    private int ddK() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -79,59 +79,59 @@ public class ax extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.eyc != null ? this.eyc.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12408").ai("obj_source", dah()).dD("obj_id", userId).dD("tid", this.ala));
-            if (this.kKF != 1) {
-                if (this.kKF == 3) {
+            String userId = this.eAi != null ? this.eAi.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12408").ai("obj_source", ddK()).dF("obj_id", userId).dF("tid", this.alA));
+            if (this.kTf != 1) {
+                if (this.kTf == 3) {
                     i = 2;
-                } else if (this.kKF == 5) {
+                } else if (this.kTf == 5) {
                     i = 5;
-                } else if (this.kKF == 7) {
+                } else if (this.kTf == 7) {
                     i = 7;
-                } else if (this.kKF == 6) {
+                } else if (this.kTf == 6) {
                     i = 6;
                 } else {
-                    i = this.kKF == 4 ? 4 : 0;
+                    i = this.kTf == 4 ? 4 : 0;
                 }
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c12507");
             aqVar.ai("obj_locate", i);
-            aqVar.dD("obj_id", userId);
-            aqVar.dD("tid", this.ala);
-            aqVar.ai("obj_param1", this.kKG);
+            aqVar.dF("obj_id", userId);
+            aqVar.dF("tid", this.alA);
+            aqVar.ai("obj_param1", this.kTg);
             if (!com.baidu.tbadk.core.util.at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                aqVar.dD("obj_source", TbadkCoreApplication.getInst().getTaskId());
+                aqVar.dF("obj_source", TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(aqVar);
             com.baidu.tbadk.core.util.aq aqVar2 = new com.baidu.tbadk.core.util.aq("c13570");
-            aqVar2.dD("obj_id", userId);
+            aqVar2.dF("obj_id", userId);
             aqVar2.u("uid", TbadkCoreApplication.getCurrentAccountId());
-            aqVar2.dD("tid", this.ala);
-            if (this.ajz != null) {
-                aqVar2.dD("nid", this.ajz.getNid());
-                if (this.ajz.getBaijiahaoData() != null && !com.baidu.tbadk.core.util.at.isEmpty(this.ajz.getBaijiahaoData().oriUgcVid)) {
-                    aqVar2.dD("obj_param6", this.ajz.getBaijiahaoData().oriUgcVid);
+            aqVar2.dF("tid", this.alA);
+            if (this.ajX != null) {
+                aqVar2.dF("nid", this.ajX.getNid());
+                if (this.ajX.getBaijiahaoData() != null && !com.baidu.tbadk.core.util.at.isEmpty(this.ajX.getBaijiahaoData().oriUgcVid)) {
+                    aqVar2.dF("obj_param6", this.ajX.getBaijiahaoData().oriUgcVid);
                 }
-                aqVar2.dD(IntentConfig.RECOM_SOURCE, this.ajz.mRecomSource);
-                aqVar2.dD("ab_tag", this.ajz.mRecomAbTag);
-                aqVar2.dD("weight", this.ajz.mRecomWeight);
-                aqVar2.dD("extra", this.ajz.mRecomExtra);
+                aqVar2.dF(IntentConfig.RECOM_SOURCE, this.ajX.mRecomSource);
+                aqVar2.dF("ab_tag", this.ajX.mRecomAbTag);
+                aqVar2.dF("weight", this.ajX.mRecomWeight);
+                aqVar2.dF("extra", this.ajX.mRecomExtra);
             }
             if (this.mPageContext != null) {
                 com.baidu.tbadk.pageInfo.c.b(this.mPageContext.getPageActivity(), aqVar2);
             }
             TiebaStatic.log(aqVar2);
             super.onClick(view);
-            if (this.kKE && this.eyc != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c11924").dD("obj_id", this.eyc.getUserId()));
+            if (this.kTe && this.eAi != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c11924").dF("obj_id", this.eAi.getUserId()));
             }
-            if (this.isBigV && this.eyc != null) {
-                if (this.kKF == 1) {
+            if (this.isBigV && this.eAi != null) {
+                if (this.kTf == 1) {
                     i2 = 1;
-                } else if (this.kKF != 2) {
+                } else if (this.kTf != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12150").ai("obj_locate", i2).dD("obj_id", this.eyc.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12150").ai("obj_locate", i2).dF("obj_id", this.eAi.getUserId()));
             }
         }
     }

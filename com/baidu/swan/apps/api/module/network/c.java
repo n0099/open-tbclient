@@ -13,23 +13,23 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> bXc = i.N("localhost", "127.0.0.1");
+    protected static final Set<String> bZd = i.N("localhost", "127.0.0.1");
 
-    public static String jB(String str) {
+    public static String jU(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl jC(String str) {
+    public static HttpUrl jV(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.azE().azC() == null) {
+        if (d.aAn().aAl() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ad.a.a.awW() || a(parse)) {
+        } else if (com.baidu.swan.apps.ad.a.a.axF() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aAM = com.baidu.swan.apps.ag.a.b.aAM();
-        if (!com.baidu.swan.apps.t.a.aoM().YG()) {
-            aAM = false;
+        boolean aBv = com.baidu.swan.apps.ag.a.b.aBv();
+        if (!com.baidu.swan.apps.t.a.apx().Zp()) {
+            aBv = false;
         }
         if (httpUrl != null) {
-            return (!aAM || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bXc.contains(httpUrl.host().toLowerCase());
+            return (!aBv || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !bZd.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject jD(String str) {
+    public static JSONObject jW(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -84,7 +84,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String acb() {
-        return ab.aEV();
+    public static String acK() {
+        return ab.aFF();
     }
 }

@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 public class a {
     public static final Drawable getDrawable(Context context, int i) {
         return Build.VERSION.SDK_INT >= 21 ? b.getDrawable(context, i) : context.getResources().getDrawable(i);

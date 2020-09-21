@@ -9,7 +9,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b.b, a> {
     public d(com.baidu.tieba.pb.pb.a aVar, BdUniqueId bdUniqueId) {
         super(aVar, bdUniqueId);
@@ -18,8 +18,8 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cp */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: cq */
+    public a c(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false));
     }
 
@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.UO).kTQ.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
-        ((a) this.UO).onChangeSkinType();
+        ((a) this.Vh).lcu.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.Vh).onChangeSkinType();
         return aVar.getView();
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a extends af.a {
-        private View hkj;
-        private TextView kTQ;
+        private View hrm;
+        private TextView lcu;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.kTQ = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.hkj = view.findViewById(R.id.floor_reply_top_line);
+            this.lcu = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.hrm = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ap.setViewTextColor(this.kTQ, R.color.cp_cont_b);
-                ap.setBackgroundColor(this.hkj, R.color.cp_bg_line_c);
-                ap.setBackgroundColor(this.kTQ, R.color.cp_bg_line_d);
+                ap.setViewTextColor(this.lcu, R.color.cp_cont_b);
+                ap.setBackgroundColor(this.hrm, R.color.cp_bg_line_c);
+                ap.setBackgroundColor(this.lcu, R.color.cp_bg_line_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

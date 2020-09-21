@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentManager;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes14.dex */
 public class LifecycleDispatcher {
     private static AtomicBoolean yZ = new AtomicBoolean(false);
 
@@ -24,7 +24,7 @@ public class LifecycleDispatcher {
     }
 
     @VisibleForTesting
-    /* loaded from: classes20.dex */
+    /* loaded from: classes14.dex */
     static class a extends d {
         private final b za = new b();
 
@@ -54,7 +54,7 @@ public class LifecycleDispatcher {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes14.dex */
     public static class DestructionReportFragment extends Fragment {
         @Override // android.support.v4.app.Fragment
         public void onPause() {
@@ -113,7 +113,7 @@ public class LifecycleDispatcher {
     }
 
     @VisibleForTesting
-    /* loaded from: classes20.dex */
+    /* loaded from: classes14.dex */
     static class b extends FragmentManager.FragmentLifecycleCallbacks {
         b() {
         }

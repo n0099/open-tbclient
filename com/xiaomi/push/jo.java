@@ -4,7 +4,7 @@ import com.baidu.android.common.logging.Log;
 import com.xiaomi.push.je;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class jo extends je {
     private static int b = 10000;
     private static int c = 10000;
@@ -12,7 +12,7 @@ public class jo extends je {
     private static int e = Log.FILE_LIMETE;
     private static int f = 104857600;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends je.a {
         public a() {
             super(false, true);
@@ -24,7 +24,7 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f777a, this.b);
+            jo joVar = new jo(jsVar, this.f776a, this.b);
             if (this.a != 0) {
                 joVar.b(this.a);
             }

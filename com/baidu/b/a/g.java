@@ -1,5 +1,5 @@
 package com.baidu.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 abstract class g {
     protected long a;
     protected int b;

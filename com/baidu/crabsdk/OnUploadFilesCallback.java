@@ -1,5 +1,5 @@
 package com.baidu.crabsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface OnUploadFilesCallback {
     void onFailed(String str);
 

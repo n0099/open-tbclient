@@ -45,7 +45,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
     public static final boolean DEBUG = false;
@@ -315,9 +315,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
             isSetupConfig = true;
             DuArConfig instance = DuArConfig.instance();
             b.a(this.mActivityReference.get().getApplicationContext(), instance.appId, instance.apiKey, instance.secretKey, new c(instance.getDuArSourcePath()));
-            if (b.SY() != null) {
-                b.SY();
-                FILTER_DEFAULT = c.Td();
+            if (b.TP() != null) {
+                b.TP();
+                FILTER_DEFAULT = c.TU();
             }
         }
     }
@@ -359,7 +359,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            DuArCameraOperator.this.mARProcessor.setQulaityParm(b.SZ());
+                            DuArCameraOperator.this.mARProcessor.setQulaityParm(b.TQ());
                         }
                     }
                 });

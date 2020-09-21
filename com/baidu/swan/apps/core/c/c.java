@@ -8,10 +8,10 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.a.e;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void h(boolean z, String str);
     }
@@ -26,7 +26,7 @@ public class c {
             }
 
             @Override // com.baidu.swan.apps.adaptation.a.e.a
-            public void dw(boolean z) {
+            public void du(boolean z) {
                 if (!z) {
                     com.baidu.swan.apps.console.c.e("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
                     aVar.h(false, context.getString(a.h.aiapps_authenticate_fail));
@@ -38,7 +38,7 @@ public class c {
         });
     }
 
-    public static void U(Context context, String str) {
-        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).qf(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).azp();
+    public static void X(Context context, String str) {
+        new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).qy(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).azY();
     }
 }

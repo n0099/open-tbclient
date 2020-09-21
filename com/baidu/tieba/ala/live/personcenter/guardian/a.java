@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseData {
     public String appId;
+    public String charmCount;
     public int fansCount;
     public int followCount;
     public int followStatus;
-    public String gij;
-    public String gik;
-    public int gil;
-    public int gim;
-    public String gin;
-    public String gio;
-    public String gip;
+    public String glr;
+    public String gls;
+    public int glt;
+    public int glu;
+    public String glv;
+    public String glw;
     public int isOfficial;
     public int levelId;
     public String nickName;
@@ -27,8 +27,8 @@ public class a extends BaseData {
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        this.gij = jSONObject.optString("benefit_userid");
-        this.gik = jSONObject.optString("pay_userid");
+        this.glr = jSONObject.optString("benefit_userid");
+        this.gls = jSONObject.optString("pay_userid");
         this.userName = jSONObject.optString("user_name");
         this.nickName = jSONObject.optString("user_nickname");
         this.userStatus = jSONObject.optInt("user_status");
@@ -37,16 +37,16 @@ public class a extends BaseData {
         if (StringUtils.isNull(this.portrait)) {
             this.portrait = jSONObject.optString("portrait");
         }
-        this.gil = jSONObject.optInt("enter_live");
-        this.gim = jSONObject.optInt("ancher_live");
-        this.gin = jSONObject.optString("level_exp");
-        this.gio = jSONObject.optString("charm_count");
+        this.glt = jSONObject.optInt("enter_live");
+        this.glu = jSONObject.optInt("ancher_live");
+        this.glv = jSONObject.optString("level_exp");
+        this.charmCount = jSONObject.optString("charm_count");
         this.isOfficial = jSONObject.optInt("is_official");
         this.levelId = jSONObject.optInt("level_id");
         this.followStatus = jSONObject.optInt("follow_status");
         this.followCount = jSONObject.optInt("follow_count");
         this.fansCount = jSONObject.optInt("fans_count");
-        this.gip = jSONObject.optString("total_price");
+        this.glw = jSONObject.optString("total_price");
         this.appId = jSONObject.optString("third_app_id");
     }
 

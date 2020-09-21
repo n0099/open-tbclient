@@ -2,6 +2,7 @@ package com.baidu.mobads.production.h;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
+import com.baidu.mobad.video.XAdContext;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
@@ -18,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.mobads.production.b implements IXLinearAdSlot, IOAdEventDispatcher {
     private a w;
     private boolean x;
@@ -48,8 +49,8 @@ public class b extends com.baidu.mobads.production.b implements IXLinearAdSlot, 
         this.w = new a(getApplicationContext(), getActivity(), this.o, this);
         this.w.d(getId());
         HashMap<String, String> parameter = getParameter();
-        String str = parameter.get("BASE_WIDTH");
-        String str2 = parameter.get("BASE_HEIGHT");
+        String str = parameter.get(XAdContext.PARAMETER_KEY_OF_BASE_WIDTH);
+        String str2 = parameter.get(XAdContext.PARAMETER_KEY_OF_BASE_HEIGHT);
         if (str != null) {
             try {
                 i = Integer.parseInt(str);

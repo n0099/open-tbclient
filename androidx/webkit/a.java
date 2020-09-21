@@ -1,5 +1,5 @@
 package androidx.webkit;
-/* loaded from: classes4.dex */
+/* loaded from: classes17.dex */
 public abstract class a {
-    public abstract void Z(boolean z);
+    public abstract void showInterstitial(boolean z);
 }

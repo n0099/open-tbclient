@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends c {
     public b(Context context) {
         super(context);
@@ -27,7 +27,7 @@ public class b extends c {
             com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
             m.c(this.a);
         }
-        new b.C0062b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+        new b.C0063b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
         gVar.a(optInt);
         return gVar;
     }

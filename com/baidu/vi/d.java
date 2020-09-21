@@ -3,7 +3,7 @@ package com.baidu.vi;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class d implements SensorEventListener {
     final /* synthetic */ VCompass a;
 

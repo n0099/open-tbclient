@@ -38,8 +38,8 @@ public class a {
                 }
             }
         }
-        c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.dNu().a()));
-        a.f(cVar.dNt());
+        c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.dRs().a()));
+        a.f(cVar.dRr());
         return a;
     }
 
@@ -53,8 +53,8 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a = a("http://www.cmpassport.com/unisdk" + this.a, cVar.f(), "POST", new d(cVar.dNu().a(), "1.0", bVar.c()));
-        a.f(cVar.dNt());
+        c a = a("http://www.cmpassport.com/unisdk" + this.a, cVar.f(), "POST", new d(cVar.dRs().a(), "1.0", bVar.c()));
+        a.f(cVar.dRr());
         this.a = null;
         return a;
     }

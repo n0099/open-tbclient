@@ -1,7 +1,7 @@
 package com.example.flutter_lottie;
 
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class LottieNameTransform {
     private static HashMap<String, String> platformImageNameMap = new HashMap<>();
 

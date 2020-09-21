@@ -1,7 +1,7 @@
 package com.sina.deviceidjnisdk;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class DeviceId implements IDeviceId {
     private Context mContext;
 

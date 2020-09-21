@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     private static Class<?> i = null;
     private static char[] r = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.".toCharArray();
@@ -68,7 +68,7 @@ public class d {
     private String p;
     private boolean q;
     private com.baidu.location.c.a f = new com.baidu.location.c.a();
-    private C0206d h = null;
+    private C0205d h = null;
     private String n = null;
     b c = new b();
     private int s = 16;
@@ -76,13 +76,13 @@ public class d {
     private long u = 0;
     private boolean v = false;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b extends com.baidu.location.e.f {
         LocationManager b;
         a c;
@@ -90,7 +90,7 @@ public class d {
         boolean d = false;
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes20.dex */
+        /* loaded from: classes3.dex */
         public class a implements LocationListener {
             private a() {
             }
@@ -224,7 +224,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class c {
         public String a;
         public int b;
@@ -237,14 +237,14 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0206d {
+    /* loaded from: classes3.dex */
+    public class C0205d {
         public List<ScanResult> a;
         private long d;
         public String b = null;
         private String e = null;
 
-        public C0206d(List<ScanResult> list) {
+        public C0205d(List<ScanResult> list) {
             this.a = null;
             this.d = 0L;
             this.a = list;
@@ -827,7 +827,7 @@ public class d {
         try {
             this.h = null;
             if (e()) {
-                this.h = new C0206d(this.g.getScanResults());
+                this.h = new C0205d(this.g.getScanResults());
                 str2 = this.h.a(i2, f());
                 try {
                     if (this.l != null && this.l.isOnceLocation()) {

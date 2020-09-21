@@ -25,6 +25,7 @@ public class CmdConfigHttp {
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
+    public static final int CMD_BACK_USER = 1003479;
     public static final int CMD_BAR_ELECTION = 1003436;
     public static final int CMD_BAR_VOTE = 1003437;
     public static final int CMD_BAR_ZHU_INFORMATION = 1003357;
@@ -213,6 +214,7 @@ public class CmdConfigHttp {
     public static final int CMD_SEARCH_MAJOR = 1003460;
     public static final int CMD_SEARCH_PB_EMOTION = 1003330;
     public static final int CMD_SEARCH_POST_FORUM = 1003335;
+    public static final int CMD_SELECT_FORUM_ATTENTION = 1003480;
     public static final int CMD_SELECT_SUB_COMMENT = 1003379;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;

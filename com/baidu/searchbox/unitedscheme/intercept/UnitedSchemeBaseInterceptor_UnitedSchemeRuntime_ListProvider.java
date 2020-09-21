@@ -3,9 +3,9 @@ package com.baidu.searchbox.unitedscheme.intercept;
 import com.baidu.pyramid.a.a;
 import com.baidu.swan.apps.scheme.a.b;
 import com.baidu.swan.apps.scheme.a.c;
-import com.baidu.tieba.write.b.a.n;
+import com.baidu.tieba.write.b.a.h;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements a {
     @Override // com.baidu.pyramid.a.a
     public Object get() {
@@ -15,7 +15,7 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
         arrayList.add(new b());
         arrayList.add(new c());
         arrayList.add(new com.baidu.swan.games.o.a());
-        arrayList.add(new n());
+        arrayList.add(new h());
         return arrayList;
     }
 }

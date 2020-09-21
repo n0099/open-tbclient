@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.restnet;
 
 import java.io.Serializable;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class RestNameValuePair implements Serializable {
     private static final long a = 847806714499261896L;
     private String b;

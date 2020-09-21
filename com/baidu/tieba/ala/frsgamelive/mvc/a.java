@@ -8,13 +8,13 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private AlaFrsLiveFragment fXA = new AlaFrsLiveFragment();
-    private boolean fXq;
+    private boolean gaE;
+    private AlaFrsLiveFragment gaO = new AlaFrsLiveFragment();
 
     public a(boolean z) {
-        this.fXq = z;
-        this.fXA.ln(z);
-        getFragmentTabStructure().frag = this.fXA;
+        this.gaE = z;
+        this.gaO.lp(z);
+        getFragmentTabStructure().frag = this.gaO;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -39,32 +39,32 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     public void setForumId(String str) {
-        if (this.fXA != null) {
-            this.fXA.setForumId(str);
+        if (this.gaO != null) {
+            this.gaO.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.fXA != null) {
-            this.fXA.setForumName(str);
+        if (this.gaO != null) {
+            this.gaO.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.fXA != null) {
-            this.fXA.setForumGameLabel(str);
+        if (this.gaO != null) {
+            this.gaO.setForumGameLabel(str);
         }
     }
 
     public void setFromType(int i) {
-        if (this.fXA != null) {
-            this.fXA.setFromType(i);
+        if (this.gaO != null) {
+            this.gaO.setFromType(i);
         }
     }
 
-    public void lo(boolean z) {
-        if (this.fXA != null) {
-            this.fXA.lo(z);
+    public void lq(boolean z) {
+        if (this.gaO != null) {
+            this.gaO.lq(z);
         }
     }
 }

@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public int load_type;
     public int new_net_type;
@@ -27,7 +27,7 @@ public class VideoTabRequestMessage extends NetMessage {
         builder.load_type = Integer.valueOf(this.load_type);
         builder.page_thread_count = Integer.valueOf(this.page_thread_count);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         RecomVideoReqIdl.Builder builder2 = new RecomVideoReqIdl.Builder();
         builder2.data = builder.build(false);

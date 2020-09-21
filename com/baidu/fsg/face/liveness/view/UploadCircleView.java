@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class UploadCircleView extends View {
     private Paint a;
     private Paint b;

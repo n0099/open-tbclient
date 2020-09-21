@@ -2,7 +2,7 @@ package okhttp3;
 
 import javax.annotation.Nullable;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public abstract class WebSocketListener {
     public void onOpen(WebSocket webSocket, Response response) {
     }

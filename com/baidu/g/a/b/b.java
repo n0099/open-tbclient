@@ -2,7 +2,7 @@ package com.baidu.g.a.b;
 
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public interface b {
     View A(Context context, String str);
 

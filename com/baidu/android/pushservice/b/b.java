@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     protected Context a;
     protected String b;

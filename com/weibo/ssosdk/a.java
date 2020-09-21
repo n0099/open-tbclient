@@ -26,37 +26,37 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes9.dex */
 public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
-    public static final class C0946a {
-        private Intent okF;
+    /* loaded from: classes9.dex */
+    public static final class C0943a {
+        private Intent oup;
 
-        private C0946a(Context context) {
-            this.okF = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        private C0943a(Context context) {
+            this.oup = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int getLevel() {
-            return this.okF.getIntExtra("level", 0);
+            return this.oup.getIntExtra("level", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eeo() {
-            return this.okF.getIntExtra("scale", 0);
+        public int eil() {
+            return this.oup.getIntExtra("scale", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eep() {
-            return this.okF.getIntExtra("voltage", 0);
+        public int eim() {
+            return this.oup.getIntExtra("voltage", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eeq() {
-            return this.okF.getIntExtra("temperature", 0);
+        public int ein() {
+            return this.oup.getIntExtra("temperature", 0);
         }
     }
 
@@ -65,7 +65,7 @@ public class a {
 
     public static String getMfp(Context context) {
         try {
-            return new String(gE(context).getBytes(), "UTF-8");
+            return new String(gK(context).getBytes(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             return "";
         }
@@ -91,7 +91,7 @@ public class a {
         return sb.toString();
     }
 
-    private static String gE(Context context) {
+    private static String gK(Context context) {
         String generateUAAid;
         JSONObject jSONObject = new JSONObject();
         try {
@@ -103,61 +103,61 @@ public class a {
             if (!TextUtils.isEmpty(imei)) {
                 jSONObject.put("imei", imei);
             }
-            String gF = gF(context);
-            if (!TextUtils.isEmpty(gF)) {
-                jSONObject.put("meid", gF);
+            String gL = gL(context);
+            if (!TextUtils.isEmpty(gL)) {
+                jSONObject.put("meid", gL);
             }
             String imsi = getImsi(context);
             if (!TextUtils.isEmpty(imsi)) {
                 jSONObject.put("imsi", imsi);
             }
-            String gG = gG(context);
-            if (!TextUtils.isEmpty(gG)) {
-                jSONObject.put("mac", gG);
+            String gM = gM(context);
+            if (!TextUtils.isEmpty(gM)) {
+                jSONObject.put("mac", gM);
             }
             String iccid = getIccid(context);
             if (!TextUtils.isEmpty(iccid)) {
                 jSONObject.put("iccid", iccid);
             }
-            String eek = eek();
-            if (!TextUtils.isEmpty(eek)) {
-                jSONObject.put("serial", eek);
+            String eih = eih();
+            if (!TextUtils.isEmpty(eih)) {
+                jSONObject.put("serial", eih);
             }
             String androidId = getAndroidId(context);
             if (!TextUtils.isEmpty(androidId)) {
                 jSONObject.put("androidid", androidId);
             }
-            String eem = eem();
-            if (!TextUtils.isEmpty(eem)) {
-                jSONObject.put(c.i, eem);
+            String eij = eij();
+            if (!TextUtils.isEmpty(eij)) {
+                jSONObject.put(c.i, eij);
             }
             String model = getModel();
             if (!TextUtils.isEmpty(model)) {
                 jSONObject.put("model", model);
             }
-            String een = een();
-            if (!TextUtils.isEmpty(een)) {
-                jSONObject.put("sdcard", een);
+            String eik = eik();
+            if (!TextUtils.isEmpty(eik)) {
+                jSONObject.put("sdcard", eik);
             }
-            String gI = gI(context);
-            if (!TextUtils.isEmpty(gI)) {
-                jSONObject.put("resolution", gI);
+            String gO = gO(context);
+            if (!TextUtils.isEmpty(gO)) {
+                jSONObject.put("resolution", gO);
             }
             String ssid = getSsid(context);
             if (!TextUtils.isEmpty(ssid)) {
                 jSONObject.put("ssid", ssid);
             }
-            String gJ = gJ(context);
-            if (!TextUtils.isEmpty(gJ)) {
-                jSONObject.put("bssid", gJ);
+            String gP = gP(context);
+            if (!TextUtils.isEmpty(gP)) {
+                jSONObject.put("bssid", gP);
             }
             String deviceName = getDeviceName();
             if (!TextUtils.isEmpty(deviceName)) {
                 jSONObject.put("deviceName", deviceName);
             }
-            String gK = gK(context);
-            if (!TextUtils.isEmpty(gK)) {
-                jSONObject.put("connecttype", gK);
+            String gQ = gQ(context);
+            if (!TextUtils.isEmpty(gQ)) {
+                jSONObject.put("connecttype", gQ);
             }
             try {
                 generateUAAid = generateUAAid(context);
@@ -167,13 +167,13 @@ public class a {
             if (!TextUtils.isEmpty(generateUAAid)) {
                 jSONObject.put(j.c, generateUAAid);
             }
-            double gH = gH(context);
-            jSONObject.put("batterymaxcapacity", String.valueOf(gH));
-            jSONObject.put("batterycurrentcapacity", String.valueOf(gH));
-            C0946a c0946a = new C0946a(context);
-            jSONObject.put("batterycurrentvoltage", c0946a.eep());
-            jSONObject.put("batterycurrenttemperature", c0946a.eeq());
-            jSONObject.put("batterycurrentcapacity", (gH * c0946a.getLevel()) / c0946a.eeo());
+            double gN = gN(context);
+            jSONObject.put("batterymaxcapacity", String.valueOf(gN));
+            jSONObject.put("batterycurrentcapacity", String.valueOf(gN));
+            C0943a c0943a = new C0943a(context);
+            jSONObject.put("batterycurrentvoltage", c0943a.eim());
+            jSONObject.put("batterycurrenttemperature", c0943a.ein());
+            jSONObject.put("batterycurrentcapacity", (gN * c0943a.getLevel()) / c0943a.eil());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";
@@ -196,7 +196,7 @@ public class a {
         }
     }
 
-    private static String gF(Context context) {
+    private static String gL(Context context) {
         try {
             return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e) {
@@ -212,7 +212,7 @@ public class a {
         }
     }
 
-    private static String eej() {
+    private static String eig() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -236,10 +236,10 @@ public class a {
         return "";
     }
 
-    private static String gG(Context context) {
+    private static String gM(Context context) {
         WifiInfo connectionInfo;
         if (Build.VERSION.SDK_INT >= 23) {
-            return eej();
+            return eig();
         }
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -257,9 +257,9 @@ public class a {
         }
     }
 
-    private static String eek() {
+    private static String eih() {
         if (Build.VERSION.SDK_INT >= 26) {
-            return eel();
+            return eii();
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
@@ -269,7 +269,7 @@ public class a {
         }
     }
 
-    private static double gH(Context context) {
+    private static double gN(Context context) {
         Object obj = null;
         try {
             obj = Class.forName("com.android.internal.os.PowerProfile").getConstructor(Context.class).newInstance(context);
@@ -283,7 +283,7 @@ public class a {
     }
 
     @TargetApi(26)
-    private static String eel() {
+    private static String eii() {
         try {
             return Build.getSerial();
         } catch (Exception e) {
@@ -300,7 +300,7 @@ public class a {
         }
     }
 
-    private static String eem() {
+    private static String eij() {
         try {
             return Build.CPU_ABI;
         } catch (Exception e) {
@@ -316,7 +316,7 @@ public class a {
         }
     }
 
-    private static String een() {
+    private static String eik() {
         try {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());
@@ -325,7 +325,7 @@ public class a {
         }
     }
 
-    private static String gI(Context context) {
+    private static String gO(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
@@ -346,7 +346,7 @@ public class a {
         return "";
     }
 
-    public static String gJ(Context context) {
+    public static String gP(Context context) {
         try {
             WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
@@ -365,7 +365,7 @@ public class a {
         }
     }
 
-    private static String gK(Context context) {
+    private static String gQ(Context context) {
         String str;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();

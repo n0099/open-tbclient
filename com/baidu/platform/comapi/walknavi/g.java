@@ -3,8 +3,8 @@ package com.baidu.platform.comapi.walknavi;
 import com.baidu.platform.comapi.walknavi.g.a;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
-public class g implements a.InterfaceC0254a {
+/* loaded from: classes3.dex */
+public class g implements a.InterfaceC0252a {
     final /* synthetic */ a.b a;
     final /* synthetic */ int b;
     final /* synthetic */ b c;
@@ -16,7 +16,7 @@ public class g implements a.InterfaceC0254a {
         this.b = i;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0254a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0252a
     public void a() {
         if (this.a != null) {
             this.a.b(this.b);

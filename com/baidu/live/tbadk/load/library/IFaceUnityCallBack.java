@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.load.library;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IFaceUnityCallBack {
     byte[] getAuthPackCert();
 

@@ -8,12 +8,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class gq {
     private static gq a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f406a = new ConcurrentHashMap();
+    private Map<String, Object> f405a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gq() {
@@ -54,7 +54,7 @@ public class gq {
 
     /* renamed from: a  reason: collision with other method in class */
     public Object m321a(String str, String str2) {
-        return this.f406a.get(a(str, str2));
+        return this.f405a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -104,13 +104,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f406a.containsKey(a3)) {
+                                if (!this.f405a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f406a.put(a3, cls2.newInstance());
+                                            this.f405a.put(a3, cls2.newInstance());
                                         } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f406a.put(a3, cls2);
+                                            this.f405a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -135,6 +135,6 @@ public class gq {
         if (!(obj instanceof gp) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f406a.put(a(str, str2), obj);
+        this.f405a.put(a(str, str2), obj);
     }
 }

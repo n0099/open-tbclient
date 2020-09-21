@@ -11,7 +11,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.TextView;
 import java.util.ArrayList;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends TextView {
     private Context a;
     private com.baidu.platform.comapi.walknavi.segmentbrowse.a b;

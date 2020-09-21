@@ -4,20 +4,20 @@ import com.baidu.turbonet.net.UploadDataProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException neJ;
-    private boolean neK;
+    private IOException noJ;
+    private boolean noK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dLA() throws IOException;
+    public abstract UploadDataProvider dPA();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dLB() throws IOException;
+    public abstract void dPy() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dLC();
+    public abstract void dPz() throws IOException;
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.neJ = iOException;
-        this.neK = true;
+        this.noJ = iOException;
+        this.noK = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.neK) {
-            dLQ();
+        if (this.noK) {
+            dPO();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dLQ() throws IOException {
-        if (this.neJ != null) {
-            throw this.neJ;
+    public void dPO() throws IOException {
+        if (this.noJ != null) {
+            throw this.noJ;
         }
     }
 }

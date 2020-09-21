@@ -6,10 +6,8 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.n.a;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface aj {
-    String ZO();
-
     void a(String str, com.baidu.swan.apps.aa.a.a aVar);
 
     void a(@NonNull String str, com.baidu.swan.apps.n.b bVar);
@@ -17,5 +15,7 @@ public interface aj {
     void a(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, com.baidu.swan.apps.n.b bVar);
 
     @AnyThread
-    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0417a interfaceC0417a);
+    void a(@NonNull String str, @NonNull Set<String> set, @NonNull a.InterfaceC0412a interfaceC0412a);
+
+    String aax();
 }

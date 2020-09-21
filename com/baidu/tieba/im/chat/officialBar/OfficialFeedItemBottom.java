@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView jjs;
-    private TextView jjt;
+    private TextView jrW;
+    private TextView jrX;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.jjs = (TextView) findViewById(R.id.message_no_image_title);
-        this.jjt = (TextView) findViewById(R.id.message_info);
-        cCu();
+        this.jrW = (TextView) findViewById(R.id.message_no_image_title);
+        this.jrX = (TextView) findViewById(R.id.message_info);
+        cGa();
     }
 
-    public void cCu() {
-        ap.setViewTextColor(this.jjt, R.color.cp_cont_j);
-        ap.setViewTextColor(this.jjs, R.color.cp_cont_b);
+    public void cGa() {
+        ap.setViewTextColor(this.jrX, R.color.cp_cont_j);
+        ap.setViewTextColor(this.jrW, R.color.cp_cont_b);
     }
 
-    public void setData(a.C0719a c0719a, boolean z) {
-        int i = TextUtils.isEmpty(c0719a.text) ? 8 : 0;
-        this.jjs.setText(c0719a.title);
-        this.jjt.setText(c0719a.text);
-        this.jjt.setVisibility(i);
+    public void setData(a.C0716a c0716a, boolean z) {
+        int i = TextUtils.isEmpty(c0716a.text) ? 8 : 0;
+        this.jrW.setText(c0716a.title);
+        this.jrX.setText(c0716a.text);
+        this.jrX.setVisibility(i);
         if (z) {
-            this.jjs.setVisibility(8);
+            this.jrW.setVisibility(8);
         } else {
-            this.jjs.setVisibility(0);
+            this.jrW.setVisibility(0);
         }
     }
 
-    public void AP(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jjt.getLayoutParams();
+    public void Bq(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jrX.getLayoutParams();
         layoutParams.topMargin = i;
-        this.jjt.setLayoutParams(layoutParams);
+        this.jrX.setLayoutParams(layoutParams);
     }
 }

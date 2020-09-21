@@ -1,22 +1,20 @@
 package com.baidu.live.j;
 
-import com.baidu.live.data.r;
+import com.baidu.live.data.u;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    void KM();
+    void Lt();
 
-    void KN();
-
-    com.baidu.live.core.a.a bV(boolean z);
+    com.baidu.live.core.a.a bX(boolean z);
 
     void c(TbPageContext tbPageContext);
 
-    void gV(String str);
+    void hi(String str);
 
-    void h(r rVar);
+    void i(u uVar);
 
-    void i(r rVar);
+    void j(u uVar);
 
     void onPause();
 

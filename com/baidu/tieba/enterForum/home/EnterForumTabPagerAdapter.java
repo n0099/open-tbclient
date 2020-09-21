@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
-    private BaseFragment hvO;
+    private BaseFragment hCT;
     private boolean isPrimary;
     private FragmentManager mFragmentManager;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a {
+        public boolean aZH;
         public Fragment fragment;
-        public boolean hvP;
         public String tabName;
         public String title;
     }
@@ -66,11 +66,11 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     @Override // com.baidu.tbadk.widget.tab.a
-    public boolean ru(int i) {
+    public boolean rL(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).hvP;
+        return this.mFragments.get(i).aZH;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -84,7 +84,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.hvO = baseFragment;
+                this.hCT = baseFragment;
             }
         }
     }
@@ -94,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     public String getCurrentPageKey() {
-        if (this.hvO instanceof BaseFragment) {
-            return this.hvO.getCurrentPageKey();
+        if (this.hCT instanceof BaseFragment) {
+            return this.hCT.getCurrentPageKey();
         }
         return null;
     }

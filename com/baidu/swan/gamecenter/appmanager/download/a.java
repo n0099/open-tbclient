@@ -8,32 +8,32 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dno;
-    private long dnp;
+    private String dpr;
+    private long dps;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.dno = "";
-        this.dnp = System.currentTimeMillis();
+        this.dpr = "";
+        this.dps = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.dno = "";
-        this.dnp = System.currentTimeMillis();
+        this.dpr = "";
+        this.dps = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.dno = jSONObject.optString("apk_id");
-                this.dnp = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.dpr = jSONObject.optString("apk_id");
+                this.dps = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class a {
         }
     }
 
-    public Download aKj() {
+    public Download aKU() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.dno);
-            jSONObject.put("download_time", this.dnp);
+            jSONObject.put("apk_id", this.dpr);
+            jSONObject.put("download_time", this.dps);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -66,27 +66,27 @@ public class a {
         return download;
     }
 
-    public a uj(String str) {
+    public a uC(String str) {
         this.mUrl = str;
         return this;
     }
 
-    public a uk(String str) {
+    public a uD(String str) {
         this.mPackageName = str;
         return this;
     }
 
-    public String aKk() {
-        return this.dno;
+    public String aKV() {
+        return this.dpr;
     }
 
-    public a ul(String str) {
-        this.dno = str;
+    public a uE(String str) {
+        this.dpr = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.dnp;
+        return this.dps;
     }
 
     private static String getDownloadDir() {

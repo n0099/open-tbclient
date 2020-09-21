@@ -1,16 +1,16 @@
 package com.xiaomi.push;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static final a a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f90a = 0;
+    private volatile int f89a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f91a;
+    private final byte[] f90a;
 
     private a(byte[] bArr) {
-        this.f91a = bArr;
+        this.f90a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -24,14 +24,14 @@ public final class a {
     }
 
     public int a() {
-        return this.f91a.length;
+        return this.f90a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public byte[] m123a() {
-        int length = this.f91a.length;
+        int length = this.f90a.length;
         byte[] bArr = new byte[length];
-        System.arraycopy(this.f91a, 0, bArr, 0, length);
+        System.arraycopy(this.f90a, 0, bArr, 0, length);
         return bArr;
     }
 
@@ -41,12 +41,12 @@ public final class a {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            int length = this.f91a.length;
-            if (length != aVar.f91a.length) {
+            int length = this.f90a.length;
+            if (length != aVar.f90a.length) {
                 return false;
             }
-            byte[] bArr = this.f91a;
-            byte[] bArr2 = aVar.f91a;
+            byte[] bArr = this.f90a;
+            byte[] bArr2 = aVar.f90a;
             for (int i = 0; i < length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
@@ -58,10 +58,10 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f90a;
+        int i = this.f89a;
         if (i == 0) {
-            byte[] bArr = this.f91a;
-            int length = this.f91a.length;
+            byte[] bArr = this.f90a;
+            int length = this.f90a.length;
             int i2 = 0;
             i = length;
             while (i2 < length) {
@@ -71,7 +71,7 @@ public final class a {
             if (i == 0) {
                 i = 1;
             }
-            this.f90a = i;
+            this.f89a = i;
         }
         return i;
     }

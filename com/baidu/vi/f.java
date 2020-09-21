@@ -3,7 +3,7 @@ package com.baidu.vi;
 import android.location.GpsSatellite;
 import android.location.GpsStatus;
 import android.location.LocationManager;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class f implements GpsStatus.Listener {
     final /* synthetic */ VGps a;
 

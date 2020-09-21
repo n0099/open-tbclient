@@ -3,29 +3,29 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableSingle<T> extends a<T, T> {
     final T defaultValue;
 
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new SingleElementSubscriber(cVar, this.defaultValue));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class SingleElementSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5526049321428043809L;
         final T defaultValue;
         boolean done;
-        org.b.d s;
+        org.a.d s;
 
-        SingleElementSubscriber(org.b.c<? super T> cVar, T t) {
+        SingleElementSubscriber(org.a.c<? super T> cVar, T t) {
             super(cVar);
             this.defaultValue = t;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -33,7 +33,7 @@ public final class FlowableSingle<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 if (this.value != null) {
@@ -46,7 +46,7 @@ public final class FlowableSingle<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -56,7 +56,7 @@ public final class FlowableSingle<T> extends a<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -73,7 +73,7 @@ public final class FlowableSingle<T> extends a<T, T> {
             }
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

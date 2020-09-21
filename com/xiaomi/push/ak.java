@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.util.SparseArray;
 import com.xiaomi.push.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ak extends ai.b {
     final /* synthetic */ ai a;
 
@@ -18,9 +18,9 @@ public class ak extends ai.b {
     void b() {
         Object obj;
         SparseArray sparseArray;
-        obj = this.a.f97a;
+        obj = this.a.f96a;
         synchronized (obj) {
-            sparseArray = this.a.f96a;
+            sparseArray = this.a.f95a;
             sparseArray.remove(this.a.mo166a());
         }
     }

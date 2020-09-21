@@ -6,7 +6,7 @@ import io.reactivex.q;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class ObservableSequenceEqual<T> extends q<Boolean> {
     final int bufferSize;
     final d<? super T, ? super T> comparer;
@@ -20,7 +20,7 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
         equalCoordinator.subscribe();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -6178010334400373240L;
         final u<? super Boolean> actual;
@@ -152,42 +152,42 @@ public final class ObservableSequenceEqual<T> extends q<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class a<T> implements u<T> {
         volatile boolean done;
         Throwable error;
         final int index;
-        final EqualCoordinator<T> ooJ;
+        final EqualCoordinator<T> oys;
         final io.reactivex.internal.queue.a<T> queue;
 
         a(EqualCoordinator<T> equalCoordinator, int i, int i2) {
-            this.ooJ = equalCoordinator;
+            this.oys = equalCoordinator;
             this.index = i;
             this.queue = new io.reactivex.internal.queue.a<>(i2);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.ooJ.setDisposable(bVar, this.index);
+            this.oys.setDisposable(bVar, this.index);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.ooJ.drain();
+            this.oys.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.ooJ.drain();
+            this.oys.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.ooJ.drain();
+            this.oys.drain();
         }
     }
 }

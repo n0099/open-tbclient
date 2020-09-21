@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ac {
     private static Object a = new Object();
     private static ac b = null;

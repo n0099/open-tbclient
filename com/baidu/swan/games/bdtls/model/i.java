@@ -3,10 +3,10 @@ package com.baidu.swan.games.bdtls.model;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class i {
-    private String dpI;
-    private Integer dpJ;
+    private String drK;
+    private Integer drL;
 
     public i() {
         this(null, null, 3, null);
@@ -16,7 +16,7 @@ public final class i {
         if (this != obj) {
             if (obj instanceof i) {
                 i iVar = (i) obj;
-                if (!q.l((Object) this.dpI, (Object) iVar.dpI) || !q.l(this.dpJ, iVar.dpJ)) {
+                if (!q.l((Object) this.drK, (Object) iVar.drK) || !q.l(this.drL, iVar.drL)) {
                 }
             }
             return false;
@@ -25,19 +25,19 @@ public final class i {
     }
 
     public int hashCode() {
-        String str = this.dpI;
+        String str = this.drK;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        Integer num = this.dpJ;
+        Integer num = this.drL;
         return hashCode + (num != null ? num.hashCode() : 0);
     }
 
     public String toString() {
-        return "ResponseParams(responseMessage=" + this.dpI + ", responseStatusCode=" + this.dpJ + ")";
+        return "ResponseParams(responseMessage=" + this.drK + ", responseStatusCode=" + this.drL + ")";
     }
 
     public i(String str, Integer num) {
-        this.dpI = str;
-        this.dpJ = num;
+        this.drK = str;
+        this.drL = num;
     }
 
     public /* synthetic */ i(String str, Integer num, int i, o oVar) {
@@ -45,18 +45,18 @@ public final class i {
     }
 
     public final String getResponseMessage() {
-        return this.dpI;
+        return this.drK;
     }
 
-    public final void uI(String str) {
-        this.dpI = str;
+    public final void vb(String str) {
+        this.drK = str;
     }
 
-    public final Integer aMl() {
-        return this.dpJ;
+    public final Integer aMW() {
+        return this.drL;
     }
 
     public final void d(Integer num) {
-        this.dpJ = num;
+        this.drL = num;
     }
 }

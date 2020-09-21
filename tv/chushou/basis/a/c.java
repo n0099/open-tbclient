@@ -10,59 +10,59 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class c {
-    private static c oLo;
+    private static c oUS;
     private Context mContext;
-    private final HashMap<String, d> oLp = new HashMap<>();
-    private String oLq;
+    private final HashMap<String, d> oUT = new HashMap<>();
+    private String oUU;
 
     private c(Context context) {
-        this.oLq = null;
+        this.oUU = null;
         this.mContext = context.getApplicationContext();
-        this.oLq = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.oUU = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
-    public static c gT(Context context) {
-        if (oLo == null) {
+    public static c gZ(Context context) {
+        if (oUS == null) {
             synchronized (c.class) {
-                if (oLo == null) {
-                    oLo = new c(context);
+                if (oUS == null) {
+                    oUS = new c(context);
                 }
             }
         }
-        return oLo;
+        return oUS;
     }
 
-    public d bh(String str, boolean z) {
+    public d bi(String str, boolean z) {
         PackageInfo packageArchiveInfo;
         d dVar = null;
         if (!TextUtils.isEmpty(str) && as(new File(str)) && (packageArchiveInfo = this.mContext.getPackageManager().getPackageArchiveInfo(str, 5)) != null) {
             dVar = b(packageArchiveInfo, str);
             if (z) {
-                WI(str);
+                Xk(str);
             }
         }
         return dVar;
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.oLp.get(packageInfo.packageName);
+        d dVar = this.oUT.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(WF(str), a(WG(str)), packageInfo);
-            this.oLp.put(packageInfo.packageName, dVar2);
+            d dVar2 = new d(Xh(str), a(Xi(str)), packageInfo);
+            this.oUT.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader WF(String str) {
-        return new DexClassLoader(str, elG(), this.oLq, this.mContext.getClassLoader());
+    private DexClassLoader Xh(String str) {
+        return new DexClassLoader(str, epE(), this.oUU, this.mContext.getClassLoader());
     }
 
-    public String elG() {
+    public String epE() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager WG(String str) {
+    private AssetManager Xi(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -73,8 +73,8 @@ public class c {
         }
     }
 
-    public d WH(String str) {
-        return this.oLp.get(str);
+    public d Xj(String str) {
+        return this.oUT.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -82,8 +82,8 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void WI(String str) {
-        e.elI().v(this.mContext, str, this.oLq);
+    private void Xk(String str) {
+        e.epG().v(this.mContext, str, this.oUU);
     }
 
     private boolean as(File file) {

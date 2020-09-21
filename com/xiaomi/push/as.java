@@ -2,18 +2,18 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class as implements ar {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Class<?> f112a;
+    private Class<?> f111a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f113a;
+    private Object f112a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Method f114a = null;
+    private Method f113a = null;
     private Method b = null;
     private Method c = null;
     private Method d = null;
@@ -24,9 +24,9 @@ class as implements ar {
     }
 
     private String a(Context context, Method method) {
-        if (this.f113a != null && method != null) {
+        if (this.f112a != null && method != null) {
             try {
-                Object invoke = method.invoke(this.f113a, context);
+                Object invoke = method.invoke(this.f112a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -39,12 +39,12 @@ class as implements ar {
 
     private void a(Context context) {
         try {
-            this.f112a = t.a(context, "com.android.id.impl.IdProviderImpl");
-            this.f113a = this.f112a.newInstance();
-            this.f114a = this.f112a.getMethod("getUDID", Context.class);
-            this.b = this.f112a.getMethod("getOAID", Context.class);
-            this.c = this.f112a.getMethod("getVAID", Context.class);
-            this.d = this.f112a.getMethod("getAAID", Context.class);
+            this.f111a = t.a(context, "com.android.id.impl.IdProviderImpl");
+            this.f112a = this.f111a.newInstance();
+            this.f113a = this.f111a.getMethod("getUDID", Context.class);
+            this.b = this.f111a.getMethod("getOAID", Context.class);
+            this.c = this.f111a.getMethod("getVAID", Context.class);
+            this.d = this.f111a.getMethod("getAAID", Context.class);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
         }
@@ -57,12 +57,12 @@ class as implements ar {
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.a, this.f114a);
+        return a(this.a, this.f113a);
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return (this.f112a == null || this.f113a == null) ? false : true;
+        return (this.f111a == null || this.f112a == null) ? false : true;
     }
 
     @Override // com.xiaomi.push.ar

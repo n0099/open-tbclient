@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class g extends a {
     @Nullable
     private com.airbnb.lottie.a.b.a<Integer, Integer> CJ;
@@ -54,27 +54,27 @@ public class g extends a {
         this.Go = new HashMap();
         this.lottieDrawable = gVar;
         this.composition = layer.getComposition();
-        this.Gp = layer.kG().jB();
+        this.Gp = layer.kH().jC();
         this.Gp.b(this);
         a(this.Gp);
-        k kH = layer.kH();
-        if (kH != null && kH.Ex != null) {
-            this.CJ = kH.Ex.jB();
+        k kI = layer.kI();
+        if (kI != null && kI.Ex != null) {
+            this.CJ = kI.Ex.jC();
             this.CJ.b(this);
             a(this.CJ);
         }
-        if (kH != null && kH.Ey != null) {
-            this.Gq = kH.Ey.jB();
+        if (kI != null && kI.Ey != null) {
+            this.Gq = kI.Ey.jC();
             this.Gq.b(this);
             a(this.Gq);
         }
-        if (kH != null && kH.Ez != null) {
-            this.Gr = kH.Ez.jB();
+        if (kI != null && kI.Ez != null) {
+            this.Gr = kI.Ez.jC();
             this.Gr.b(this);
             a(this.Gr);
         }
-        if (kH != null && kH.EA != null) {
-            this.Gs = kH.EA.jB();
+        if (kI != null && kI.EA != null) {
+            this.Gs = kI.EA.jC();
             this.Gs.b(this);
             a(this.Gs);
         }
@@ -83,7 +83,7 @@ public class g extends a {
     @Override // com.airbnb.lottie.model.layer.a
     void b(Canvas canvas, Matrix matrix, int i) {
         canvas.save();
-        if (!this.lottieDrawable.iH()) {
+        if (!this.lottieDrawable.iI()) {
             canvas.setMatrix(matrix);
         }
         com.airbnb.lottie.model.b value = this.Gp.getValue();
@@ -102,15 +102,15 @@ public class g extends a {
         } else {
             this.Gn.setColor(value.strokeColor);
         }
-        int intValue = (this.Dm.jp().getValue().intValue() * 255) / 100;
+        int intValue = (this.Dm.jq().getValue().intValue() * 255) / 100;
         this.Gm.setAlpha(intValue);
         this.Gn.setAlpha(intValue);
         if (this.Gr != null) {
             this.Gn.setStrokeWidth(this.Gr.getValue().floatValue());
         } else {
-            this.Gn.setStrokeWidth((float) (value.El * com.airbnb.lottie.d.f.kZ() * com.airbnb.lottie.d.f.b(matrix)));
+            this.Gn.setStrokeWidth((float) (value.El * com.airbnb.lottie.d.f.la() * com.airbnb.lottie.d.f.b(matrix)));
         }
-        if (this.lottieDrawable.iH()) {
+        if (this.lottieDrawable.iI()) {
             a(value, matrix, cVar, canvas);
         } else {
             a(value, cVar, matrix, canvas);
@@ -126,10 +126,10 @@ public class g extends a {
         while (true) {
             int i2 = i;
             if (i2 < str.length()) {
-                com.airbnb.lottie.model.d dVar = this.composition.iz().get(com.airbnb.lottie.model.d.a(str.charAt(i2), cVar.jv(), cVar.jw()));
+                com.airbnb.lottie.model.d dVar = this.composition.iz().get(com.airbnb.lottie.model.d.a(str.charAt(i2), cVar.jw(), cVar.jx()));
                 if (dVar != null) {
                     a(dVar, matrix, f, bVar, canvas);
-                    float width = ((float) dVar.getWidth()) * f * com.airbnb.lottie.d.f.kZ() * b;
+                    float width = ((float) dVar.getWidth()) * f * com.airbnb.lottie.d.f.la() * b;
                     float f2 = bVar.tracking / 10.0f;
                     canvas.translate(((this.Gs != null ? this.Gs.getValue().floatValue() + f2 : f2) * b) + width, 0.0f);
                 }
@@ -142,13 +142,13 @@ public class g extends a {
 
     private void a(com.airbnb.lottie.model.b bVar, com.airbnb.lottie.model.c cVar, Matrix matrix, Canvas canvas) {
         float b = com.airbnb.lottie.d.f.b(matrix);
-        Typeface q = this.lottieDrawable.q(cVar.jv(), cVar.jw());
+        Typeface q = this.lottieDrawable.q(cVar.jw(), cVar.jx());
         if (q != null) {
             String str = bVar.text;
-            r iG = this.lottieDrawable.iG();
-            String bh = iG != null ? iG.bh(str) : str;
+            r iH = this.lottieDrawable.iH();
+            String bh = iH != null ? iH.bh(str) : str;
             this.Gm.setTypeface(q);
-            this.Gm.setTextSize((float) (bVar.Eh * com.airbnb.lottie.d.f.kZ()));
+            this.Gm.setTextSize((float) (bVar.Eh * com.airbnb.lottie.d.f.la()));
             this.Gn.setTypeface(this.Gm.getTypeface());
             this.Gn.setTextSize(this.Gm.getTextSize());
             for (int i = 0; i < bh.length(); i++) {
@@ -164,18 +164,18 @@ public class g extends a {
     private void a(com.airbnb.lottie.model.d dVar, Matrix matrix, float f, com.airbnb.lottie.model.b bVar, Canvas canvas) {
         List<com.airbnb.lottie.a.a.c> a = a(dVar);
         for (int i = 0; i < a.size(); i++) {
-            Path iU = a.get(i).iU();
-            iU.computeBounds(this.Gl, false);
+            Path iV = a.get(i).iV();
+            iV.computeBounds(this.Gl, false);
             this.matrix.set(matrix);
-            this.matrix.preTranslate(0.0f, ((float) (-bVar.Ek)) * com.airbnb.lottie.d.f.kZ());
+            this.matrix.preTranslate(0.0f, ((float) (-bVar.Ek)) * com.airbnb.lottie.d.f.la());
             this.matrix.preScale(f, f);
-            iU.transform(this.matrix);
+            iV.transform(this.matrix);
             if (bVar.Em) {
-                a(iU, this.Gm, canvas);
-                a(iU, this.Gn, canvas);
+                a(iV, this.Gm, canvas);
+                a(iV, this.Gn, canvas);
             } else {
-                a(iU, this.Gn, canvas);
-                a(iU, this.Gm, canvas);
+                a(iV, this.Gn, canvas);
+                a(iV, this.Gm, canvas);
             }
         }
     }
@@ -211,11 +211,11 @@ public class g extends a {
         if (this.Go.containsKey(dVar)) {
             return this.Go.get(dVar);
         }
-        List<j> jx = dVar.jx();
-        int size = jx.size();
+        List<j> jy = dVar.jy();
+        int size = jy.size();
         ArrayList arrayList = new ArrayList(size);
         for (int i = 0; i < size; i++) {
-            arrayList.add(new com.airbnb.lottie.a.a.c(this.lottieDrawable, this, jx.get(i)));
+            arrayList.add(new com.airbnb.lottie.a.a.c(this.lottieDrawable, this, jy.get(i)));
         }
         this.Go.put(dVar, arrayList);
         return arrayList;

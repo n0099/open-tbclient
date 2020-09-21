@@ -2,47 +2,47 @@ package com.facebook.drawee.a.a.a.a;
 
 import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class c extends com.facebook.imagepipeline.h.a {
-    private final h nnl;
-    private final com.facebook.common.time.b nns;
+    private final h nxl;
+    private final com.facebook.common.time.b nxs;
 
     public c(com.facebook.common.time.b bVar, h hVar) {
-        this.nns = bVar;
-        this.nnl = hVar;
+        this.nxs = bVar;
+        this.nxl = hVar;
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        this.nnl.gr(this.nns.now());
-        this.nnl.setImageRequest(imageRequest);
-        this.nnl.bb(obj);
-        this.nnl.setRequestId(str);
-        this.nnl.xS(z);
+        this.nxl.gF(this.nxs.now());
+        this.nxl.setImageRequest(imageRequest);
+        this.nxl.bd(obj);
+        this.nxl.setRequestId(str);
+        this.nxl.yb(z);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        this.nnl.gs(this.nns.now());
-        this.nnl.setImageRequest(imageRequest);
-        this.nnl.setRequestId(str);
-        this.nnl.xS(z);
-        this.nnl.xR(true);
+        this.nxl.gG(this.nxs.now());
+        this.nxl.setImageRequest(imageRequest);
+        this.nxl.setRequestId(str);
+        this.nxl.yb(z);
+        this.nxl.ya(true);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        this.nnl.gs(this.nns.now());
-        this.nnl.setImageRequest(imageRequest);
-        this.nnl.setRequestId(str);
-        this.nnl.xS(z);
-        this.nnl.xR(false);
+        this.nxl.gG(this.nxs.now());
+        this.nxl.setImageRequest(imageRequest);
+        this.nxl.setRequestId(str);
+        this.nxl.yb(z);
+        this.nxl.ya(false);
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
-    public void UA(String str) {
-        this.nnl.gs(this.nns.now());
-        this.nnl.setRequestId(str);
-        this.nnl.xQ(true);
+    public void Vc(String str) {
+        this.nxl.gG(this.nxs.now());
+        this.nxl.setRequestId(str);
+        this.nxl.xZ(true);
     }
 }

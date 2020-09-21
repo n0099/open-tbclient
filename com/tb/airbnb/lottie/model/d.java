@@ -4,7 +4,7 @@ import android.support.annotation.RestrictTo;
 import com.tb.airbnb.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class d {
     private final double Eh;
     private final char Ep;
@@ -26,7 +26,7 @@ public class d {
         this.Eq = str2;
     }
 
-    public List<j> jx() {
+    public List<j> jy() {
         return this.shapes;
     }
 

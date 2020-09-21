@@ -18,30 +18,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbadk.core.view.userLike.b {
     private RectF Gl;
     private int backgroundColor;
     private String content;
     private Drawable drawable;
+    private ImageView iFc;
     private boolean isOpen;
-    private ImageView ixG;
-    private a lnR;
-    private FrameLayout mHI;
-    private FrameLayout mHJ;
-    private Paint mHK;
-    private int mHL;
-    private boolean mHM;
-    private boolean mHN;
+    private a lwN;
+    private FrameLayout mRu;
+    private FrameLayout mRv;
+    private Paint mRw;
+    private int mRx;
+    private boolean mRy;
+    private boolean mRz;
     private Path path;
     private TextView title;
-    private static final int mHG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-    private static final int mHH = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-    private static final int ajD = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+    private static final int mRs = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+    private static final int mRt = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+    private static final int akb = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void as(boolean z, boolean z2);
+        void au(boolean z, boolean z2);
     }
 
     public FollowUserSpinnerBtn(Context context) {
@@ -54,26 +54,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
 
     public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mHM = true;
+        this.mRy = true;
         init(context);
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
         setOrientation(0);
-        this.mHI = (FrameLayout) findViewById(R.id.leftBox);
-        this.mHJ = (FrameLayout) findViewById(R.id.rightBox);
+        this.mRu = (FrameLayout) findViewById(R.id.leftBox);
+        this.mRv = (FrameLayout) findViewById(R.id.rightBox);
         this.title = (TextView) findViewById(R.id.title);
-        this.ixG = (ImageView) findViewById(R.id.arrow);
-        this.mHK = new Paint(1);
-        this.mHK.setStyle(Paint.Style.STROKE);
-        this.mHK.setStrokeCap(Paint.Cap.ROUND);
-        this.mHK.setStrokeWidth(l.getDimens(context, R.dimen.tbds3));
+        this.iFc = (ImageView) findViewById(R.id.arrow);
+        this.mRw = new Paint(1);
+        this.mRw.setStyle(Paint.Style.STROKE);
+        this.mRw.setStrokeCap(Paint.Cap.ROUND);
+        this.mRw.setStrokeWidth(l.getDimens(context, R.dimen.tbds3));
         this.Gl = new RectF();
         this.path = new Path();
-        this.mHL = R.color.cp_cont_b;
-        this.drawable = SvgManager.bjq().a(R.drawable.icon_pure_unfold12_svg, this.mHL, (SvgManager.SvgResourceStateType) null);
-        this.ixG.setImageDrawable(this.drawable);
+        this.mRx = R.color.cp_cont_b;
+        this.drawable = SvgManager.bkl().a(R.drawable.icon_pure_unfold12_svg, this.mRx, (SvgManager.SvgResourceStateType) null);
+        this.iFc.setImageDrawable(this.drawable);
     }
 
     @Override // android.view.View
@@ -83,30 +83,30 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
         this.path.addRoundRect(this.Gl, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
         canvas.clipPath(this.path);
         super.draw(canvas);
-        if (this.mHN) {
-            this.mHK.setColor(ap.getColor(this.mHL));
-            float right = this.mHI.getRight();
-            canvas.drawLine(right, this.ixG.getTop(), right, this.ixG.getBottom(), this.mHK);
+        if (this.mRz) {
+            this.mRw.setColor(ap.getColor(this.mRx));
+            float right = this.mRu.getRight();
+            canvas.drawLine(right, this.iFc.getTop(), right, this.iFc.getBottom(), this.mRw);
         }
     }
 
     public void aN(boolean z) {
         if (z) {
             this.content = getResources().getString(R.string.followed);
-            this.mHL = R.color.cp_cont_a;
+            this.mRx = R.color.cp_cont_a;
             this.backgroundColor = R.color.cp_btn_j;
         } else {
             this.content = getResources().getString(R.string.attention);
-            this.mHL = R.color.cp_cont_b;
+            this.mRx = R.color.cp_cont_b;
             this.backgroundColor = R.color.cp_btn_a;
         }
         this.title.setText(this.content);
         requestLayout();
         onChangeSkinType(0);
-        if (this.mHN && !this.mHM && z && !this.isOpen && this.lnR != null) {
-            this.lnR.as(true, true);
+        if (this.mRz && !this.mRy && z && !this.isOpen && this.lwN != null) {
+            this.lwN.au(true, true);
         }
-        this.mHM = false;
+        this.mRy = false;
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -120,11 +120,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void pk(int i) {
+    public void py(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bk(View view) {
+    public void bm(View view) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -133,12 +133,12 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     }
 
     public void setOpenListener(final a aVar) {
-        this.lnR = aVar;
-        this.mHJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FollowUserSpinnerBtn.1
+        this.lwN = aVar;
+        this.mRv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FollowUserSpinnerBtn.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (aVar != null) {
-                    aVar.as(!FollowUserSpinnerBtn.this.isOpen, false);
+                    aVar.au(!FollowUserSpinnerBtn.this.isOpen, false);
                 }
             }
         });
@@ -146,14 +146,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
 
     public void onChangeSkinType(int i) {
         setBackgroundColor(ap.getColor(this.backgroundColor));
-        ap.setViewTextColor(this.title, this.mHL);
-        this.drawable = SvgManager.bjq().a(R.drawable.icon_pure_unfold12_svg, this.mHL, (SvgManager.SvgResourceStateType) null);
-        this.ixG.setImageDrawable(this.drawable);
+        ap.setViewTextColor(this.title, this.mRx);
+        this.drawable = SvgManager.bkl().a(R.drawable.icon_pure_unfold12_svg, this.mRx, (SvgManager.SvgResourceStateType) null);
+        this.iFc.setImageDrawable(this.drawable);
         invalidate();
     }
 
     public void setFirstUpdate(boolean z) {
-        this.mHM = z;
+        this.mRy = z;
     }
 
     public void setOpen(boolean z) {
@@ -161,26 +161,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
     }
 
     public void setShowPullBtn(boolean z) {
-        this.mHN = z;
+        this.mRz = z;
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.title.getLayoutParams();
         if (z) {
-            this.mHJ.setVisibility(0);
-            layoutParams.leftMargin = mHH;
-            layoutParams.rightMargin = ajD;
+            this.mRv.setVisibility(0);
+            layoutParams.leftMargin = mRt;
+            layoutParams.rightMargin = akb;
             layoutParams.gravity = 16;
             layoutParams.width = -2;
         } else {
-            this.mHJ.setVisibility(8);
+            this.mRv.setVisibility(8);
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
             layoutParams.gravity = 17;
-            layoutParams.width = mHG;
+            layoutParams.width = mRs;
         }
         this.title.setLayoutParams(layoutParams);
         requestLayout();
     }
 
     public ImageView getArrow() {
-        return this.ixG;
+        return this.iFc;
     }
 }

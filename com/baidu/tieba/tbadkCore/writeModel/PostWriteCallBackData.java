@@ -3,6 +3,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.bp;
 import com.baidu.tbadk.coreExtra.data.AccessState;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -25,6 +26,7 @@ public class PostWriteCallBackData implements Serializable {
     private int errorCode;
     private String errorString;
     private int generalTabId;
+    private IconStampData iconStampData;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -203,6 +205,14 @@ public class PostWriteCallBackData implements Serializable {
 
     public int getGeneralTabId() {
         return this.generalTabId;
+    }
+
+    public void setIconStampData(IconStampData iconStampData) {
+        this.iconStampData = iconStampData;
+    }
+
+    public IconStampData getIconStampData() {
+        return this.iconStampData;
     }
 
     public boolean isErrorLinkCountExceedLimit() {

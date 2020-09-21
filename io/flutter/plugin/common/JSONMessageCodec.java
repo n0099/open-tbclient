@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class JSONMessageCodec implements MessageCodec<Object> {
     public static final JSONMessageCodec INSTANCE = new JSONMessageCodec();
 

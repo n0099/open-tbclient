@@ -10,7 +10,7 @@ import android.util.SparseIntArray;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class AudioAttributesCompat {
     public static final int CONTENT_TYPE_MOVIE = 3;
     public static final int CONTENT_TYPE_MUSIC = 2;
@@ -60,13 +60,13 @@ public class AudioAttributesCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public @interface AttributeContentType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public @interface AttributeUsage {
     }
 
@@ -143,7 +143,7 @@ public class AudioAttributesCompat {
         return i & FLAG_ALL_PUBLIC;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private Object mAAObject;
         private int mContentType;
@@ -316,7 +316,7 @@ public class AudioAttributesCompat {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     private static abstract class AudioManagerHidden {
         public static final int STREAM_ACCESSIBILITY = 10;
         public static final int STREAM_BLUETOOTH_SCO = 6;

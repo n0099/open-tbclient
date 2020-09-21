@@ -20,7 +20,7 @@ import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class VodClient extends AbstractBceClient {
     private static final int MAX_SOURCE_EXTENSION_LENGTH = 10;
     private static final String PARA_APPLY = "apply";

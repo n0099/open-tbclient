@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e {
     private String a;
     private HashMap<String, String> b = new LinkedHashMap(32);
@@ -22,7 +22,7 @@ public class e {
     private boolean n = false;
     private int o;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         GET("get"),
         POST("post");
@@ -39,7 +39,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         PROTOBUF("pb"),
         JSON("json"),

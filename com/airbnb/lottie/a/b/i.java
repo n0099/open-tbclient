@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class i extends f<PointF> {
     private final PointF DC;
     private final float[] DD;
@@ -26,13 +26,13 @@ public class i extends f<PointF> {
     public PointF a(com.airbnb.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
         h hVar = (h) aVar;
-        Path iU = hVar.iU();
-        if (iU == null) {
+        Path iV = hVar.iV();
+        if (iV == null) {
             return aVar.GX;
         }
-        if (this.Dv == null || (pointF = (PointF) this.Dv.b(hVar.AX, hVar.Ha.floatValue(), hVar.GX, hVar.GY, jh(), f, getProgress())) == null) {
+        if (this.Dv == null || (pointF = (PointF) this.Dv.b(hVar.AX, hVar.Ha.floatValue(), hVar.GX, hVar.GY, ji(), f, getProgress())) == null) {
             if (this.DE != hVar) {
-                this.DG = new PathMeasure(iU, false);
+                this.DG = new PathMeasure(iV, false);
                 this.DE = hVar;
             }
             this.DG.getPosTan(this.DG.getLength() * f, this.DD, null);

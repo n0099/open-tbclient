@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ad {
     public static <T> boolean a(Collection<T> collection) {
         return collection == null || collection.isEmpty();

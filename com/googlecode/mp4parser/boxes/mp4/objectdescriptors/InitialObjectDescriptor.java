@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class InitialObjectDescriptor extends ObjectDescriptorBase {
     int audioProfileLevelIndication;
     int graphicsProfileLevelIndication;

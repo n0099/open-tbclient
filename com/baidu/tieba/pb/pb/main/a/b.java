@@ -14,93 +14,93 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private View.OnClickListener hVH;
-    private RelativeLayout kNN;
-    private HeadImageView kNO;
-    private TextView kNP;
-    private TextView kNQ;
-    private ImageView kNR;
-    private PbFragment kzA;
+    private View.OnClickListener icH;
+    private PbFragment kHX;
+    private RelativeLayout kWn;
+    private HeadImageView kWo;
+    private TextView kWp;
+    private TextView kWq;
+    private ImageView kWr;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.hVH = null;
-        this.kzA = pbFragment;
-        this.hVH = onClickListener;
+        this.icH = null;
+        this.kHX = pbFragment;
+        this.icH = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.kNN == null) {
-            this.kNN = (RelativeLayout) LayoutInflater.from(this.kzA.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.kNO = (HeadImageView) this.kNN.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.kNO.setIsRound(true);
-            this.kNO.setPlaceHolder(1);
-            this.kNP = (TextView) this.kNN.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.kNQ = (TextView) this.kNN.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.kNR = (ImageView) this.kNN.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.kNN.setOnClickListener(this.hVH);
+        if (this.kWn == null) {
+            this.kWn = (RelativeLayout) LayoutInflater.from(this.kHX.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.kWo = (HeadImageView) this.kWn.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.kWo.setIsRound(true);
+            this.kWo.setPlaceHolder(1);
+            this.kWp = (TextView) this.kWn.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.kWq = (TextView) this.kWn.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.kWr = (ImageView) this.kWn.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.kWn.setOnClickListener(this.icH);
         }
     }
 
     public void a(f fVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (fVar != null && bdTypeListView != null) {
-            if (fVar.cVm().bdk() && fVar.cVm().bft() != null) {
-                SmartApp bft = fVar.cVm().bft();
-                this.kNN.setVisibility(0);
+            if (fVar.cYR().bee() && fVar.cYR().bgn() != null) {
+                SmartApp bgn = fVar.cYR().bgn();
+                this.kWn.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!at.isEmpty(bft.avatar)) {
-                    this.kNO.startLoad(bft.avatar, 10, false, false);
+                if (!at.isEmpty(bgn.avatar)) {
+                    this.kWo.startLoad(bgn.avatar, 10, false, false);
                 }
-                if (!at.isEmpty(bft.name)) {
-                    charSequence = bft.name + " " + ((Object) this.kzA.getText(R.string.smart_app_suffix));
+                if (!at.isEmpty(bgn.name)) {
+                    charSequence = bgn.name + " " + ((Object) this.kHX.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.kzA.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.kHX.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.kNP.setText(charSequence);
-                if (!at.isEmpty(bft._abstract)) {
-                    this.kNQ.setText(bft._abstract);
+                this.kWp.setText(charSequence);
+                if (!at.isEmpty(bgn._abstract)) {
+                    this.kWq.setText(bgn._abstract);
                 } else {
-                    this.kNQ.setText(this.kzA.getText(R.string.smart_app_default_abstract));
+                    this.kWq.setText(this.kHX.getText(R.string.smart_app_default_abstract));
                 }
-                this.kNN.setTag(bft);
+                this.kWn.setTag(bgn);
                 return;
             }
-            this.kNN.setVisibility(8);
+            this.kWn.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.kNN != null) {
-            bdTypeListView.addHeaderView(this.kNN, i);
+        if (bdTypeListView != null && this.kWn != null) {
+            bdTypeListView.addHeaderView(this.kWn, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.kNN != null) {
-            bdTypeListView.removeHeaderView(this.kNN);
+        if (bdTypeListView != null && this.kWn != null) {
+            bdTypeListView.removeHeaderView(this.kWn);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kNN != null) {
-            ap.setBackgroundColor(this.kNN, R.color.cp_bg_line_c);
+        if (this.kWn != null) {
+            ap.setBackgroundColor(this.kWn, R.color.cp_bg_line_c);
         }
-        if (this.kNO != null) {
-            this.kNO.setIsNight(i == 1);
+        if (this.kWo != null) {
+            this.kWo.setIsNight(i == 1);
         }
-        if (this.kNP != null) {
-            ap.setViewTextColor(this.kNP, R.color.cp_cont_b);
+        if (this.kWp != null) {
+            ap.setViewTextColor(this.kWp, R.color.cp_cont_b);
         }
-        if (this.kNQ != null) {
-            ap.setViewTextColor(this.kNQ, R.color.cp_cont_j);
+        if (this.kWq != null) {
+            ap.setViewTextColor(this.kWq, R.color.cp_cont_j);
         }
-        if (this.kNR != null) {
-            ap.setBackgroundResource(this.kNR, R.drawable.icon_common_arrow16_right_n);
+        if (this.kWr != null) {
+            ap.setBackgroundResource(this.kWr, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

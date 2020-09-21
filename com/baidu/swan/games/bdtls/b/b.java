@@ -5,55 +5,55 @@ import android.util.Log;
 import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class b {
-    protected boolean dpY = false;
-    protected int dpZ = 0;
-    private String dqa;
+    protected boolean dsa = false;
+    protected int dsb = 0;
+    private String dsc;
 
     public abstract void Y(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void kZ(int i);
+    public abstract void lk(int i);
 
     public final String Z(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.dpY) {
-            i a = com.baidu.swan.games.bdtls.d.aLm().a(e.aLn().aLo(), bArr);
+        if (this.dsa) {
+            i a = com.baidu.swan.games.bdtls.d.aLX().a(e.aLY().aLZ(), bArr);
             if (a != null) {
                 if (!TextUtils.isEmpty(a.getResponseMessage())) {
                     str = a.getResponseMessage();
                 }
-                this.dpZ = a.aMl().intValue();
+                this.dsb = a.aMW().intValue();
             } else {
-                this.dpZ = -1;
+                this.dsb = -1;
             }
-            e.aLn().aLo().kY(this.dpZ);
-            if (this.dpZ == -1) {
-                com.baidu.swan.games.bdtls.c.aLl().setEnable(false);
+            e.aLY().aLZ().lj(this.dsb);
+            if (this.dsb == -1) {
+                com.baidu.swan.games.bdtls.c.aLW().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void uJ(String str) {
-        this.dpZ = 0;
-        com.baidu.swan.games.bdtls.c.aLl().a(str, this);
+    public final void vc(String str) {
+        this.dsb = 0;
+        com.baidu.swan.games.bdtls.c.aLW().a(str, this);
     }
 
-    public void gC(boolean z) {
-        this.dpY = z;
+    public void gA(boolean z) {
+        this.dsa = z;
     }
 
     public String getMethod() {
-        return this.dqa;
+        return this.dsc;
     }
 
-    public void uK(String str) {
-        this.dqa = str;
+    public void vd(String str) {
+        this.dsc = str;
     }
 }

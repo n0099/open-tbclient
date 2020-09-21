@@ -7,32 +7,32 @@ import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.h> {
-    private final int bqn;
+    private final int btx;
     private final int limit;
-    private final CharSequence otP;
-    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> otQ;
+    private final CharSequence oDw;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> oDx;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
     public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
         kotlin.jvm.internal.q.m(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.q.m(mVar, "getNextMatch");
-        this.otP = charSequence;
-        this.bqn = i;
+        this.oDw = charSequence;
+        this.btx = i;
         this.limit = i2;
-        this.otQ = mVar;
+        this.oDx = mVar;
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Iterator<kotlin.b.h> {
-        private int otC = -1;
-        private int otR;
-        private int otS;
-        private kotlin.b.h otT;
-        private int otU;
+        private kotlin.b.h oDA;
+        private int oDB;
+        private int oDj = -1;
+        private int oDy;
+        private int oDz;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -41,70 +41,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.h> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.otR = kotlin.b.l.am(d.this.bqn, 0, d.this.otP.length());
-            this.otS = this.otR;
+            this.oDy = kotlin.b.l.ap(d.this.btx, 0, d.this.oDw.length());
+            this.oDz = this.oDy;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r6.otU < r6.otV.limit) goto L13;
+            if (r6.oDB < r6.oDC.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void egL() {
-            if (this.otS >= 0) {
+        private final void ekI() {
+            if (this.oDz >= 0) {
                 if (d.this.limit > 0) {
-                    this.otU++;
+                    this.oDB++;
                 }
-                if (this.otS <= d.this.otP.length()) {
-                    Pair pair = (Pair) d.this.otQ.invoke(d.this.otP, Integer.valueOf(this.otS));
+                if (this.oDz <= d.this.oDw.length()) {
+                    Pair pair = (Pair) d.this.oDx.invoke(d.this.oDw, Integer.valueOf(this.oDz));
                     if (pair == null) {
-                        this.otT = new kotlin.b.h(this.otR, l.x(d.this.otP));
-                        this.otS = -1;
+                        this.oDA = new kotlin.b.h(this.oDy, l.v(d.this.oDw));
+                        this.oDz = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.otT = kotlin.b.l.eh(this.otR, intValue);
-                        this.otR = intValue + intValue2;
-                        this.otS = (intValue2 == 0 ? 1 : 0) + this.otR;
+                        this.oDA = kotlin.b.l.el(this.oDy, intValue);
+                        this.oDy = intValue + intValue2;
+                        this.oDz = (intValue2 == 0 ? 1 : 0) + this.oDy;
                     }
-                    this.otC = 1;
+                    this.oDj = 1;
                     return;
                 }
-                this.otT = new kotlin.b.h(this.otR, l.x(d.this.otP));
-                this.otS = -1;
-                this.otC = 1;
+                this.oDA = new kotlin.b.h(this.oDy, l.v(d.this.oDw));
+                this.oDz = -1;
+                this.oDj = 1;
                 return;
             }
-            this.otC = 0;
-            this.otT = null;
+            this.oDj = 0;
+            this.oDA = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: egM */
+        /* renamed from: ekJ */
         public kotlin.b.h next() {
-            if (this.otC == -1) {
-                egL();
+            if (this.oDj == -1) {
+                ekI();
             }
-            if (this.otC == 0) {
+            if (this.oDj == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.h hVar = this.otT;
+            kotlin.b.h hVar = this.oDA;
             if (hVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.otT = null;
-            this.otC = -1;
+            this.oDA = null;
+            this.oDj = -1;
             return hVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.otC == -1) {
-                egL();
+            if (this.oDj == -1) {
+                ekI();
             }
-            return this.otC == 1;
+            return this.oDj == 1;
         }
     }
 

@@ -3,70 +3,78 @@ package com.baidu.tieba.sdk.f;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
-        String str = map.get("room_id");
-        String str2 = map.get("live_id");
-        String str3 = map.get("username");
-        String str4 = map.get("userrec");
-        String str5 = map.get("cover");
-        String str6 = map.get("live_url");
-        String str7 = map.get(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
-        String str8 = map.get(AlaLiveRoomActivityConfig.LIVE_SHOW_GITE_PANEL);
-        String str9 = map.get("tab");
-        String str10 = map.get("tag");
-        String str11 = map.get("source");
-        String str12 = map.get("from");
-        String str13 = map.get("extra");
+        String str = map.get("enterroom_type");
+        String str2 = map.get("room_id");
+        String str3 = map.get("live_id");
+        String str4 = map.get("username");
+        String str5 = map.get("userrec");
+        String str6 = map.get("cover");
+        String str7 = map.get("live_url");
+        String str8 = map.get("screen_direction");
+        String str9 = map.get("open_giftlist");
+        String str10 = map.get("tab");
+        String str11 = map.get("tag");
+        String str12 = map.get("source");
+        String str13 = map.get("from");
+        String str14 = map.get("extra");
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(str9)) {
-                jSONObject.put("tab", str9);
-            }
             if (!TextUtils.isEmpty(str10)) {
-                jSONObject.put("tag", str10);
+                jSONObject.put("tab", str10);
             }
             if (!TextUtils.isEmpty(str11)) {
-                jSONObject.put("source", str11);
+                jSONObject.put("tag", str11);
             }
             if (!TextUtils.isEmpty(str12)) {
-                jSONObject.put("from", str12);
-            }
-            if (!TextUtils.isEmpty(str5)) {
-                jSONObject.put("cover", str5);
-            }
-            if (!TextUtils.isEmpty(str6)) {
-                jSONObject.put("live_url", str6);
-            }
-            if (!TextUtils.isEmpty(str7)) {
-                jSONObject.put(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION, str7);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                jSONObject.put("enterRoomId", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                jSONObject.put("enterLiveId", str2);
+                jSONObject.put("source", str12);
             }
             if (!TextUtils.isEmpty(str13)) {
-                jSONObject.put("extra", str13);
+                jSONObject.put("from", str13);
+            }
+            if (!TextUtils.isEmpty(str6)) {
+                jSONObject.put("cover", str6);
+            }
+            if (!TextUtils.isEmpty(str7)) {
+                jSONObject.put("live_url", str7);
+            }
+            if (!TextUtils.isEmpty(str8)) {
+                jSONObject.put("screen_direction", str8);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("enterRoomId", str2);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                jSONObject.put("enterLiveId", str3);
+            }
+            if (!TextUtils.isEmpty(str14)) {
+                jSONObject.put("extra", str14);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.sdk.a.dpn().a(context != null ? context : TbadkCoreApplication.getInst(), str, "1".equals(str4), str8, jSONObject);
+        if (TextUtils.equals(str, "1")) {
+            if (!TextUtils.isEmpty(str2)) {
+                com.baidu.tieba.sdk.a.dsX().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+            } else if (!TextUtils.isEmpty(str3)) {
+                com.baidu.tieba.sdk.a.dsX().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+            } else if (!TextUtils.isEmpty(str4)) {
+                com.baidu.tieba.sdk.a.dsX().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+            }
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.dpn().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str8, jSONObject);
+            com.baidu.tieba.sdk.a.dsX().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.dpn().b(context != null ? context : TbadkCoreApplication.getInst(), str3, "1".equals(str4), str8, jSONObject);
+            com.baidu.tieba.sdk.a.dsX().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+        } else if (!TextUtils.isEmpty(str4)) {
+            com.baidu.tieba.sdk.a.dsX().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
         }
     }
 }

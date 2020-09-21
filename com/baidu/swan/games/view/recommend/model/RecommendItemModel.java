@@ -1,8 +1,7 @@
 package com.baidu.swan.games.view.recommend.model;
 
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class RecommendItemModel implements NoProGuard {
     @com.google.gson.a.c("app_key")
     public String appKey;
@@ -13,7 +12,7 @@ public class RecommendItemModel implements NoProGuard {
     public String desc;
     @com.google.gson.a.c("icon_url")
     public String iconUrl;
-    @com.google.gson.a.c(SuspensionBallEntity.KEY_SCHEME)
+    @com.google.gson.a.c("scheme")
     public String scheme;
 
     public String getAppName() {

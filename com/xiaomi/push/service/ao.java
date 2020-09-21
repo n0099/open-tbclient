@@ -19,7 +19,7 @@ import com.xiaomi.push.gx;
 import com.xiaomi.push.hg;
 import com.xiaomi.push.service.ap;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ao {
     private XMPushService a;
 
@@ -50,7 +50,7 @@ public class ao {
         if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a = ap.a().a(k, l)) == null) {
             return;
         }
-        gx.a(this.a, a.f860a, gx.a(gjVar.m316a()), true, true, System.currentTimeMillis());
+        gx.a(this.a, a.f859a, gx.a(gjVar.m316a()), true, true, System.currentTimeMillis());
     }
 
     private void c(fl flVar) {
@@ -60,7 +60,7 @@ public class ao {
         if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a = ap.a().a(num, g)) == null) {
             return;
         }
-        gx.a(this.a, a.f860a, flVar.c(), true, true, System.currentTimeMillis());
+        gx.a(this.a, a.f859a, flVar.c(), true, true, System.currentTimeMillis());
     }
 
     public void a(fl flVar) {

@@ -5,14 +5,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes14.dex */
 public class k {
-    private long aaa;
-    private int dJM;
-    private JSONObject dJN;
-    private String dJO;
-    private boolean dJP = false;
-    private JSONArray dJR;
+    private long aat;
+    private int dLQ;
+    private JSONObject dLR;
+    private String dLS;
+    private boolean dLT = false;
+    private JSONArray dLV;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -26,7 +26,7 @@ public class k {
 
     public k(String str, int i, String str2, int i2, boolean z) {
         this.mId = str;
-        this.dJM = i;
+        this.dLQ = i;
         this.mContent = str2;
         this.mOption = i2;
         this.mIsSampled = z;
@@ -36,27 +36,27 @@ public class k {
         return this.mId;
     }
 
-    public int aVR() {
-        return this.dJM;
+    public int aWD() {
+        return this.dLQ;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject aVT() {
-        return this.dJN;
+    public JSONObject aWF() {
+        return this.dLR;
     }
 
-    public long aVY() {
-        return this.aaa;
+    public long aWK() {
+        return this.aat;
     }
 
     public long getEndTime() {
         return this.mEndTime;
     }
 
-    public String aVZ() {
+    public String aWL() {
         return this.mState;
     }
 
@@ -64,41 +64,41 @@ public class k {
         return this.mOption;
     }
 
-    public String aVS() {
-        return this.dJO;
+    public String aWE() {
+        return this.dLS;
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void mk(int i) {
-        this.dJM = i;
+    public void mv(int i) {
+        this.dLQ = i;
     }
 
     public void setContent(String str) {
         this.mContent = str;
     }
 
-    public void cq(long j) {
-        this.aaa = j;
+    public void cr(long j) {
+        this.aat = j;
     }
 
     public void setEndTime(long j) {
         this.mEndTime = j;
     }
 
-    public void xm(String str) {
+    public void xF(String str) {
         this.mState = str;
     }
 
-    public void xn(String str) {
-        this.dJO = str;
+    public void xG(String str) {
+        this.dLS = str;
     }
 
-    public void aVV() {
-        if (d.aVB().xc(this.mId)) {
-            this.dJO = e.aVF().avl();
+    public void aWH() {
+        if (d.aWn().xv(this.mId)) {
+            this.dLS = e.aWr().avU();
         }
     }
 
@@ -110,25 +110,25 @@ public class k {
         return this.mCategory;
     }
 
-    public void hi(boolean z) {
-        this.dJP = z;
+    public void hg(boolean z) {
+        this.dLT = z;
     }
 
-    public boolean aVO() {
-        return this.dJP;
+    public boolean aWA() {
+        return this.dLT;
     }
 
-    public void xo(String str) {
+    public void xH(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.dJR = new JSONArray(str);
+                this.dLV = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray aWa() {
-        return this.dJR;
+    public JSONArray aWM() {
+        return this.dLV;
     }
 }

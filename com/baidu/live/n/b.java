@@ -1,9 +1,10 @@
 package com.baidu.live.n;
 
-import com.baidu.live.data.PersonUserData;
-/* loaded from: classes7.dex */
+import com.baidu.live.liveroom.middleware.h;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class b {
-    public PersonUserData bgG;
-    public int errCode;
-    public String errMsg;
+    public JSONObject bjn;
+    public h bjo;
+    public String contentType;
 }

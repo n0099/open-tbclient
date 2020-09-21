@@ -15,7 +15,7 @@ import com.baidu.tieba.recapp.lego.view.JumpButton;
 import com.baidu.tieba.recapp.view.AdCriusCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class p implements com.baidu.g.a.b.b {
     @Override // com.baidu.g.a.b.b
     public View A(Context context, String str) {
@@ -68,8 +68,8 @@ public class p implements com.baidu.g.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.atj > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.atj * view.getResources().getDisplayMetrics().density));
+            if (aVar.atL > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.atL * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -79,19 +79,19 @@ public class p implements com.baidu.g.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.ato);
+                textView.setTextColor(aVar.atQ);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.atp * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.atR * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);
             return true;
         } else if ("download".equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
-            if (TextUtils.equals("pb-banner", aVar.atq)) {
+            if (TextUtils.equals("pb-banner", aVar.atS)) {
                 ((ApkDownloadView) view).setIsPbDownload(true);
-                ((ApkDownloadView) view).setTextSize((int) aVar.atp);
+                ((ApkDownloadView) view).setTextSize((int) aVar.atR);
             } else {
                 ((ApkDownloadView) view).setIsPbDownload(false);
             }

@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
 import android.view.animation.Interpolator;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class a<T> {
     public final float AX;
     @Nullable
@@ -48,7 +48,7 @@ public class a<T> {
         this.Ha = Float.valueOf(Float.MAX_VALUE);
     }
 
-    public float kx() {
+    public float ky() {
         if (this.composition == null) {
             return 0.0f;
         }
@@ -58,7 +58,7 @@ public class a<T> {
         return this.Hb;
     }
 
-    public float jk() {
+    public float jl() {
         if (this.composition == null) {
             return 1.0f;
         }
@@ -66,18 +66,18 @@ public class a<T> {
             if (this.Ha == null) {
                 this.Hc = 1.0f;
             } else {
-                this.Hc = kx() + ((this.Ha.floatValue() - this.AX) / this.composition.iC());
+                this.Hc = ky() + ((this.Ha.floatValue() - this.AX) / this.composition.iC());
             }
         }
         return this.Hc;
     }
 
-    public boolean la() {
+    public boolean lb() {
         return this.GZ == null;
     }
 
     public boolean m(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= kx() && f < jk();
+        return f >= ky() && f < jl();
     }
 
     public String toString() {

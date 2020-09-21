@@ -11,9 +11,9 @@ import android.view.Surface;
 import com.baidu.fsg.face.liveness.video.f;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class d {
-    private a bNx;
+    private a bPx;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private int mFrameCount;
@@ -27,7 +27,7 @@ public class d {
     private int mH264MetaSize = 0;
     private byte[] mH264MetaBuff = null;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void onCodecConfig(byte[] bArr, int i, int i2);
 
@@ -48,14 +48,14 @@ public class d {
                         try {
                             try {
                                 this.mBufferInfo = new MediaCodec.BufferInfo();
-                                this.bNx = aVar;
-                                b WF = b.WF();
-                                a(WF);
-                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, WF.isLandscape ? WF.encodeHeight : WF.encodeWidth, WF.isLandscape ? WF.encodeWidth : WF.encodeHeight);
+                                this.bPx = aVar;
+                                b Xo = b.Xo();
+                                a(Xo);
+                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.b, Xo.isLandscape ? Xo.encodeHeight : Xo.encodeWidth, Xo.isLandscape ? Xo.encodeWidth : Xo.encodeHeight);
                                 createVideoFormat.setInteger("color-format", 2130708361);
-                                createVideoFormat.setInteger("bitrate", WF.encodeBitrate);
-                                createVideoFormat.setInteger("frame-rate", WF.H264FPS);
-                                createVideoFormat.setInteger("i-frame-interval", WF.H264GOP);
+                                createVideoFormat.setInteger("bitrate", Xo.encodeBitrate);
+                                createVideoFormat.setInteger("frame-rate", Xo.H264FPS);
+                                createVideoFormat.setInteger("i-frame-interval", Xo.H264GOP);
                                 this.mEncoder = MediaCodec.createEncoderByType(f.b);
                                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                                 this.mInputSurface = this.mEncoder.createInputSurface();
@@ -64,38 +64,38 @@ public class d {
                                 this.mReqKeyFrameParams.putInt("request-sync", 0);
                             } catch (IllegalStateException e) {
                                 e.printStackTrace();
-                                if (this.bNx != null) {
-                                    this.bNx.onCodecError(1);
+                                if (this.bPx != null) {
+                                    this.bPx.onCodecError(1);
                                 }
                             }
                         } catch (IllegalArgumentException e2) {
                             e2.printStackTrace();
-                            if (this.bNx != null) {
-                                this.bNx.onCodecError(1);
+                            if (this.bPx != null) {
+                                this.bPx.onCodecError(1);
                             }
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        if (this.bNx != null) {
-                            this.bNx.onCodecError(1);
+                        if (this.bPx != null) {
+                            this.bPx.onCodecError(1);
                         }
                     }
                 } catch (MediaCodec.CryptoException e4) {
                     e4.printStackTrace();
-                    if (this.bNx != null) {
-                        this.bNx.onCodecError(1);
+                    if (this.bPx != null) {
+                        this.bPx.onCodecError(1);
                     }
                 }
             } catch (NullPointerException e5) {
                 e5.printStackTrace();
-                if (this.bNx != null) {
-                    this.bNx.onCodecError(1);
+                if (this.bPx != null) {
+                    this.bPx.onCodecError(1);
                 }
             }
         } catch (IOException e6) {
             e6.printStackTrace();
-            if (this.bNx != null) {
-                this.bNx.onCodecError(1);
+            if (this.bPx != null) {
+                this.bPx.onCodecError(1);
             }
         }
     }
@@ -141,8 +141,8 @@ public class d {
                 } else if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.bNx != null) {
-                        this.bNx.onFormatChanged(this.mEncoder.getOutputFormat());
+                    if (this.bPx != null) {
+                        this.bPx.onFormatChanged(this.mEncoder.getOutputFormat());
                     }
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("VideoEncoderCore", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
@@ -157,22 +157,22 @@ public class d {
                     byteBuffer.get(this.mH264Buffer, 0, 512000 < this.mBufferInfo.size - byteBuffer.position() ? 512000 : this.mBufferInfo.size - byteBuffer.position());
                     if ((this.mBufferInfo.flags & 2) != 0) {
                         captureH264MetaData(this.mH264Buffer, this.mBufferInfo, capacity);
-                        if (this.bNx != null) {
-                            this.bNx.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
+                        if (this.bPx != null) {
+                            this.bPx.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
                         }
                     } else if ((this.mBufferInfo.flags & 1) != 0) {
                         if ((this.mBufferInfo.flags & 2) != 0) {
                             captureH264MetaData(this.mH264Buffer, this.mBufferInfo, capacity);
-                            if (this.bNx != null) {
-                                this.bNx.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
+                            if (this.bPx != null) {
+                                this.bPx.onCodecConfig(this.mH264MetaBuff, 0, this.mBufferInfo.size);
                             }
                         }
                         packageH264Keyframe(this.mH264Buffer, this.mBufferInfo);
-                        if (this.bNx != null) {
-                            this.bNx.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000);
+                        if (this.bPx != null) {
+                            this.bPx.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000);
                         }
-                    } else if (this.bNx != null) {
-                        this.bNx.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000);
+                    } else if (this.bPx != null) {
+                        this.bPx.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -186,13 +186,13 @@ public class d {
             }
         } catch (IllegalStateException e3) {
             e3.printStackTrace();
-            if (this.bNx != null) {
-                this.bNx.onCodecError(2);
+            if (this.bPx != null) {
+                this.bPx.onCodecError(2);
             }
         } catch (Exception e4) {
             e4.printStackTrace();
-            if (this.bNx != null) {
-                this.bNx.onCodecError(2);
+            if (this.bPx != null) {
+                this.bPx.onCodecError(2);
             }
         }
     }
@@ -227,7 +227,7 @@ public class d {
         } else {
             this.mFrameCount++;
         }
-        if (this.mLastKeyFrameTS + (b.WF().H264GOP * 1000) < currentTimeMillis && Build.VERSION.SDK_INT >= 19) {
+        if (this.mLastKeyFrameTS + (b.Xo().H264GOP * 1000) < currentTimeMillis && Build.VERSION.SDK_INT >= 19) {
             try {
                 if (this.mLastReqKeyFrameTS + 500 > currentTimeMillis) {
                     this.mLastReqKeyFrameTS = currentTimeMillis;
@@ -269,6 +269,6 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.bNx = aVar;
+        this.bPx = aVar;
     }
 }

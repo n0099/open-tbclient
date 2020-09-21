@@ -1,5 +1,5 @@
 package com.baidu.ar.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h<T> {
     private volatile T xj;
     private volatile int xk = 0;

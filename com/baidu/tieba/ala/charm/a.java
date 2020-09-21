@@ -9,18 +9,18 @@ import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import com.baidu.tieba.ala.charm.model.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private String aAG;
-    private boolean bbJ;
-    private String fPL;
-    private String fPM;
-    private String fPN;
-    private String fPO;
-    private com.baidu.tieba.ala.charm.view.b fPP;
-    private com.baidu.tieba.ala.charm.model.a fPQ;
-    private ALaCharmCardActivity fPR;
-    private int fPS;
+    private String aBm;
+    private boolean bej;
+    private String fSW;
+    private String fSX;
+    private String fSY;
+    private String fSZ;
+    private com.baidu.tieba.ala.charm.view.b fTa;
+    private com.baidu.tieba.ala.charm.model.a fTb;
+    private ALaCharmCardActivity fTc;
+    private int fTd;
     private String mGroupId;
     private boolean mHasMore;
     private String mLiveId;
@@ -28,7 +28,7 @@ public class a implements com.baidu.live.liveroom.d.d {
     private String mUserId;
     private String mUserName;
     private int pn = 0;
-    CustomMessageListener fPT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
+    CustomMessageListener fTe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,133 +37,133 @@ public class a implements com.baidu.live.liveroom.d.d {
                 if (str == null) {
                     str = "";
                 }
-                if (a.this.fPP != null) {
-                    a.this.fPP.setOtherParams(str);
+                if (a.this.fTa != null) {
+                    a.this.fTa.setOtherParams(str);
                 }
             }
         }
     };
-    a.InterfaceC0597a fPU = new a.InterfaceC0597a() { // from class: com.baidu.tieba.ala.charm.a.2
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0597a
+    a.InterfaceC0593a fTf = new a.InterfaceC0593a() { // from class: com.baidu.tieba.ala.charm.a.2
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0593a
         public void a(ALaCharmDataList aLaCharmDataList) {
             if (aLaCharmDataList == null) {
-                a.this.fPP.kW(true);
+                a.this.fTa.kY(true);
                 return;
             }
-            a.this.fPP.bFX();
-            a.this.fPP.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
+            a.this.fTa.bHn();
+            a.this.fTa.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
             a.this.pn = aLaCharmDataList.pn + 1;
             a.this.mHasMore = aLaCharmDataList.hasMore;
             if (a.this.mHasMore) {
-                a.this.fPP.bGS();
+                a.this.fTa.bIi();
             } else {
-                a.this.fPP.Fc(a.this.fPR.getPageContext().getResources().getString(a.i.charm_no_more));
+                a.this.fTa.FA(a.this.fTc.getPageContext().getResources().getString(a.i.charm_no_more));
             }
             if (aLaCharmDataList.data == null || aLaCharmDataList.data.size() <= 0) {
-                a.this.fPP.kW(true);
+                a.this.fTa.kY(true);
             }
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0597a
-        public void ay(int i, String str) {
-            a.this.fPP.kW(false);
-            a.this.fPP.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0593a
+        public void az(int i, String str) {
+            a.this.fTa.kY(false);
+            a.this.fTa.l(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (a.this.fPQ != null) {
-                            a.this.fPQ.J(a.this.fPS, a.this.pn, 100);
+                        if (a.this.fTb != null) {
+                            a.this.fTb.J(a.this.fTd, a.this.pn, 100);
                             return;
                         }
                         return;
                     }
-                    a.this.fPR.getPageContext().showToast(a.this.fPR.getResources().getString(a.i.sdk_no_network_guide));
+                    a.this.fTc.getPageContext().showToast(a.this.fTc.getResources().getString(a.i.sdk_no_network_guide));
                 }
             });
         }
     };
-    private BdListView.OnScrollToBottomListener fPV = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
+    private BdListView.OnScrollToBottomListener fTg = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
         @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
         public void onScrollToBottom() {
-            if (a.this.mHasMore && a.this.fPQ != null) {
-                a.this.fPQ.J(a.this.fPS, a.this.pn, 100);
+            if (a.this.mHasMore && a.this.fTb != null) {
+                a.this.fTb.J(a.this.fTd, a.this.pn, 100);
             }
         }
     };
 
     public a(ALaCharmCardActivity aLaCharmCardActivity, int i) {
-        this.fPS = 1;
-        this.fPR = aLaCharmCardActivity;
-        this.fPS = i;
+        this.fTd = 1;
+        this.fTc = aLaCharmCardActivity;
+        this.fTd = i;
     }
 
     public void createView() {
-        this.fPP = new com.baidu.tieba.ala.charm.view.b(this.fPR, this.mGroupId, this.mLiveId, this.bbJ, this.aAG, this.fPS, this.mUserId, this.mUserName, this.fPM, this.fPN, this.fPO);
-        this.fPP.a(this.fPV);
-        this.fPP.setOtherParams(this.mOtherParams);
+        this.fTa = new com.baidu.tieba.ala.charm.view.b(this.fTc, this.mGroupId, this.mLiveId, this.bej, this.aBm, this.fTd, this.mUserId, this.mUserName, this.fSX, this.fSY, this.fSZ);
+        this.fTa.a(this.fTg);
+        this.fTa.setOtherParams(this.mOtherParams);
         loadData();
-        MessageManager.getInstance().registerListener(this.fPT);
+        MessageManager.getInstance().registerListener(this.fTe);
     }
 
     private void loadData() {
-        if (this.fPQ == null) {
-            this.fPQ = new com.baidu.tieba.ala.charm.model.a(this.fPR.getPageContext(), this.mUserId, this.fPU);
+        if (this.fTb == null) {
+            this.fTb = new com.baidu.tieba.ala.charm.model.a(this.fTc.getPageContext(), this.mUserId, this.fTf);
         }
-        this.fPQ.bE(this.fPS, 100);
+        this.fTb.bE(this.fTd, 100);
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.fPP == null) {
+        if (this.fTa == null) {
             return null;
         }
-        return this.fPP.getRootView();
+        return this.fTa.getRootView();
     }
 
-    public com.baidu.tieba.ala.charm.view.b bIi() {
-        return this.fPP;
+    public com.baidu.tieba.ala.charm.view.b bJq() {
+        return this.fTa;
     }
 
     public void at(String str, boolean z) {
-        if (this.fPP != null) {
-            this.fPP.at(str, z);
+        if (this.fTa != null) {
+            this.fTa.at(str, z);
         }
     }
 
-    public void EF() {
-        if (this.fPP != null) {
-            this.fPP.EF();
+    public void EW() {
+        if (this.fTa != null) {
+            this.fTa.EW();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.fPS == 2) {
-            return this.fPR.getResources().getString(a.i.ala_charm_week_title);
+        if (this.fTd == 2) {
+            return this.fTc.getResources().getString(a.i.ala_charm_week_title);
         }
-        if (this.fPS == 1) {
-            return this.fPR.getResources().getString(a.i.ala_charm_all_title);
+        if (this.fTd == 1) {
+            return this.fTc.getResources().getString(a.i.ala_charm_all_title);
         }
-        if (this.fPS == 3) {
-            return this.fPR.getResources().getString(a.i.ala_charm_day_title);
+        if (this.fTd == 3) {
+            return this.fTc.getResources().getString(a.i.ala_charm_day_title);
         }
-        if (this.fPS != 4) {
+        if (this.fTd != 4) {
             return null;
         }
-        return this.fPR.getResources().getString(a.i.audience_list_title);
+        return this.fTc.getResources().getString(a.i.audience_list_title);
     }
 
-    public int bIj() {
-        return this.fPS;
+    public int bJr() {
+        return this.fTd;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String IM() {
+    public String Jq() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short IN() {
+    public short Jr() {
         return (short) 0;
     }
 
@@ -177,63 +177,63 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.fPQ != null) {
-            this.fPQ.onDestroy();
+        if (this.fTb != null) {
+            this.fTb.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.fPT);
+        MessageManager.getInstance().unRegisterListener(this.fTe);
     }
 
-    public a EI(String str) {
+    public a Ff(String str) {
         this.mUserId = str;
         return this;
     }
 
-    public a EJ(String str) {
+    public a Fg(String str) {
         this.mUserName = str;
         return this;
     }
 
-    public a EK(String str) {
+    public a Fh(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a EL(String str) {
+    public a Fi(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public a kV(boolean z) {
-        this.bbJ = z;
+    public a kX(boolean z) {
+        this.bej = z;
         return this;
     }
 
-    public a EM(String str) {
-        this.aAG = str;
+    public a Fj(String str) {
+        this.aBm = str;
         return this;
     }
 
-    public a EN(String str) {
-        this.fPL = str;
+    public a Fk(String str) {
+        this.fSW = str;
         return this;
     }
 
-    public a EO(String str) {
-        this.fPM = str;
+    public a Fl(String str) {
+        this.fSX = str;
         return this;
     }
 
-    public a EP(String str) {
-        this.fPN = str;
+    public a Fm(String str) {
+        this.fSY = str;
         return this;
     }
 
-    public a EQ(String str) {
-        this.fPO = str;
+    public a Fn(String str) {
+        this.fSZ = str;
         return this;
     }
 
-    public a ER(String str) {
+    public a Fo(String str) {
         this.mOtherParams = str;
         return this;
     }

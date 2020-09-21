@@ -7,7 +7,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactorySpi;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class DESEDESecretKeyFactory extends SecretKeyFactorySpi {
     @Override // javax.crypto.SecretKeyFactorySpi
     protected SecretKey engineGenerateSecret(KeySpec keySpec) throws InvalidKeySpecException {

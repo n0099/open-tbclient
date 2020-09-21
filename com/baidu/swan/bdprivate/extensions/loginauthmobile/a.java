@@ -21,11 +21,11 @@ public class a {
     private Bundle mParams = new Bundle();
 
     public void c(final com.baidu.swan.apps.a.a aVar) {
-        SwanAppActivity azC = com.baidu.swan.apps.runtime.d.azE().azC();
+        SwanAppActivity aAl = com.baidu.swan.apps.runtime.d.aAn().aAl();
         final ViewGroup viewGroup = null;
-        if (azC != null && !azC.isFinishing()) {
-            viewGroup = (ViewGroup) azC.findViewById(16908290);
-            com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(azC, viewGroup, azC.getResources().getString(b.g.swanapp_login_loading));
+        if (aAl != null && !aAl.isFinishing()) {
+            viewGroup = (ViewGroup) aAl.findViewById(16908290);
+            com.baidu.swan.apps.res.widget.loadingview.a.showLoadingView(aAl, viewGroup, aAl.getResources().getString(b.g.swanapp_login_loading));
         }
         f.a(new com.baidu.swan.bdprivate.extensions.quicklogin.c() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.1
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
@@ -41,15 +41,15 @@ public class a {
                 if (a.this.b(quickLoginInfo)) {
                     a.this.mParams.putParcelable("quick_login_info", quickLoginInfo);
                 }
-                String aqN = com.baidu.swan.apps.runtime.d.azE().azA().azM().aqN();
-                String appId = com.baidu.swan.apps.runtime.d.azE().getAppId();
-                a.this.mParams.putString("app_name", com.baidu.swan.apps.runtime.d.azE().azA().getName());
+                String arx = com.baidu.swan.apps.runtime.d.aAn().aAj().aAv().arx();
+                String appId = com.baidu.swan.apps.runtime.d.aAn().getAppId();
+                a.this.mParams.putString("app_name", com.baidu.swan.apps.runtime.d.aAn().aAj().getName());
                 a.this.mParams.putString("appid", appId);
-                a.this.mParams.putString("launch_from", aqN);
+                a.this.mParams.putString("launch_from", arx);
                 if (a.DEBUG) {
                     Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + a.this.mParams.toString());
                 }
-                d.g("show", OneKeyLoginSdkCall.k, null, aqN, appId);
+                d.g("show", OneKeyLoginSdkCall.k, null, arx, appId);
                 a.this.d(aVar);
             }
         });
@@ -70,18 +70,18 @@ public class a {
     }
 
     private void e(com.baidu.swan.apps.a.a aVar) {
-        SwanAppActivity arI = com.baidu.swan.apps.v.f.arY().arI();
-        if (arI != null) {
-            Intent intent = new Intent(arI, LoginAndGetMobileActivity.class);
+        SwanAppActivity ast = com.baidu.swan.apps.v.f.asJ().ast();
+        if (ast != null) {
+            Intent intent = new Intent(ast, LoginAndGetMobileActivity.class);
             intent.putExtras(this.mParams);
-            arI.startActivity(intent);
-            arI.overridePendingTransition(b.a.login_get_mobile_act_enter, 0);
+            ast.startActivity(intent);
+            ast.overridePendingTransition(b.a.login_get_mobile_act_enter, 0);
             c.g(aVar);
         }
     }
 
     private void f(final com.baidu.swan.apps.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.arY().arI(), PluginDelegateActivity.class, b.class, this.mParams, new DelegateListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.2
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.asJ().ast(), PluginDelegateActivity.class, b.class, this.mParams, new DelegateListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.a.2
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (delegateResult.isOk()) {

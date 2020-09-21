@@ -5,13 +5,13 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class h {
-    private static String[] IJ = new String[0];
+    private static String[] IU = new String[0];
 
-    public static Set<String> lw() {
+    public static Set<String> lA() {
         HashSet hashSet = new HashSet();
         try {
-            if (IJ.length > 0) {
-                for (String str : IJ) {
+            if (IU.length > 0) {
+                for (String str : IU) {
                     hashSet.add(str);
                 }
             }

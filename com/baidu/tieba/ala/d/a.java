@@ -1,84 +1,73 @@
 package com.baidu.tieba.ala.d;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
+import android.text.Editable;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.personmanager.b;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.data.l;
-import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
+import com.baidu.tieba.ala.view.a;
+/* loaded from: classes4.dex */
 public class a {
-    private Activity cAc;
-    private BdListView gfC;
-    private LinearLayout gfD;
-    private LinearLayout gfE;
-    private com.baidu.tieba.ala.adapter.a gfF;
-    private AlaChallengeHistoryHeaderView gfG;
-    private TextView gfH;
-    private TbPageContext<BaseFragmentActivity> mTbPageContext;
-    private View view;
+    private long bhr;
+    private com.baidu.tieba.ala.view.a fVY;
+    private com.baidu.live.personmanager.b fVZ;
+    private long fxY;
+    private boolean mIsHost;
+    private TbPageContext mTbPageContext;
+    private long mUserId;
+    private final b.a fWa = new b.a() { // from class: com.baidu.tieba.ala.d.a.1
+        @Override // com.baidu.live.personmanager.b.a
+        public void MI() {
+            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_success);
+            a.this.mTbPageContext.getPageActivity().finish();
+        }
 
-    public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        @Override // com.baidu.live.personmanager.b.a
+        public void onFail(String str) {
+            BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_person_report_fail);
+        }
+    };
+    private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.d.a.2
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (a.this.fVY.ccw().length() > 20) {
+                BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.i.txt_describe_feedback_reason_text_max_limit);
+            } else if (a.this.mUserId > 0) {
+                a.this.fVZ.az(String.valueOf(a.this.mUserId), a.this.fVY.ccw());
+            }
+        }
+    };
+    private final a.InterfaceC0658a fWb = new a.InterfaceC0658a() { // from class: com.baidu.tieba.ala.d.a.3
+        @Override // com.baidu.tieba.ala.view.a.InterfaceC0658a
+        public void afterTextChanged(Editable editable) {
+        }
+    };
+
+    public a(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.cAc = this.mTbPageContext.getPageActivity();
-        initView();
-    }
-
-    private void initView() {
-        this.view = LayoutInflater.from(this.cAc).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.gfC = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.gfC.setVisibility(4);
-        this.gfD = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.gfE = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.gfH = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.gfF = new com.baidu.tieba.ala.adapter.a(this.cAc);
-        this.gfC.setAdapter((ListAdapter) this.gfF);
-        this.gfG = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.gfC.setEmptyView(this.gfD);
-    }
-
-    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, l lVar) {
-        this.gfC.setVisibility(0);
-        if (!ListUtils.isEmpty(arrayList) && lVar != null) {
-            if (this.gfG.getParent() == null) {
-                if (this.gfG.getParent() != null) {
-                    ((ViewGroup) this.gfG.getParent()).removeView(this.gfG);
-                }
-                this.gfC.addHeaderView(this.gfG);
-                this.gfG.setData(lVar);
-            }
-        } else if (this.gfG.getParent() != null) {
-            ((ViewGroup) this.gfG.getParent()).removeView(this.gfG);
-        }
-        if (this.gfF != null && arrayList != null) {
-            this.gfF.setData(arrayList);
-        }
-    }
-
-    public void FD(String str) {
-        if (!StringUtils.isNull(str)) {
-            if (this.gfF != null && this.gfF.getCount() <= 0) {
-                this.gfD.setVisibility(8);
-                this.gfE.setVisibility(0);
-                this.gfH.setText(str);
-                return;
-            }
-            BdUtilHelper.showToast(this.cAc, str, 1);
-        }
+        this.bhr = j;
+        this.fxY = j2;
+        this.mUserId = j3;
+        this.mIsHost = z;
+        this.fVY = new com.baidu.tieba.ala.view.a(this.mTbPageContext, this.mOnClickListener, this.fWb);
+        this.fVY.b(this.bhr, this.fxY, this.mUserId, this.mIsHost);
+        this.fVZ = new com.baidu.live.personmanager.b(this.mTbPageContext);
+        this.fVZ.a(this.fWa);
     }
 
     public View getView() {
-        return this.view;
+        return this.fVY.getView();
+    }
+
+    public void onDestroy() {
+        this.fVZ.onDestroy();
+        this.fVY.onDestroy();
+    }
+
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.fVY != null) {
+            this.fVY.onKeyboardVisibilityChanged(z);
+        }
     }
 }

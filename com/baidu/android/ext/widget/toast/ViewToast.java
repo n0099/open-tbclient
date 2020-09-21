@@ -25,8 +25,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.toast.UniversalToast;
+import com.baidu.android.toast.R;
 import com.baidu.android.util.concurrent.UiThreadUtil;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.skin.NightModeHelper;
@@ -35,7 +35,7 @@ import com.facebook.drawee.a.a.c;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class ViewToast {
     private static Runnable mCancelRunnable;
     private static WeakReference<View> mToastViewRef;
@@ -250,7 +250,7 @@ class ViewToast {
         if (contentView != null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(contentView.getContext()).inflate(R.layout.left_icon_clickable_toast_view, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.clickable_toast_view_bg));
-            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dPw().xW(true).Q(uri).dQn());
+            ((SimpleDraweeView) linearLayout.findViewById(R.id.gif_toast_left_icon)).setController(c.dTu().yf(true).S(uri).dUl());
             if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.gif_toast_info_view)) != null) {
                 textView.setTextColor(resources.getColor(R.color.white_text));
                 textView.setText(charSequence);
@@ -425,7 +425,7 @@ class ViewToast {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showIconTitleMsgBtnToast(@NonNull Activity activity, Uri uri, int i, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i2, int i3, int i4, @Nullable final UniversalToast.ToastCallback toastCallback) {
+    public static void showIconTitleMsgBtnToast(@NonNull Activity activity, Uri uri, int i, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i2, int i3, int i4, int i5, @Nullable final UniversalToast.ToastCallback toastCallback) {
         boolean z;
         Animation animation;
         final TextView textView;
@@ -437,7 +437,7 @@ class ViewToast {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().yb(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().yk(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -516,7 +516,10 @@ class ViewToast {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
-        layoutParams.bottomMargin = (int) resources.getDimension(R.dimen.clickable_toast_view_margin_bottom);
+        if (i5 <= 0) {
+            i5 = (int) resources.getDimension(R.dimen.clickable_toast_view_margin_bottom);
+        }
+        layoutParams.bottomMargin = i5;
         switch (i3) {
             case 2:
                 int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.clickable_toast_view_shift_start_y);
@@ -660,24 +663,17 @@ class ViewToast {
     }
 
     public static synchronized void cancel() {
+        View view;
         synchronized (ViewToast.class) {
-            if (mToastViewRef != null) {
-                View view = mToastViewRef.get();
-                if (view != null) {
-                    view.post(new AnonymousClass14(view, sMaskView));
-                    view.removeCallbacks(mCancelRunnable);
-                    UiThreadUtil.getMainHandler().removeCallbacks(mCancelRunnable);
-                }
-                mToastViewRef = null;
-                mCancelRunnable = null;
-                sMaskView = null;
+            if (mToastViewRef != null && (view = mToastViewRef.get()) != null) {
+                view.post(new AnonymousClass14(view, sMaskView));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.ext.widget.toast.ViewToast$14  reason: invalid class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class AnonymousClass14 implements Runnable {
         final /* synthetic */ View val$maskView;
         final /* synthetic */ View val$toastView;
@@ -703,9 +699,13 @@ class ViewToast {
                             try {
                                 if (AnonymousClass14.this.val$toastView.getParent() != null) {
                                     ((ViewGroup) AnonymousClass14.this.val$toastView.getParent()).removeView(AnonymousClass14.this.val$toastView);
+                                    AnonymousClass14.this.val$toastView.removeCallbacks(ViewToast.mCancelRunnable);
+                                    UiThreadUtil.getMainHandler().removeCallbacks(ViewToast.mCancelRunnable);
+                                    WeakReference unused = ViewToast.mToastViewRef = null;
+                                    Runnable unused2 = ViewToast.mCancelRunnable = null;
                                     if (ViewToast.onDismissListener != null) {
                                         ViewToast.onDismissListener.onDismiss();
-                                        UniversalToast.OnDismissListener unused = ViewToast.onDismissListener = null;
+                                        UniversalToast.OnDismissListener unused3 = ViewToast.onDismissListener = null;
                                     }
                                 }
                             } catch (Exception e) {
@@ -714,9 +714,13 @@ class ViewToast {
                                     public void run() {
                                         if (AnonymousClass14.this.val$toastView.getParent() != null) {
                                             ((ViewGroup) AnonymousClass14.this.val$toastView.getParent()).removeView(AnonymousClass14.this.val$toastView);
+                                            AnonymousClass14.this.val$toastView.removeCallbacks(ViewToast.mCancelRunnable);
+                                            UiThreadUtil.getMainHandler().removeCallbacks(ViewToast.mCancelRunnable);
+                                            WeakReference unused4 = ViewToast.mToastViewRef = null;
+                                            Runnable unused5 = ViewToast.mCancelRunnable = null;
                                             if (ViewToast.onDismissListener != null) {
                                                 ViewToast.onDismissListener.onDismiss();
-                                                UniversalToast.OnDismissListener unused2 = ViewToast.onDismissListener = null;
+                                                UniversalToast.OnDismissListener unused6 = ViewToast.onDismissListener = null;
                                             }
                                         }
                                     }
@@ -729,6 +733,7 @@ class ViewToast {
                                 public void run() {
                                     if (AnonymousClass14.this.val$maskView != null && AnonymousClass14.this.val$maskView.getParent() != null && (AnonymousClass14.this.val$maskView.getParent() instanceof ViewGroup)) {
                                         ((ViewGroup) AnonymousClass14.this.val$maskView.getParent()).removeView(AnonymousClass14.this.val$maskView);
+                                        View unused4 = ViewToast.sMaskView = null;
                                     }
                                 }
                             });

@@ -1,19 +1,29 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ay {
-    public JSONObject aJe;
-    public JSONObject aJf;
+    public AlaLiveUserInfoData aJI;
+    public AlaLiveInfoData aJW;
+    public at aJX;
 
-    public ay(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
-
-    private void parseData(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aJe = jSONObject.optJSONObject("bubble_effect");
-            this.aJf = jSONObject.optJSONObject("nickname_effect");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aJI = new AlaLiveUserInfoData();
+                this.aJI.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
+            if (optJSONObject2 != null) {
+                this.aJW = new AlaLiveInfoData();
+                this.aJW.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
+            if (optJSONObject3 != null) {
+                this.aJX = new at();
+                this.aJX.parserJson(optJSONObject3);
+            }
         }
     }
 }

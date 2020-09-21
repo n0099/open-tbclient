@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
@@ -35,8 +35,8 @@ public class AppActivityImp {
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     private static Class<?> d;
     private Activity a;
-    private Method[] bDf = null;
     private Object c;
+    private Method[] e = null;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
 
@@ -59,12 +59,12 @@ public class AppActivityImp {
         return f.get();
     }
 
-    private Method hQ(String str) {
+    private Method a(String str) {
         Method[] methodArr;
-        if (this.bDf == null) {
+        if (this.e == null) {
             return null;
         }
-        for (Method method : this.bDf) {
+        for (Method method : this.e) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -81,12 +81,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method hQ = hQ(str);
-            if (hQ != null) {
+            Method a2 = a(str);
+            if (a2 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    hQ.invoke(null, new Object[0]);
+                    a2.invoke(null, new Object[0]);
                 } else {
-                    hQ.invoke(null, objArr);
+                    a2.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -102,12 +102,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method hQ = hQ(str);
-            if (hQ != null) {
+            Method a2 = a(str);
+            if (a2 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    hQ.invoke(this.c, new Object[0]);
+                    a2.invoke(this.c, new Object[0]);
                 } else {
-                    hQ.invoke(this.c, objArr);
+                    a2.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -115,7 +115,7 @@ public class AppActivityImp {
         }
     }
 
-    private boolean f(String str, Object... objArr) {
+    private boolean b(String str, Object... objArr) {
         try {
             com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
@@ -123,12 +123,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method hQ = hQ(str);
-            if (hQ != null) {
+            Method a2 = a(str);
+            if (a2 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) hQ.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) a2.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) hQ.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) a2.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -136,7 +136,7 @@ public class AppActivityImp {
         return false;
     }
 
-    private Object g(String str, Object... objArr) {
+    private Object c(String str, Object... objArr) {
         try {
             com.baidu.mobads.utils.m a = com.baidu.mobads.utils.m.a();
             Object[] objArr2 = new Object[3];
@@ -144,12 +144,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method hQ = hQ(str);
-            if (hQ != null) {
+            Method a2 = a(str);
+            if (a2 != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return hQ.invoke(this.c, new Object[0]);
+                    return a2.invoke(this.c, new Object[0]);
                 }
-                return hQ.invoke(this.c, objArr);
+                return a2.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -158,15 +158,15 @@ public class AppActivityImp {
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return f("dispatchKeyEvent", keyEvent);
+        return b("dispatchKeyEvent", keyEvent);
     }
 
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return f("dispatchTouchEvent", motionEvent);
+        return b("dispatchTouchEvent", motionEvent);
     }
 
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return f("dispatchTrackballEvent", motionEvent);
+        return b("dispatchTrackballEvent", motionEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -193,7 +193,7 @@ public class AppActivityImp {
     }
 
     public boolean onContextItemSelected(MenuItem menuItem) {
-        return f("onContextItemSelected", menuItem);
+        return b("onContextItemSelected", menuItem);
     }
 
     public void onContextMenuClosed(Menu menu) {
@@ -207,9 +207,9 @@ public class AppActivityImp {
             Intent intent = this.a.getIntent();
             if (AppActivity.isAnti() && intent.getParcelableExtra(EXTRA_DATA) == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
-                b(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
-                b(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
-                b(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
+                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
+                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
+                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
                 intent.putExtra(EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
@@ -218,7 +218,7 @@ public class AppActivityImp {
             } else {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.bDf = d.getDeclaredMethods();
+            this.e = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
             invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
@@ -245,28 +245,28 @@ public class AppActivityImp {
     }
 
     public CharSequence onCreateDescription() {
-        return (CharSequence) g("onCreateDescription", new Object[0]);
+        return (CharSequence) c("onCreateDescription", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Dialog onCreateDialog(int i) {
-        Dialog dialog = (Dialog) g("onCreateDialog", Integer.valueOf(i));
+        Dialog dialog = (Dialog) c("onCreateDialog", Integer.valueOf(i));
         if (dialog != null) {
         }
         return dialog;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        return f("onCreateOptionsMenu", menu);
+        return b("onCreateOptionsMenu", menu);
     }
 
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return f("onCreatePanelMenu", Integer.valueOf(i), menu);
+        return b("onCreatePanelMenu", Integer.valueOf(i), menu);
     }
 
     public View onCreatePanelView(int i) {
         try {
-            return (View) g("onCreatePanelView", Integer.valueOf(i));
+            return (View) c("onCreatePanelView", Integer.valueOf(i));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -274,12 +274,12 @@ public class AppActivityImp {
     }
 
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        return f("onCreateThumbnail", bitmap, canvas);
+        return b("onCreateThumbnail", bitmap, canvas);
     }
 
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         try {
-            return (View) g("onCreateView", str, context, attributeSet);
+            return (View) c("onCreateView", str, context, attributeSet);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -293,15 +293,15 @@ public class AppActivityImp {
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return f("onKeyDown", Integer.valueOf(i), keyEvent);
+        return b("onKeyDown", Integer.valueOf(i), keyEvent);
     }
 
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return f("onKeyMultiple", Integer.valueOf(i), Integer.valueOf(i2), keyEvent);
+        return b("onKeyMultiple", Integer.valueOf(i), Integer.valueOf(i2), keyEvent);
     }
 
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return f("onKeyUp", Integer.valueOf(i), keyEvent);
+        return b("onKeyUp", Integer.valueOf(i), keyEvent);
     }
 
     public void onLowMemory() {
@@ -309,11 +309,11 @@ public class AppActivityImp {
     }
 
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return f("onMenuItemSelected", Integer.valueOf(i), menuItem);
+        return b("onMenuItemSelected", Integer.valueOf(i), menuItem);
     }
 
     public boolean onMenuOpened(int i, Menu menu) {
-        return f("onMenuOpened", Integer.valueOf(i), menu);
+        return b("onMenuOpened", Integer.valueOf(i), menu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -322,7 +322,7 @@ public class AppActivityImp {
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        return f("onOptionsItemSelected", menuItem);
+        return b("onOptionsItemSelected", menuItem);
     }
 
     public void onOptionsMenuClosed(Menu menu) {
@@ -354,11 +354,11 @@ public class AppActivityImp {
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
-        return f("onPrepareOptionsMenu", menu);
+        return b("onPrepareOptionsMenu", menu);
     }
 
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        return f("onPreparePanel", Integer.valueOf(i), view, menu);
+        return b("onPreparePanel", Integer.valueOf(i), view, menu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -377,7 +377,7 @@ public class AppActivityImp {
     }
 
     public Object onRetainNonConfigurationInstance() {
-        return g("onRetainNonConfigurationInstance", new Object[0]);
+        return c("onRetainNonConfigurationInstance", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -386,7 +386,7 @@ public class AppActivityImp {
     }
 
     public boolean onSearchRequested() {
-        return f("onSearchRequested", new Object[0]);
+        return b("onSearchRequested", new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -405,11 +405,11 @@ public class AppActivityImp {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return f("onTouchEvent", motionEvent);
+        return b("onTouchEvent", motionEvent);
     }
 
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        return f("onTrackballEvent", motionEvent);
+        return b("onTrackballEvent", motionEvent);
     }
 
     public void onUserInteraction() {
@@ -453,7 +453,7 @@ public class AppActivityImp {
         }
     }
 
-    private static void b(Class<?> cls, Object obj, String str) {
+    private static void a(Class<?> cls, Object obj, String str) {
         Field[] declaredFields;
         try {
             JSONObject jSONObject = new JSONObject(str);

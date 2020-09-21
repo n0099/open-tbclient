@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaAvtsData implements Serializable {
     public String host;
     public long lineId;

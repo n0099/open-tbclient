@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.searchbox.ui.BdShimmerView;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class LoadingViewHelper {
     private static final WeakHashMap<ViewGroup, LoadingViewHolder> CACHE_VIEWS = new WeakHashMap<>();
     private static final boolean DEBUG = false;
@@ -61,6 +61,43 @@ public final class LoadingViewHelper {
         return true;
     }
 
+    public static boolean showLoadingView(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        return showLoadingView(context, viewGroup, layoutParams, "");
+    }
+
+    public static boolean showLoadingView(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str) {
+        if (context == null || viewGroup == null || layoutParams == null) {
+            return false;
+        }
+        if (showCachedLoadingView(viewGroup)) {
+            return true;
+        }
+        LoadingView loadingView = new LoadingView(context);
+        LoadingView loadingView2 = loadingView.getLoadingView();
+        if (loadingView2 == null) {
+            return false;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            loadingView2.setMsg(str);
+        }
+        ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
+        if (viewGroup2 != null) {
+            viewGroup2.removeView(loadingView2);
+        }
+        if ((viewGroup instanceof RelativeLayout) && (layoutParams instanceof RelativeLayout.LayoutParams)) {
+            viewGroup.addView(loadingView2, layoutParams);
+        } else if ((viewGroup instanceof LinearLayout) && (layoutParams instanceof LinearLayout.LayoutParams)) {
+            viewGroup.addView(loadingView2, layoutParams);
+        } else if (!(viewGroup instanceof FrameLayout) || !(layoutParams instanceof FrameLayout.LayoutParams)) {
+            return false;
+        } else {
+            viewGroup.addView(loadingView2, layoutParams);
+        }
+        CACHE_VIEWS.put(viewGroup, loadingView);
+        loadingView2.setVisibility(0);
+        return true;
+    }
+
     public static boolean showShimmerLoadingView(Context context, ViewGroup viewGroup) {
         return showShimmerLoadingView(context, viewGroup, 0);
     }
@@ -100,43 +137,6 @@ public final class LoadingViewHelper {
         CACHE_VIEWS.put(viewGroup, bdShimmerView);
         loadingView.setVisibility(0);
         loadingView.startShimmerAnimation();
-        return true;
-    }
-
-    public static boolean showLoadingView(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        return showLoadingView(context, viewGroup, layoutParams, "");
-    }
-
-    public static boolean showLoadingView(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str) {
-        if (context == null || viewGroup == null || layoutParams == null) {
-            return false;
-        }
-        if (showCachedLoadingView(viewGroup)) {
-            return true;
-        }
-        LoadingView loadingView = new LoadingView(context);
-        LoadingView loadingView2 = loadingView.getLoadingView();
-        if (loadingView2 == null) {
-            return false;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            loadingView2.setMsg(str);
-        }
-        ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
-        if (viewGroup2 != null) {
-            viewGroup2.removeView(loadingView2);
-        }
-        if ((viewGroup instanceof RelativeLayout) && (layoutParams instanceof RelativeLayout.LayoutParams)) {
-            viewGroup.addView(loadingView2, layoutParams);
-        } else if ((viewGroup instanceof LinearLayout) && (layoutParams instanceof LinearLayout.LayoutParams)) {
-            viewGroup.addView(loadingView2, layoutParams);
-        } else if (!(viewGroup instanceof FrameLayout) || !(layoutParams instanceof FrameLayout.LayoutParams)) {
-            return false;
-        } else {
-            viewGroup.addView(loadingView2, layoutParams);
-        }
-        CACHE_VIEWS.put(viewGroup, loadingView);
-        loadingView2.setVisibility(0);
         return true;
     }
 

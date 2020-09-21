@@ -15,34 +15,34 @@ import com.baidu.tieba.person.a.e;
 import com.baidu.tieba.person.a.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class d extends af.a {
-    public int aiD;
-    public TextView dSD;
-    public View iLj;
-    public HTypeListView ldZ;
-    public e lea;
+    public int aiX;
+    public TextView dUN;
+    public View iTP;
+    public HTypeListView lmQ;
+    public e lmR;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aiD = 3;
+        this.aiX = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.iLj = view.findViewById(R.id.divider_view_under_photo_album);
-        this.dSD = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ldZ = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.lea = new e(this.mPageContext, this.ldZ);
+        this.iTP = view.findViewById(R.id.divider_view_under_photo_album);
+        this.dUN = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.lmQ = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.lmR = new e(this.mPageContext, this.lmQ);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.lea.setDatas(eG(fVar.getPhotoAlbum()));
+            this.lmR.setDatas(eO(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<q> eG(List<q> list) {
+    private List<q> eO(List<q> list) {
         if (y.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dgu() {
-        if (this.aiD != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aiD = TbadkCoreApplication.getInst().getSkinType();
+    public void djX() {
+        if (this.aiX != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aiX = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            ap.setBackgroundColor(this.iLj, R.color.cp_bg_line_c);
-            ap.setViewTextColor(this.dSD, R.color.cp_cont_d, 1);
-            this.lea.notifyDataSetChanged();
+            ap.setBackgroundColor(this.iTP, R.color.cp_bg_line_c);
+            ap.setViewTextColor(this.dUN, R.color.cp_cont_d, 1);
+            this.lmR.notifyDataSetChanged();
         }
     }
 }

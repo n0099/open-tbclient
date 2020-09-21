@@ -2,141 +2,141 @@ package master.flame.danmaku.danmaku.model;
 /* loaded from: classes6.dex */
 public abstract class d {
     public int index;
-    public boolean kkN;
+    public boolean ktm;
+    public long oFH;
+    public String[] oFI;
+    public float oFJ;
+    public int oFK;
+    public g oFO;
+    public n<?> oFT;
+    public boolean oFU;
+    public String oFV;
+    public boolean oFW;
+    protected f oFn;
+    public boolean oGc;
     public Object obj;
-    protected f ovH;
-    public long owb;
-    public String[] owc;
-    public float owd;
-    public int owe;
-    public g owi;
-    public n<?> own;
-    public boolean owo;
-    public String owp;
-    public boolean owq;
-    public boolean oww;
     public float rotationY;
     public Object tag;
     public CharSequence text;
     public int textColor;
     private long time;
     public int visibility;
-    public boolean owa = false;
+    public boolean oFG = false;
     public int underlineColor = 0;
-    public float btE = -1.0f;
+    public float bwX = -1.0f;
     public int borderColor = 0;
     public int padding = 0;
-    public byte owf = 0;
-    public float owg = -1.0f;
-    public float owh = -1.0f;
-    private int owj = 0;
-    public int owk = 0;
-    public int owl = 0;
-    public int owm = -1;
+    public byte oFL = 0;
+    public float oFM = -1.0f;
+    public float oFN = -1.0f;
+    private int oFP = 0;
+    public int oFQ = 0;
+    public int oFR = 0;
+    public int oFS = -1;
     public int userId = 0;
     protected int alpha = c.MAX;
-    public int owr = 0;
-    public int ows = -1;
-    public j owt = null;
-    public int owu = 0;
-    public int owv = -1;
+    public int oFX = 0;
+    public int oFY = -1;
+    public j oFZ = null;
+    public int oGa = 0;
+    public int oGb = -1;
 
     public abstract void a(m mVar, float f, float f2);
 
     public abstract float[] a(m mVar, long j);
 
-    public abstract float ehM();
+    public abstract float elJ();
 
-    public abstract float ehN();
+    public abstract float elK();
 
-    public abstract float ehO();
+    public abstract float elL();
 
-    public abstract float ehP();
+    public abstract float elM();
 
     public abstract int getType();
 
     public long getDuration() {
-        return this.owi.value;
+        return this.oFO.value;
     }
 
     public int a(m mVar) {
         return mVar.n(this);
     }
 
-    public boolean ehF() {
-        return this.owg > -1.0f && this.owh > -1.0f && this.owk == this.owt.owF;
+    public boolean elC() {
+        return this.oFM > -1.0f && this.oFN > -1.0f && this.oFQ == this.oFZ.oGl;
     }
 
     public void a(m mVar, boolean z) {
         mVar.c(this, z);
-        this.owk = this.owt.owF;
+        this.oFQ = this.oFZ.oGl;
     }
 
     public boolean isPrepared() {
-        return this.owm == this.owt.owK;
+        return this.oFS == this.oFZ.oGq;
     }
 
     public void b(m mVar, boolean z) {
         mVar.b(this, z);
-        this.owm = this.owt.owK;
+        this.oFS = this.oFZ.oGq;
     }
 
-    public n<?> ehG() {
-        return this.own;
+    public n<?> elD() {
+        return this.oFT;
     }
 
     public boolean isShown() {
-        return this.visibility == 1 && this.owj == this.owt.owG;
+        return this.visibility == 1 && this.oFP == this.oFZ.oGm;
     }
 
-    public boolean ehH() {
-        return this.ovH == null || gU(this.ovH.owx);
+    public boolean elE() {
+        return this.oFn == null || hi(this.oFn.oGd);
     }
 
-    public boolean gU(long j) {
-        return j - ehR() >= this.owi.value;
+    public boolean hi(long j) {
+        return j - elO() >= this.oFO.value;
     }
 
-    public boolean ehI() {
-        return this.ovH == null || gV(this.ovH.owx);
+    public boolean elF() {
+        return this.oFn == null || hj(this.oFn.oGd);
     }
 
-    public boolean gV(long j) {
-        long ehR = j - ehR();
-        return ehR <= 0 || ehR >= this.owi.value;
+    public boolean hj(long j) {
+        long elO = j - elO();
+        return elO <= 0 || elO >= this.oFO.value;
     }
 
-    public boolean ehJ() {
-        return this.ovH == null || this.ovH.owx < ehR();
+    public boolean elG() {
+        return this.oFn == null || this.oFn.oGd < elO();
     }
 
-    public boolean ehK() {
-        if (this.ows != this.owt.owH) {
-            this.owr = 0;
+    public boolean elH() {
+        if (this.oFY != this.oFZ.oGn) {
+            this.oFX = 0;
             return false;
         }
         return true;
     }
 
-    public boolean ehL() {
-        return this.ows == this.owt.owH && this.owr != 0;
+    public boolean elI() {
+        return this.oFY == this.oFZ.oGn && this.oFX != 0;
     }
 
     public void setVisibility(boolean z) {
         if (z) {
-            this.owj = this.owt.owG;
+            this.oFP = this.oFZ.oGm;
             this.visibility = 1;
             return;
         }
         this.visibility = 0;
     }
 
-    public f ehQ() {
-        return this.ovH;
+    public f elN() {
+        return this.oFn;
     }
 
     public void c(f fVar) {
-        this.ovH = fVar;
+        this.oFn = fVar;
     }
 
     public int getAlpha() {
@@ -147,28 +147,28 @@ public abstract class d {
         this.tag = obj;
     }
 
-    public void gW(long j) {
-        this.owb = j;
-        this.owl = this.owt.owJ;
+    public void hk(long j) {
+        this.oFH = j;
+        this.oFR = this.oFZ.oGp;
     }
 
     public void setTime(long j) {
         this.time = j;
-        this.owb = 0L;
+        this.oFH = 0L;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public long ehR() {
-        return (this.owt == null || this.owt.owJ != this.owl) ? this.time : this.time + this.owb;
+    public long elO() {
+        return (this.oFZ == null || this.oFZ.oGp != this.oFR) ? this.time : this.time + this.oFH;
     }
 
-    public boolean ehS() {
-        if (this.owt == null || this.owt.owJ != this.owl) {
+    public boolean elP() {
+        if (this.oFZ == null || this.oFZ.oGp != this.oFR) {
             return false;
         }
-        return this.oww;
+        return this.oGc;
     }
 }

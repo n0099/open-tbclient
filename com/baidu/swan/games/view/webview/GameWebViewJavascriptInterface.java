@@ -4,7 +4,7 @@ import android.support.annotation.Keep;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class GameWebViewJavascriptInterface {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swan";
@@ -15,9 +15,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a aRh = a.aRh();
-        if (aRh != null) {
-            aRh.close();
+        a aRT = a.aRT();
+        if (aRT != null) {
+            aRT.close();
         }
     }
 
@@ -26,9 +26,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a aRh = a.aRh();
-        if (aRh != null) {
-            aRh.onGameLoadingFinish();
+        a aRT = a.aRT();
+        if (aRT != null) {
+            aRT.onGameLoadingFinish();
         }
     }
 }

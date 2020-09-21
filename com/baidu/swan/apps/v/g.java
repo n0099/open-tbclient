@@ -4,33 +4,33 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class g implements Application.ActivityLifecycleCallbacks {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile g cxn;
+    private static volatile g czo;
     private int mActivityCount;
     private boolean mIsForeground = false;
 
-    public static g ash() {
-        if (cxn == null) {
+    public static g asS() {
+        if (czo == null) {
             synchronized (g.class) {
-                if (cxn == null) {
-                    cxn = new g();
+                if (czo == null) {
+                    czo = new g();
                 }
             }
         }
-        return cxn;
+        return czo;
     }
 
     private g() {
     }
 
-    public void asi() {
-        com.baidu.swan.apps.t.a.aoJ().registerActivityLifecycleCallbacks(this);
+    public void asT() {
+        com.baidu.swan.apps.t.a.apu().registerActivityLifecycleCallbacks(this);
     }
 
-    public void asj() {
-        com.baidu.swan.apps.t.a.aoJ().unregisterActivityLifecycleCallbacks(this);
+    public void asU() {
+        com.baidu.swan.apps.t.a.apu().unregisterActivityLifecycleCallbacks(this);
     }
 
     public boolean isForeground() {

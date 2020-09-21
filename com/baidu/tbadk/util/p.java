@@ -1,34 +1,505 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidubce.http.Headers;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.ProtocolException;
+import java.net.Proxy;
+import java.net.SocketException;
+import java.net.URL;
+import java.util.UUID;
 /* loaded from: classes.dex */
-public class p extends ClickableSpan {
-    private Context mContext;
+public class p extends BdAsyncTask<String, String, b> {
+    private Activity activity;
+    private String cDh;
+    private a eYd;
+    private File eYe;
+    private boolean eYf;
+    private String imagePath;
+    private String url;
+    private int from = 0;
+    private boolean eYg = true;
+    private boolean eYh = false;
 
-    public p(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+    public p(Activity activity, String str, a aVar) {
+        this.activity = activity;
+        this.url = str;
+        this.eYd = aVar;
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public void jN(boolean z) {
+        this.eYg = z;
     }
 
-    public void CJ(String str) {
-        com.baidu.tbadk.browser.a.startWebActivity(this.mContext, str);
+    public void jO(boolean z) {
+        this.eYh = z;
     }
 
-    public void CK(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    public void setFrom(int i) {
+        this.from = i;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public p jP(boolean z) {
+        this.eYf = z;
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: F */
+    public b doInBackground(String... strArr) {
+        if (TextUtils.isEmpty(this.url)) {
+            return new b(false, "url is null");
+        }
+        if (!bwE()) {
+            return new b(false, "make file error");
+        }
+        if (!this.eYf) {
+            if (!bwF()) {
+                return new b(false, "download error");
+            }
+        } else if (!bwG()) {
+            return new b(false, "decode base64 error");
+        }
+        return new b(true, null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onPostExecute(b bVar) {
+        super.onPostExecute(bVar);
+        if (bVar == null) {
+            if (this.eYd != null) {
+                this.eYd.onError(-2, BdStatsConstant.StatsType.ERROR);
+            }
+        } else if (!bVar.isSuccess()) {
+            if (this.eYd != null) {
+                this.eYd.onError(-1, bVar.getMessage());
+            }
+        } else {
+            if (this.eYh && R(new File(this.imagePath))) {
+                String replace = this.imagePath.replace(CJ(this.imagePath), ".gif");
+                this.eYe.renameTo(new File(replace));
+                this.imagePath = replace;
+                this.eYe = new File(this.imagePath);
+            }
+            bwH();
+            if (this.eYd != null) {
+                this.eYd.onSuccess(this.imagePath);
+            }
+        }
+    }
+
+    private boolean R(File file) {
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            fileInputStream.skip(fileInputStream.available() - 1);
+            int[] iArr = {fileInputStream.read(), fileInputStream.read(), fileInputStream.read(), fileInputStream.read(), fileInputStream.read()};
+            fileInputStream.close();
+            if (iArr[0] == 71 && iArr[1] == 73 && iArr[2] == 70 && iArr[3] == 56) {
+                if (iArr[4] == 59) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            return false;
+        } catch (Exception e3) {
+            e3.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean bwE() {
+        File externalStoragePublicDirectory;
+        String lowerCase;
+        try {
+            if (this.from == 1) {
+                com.baidu.tbadk.core.util.n.CheckTempDir(com.baidu.tbadk.core.util.n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
+                com.baidu.tbadk.core.util.n.CheckTempDir(com.baidu.tbadk.core.util.n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/");
+                com.baidu.tbadk.core.util.n.CheckTempDir(com.baidu.tbadk.core.util.n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
+                externalStoragePublicDirectory = new File(com.baidu.tbadk.core.util.n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
+            } else {
+                externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+            }
+            if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
+                this.cDh = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.cDh) && !this.cDh.endsWith("/")) {
+                    this.cDh += "/";
+                }
+            } else {
+                this.cDh = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+            }
+            File file = new File(this.cDh);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            if (this.from == 1) {
+                lowerCase = "shareDialogTempImg";
+            } else {
+                lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
+            }
+            this.imagePath = this.cDh + lowerCase + CJ(this.url);
+            this.eYe = new File(this.imagePath);
+            if (this.eYe.exists()) {
+                this.eYe.delete();
+            }
+            if (this.eYe.exists()) {
+                return true;
+            }
+            this.eYe.createNewFile();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private boolean bwF() {
+        return n(this.url, this.imagePath, 3);
+    }
+
+    private boolean n(String str, String str2, int i) {
+        boolean z = false;
+        int timeOutAuto = com.baidu.adp.framework.d.b.lC().lF().getTimeOutAuto();
+        int timeOutAuto2 = com.baidu.adp.framework.d.b.lC().lD().getTimeOutAuto();
+        for (int i2 = 0; i2 < i; i2++) {
+            try {
+                z = a(str, str2, timeOutAuto2, timeOutAuto);
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return z;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [347=5, 348=4, 349=4] */
+    private boolean a(String str, String str2, int i, int i2) throws Exception {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        HttpURLConnection a2;
+        FileOutputStream fileOutputStream;
+        int responseCode;
+        String headerField;
+        byte[] bArr;
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            a2 = a(new URL(str), i, i2);
+            try {
+                fileOutputStream = new FileOutputStream(De(str2), true);
+                try {
+                    a2.connect();
+                    responseCode = a2.getResponseCode();
+                    if (responseCode == 302) {
+                        String headerField2 = a2.getHeaderField(Headers.LOCATION);
+                        com.baidu.adp.lib.f.a.close(a2);
+                        try {
+                            if (this.eYe != null) {
+                                this.eYe.delete();
+                            }
+                        } catch (Exception e) {
+                        }
+                        this.imagePath = this.cDh + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + CJ(headerField2);
+                        this.eYe = new File(this.imagePath);
+                        if (this.eYe.exists()) {
+                            this.eYe.delete();
+                        }
+                        if (!this.eYe.exists()) {
+                            this.eYe.createNewFile();
+                        }
+                        com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.eYe, true);
+                        try {
+                            a2 = a(new URL(headerField2), i, i2);
+                            a2.connect();
+                            fileOutputStream = fileOutputStream3;
+                            responseCode = a2.getResponseCode();
+                        } catch (Throwable th) {
+                            th = th;
+                            httpURLConnection = a2;
+                            inputStream = null;
+                            fileOutputStream2 = fileOutputStream3;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    httpURLConnection = a2;
+                    inputStream = null;
+                    fileOutputStream2 = fileOutputStream;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                httpURLConnection = a2;
+                inputStream = null;
+            }
+        } catch (Throwable th4) {
+            th = th4;
+            httpURLConnection = null;
+            inputStream = null;
+        }
+        if (responseCode != 200) {
+            com.baidu.adp.lib.f.a.close((InputStream) null);
+            com.baidu.adp.lib.f.a.close(a2);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+            return false;
+        }
+        try {
+            headerField = a2.getHeaderField("Content-Length");
+        } catch (Throwable th5) {
+            th = th5;
+            httpURLConnection = a2;
+            inputStream = null;
+            fileOutputStream2 = fileOutputStream;
+        }
+        if ((headerField != null ? com.baidu.adp.lib.f.b.toInt(headerField, 0) : 0) == 0 && this.eYg) {
+            com.baidu.adp.lib.f.a.close((InputStream) null);
+            com.baidu.adp.lib.f.a.close(a2);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+            return false;
+        }
+        InputStream inputStream2 = a2.getInputStream();
+        try {
+            bArr = new byte[1024];
+        } catch (Throwable th6) {
+            th = th6;
+            httpURLConnection = a2;
+            inputStream = inputStream2;
+            fileOutputStream2 = fileOutputStream;
+        }
+        while (true) {
+            int read = inputStream2.read(bArr);
+            if (read == -1) {
+                try {
+                    fileOutputStream.flush();
+                    com.baidu.adp.lib.f.a.close(inputStream2);
+                    com.baidu.adp.lib.f.a.close(a2);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    return true;
+                } catch (Exception e2) {
+                    throw new FileNotFoundException();
+                }
+            }
+            try {
+                fileOutputStream.write(bArr, 0, read);
+            } catch (Exception e3) {
+                throw new FileNotFoundException();
+            }
+            th = th6;
+            httpURLConnection = a2;
+            inputStream = inputStream2;
+            fileOutputStream2 = fileOutputStream;
+            com.baidu.adp.lib.f.a.close(inputStream);
+            com.baidu.adp.lib.f.a.close(httpURLConnection);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
+            throw th;
+        }
+    }
+
+    private boolean bwG() {
+        FileOutputStream fileOutputStream;
+        byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
+        for (int i = 0; i < decode.length; i++) {
+            if (decode[i] < 0) {
+                decode[i] = (byte) (decode[i] + 256);
+            }
+        }
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            FileOutputStream fileOutputStream3 = new FileOutputStream(this.eYe, true);
+            try {
+                fileOutputStream3.write(decode);
+                fileOutputStream3.flush();
+                com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream3);
+                return true;
+            } catch (Exception e) {
+                e = e;
+                fileOutputStream = fileOutputStream3;
+                try {
+                    e.printStackTrace();
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream2 = fileOutputStream;
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream3;
+                com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream2);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            fileOutputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+        }
+    }
+
+    private File De(String str) {
+        com.baidu.adp.lib.util.f.delFile(str);
+        return new File(str);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0069  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0094  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private HttpURLConnection a(URL url, int i, int i2) throws SocketException, ProtocolException {
+        HttpURLConnection httpURLConnection;
+        String curMobileProxyHost;
+        HttpURLConnection httpURLConnection2 = null;
+        try {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
+            return null;
+        }
+        if (com.baidu.adp.lib.util.j.isMobileNet() && (curMobileProxyHost = com.baidu.adp.lib.util.j.curMobileProxyHost()) != null && curMobileProxyHost.length() > 0) {
+            if (com.baidu.adp.lib.util.j.isWap(curMobileProxyHost) && com.baidu.adp.lib.util.j.isSupportWap()) {
+                StringBuilder sb = new StringBuilder(80);
+                sb.append("http://");
+                sb.append(curMobileProxyHost);
+                String file = url.getFile();
+                if (file != null && file.startsWith("?")) {
+                    sb.append("/");
+                }
+                sb.append(file);
+                httpURLConnection2 = (HttpURLConnection) new URL(sb.toString()).openConnection();
+            } else {
+                httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(curMobileProxyHost, com.baidu.adp.lib.util.j.curMobileProxyPort())));
+            }
+        }
+        if (httpURLConnection2 == null) {
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            if (httpURLConnection == null) {
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(i);
+                httpURLConnection.setReadTimeout(i2);
+                return httpURLConnection;
+            }
+            throw new SocketException();
+        }
+        httpURLConnection = httpURLConnection2;
+        if (httpURLConnection == null) {
+        }
+    }
+
+    private void bwH() {
+        if (this.eYe != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.eYe)));
+        }
+    }
+
+    private String CJ(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return ".jpg";
+        }
+        if (str.endsWith(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX)) {
+            return ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
+        }
+        if (str.endsWith(".PNG")) {
+            return ".PNG";
+        }
+        if (str.endsWith(".jpg")) {
+            return ".jpg";
+        }
+        if (str.endsWith(".jpeg")) {
+            return ".jpeg";
+        }
+        if (str.endsWith(".JPEG")) {
+            return ".JPEG";
+        }
+        if (str.endsWith(".gif")) {
+            return ".gif";
+        }
+        if (str.endsWith(".GIF")) {
+            return ".GIF";
+        }
+        String[] split = str.split("\\.");
+        if (split != null && split.length > 0) {
+            String str2 = split[split.length - 1];
+            if (str2.startsWith("png")) {
+                return ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
+            }
+            if (str2.startsWith("PNG")) {
+                return ".PNG";
+            }
+            if (str2.startsWith("jpg")) {
+                return ".jpg";
+            }
+            if (str2.startsWith("jpeg")) {
+                return ".jpeg";
+            }
+            if (str2.startsWith("JPEG")) {
+                return ".JPEG";
+            }
+            if (str2.startsWith("gif")) {
+                return ".gif";
+            }
+            if (str2.startsWith("GIF")) {
+                return ".GIF";
+            }
+        }
+        return ".jpg";
+    }
+
+    /* loaded from: classes.dex */
+    public class b {
+        private String message;
+        private boolean success;
+
+        public b(boolean z, String str) {
+            this.success = z;
+            this.message = str;
+        }
+
+        public boolean isSuccess() {
+            return this.success;
+        }
+
+        public String getMessage() {
+            return this.message;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class a {
+        public void onError(int i, String str) {
+        }
+
+        public void onSuccess(String str) {
+        }
     }
 }

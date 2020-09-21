@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.k;
 import com.xiaomi.push.ba;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class al {
     public static AbstractPushManager a(Context context, d dVar) {
         return b(context, dVar);

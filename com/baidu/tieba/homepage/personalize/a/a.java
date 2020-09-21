@@ -37,12 +37,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes16.dex */
-public class a extends RecyclerView.Adapter<C0697a> {
+/* loaded from: classes21.dex */
+public class a extends RecyclerView.Adapter<C0694a> {
     private Context mContext;
     private List<com.baidu.tieba.homepage.personalize.data.j> mDatas;
     private int mSkinType = 3;
-    private HashSet<Long> iNY = new HashSet<>();
+    private HashSet<Long> iWE = new HashSet<>();
 
     public a(Context context) {
         this.mContext = context;
@@ -68,8 +68,8 @@ public class a extends RecyclerView.Adapter<C0697a> {
                     jVar2.setUsername(alaLiveInfo.user_info.user_name);
                     jVar2.setLiveId(alaLiveInfo.live_id.longValue());
                     jVar2.setThreadId(alaLiveInfo.thread_id.longValue());
-                    jVar2.eQ(alaLiveInfo.user_info.ala_id.longValue());
-                    jVar2.zZ(alaLiveInfo.live_type.intValue());
+                    jVar2.fe(alaLiveInfo.user_info.ala_id.longValue());
+                    jVar2.AA(alaLiveInfo.live_type.intValue());
                     this.mDatas.add(jVar2);
                 }
             }
@@ -84,27 +84,27 @@ public class a extends RecyclerView.Adapter<C0697a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: z */
-    public C0697a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new C0697a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_recommend_item, (ViewGroup) null));
+    /* renamed from: B */
+    public C0694a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new C0694a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_recommend_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(@NonNull C0697a c0697a, int i) {
+    public void onBindViewHolder(@NonNull C0694a c0694a, int i) {
         final com.baidu.tieba.homepage.personalize.data.j jVar;
-        if (c0697a != null && this.mDatas != null && this.mDatas.size() > i && (jVar = this.mDatas.get(i)) != null) {
+        if (c0694a != null && this.mDatas != null && this.mDatas.size() > i && (jVar = this.mDatas.get(i)) != null) {
             if (jVar.getType() != 1) {
                 if (jVar.getType() != 0) {
                     if (jVar.getType() == 2) {
-                        c0697a.iOf.setVisibility(8);
-                        c0697a.iOg.setVisibility(8);
-                        c0697a.iOd.setVisibility(8);
-                        c0697a.dTU.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
-                        c0697a.iOe.setVisibility(0);
-                        c0697a.iOe.setImageResource(R.drawable.icon_pure_live_moe22);
-                        c0697a.iOb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.3
+                        c0694a.iWL.setVisibility(8);
+                        c0694a.iWM.setVisibility(8);
+                        c0694a.iWJ.setVisibility(8);
+                        c0694a.dWe.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+                        c0694a.iWK.setVisibility(0);
+                        c0694a.iWK.setImageResource(R.drawable.icon_pure_live_moe22);
+                        c0694a.iWH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (bg.checkUpIsLogin(a.this.mContext)) {
@@ -118,19 +118,19 @@ public class a extends RecyclerView.Adapter<C0697a> {
                         });
                     }
                 } else {
-                    c0697a.iOf.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
-                    c0697a.epR.setPlaceHolder(1);
-                    c0697a.epR.setDefaultResource(R.drawable.transparent_bg);
+                    c0694a.iWL.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
+                    c0694a.erW.setPlaceHolder(1);
+                    c0694a.erW.setDefaultResource(R.drawable.transparent_bg);
                     if (!StringUtils.isNull(jVar.getPortrait())) {
-                        c0697a.epR.startLoad(jVar.getPortrait(), 10, false);
+                        c0694a.erW.startLoad(jVar.getPortrait(), 10, false);
                     }
                     if (at.getChineseAndEnglishLength(jVar.getUsername()) > 8) {
-                        c0697a.dTU.setText(at.cutChineseAndEnglishWithSuffix(jVar.getUsername(), 6, StringHelper.STRING_MORE));
+                        c0694a.dWe.setText(at.cutChineseAndEnglishWithSuffix(jVar.getUsername(), 6, StringHelper.STRING_MORE));
                     } else {
-                        c0697a.dTU.setText(jVar.getUsername());
+                        c0694a.dWe.setText(jVar.getUsername());
                     }
                     final long liveId = jVar.getLiveId();
-                    c0697a.iOb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.2
+                    c0694a.iWH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -140,29 +140,29 @@ public class a extends RecyclerView.Adapter<C0697a> {
                             aqVar.u("uid", TbadkApplication.getCurrentAccountId());
                             aqVar.ai("fid", 0);
                             aqVar.u("tid", jVar.getThreadId());
-                            aqVar.ai("obj_type", jVar.bRb());
-                            aqVar.u("star_id", jVar.cyz());
+                            aqVar.ai("obj_type", jVar.bSx());
+                            aqVar.u("star_id", jVar.cCg());
                             aqVar.u(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                             TiebaStatic.log(aqVar);
                         }
                     });
-                    if (!this.iNY.contains(Long.valueOf(liveId))) {
+                    if (!this.iWE.contains(Long.valueOf(liveId))) {
                         aq aqVar = new aq("c13622");
                         aqVar.u("uid", TbadkApplication.getCurrentAccountId());
                         aqVar.ai("fid", 0);
                         aqVar.u("tid", jVar.getThreadId());
-                        aqVar.ai("obj_type", jVar.bRb());
-                        aqVar.u("star_id", jVar.cyz());
+                        aqVar.ai("obj_type", jVar.bSx());
+                        aqVar.u("star_id", jVar.cCg());
                         aqVar.u(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                         TiebaStatic.log(aqVar);
-                        this.iNY.add(Long.valueOf(liveId));
+                        this.iWE.add(Long.valueOf(liveId));
                     }
                 }
             } else {
-                c0697a.iOf.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
-                c0697a.epR.setImageResource(R.drawable.pic_live_hand_n);
-                c0697a.dTU.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
-                c0697a.iOb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.1
+                c0694a.iWL.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_hot_live));
+                c0694a.erW.setImageResource(R.drawable.pic_live_hand_n);
+                c0694a.dWe.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_live_square));
+                c0694a.iWH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921445));
@@ -173,7 +173,7 @@ public class a extends RecyclerView.Adapter<C0697a> {
                     }
                 });
             }
-            c0697a.cv(TbadkCoreApplication.getInst().getSkinType(), jVar.getType());
+            c0694a.cy(TbadkCoreApplication.getInst().getSkinType(), jVar.getType());
         }
     }
 
@@ -196,73 +196,73 @@ public class a extends RecyclerView.Adapter<C0697a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onViewDetachedFromWindow(@NonNull C0697a c0697a) {
-        super.onViewDetachedFromWindow(c0697a);
-        if (c0697a != null && c0697a.iOc != null) {
-            c0697a.iOc.cancel();
+    public void onViewDetachedFromWindow(@NonNull C0694a c0694a) {
+        super.onViewDetachedFromWindow(c0694a);
+        if (c0694a != null && c0694a.iWI != null) {
+            c0694a.iWI.cancel();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: b */
-    public void onViewAttachedToWindow(@NonNull C0697a c0697a) {
-        super.onViewAttachedToWindow(c0697a);
-        if (c0697a != null && c0697a.iOc != null) {
-            c0697a.iOc.start();
+    public void onViewAttachedToWindow(@NonNull C0694a c0694a) {
+        super.onViewAttachedToWindow(c0694a);
+        if (c0694a != null && c0694a.iWI != null) {
+            c0694a.iWI.start();
         }
     }
 
     /* renamed from: com.baidu.tieba.homepage.personalize.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public class C0697a extends RecyclerView.ViewHolder {
-        private TextView dTU;
-        private HeadImageView epR;
-        private View iOb;
-        public ObjectAnimator iOc;
-        private ImageView iOd;
-        private TbImageView iOe;
-        private TBSpecificationBtn iOf;
-        private TbImageView iOg;
+    /* loaded from: classes21.dex */
+    public class C0694a extends RecyclerView.ViewHolder {
+        private TextView dWe;
+        private HeadImageView erW;
+        private View iWH;
+        public ObjectAnimator iWI;
+        private ImageView iWJ;
+        private TbImageView iWK;
+        private TBSpecificationBtn iWL;
+        private TbImageView iWM;
 
-        public C0697a(View view) {
+        public C0694a(View view) {
             super(view);
-            this.iOb = view.findViewById(R.id.ala_recommend_container);
-            this.iOg = (TbImageView) view.findViewById(R.id.ala_animation_background);
-            ap.setImageResource(this.iOg, R.drawable.icon_mask_live);
-            this.iOc = ObjectAnimator.ofFloat(this.iOg, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-            this.iOc.setRepeatCount(-1);
-            this.iOc.setDuration(10000L);
-            this.iOc.setInterpolator(new LinearInterpolator());
-            this.iOd = (ImageView) view.findViewById(R.id.ala_gradient_background);
-            this.epR = (HeadImageView) view.findViewById(R.id.ala_protrait);
-            this.epR.setRadius(com.baidu.adp.lib.util.l.getDimens(a.this.mContext, R.dimen.tbds63));
-            this.iOe = (TbImageView) view.findViewById(R.id.ala_recommend_more);
-            this.iOf = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
+            this.iWH = view.findViewById(R.id.ala_recommend_container);
+            this.iWM = (TbImageView) view.findViewById(R.id.ala_animation_background);
+            ap.setImageResource(this.iWM, R.drawable.icon_mask_live);
+            this.iWI = ObjectAnimator.ofFloat(this.iWM, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+            this.iWI.setRepeatCount(-1);
+            this.iWI.setDuration(10000L);
+            this.iWI.setInterpolator(new LinearInterpolator());
+            this.iWJ = (ImageView) view.findViewById(R.id.ala_gradient_background);
+            this.erW = (HeadImageView) view.findViewById(R.id.ala_protrait);
+            this.erW.setRadius(com.baidu.adp.lib.util.l.getDimens(a.this.mContext, R.dimen.tbds63));
+            this.iWK = (TbImageView) view.findViewById(R.id.ala_recommend_more);
+            this.iWL = (TBSpecificationBtn) view.findViewById(R.id.ala_sign_icon);
             com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-            aVar.pb(R.color.cp_other_d);
-            aVar.oZ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15));
+            aVar.pp(R.color.cp_other_d);
+            aVar.pl(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15));
             aVar.aZ(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46));
-            this.iOf.setTextSize(R.dimen.tbds26);
-            this.iOf.setClickState(false);
-            this.iOf.setConfig(aVar);
-            this.dTU = (TextView) view.findViewById(R.id.ala_recommend_user_name);
+            this.iWL.setTextSize(R.dimen.tbds26);
+            this.iWL.setClickState(false);
+            this.iWL.setConfig(aVar);
+            this.dWe = (TextView) view.findViewById(R.id.ala_recommend_user_name);
         }
 
-        public void cv(int i, int i2) {
+        public void cy(int i, int i2) {
             if (i != a.this.mSkinType) {
-                ap.setViewTextColor(this.iOf, R.color.cp_cont_a);
-                ap.setViewTextColor(this.dTU, R.color.cp_cont_b);
-                ap.setImageResource(this.iOg, R.drawable.icon_mask_live);
-                SvgManager.bjq().a(this.iOd, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
-                this.iOf.bkF();
+                ap.setViewTextColor(this.iWL, R.color.cp_cont_a);
+                ap.setViewTextColor(this.dWe, R.color.cp_cont_b);
+                ap.setImageResource(this.iWM, R.drawable.icon_mask_live);
+                SvgManager.bkl().a(this.iWJ, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
+                this.iWL.blA();
                 if (i2 == 1) {
-                    ap.setImageResource(this.epR, R.drawable.pic_live_hand_n);
+                    ap.setImageResource(this.erW, R.drawable.pic_live_hand_n);
                 } else if (i2 == 2) {
-                    ap.setImageResource(this.iOe, R.drawable.icon_pure_live_moe22);
-                    ap.c(this.epR, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds63), R.color.cp_bg_line_b, R.color.cp_bg_line_b);
+                    ap.setImageResource(this.iWK, R.drawable.icon_pure_live_moe22);
+                    ap.c(this.erW, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds63), R.color.cp_bg_line_b, R.color.cp_bg_line_b);
                 }
-                ap.setViewTextColor(this.dTU, R.color.cp_cont_b);
+                ap.setViewTextColor(this.dWe, R.color.cp_cont_b);
             }
         }
     }

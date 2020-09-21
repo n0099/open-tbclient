@@ -18,8 +18,9 @@ import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.menu.BdMenu;
 import com.baidu.android.ext.widget.menu.BdMenuItem;
+import com.baidu.android.util.devices.DeviceUtil;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetChangedListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "BdContextMenuView";
@@ -93,12 +94,12 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
         this.mLayoutInCenter = z;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     private class ListViewAdapter extends BaseAdapter {
         private Context mContext;
         private List<BdMenuItem> mDataList;
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes19.dex */
         public class ViewHolder {
             public ImageView mListIcon;
             public TextView mListName;
@@ -157,21 +158,37 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
             if (bdMenuItem.getIcon() != null) {
                 viewHolder.mListIcon.setVisibility(0);
                 viewHolder.mListIcon.setImageDrawable(bdMenuItem.getIcon());
-                layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_title_left_margin));
+                if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+                    layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_title_left_margin));
+                } else {
+                    layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_title_left_margin), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                }
                 viewHolder.mListName.setLayoutParams(layoutParams);
             } else {
                 viewHolder.mListIcon.setVisibility(8);
-                layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_icon_left_margin));
+                if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+                    layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_icon_left_margin));
+                } else {
+                    layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.context_menu_item_title_left_margin), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                }
                 viewHolder.mListName.setLayoutParams(layoutParams);
             }
             if (BdContextMenuView.this.mLayoutInCenter) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
                 if (bdMenuItem.getIcon() != null) {
-                    layoutParams2.setMarginStart(0);
+                    if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+                        layoutParams2.setMarginStart(0);
+                    } else {
+                        layoutParams2.setMargins(0, layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+                    }
                     viewHolder.mListIcon.setLayoutParams(layoutParams2);
                 } else {
-                    layoutParams.setMarginStart(0);
+                    if (DeviceUtil.OSInfo.hasJellyBeanMR1()) {
+                        layoutParams.setMarginStart(0);
+                    } else {
+                        layoutParams.setMargins(0, layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+                    }
                     viewHolder.mListName.setLayoutParams(layoutParams);
                 }
             }

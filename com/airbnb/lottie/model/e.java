@@ -6,7 +6,7 @@ import android.support.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e {
     private final List<String> Er;
     @Nullable
@@ -38,7 +38,7 @@ public class e {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f jy() {
+    public f jz() {
         return this.Es;
     }
 
@@ -72,10 +72,10 @@ public class e {
         boolean z = i == this.Er.size() + (-1);
         String str2 = this.Er.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.Er.size() + (-2) && jz())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Er.size() + (-2) && jA())) && (str2.equals(str) || str2.equals("*"));
         }
         if (!z && this.Er.get(i + 1).equals(str)) {
-            return i == this.Er.size() + (-2) || (i == this.Er.size() + (-3) && jz());
+            return i == this.Er.size() + (-2) || (i == this.Er.size() + (-3) && jA());
         } else if (z) {
             return true;
         } else {
@@ -98,7 +98,7 @@ public class e {
         return str.equals("__container");
     }
 
-    private boolean jz() {
+    private boolean jA() {
         return this.Er.get(this.Er.size() - 1).equals("**");
     }
 

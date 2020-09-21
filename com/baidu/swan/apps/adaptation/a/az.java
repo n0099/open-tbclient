@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface az {
     void a(boolean z, com.baidu.swan.apps.core.k.c cVar);
 
-    boolean aaE();
+    boolean abn();
 
-    boolean aaF();
+    boolean abo();
 
-    com.baidu.swan.pms.e.b aaG();
+    com.baidu.swan.pms.e.b abp();
 }

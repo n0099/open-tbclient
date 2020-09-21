@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.al.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private a cZk;
+    private a dbm;
 
     public void a(a aVar) {
-        this.cZk = aVar;
+        this.dbm = aVar;
     }
 
-    public void kb(int i) {
-        if (this.cZk != null) {
-            this.cZk.ka(i);
+    public void km(int i) {
+        if (this.dbm != null) {
+            this.dbm.kl(i);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public final class ResUtils {
     private static Context a;
 

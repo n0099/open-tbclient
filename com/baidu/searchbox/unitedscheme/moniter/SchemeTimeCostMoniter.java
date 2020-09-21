@@ -4,7 +4,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public final class SchemeTimeCostMoniter {
     private static final boolean DEBUG = false;
     public static final int DEFAULT_THRESHOLD = 100;
@@ -37,7 +37,7 @@ public final class SchemeTimeCostMoniter {
     public void schemeEnd(String str) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     private static class SchemeTimeCostMoniterHolder {
         private static final SchemeTimeCostMoniter sInstance = new SchemeTimeCostMoniter();
 

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
     private static final int FILE_SIZE_LIMIT = 10485760;
     private static final String TAG = "MicroMsg.SDK.WXGameVideoFileObject";

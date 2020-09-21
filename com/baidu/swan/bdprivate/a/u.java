@@ -10,7 +10,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.c aah() {
+    public com.baidu.swan.apps.adaptation.a.c aaQ() {
         return new a();
     }
 
@@ -39,19 +39,19 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.c P(Context context, String str) {
+        public com.baidu.swan.apps.setting.oauth.a.c S(Context context, String str) {
             return new p(context, str);
         }
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.e bh(Context context) {
+        public com.baidu.swan.apps.setting.oauth.a.e bg(Context context) {
             return new r(context);
         }
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d bi(Context context) {
+        public com.baidu.swan.apps.setting.oauth.a.d bh(Context context) {
             return new q(context);
         }
 
@@ -63,7 +63,7 @@ public class u implements com.baidu.swan.apps.adaptation.a.i {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.i
-    public com.baidu.swan.apps.adaptation.a.b aai() {
+    public com.baidu.swan.apps.adaptation.a.b aaR() {
         return new m();
     }
 }

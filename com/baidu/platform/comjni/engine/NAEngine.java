@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.platform.comapi.longlink.LongLinkClient;
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class NAEngine extends NativeComponent {
     private static LongLinkClient a;
     private static boolean b = false;

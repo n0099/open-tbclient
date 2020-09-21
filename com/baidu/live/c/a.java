@@ -1,12 +1,4 @@
 package com.baidu.live.c;
-
-import android.content.Context;
-import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes7.dex */
-public class a extends IntentConfig {
-    public a(Context context, String str) {
-        super(context);
-        getIntent().putExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, str);
-    }
+/* loaded from: classes4.dex */
+public interface a {
 }

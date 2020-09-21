@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class p {
     public static List<a> a(com.baidu.h.a.b.a.c cVar) {
         return a(cVar, false);
@@ -47,8 +47,8 @@ public class p {
     }
 
     private static final List<a> b(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bwV.bxi;
-        String str = cVar.bwV.bxj;
+        int i = cVar.bAs.bAF;
+        String str = cVar.bAs.bAG;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -58,7 +58,13 @@ public class p {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.H(optJSONObject)) {
+                    if (aVar.I(optJSONObject)) {
+                        if (aVar.getUserId() == 0) {
+                            aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
+                        }
+                        if (TextUtils.isEmpty(aVar.Ko().userId) || "0".equals(aVar.Ko().userId)) {
+                            aVar.Ko().userId = String.valueOf(aVar.getUserId());
+                        }
                         arrayList.add(aVar);
                     }
                 }
@@ -71,7 +77,7 @@ public class p {
     }
 
     private static final List<a> c(com.baidu.h.a.b.a.c cVar) {
-        String str = cVar.bwW;
+        String str = cVar.bAt;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -81,7 +87,13 @@ public class p {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.H(optJSONObject)) {
+                    if (aVar.I(optJSONObject)) {
+                        if (aVar.getUserId() == 0) {
+                            aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
+                        }
+                        if (TextUtils.isEmpty(aVar.Ko().userId) || "0".equals(aVar.Ko().userId)) {
+                            aVar.Ko().userId = String.valueOf(aVar.getUserId());
+                        }
                         arrayList.add(aVar);
                     }
                 }
@@ -107,7 +119,7 @@ public class p {
     }
 
     private static final List<a> d(com.baidu.h.a.b.a.c cVar) {
-        int i = cVar.bwV.feedback;
+        int i = cVar.bAs.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -128,8 +140,8 @@ public class p {
 
     private static final List<a> e(com.baidu.h.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.bwV != null) {
-            String str = cVar.bwV.bxk;
+        if (cVar != null && cVar.bAs != null) {
+            String str = cVar.bAs.bAH;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

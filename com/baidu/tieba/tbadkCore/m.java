@@ -317,37 +317,37 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
                     this.cardVideoInfo = new bw();
-                    this.cardVideoInfo.hZ(true);
-                    this.cardVideoInfo.nm(this.photoLivePos);
+                    this.cardVideoInfo.hW(true);
+                    this.cardVideoInfo.nx(this.photoLivePos);
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
-                    this.cardVideoInfo.bfC();
-                    this.cardVideoInfo.edU = this.isBrandForum;
+                    this.cardVideoInfo.bgw();
+                    this.cardVideoInfo.ege = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && longValue != 0) {
                         this.cardVideoInfo.setFid(longValue);
                     }
                     this.cardVideoInfo.F(this.color_eggs);
-                    this.cardVideoInfo.hY(!this.cardVideoInfo.bej());
-                    if (this.cardVideoInfo.beE() != null && this.cardVideoInfo.beE().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.beE().getUserId())) != null && metaData.getPendantData() != null) {
-                        com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
-                        lVar.cY(metaData.getPendantData().bra());
-                        lVar.zj(metaData.getPendantData().bcA());
-                        this.cardVideoInfo.beE().setPendantData(lVar);
+                    this.cardVideoInfo.hV(!this.cardVideoInfo.bfd());
+                    if (this.cardVideoInfo.bfy() != null && this.cardVideoInfo.bfy().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.bfy().getUserId())) != null && metaData.getPendantData() != null) {
+                        com.baidu.tbadk.data.m mVar = new com.baidu.tbadk.data.m();
+                        mVar.cZ(metaData.getPendantData().brU());
+                        mVar.zE(metaData.getPendantData().bdu());
+                        this.cardVideoInfo.bfy().setPendantData(mVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new g();
-                    this.mFrsInsertLiveData.mcS = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.mms = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
                             bw bwVar = new bw();
                             bwVar.a(dataRes.ala_live_insert.ala_live_list.get(i4));
-                            bwVar.edU = this.isBrandForum;
+                            bwVar.ege = this.isBrandForum;
                             arrayList.add(bwVar);
                         }
                     }
-                    this.mFrsInsertLiveData.mcR = arrayList;
+                    this.mFrsInsertLiveData.mmr = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new h();
@@ -356,11 +356,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         if (dataRes.ala_stage_list.get(i5) != null) {
                             bw bwVar2 = new bw();
                             bwVar2.a(dataRes.ala_stage_list.get(i5));
-                            bwVar2.edU = this.isBrandForum;
+                            bwVar2.ege = this.isBrandForum;
                             arrayList2.add(bwVar2);
                         }
                     }
-                    this.mFrsStageLiveData.mcU = arrayList2;
+                    this.mFrsStageLiveData.mmu = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -377,17 +377,17 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.dnZ().PA(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.drI().Qa(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
                         bw bwVar3 = new bw();
                         if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                            bwVar3.nm(this.mCardShipinPos.get(i6).intValue());
+                            bwVar3.nx(this.mCardShipinPos.get(i6).intValue());
                         }
-                        bwVar3.hZ(true);
+                        bwVar3.hW(true);
                         bwVar3.a(dataRes.card_shipin_new.get(i6));
-                        bwVar3.edU = this.isBrandForum;
+                        bwVar3.ege = this.isBrandForum;
                         this.mCardShipinNew.add(bwVar3);
                     }
                 }
@@ -448,12 +448,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             }
                             aaVar.link = serviceArea.serviceurl;
                             aaVar.version = serviceArea.version;
-                            String string = com.baidu.tbadk.core.sharedPref.b.bik().getString("frs_service_version_" + this.forum.getName() + aaVar.name, "");
-                            aaVar.hvP = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
+                            String string = com.baidu.tbadk.core.sharedPref.b.bjf().getString("frs_service_version_" + this.forum.getName() + aaVar.name, "");
+                            aaVar.aZH = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
                             if (serviceArea.area_smart_app != null) {
                                 ab abVar = new ab();
                                 abVar.c(serviceArea.area_smart_app);
-                                aaVar.mei = abVar;
+                                aaVar.mnH = abVar;
                             }
                             if (this.forum != null) {
                                 aaVar.forumName = this.forum.getName();
@@ -467,7 +467,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         }
                         i7 = i;
                     }
-                    this.serviceAreaData.meh = arrayList3.size();
+                    this.serviceAreaData.mnG = arrayList3.size();
                     this.serviceAreaData.dataList = arrayList3;
                 }
                 this.itemInfo = dataRes.item_info;
@@ -521,31 +521,31 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 if (threadInfo != null) {
                     bw bwVar = new bw();
                     bwVar.setUserMap(this.userMap);
-                    bwVar.m39if(true);
+                    bwVar.ic(true);
                     bwVar.a(threadInfo);
-                    bwVar.bfC();
+                    bwVar.bgw();
                     if (bwVar.getFid() == 0 && j != 0) {
                         bwVar.setFid(j);
                     }
-                    if (StringUtils.isNull(bwVar.beI())) {
-                        bwVar.zo(this.forum.getName());
+                    if (StringUtils.isNull(bwVar.bfC())) {
+                        bwVar.zJ(this.forum.getName());
                     }
                     bwVar.F(this.color_eggs);
-                    bwVar.edU = this.forum.isBrandForum;
-                    if (!TextUtils.isEmpty(bwVar.bfO())) {
+                    bwVar.ege = this.forum.isBrandForum;
+                    if (!TextUtils.isEmpty(bwVar.bgI())) {
                         ak akVar = new ak();
-                        akVar.zc(bwVar.bfO());
+                        akVar.zx(bwVar.bgI());
                         this.threadList.add(akVar);
                     } else {
                         this.threadList.add(bwVar);
-                        JSONObject a = com.baidu.tieba.recapp.report.b.a(threadInfo, bwVar.beI());
+                        JSONObject a = com.baidu.tieba.recapp.report.b.a(threadInfo, bwVar.bfC());
                         if (a != null) {
                             arrayList.add(a);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.report.b.dof().eX(arrayList);
+            com.baidu.tieba.recapp.report.b.drP().ff(arrayList);
         }
     }
 
@@ -571,167 +571,167 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 bw bwVar = (bw) next;
                 com.baidu.tbadk.a.a.a.a(bwVar);
                 int[] imageWidthAndHeight = bwVar.getImageWidthAndHeight();
-                if (bwVar.getType() == bw.eaW && !bwVar.isTop()) {
+                if (bwVar.getType() == bw.edg && !bwVar.isTop()) {
                     bv bvVar = new bv();
-                    bvVar.dUW = bwVar;
+                    bvVar.dXg = bwVar;
                     bvVar.position = i2;
-                    bvVar.eaC = true;
+                    bvVar.ecM = true;
                     bvVar.a(AbsThreadDataSupport.SupportType.TOP);
                     arrayList2.add(bvVar);
                     bv bvVar2 = new bv();
-                    bvVar2.dUW = bwVar;
+                    bvVar2.dXg = bwVar;
                     bvVar2.position = i2;
-                    if (bwVar.bgz()) {
-                        bvVar2.eaH = true;
-                    } else if (bwVar.bfK() == 1) {
-                        bvVar2.eaF = true;
-                        bvVar2.eaT = imageWidthAndHeight[0];
-                        bvVar2.eaU = imageWidthAndHeight[1];
-                    } else if (bwVar.bfK() >= 2) {
-                        bvVar2.eaG = true;
+                    if (bwVar.bht()) {
+                        bvVar2.ecR = true;
+                    } else if (bwVar.bgE() == 1) {
+                        bvVar2.ecP = true;
+                        bvVar2.edd = imageWidthAndHeight[0];
+                        bvVar2.ede = imageWidthAndHeight[1];
+                    } else if (bwVar.bgE() >= 2) {
+                        bvVar2.ecQ = true;
                     } else {
-                        bvVar2.eaD = true;
+                        bvVar2.ecN = true;
                     }
                     bvVar2.a(AbsThreadDataSupport.SupportType.CONTENT);
                     arrayList2.add(bvVar2);
-                    if (bwVar.bgJ() != null) {
+                    if (bwVar.bhD() != null) {
                         bv bvVar3 = new bv();
-                        bvVar3.eaP = true;
-                        bvVar3.dUW = bwVar;
+                        bvVar3.ecZ = true;
+                        bvVar3.dXg = bwVar;
                         bvVar3.position = i2;
                         bvVar3.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar3);
                     }
-                    if (bwVar.bft() != null) {
+                    if (bwVar.bgn() != null) {
                         bv bvVar4 = new bv();
-                        bvVar4.eaM = true;
-                        bvVar4.dUW = bwVar;
+                        bvVar4.ecW = true;
+                        bvVar4.dXg = bwVar;
                         bvVar4.position = i2;
                         bvVar4.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar4);
                     }
-                    if (!com.baidu.tbadk.core.util.y.isEmpty(bwVar.bgK()) || !com.baidu.tbadk.core.util.y.isEmpty(bwVar.bgL())) {
+                    if (!com.baidu.tbadk.core.util.y.isEmpty(bwVar.bhE()) || !com.baidu.tbadk.core.util.y.isEmpty(bwVar.bhF())) {
                         bv bvVar5 = new bv();
-                        if (com.baidu.tbadk.core.util.y.getCount(bwVar.bgK()) + com.baidu.tbadk.core.util.y.getCount(bwVar.bgL()) == 1) {
-                            bvVar5.eaQ = true;
-                        } else if (com.baidu.tbadk.core.util.y.getCount(bwVar.bgK()) + com.baidu.tbadk.core.util.y.getCount(bwVar.bgL()) > 1) {
-                            bvVar5.eaR = true;
+                        if (com.baidu.tbadk.core.util.y.getCount(bwVar.bhE()) + com.baidu.tbadk.core.util.y.getCount(bwVar.bhF()) == 1) {
+                            bvVar5.eda = true;
+                        } else if (com.baidu.tbadk.core.util.y.getCount(bwVar.bhE()) + com.baidu.tbadk.core.util.y.getCount(bwVar.bhF()) > 1) {
+                            bvVar5.edb = true;
                         }
-                        bvVar5.dUW = bwVar;
+                        bvVar5.dXg = bwVar;
                         bvVar5.position = i2;
                         bvVar5.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar5);
                     }
-                    if (bwVar.bgh() != null) {
+                    if (bwVar.bhb() != null) {
                         bv bvVar6 = new bv();
-                        bvVar6.eaJ = true;
-                        bvVar6.dUW = bwVar;
+                        bvVar6.ecT = true;
+                        bvVar6.dXg = bwVar;
                         bvVar6.position = i2;
                         bvVar6.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar6);
                     }
                     bv bvVar7 = new bv();
-                    bvVar7.eaI = true;
-                    bvVar7.dUW = bwVar;
+                    bvVar7.ecS = true;
+                    bvVar7.dXg = bwVar;
                     bvVar7.position = i2;
                     bvVar7.a(AbsThreadDataSupport.SupportType.BOTTOM);
                     arrayList2.add(bvVar7);
                     i = i2 + 1;
-                } else if (bwVar.getType() == bw.ebs && !bwVar.isTop()) {
+                } else if (bwVar.getType() == bw.edC && !bwVar.isTop()) {
                     bv bvVar8 = new bv();
-                    bvVar8.dUW = bwVar;
+                    bvVar8.dXg = bwVar;
                     bvVar8.position = i2;
-                    bvVar8.eaC = true;
+                    bvVar8.ecM = true;
                     bvVar8.a(AbsThreadDataSupport.SupportType.TOP);
                     arrayList2.add(bvVar8);
                     bv bvVar9 = new bv();
-                    bvVar9.dUW = bwVar;
+                    bvVar9.dXg = bwVar;
                     bvVar9.position = i2;
-                    bvVar9.eaK = true;
+                    bvVar9.ecU = true;
                     bvVar9.a(AbsThreadDataSupport.SupportType.CONTENT);
                     arrayList2.add(bvVar9);
-                    if (bwVar.bgJ() != null) {
+                    if (bwVar.bhD() != null) {
                         bv bvVar10 = new bv();
-                        bvVar10.eaP = true;
-                        bvVar10.dUW = bwVar;
+                        bvVar10.ecZ = true;
+                        bvVar10.dXg = bwVar;
                         bvVar10.position = i2;
                         bvVar10.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar10);
                     }
-                    if (bwVar.bft() != null) {
+                    if (bwVar.bgn() != null) {
                         bv bvVar11 = new bv();
-                        bvVar11.eaM = true;
-                        bvVar11.dUW = bwVar;
+                        bvVar11.ecW = true;
+                        bvVar11.dXg = bwVar;
                         bvVar11.position = i2;
                         bvVar11.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar11);
                     }
-                    if (bwVar.bgh() != null) {
+                    if (bwVar.bhb() != null) {
                         bv bvVar12 = new bv();
-                        bvVar12.eaJ = true;
-                        bvVar12.dUW = bwVar;
+                        bvVar12.ecT = true;
+                        bvVar12.dXg = bwVar;
                         bvVar12.position = i2;
                         bvVar12.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar12);
                     }
                     bv bvVar13 = new bv();
-                    bvVar13.eaI = true;
-                    bvVar13.dUW = bwVar;
+                    bvVar13.ecS = true;
+                    bvVar13.dXg = bwVar;
                     bvVar13.position = i2;
                     bvVar13.a(AbsThreadDataSupport.SupportType.BOTTOM);
                     arrayList2.add(bvVar13);
                     i = i2 + 1;
-                } else if (bwVar.beW() != null && !bwVar.bfJ() && bwVar.beH()) {
+                } else if (bwVar.bfQ() != null && !bwVar.bgD() && bwVar.bfB()) {
                     bv bvVar14 = new bv();
-                    bvVar14.dUW = bwVar;
+                    bvVar14.dXg = bwVar;
                     bvVar14.position = i2;
-                    bvVar14.eaC = true;
+                    bvVar14.ecM = true;
                     bvVar14.a(AbsThreadDataSupport.SupportType.TOP);
                     arrayList2.add(bvVar14);
                     bv bvVar15 = new bv();
-                    bvVar15.dUW = bwVar;
+                    bvVar15.dXg = bwVar;
                     bvVar15.position = i2;
-                    bvVar15.eaL = true;
+                    bvVar15.ecV = true;
                     bvVar15.a(AbsThreadDataSupport.SupportType.CONTENT);
                     arrayList2.add(bvVar15);
-                    if (bwVar.bgJ() != null) {
+                    if (bwVar.bhD() != null) {
                         bv bvVar16 = new bv();
-                        bvVar16.eaP = true;
-                        bvVar16.dUW = bwVar;
+                        bvVar16.ecZ = true;
+                        bvVar16.dXg = bwVar;
                         bvVar16.position = i2;
                         bvVar16.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar16);
                     }
-                    if (bwVar.bft() != null) {
+                    if (bwVar.bgn() != null) {
                         bv bvVar17 = new bv();
-                        bvVar17.eaM = true;
-                        bvVar17.dUW = bwVar;
+                        bvVar17.ecW = true;
+                        bvVar17.dXg = bwVar;
                         bvVar17.position = i2;
                         bvVar17.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar17);
                     }
-                    if (bwVar.bgh() != null) {
+                    if (bwVar.bhb() != null) {
                         bv bvVar18 = new bv();
-                        bvVar18.eaJ = true;
-                        bvVar18.dUW = bwVar;
+                        bvVar18.ecT = true;
+                        bvVar18.dXg = bwVar;
                         bvVar18.position = i2;
                         bvVar18.a(AbsThreadDataSupport.SupportType.EXTEND);
                         arrayList2.add(bvVar18);
                     }
                     bv bvVar19 = new bv();
-                    bvVar19.eaI = true;
-                    bvVar19.dUW = bwVar;
+                    bvVar19.ecS = true;
+                    bvVar19.dXg = bwVar;
                     bvVar19.position = i2;
                     bvVar19.a(AbsThreadDataSupport.SupportType.BOTTOM);
                     arrayList2.add(bvVar19);
                     i = i2 + 1;
-                } else if (bwVar.getType() == bw.ebk && bwVar.bdm()) {
+                } else if (bwVar.getType() == bw.edu && bwVar.beg()) {
                     bwVar.position = i2;
                     arrayList2.add(bwVar);
                     i = i2 + 1;
                 } else {
                     bv bvVar20 = new bv();
-                    bvVar20.dUW = bwVar;
+                    bvVar20.dXg = bwVar;
                     bvVar20.position = i2;
                     arrayList2.add(bvVar20);
                     i = i2 + 1;
@@ -740,12 +740,12 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 arrayList2.add(next);
                 i = i2 + 1;
             }
-            if (next != null && next.getType() != bw.eaV) {
+            if (next != null && next.getType() != bw.edf) {
                 this.mHasThreadExceptTop = true;
             }
             i2 = i;
         }
-        com.baidu.tbadk.a.a.a.aG(arrayList2);
+        com.baidu.tbadk.a.a.a.aK(arrayList2);
         return arrayList2;
     }
 

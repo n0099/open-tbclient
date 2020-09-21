@@ -5,53 +5,58 @@ import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.gift.e;
-import com.baidu.live.gift.v;
+import com.baidu.live.gift.w;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
+import com.baidu.live.utils.s;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private static final String aUv = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
-    private static final String aUw = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
+    public static final String aWK = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
+    public static final String aWL = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
 
-    public static String gF(String str) {
-        return aUv + str;
+    public static String gQ(String str) {
+        return aWK + str;
     }
 
-    private static String gG(String str) {
-        return gF(str) + "_zip";
+    private static String gR(String str) {
+        return gQ(str) + "_zip";
     }
 
-    public static String gH(String str) {
-        return aUw + str;
+    public static String gS(String str) {
+        return aWL + str;
     }
 
-    public static void gI(String str) {
-        String gF = gF(str);
-        if (!TextUtils.isEmpty(gF)) {
-            com.baidu.live.f.a.cleanDir(new File(gF));
+    public static void gT(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.live.f.a.cleanDir(new File(s.hG(str)));
+            String gQ = gQ(str);
+            if (!TextUtils.isEmpty(gQ)) {
+                com.baidu.live.f.a.cleanDir(new File(gQ));
+            }
+            String gR = gR(str);
+            if (!TextUtils.isEmpty(gR)) {
+                com.baidu.live.f.a.cleanDir(new File(gR));
+            }
+            String gS = gS(str);
+            if (!StringUtils.isNull(gS)) {
+                com.baidu.live.f.a.cleanDir(new File(gS));
+            }
         }
-        String gG = gG(str);
-        if (!TextUtils.isEmpty(gG)) {
-            com.baidu.live.f.a.cleanDir(new File(gG));
-        }
-        String gH = gH(str);
-        if (!StringUtils.isNull(gH)) {
-            com.baidu.live.f.a.cleanDir(new File(gH));
-        }
     }
 
-    public static void GK() {
-        com.baidu.live.f.a.cleanDir(new File(aUv));
-        com.baidu.live.f.a.cleanDir(new File(aUw));
+    public static void Hl() {
+        com.baidu.live.f.a.cleanDir(new File(s.PT()));
+        com.baidu.live.f.a.cleanDir(new File(aWK));
+        com.baidu.live.f.a.cleanDir(new File(aWL));
     }
 
     public static void a(com.baidu.live.gift.b bVar, final boolean z) {
-        if (bVar != null && !TextUtils.isEmpty(bVar.giftId) && bVar.aML != null && !ar(bVar.giftId, v.gt(bVar.giftId))) {
+        if (bVar != null && !TextUtils.isEmpty(bVar.giftId) && bVar.aOD != null && !ar(bVar.giftId, w.gD(bVar.giftId))) {
             new BdAsyncTask<com.baidu.live.gift.b, Void, Void>() { // from class: com.baidu.live.gift.b.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -59,11 +64,11 @@ public class a {
                 /* renamed from: a */
                 public Void doInBackground(com.baidu.live.gift.b... bVarArr) {
                     com.baidu.live.gift.b bVar2 = bVarArr[0];
-                    if (bVar2 != null && !TextUtils.isEmpty(bVar2.giftName) && bVar2.aML != null) {
-                        if (com.baidu.live.alphavideo.a.AH().AI() && bVar2.Dx()) {
-                            a.a(bVar2.giftId, bVar2.aML, z);
-                        } else if (bVar2.Dy()) {
-                            a.b(bVar2.giftId, bVar2.aML, z);
+                    if (bVar2 != null && !TextUtils.isEmpty(bVar2.giftName) && bVar2.aOD != null) {
+                        if (com.baidu.live.alphavideo.a.AW().AX() && bVar2.DO()) {
+                            a.a(bVar2.giftId, bVar2.aOD, z);
+                        } else if (bVar2.DP()) {
+                            a.b(bVar2.giftId, bVar2.aOD, z);
                         }
                     }
                     return null;
@@ -74,19 +79,21 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(String str, e eVar, boolean z) {
-        String str2 = aUv + eVar.zipName;
-        String str3 = "dynamic_video_md5_" + eVar.zipName;
-        if (com.baidu.live.f.b.b(str2, com.baidu.live.f.b.fU(str3))) {
-            com.baidu.live.f.b.a(str, eVar.videoUrl, gG(eVar.zipName), str2, str3, eVar.zipName, eVar.videoMd5, 19, z);
+        String hI = s.hI(eVar.zipName);
+        String str2 = "dynamic_video_md5_" + eVar.zipName;
+        if (!com.baidu.live.f.b.b(hI, com.baidu.live.f.b.fZ(str2))) {
+            com.baidu.live.f.a.cleanDir(new File(s.hJ(eVar.zipName)));
+        } else {
+            com.baidu.live.f.b.a(str, eVar.videoUrl, s.hH(eVar.zipName), hI, str2, eVar.zipName, eVar.videoMd5, 19, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(String str, e eVar, boolean z) {
-        String gH = gH(eVar.zipName);
+        String hJ = s.hJ(eVar.zipName);
         String str2 = AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + eVar.zipName;
-        if (com.baidu.live.f.b.b(gH, com.baidu.live.f.b.fU(str2))) {
-            com.baidu.live.f.b.a(str, eVar.zipDownloadUrl, gH, gH, str2, eVar.zipName, eVar.zipMD5, 19, z);
+        if (com.baidu.live.f.b.b(hJ, com.baidu.live.f.b.fZ(str2))) {
+            com.baidu.live.f.b.a(str, eVar.zipDownloadUrl, s.hH(eVar.zipName), hJ, str2, eVar.zipName, eVar.zipMD5, 19, z);
         }
     }
 
@@ -107,7 +114,7 @@ public class a {
         return false;
     }
 
-    public static void GL() {
-        com.baidu.live.f.b.dK(19);
+    public static void Hm() {
+        com.baidu.live.f.b.dO(19);
     }
 }

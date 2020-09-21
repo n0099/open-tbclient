@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends TBSpecificationButtonConfig {
-    private boolean ewV;
+    private boolean ezc;
 
     public c() {
-        this.ewF = R.color.cp_link_tip_a;
-        this.ewV = false;
+        this.eyM = R.color.cp_link_tip_a;
+        this.ezc = false;
     }
 
-    public void pb(@ColorRes int i) {
-        this.ewF = i;
-        this.ewV = false;
-        this.ewR = true;
-        if (this.ewT != null) {
-            this.ewT.bll();
+    public void pp(@ColorRes int i) {
+        this.eyM = i;
+        this.ezc = false;
+        this.eyY = true;
+        if (this.eza != null) {
+            this.eza.bmg();
         }
     }
 
-    public void pe(@ColorInt int i) {
-        this.ewF = i;
-        this.ewV = false;
-        this.ewR = false;
-        if (this.ewT != null) {
-            this.ewT.bll();
+    public void ps(@ColorInt int i) {
+        this.eyM = i;
+        this.ezc = false;
+        this.eyY = false;
+        if (this.eza != null) {
+            this.eza.bmg();
         }
     }
 
-    public void blp() {
-        this.ewF = R.color.cp_cont_a;
-        this.ewV = false;
-        this.ewR = true;
-        if (this.ewT != null) {
-            this.ewT.bll();
+    public void bmk() {
+        this.eyM = R.color.cp_cont_a;
+        this.ezc = false;
+        this.eyY = true;
+        if (this.eza != null) {
+            this.eza.bmg();
         }
     }
 
-    public void pd(@ColorRes int i) {
-        this.ewF = i;
-        this.ewG = R.color.cp_btn_b;
-        this.ewV = true;
-        this.ewR = true;
-        if (this.ewT != null) {
-            this.ewT.bll();
+    public void pr(@ColorRes int i) {
+        this.eyM = i;
+        this.eyN = R.color.cp_btn_b;
+        this.ezc = true;
+        this.eyY = true;
+        if (this.eza != null) {
+            this.eza.bmg();
         }
     }
 
@@ -62,10 +62,10 @@ public class c extends TBSpecificationButtonConfig {
 
     private Drawable ac(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.ewV) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ap.getColor(this.aiD, this.ewG));
+        if (this.ezc) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ap.getColor(this.aiX, this.eyN));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.ewR ? ap.getColor(this.aiD, this.ewF) : this.ewF, 0.5f));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.eyY ? ap.getColor(this.aiX, this.eyM) : this.eyM, 0.5f));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

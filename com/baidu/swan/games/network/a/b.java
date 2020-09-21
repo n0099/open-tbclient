@@ -24,7 +24,7 @@ import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.swan.games.network.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private long mTime;
@@ -36,58 +36,58 @@ public class b extends com.baidu.swan.games.network.a {
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        if (this.duS != null) {
-            final String aOA = aOA();
-            if (!TextUtils.isEmpty(aOA)) {
-                if (e.azI() == null) {
+        if (this.dwT != null) {
+            final String aPl = aPl();
+            if (!TextUtils.isEmpty(aPl)) {
+                if (e.aAr() == null) {
                     i("", -1, "request:swanApp is null");
                     return;
                 }
-                final com.baidu.swan.games.network.b azX = e.azI().azX();
-                String optString = this.duS.optString("filePath");
+                final com.baidu.swan.games.network.b aAG = e.aAr().aAG();
+                String optString = this.dwT.optString("filePath");
                 if (!TextUtils.isEmpty(optString)) {
-                    if (com.baidu.swan.c.d.xw(optString)) {
-                        i(aOA, -1, "downloadFile:filePath is invalid");
+                    if (com.baidu.swan.c.d.xP(optString)) {
+                        i(aPl, -1, "downloadFile:filePath is invalid");
                         return;
                     }
                     String[] split = optString.split("/");
                     if (TextUtils.isEmpty(split[split.length - 1])) {
-                        i(aOA, -1, "downloadFile:filePath is invalid");
+                        i(aPl, -1, "downloadFile:filePath is invalid");
                         return;
                     }
                 }
-                final com.baidu.swan.apps.storage.b.c arE = f.arY().arE();
-                final boolean rD = arE.rD(optString);
-                if (rD && arE.aDb().bK(0L)) {
-                    i(aOA, -1, "downloadFile:fail exceed max size in usr");
+                final com.baidu.swan.apps.storage.b.c asp = f.asJ().asp();
+                final boolean rW = asp.rW(optString);
+                if (rW && asp.aDL().bL(0L)) {
+                    i(aPl, -1, "downloadFile:fail exceed max size in usr");
                     return;
                 }
                 HashMap hashMap = new HashMap();
                 Request.Builder builder = new Request.Builder();
-                a(builder, this.duS.uT(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
-                builder.url(aOA).tag(this.mTaskId).build();
-                String xv = com.baidu.swan.c.d.xv(aOA);
+                a(builder, this.dwT.vm(WebSocketRequest.PARAM_KEY_HEADER), hashMap, false);
+                builder.url(aPl).tag(this.mTaskId).build();
+                String xO = com.baidu.swan.c.d.xO(aPl);
                 this.mTime = 0L;
                 d dVar = new d();
-                dVar.a(new a.InterfaceC0418a() { // from class: com.baidu.swan.games.network.a.b.1
-                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0418a
-                    public void bn(long j) {
-                        b.this.i(aOA, -1, "downloadFile:fail exceed max file size");
-                        azX.cancelTag(b.this.mTaskId);
+                dVar.a(new a.InterfaceC0413a() { // from class: com.baidu.swan.games.network.a.b.1
+                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0413a
+                    public void bo(long j) {
+                        b.this.i(aPl, -1, "downloadFile:fail exceed max file size");
+                        aAG.cancelTag(b.this.mTaskId);
                     }
 
-                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0418a
-                    public void l(long j, long j2) {
-                        b.this.i(aOA, 0, "progress callback fail()");
-                        azX.cancelTag(b.this.mTaskId);
+                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0413a
+                    public void h(long j, long j2) {
+                        b.this.i(aPl, 0, "progress callback fail()");
+                        aAG.cancelTag(b.this.mTaskId);
                     }
 
-                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0418a
+                    @Override // com.baidu.swan.apps.network.a.a.InterfaceC0413a
                     public void b(int i, long j, long j2) {
                         if (System.currentTimeMillis() - b.this.mTime > 500) {
                             if (j2 > Config.RAVEN_LOG_LIMIT || j > Config.RAVEN_LOG_LIMIT) {
-                                b.this.i(aOA, -1, "downloadFile:fail exceed max file size");
-                                azX.cancelTag(b.this.mTaskId);
+                                b.this.i(aPl, -1, "downloadFile:fail exceed max file size");
+                                aAG.cancelTag(b.this.mTaskId);
                             } else {
                                 if (i <= 100) {
                                     a aVar = new a(i, j2, j);
@@ -95,16 +95,16 @@ public class b extends com.baidu.swan.games.network.a {
                                     jSEvent.data = aVar;
                                     b.this.dispatchEvent(jSEvent);
                                 }
-                                if (rD && arE.aDb().bK(j)) {
-                                    b.this.i(aOA, -1, "downloadFile:fail exceed max file size");
-                                    azX.cancelTag(b.this.mTaskId);
+                                if (rW && asp.aDL().bL(j)) {
+                                    b.this.i(aPl, -1, "downloadFile:fail exceed max file size");
+                                    aAG.cancelTag(b.this.mTaskId);
                                 }
                             }
                             b.this.mTime = System.currentTimeMillis();
                         }
                     }
                 });
-                a(builder.build(), optString, xv, azX, dVar);
+                a(builder.build(), optString, xO, aAG, dVar);
             }
         }
     }
@@ -112,8 +112,8 @@ public class b extends com.baidu.swan.games.network.a {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Request request, final String str, final String str2, com.baidu.swan.games.network.b bVar, d dVar) {
         final String httpUrl = request.url().toString();
-        final com.baidu.swan.apps.storage.b.c arE = f.arY().arE();
-        final boolean rD = arE.rD(str);
+        final com.baidu.swan.apps.storage.b.c asp = f.asJ().asp();
+        final boolean rW = asp.rW(str);
         h.T(httpUrl, 1);
         bVar.a(request, Collections.singletonList(dVar), new Callback() { // from class: com.baidu.swan.games.network.a.b.2
             @Override // okhttp3.Callback
@@ -126,7 +126,7 @@ public class b extends com.baidu.swan.games.network.a {
 
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) {
-                String vE;
+                String vX;
                 String str3;
                 try {
                     JSEvent jSEvent = new JSEvent("headersReceived");
@@ -138,16 +138,16 @@ public class b extends com.baidu.swan.games.network.a {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    vE = g.a(response, str2);
+                    vX = g.a(response, str2);
                 } else {
-                    vE = b.this.vE(str);
+                    vX = b.this.vX(str);
                 }
-                if (!TextUtils.isEmpty(vE)) {
+                if (!TextUtils.isEmpty(vX)) {
                     if (b.DEBUG) {
-                        Log.d("DownloadTask", "the real file path is " + vE);
+                        Log.d("DownloadTask", "the real file path is " + vX);
                     }
                     if (TextUtils.isEmpty(str)) {
-                        str3 = arE.rV(vE);
+                        str3 = asp.so(vX);
                     } else {
                         str3 = str;
                     }
@@ -165,17 +165,17 @@ public class b extends com.baidu.swan.games.network.a {
                         cVar.filePath = str3;
                     }
                     InputStream byteStream = response.body().byteStream();
-                    File file = new File(vE);
+                    File file = new File(vX);
                     if (file.exists()) {
                         long length = file.length();
                         file.delete();
-                        if (rD) {
-                            arE.aDb().bJ(-length);
+                        if (rW) {
+                            asp.aDL().bK(-length);
                         }
                     }
                     if (b.this.streamToFile(byteStream, file)) {
-                        if (rD) {
-                            arE.aDb().bJ(file.length());
+                        if (rW) {
+                            asp.aDL().bK(file.length());
                         }
                         b.this.onSuccess(cVar);
                     } else {
@@ -195,18 +195,18 @@ public class b extends com.baidu.swan.games.network.a {
     }
 
     @Nullable
-    protected String vE(@NonNull String str) {
-        String rU = f.arY().arE().rU(str);
-        if (rU == null) {
+    protected String vX(@NonNull String str) {
+        String sn = f.asJ().asp().sn(str);
+        if (sn == null) {
             return null;
         }
-        boolean endsWith = rU.endsWith(File.separator);
-        File parentFile = new File(rU).getParentFile();
+        boolean endsWith = sn.endsWith(File.separator);
+        File parentFile = new File(sn).getParentFile();
         boolean z = parentFile != null && parentFile.exists();
         if (endsWith || !z) {
             return null;
         }
-        return rU;
+        return sn;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x004a */

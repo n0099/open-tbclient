@@ -1,11 +1,11 @@
 package com.baidu.prologue.business.data;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static String bKE = "";
+    public static String bME = "";
 
     public static void b(@NonNull e eVar) {
-        bKE = eVar.ext;
+        bME = eVar.ext;
     }
 }

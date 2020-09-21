@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class l extends AsyncTask<Void, Void, PassFaceRecogResult> {
     final /* synthetic */ ContrastPortraitResult a;
     final /* synthetic */ LivenessRecogActivity b;

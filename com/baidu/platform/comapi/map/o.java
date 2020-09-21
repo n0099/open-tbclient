@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.map;
 
 import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o implements Runnable {
     final /* synthetic */ Bitmap a;
     final /* synthetic */ m b;

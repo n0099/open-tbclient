@@ -9,12 +9,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean neL = false;
-    private boolean neM = false;
+    private boolean noL = false;
+    private boolean noM = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean dLR() {
+    private boolean dPP() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -35,7 +35,7 @@ public class g implements Executor {
         return true;
     }
 
-    private Runnable f(boolean z, long j) throws InterruptedIOException {
+    private Runnable g(boolean z, long j) throws InterruptedIOException {
         Runnable poll;
         try {
             if (!z) {
@@ -55,43 +55,43 @@ public class g implements Executor {
         }
     }
 
-    public void dLS() throws IOException {
-        KA(0);
+    public void dPQ() throws IOException {
+        Lf(0);
     }
 
-    public void KA(int i) throws IOException {
-        if (!$assertionsDisabled && !dLR()) {
+    public void Lf(int i) throws IOException {
+        if (!$assertionsDisabled && !dPP()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.neM) {
+        if (this.noM) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.neL) {
+        if (this.noL) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.neL = true;
-        while (this.neL) {
+        this.noL = true;
+        while (this.noL) {
             if (i == 0) {
                 try {
-                    f(false, 0L).run();
+                    g(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.neL = false;
-                    this.neM = true;
+                    this.noL = false;
+                    this.noM = true;
                     throw e;
                 }
             } else {
-                f(true, (convert - System.nanoTime()) + nanoTime).run();
+                g(true, (convert - System.nanoTime()) + nanoTime).run();
             }
         }
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !dLR()) {
+        if (!$assertionsDisabled && !dPP()) {
             throw new AssertionError();
         }
-        this.neL = false;
+        this.noL = false;
     }
 
     @Override // java.util.concurrent.Executor

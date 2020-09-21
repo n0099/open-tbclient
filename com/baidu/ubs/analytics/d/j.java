@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class j {
-    private static int ngZ = 1000;
-    private static boolean nha = true;
+    private static int nra = 1000;
+    private static boolean nrb = true;
 
     public static void c(boolean z) {
-        nha = z;
+        nrb = z;
     }
 
     public static void I(String str) {
-        if (nha) {
+        if (nrb) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (nha) {
+        if (nrb) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (nha) {
+        if (nrb) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (nha) {
+        if (nrb) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= ngZ) {
+            if (str2.length() >= nra) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, ngZ));
+                        Log.v(str, str2.substring(0, nra));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, ngZ));
+                        Log.d(str, str2.substring(0, nra));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, ngZ));
+                        Log.i(str, str2.substring(0, nra));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, ngZ));
+                        Log.w(str, str2.substring(0, nra));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, ngZ));
+                        Log.e(str, str2.substring(0, nra));
                         break;
                 }
             } else {

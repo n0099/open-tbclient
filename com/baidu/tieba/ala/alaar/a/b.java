@@ -8,39 +8,39 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public final class b {
-    private static b fxP = new b();
-    public static boolean fxS = false;
-    private JSONObject fxQ;
-    private int fxR = 3;
+    private static b fBb = new b();
+    public static boolean fBe = false;
+    private JSONObject fBc;
+    private int fBd = 3;
 
-    public static b bEm() {
-        return fxP;
+    public static b bFC() {
+        return fBb;
     }
 
     public void init() {
         loadData();
     }
 
-    public void bEn() {
+    public void bFD() {
         HttpMessage httpMessage = new HttpMessage(1021204);
         httpMessage.setTag(null);
-        httpMessage.addParam("classification_id", bEp());
+        httpMessage.addParam("classification_id", bFF());
         httpMessage.addParam(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
         httpMessage.addParam("live_model", Build.MODEL);
         httpMessage.addParam("manufacture", Build.MANUFACTURER);
-        httpMessage.addParam("quality_sign", bEo());
+        httpMessage.addParam("quality_sign", bFE());
         httpMessage.addParam("submodule", "live");
         httpMessage.addParam(HttpConstants.HTTP_BOARD, Build.BOARD);
         httpMessage.addParam("arsdk_version", String.valueOf(com.baidu.minivideo.arface.a.getVersion()));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private String bEo() {
+    private String bFE() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fxQ.optString("quality_sign");
+            str = this.fBc.optString("quality_sign");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -48,10 +48,10 @@ public final class b {
         return str;
     }
 
-    private String bEp() {
+    private String bFF() {
         String str = null;
         if (!isEmpty()) {
-            str = this.fxQ.optString("classification_id");
+            str = this.fBc.optString("classification_id");
         }
         if (TextUtils.isEmpty(str)) {
             return "default";
@@ -59,34 +59,34 @@ public final class b {
         return str;
     }
 
-    public JSONObject bEq() {
+    public JSONObject bFG() {
         if (isEmpty()) {
             return null;
         }
-        return this.fxQ.optJSONObject("classification");
+        return this.fBc.optJSONObject("classification");
     }
 
-    public JSONObject bEr() {
+    public JSONObject bFH() {
         if (isEmpty()) {
             return null;
         }
-        return this.fxQ.optJSONObject("quality");
+        return this.fBc.optJSONObject("quality");
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:59:0x0104 -> B:69:0x00cf). Please submit an issue!!! */
-    public JSONObject dg(JSONObject jSONObject) {
+    public JSONObject dj(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject == null) {
-            return this.fxQ;
+            return this.fBc;
         }
-        if (this.fxQ == null) {
+        if (this.fBc == null) {
             if (jSONObject.has("quality") && com.baidu.live.ar.b.t(jSONObject.optJSONObject("quality")) == null) {
                 return null;
             }
             return jSONObject;
         }
-        String optString = this.fxQ.optString("classification_id");
-        JSONObject optJSONObject = this.fxQ.optJSONObject("classification");
+        String optString = this.fBc.optString("classification_id");
+        JSONObject optJSONObject = this.fBc.optJSONObject("classification");
         String jSONObject3 = optJSONObject != null ? optJSONObject.toString() : null;
         if (jSONObject.has("classification_id")) {
             String optString2 = jSONObject.optString("classification_id");
@@ -110,8 +110,8 @@ public final class b {
             } catch (JSONException e2) {
             }
         }
-        String optString3 = this.fxQ.optString("quality_sign");
-        JSONObject optJSONObject3 = this.fxQ.optJSONObject("quality");
+        String optString3 = this.fBc.optString("quality_sign");
+        JSONObject optJSONObject3 = this.fBc.optJSONObject("quality");
         String jSONObject5 = optJSONObject3 != null ? optJSONObject3.toString() : null;
         if (jSONObject.has("quality_sign")) {
             String optString4 = jSONObject.optString("quality_sign");
@@ -141,25 +141,25 @@ public final class b {
     public void d(JSONObject jSONObject, boolean z) {
         if (jSONObject != null && jSONObject.length() != 0) {
             if (z) {
-                dh(jSONObject);
+                dk(jSONObject);
             }
-            this.fxQ = jSONObject;
-            com.baidu.minivideo.arface.b.setGradingConfig(bEq());
-            com.baidu.minivideo.arface.b.aa(bEr());
+            this.fBc = jSONObject;
+            com.baidu.minivideo.arface.b.setGradingConfig(bFG());
+            com.baidu.minivideo.arface.b.ad(bFH());
         }
     }
 
-    private void dh(JSONObject jSONObject) {
+    private void dk(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
-            c.AD().putString("ar_grading_quality_config", jSONObject.toString());
-            if (com.baidu.live.ar.b.d(this.fxQ, jSONObject)) {
-                c.AD().putBoolean("ar_grading_quality_config_need_update", true);
+            c.AR().putString("ar_grading_quality_config", jSONObject.toString());
+            if (com.baidu.live.ar.b.d(this.fBc, jSONObject)) {
+                c.AR().putBoolean("ar_grading_quality_config_need_update", true);
             }
         }
     }
 
-    private void bEs() {
-        String string = c.AD().getString("ar_grading_quality_config", "");
+    private void bFI() {
+        String string = c.AR().getString("ar_grading_quality_config", "");
         if (!TextUtils.isEmpty(string)) {
             try {
                 d(new JSONObject(string), false);
@@ -170,11 +170,11 @@ public final class b {
     }
 
     protected void loadData() {
-        bEs();
-        bEn();
+        bFI();
+        bFD();
     }
 
     public boolean isEmpty() {
-        return this.fxQ == null || this.fxQ.length() == 0;
+        return this.fBc == null || this.fBc.length() == 0;
     }
 }

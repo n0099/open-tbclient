@@ -8,23 +8,23 @@ import io.reactivex.l;
 import io.reactivex.m;
 import io.reactivex.n;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class MaybeCreate<T> extends k<T> {
-    final n<T> ood;
+    final n<T> oxM;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         Emitter emitter = new Emitter(mVar);
         mVar.onSubscribe(emitter);
         try {
-            this.ood.a(emitter);
+            this.oxM.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.J(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class Emitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, l<T> {
         private static final long serialVersionUID = -2467358622224974244L;
         final m<? super T> actual;

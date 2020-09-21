@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String EXTRA_LIVE_ID = "live_id";
     public static final String EXTRA_ROOM_ID = "room_id";
@@ -125,13 +125,13 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public void addExtraByRoomId(String str, String str2) {
         getIntent().putExtra("room_id", str);
-        getIntent().putExtra("live_from_type", FROM_TYPE_LIVE_SDK);
+        getIntent().putExtra("live_from_type", "live_sdk");
         getIntent().putExtra("params", str2);
     }
 
     public void addExtraByLiveId(long j, String str) {
         getIntent().putExtra("live_id", j);
-        getIntent().putExtra("live_from_type", FROM_TYPE_LIVE_SDK);
+        getIntent().putExtra("live_from_type", "live_sdk");
         getIntent().putExtra("params", str);
     }
 
@@ -145,7 +145,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public void addLastLiveInfoParams(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            getIntent().putExtra(LAST_LIVE_INFO, alaLastLiveroomInfo.toJson());
+            getIntent().putExtra("last_live_info", alaLastLiveroomInfo.toJson());
         }
     }
 
@@ -166,8 +166,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("live_id", j);
         getIntent().putExtra("room_id", str);
-        getIntent().putExtra("live_from_type", FROM_TYPE_LIVE_SDK);
-        getIntent().putExtra(LIVE_BROADCAST_GIFT_TOAST_QUEUE, getBroadcastGiftStr(arrayList));
+        getIntent().putExtra("live_from_type", "live_sdk");
+        getIntent().putExtra("live_broadcast_gift_toast_queue", getBroadcastGiftStr(arrayList));
     }
 
     private String getBroadcastGiftStr(ArrayList<AlaBroadcastGiftToastData> arrayList) {

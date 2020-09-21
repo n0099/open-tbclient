@@ -5,7 +5,7 @@ import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.c.b;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import java.io.Serializable;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class DownloadInfo implements Serializable {
     private long mCreateAt;
     private transient b mDownloadListener;
@@ -121,35 +121,35 @@ public class DownloadInfo implements Serializable {
         return this.mStatus == SwanAdDownloadState.DOWNLOAD_PAUSED.value() || this.mStatus == SwanAdDownloadState.DOWNLOAD_FAILED.value() || this.mStatus == SwanAdDownloadState.DELETED.value();
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
-        private long dkm = -1;
+        private long dmo = -1;
         private String id;
         private String packageName;
         private String path;
         private String url;
 
-        public a bW(long j) {
-            this.dkm = j;
+        public a bX(long j) {
+            this.dmo = j;
             return this;
         }
 
-        public a tI(String str) {
+        public a ub(String str) {
             this.url = str;
             return this;
         }
 
-        public a tJ(String str) {
+        public a uc(String str) {
             this.path = str;
             return this;
         }
 
-        public a tK(String str) {
+        public a ud(String str) {
             this.packageName = str;
             return this;
         }
 
-        public DownloadInfo aIG() {
+        public DownloadInfo aJr() {
             DownloadInfo downloadInfo = new DownloadInfo();
             if (TextUtils.isEmpty(this.url)) {
                 throw new DownloadException(0, "uri cannot be null.");
@@ -162,8 +162,8 @@ public class DownloadInfo implements Serializable {
             if (TextUtils.isEmpty(this.packageName)) {
                 downloadInfo.setPackageName(this.packageName);
             }
-            if (this.dkm == -1) {
-                bW(System.currentTimeMillis());
+            if (this.dmo == -1) {
+                bX(System.currentTimeMillis());
             }
             if (TextUtils.isEmpty(this.id)) {
                 downloadInfo.setId(this.url);

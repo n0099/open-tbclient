@@ -4,7 +4,7 @@ import com.sina.weibo.sdk.network.exception.RequestException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class WbResponseBody {
     private InputStream inputStream;
     private long length;

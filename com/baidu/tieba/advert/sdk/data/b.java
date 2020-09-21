@@ -5,7 +5,7 @@ import com.baidu.ala.helper.AlaConstants;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b {
     private long endShowTime;
     private long startShowTime;
@@ -40,7 +40,7 @@ public class b {
         return bVar;
     }
 
-    public static b DV(String str) {
+    public static b Es(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -85,7 +85,7 @@ public class b {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean bcy() {
+    public boolean bds() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

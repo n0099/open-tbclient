@@ -1,5 +1,5 @@
 package com.baidu.tieba.personCenter.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class l implements c {
     @Override // com.baidu.tieba.personCenter.c.c
     public int getType() {

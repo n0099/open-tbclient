@@ -1,5 +1,7 @@
 package com.baidu.searchbox.afx.decode;
 
+import android.app.ActivityManager;
+import android.content.pm.ConfigurationInfo;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaExtractor;
@@ -10,15 +12,18 @@ import android.support.v7.widget.ActivityChooserView;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
+import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class VideoPlayer {
     private static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
@@ -42,7 +47,7 @@ public class VideoPlayer {
     private volatile long mStartFrameTimeUs = 0;
     private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes9.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -51,7 +56,7 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes9.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
@@ -171,6 +176,15 @@ public class VideoPlayer {
 
     public void setGLTextureView(GLTextureView gLTextureView) {
         this.mGLTextureView = gLTextureView;
+    }
+
+    public String getGlVersion() {
+        ActivityManager activityManager;
+        ConfigurationInfo deviceConfigurationInfo;
+        if (this.mGLTextureView == null || (activityManager = (ActivityManager) this.mGLTextureView.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) == null || (deviceConfigurationInfo = activityManager.getDeviceConfigurationInfo()) == null) {
+            return null;
+        }
+        return deviceConfigurationInfo.getGlEsVersion();
     }
 
     public void requestStop() {
@@ -421,19 +435,20 @@ public class VideoPlayer {
         }
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes9.dex */
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_ERROR = 1;
         private static final int MSG_PLAY_STOPPED = 0;
         private LocalHandler mLocalHandler;
         private VideoPlayer mPlayer;
+        private String mPrepareTime;
         private final Object mStopLock = new Object();
         private boolean mStopped = false;
         private Thread mThread;
 
-        public PlayTask(VideoPlayer videoPlayer, OnVideoEndedListener onVideoEndedListener, OnVideoErrorListener onVideoErrorListener) {
+        public PlayTask(VideoPlayer videoPlayer, OnVideoEndedListener onVideoEndedListener, OnVideoErrorListener onVideoErrorListener, OnReportListener onReportListener) {
             this.mPlayer = videoPlayer;
-            this.mLocalHandler = new LocalHandler(onVideoEndedListener, onVideoErrorListener);
+            this.mLocalHandler = new LocalHandler(onVideoEndedListener, onVideoErrorListener, onReportListener);
         }
 
         public void execute() {
@@ -448,6 +463,7 @@ public class VideoPlayer {
             }
             this.mLocalHandler.mOnEndedListener = null;
             this.mLocalHandler.mOnErrorListener = null;
+            this.mLocalHandler.mOnReportListener = null;
             this.mLocalHandler = null;
         }
 
@@ -462,19 +478,20 @@ public class VideoPlayer {
             }
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [638=6] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [670=6] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // java.lang.Runnable
         public void run() {
             try {
                 try {
+                    this.mPrepareTime = String.valueOf(System.currentTimeMillis() / 1000);
                     this.mPlayer.play();
                     synchronized (this.mStopLock) {
                         this.mStopped = true;
                         this.mStopLock.notifyAll();
                     }
                     if (this.mLocalHandler != null) {
-                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0));
+                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0, this.mPrepareTime));
                     }
                 } catch (Exception e) {
                     boolean sendMessage = this.mLocalHandler != null ? this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(1, e)) : false;
@@ -484,7 +501,7 @@ public class VideoPlayer {
                         if (sendMessage || this.mLocalHandler == null) {
                             return;
                         }
-                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0));
+                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0, this.mPrepareTime));
                     }
                 }
             } catch (Throwable th) {
@@ -492,35 +509,45 @@ public class VideoPlayer {
                     this.mStopped = true;
                     this.mStopLock.notifyAll();
                     if (this.mLocalHandler != null) {
-                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0));
+                        this.mLocalHandler.sendMessage(this.mLocalHandler.obtainMessage(0, this.mPrepareTime));
                     }
                     throw th;
                 }
             }
         }
 
-        /* loaded from: classes18.dex */
+        /* loaded from: classes9.dex */
         private static class LocalHandler extends Handler {
             private OnVideoEndedListener mOnEndedListener;
             private OnVideoErrorListener mOnErrorListener;
+            private OnReportListener mOnReportListener;
 
-            public LocalHandler(OnVideoEndedListener onVideoEndedListener, OnVideoErrorListener onVideoErrorListener) {
+            public LocalHandler(OnVideoEndedListener onVideoEndedListener, OnVideoErrorListener onVideoErrorListener, OnReportListener onReportListener) {
                 this.mOnEndedListener = onVideoEndedListener;
                 this.mOnErrorListener = onVideoErrorListener;
+                this.mOnReportListener = onReportListener;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 0:
+                        String str = (String) message.obj;
                         if (this.mOnEndedListener != null) {
                             this.mOnEndedListener.onVideoEnded();
+                        }
+                        if (this.mOnReportListener != null) {
+                            this.mOnReportListener.onSuccess(new PlaySuccessInfo(null, String.valueOf(System.currentTimeMillis() / 1000), str));
                             return;
                         }
                         return;
                     case 1:
+                        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                        if (this.mOnReportListener != null) {
+                            this.mOnReportListener.onError(new ErrorInfo(16, ErrorInfo.VIDEO_PLAY_SOURCE_ERROR_ERRORMSG, (Exception) message.obj, null, null, null, valueOf));
+                        }
                         if (this.mOnErrorListener != null) {
-                            this.mOnErrorListener.onError(new ErrorInfo(16, "VideoPlayer解码错误", (Exception) message.obj));
+                            this.mOnErrorListener.onError(new ErrorInfo(16, ErrorInfo.VIDEO_PLAY_SOURCE_ERROR_ERRORMSG, (Exception) message.obj, null, null, null, valueOf));
                             return;
                         }
                         return;

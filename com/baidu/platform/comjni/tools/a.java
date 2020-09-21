@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.tools;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 final class a implements Parcelable.Creator<ParcelItem> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

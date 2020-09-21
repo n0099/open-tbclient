@@ -1,5 +1,5 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public interface j {
     void onProgress(int i, int i2);
 }

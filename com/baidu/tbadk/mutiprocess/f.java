@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 public class f {
     private static String bduss;
-    private static boolean ePZ = false;
+    private static boolean eSQ = false;
     private static String stoken;
     private static String tbs;
 
-    public static void jv(boolean z) {
-        ePZ = z;
+    public static void jw(boolean z) {
+        eSQ = z;
     }
 
     public static boolean isLogin() {
-        return ePZ;
+        return eSQ;
     }
 
     public static void setBduss(String str) {
@@ -45,10 +45,10 @@ public class f {
     }
 
     public static boolean checkUpIsLogin(Context context) {
-        if (!ePZ) {
+        if (!eSQ) {
             skipToLoginActivity(context);
         }
-        return ePZ;
+        return eSQ;
     }
 
     public static void skipToLoginActivity(Context context) {

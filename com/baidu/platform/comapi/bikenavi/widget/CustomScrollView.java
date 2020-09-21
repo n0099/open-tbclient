@@ -15,9 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
-import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
     private VelocityTracker a;
@@ -38,7 +37,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
     public int top;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
 
@@ -76,9 +75,9 @@ public class CustomScrollView extends ScrollView {
         this.top = com.baidu.platform.comapi.wnplatform.p.h.c(context) - com.baidu.platform.comapi.wnplatform.p.h.d(context);
         this.bottom = 0;
         this.c = 3;
-        com.baidu.platform.comapi.wnplatform.p.a.a.a((Activity) getContext(), R.layout.abc_activity_chooser_view_list_item, this);
-        this.j = (LinearLayout) findViewById(R.raw.lottie_use_publish_n);
-        this.l = (LinearLayout) findViewById(R.raw.lottie_use_publish_cj_n_2);
+        com.baidu.platform.comapi.wnplatform.p.a.a.a((Activity) getContext(), 2130903047, this);
+        this.j = (LinearLayout) findViewById(2131165254);
+        this.l = (LinearLayout) findViewById(2131165253);
         this.l.setMinimumHeight(this.top);
     }
 
@@ -231,7 +230,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -243,7 +242,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class s implements Runnable {
     final /* synthetic */ MapSurfaceView a;
 

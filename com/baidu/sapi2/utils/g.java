@@ -15,19 +15,19 @@ import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class a implements View.OnClickListener {
         final /* synthetic */ WebView a;
         final /* synthetic */ View b;
 
         /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        class RunnableC0305a implements Runnable {
-            RunnableC0305a() {
+        /* loaded from: classes25.dex */
+        class RunnableC0303a implements Runnable {
+            RunnableC0303a() {
             }
 
             @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class g {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.a.post(new RunnableC0305a());
+            this.a.post(new RunnableC0303a());
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.live.sdk.goods.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -12,12 +12,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static void m(Context context, String str, String str2) {
-        be beVar = com.baidu.live.w.a.Nk().bkd;
-        if (beVar != null && beVar.aJE != null) {
-            String str3 = beVar.aJE.aLB;
+        bj bjVar = com.baidu.live.x.a.NN().bmW;
+        if (bjVar != null && bjVar.aKU != null) {
+            String str3 = bjVar.aKU.aNk;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }

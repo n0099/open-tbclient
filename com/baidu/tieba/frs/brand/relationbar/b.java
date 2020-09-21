@@ -2,16 +2,16 @@ package com.baidu.tieba.frs.brand.relationbar;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b<T extends View> extends RecyclerView.ViewHolder {
-    private T ibx;
+    private T iiB;
 
     public b(T t) {
         super(t);
-        this.ibx = t;
+        this.iiB = t;
     }
 
-    public T coX() {
-        return this.ibx;
+    public T csk() {
+        return this.iiB;
     }
 }

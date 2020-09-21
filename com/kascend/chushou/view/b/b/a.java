@@ -32,14 +32,14 @@ import tv.chushou.zues.widget.fresco.b;
 @h
 /* loaded from: classes6.dex */
 public final class a extends com.kascend.chushou.view.base.a implements View.OnClickListener {
-    public static final C0907a nXS = new C0907a(null);
+    public static final C0904a ohH = new C0904a(null);
     private boolean e;
     private boolean f;
     private HashMap h;
-    private com.kascend.chushou.view.b.b.b nXQ;
-    private final DecimalFormat nXR = new DecimalFormat("#.#");
+    private com.kascend.chushou.view.b.b.b ohF;
+    private final DecimalFormat ohG = new DecimalFormat("#.#");
 
-    public View Nk(int i) {
+    public View NP(int i) {
         if (this.h == null) {
             this.h = new HashMap();
         }
@@ -71,11 +71,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
     @h
     /* renamed from: com.kascend.chushou.view.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0907a {
-        private C0907a() {
+    public static final class C0904a {
+        private C0904a() {
         }
 
-        public /* synthetic */ C0907a(o oVar) {
+        public /* synthetic */ C0904a(o oVar) {
             this();
         }
 
@@ -110,7 +110,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         this.e = arguments4 != null ? arguments4.getBoolean("inLivePage", false) : false;
         Bundle arguments5 = getArguments();
         this.f = arguments5 != null ? arguments5.getBoolean("showAt", false) : false;
-        this.nXQ = new com.kascend.chushou.view.b.b.b(str, string, string2);
+        this.ohF = new com.kascend.chushou.view.b.b.b(str, string, string2);
         setStyle(1, a.j.cs_usercard_dialog);
     }
 
@@ -126,27 +126,27 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
     public void onViewCreated(View view, Bundle bundle) {
         q.m(view, "view");
         super.onViewCreated(view, bundle);
-        TextView textView = (TextView) Nk(a.f.tvReport);
+        TextView textView = (TextView) NP(a.f.tvReport);
         if (textView != null) {
             textView.setOnClickListener(this);
         }
-        TextView textView2 = (TextView) Nk(a.f.tvAt);
+        TextView textView2 = (TextView) NP(a.f.tvAt);
         if (textView2 != null) {
             textView2.setOnClickListener(this);
         }
-        TextView textView3 = (TextView) Nk(a.f.tvSubscribe);
+        TextView textView3 = (TextView) NP(a.f.tvSubscribe);
         if (textView3 != null) {
             textView3.setOnClickListener(this);
         }
-        FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) Nk(a.f.ivAvatar);
+        FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) NP(a.f.ivAvatar);
         if (frescoThumbnailView != null) {
             frescoThumbnailView.setOnClickListener(this);
         }
-        com.kascend.chushou.view.b.b.b bVar = this.nXQ;
+        com.kascend.chushou.view.b.b.b bVar = this.ohF;
         if (bVar != null) {
             bVar.a((com.kascend.chushou.view.b.b.b) this);
         }
-        com.kascend.chushou.view.b.b.b bVar2 = this.nXQ;
+        com.kascend.chushou.view.b.b.b bVar2 = this.ohF;
         if (bVar2 != null) {
             bVar2.d();
         }
@@ -160,7 +160,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
-        com.kascend.chushou.view.b.b.b bVar = this.nXQ;
+        com.kascend.chushou.view.b.b.b bVar = this.ohF;
         if (bVar != null) {
             bVar.a();
         }
@@ -187,56 +187,56 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
                 return;
             }
             int i4 = a.f.tvSubscribe;
-            if (valueOf != null && valueOf.intValue() == i4 && (bVar = this.nXQ) != null) {
+            if (valueOf != null && valueOf.intValue() == i4 && (bVar = this.ohF) != null) {
                 bVar.e();
             }
         }
     }
 
     public final void a() {
-        TextView textView = (TextView) Nk(a.f.tvReport);
+        TextView textView = (TextView) NP(a.f.tvReport);
         if (textView != null) {
             textView.setVisibility(8);
         }
-        ((FrescoThumbnailView) Nk(a.f.ivAvatar)).Ck(c.emi());
-        ImageView imageView = (ImageView) Nk(a.f.ivGender);
+        ((FrescoThumbnailView) NP(a.f.ivAvatar)).CL(c.eqg());
+        ImageView imageView = (ImageView) NP(a.f.ivGender);
         if (imageView != null) {
-            imageView.setImageResource(c.WP(null));
+            imageView.setImageResource(c.Xr(null));
         }
         String string = c.getString(a.i.profile_failture_str);
-        SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) Nk(a.f.tvNickName);
+        SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) NP(a.f.tvNickName);
         if (simpleDraweeSpanTextView != null) {
             simpleDraweeSpanTextView.setText(string);
         }
-        TextView textView2 = (TextView) Nk(a.f.tvSignature);
+        TextView textView2 = (TextView) NP(a.f.tvSignature);
         if (textView2 != null) {
             textView2.setText(string);
         }
-        FlexboxLayout flexboxLayout = (FlexboxLayout) Nk(a.f.flexMedal);
+        FlexboxLayout flexboxLayout = (FlexboxLayout) NP(a.f.flexMedal);
         if (flexboxLayout != null) {
             flexboxLayout.setVisibility(8);
         }
-        TextView textView3 = (TextView) Nk(a.f.tvFans);
+        TextView textView3 = (TextView) NP(a.f.tvFans);
         if (textView3 != null) {
             textView3.setText(string);
         }
-        TextView textView4 = (TextView) Nk(a.f.tvSubscribers);
+        TextView textView4 = (TextView) NP(a.f.tvSubscribers);
         if (textView4 != null) {
             textView4.setText(string);
         }
-        TextView textView5 = (TextView) Nk(a.f.tvGifts);
+        TextView textView5 = (TextView) NP(a.f.tvGifts);
         if (textView5 != null) {
             textView5.setText(string);
         }
-        TextView textView6 = (TextView) Nk(a.f.tvReport);
+        TextView textView6 = (TextView) NP(a.f.tvReport);
         if (textView6 != null) {
             textView6.setVisibility(8);
         }
-        LinearLayout linearLayout = (LinearLayout) Nk(a.f.llBottomBtn);
+        LinearLayout linearLayout = (LinearLayout) NP(a.f.llBottomBtn);
         if (linearLayout != null) {
             linearLayout.setVisibility(8);
         }
-        LinearLayout linearLayout2 = (LinearLayout) Nk(a.f.llBottomContent);
+        LinearLayout linearLayout2 = (LinearLayout) NP(a.f.llBottomContent);
         q.l((Object) linearLayout2, "llBottomContent");
         ViewGroup.LayoutParams layoutParams = linearLayout2.getLayoutParams();
         if (layoutParams == null) {
@@ -244,7 +244,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
         marginLayoutParams.bottomMargin = c.H(22.0f);
-        LinearLayout linearLayout3 = (LinearLayout) Nk(a.f.llBottomContent);
+        LinearLayout linearLayout3 = (LinearLayout) NP(a.f.llBottomContent);
         q.l((Object) linearLayout3, "llBottomContent");
         linearLayout3.setLayoutParams(marginLayoutParams);
     }
@@ -264,17 +264,17 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         UserCard.UserCardMeta meta9;
         UserCard.UserCardMeta meta10;
         q.m(userCard, "card");
-        FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) Nk(a.f.ivAvatar);
+        FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) NP(a.f.ivAvatar);
         if (frescoThumbnailView != null) {
             UserCard.UserCardInfo userCardInfo = userCard.getUserCardInfo();
-            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.emi(), b.C1017b.oOQ, b.C1017b.oOQ);
+            frescoThumbnailView.i(userCardInfo != null ? userCardInfo.getAvatar() : null, c.eqg(), b.C1014b.oYs, b.C1014b.oYs);
         }
-        ImageView imageView = (ImageView) Nk(a.f.ivGender);
+        ImageView imageView = (ImageView) NP(a.f.ivGender);
         if (imageView != null) {
             UserCard.UserCardInfo userCardInfo2 = userCard.getUserCardInfo();
-            imageView.setImageResource(c.WP(userCardInfo2 != null ? userCardInfo2.getGender() : null));
+            imageView.setImageResource(c.Xr(userCardInfo2 != null ? userCardInfo2.getGender() : null));
         }
-        ImageView imageView2 = (ImageView) Nk(a.f.ivGender);
+        ImageView imageView2 = (ImageView) NP(a.f.ivGender);
         if (imageView2 != null) {
             imageView2.setVisibility(0);
         }
@@ -286,11 +286,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         UserCard.UserCardInfo userCardInfo5 = userCard.getUserCardInfo();
         a(this, cVar, userCardInfo5 != null ? userCardInfo5.getLevelMedal() : null, 0, 4, null);
         cVar.a(new b());
-        SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) Nk(a.f.tvNickName);
+        SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) NP(a.f.tvNickName);
         if (simpleDraweeSpanTextView != null) {
             simpleDraweeSpanTextView.setText(cVar);
         }
-        TextView textView = (TextView) Nk(a.f.tvSignature);
+        TextView textView = (TextView) NP(a.f.tvSignature);
         if (textView != null) {
             UserCard.UserCardInfo userCardInfo6 = userCard.getUserCardInfo();
             textView.setText(f.b(userCardInfo6 != null ? userCardInfo6.getSignature() : null, a.i.profile_default_autograph));
@@ -298,75 +298,75 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         UserCard.UserCardInfo userCardInfo7 = userCard.getUserCardInfo();
         List<UserCard.Medal> medalList = (userCardInfo7 == null || (meta9 = userCardInfo7.getMeta()) == null) ? null : meta9.getMedalList();
         if (tv.chushou.zues.utils.h.isEmpty(medalList)) {
-            FlexboxLayout flexboxLayout = (FlexboxLayout) Nk(a.f.flexMedal);
+            FlexboxLayout flexboxLayout = (FlexboxLayout) NP(a.f.flexMedal);
             if (flexboxLayout != null) {
                 flexboxLayout.setVisibility(8);
             }
         } else {
-            ((FlexboxLayout) Nk(a.f.flexMedal)).removeAllViews();
-            FlexboxLayout flexboxLayout2 = (FlexboxLayout) Nk(a.f.flexMedal);
+            ((FlexboxLayout) NP(a.f.flexMedal)).removeAllViews();
+            FlexboxLayout flexboxLayout2 = (FlexboxLayout) NP(a.f.flexMedal);
             q.l((Object) flexboxLayout2, "flexMedal");
             flexboxLayout2.setVisibility(0);
             if (medalList == null) {
-                q.egs();
+                q.ekp();
             }
             for (UserCard.Medal medal : medalList) {
-                View inflate = getLayoutInflater().inflate(a.h.view_medal_card, (ViewGroup) ((FlexboxLayout) Nk(a.f.flexMedal)), false);
+                View inflate = getLayoutInflater().inflate(a.h.view_medal_card, (ViewGroup) ((FlexboxLayout) NP(a.f.flexMedal)), false);
                 if (inflate == null) {
                     throw new TypeCastException("null cannot be cast to non-null type tv.chushou.zues.widget.fresco.FrescoThumbnailView");
                 }
                 FrescoThumbnailView frescoThumbnailView2 = (FrescoThumbnailView) inflate;
                 frescoThumbnailView2.setAnim(true);
-                frescoThumbnailView2.a(medal.getUrl(), a.e.ic_default_medal, b.C1017b.small, b.C1017b.small, 1);
+                frescoThumbnailView2.a(medal.getUrl(), a.e.ic_default_medal, b.C1014b.small, b.C1014b.small, 1);
                 FlexboxLayout.LayoutParams layoutParams = new FlexboxLayout.LayoutParams(frescoThumbnailView2.getLayoutParams());
                 layoutParams.setFlexShrink(0.0f);
-                ((FlexboxLayout) Nk(a.f.flexMedal)).addView(frescoThumbnailView2, layoutParams);
+                ((FlexboxLayout) NP(a.f.flexMedal)).addView(frescoThumbnailView2, layoutParams);
             }
         }
         UserCard.UserCardInfo userCardInfo8 = userCard.getUserCardInfo();
         if (userCardInfo8 == null || (meta8 = userCardInfo8.getMeta()) == null || (hiddenList3 = meta8.getHiddenList()) == null || !hiddenList3.contains("fansCount")) {
-            TextView textView2 = (TextView) Nk(a.f.tvFans);
+            TextView textView2 = (TextView) NP(a.f.tvFans);
             if (textView2 != null) {
                 UserCard.UserCardInfo userCardInfo9 = userCard.getUserCardInfo();
-                textView2.setText(gE((userCardInfo9 == null || (meta7 = userCardInfo9.getMeta()) == null) ? 0L : meta7.getFansCount()));
+                textView2.setText(gS((userCardInfo9 == null || (meta7 = userCardInfo9.getMeta()) == null) ? 0L : meta7.getFansCount()));
             }
         } else {
-            TextView textView3 = (TextView) Nk(a.f.tvFans);
+            TextView textView3 = (TextView) NP(a.f.tvFans);
             if (textView3 != null) {
                 textView3.setText(c.getString(a.i.user_space_private));
             }
         }
         UserCard.UserCardInfo userCardInfo10 = userCard.getUserCardInfo();
         if (userCardInfo10 == null || (meta6 = userCardInfo10.getMeta()) == null || (hiddenList2 = meta6.getHiddenList()) == null || !hiddenList2.contains("idolsCount")) {
-            TextView textView4 = (TextView) Nk(a.f.tvSubscribers);
+            TextView textView4 = (TextView) NP(a.f.tvSubscribers);
             if (textView4 != null) {
                 UserCard.UserCardInfo userCardInfo11 = userCard.getUserCardInfo();
-                textView4.setText(gE((userCardInfo11 == null || (meta5 = userCardInfo11.getMeta()) == null) ? 0L : meta5.getIdolsCount()));
+                textView4.setText(gS((userCardInfo11 == null || (meta5 = userCardInfo11.getMeta()) == null) ? 0L : meta5.getIdolsCount()));
             }
         } else {
-            TextView textView5 = (TextView) Nk(a.f.tvSubscribers);
+            TextView textView5 = (TextView) NP(a.f.tvSubscribers);
             if (textView5 != null) {
                 textView5.setText(c.getString(a.i.user_space_private));
             }
         }
         UserCard.UserCardInfo userCardInfo12 = userCard.getUserCardInfo();
         if (userCardInfo12 == null || (meta4 = userCardInfo12.getMeta()) == null || (hiddenList = meta4.getHiddenList()) == null || !hiddenList.contains("giftPointCount")) {
-            TextView textView6 = (TextView) Nk(a.f.tvGifts);
+            TextView textView6 = (TextView) NP(a.f.tvGifts);
             if (textView6 != null) {
                 UserCard.UserCardInfo userCardInfo13 = userCard.getUserCardInfo();
-                textView6.setText(gE((userCardInfo13 == null || (meta3 = userCardInfo13.getMeta()) == null) ? 0L : meta3.getGiftPointCount()));
+                textView6.setText(gS((userCardInfo13 == null || (meta3 = userCardInfo13.getMeta()) == null) ? 0L : meta3.getGiftPointCount()));
             }
         } else {
-            TextView textView7 = (TextView) Nk(a.f.tvGifts);
+            TextView textView7 = (TextView) NP(a.f.tvGifts);
             if (textView7 != null) {
                 textView7.setText(c.getString(a.i.user_space_private));
             }
         }
-        TextView textView8 = (TextView) Nk(a.f.tvAt);
+        TextView textView8 = (TextView) NP(a.f.tvAt);
         if (textView8 != null) {
             textView8.setText("@TA");
         }
-        TextView textView9 = (TextView) Nk(a.f.tvAt);
+        TextView textView9 = (TextView) NP(a.f.tvAt);
         if (textView9 != null) {
             textView9.setEnabled(true);
         }
@@ -374,48 +374,48 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         UserCard.UserCardInfo userCardInfo14 = userCard.getUserCardInfo();
         String managerLevel2 = (userCardInfo14 == null || (meta2 = userCardInfo14.getMeta()) == null) ? null : meta2.getManagerLevel();
         LoginManager Instance = LoginManager.Instance();
-        com.kascend.chushou.view.b.b.b bVar = this.nXQ;
+        com.kascend.chushou.view.b.b.b bVar = this.ohF;
         if (Instance.isMySelf(bVar != null ? bVar.f() : null)) {
-            TextView textView10 = (TextView) Nk(a.f.tvReport);
+            TextView textView10 = (TextView) NP(a.f.tvReport);
             if (textView10 != null) {
                 textView10.setVisibility(8);
             }
         } else if (q.l((Object) managerLevel2, (Object) "3")) {
-            TextView textView11 = (TextView) Nk(a.f.tvReport);
+            TextView textView11 = (TextView) NP(a.f.tvReport);
             if (textView11 != null) {
                 textView11.setVisibility(8);
             }
         } else if (q.l((Object) managerLevel, (Object) "3") || q.l((Object) managerLevel, (Object) "2") || q.l((Object) managerLevel, (Object) "1")) {
-            TextView textView12 = (TextView) Nk(a.f.tvReport);
+            TextView textView12 = (TextView) NP(a.f.tvReport);
             if (textView12 != null) {
                 textView12.setVisibility(0);
             }
-            TextView textView13 = (TextView) Nk(a.f.tvReport);
+            TextView textView13 = (TextView) NP(a.f.tvReport);
             if (textView13 != null) {
                 textView13.setText(c.getString(a.i.str_manage));
             }
         } else if (q.l((Object) managerLevel, (Object) "0")) {
-            TextView textView14 = (TextView) Nk(a.f.tvReport);
+            TextView textView14 = (TextView) NP(a.f.tvReport);
             if (textView14 != null) {
                 textView14.setVisibility(0);
             }
-            TextView textView15 = (TextView) Nk(a.f.tvReport);
+            TextView textView15 = (TextView) NP(a.f.tvReport);
             if (textView15 != null) {
                 textView15.setText(c.getString(a.i.str_report));
             }
         } else {
-            TextView textView16 = (TextView) Nk(a.f.tvReport);
+            TextView textView16 = (TextView) NP(a.f.tvReport);
             if (textView16 != null) {
                 textView16.setVisibility(8);
             }
         }
         UserCard.UserCardInfo userCardInfo15 = userCard.getUserCardInfo();
         if (userCardInfo15 == null || (meta = userCardInfo15.getMeta()) == null || meta.isSDKUser()) {
-            LinearLayout linearLayout = (LinearLayout) Nk(a.f.llBottomBtn);
+            LinearLayout linearLayout = (LinearLayout) NP(a.f.llBottomBtn);
             if (linearLayout != null) {
                 linearLayout.setVisibility(8);
             }
-            LinearLayout linearLayout2 = (LinearLayout) Nk(a.f.llBottomContent);
+            LinearLayout linearLayout2 = (LinearLayout) NP(a.f.llBottomContent);
             q.l((Object) linearLayout2, "llBottomContent");
             ViewGroup.LayoutParams layoutParams2 = linearLayout2.getLayoutParams();
             if (layoutParams2 == null) {
@@ -423,12 +423,12 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             }
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams2;
             marginLayoutParams.bottomMargin = c.H(22.0f);
-            LinearLayout linearLayout3 = (LinearLayout) Nk(a.f.llBottomContent);
+            LinearLayout linearLayout3 = (LinearLayout) NP(a.f.llBottomContent);
             q.l((Object) linearLayout3, "llBottomContent");
             linearLayout3.setLayoutParams(marginLayoutParams);
             return;
         }
-        LinearLayout linearLayout4 = (LinearLayout) Nk(a.f.llBottomContent);
+        LinearLayout linearLayout4 = (LinearLayout) NP(a.f.llBottomContent);
         q.l((Object) linearLayout4, "llBottomContent");
         ViewGroup.LayoutParams layoutParams3 = linearLayout4.getLayoutParams();
         if (layoutParams3 == null) {
@@ -436,40 +436,40 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         }
         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams3;
         LoginManager Instance2 = LoginManager.Instance();
-        com.kascend.chushou.view.b.b.b bVar2 = this.nXQ;
+        com.kascend.chushou.view.b.b.b bVar2 = this.ohF;
         boolean isMySelf = Instance2.isMySelf(bVar2 != null ? bVar2.f() : null);
         if (!this.f && isMySelf) {
-            LinearLayout linearLayout5 = (LinearLayout) Nk(a.f.llBottomBtn);
+            LinearLayout linearLayout5 = (LinearLayout) NP(a.f.llBottomBtn);
             if (linearLayout5 != null) {
                 linearLayout5.setVisibility(8);
             }
             marginLayoutParams2.bottomMargin = c.H(22.0f);
-            LinearLayout linearLayout6 = (LinearLayout) Nk(a.f.llBottomContent);
+            LinearLayout linearLayout6 = (LinearLayout) NP(a.f.llBottomContent);
             q.l((Object) linearLayout6, "llBottomContent");
             linearLayout6.setLayoutParams(marginLayoutParams2);
             return;
         }
-        LinearLayout linearLayout7 = (LinearLayout) Nk(a.f.llBottomBtn);
+        LinearLayout linearLayout7 = (LinearLayout) NP(a.f.llBottomBtn);
         if (linearLayout7 != null) {
             linearLayout7.setVisibility(0);
         }
         marginLayoutParams2.bottomMargin = c.H(0.0f);
-        LinearLayout linearLayout8 = (LinearLayout) Nk(a.f.llBottomContent);
+        LinearLayout linearLayout8 = (LinearLayout) NP(a.f.llBottomContent);
         q.l((Object) linearLayout8, "llBottomContent");
         linearLayout8.setLayoutParams(marginLayoutParams2);
-        TextView textView17 = (TextView) Nk(a.f.tvAt);
+        TextView textView17 = (TextView) NP(a.f.tvAt);
         if (textView17 != null) {
             textView17.setVisibility(this.f ? 0 : 8);
         }
         if (isMySelf) {
-            TextView textView18 = (TextView) Nk(a.f.tvSubscribe);
+            TextView textView18 = (TextView) NP(a.f.tvSubscribe);
             if (textView18 != null) {
                 textView18.setVisibility(8);
             }
             a(userCard.getUserCardInfo().getMeta().isSubscribed());
             return;
         }
-        TextView textView19 = (TextView) Nk(a.f.tvSubscribe);
+        TextView textView19 = (TextView) NP(a.f.tvSubscribe);
         if (textView19 != null) {
             textView19.setVisibility(0);
         }
@@ -484,11 +484,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
 
         @Override // com.facebook.drawee.span.b.c
         public final void d(com.facebook.drawee.span.b bVar) {
-            SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) a.this.Nk(a.f.tvNickName);
+            SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) a.this.NP(a.f.tvNickName);
             if (simpleDraweeSpanTextView != null) {
                 simpleDraweeSpanTextView.measure(0, 0);
             }
-            SimpleDraweeSpanTextView simpleDraweeSpanTextView2 = (SimpleDraweeSpanTextView) a.this.Nk(a.f.tvNickName);
+            SimpleDraweeSpanTextView simpleDraweeSpanTextView2 = (SimpleDraweeSpanTextView) a.this.NP(a.f.tvNickName);
             if (simpleDraweeSpanTextView2 != null) {
                 simpleDraweeSpanTextView2.requestLayout();
             }
@@ -506,85 +506,85 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         if (!tv.chushou.zues.utils.h.isEmpty(str)) {
             cVar.append(" ");
             int length = cVar.length();
-            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).Lp(com.kascend.chushou.view.a.a()).dQW(), this.b);
-            com.facebook.drawee.controller.a dQj = com.facebook.drawee.a.a.c.dPw().Ux(str).xW(true).dQn();
-            q.l((Object) dQj, "Fresco.newDraweeControll…yAnimations(true).build()");
+            com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).LU(com.kascend.chushou.view.a.a()).dUU(), this.b);
+            com.facebook.drawee.controller.a dUh = com.facebook.drawee.a.a.c.dTu().UZ(str).yf(true).dUl();
+            q.l((Object) dUh, "Fresco.newDraweeControll…yAnimations(true).build()");
             q.l((Object) a, "medalDraweeHolder");
-            a.setController(dQj);
+            a.setController(dUh);
             cVar.append("1");
-            int Ov = c.Ov(i);
-            cVar.a(a, length, length, Ov, Ov, true, 2);
+            int Pa = c.Pa(i);
+            cVar.a(a, length, length, Pa, Pa, true, 2);
         }
     }
 
     public final void a(boolean z) {
-        TextView textView = (TextView) Nk(a.f.tvSubscribe);
+        TextView textView = (TextView) NP(a.f.tvSubscribe);
         if (textView != null) {
             textView.setEnabled(true);
         }
         if (z) {
-            TextView textView2 = (TextView) Nk(a.f.tvSubscribe);
+            TextView textView2 = (TextView) NP(a.f.tvSubscribe);
             if (textView2 != null) {
                 textView2.setBackgroundResource(a.e.cs_bg_user_card_at);
             }
-            TextView textView3 = (TextView) Nk(a.f.tvSubscribe);
+            TextView textView3 = (TextView) NP(a.f.tvSubscribe);
             if (textView3 != null) {
                 textView3.setText(a.i.str_attracted);
                 return;
             }
             return;
         }
-        TextView textView4 = (TextView) Nk(a.f.tvSubscribe);
+        TextView textView4 = (TextView) NP(a.f.tvSubscribe);
         if (textView4 != null) {
             textView4.setBackgroundResource(a.e.cs_bg_user_card_subscribe);
         }
-        TextView textView5 = (TextView) Nk(a.f.tvSubscribe);
+        TextView textView5 = (TextView) NP(a.f.tvSubscribe);
         if (textView5 != null) {
             textView5.setText(a.i.str_attention);
         }
     }
 
     private final void d() {
-        UserCard eaK;
+        UserCard eeI;
         UserCard.UserCardMeta meta;
         UserCard.UserCardMeta meta2;
         String str = null;
-        com.kascend.chushou.view.b.b.b bVar = this.nXQ;
-        if (bVar != null && (eaK = bVar.eaK()) != null) {
+        com.kascend.chushou.view.b.b.b bVar = this.ohF;
+        if (bVar != null && (eeI = bVar.eeI()) != null) {
             ChatInfo chatInfo = new ChatInfo();
-            UserCard.UserCardInfo userCardInfo = eaK.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo = eeI.getUserCardInfo();
             chatInfo.mUserNickname = userCardInfo != null ? userCardInfo.getNickname() : null;
-            UserCard.UserCardInfo userCardInfo2 = eaK.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo2 = eeI.getUserCardInfo();
             chatInfo.mUserID = userCardInfo2 != null ? userCardInfo2.getUid() : null;
-            com.kascend.chushou.view.b.b.b bVar2 = this.nXQ;
+            com.kascend.chushou.view.b.b.b bVar2 = this.ohF;
             chatInfo.mRoomID = bVar2 != null ? bVar2.g() : null;
-            UserCard.UserCardInfo userCardInfo3 = eaK.getUserCardInfo();
+            UserCard.UserCardInfo userCardInfo3 = eeI.getUserCardInfo();
             String managerLevel = (userCardInfo3 == null || (meta2 = userCardInfo3.getMeta()) == null) ? null : meta2.getManagerLevel();
             if (!(managerLevel == null || managerLevel.length() == 0)) {
                 PrivilegeInfo privilegeInfo = chatInfo.mPrivilegeInfo;
-                UserCard.UserCardInfo userCardInfo4 = eaK.getUserCardInfo();
+                UserCard.UserCardInfo userCardInfo4 = eeI.getUserCardInfo();
                 if (userCardInfo4 != null && (meta = userCardInfo4.getMeta()) != null) {
                     str = meta.getManagerLevel();
                 }
                 privilegeInfo.mRole = str;
             }
             com.kascend.chushou.player.a.f fVar = new com.kascend.chushou.player.a.f(getActivity());
-            fVar.a(chatInfo, eaK.getManagerLevel(), this.e);
+            fVar.a(chatInfo, eeI.getManagerLevel(), this.e);
             fVar.show();
         }
     }
 
     private final void e() {
         com.kascend.chushou.view.b.b.b bVar;
-        UserCard eaK;
+        UserCard eeI;
         UserCard.UserCardInfo userCardInfo;
-        if (this.e && (bVar = this.nXQ) != null && (eaK = bVar.eaK()) != null && (userCardInfo = eaK.getUserCardInfo()) != null) {
+        if (this.e && (bVar = this.ohF) != null && (eeI = bVar.eeI()) != null && (userCardInfo = eeI.getUserCardInfo()) != null) {
             tv.chushou.zues.a.a.post(new i(3, userCardInfo));
             dismissAllowingStateLoss();
         }
     }
 
-    private final tv.chushou.zues.widget.a.c gE(long j) {
+    private final tv.chushou.zues.widget.a.c gS(long j) {
         tv.chushou.zues.widget.a.c cVar = new tv.chushou.zues.widget.a.c();
         int bb = (int) c.bb(12.0f);
         int bb2 = (int) c.bb(30.0f);
@@ -593,11 +593,11 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             q.l((Object) a, "sp.append(num.toString(), AbsoluteSizeSpan(big))");
             return a;
         } else if (j < 100000000) {
-            tv.chushou.zues.widget.a.c a2 = cVar.a(this.nXR.format((j * 1.0d) / 10000), new AbsoluteSizeSpan(bb2)).a(c.getString(a.i.zues_str_wan), new AbsoluteSizeSpan(bb));
+            tv.chushou.zues.widget.a.c a2 = cVar.a(this.ohG.format((j * 1.0d) / 10000), new AbsoluteSizeSpan(bb2)).a(c.getString(a.i.zues_str_wan), new AbsoluteSizeSpan(bb));
             q.l((Object) a2, "sp.append(df.format(size… AbsoluteSizeSpan(small))");
             return a2;
         } else {
-            tv.chushou.zues.widget.a.c a3 = cVar.a(this.nXR.format((j * 1.0d) / 100000000), new AbsoluteSizeSpan(bb2)).a(c.getString(a.i.zues_str_yi), new AbsoluteSizeSpan(bb));
+            tv.chushou.zues.widget.a.c a3 = cVar.a(this.ohG.format((j * 1.0d) / 100000000), new AbsoluteSizeSpan(bb2)).a(c.getString(a.i.zues_str_yi), new AbsoluteSizeSpan(bb));
             q.l((Object) a3, "sp.append(df.format(size… AbsoluteSizeSpan(small))");
             return a3;
         }

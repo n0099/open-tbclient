@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private String eVx;
-    private boolean eei;
-    private String fEW;
+    private String eYo;
+    private boolean egs;
+    private String fIi;
     private boolean hasMore = false;
-    private List<String> fHn = new ArrayList();
-    private List<SdkLiveInfoData> fHo = new ArrayList();
-    private List<q> fHp = new ArrayList();
+    private List<String> fKz = new ArrayList();
+    private List<SdkLiveInfoData> fKA = new ArrayList();
+    private List<q> fKB = new ArrayList();
 
     public a(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.eei = false;
+        this.egs = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.eei = true;
+            this.egs = true;
         }
-        this.eVx = str;
-        this.fEW = str2;
+        this.eYo = str;
+        this.fIi = str2;
         i(list, z);
     }
 
@@ -31,12 +31,12 @@ public class a {
         if (list == null) {
             return false;
         }
-        boolean bB = bB(list);
+        boolean bG = bG(list);
         this.hasMore = z;
-        return bB;
+        return bG;
     }
 
-    private boolean bB(List<SdkLiveInfoData> list) {
+    private boolean bG(List<SdkLiveInfoData> list) {
         if (y.isEmpty(list)) {
             return false;
         }
@@ -44,45 +44,45 @@ public class a {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.fHn.contains(str)) {
+                if (!this.fKz.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.fHn.add(str);
+                    this.fKz.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList)) {
             return false;
         }
-        this.fHo.addAll(arrayList);
-        this.fHp = bC(this.fHo);
-        return !y.isEmpty(this.fHp);
+        this.fKA.addAll(arrayList);
+        this.fKB = bH(this.fKA);
+        return !y.isEmpty(this.fKB);
     }
 
-    private ArrayList<q> bC(List<SdkLiveInfoData> list) {
+    private ArrayList<q> bH(List<SdkLiveInfoData> list) {
         ArrayList<q> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.fCy = list.get(i);
+            aVar.fFK = list.get(i);
             aVar.isLeft = true;
-            aVar.eei = this.eei;
-            aVar.fid = this.eVx;
-            aVar.fname = this.fEW;
+            aVar.egs = this.egs;
+            aVar.fid = this.eYo;
+            aVar.fname = this.fIi;
             aVar.position = i + 1;
-            eVar.fED = aVar;
+            eVar.fHP = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.fCy = list.get(i + 1);
-                aVar2.eei = this.eei;
-                aVar2.fid = this.eVx;
-                aVar2.fname = this.fEW;
+                aVar2.fFK = list.get(i + 1);
+                aVar2.egs = this.egs;
+                aVar2.fid = this.eYo;
+                aVar2.fname = this.fIi;
                 aVar2.position = i + 2;
-                eVar.fEE = aVar2;
+                eVar.fHQ = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.fCz = true;
+                aVar.fFL = true;
             }
             arrayList.add(eVar);
         }
@@ -95,22 +95,22 @@ public class a {
 
     public List<q> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.fHp)) {
-            arrayList.addAll(this.fHp);
+        if (!y.isEmpty(this.fKB)) {
+            arrayList.addAll(this.fKB);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.fHn != null) {
-            this.fHn.clear();
+        if (this.fKz != null) {
+            this.fKz.clear();
         }
-        if (this.fHo != null) {
-            this.fHo.clear();
+        if (this.fKA != null) {
+            this.fKA.clear();
         }
-        if (this.fHp != null) {
-            this.fHp.clear();
+        if (this.fKB != null) {
+            this.fKB.clear();
         }
     }
 }

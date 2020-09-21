@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static String a = "ui";
     public static String b = "ie";

@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ASMSerializerFactory implements Opcodes {
     protected final ASMClassLoader classLoader = new ASMClassLoader();
     private final AtomicLong seed = new AtomicLong();
@@ -45,7 +45,7 @@ public class ASMSerializerFactory implements Opcodes {
     static final String SerializeFilterable_desc = ASMUtils.desc(SerializeFilterable.class);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class Context {
         static final int features = 5;
         static final int obj = 2;

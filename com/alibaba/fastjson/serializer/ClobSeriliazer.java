@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.sql.Clob;
 import java.sql.SQLException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ClobSeriliazer implements ObjectSerializer {
     public static final ClobSeriliazer instance = new ClobSeriliazer();
 

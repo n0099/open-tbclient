@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.json.JSONException;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class e {
     protected static final String a = "BdboxApp:".toLowerCase();
     public HashMap<String, Object> b;

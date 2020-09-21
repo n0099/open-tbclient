@@ -1,40 +1,31 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import tbclient.Pendant;
 /* loaded from: classes.dex */
-public class m implements q {
-    public static final BdUniqueId ahM = BdUniqueId.gen();
-    private boolean bTH = false;
-    private String eJH;
-    private String eJI;
+public class m {
+    private long eLS;
+    private String imgUrl;
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return ahM;
+    public long brU() {
+        return this.eLS;
     }
 
-    public String brb() {
-        return this.eJH;
+    public void cZ(long j) {
+        this.eLS = j;
     }
 
-    public void BG(String str) {
-        this.eJH = str;
+    public String bdu() {
+        return this.imgUrl;
     }
 
-    public String getSmallUrl() {
-        return this.eJI;
+    public void zE(String str) {
+        this.imgUrl = str;
     }
 
-    public void BH(String str) {
-        this.eJI = str;
-    }
-
-    public boolean brc() {
-        return this.bTH;
-    }
-
-    public void jc(boolean z) {
-        this.bTH = z;
+    public void a(Pendant pendant) {
+        if (pendant != null) {
+            this.eLS = pendant.props_id.longValue();
+            this.imgUrl = pendant.img_url;
+        }
     }
 }

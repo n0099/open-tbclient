@@ -38,11 +38,11 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.azU().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
+        eVar.aAD().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ap.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: a */
-            public void I(h<b.d> hVar) {
+            public void J(h<b.d> hVar) {
                 b.this.a(hVar, context, callbackHandler, optString);
             }
         });
@@ -62,23 +62,23 @@ public class b extends aa {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bl = com.baidu.swan.apps.t.a.aoO().bl(appContext);
-        String aFm = ak.aFm();
-        String cb = com.baidu.swan.bdprivate.a.a.cb(context);
-        String bk = com.baidu.swan.apps.t.a.aoO().bk(appContext);
-        String cookie = com.baidu.swan.apps.t.a.apj().aau().getCookie(".baidu.com");
+        String bk = com.baidu.swan.apps.t.a.apz().bk(appContext);
+        String aFW = ak.aFW();
+        String ca = com.baidu.swan.bdprivate.a.a.ca(context);
+        String bj = com.baidu.swan.apps.t.a.apz().bj(appContext);
+        String cookie = com.baidu.swan.apps.t.a.apT().abd().getCookie(".baidu.com");
         String cookieValue = ai.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ai.getCookieValue(cookie, "H_WISE_SIDS");
-        String uuid = com.baidu.swan.uuid.b.dJ(AppRuntime.getAppContext()).getUUID();
+        String uuid = com.baidu.swan.uuid.b.dI(AppRuntime.getAppContext()).getUUID();
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bl + ", imei = " + aFm + ", zid = " + cb + ", uid = " + bk + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + bk + ", imei = " + aFW + ", zid = " + ca + ", uid = " + bj + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bl);
-            jSONObject.put("imei", aFm);
-            jSONObject.put("zid", cb);
-            jSONObject.put("uid", bk);
+            jSONObject.put("cuid", bk);
+            jSONObject.put("imei", aFW);
+            jSONObject.put("zid", ca);
+            jSONObject.put("uid", bj);
             jSONObject.put("baidu_id", cookieValue);
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SID, cookieValue2);
             jSONObject.put("uuid", uuid);

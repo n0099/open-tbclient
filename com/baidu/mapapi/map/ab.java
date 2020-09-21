@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.platform.comapi.map.MapTextureView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ab implements View.OnClickListener {
     final /* synthetic */ TextureMapView a;
 

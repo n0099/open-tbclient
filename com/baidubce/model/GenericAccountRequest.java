@@ -1,7 +1,7 @@
 package com.baidubce.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class GenericAccountRequest extends AbstractBceRequest {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.model.AbstractBceRequest

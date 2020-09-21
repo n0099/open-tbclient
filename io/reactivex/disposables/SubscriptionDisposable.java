@@ -1,7 +1,7 @@
 package io.reactivex.disposables;
 
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 final class SubscriptionDisposable extends ReferenceDisposable<d> {
     private static final long serialVersionUID = -707001650852963139L;
 

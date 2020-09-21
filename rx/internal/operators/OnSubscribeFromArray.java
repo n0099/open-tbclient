@@ -2,7 +2,7 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class OnSubscribeFromArray<T> implements d.a<T> {
     final T[] array;
 
@@ -16,7 +16,7 @@ public final class OnSubscribeFromArray<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class FromArrayProducer<T> extends AtomicLong implements rx.f {
         private static final long serialVersionUID = 3534218984725836979L;
         final T[] array;

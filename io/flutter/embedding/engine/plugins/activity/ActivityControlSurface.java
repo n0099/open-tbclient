@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public interface ActivityControlSurface {
     void attachToActivity(@NonNull Activity activity, @NonNull Lifecycle lifecycle);
 

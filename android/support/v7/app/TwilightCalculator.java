@@ -1,5 +1,5 @@
 package android.support.v7.app;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class TwilightCalculator {
     private static final float ALTIDUTE_CORRECTION_CIVIL_TWILIGHT = -0.10471976f;
     private static final float C1 = 0.0334196f;

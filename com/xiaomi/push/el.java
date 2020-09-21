@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class el {
     public static Uri a(String str, String str2) {
         return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();

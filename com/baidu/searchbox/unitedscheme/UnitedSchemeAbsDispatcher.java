@@ -1,7 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public interface UnitedSchemeAbsDispatcher {
     boolean dispatch(Context context, UnitedSchemeEntity unitedSchemeEntity);
 

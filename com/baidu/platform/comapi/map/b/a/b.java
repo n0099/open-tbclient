@@ -4,17 +4,17 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.b.a;
 import com.baidu.platform.comapi.map.b.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public a.C0242a a;
-    public a.C0242a b;
-    public a.C0242a c;
+    public a.C0240a a;
+    public a.C0240a b;
+    public a.C0240a c;
     public MotionEvent d;
     private a f;
     public f e = new f();
     private boolean g = false;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(b bVar);
 
@@ -54,7 +54,7 @@ public class b {
     }
 
     private void c(MotionEvent motionEvent) {
-        a.C0242a a2 = a.C0242a.a(motionEvent);
+        a.C0240a a2 = a.C0240a.a(motionEvent);
         this.b = this.c != null ? this.c : a2;
         this.c = a2;
         if (this.a == null) {

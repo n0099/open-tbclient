@@ -8,19 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> LN;
-    private long LO;
+    private List<String> Ma;
+    private long Mb;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
-    public a bI(String str) {
+    public a bK(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.LO = jSONObject.optLong("ttl");
+            this.Mb = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
@@ -28,12 +28,12 @@ public class a {
             this.mHost = optJSONObject.keys().next();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.LN = new ArrayList();
+                this.Ma = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.LN.add((String) optJSONArray.get(i2));
+                        this.Ma.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -50,7 +50,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void E(long j) {
-        this.LO = j;
+        this.Mb = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,11 +58,11 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> mB() {
-        return this.LN;
+    public List<String> mG() {
+        return this.Ma;
     }
 
     public boolean F(long j) {
-        return j - this.mStartTime > this.LO * 1000;
+        return j - this.mStartTime > this.Mb * 1000;
     }
 }

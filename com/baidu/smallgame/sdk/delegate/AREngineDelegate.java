@@ -10,7 +10,7 @@ import com.baidu.smallgame.sdk.b.c;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 

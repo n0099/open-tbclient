@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface Transform {
     void onBoundsChange(Rect rect);
 

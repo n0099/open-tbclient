@@ -7,7 +7,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 import com.baidu.tieba.homepage.video.message.VideoTabHttpResMessage;
 import com.baidu.tieba.homepage.video.message.VideoTabSocketResMessage;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class VideoTabStatic {
     static {
         b bVar = new b(309648);

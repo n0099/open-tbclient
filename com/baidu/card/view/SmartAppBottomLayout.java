@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.card.o;
+import com.baidu.card.p;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.data.bw;
@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
-public class SmartAppBottomLayout extends LinearLayout implements o<AbsThreadDataSupport> {
-    private static final int afz = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
-    private HeadImageView akI;
-    private TextView akJ;
+/* loaded from: classes20.dex */
+public class SmartAppBottomLayout extends LinearLayout implements p<AbsThreadDataSupport> {
+    private static final int afR = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+    private HeadImageView alh;
+    private TextView ali;
     private int mSkinType;
     private View mView;
 
@@ -40,28 +40,28 @@ public class SmartAppBottomLayout extends LinearLayout implements o<AbsThreadDat
     private void initUI(Context context) {
         this.mView = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.akI = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
-        this.akJ = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
-        this.akI.setIsBigV(false);
-        this.akI.setIsGod(false);
-        this.akI.setShowV(false);
+        this.alh = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
+        this.ali = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
+        this.alh.setIsBigV(false);
+        this.alh.setIsGod(false);
+        this.alh.setShowV(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     /* renamed from: b */
-    public void F(AbsThreadDataSupport absThreadDataSupport) {
-        bw bce = absThreadDataSupport.bce();
-        if (bce != null && bce.bft() != null) {
-            if (!TextUtils.isEmpty(bce.bft().avatar)) {
-                this.akI.startLoad(bce.bft().avatar, 10, false);
+    public void G(AbsThreadDataSupport absThreadDataSupport) {
+        bw bcY = absThreadDataSupport.bcY();
+        if (bcY != null && bcY.bgn() != null) {
+            if (!TextUtils.isEmpty(bcY.bgn().avatar)) {
+                this.alh.startLoad(bcY.bgn().avatar, 10, false);
             } else {
-                ap.setImageResource(this.akI, R.drawable.icon_avatar_smallapp_tie);
+                ap.setImageResource(this.alh, R.drawable.icon_avatar_smallapp_tie);
             }
-            if (bce.bft() != null && !TextUtils.isEmpty(bce.bft().name)) {
-                ay.a(this.akJ, bce.bft().name, R.string.ai_smart_app, R.dimen.tbds0, 1, afz, false);
+            if (bcY.bgn() != null && !TextUtils.isEmpty(bcY.bgn().name)) {
+                ay.a(this.ali, bcY.bgn().name, R.string.ai_smart_app, R.dimen.tbds0, 1, afR, false);
             } else {
-                this.akJ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+                this.ali.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
             }
         }
     }
@@ -69,7 +69,7 @@ public class SmartAppBottomLayout extends LinearLayout implements o<AbsThreadDat
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(this.akJ, R.color.cp_cont_d);
+            ap.setViewTextColor(this.ali, R.color.cp_cont_d);
         }
     }
 }

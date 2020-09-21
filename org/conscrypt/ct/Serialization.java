@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class Serialization {
     private static final int DER_LENGTH_LONG_FORM_FLAG = 128;
     private static final int DER_TAG_MASK = 63;

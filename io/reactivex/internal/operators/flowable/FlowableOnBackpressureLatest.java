@@ -5,30 +5,30 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
     @Override // io.reactivex.g
-    protected void a(org.b.c<? super T> cVar) {
-        this.omT.a((j) new BackpressureLatestSubscriber(cVar));
+    protected void a(org.a.c<? super T> cVar) {
+        this.owE.a((j) new BackpressureLatestSubscriber(cVar));
     }
 
-    /* loaded from: classes7.dex */
-    static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements j<T>, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 163080509307634843L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
-        org.b.d s;
+        org.a.d s;
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<T> current = new AtomicReference<>();
 
-        BackpressureLatestSubscriber(org.b.c<? super T> cVar) {
+        BackpressureLatestSubscriber(org.a.c<? super T> cVar) {
             this.actual = cVar;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -36,26 +36,26 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             this.current.lazySet(t);
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
             drain();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             drain();
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -63,7 +63,7 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -76,7 +76,7 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
 
         void drain() {
             if (getAndIncrement() == 0) {
-                org.b.c<? super T> cVar = this.actual;
+                org.a.c<? super T> cVar = this.actual;
                 AtomicLong atomicLong = this.requested;
                 AtomicReference<T> atomicReference = this.current;
                 int i = 1;
@@ -109,7 +109,7 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.b.c<?> cVar, AtomicReference<T> atomicReference) {
+        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, AtomicReference<T> atomicReference) {
             if (this.cancelled) {
                 atomicReference.lazySet(null);
                 return true;

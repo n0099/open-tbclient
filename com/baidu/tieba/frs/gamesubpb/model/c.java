@@ -5,29 +5,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
     public boolean hasMore;
-    public int ikZ;
-    public b ilj;
-    public List<q> ilk;
+    public int isb;
+    public b isl;
+    public List<q> ism;
 
     public c(JSONObject jSONObject) {
         int length;
         if (jSONObject != null) {
-            this.ikZ = jSONObject.optInt("current_pn");
+            this.isb = jSONObject.optInt("current_pn");
             this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
             if (optJSONObject != null) {
-                this.ilj = new b(optJSONObject);
+                this.isl = new b(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                this.ilk = new ArrayList(length);
+                this.ism = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
                     d dVar = new d(optJSONArray.optJSONObject(i));
                     if (dVar != null) {
-                        this.ilk.add(dVar);
+                        this.ism.add(dVar);
                     }
                 }
             }

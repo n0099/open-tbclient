@@ -4,7 +4,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RealAuthenCertifyInfoResponseMessage extends JsonHttpResponsedMessage {
     public String errmsg;
     public int errno;

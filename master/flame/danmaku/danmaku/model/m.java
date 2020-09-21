@@ -11,15 +11,15 @@ public interface m {
 
     void c(d dVar, boolean z);
 
-    float eid();
+    float ema();
 
-    int eie();
+    int emb();
 
-    int eif();
+    int emc();
 
-    int eig();
+    int emd();
 
-    int eih();
+    int eme();
 
     float getDensity();
 
@@ -39,5 +39,5 @@ public interface m {
 
     void setSize(int i, int i2);
 
-    void yT(boolean z);
+    void zb(boolean z);
 }

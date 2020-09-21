@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implements Comparator<Integer> {
     protected ArrayList<OverlayItem> a;
     protected ArrayList<Integer> b;

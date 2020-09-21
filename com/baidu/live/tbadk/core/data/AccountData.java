@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import android.text.TextUtils;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
     private boolean isBigV;

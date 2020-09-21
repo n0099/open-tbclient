@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public interface ISAccountManager {
     SapiConfiguration getConfignation();
 

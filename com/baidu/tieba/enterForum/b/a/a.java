@@ -2,41 +2,41 @@ package com.baidu.tieba.enterForum.b.a;
 
 import java.util.List;
 import tbclient.ForumPopupInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private long huO;
-    private long huP;
-    private List<String> huQ;
+    private long hBT;
+    private long hBU;
+    private List<String> hBV;
     private int mForumId;
     private String mForumName;
 
     public void a(ForumPopupInfo forumPopupInfo) {
         if (forumPopupInfo != null) {
             this.mForumId = forumPopupInfo.forum_id.intValue();
-            this.huO = forumPopupInfo.mem_count_static.intValue();
-            this.huP = forumPopupInfo.thread_count_static.intValue();
-            this.huQ = forumPopupInfo.forum_names;
+            this.hBT = forumPopupInfo.mem_count_static.intValue();
+            this.hBU = forumPopupInfo.thread_count_static.intValue();
+            this.hBV = forumPopupInfo.forum_names;
             this.mForumName = forumPopupInfo.forum_name;
         }
     }
 
-    public List<String> ceY() {
-        return this.huQ;
+    public List<String> cin() {
+        return this.hBV;
     }
 
-    public long ceZ() {
-        return this.huO;
+    public long cio() {
+        return this.hBT;
     }
 
-    public int cfa() {
+    public int cip() {
         return this.mForumId;
     }
 
-    public long cfb() {
-        return this.huP;
+    public long ciq() {
+        return this.hBU;
     }
 
-    public String cfc() {
+    public String cir() {
         return this.mForumName;
     }
 }

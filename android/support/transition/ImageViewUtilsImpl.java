@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.support.annotation.RequiresApi;
 import android.widget.ImageView;
 @RequiresApi(14)
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 interface ImageViewUtilsImpl {
     void animateTransform(ImageView imageView, Matrix matrix);
 

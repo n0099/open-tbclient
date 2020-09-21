@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alasquare.live_tab.view;
 import com.baidu.adp.widget.ListView.af;
 /* loaded from: classes4.dex */
 public class c extends af.a {
-    public b fEv;
+    public b fHH;
 
     public c(b bVar) {
         super(bVar.getView());
-        this.fEv = bVar;
+        this.fHH = bVar;
     }
 }

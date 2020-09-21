@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     private boolean hasMore;
     private List<q> mDataList;

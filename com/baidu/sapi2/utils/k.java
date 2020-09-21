@@ -14,14 +14,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class k {
     public static final String a = "qrlogin_enter";
     private static final Map<String, String> b = new HashMap();
     private static List<String> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class a implements Runnable {
         final /* synthetic */ HttpHashMapWrap a;
 
@@ -36,7 +36,7 @@ public final class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class b extends HttpHandlerWrap {
         b(boolean z) {
             super(z);

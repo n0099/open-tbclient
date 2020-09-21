@@ -4,7 +4,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.platform.comjni.map.cloud.ICloudCenter;
 import com.baidu.platform.comjni.map.cloud.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class CloudManager {
     private static final String a = CloudManager.class.getSimpleName();
     private static CloudManager b;

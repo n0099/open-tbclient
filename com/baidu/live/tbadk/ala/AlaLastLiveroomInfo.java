@@ -3,13 +3,14 @@ package com.baidu.live.tbadk.ala;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLastLiveroomInfo {
     public static final String KEY_LAST_ANCHOR_ID = "key_last_anchor_id";
     public static final String KEY_LAST_ANCHOR_NAME = "key_last_anchor_name";
     public static final String KEY_LAST_ANCHOR_PORTRAIT = "key_last_anchor_portrait";
     public static final String KEY_LAST_COVER_URL = "key_last_cover";
     public static final String KEY_LAST_FROM = "key_last_from";
+    public static final String KEY_LAST_ISAUDIO = "key_last_isaudio";
     public static final String KEY_LAST_LIVE_ID = "key_last_live_id";
     public static final String KEY_LAST_ROOM_ID = "key_last_room_id";
     public static final String KEY_LAST_VIDEO_URL = "key_last_video_url";
@@ -20,6 +21,7 @@ public class AlaLastLiveroomInfo {
     public static final String TYPE_FROM_HOUR_RANK = "type_from_hour_rank";
     public static final String TYPE_FROM_RECOMMEND = "type_from_recommend";
     private String mFrom;
+    private int mIsAudio;
     private String mLastAnchorPortrait;
     private String mLastAnchorUid;
     private String mLastAnchorUname;
@@ -27,6 +29,14 @@ public class AlaLastLiveroomInfo {
     private long mLastLiveId;
     private long mLastRoomId;
     private String mLastVideoUrl;
+
+    public int getIsAudio() {
+        return this.mIsAudio;
+    }
+
+    public void setIsAudio(int i) {
+        this.mIsAudio = i;
+    }
 
     public long getLastLiveId() {
         return this.mLastLiveId;
@@ -98,6 +108,7 @@ public class AlaLastLiveroomInfo {
             jSONObject.put(KEY_LAST_LIVE_ID, this.mLastLiveId);
             jSONObject.put(KEY_LAST_ROOM_ID, this.mLastRoomId);
             jSONObject.put(KEY_LAST_FROM, this.mFrom);
+            jSONObject.put(KEY_LAST_ISAUDIO, this.mIsAudio);
             jSONObject.put(KEY_LAST_ANCHOR_ID, this.mLastAnchorUid);
             jSONObject.put(KEY_LAST_ANCHOR_NAME, this.mLastAnchorUname);
             jSONObject.put(KEY_LAST_ANCHOR_PORTRAIT, this.mLastAnchorPortrait);
@@ -115,6 +126,7 @@ public class AlaLastLiveroomInfo {
                 JSONObject jSONObject = new JSONObject(str);
                 this.mLastLiveId = jSONObject.optLong(KEY_LAST_LIVE_ID);
                 this.mLastRoomId = jSONObject.optLong(KEY_LAST_ROOM_ID);
+                this.mIsAudio = jSONObject.optInt(KEY_LAST_ISAUDIO);
                 this.mFrom = jSONObject.optString(KEY_LAST_FROM);
                 this.mLastAnchorUid = jSONObject.optString(KEY_LAST_ANCHOR_ID);
                 this.mLastAnchorUname = jSONObject.optString(KEY_LAST_ANCHOR_NAME);

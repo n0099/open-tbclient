@@ -7,36 +7,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class g<K, V> {
-    private final v<V> ntS;
+    private final v<V> nDQ;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> ntT = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> nDR = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int ntU = 0;
+    private int nDS = 0;
 
     public g(v<V> vVar) {
-        this.ntS = vVar;
+        this.nDQ = vVar;
     }
 
     public synchronized int getCount() {
-        return this.ntT.size();
+        return this.nDR.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.ntU;
+        return this.nDS;
     }
 
     @Nullable
-    public synchronized K dRU() {
-        return this.ntT.isEmpty() ? null : this.ntT.keySet().iterator().next();
+    public synchronized K dVS() {
+        return this.nDR.isEmpty() ? null : this.nDR.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable com.facebook.common.internal.h<K> hVar) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.ntT.entrySet().size());
-        for (Map.Entry<K, V> entry : this.ntT.entrySet()) {
-            if (hVar == null || hVar.aR(entry.getKey())) {
+        arrayList = new ArrayList<>(this.nDR.entrySet().size());
+        for (Map.Entry<K, V> entry : this.nDR.entrySet()) {
+            if (hVar == null || hVar.aT(entry.getKey())) {
                 arrayList.add(entry);
             }
         }
@@ -44,36 +44,36 @@ public class g<K, V> {
     }
 
     public synchronized boolean contains(K k) {
-        return this.ntT.containsKey(k);
+        return this.nDR.containsKey(k);
     }
 
     @Nullable
     public synchronized V get(K k) {
-        return this.ntT.get(k);
+        return this.nDR.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.ntT.remove(k);
-        this.ntU -= bj(remove);
-        this.ntT.put(k, v);
-        this.ntU += bj(v);
+        remove = this.nDR.remove(k);
+        this.nDS -= bl(remove);
+        this.nDR.put(k, v);
+        this.nDS += bl(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.ntT.remove(k);
-        this.ntU -= bj(remove);
+        remove = this.nDR.remove(k);
+        this.nDS -= bl(remove);
         return remove;
     }
 
-    private int bj(V v) {
+    private int bl(V v) {
         if (v == null) {
             return 0;
         }
-        return this.ntS.bh(v);
+        return this.nDQ.bj(v);
     }
 }

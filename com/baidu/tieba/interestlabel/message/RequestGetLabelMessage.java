@@ -2,16 +2,16 @@ package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.interestlabel.b.b;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f987common;
+    private CommonReq f986common;
     private int from;
     private b mLabelDataSet;
 
@@ -20,7 +20,7 @@ public class RequestGetLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f987common = commonReq;
+        this.f986common = commonReq;
     }
 
     public void setFrom(int i) {
@@ -38,10 +38,10 @@ public class RequestGetLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1124common = this.f987common;
+        builder.f1125common = this.f986common;
         builder.from = Integer.valueOf(this.from);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
         builder2.data = builder.build(false);

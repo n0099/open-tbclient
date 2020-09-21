@@ -1,5 +1,5 @@
 package com.baidu.live.bubbleview;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum ArrowDirection {
     LEFT(0),
     RIGHT(1),

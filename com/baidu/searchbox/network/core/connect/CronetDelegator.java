@@ -1,7 +1,6 @@
 package com.baidu.searchbox.network.core.connect;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.network.HttpManager;
 import com.baidu.searchbox.network.core.Dns;
@@ -66,28 +65,19 @@ public class CronetDelegator implements IHttpDelegator {
             if (this.mRequest != null && this.mRequest.isNQEEnable()) {
                 newInstance = newInstance.getClass().getDeclaredMethod("enableNetworkQualityEstimator", Boolean.TYPE).invoke(newInstance, true);
             }
-            Class<?> cls3 = Class.forName("org.chromium.net.HostResolver", true, classLoader);
-            Method declaredMethod = newInstance.getClass().getDeclaredMethod("setHostResolver", cls3);
             CronetInvocationHandler cronetInvocationHandler = new CronetInvocationHandler();
-            Object invoke = declaredMethod.invoke(newInstance, Proxy.newProxyInstance(classLoader, new Class[]{cls3}, cronetInvocationHandler));
-            String packageName = context.getPackageName();
-            if (!TextUtils.isEmpty(packageName)) {
-                cls2.getDeclaredMethod("setAppPackageName", String.class).invoke(invoke, packageName);
-            }
-            this.mCronetEngine = cls2.getDeclaredMethod("build", new Class[0]).invoke(invoke, new Object[0]);
-            Class<?> cls4 = Class.forName("org.chromium.net.CronetEngine", true, classLoader);
+            this.mCronetEngine = cls2.getDeclaredMethod("build", new Class[0]).invoke(newInstance, new Object[0]);
+            Class<?> cls3 = Class.forName("org.chromium.net.CronetEngine", true, classLoader);
             if (this.mRequest != null && this.mRequest.isNQEEnable()) {
-                Class<?> cls5 = Class.forName("org.chromium.net.NetworkQualityRttListener", true, classLoader);
-                Class<?> cls6 = Class.forName("org.chromium.net.NetworkQualityThroughputListener", true, classLoader);
-                Method declaredMethod2 = cls4.getDeclaredMethod("addRttListener", cls5);
-                Method declaredMethod3 = cls4.getDeclaredMethod("addThroughputListener", cls6);
-                this.mGetEffectiveConnectionTypeMethod = cls4.getDeclaredMethod("getEffectiveConnectionType", new Class[0]);
+                Class<?> cls4 = Class.forName("org.chromium.net.NetworkQualityRttListener", true, classLoader);
+                Class<?> cls5 = Class.forName("org.chromium.net.NetworkQualityThroughputListener", true, classLoader);
+                Method declaredMethod = cls3.getDeclaredMethod("addRttListener", cls4);
+                Method declaredMethod2 = cls3.getDeclaredMethod("addThroughputListener", cls5);
+                this.mGetEffectiveConnectionTypeMethod = cls3.getDeclaredMethod("getEffectiveConnectionType", new Class[0]);
+                declaredMethod.invoke(this.mCronetEngine, Proxy.newProxyInstance(classLoader, new Class[]{cls4}, cronetInvocationHandler));
                 declaredMethod2.invoke(this.mCronetEngine, Proxy.newProxyInstance(classLoader, new Class[]{cls5}, cronetInvocationHandler));
-                declaredMethod3.invoke(this.mCronetEngine, Proxy.newProxyInstance(classLoader, new Class[]{cls6}, cronetInvocationHandler));
             }
-            this.mOpenConnectionMethod = cls4.getDeclaredMethod("openConnection", URL.class);
-            this.mCronetEngineAppStateEnumClazz = Class.forName("org.chromium.net.CronetEngine$AppState", true, classLoader);
-            this.mNotifyBdAppStatusChangeMethod = cls4.getDeclaredMethod("notifyBdAppStatusChange", this.mCronetEngineAppStateEnumClazz);
+            this.mOpenConnectionMethod = cls3.getDeclaredMethod("openConnection", URL.class);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e2) {
@@ -125,7 +115,7 @@ public class CronetDelegator implements IHttpDelegator {
         private CronetInvocationHandler() {
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:57:? A[RETURN, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:8:0x0028  */
         @Override // java.lang.reflect.InvocationHandler
         /*
@@ -167,18 +157,20 @@ public class CronetDelegator implements IHttpDelegator {
                         RequestClient.sNetworkQuality = 1;
                     }
                     if (CronetDelegator.this.mLastEffectiveConnectionType != intValue2) {
-                        for (final HttpManager.NetworkQualityListener networkQualityListener : RequestClient.sNetworkQualityListeners) {
-                            try {
-                                networkQualityListener.getExecutor().execute(new Runnable() { // from class: com.baidu.searchbox.network.core.connect.CronetDelegator.CronetInvocationHandler.1
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        if (networkQualityListener != null) {
-                                            networkQualityListener.onNetworkQualityChanged(RequestClient.sNetworkQuality);
+                        synchronized (RequestClient.sNetworkQualityListeners) {
+                            for (final HttpManager.NetworkQualityListener networkQualityListener : RequestClient.sNetworkQualityListeners) {
+                                try {
+                                    networkQualityListener.getExecutor().execute(new Runnable() { // from class: com.baidu.searchbox.network.core.connect.CronetDelegator.CronetInvocationHandler.1
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            if (networkQualityListener != null) {
+                                                networkQualityListener.onNetworkQualityChanged(RequestClient.sNetworkQuality);
+                                            }
                                         }
-                                    }
-                                });
-                            } catch (Exception e2) {
-                                Log.e(CronetDelegator.TAG, "Exception posting task to executor", e2);
+                                    });
+                                } catch (Exception e2) {
+                                    Log.e(CronetDelegator.TAG, "Exception posting task to executor", e2);
+                                }
                             }
                         }
                         CronetDelegator.this.mLastEffectiveConnectionType = intValue2;

@@ -12,12 +12,12 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(26)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class MediaBrowserServiceCompatApi26 {
     private static final String TAG = "MBSCompatApi26";
     private static Field sResultFlags;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface ServiceCompatProxy extends MediaBrowserServiceCompatApi23.ServiceCompatProxy {
         void onLoadChildren(String str, ResultWrapper resultWrapper, Bundle bundle);
     }
@@ -46,7 +46,7 @@ class MediaBrowserServiceCompatApi26 {
         return ((MediaBrowserService) obj).getBrowserRootHints();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class ResultWrapper {
         MediaBrowserService.Result mResultObj;
 
@@ -81,7 +81,7 @@ class MediaBrowserServiceCompatApi26 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class MediaBrowserServiceAdaptor extends MediaBrowserServiceCompatApi23.MediaBrowserServiceAdaptor {
         MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {
             super(context, serviceCompatProxy);

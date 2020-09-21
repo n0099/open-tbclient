@@ -3,9 +3,11 @@ package com.baidu.searchbox.afx.proxy;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoPreparedListener;
+import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.decode.SpeedControl;
 import com.baidu.searchbox.afx.decode.VideoPlayer;
 import com.baidu.searchbox.afx.gl.GLTextureView;
@@ -14,7 +16,7 @@ import com.baidu.searchbox.afx.recode.Mp4Composer;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes18.dex */
+/* loaded from: classes9.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     private static final String TAG = "VideoPlayerProxy";
     private final VideoPlayer.PlayTask mPlayTask;
@@ -50,6 +52,27 @@ public class VideoPlayerProxy extends PlayerProxy {
             public boolean onError(ErrorInfo errorInfo) {
                 VideoPlayerProxy.this.mPlayerState = PlayerProxy.PlayerState.STOPPED;
                 return VideoPlayerProxy.this.mOnVideoErrorListener != null && VideoPlayerProxy.this.mOnVideoErrorListener.onError(errorInfo);
+            }
+        }, new OnReportListener() { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.4
+            @Override // com.baidu.searchbox.afx.callback.OnReportListener
+            public void onSuccess(PlaySuccessInfo playSuccessInfo) {
+                if (VideoPlayerProxy.this.mOnReportListener != null) {
+                    if (playSuccessInfo != null) {
+                        playSuccessInfo.mFilePath = VideoPlayerProxy.this.getSourcePath();
+                    }
+                    VideoPlayerProxy.this.mOnReportListener.onSuccess(playSuccessInfo);
+                }
+            }
+
+            @Override // com.baidu.searchbox.afx.callback.OnReportListener
+            public void onError(ErrorInfo errorInfo) {
+                if (VideoPlayerProxy.this.mOnReportListener != null && errorInfo != null) {
+                    errorInfo.mFilePath = VideoPlayerProxy.this.getSourcePath();
+                    if (VideoPlayerProxy.this.mVideoPlayer != null) {
+                        errorInfo.mGlVersion = VideoPlayerProxy.this.mVideoPlayer.getGlVersion();
+                    }
+                    VideoPlayerProxy.this.mOnReportListener.onError(errorInfo);
+                }
             }
         });
     }
@@ -146,7 +169,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void prepareAsync(String str, final OnVideoPreparedListener onVideoPreparedListener) {
         final long currentTimeMillis = System.currentTimeMillis();
         File file = new File(str);
-        new Mp4Composer().start(str, new File(file.getParentFile(), file.getName().replace(".mp4", "") + "_processed.mp4").getPath(), new Mp4Composer.Listener() { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.4
+        new Mp4Composer().start(str, new File(file.getParentFile(), file.getName().replace(".mp4", "") + "_processed.mp4").getPath(), new Mp4Composer.Listener() { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.5
             @Override // com.baidu.searchbox.afx.recode.Mp4Composer.Listener
             public void onProgress(float f) {
             }

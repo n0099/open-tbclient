@@ -3,7 +3,7 @@ package com.baidu.vi;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class g implements LocationListener {
     final /* synthetic */ VGps a;
 

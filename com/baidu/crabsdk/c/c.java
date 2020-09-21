@@ -13,20 +13,16 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class c {
-    private static SimpleDateFormat anI;
-    private static PackageManager anJ;
-
-    public static String R(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
-    }
+    private static SimpleDateFormat aok;
+    private static PackageManager aol;
 
     public static String a(Date date) {
-        if (anI == null) {
-            anI = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (aok == null) {
+            aok = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return anI.format(date);
+        return aok.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -135,7 +131,11 @@ public final class c {
         return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static byte[] dw(String str) {
+    public static String b(long j) {
+        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    }
+
+    public static byte[] dy(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -152,11 +152,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (anJ == null) {
-            anJ = context.getPackageManager();
+        if (aol == null) {
+            aol = context.getPackageManager();
         }
         try {
-            return anJ.checkPermission(str, context.getPackageName()) == 0;
+            return aol.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -171,9 +171,9 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String uR = p.uR();
+        String vf = p.vf();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(uR)) {
+            if (stackTrace[i].getClassName().contains(vf)) {
                 return stackTrace[i].toString();
             }
         }

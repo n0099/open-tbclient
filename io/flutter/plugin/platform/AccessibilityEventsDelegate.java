@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.view.AccessibilityBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class AccessibilityEventsDelegate {
     private AccessibilityBridge accessibilityBridge;
 

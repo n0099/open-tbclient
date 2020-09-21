@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class PluginManager {
     private Context mContext;
     private Map<String, PluginPackageParser> mPluginCache = Collections.synchronizedMap(new HashMap(1));

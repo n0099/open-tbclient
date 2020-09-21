@@ -2,34 +2,34 @@ package com.baidu.q.a;
 
 import android.content.Context;
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes25.dex */
 class d {
-    private com.baidu.q.a.a.c nhx;
+    private com.baidu.q.a.a.c nry;
     private static String TAG = "UnionIDFactory";
-    private static boolean DEBUG = a.dMX();
+    private static boolean DEBUG = a.dQV();
 
     public d(Context context) {
-        int dMY = b.dMY();
+        int dQW = b.dQW();
         if (DEBUG) {
-            Log.e(TAG, "UnionIDFactory manufacturer:" + dMY);
+            Log.e(TAG, "UnionIDFactory manufacturer:" + dQW);
         }
-        switch (dMY) {
+        switch (dQW) {
             case 10001:
-                this.nhx = new com.baidu.q.a.b.a(context);
+                this.nry = new com.baidu.q.a.b.a(context);
                 return;
             case 10002:
                 if (DEBUG) {
                     Log.e(TAG, "UnionIDFactory XMUnionID");
                 }
-                this.nhx = new com.baidu.q.a.b.c(context);
+                this.nry = new com.baidu.q.a.b.c(context);
                 return;
             default:
-                this.nhx = new com.baidu.q.a.b.b(context);
+                this.nry = new com.baidu.q.a.b.b(context);
                 return;
         }
     }
 
-    public com.baidu.q.a.a.c dMZ() {
-        return this.nhx;
+    public com.baidu.q.a.a.c dQX() {
+        return this.nry;
     }
 }

@@ -1,5 +1,5 @@
 package com.qiniu.android.http;
 /* loaded from: classes6.dex */
 public interface UrlConverter {
-    String Ms(String str);
+    String MU(String str);
 }

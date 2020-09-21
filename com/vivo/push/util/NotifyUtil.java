@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class NotifyUtil {
     private static BaseNotifyDataAdapter sNotifyData;
     private static BaseNotifyLayoutAdapter sNotifyLayout;

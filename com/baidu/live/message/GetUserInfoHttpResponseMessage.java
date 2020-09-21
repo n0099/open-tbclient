@@ -1,11 +1,15 @@
 package com.baidu.live.message;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
+    public long userId;
+    public String userName;
+
     public GetUserInfoHttpResponseMessage() {
         super(1021125);
     }
@@ -15,10 +19,11 @@ public class GetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("login_user_info")) != null) {
-            optJSONObject.optString("switch");
-            String optString = optJSONObject.optString("user_name");
-            if (!TextUtils.isEmpty(optString)) {
-                TbadkCoreApplication.getCurrentAccountObj().setNameShow(optString);
+            this.userId = optJSONObject.optLong("user_id");
+            this.userName = optJSONObject.optString("user_name");
+            if (!TextUtils.isEmpty(this.userName)) {
+                Log.i("ModifyNicknameHelper", "@@ ModifyNickname GetUserInfoHttpResponseMessage success");
+                TbadkCoreApplication.getCurrentAccountObj().setNameShow(this.userName);
             }
         }
     }

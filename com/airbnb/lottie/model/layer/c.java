@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
     @Nullable
     private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> Cz;
@@ -31,7 +31,7 @@ public class c extends a {
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float kZ = com.airbnb.lottie.d.f.kZ();
+            float la = com.airbnb.lottie.d.f.la();
             this.paint.setAlpha(i);
             if (this.Cz != null) {
                 this.paint.setColorFilter(this.Cz.getValue());
@@ -39,7 +39,7 @@ public class c extends a {
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * kZ), (int) (kZ * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * la), (int) (la * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }

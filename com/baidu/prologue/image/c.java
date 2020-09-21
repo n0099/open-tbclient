@@ -7,21 +7,21 @@ import android.os.Build;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static RequestManager aQ(Context context) {
+    public static RequestManager aP(Context context) {
         if (context == null) {
-            context = com.baidu.prologue.a.b.a.bKm.get().UK();
+            context = com.baidu.prologue.a.b.a.bMm.get().Vt();
         } else if (Util.isOnMainThread() && !(context instanceof Application) && (context instanceof Activity)) {
             Activity activity = (Activity) context;
-            if (activity.isFinishing() || y(activity)) {
-                context = com.baidu.prologue.a.b.a.bKm.get().UK();
+            if (activity.isFinishing() || z(activity)) {
+                context = com.baidu.prologue.a.b.a.bMm.get().Vt();
             }
         }
         return Glide.with(context);
     }
 
-    private static boolean y(Activity activity) {
+    private static boolean z(Activity activity) {
         return Build.VERSION.SDK_INT >= 17 && activity.isDestroyed();
     }
 }

@@ -30,6 +30,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected Proxy proxy;
     protected int readTimeout;
     protected int requestFrom;
+    protected int requestSubFrom;
     protected Object tag;
     protected int writeTimeout;
 
@@ -41,6 +42,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logLevel = null;
         this.isWifiOnly = false;
         this.requestFrom = 0;
+        this.requestSubFrom = 0;
         this.followSslRedirects = true;
         this.followRedirects = true;
         this.httpManager = abstractHttpManager;
@@ -53,6 +55,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logLevel = null;
         this.isWifiOnly = false;
         this.requestFrom = 0;
+        this.requestSubFrom = 0;
         this.followSslRedirects = true;
         this.followRedirects = true;
         if (abstractHttpManager != null) {
@@ -78,6 +81,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.paramsHandler = httpRequest.paramsHandler;
         this.isReqNetStatEnable = httpRequest.isReqNetStatEnable;
         this.requestFrom = httpRequest.requestFrom;
+        this.requestSubFrom = httpRequest.requestSubFrom;
         this.extraUserLog = httpRequest.extraUserLog;
         this.proxy = httpRequest.proxy;
         this.followRedirects = httpRequest.followRedirects;
@@ -249,6 +253,11 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T requestFrom(int i) {
         this.requestFrom = i;
+        return this;
+    }
+
+    public T requestSubFrom(int i) {
+        this.requestSubFrom = i;
         return this;
     }
 

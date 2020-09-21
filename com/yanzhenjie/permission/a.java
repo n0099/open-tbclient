@@ -1,7 +1,7 @@
 package com.yanzhenjie.permission;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void onAction(List<String> list);
 }

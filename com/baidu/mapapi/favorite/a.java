@@ -4,7 +4,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
 import com.baidu.platform.comapi.basestruct.Point;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {

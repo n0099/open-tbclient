@@ -1,26 +1,26 @@
 package com.xiaomi.push;
 
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class bb {
     private LinkedList<a> a = new LinkedList<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         private static final bb a = new bb();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f122a;
+        public int f121a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f123a;
+        public Object f122a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f124a;
+        public String f123a;
 
         a(int i, Object obj) {
-            this.f122a = i;
-            this.f123a = obj;
+            this.f121a = i;
+            this.f122a = obj;
         }
     }
 

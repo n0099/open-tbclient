@@ -13,18 +13,18 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class LinearGradientView extends View {
-    private LinearGradient bos;
-    private int bqC;
-    private int btg;
-    private int eWn;
-    private int eWo;
-    private int eWp;
-    private int eWq;
-    private final Paint eWr;
-    private int eWs;
-    private int eWt;
+    private LinearGradient brB;
+    private int btK;
+    private int bwx;
+    private int eZe;
+    private int eZf;
+    private int eZg;
+    private int eZh;
+    private final Paint eZi;
+    private int eZj;
+    private int eZk;
     private int mHeight;
     private Path mPath;
     private int mRadius;
@@ -34,40 +34,40 @@ public class LinearGradientView extends View {
     public LinearGradientView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.eWr = new Paint();
+        this.eZi = new Paint();
         this.mRadius = 0;
-        this.eWt = 0;
+        this.eZk = 0;
         init();
     }
 
     public LinearGradientView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.eWr = new Paint();
+        this.eZi = new Paint();
         this.mRadius = 0;
-        this.eWt = 0;
+        this.eZk = 0;
         init();
     }
 
     public LinearGradientView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.eWr = new Paint();
+        this.eZi = new Paint();
         this.mRadius = 0;
-        this.eWt = 0;
+        this.eZk = 0;
         init();
     }
 
     private void init() {
         this.mPath = new Path();
-        bwc();
+        bxl();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            this.bos = bwd();
+            this.brB = bxm();
         }
     }
 
@@ -76,21 +76,21 @@ public class LinearGradientView extends View {
         super.onDraw(canvas);
         int width = getWidth();
         int height = getHeight();
-        bwb();
-        if (this.eWt == 0) {
-            canvas.drawRect(0.0f, 0.0f, width, height, this.eWr);
+        bxk();
+        if (this.eZk == 0) {
+            canvas.drawRect(0.0f, 0.0f, width, height, this.eZi);
         } else {
-            canvas.drawPath(this.mPath, this.eWr);
+            canvas.drawPath(this.mPath, this.eZi);
         }
     }
 
-    private void bwb() {
-        if ((getWidth() != this.mWidth || getHeight() != this.mHeight || this.eWs != this.mRadius) && this.eWt != 0) {
+    private void bxk() {
+        if ((getWidth() != this.mWidth || getHeight() != this.mHeight || this.eZj != this.mRadius) && this.eZk != 0) {
             this.mWidth = getWidth();
             this.mHeight = getHeight();
-            this.eWs = this.mRadius;
+            this.eZj = this.mRadius;
             this.mPath.reset();
-            switch (this.eWt) {
+            switch (this.eZk) {
                 case 1:
                     this.mPath.addRoundRect(new RectF(0.0f, 0.0f, this.mWidth, this.mHeight), this.mRadius, this.mRadius, Path.Direction.CW);
                     return;
@@ -113,7 +113,7 @@ public class LinearGradientView extends View {
     }
 
     public void setRoundMode(int i) {
-        this.eWt = i;
+        this.eZk = i;
     }
 
     public void setCornerRadius(int i) {
@@ -121,113 +121,113 @@ public class LinearGradientView extends View {
     }
 
     public void setGradientColor(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.bqC = i;
-        this.btg = i2;
-        this.eWn = i3;
-        this.eWo = i4;
-        this.eWp = i5;
-        this.eWq = i6;
-        this.bos = bwd();
+        this.btK = i;
+        this.bwx = i2;
+        this.eZe = i3;
+        this.eZf = i4;
+        this.eZg = i5;
+        this.eZh = i6;
+        this.brB = bxm();
         invalidate();
     }
 
     public void setGradientColor(String str, String str2, String str3, String str4, String str5, String str6) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             setDefaultGradientColor();
-        } else if (this.bqC != com.baidu.tieba.lego.card.d.b.fo(str) || this.btg != com.baidu.tieba.lego.card.d.b.fo(str2) || this.eWn != com.baidu.tieba.lego.card.d.b.fo(str3) || this.eWo != com.baidu.tieba.lego.card.d.b.fo(str4) || this.eWp != com.baidu.tieba.lego.card.d.b.fo(str5) || this.eWq != com.baidu.tieba.lego.card.d.b.fo(str6)) {
-            this.bqC = com.baidu.tieba.lego.card.d.b.fo(str);
-            this.btg = com.baidu.tieba.lego.card.d.b.fo(str2);
-            this.eWn = com.baidu.tieba.lego.card.d.b.fo(str3);
-            this.eWo = com.baidu.tieba.lego.card.d.b.fo(str4);
-            this.eWp = com.baidu.tieba.lego.card.d.b.fo(str5);
-            this.eWq = com.baidu.tieba.lego.card.d.b.fo(str6);
-            this.bos = bwd();
+        } else if (this.btK != com.baidu.tieba.lego.card.d.b.fq(str) || this.bwx != com.baidu.tieba.lego.card.d.b.fq(str2) || this.eZe != com.baidu.tieba.lego.card.d.b.fq(str3) || this.eZf != com.baidu.tieba.lego.card.d.b.fq(str4) || this.eZg != com.baidu.tieba.lego.card.d.b.fq(str5) || this.eZh != com.baidu.tieba.lego.card.d.b.fq(str6)) {
+            this.btK = com.baidu.tieba.lego.card.d.b.fq(str);
+            this.bwx = com.baidu.tieba.lego.card.d.b.fq(str2);
+            this.eZe = com.baidu.tieba.lego.card.d.b.fq(str3);
+            this.eZf = com.baidu.tieba.lego.card.d.b.fq(str4);
+            this.eZg = com.baidu.tieba.lego.card.d.b.fq(str5);
+            this.eZh = com.baidu.tieba.lego.card.d.b.fq(str6);
+            this.brB = bxm();
             invalidate();
         }
     }
 
     public void setGradientColor(ThemeElement themeElement, ThemeElement themeElement2, ThemeElement themeElement3) {
-        int fo;
+        int fq;
         int i;
-        int fo2;
+        int fq2;
         int i2;
-        int fo3;
-        int fo4;
+        int fq3;
+        int fq4;
         if (themeElement == null) {
-            int fo5 = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
-            fo = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
-            i = fo5;
+            int fq5 = com.baidu.tieba.lego.card.d.b.fq("#2BB8FF");
+            fq = com.baidu.tieba.lego.card.d.b.fq("#2BB8FF");
+            i = fq5;
         } else {
-            int fo6 = com.baidu.tieba.lego.card.d.b.fo(themeElement.common_color);
-            fo = com.baidu.tieba.lego.card.d.b.fo(themeElement.common_color);
-            i = fo6;
+            int fq6 = com.baidu.tieba.lego.card.d.b.fq(themeElement.common_color);
+            fq = com.baidu.tieba.lego.card.d.b.fq(themeElement.common_color);
+            i = fq6;
         }
         if (themeElement2 == null) {
-            int fo7 = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
-            fo2 = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
-            i2 = fo7;
+            int fq7 = com.baidu.tieba.lego.card.d.b.fq("#249BD6");
+            fq2 = com.baidu.tieba.lego.card.d.b.fq("#246CD6");
+            i2 = fq7;
         } else {
-            int fo8 = com.baidu.tieba.lego.card.d.b.fo(themeElement2.common_color);
-            fo2 = com.baidu.tieba.lego.card.d.b.fo(themeElement2.common_color);
-            i2 = fo8;
+            int fq8 = com.baidu.tieba.lego.card.d.b.fq(themeElement2.common_color);
+            fq2 = com.baidu.tieba.lego.card.d.b.fq(themeElement2.common_color);
+            i2 = fq8;
         }
         if (themeElement3 == null) {
-            fo3 = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
-            fo4 = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
+            fq3 = com.baidu.tieba.lego.card.d.b.fq("#249BD6");
+            fq4 = com.baidu.tieba.lego.card.d.b.fq("#246CD6");
         } else {
-            fo3 = com.baidu.tieba.lego.card.d.b.fo(themeElement3.common_color);
-            fo4 = com.baidu.tieba.lego.card.d.b.fo(themeElement3.common_color);
+            fq3 = com.baidu.tieba.lego.card.d.b.fq(themeElement3.common_color);
+            fq4 = com.baidu.tieba.lego.card.d.b.fq(themeElement3.common_color);
         }
-        this.bqC = i;
-        this.btg = fo;
-        this.eWn = i2;
-        this.eWo = fo2;
-        this.eWp = fo3;
-        this.eWq = fo4;
-        this.bos = bwd();
+        this.btK = i;
+        this.bwx = fq;
+        this.eZe = i2;
+        this.eZf = fq2;
+        this.eZg = fq3;
+        this.eZh = fq4;
+        this.brB = bxm();
         invalidate();
     }
 
-    private void bwc() {
-        this.bqC = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
-        this.btg = com.baidu.tieba.lego.card.d.b.fo("#2BB8FF");
-        this.eWn = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
-        this.eWo = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
-        this.eWp = com.baidu.tieba.lego.card.d.b.fo("#249BD6");
-        this.eWq = com.baidu.tieba.lego.card.d.b.fo("#246CD6");
-        this.bos = bwd();
+    private void bxl() {
+        this.btK = com.baidu.tieba.lego.card.d.b.fq("#2BB8FF");
+        this.bwx = com.baidu.tieba.lego.card.d.b.fq("#2BB8FF");
+        this.eZe = com.baidu.tieba.lego.card.d.b.fq("#249BD6");
+        this.eZf = com.baidu.tieba.lego.card.d.b.fq("#246CD6");
+        this.eZg = com.baidu.tieba.lego.card.d.b.fq("#249BD6");
+        this.eZh = com.baidu.tieba.lego.card.d.b.fq("#246CD6");
+        this.brB = bxm();
     }
 
     public void setDefaultGradientColor() {
-        bwc();
+        bxl();
         invalidate();
     }
 
-    private LinearGradient bwd() {
+    private LinearGradient bxm() {
         int i;
         int i2;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        int i3 = this.bqC;
-        int i4 = this.btg;
+        int i3 = this.btK;
+        int i4 = this.bwx;
         if (skinType == 4) {
-            i = this.eWp;
-            i2 = this.eWq;
+            i = this.eZg;
+            i2 = this.eZh;
         } else if (skinType == 1) {
-            i = this.eWn;
-            i2 = this.eWo;
+            i = this.eZe;
+            i2 = this.eZf;
         } else {
             i = i3;
             i2 = i4;
         }
-        this.bos = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{i, i2}, (float[]) null, Shader.TileMode.CLAMP);
-        this.eWr.setShader(this.bos);
+        this.brB = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{i, i2}, (float[]) null, Shader.TileMode.CLAMP);
+        this.eZi.setShader(this.brB);
         this.mSkinType = skinType;
-        return this.bos;
+        return this.brB;
     }
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.bos = bwd();
+            this.brB = bxm();
             invalidate();
         }
         this.mSkinType = i;
@@ -235,12 +235,12 @@ public class LinearGradientView extends View {
 
     public ArrayList<Integer> getGradientColor() {
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(Integer.valueOf(this.bqC));
-        arrayList.add(Integer.valueOf(this.btg));
-        arrayList.add(Integer.valueOf(this.eWn));
-        arrayList.add(Integer.valueOf(this.eWo));
-        arrayList.add(Integer.valueOf(this.eWp));
-        arrayList.add(Integer.valueOf(this.eWq));
+        arrayList.add(Integer.valueOf(this.btK));
+        arrayList.add(Integer.valueOf(this.bwx));
+        arrayList.add(Integer.valueOf(this.eZe));
+        arrayList.add(Integer.valueOf(this.eZf));
+        arrayList.add(Integer.valueOf(this.eZg));
+        arrayList.add(Integer.valueOf(this.eZh));
         return arrayList;
     }
 }

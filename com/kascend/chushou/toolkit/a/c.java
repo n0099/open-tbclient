@@ -3,7 +3,6 @@ package com.kascend.chushou.toolkit.a;
 import android.content.Context;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
@@ -21,7 +20,7 @@ public class c {
         HashMap hashMap = new HashMap();
         if (objArr != null && objArr.length > 0) {
             int length = objArr.length;
-            if (length % 2 != 0 && tv.chushou.basis.d.b.UU()) {
+            if (length % 2 != 0 && tv.chushou.basis.d.b.VD()) {
                 throw new IllegalArgumentException("Supplied arguments must be even");
             }
             for (int i = 0; i < length; i += 2) {
@@ -32,7 +31,7 @@ public class c {
                 }
             }
         }
-        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.elU().S(tv.chushou.basis.d.a.b.a.class);
+        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.epS().S(tv.chushou.basis.d.a.b.a.class);
         if (aVar != null) {
             aVar.a(context, str, str2, hashMap);
         }
@@ -192,7 +191,7 @@ public class c {
                     str = "列表";
                     break;
                 case '\b':
-                    str = SuspensionBallEntity.KEY_SCHEME;
+                    str = "scheme";
                     break;
                 case '\t':
                     str = "专区";
@@ -400,7 +399,7 @@ public class c {
                     str = "列表";
                     break;
                 case 2:
-                    str = SuspensionBallEntity.KEY_SCHEME;
+                    str = "scheme";
                     break;
                 case 3:
                     str = "专区";

@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.y.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends c {
-    private com.baidu.swan.apps.res.widget.dialog.a cEs;
+    private com.baidu.swan.apps.res.widget.dialog.a cGs;
 
     public a(com.baidu.swan.apps.res.widget.dialog.a aVar) {
         super(5);
-        this.cEs = aVar;
+        this.cGs = aVar;
     }
 
     public boolean isShow() {
-        return this.cEs != null && "show".equals(this.cEs.getAction());
+        return this.cGs != null && "show".equals(this.cGs.getAction());
     }
 }

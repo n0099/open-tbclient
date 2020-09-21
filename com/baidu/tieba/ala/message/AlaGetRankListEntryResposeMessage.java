@@ -2,35 +2,35 @@ package com.baidu.tieba.ala.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaGetRankListEntryResposeMessage extends JsonHttpResponsedMessage {
-    public int gNY;
-    public int gNZ;
-    public int gOa;
-    public int gOb;
-    public int gOc;
-    public int gOd;
+    public int gRo;
+    public int gRp;
+    public int gRq;
+    public int gRr;
+    public int gRs;
+    public int gRt;
 
     public AlaGetRankListEntryResposeMessage() {
         super(1021069);
-        this.gNY = -1;
-        this.gNZ = -1;
-        this.gOa = -1;
-        this.gOb = -1;
-        this.gOc = -1;
-        this.gOd = -1;
+        this.gRo = -1;
+        this.gRp = -1;
+        this.gRq = -1;
+        this.gRr = -1;
+        this.gRs = -1;
+        this.gRt = -1;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0) {
-            this.gNY = jSONObject.optInt("game-day");
-            this.gNZ = jSONObject.optInt("flower-week");
-            this.gOa = jSONObject.optInt("rich-week");
-            this.gOb = jSONObject.optInt("hot-week");
-            this.gOc = jSONObject.optInt("charm-week");
-            this.gOd = jSONObject.optInt("pk_rank_no");
+            this.gRo = jSONObject.optInt("game-day");
+            this.gRp = jSONObject.optInt("flower-week");
+            this.gRq = jSONObject.optInt("rich-week");
+            this.gRr = jSONObject.optInt("hot-week");
+            this.gRs = jSONObject.optInt("charm-week");
+            this.gRt = jSONObject.optInt("pk_rank_no");
         }
     }
 }

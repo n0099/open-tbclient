@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import kotlin.KotlinNullPointerException;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class q {
     private q() {
     }
@@ -13,16 +13,16 @@ public class q {
         return str + obj;
     }
 
-    public static void egs() {
+    public static void ekp() {
         throw ((KotlinNullPointerException) Q(new KotlinNullPointerException()));
     }
 
-    public static void Wh(String str) {
+    public static void WJ(String str) {
         throw ((UninitializedPropertyAccessException) Q(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void Wi(String str) {
-        Wh("lateinit property " + str + " has not been initialized");
+    public static void WK(String str) {
+        WJ("lateinit property " + str + " has not been initialized");
     }
 
     public static void l(Object obj, String str) {
@@ -33,11 +33,11 @@ public class q {
 
     public static void m(Object obj, String str) {
         if (obj == null) {
-            Wj(str);
+            WL(str);
         }
     }
 
-    private static void Wj(String str) {
+    private static void WL(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) Q(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -47,16 +47,16 @@ public class q {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void egt() {
-        Wk("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+    public static void ekq() {
+        WM("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void Wk(String str) {
+    public static void WM(String str) {
         throw new UnsupportedOperationException(str);
     }
 
-    public static void bJ(int i, String str) {
-        egt();
+    public static void bN(int i, String str) {
+        ekq();
     }
 
     private static <T extends Throwable> T Q(T t) {

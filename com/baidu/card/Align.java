@@ -1,5 +1,5 @@
 package com.baidu.card;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public enum Align {
     ALIGN_NONE,
     ALIGN_RIGHT_TOP,

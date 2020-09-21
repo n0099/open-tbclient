@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapBaseIndoorMapInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d implements BaiduMap.OnBaseIndoorMapListener {
     final /* synthetic */ a a;
 

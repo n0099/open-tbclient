@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b implements Serializable, Cloneable {
     static final /* synthetic */ boolean a;
     private static final ObjectStreamField[] b;

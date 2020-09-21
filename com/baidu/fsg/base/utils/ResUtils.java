@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public final class ResUtils {
     public static final String ANIM = "anim";
     private static final String a = "id";

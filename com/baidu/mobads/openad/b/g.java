@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g {
     private i a;
     private String b;

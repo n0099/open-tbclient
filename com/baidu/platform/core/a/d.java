@@ -3,7 +3,7 @@ package com.baidu.platform.core.a;
 import com.baidu.mapapi.search.district.DistrictSearchOption;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.base.a implements e {
     private OnGetDistricSearchResultListener b = null;
 

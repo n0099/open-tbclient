@@ -6,13 +6,13 @@ import com.baidu.ubc.ac;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e {
-    private static final HashMap<d, b<?>> bNi = new HashMap<>();
+    private static final HashMap<d, b<?>> bPi = new HashMap<>();
 
     static {
-        WC();
+        Xl();
     }
 
-    private static void WC() {
+    private static void Xl() {
         a("account", OneKeyLoginSdkCall.k, com.baidu.tieba.write.b.b.b.class);
         a("ubc", UBC.TAG, ac.class);
     }
@@ -28,15 +28,15 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (bNi) {
-            bNi.put(dVar, bVar);
+        synchronized (bPi) {
+            bPi.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = bNi.get(dVar);
+        b<?> bVar = bPi.get(dVar);
         if (bVar != null) {
-            return (T) bVar.WA();
+            return (T) bVar.Xj();
         }
         return null;
     }

@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.wnplatform.l;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static JSONObject a = null;
     private static a b = null;

@@ -34,7 +34,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class BceHttpClient {
     private static final HttpClientFactory httpClientFactory = new HttpClientFactory();
     private final BceClientConfiguration config;
@@ -217,7 +217,7 @@ public class BceHttpClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes24.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         private BceProgressCallback<T> callback;
         private long length;

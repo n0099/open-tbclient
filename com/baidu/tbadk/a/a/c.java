@@ -4,32 +4,32 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends a {
-    public static final BdUniqueId dRr = BdUniqueId.gen();
-    private final ArrayList<String> dRs = new ArrayList<>();
-    private com.baidu.tbadk.a.e dRt;
+    public static final BdUniqueId dTB = BdUniqueId.gen();
+    private final ArrayList<String> dTC = new ArrayList<>(2);
+    private com.baidu.tbadk.a.e dTD;
 
     public c() {
-        this.dRs.add("11_8_hot_a");
-        this.dRs.add("11_8_hot_b");
+        this.dTC.add("11_9_user_like");
+        this.dTC.add("11_9_user_like_a");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId baj() {
-        return dRr;
+    public BdUniqueId bbd() {
+        return dTB;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bak() {
-        return this.dRs;
+    public ArrayList<String> bbe() {
+        return this.dTC;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bal() {
-        return this.dRt;
+    public com.baidu.tbadk.a.e bbf() {
+        return this.dTD;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.dRt = eVar;
+        this.dTD = eVar;
     }
 }

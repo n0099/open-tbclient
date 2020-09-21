@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 abstract class AI01weightDecoder extends AI01decoder {
     protected abstract void addWeightCode(StringBuilder sb, int i);
 

@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragStatePagerAdapter";

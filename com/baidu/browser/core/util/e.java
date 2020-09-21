@@ -3,7 +3,7 @@ package com.baidu.browser.core.util;
 import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class e<K, V> {
     private int createCount;
     private int evictionCount;

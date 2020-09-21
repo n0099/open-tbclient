@@ -38,7 +38,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tA */
+    /* renamed from: tT */
     public bw getItem(int i) {
         if (this.data != null && i >= 0 && i <= this.data.size()) {
             return this.data.get(i);
@@ -54,20 +54,20 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        AlaInfoData beY;
+        AlaInfoData bfS;
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.giI.setIsRound(true);
-            aVar2.giI.setDrawBorder(false);
-            aVar2.giI.setAutoChangeStyle(true);
-            aVar2.giI.setGifIconSupport(false);
+            aVar2.glP.setIsRound(true);
+            aVar2.glP.setDrawBorder(false);
+            aVar2.glP.setAutoChangeStyle(true);
+            aVar2.glP.setGifIconSupport(false);
             int equipmentWidth = (l.getEquipmentWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i2 = (equipmentWidth * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.giK.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.glR.getLayoutParams();
             layoutParams.height = equipmentWidth;
             layoutParams.width = i2;
-            aVar2.giK.setLayoutParams(layoutParams);
+            aVar2.glR.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             layoutParams2.width = i2;
             view.setLayoutParams(layoutParams2);
@@ -77,13 +77,13 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         bw item = getItem(i);
-        if (item != null && (beY = item.beY()) != null) {
-            aVar.giI.startLoad(beY.cover, 10, false);
-            aVar.giJ.setData(item);
-            aVar.giJ.setUserHeadImgVisible(8);
-            aVar.giL.setText(item.getTitle());
-            aVar.giJ.onChangeSkinType(this.mPageContext);
-            ap.setViewTextColor(aVar.giL, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
+        if (item != null && (bfS = item.bfS()) != null) {
+            aVar.glP.startLoad(bfS.cover, 10, false);
+            aVar.glQ.setData(item);
+            aVar.glQ.setUserHeadImgVisible(8);
+            aVar.glS.setText(item.getTitle());
+            aVar.glQ.onChangeSkinType(this.mPageContext);
+            ap.setViewTextColor(aVar.glS, R.color.cp_cont_b, TbadkCoreApplication.getInst().getSkinType());
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }
@@ -97,18 +97,18 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TbImageView giI;
-        public AlaCardBottomUserInfoLayout giJ;
-        public RelativeLayout giK;
-        public TextView giL;
+        public TbImageView glP;
+        public AlaCardBottomUserInfoLayout glQ;
+        public RelativeLayout glR;
+        public TextView glS;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.giI = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.giJ = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.giK = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.giL = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.glP = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.glQ = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.glR = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.glS = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 }

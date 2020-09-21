@@ -1,5 +1,5 @@
 package com.baidu.ar.constants;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class DebugConstants {
     public static final boolean DEBUG_QA_AUTO = false;
     public static final boolean DEBUG_QA_BLACK = false;

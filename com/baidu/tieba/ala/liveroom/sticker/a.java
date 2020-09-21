@@ -9,44 +9,44 @@ import com.baidu.live.adp.widget.imageview.BdImage;
 import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private AudienceStickerContainerView gIV;
-    private List<AlaLiveStickerInfo> gIW;
+    private AudienceStickerContainerView gMm;
+    private List<AlaLiveStickerInfo> gMn;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void aB(ViewGroup viewGroup) {
+    public void aC(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.gIV == null) {
-                this.gIV = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.gMm == null) {
+                this.gMm = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.gIV.getParent() != null) {
-                ((ViewGroup) this.gIV.getParent()).removeView(this.gIV);
+            if (this.gMm.getParent() != null) {
+                ((ViewGroup) this.gMm.getParent()).removeView(this.gMm);
             }
-            viewGroup.addView(this.gIV, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.gMm, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void cc(List<AlaLiveStickerInfo> list) {
+    public void ch(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.gIV.getWidth() > 0 && this.gIV.getHeight() > 0) {
-            if (this.gIW != null && list != null) {
-                if (this.gIW.size() != list.size()) {
-                    this.gIW = list;
+        if (this.gMm.getWidth() > 0 && this.gMm.getHeight() > 0) {
+            if (this.gMn != null && list != null) {
+                if (this.gMn.size() != list.size()) {
+                    this.gMn = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.gIW.get(i).equals(list.get(i))) {
+                            if (this.gMn.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.gIW = list;
+                                this.gMn = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.gIW != null && list == null) {
-                this.gIW = list;
-            } else if (this.gIW != null || list == null) {
+            } else if (this.gMn != null && list == null) {
+                this.gMn = list;
+            } else if (this.gMn != null || list == null) {
                 z2 = false;
             } else {
-                this.gIW = list;
+                this.gMn = list;
             }
             if (z2) {
-                this.gIV.removeAllViews();
-                if (this.gIW != null && this.gIW.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.gIW) {
+                this.gMm.removeAllViews();
+                if (this.gMn != null && this.gMn.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.gMn) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.gIV.b(alaLiveStickerInfo);
+                        a.this.gMm.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void bWw() {
-        this.gIV.setVisibility(8);
+    public void bYe() {
+        this.gMm.setVisibility(8);
     }
 
-    public void bWx() {
-        this.gIV.setVisibility(0);
+    public void bYf() {
+        this.gMm.setVisibility(0);
     }
 }

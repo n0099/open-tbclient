@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class EncoderOutputStream {
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT = 500000;
     private static final int LEN = 307200;
@@ -138,7 +138,7 @@ public class EncoderOutputStream {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface OnEncoderError {
         public static final int ERROR_CODE_NEED_CHANGE_ENCODER = 2;
         public static final int ERROR_CODE_NEED_REINIT_ENCODER = 1;
@@ -146,7 +146,7 @@ public class EncoderOutputStream {
         void onError(int i, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface OnEncoderOutput {
         void onEncode(byte[] bArr, int i, boolean z, boolean z2, long j);
     }

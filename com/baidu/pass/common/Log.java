@@ -1,5 +1,5 @@
 package com.baidu.pass.common;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Log implements com.baidu.pass.a {
     public static final String TAG = "PASSPORT";
     public static boolean enabled;

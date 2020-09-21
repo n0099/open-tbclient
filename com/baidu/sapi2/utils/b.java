@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class b {
     public static final String a = "login_";
     public static final String b = "login_pop";

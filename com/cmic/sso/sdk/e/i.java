@@ -9,23 +9,23 @@ import javax.crypto.Cipher;
 /* loaded from: classes7.dex */
 public class i {
     private static final String a = i.class.getSimpleName();
-    private static i njl = null;
-    private PublicKey njj = null;
-    private PublicKey njk = null;
+    private static i ntl = null;
+    private PublicKey ntj = null;
+    private PublicKey ntk = null;
 
-    public static i dNw() {
-        if (njl == null) {
-            njl = new i();
+    public static i dRu() {
+        if (ntl == null) {
+            ntl = new i();
         }
-        return njl;
+        return ntl;
     }
 
     private i() {
         try {
-            if (this.njj == null) {
+            if (this.ntj == null) {
                 b();
             }
-            if (this.njk == null) {
+            if (this.ntk == null) {
                 c();
             }
         } catch (Exception e) {
@@ -34,13 +34,13 @@ public class i {
     }
 
     public String a(byte[] bArr) {
-        if (this.njj == null) {
+        if (this.ntj == null) {
             c.a(a, "mServerPublicKey == null");
             return "";
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.njj);
+            cipher.init(1, this.ntj);
             return s.a(cipher.doFinal(bArr));
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,13 +49,13 @@ public class i {
     }
 
     public String b(byte[] bArr) {
-        if (this.njj == null) {
+        if (this.ntj == null) {
             c.a(a, "mServerPublicKey == null");
             return null;
         }
         try {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, this.njk);
+            cipher.init(1, this.ntk);
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,7 +65,7 @@ public class i {
 
     private void b() throws Exception {
         try {
-            this.njj = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
+            this.ntj = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/YHP9utFGOhGk7Xf5L7jOgQz5\nv2JKxdrIE3yzYsHoZJwzKC7Ttx380UZmBFzr5I1k6FFMn/YGXd4ts6UHT/nzsCIc\ngZlTTem7Pjdm1V9bJgQ6iQvFHsvT+vNgJ3wAIRd+iCMXm8y96yZhD2+SH5odBYS2\nZzwTYXBQDvB/rTfdjwIDAQAB", 0)));
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -73,7 +73,7 @@ public class i {
 
     private void c() throws Exception {
         try {
-            this.njk = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
+            this.ntk = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6YCzxZS0FaWDOdtwgcHJ\n4aw0AoExz4atTkUlZJIf9eNLj7ogTlQGANNzE2R/uskFse2GsCqJKFTk4UraBkzf\naQu/yuFwKjURi0gEqyna1wQ3Anh3e6J/Pvhrp7vJyyRF3gZQCHElna1CWEN1zyT9\n+APJWeeIsUEJHi0FSf3EmwAtNgcJwLYed8Lrem+2+qvFY8RRjH3w4jT/wl2HKGEY\nYal33Q/OxoAE80SAD+DuXjpeynY1slzFV/Pi2qYmsnuBsnlDPQgJzxQKfCHl8xLf\nsjV57o+phSlqM0B5aPiMScxWJmCzFRX4NKcjt6KGP+3GpzmTyrpavnYQtHasperH\nmQIDAQAB\n", 0)));
         } catch (NullPointerException e) {
             throw new Exception("公钥输入流为空");
         }

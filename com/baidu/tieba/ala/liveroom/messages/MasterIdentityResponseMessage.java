@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int gFg;
-    private String gFh;
-    private int gFi;
-    private int gFj;
-    private String gFk;
+    private int gIE;
+    private String gIF;
+    private int gIG;
+    private int gIH;
+    private String gII;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.gFi = 0;
-        this.gFj = 0;
+        this.gIG = 0;
+        this.gIH = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.gFg = jSONObject.optInt("anchor_identity");
-                this.gFh = jSONObject.optString("anchor_proportion");
-                this.gFi = jSONObject.optInt("anchor_identity_status");
-                this.gFj = jSONObject.optInt("anchor_proportion_status");
-                this.gFk = jSONObject.optString("anchor_text");
+                this.gIE = jSONObject.optInt("anchor_identity");
+                this.gIF = jSONObject.optString("anchor_proportion");
+                this.gIG = jSONObject.optInt("anchor_identity_status");
+                this.gIH = jSONObject.optInt("anchor_proportion_status");
+                this.gII = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int bVe() {
-        return this.gFi;
+    public int bWO() {
+        return this.gIG;
     }
 
-    public int bVf() {
-        return this.gFj;
+    public int bWP() {
+        return this.gIH;
     }
 
-    public String bVg() {
-        return this.gFk;
+    public String bWQ() {
+        return this.gII;
     }
 }

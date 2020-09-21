@@ -36,7 +36,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static IWTTSPlayer a;
     private static com.baidu.platform.comapi.wnplatform.n.c h = new e();
@@ -315,10 +315,10 @@ public class a {
         if (Q == null) {
             return null;
         }
-        if (Q.vu() > 0) {
-            int vu = Q.vu();
+        if (Q.vI() > 0) {
+            int vI = Q.vI();
             ArrayList arrayList2 = new ArrayList();
-            for (int i = 0; i < vu; i++) {
+            for (int i = 0; i < vI; i++) {
                 ArrayList<LatLng> b = g.b(Q, i);
                 if (b.size() >= 2) {
                     PolylineOptions polylineOptions = new PolylineOptions();

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<q> threadList;
@@ -67,11 +67,11 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bw bwVar = new bw();
                             bwVar.setUserMap(this.userMap);
                             bwVar.a(threadInfo);
-                            bwVar.bfC();
-                            bwVar.edU = isBrandForum;
-                            if (!TextUtils.isEmpty(bwVar.bfO())) {
+                            bwVar.bgw();
+                            bwVar.ege = isBrandForum;
+                            if (!TextUtils.isEmpty(bwVar.bgI())) {
                                 ak akVar = new ak();
-                                akVar.zc(bwVar.bfO());
+                                akVar.zx(bwVar.bgI());
                                 this.threadList.add(akVar);
                             } else {
                                 this.threadList.add(bwVar);
@@ -81,7 +81,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 }
                             }
                         }
-                        b.dof().eX(arrayList);
+                        b.drP().ff(arrayList);
                     }
                 }
                 this.bannerListData = null;

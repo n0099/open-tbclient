@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private TextView dSD;
-    private Context efT;
-    private LinearLayout efV;
-    private View efW;
-    private TextView efX;
-    private d mGU;
-    private b mGV;
-    private boolean mGW;
-    private List<C0825a> mItems;
+    private TextView dUN;
+    private Context eii;
+    private LinearLayout eik;
+    private View eil;
+    private TextView eim;
+    private List<C0822a> mItems;
+    private d mQF;
+    private b mQG;
+    private boolean mQH;
     private String titleText;
     private View view;
 
@@ -44,43 +44,43 @@ public class a {
 
     public a(Context context) {
         if (context != null) {
-            this.efT = context;
+            this.eii = context;
             this.view = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
-            this.efV = (LinearLayout) this.view.findViewById(R.id.content_view);
-            this.dSD = (TextView) this.view.findViewById(R.id.title);
-            this.efW = this.view.findViewById(R.id.title_divide_line);
+            this.eik = (LinearLayout) this.view.findViewById(R.id.content_view);
+            this.dUN = (TextView) this.view.findViewById(R.id.title);
+            this.eil = this.view.findViewById(R.id.title_divide_line);
             this.mItems = new ArrayList();
-            this.efX = (TextView) this.view.findViewById(R.id.dialog_bottom_cancel_button);
+            this.eim = (TextView) this.view.findViewById(R.id.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.efT;
+        return this.eii;
     }
 
     public ViewGroup getView() {
-        return this.efV;
+        return this.eik;
     }
 
     public void setTitleText(String str) {
         this.titleText = str;
     }
 
-    public d dFh() {
-        return this.mGU;
+    public d dJb() {
+        return this.mQF;
     }
 
-    public void aT(List<C0825a> list) {
+    public void aX(List<C0822a> list) {
         if (list != null) {
             this.mItems = list;
-            this.efV.removeAllViews();
+            this.eik.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
-                    C0825a c0825a = list.get(i2);
-                    if (c0825a != null) {
-                        this.efV.addView(c0825a.getView());
+                    C0822a c0822a = list.get(i2);
+                    if (c0822a != null) {
+                        this.eik.addView(c0822a.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -91,48 +91,48 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.mGV = bVar;
+        this.mQG = bVar;
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.view, R.color.cp_bg_line_c);
-        ap.setBackgroundResource(this.dSD, R.drawable.bg_title_corner_dialog_item);
-        ap.setViewTextColor(this.dSD, R.color.cp_cont_c);
-        ap.setBackgroundColor(this.efW, R.color.cp_bg_line_c);
-        ap.setBackgroundResource(this.efX, R.drawable.bg_bottom_up_list_dialog_item);
-        ap.setViewTextColor(this.efX, R.color.cp_cont_j);
+        ap.setBackgroundResource(this.dUN, R.drawable.bg_title_corner_dialog_item);
+        ap.setViewTextColor(this.dUN, R.color.cp_cont_c);
+        ap.setBackgroundColor(this.eil, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.eim, R.drawable.bg_bottom_up_list_dialog_item);
+        ap.setViewTextColor(this.eim, R.color.cp_cont_j);
         if (this.mItems != null) {
-            for (C0825a c0825a : this.mItems) {
-                c0825a.onChangeSkinType();
+            for (C0822a c0822a : this.mItems) {
+                c0822a.onChangeSkinType();
             }
         }
-        if (this.mGW) {
-            if (!StringUtils.isNull(this.titleText) && this.dSD != null && (this.dSD.getBackground() instanceof GradientDrawable)) {
+        if (this.mQH) {
+            if (!StringUtils.isNull(this.titleText) && this.dUN != null && (this.dUN.getBackground() instanceof GradientDrawable)) {
                 float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
-                ((GradientDrawable) this.dSD.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
+                ((GradientDrawable) this.dUN.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
             } else if (y.getCount(this.mItems) > 0) {
-                C0825a c0825a2 = this.mItems.get(0);
-                if (!c0825a2.mHa) {
-                    c0825a2.mHa = true;
-                    c0825a2.onChangeSkinType();
+                C0822a c0822a2 = this.mItems.get(0);
+                if (!c0822a2.mQL) {
+                    c0822a2.mQL = true;
+                    c0822a2.onChangeSkinType();
                 }
             }
         }
     }
 
-    public View bhw() {
+    public View biq() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.dSD.setText(this.titleText);
-            this.efW.setVisibility(0);
+            this.dUN.setText(this.titleText);
+            this.eil.setVisibility(0);
         } else {
-            this.dSD.setVisibility(8);
-            this.efW.setVisibility(8);
+            this.dUN.setVisibility(8);
+            this.eil.setVisibility(8);
         }
-        if (this.mGV != null) {
-            this.efX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
+        if (this.mQG != null) {
+            this.eim.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.mGV.onClick();
+                    a.this.mQG.onClick();
                 }
             });
         }
@@ -142,43 +142,43 @@ public class a {
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0825a {
-        private View efE;
-        private int efF;
-        private int efG;
-        private boolean efI;
-        private a mGY;
-        private c mGZ;
-        public boolean mHa;
+    public static class C0822a {
+        private View ehT;
+        private int ehU;
+        private int ehV;
+        private boolean ehX;
         private int mId;
         private final View.OnClickListener mOnClickListener;
+        private a mQJ;
+        private c mQK;
+        public boolean mQL;
         private String mText;
         private int mTextColor;
         public TextView mTextView;
         private View mView;
 
-        public C0825a(a aVar) {
+        public C0822a(a aVar) {
             this(null, aVar);
         }
 
-        public C0825a(String str, a aVar) {
+        public C0822a(String str, a aVar) {
             this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-            this.efF = R.drawable.person_more_pop_item_bg_selector;
-            this.efG = 17;
-            this.efI = true;
+            this.ehU = R.drawable.person_more_pop_item_bg_selector;
+            this.ehV = 17;
+            this.ehX = true;
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0825a.this.mGZ != null) {
-                        C0825a.this.mGZ.onClick();
+                    if (C0822a.this.mQK != null) {
+                        C0822a.this.mQK.onClick();
                     }
-                    if (C0825a.this.mGY != null && C0825a.this.mGY.dFh() != null) {
-                        C0825a.this.mGY.dFh().k(C0825a.this.mId, view);
+                    if (C0822a.this.mQJ != null && C0822a.this.mQJ.dJb() != null) {
+                        C0822a.this.mQJ.dJb().k(C0822a.this.mId, view);
                     }
                 }
             };
             this.mText = str;
-            this.mGY = aVar;
+            this.mQJ = aVar;
             this.mId = hashCode();
             initView();
             initListener();
@@ -194,33 +194,33 @@ public class a {
         }
 
         public void a(c cVar) {
-            this.mGZ = cVar;
+            this.mQK = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
             if (this.mTextView != null) {
-                if (this.mHa) {
+                if (this.mQL) {
                     ap.setBackgroundResource(this.mTextView, R.drawable.bg_bottom_up_corner_dialog);
                 } else {
-                    this.mTextView.setBackgroundDrawable(ap.nT(R.color.cp_bg_line_k));
+                    this.mTextView.setBackgroundDrawable(ap.of(R.color.cp_bg_line_k));
                 }
             }
             ap.setViewTextColor(this.mTextView, R.color.cp_cont_b);
-            ap.setBackgroundColor(this.efE, R.color.cp_bg_line_c);
+            ap.setBackgroundColor(this.ehT, R.color.cp_bg_line_c);
         }
 
         private void initView() {
-            if (this.mGY != null && this.mGY.getContext() != null) {
-                this.mView = LayoutInflater.from(this.mGY.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.mGY.getView(), false);
+            if (this.mQJ != null && this.mQJ.getContext() != null) {
+                this.mView = LayoutInflater.from(this.mQJ.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.mQJ.getView(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
-                this.mTextView.setGravity(this.efG);
-                this.efE = this.mView.findViewById(R.id.divider_line);
-                if (this.efI) {
-                    this.efE.setVisibility(0);
+                this.mTextView.setGravity(this.ehV);
+                this.ehT = this.mView.findViewById(R.id.divider_line);
+                if (this.ehX) {
+                    this.ehT.setVisibility(0);
                 } else {
-                    this.efE.setVisibility(8);
+                    this.ehT.setVisibility(8);
                 }
                 onChangeSkinType();
             }

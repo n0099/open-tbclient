@@ -5,16 +5,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ba {
     private static final Map<Class<?>, Class<?>> a = new HashMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a<T> {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f121a;
+        public final T f120a;
     }
 
     static {
@@ -201,7 +201,7 @@ public class ba {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f121a;
+                objArr2[i2] = ((a) obj).f120a;
             }
             i = i2 + 1;
         }

@@ -11,23 +11,23 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.c;
-import com.baidu.live.data.ad;
-import com.baidu.live.data.ae;
-import com.baidu.live.data.r;
+import com.baidu.live.data.ai;
+import com.baidu.live.data.aj;
+import com.baidu.live.data.u;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.tasklist.model.LiveFlowerTaskRewardResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class b implements com.baidu.live.y.a {
-    private ad gZL;
-    private ad gZM;
-    private boolean gZK = true;
-    private int gZN = -1;
-    private int gZO = 0;
-    private int gZP = 0;
-    private boolean gZQ = true;
-    private HttpMessageListener gZr = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.b.1
+/* loaded from: classes4.dex */
+public class b implements com.baidu.live.z.a {
+    private ai hdL;
+    private ai hdM;
+    private boolean hdK = true;
+    private int hdN = -1;
+    private int hdO = 0;
+    private int hdP = 0;
+    private boolean hdQ = true;
+    private HttpMessageListener hdr = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.taskview.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,12 +36,12 @@ public class b implements com.baidu.live.y.a {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskRewardResponsedMessage liveFlowerTaskRewardResponsedMessage = (LiveFlowerTaskRewardResponsedMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    b.this.a(liveFlowerTaskRewardResponsedMessage.gZo);
+                    b.this.a(liveFlowerTaskRewardResponsedMessage.hdo);
                 }
             }
         }
     };
-    private HttpMessageListener gZR = new HttpMessageListener(1021067) { // from class: com.baidu.tieba.ala.taskview.b.2
+    private HttpMessageListener hdR = new HttpMessageListener(1021067) { // from class: com.baidu.tieba.ala.taskview.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -49,25 +49,25 @@ public class b implements com.baidu.live.y.a {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    b.this.gZQ = false;
-                    if (b.this.gZP < 3) {
+                    b.this.hdQ = false;
+                    if (b.this.hdP < 3) {
                         b.b(b.this);
-                        b.this.cal();
+                        b.this.ccv();
                         return;
                     }
                     return;
                 }
-                b.this.gZQ = true;
-                b.this.gZP = 0;
+                b.this.hdQ = true;
+                b.this.hdP = 0;
             }
         }
     };
-    private CustomMessageListener gkG = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.taskview.b.3
+    private CustomMessageListener gnN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.taskview.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && b.this.gZO <= 0 && !b.this.gZQ) {
-                b.this.cal();
+            if (BdNetTypeUtil.isNetWorkAvailable() && b.this.hdO <= 0 && !b.this.hdQ) {
+                b.this.ccv();
             }
         }
     };
@@ -75,37 +75,37 @@ public class b implements com.baidu.live.y.a {
         @Override // java.lang.Runnable
         public void run() {
             b.f(b.this);
-            if (b.this.gZO > 0) {
+            if (b.this.hdO > 0) {
                 b.this.mHandler.postDelayed(this, 1000L);
             } else {
-                b.this.cal();
+                b.this.ccv();
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, Integer.valueOf(b.this.gZO)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913035, Integer.valueOf(b.this.hdO)));
         }
     };
     private Handler mHandler = new Handler();
 
     static /* synthetic */ int b(b bVar) {
-        int i = bVar.gZP;
-        bVar.gZP = i + 1;
+        int i = bVar.hdP;
+        bVar.hdP = i + 1;
         return i;
     }
 
     static /* synthetic */ int f(b bVar) {
-        int i = bVar.gZO;
-        bVar.gZO = i - 1;
+        int i = bVar.hdO;
+        bVar.hdO = i - 1;
         return i;
     }
 
     public b() {
-        cak();
-        MessageManager.getInstance().registerListener(this.gZR);
-        MessageManager.getInstance().registerListener(this.gZr);
-        MessageManager.getInstance().registerListener(this.gkG);
+        ccu();
+        MessageManager.getInstance().registerListener(this.hdR);
+        MessageManager.getInstance().registerListener(this.hdr);
+        MessageManager.getInstance().registerListener(this.gnN);
     }
 
-    private static void cak() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.a.ayD);
+    private static void ccu() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021067, com.baidu.live.a.azf);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -113,103 +113,103 @@ public class b implements com.baidu.live.y.a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    @Override // com.baidu.live.y.a
-    public void j(r rVar) {
-        if (rVar != null && rVar.aEp != null) {
-            a(rVar.aEp);
+    @Override // com.baidu.live.z.a
+    public void k(u uVar) {
+        if (uVar != null && uVar.aFm != null) {
+            a(uVar.aFm);
         }
     }
 
-    public void a(ae aeVar) {
-        ad CQ;
-        if (aeVar != null && aeVar.aHH >= 0 && aeVar.aHH != 0 && aeVar.aHH <= 3 && (CQ = aeVar.CQ()) != null) {
-            b(CQ);
+    public void a(aj ajVar) {
+        ai Dg;
+        if (ajVar != null && ajVar.aJb >= 0 && ajVar.aJb != 0 && ajVar.aJb <= 3 && (Dg = ajVar.Dg()) != null) {
+            b(Dg);
         }
     }
 
-    @Override // com.baidu.live.y.a
-    public void N(JSONObject jSONObject) {
+    @Override // com.baidu.live.z.a
+    public void Q(JSONObject jSONObject) {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("user_id");
             jSONObject.optString("user_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("task_info");
-            ad adVar = new ad();
+            ai aiVar = new ai();
             if (optJSONObject != null) {
-                adVar.parseJson(optJSONObject);
+                aiVar.parseJson(optJSONObject);
             }
-            if (adVar.CN() && TbadkCoreApplication.getCurrentAccountId() == optInt) {
-                a(adVar);
+            if (aiVar.Dd() && TbadkCoreApplication.getCurrentAccountId() == optInt) {
+                a(aiVar);
             }
-            b(adVar);
+            b(aiVar);
         }
     }
 
-    @Override // com.baidu.live.y.a
-    public void cp(boolean z) {
-        this.gZK = z;
-        if (z && this.gZL != null) {
-            a(this.gZL);
+    @Override // com.baidu.live.z.a
+    public void cq(boolean z) {
+        this.hdK = z;
+        if (z && this.hdL != null) {
+            a(this.hdL);
         }
     }
 
-    public void a(ad adVar) {
-        if (adVar != null && adVar.aHE != null) {
-            if (this.gZK) {
-                this.gZL = null;
-                int i = adVar.aHE.aHK;
-                if (i > c.AD().getInt(c.getSharedPrefKeyWithAccount("ala_free_gift_task_level_up_dialog_tip"), -1) && BdActivityStack.getInst().currentActivity() != null) {
-                    com.baidu.tieba.ala.e.a aVar = new com.baidu.tieba.ala.e.a(BdActivityStack.getInst().currentActivity());
-                    c.AD().putInt(c.getSharedPrefKeyWithAccount("ala_free_gift_task_level_up_dialog_tip"), i);
-                    aVar.x(String.valueOf(adVar.aHF), String.valueOf(adVar.aHE.aHK), adVar.aHE.CR());
+    public void a(ai aiVar) {
+        if (aiVar != null && aiVar.aIY != null) {
+            if (this.hdK) {
+                this.hdL = null;
+                int i = aiVar.aIY.aJe;
+                if (i > c.AR().getInt(c.getSharedPrefKeyWithAccount("ala_free_gift_task_level_up_dialog_tip"), -1) && BdActivityStack.getInst().currentActivity() != null) {
+                    com.baidu.tieba.ala.f.a aVar = new com.baidu.tieba.ala.f.a(BdActivityStack.getInst().currentActivity());
+                    c.AR().putInt(c.getSharedPrefKeyWithAccount("ala_free_gift_task_level_up_dialog_tip"), i);
+                    aVar.x(String.valueOf(aiVar.aIZ), String.valueOf(aiVar.aIY.aJe), aiVar.aIY.Dh());
                     aVar.show();
                     return;
                 }
                 return;
             }
-            this.gZL = adVar;
+            this.hdL = aiVar;
         }
     }
 
-    private void b(ad adVar) {
-        if (adVar != null && adVar.CM() && adVar.status == 1) {
-            c(adVar);
+    private void b(ai aiVar) {
+        if (aiVar != null && aiVar.Dc() && aiVar.status == 1) {
+            c(aiVar);
         }
     }
 
-    private void c(ad adVar) {
+    private void c(ai aiVar) {
         int i;
-        if (adVar.aHE != null && (i = adVar.aHE.aHJ) != this.gZN) {
-            this.gZM = adVar;
-            this.gZN = i;
-            this.gZO = this.gZN;
+        if (aiVar.aIY != null && (i = aiVar.aIY.aJd) != this.hdN) {
+            this.hdM = aiVar;
+            this.hdN = i;
+            this.hdO = this.hdN;
             startCountDown();
         }
     }
 
     private void startCountDown() {
-        if (this.gZO > 0) {
+        if (this.hdO > 0) {
             this.mHandler.removeCallbacks(this.runnable);
             this.mHandler.postDelayed(this.runnable, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cal() {
-        if (this.gZM != null) {
+    public void ccv() {
+        if (this.hdM != null) {
             HttpMessage httpMessage = new HttpMessage(1021067);
-            httpMessage.addParam("task_id", this.gZM.aHA);
+            httpMessage.addParam("task_id", this.hdM.aIU);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    @Override // com.baidu.live.y.a
+    @Override // com.baidu.live.z.a
     public void onDestroy() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
         MessageManager.getInstance().unRegisterTask(1021067);
-        MessageManager.getInstance().unRegisterListener(this.gZr);
-        MessageManager.getInstance().unRegisterListener(this.gZR);
-        MessageManager.getInstance().unRegisterListener(this.gkG);
+        MessageManager.getInstance().unRegisterListener(this.hdr);
+        MessageManager.getInstance().unRegisterListener(this.hdR);
+        MessageManager.getInstance().unRegisterListener(this.gnN);
     }
 }

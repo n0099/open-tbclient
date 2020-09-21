@@ -7,41 +7,41 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public JSONObject cVj;
-    public boolean cVk;
-    public a cVr;
-    public JSONObject cVs;
-    public String cVt;
-    public String cVu;
-    public String cVv;
-    public List<e> cVw;
+    public JSONObject cXj;
+    public boolean cXk;
+    public a cXr;
+    public JSONObject cXs;
+    public String cXt;
+    public String cXu;
+    public String cXv;
+    public List<e> cXw;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String cVl = "";
+    public String cXl = "";
     public String description = "";
-    public List<String> cVm = new ArrayList();
-    public final List<String> cVn = new ArrayList();
-    public int cVo = -1;
+    public List<String> cXm = new ArrayList();
+    public final List<String> cXn = new ArrayList();
+    public int cXo = -1;
     private String type = "";
-    public String cVp = "";
-    public String cVq = "";
+    public String cXp = "";
+    public String cXq = "";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public String cVA;
-        public JSONArray cVB;
-        public String cVx;
-        public String cVy;
-        public String cVz;
+        public String cXA;
+        public JSONArray cXB;
+        public String cXx;
+        public String cXy;
+        public String cXz;
         public String detailUrl;
     }
 
-    public void at(List<e> list) {
-        this.cVw = list;
+    public void ax(List<e> list) {
+        this.cXw = list;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,19 +49,19 @@ public class e {
         this.id = str;
     }
 
-    public boolean aBE() {
-        return this.cVo > 0;
+    public boolean aCo() {
+        return this.cXo > 0;
     }
 
-    public boolean aBF() {
-        return this.cVo != 0;
+    public boolean aCp() {
+        return this.cXo != 0;
     }
 
-    public boolean aBG() {
+    public boolean aCq() {
         return "1".equals(this.type);
     }
 
-    public static e bE(JSONObject jSONObject) {
+    public static e bH(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -74,53 +74,53 @@ public class e {
 
     public static e i(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.cVj = jSONObject;
-        eVar.cVk = jSONObject.optBoolean("permit", false);
+        eVar.cXj = jSONObject;
+        eVar.cXk = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.cVl = jSONObject.optString("short_name", "");
+        eVar.cXl = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.cVo = jSONObject.optInt("tip_status", -1);
-        eVar.cVp = jSONObject.optString("explain", "");
-        eVar.cVq = jSONObject.optString("sub_explain", "");
+        eVar.cXo = jSONObject.optInt("tip_status", -1);
+        eVar.cXp = jSONObject.optString("explain", "");
+        eVar.cXq = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.cVn.add(optJSONArray.optString(i));
+                eVar.cXn.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.cVm.add(optJSONArray2.optString(i2));
+                eVar.cXm.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.cVs = jSONObject.optJSONObject("other");
-        eVar.cVt = jSONObject.optString("plugin_app_name");
-        eVar.cVu = jSONObject.optString("plugin_icon_url");
+        eVar.cXs = jSONObject.optJSONObject("other");
+        eVar.cXt = jSONObject.optString("plugin_app_name");
+        eVar.cXu = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
-    public void aBH() {
-        if (this.cVs != null && this.cVs.keys() != null && this.cVs.keys().hasNext()) {
-            this.cVr = new a();
-            this.cVr.cVx = this.cVs.optString("detail_text");
-            this.cVr.detailUrl = this.cVs.optString("detail_url");
-            this.cVr.cVy = this.cVs.optString("text_color");
-            this.cVr.cVz = this.cVs.optString("keyword");
-            this.cVr.cVA = this.cVs.optString("key_color");
-            JSONObject optJSONObject = this.cVs.optJSONObject("developer_agreements");
+    public void aCr() {
+        if (this.cXs != null && this.cXs.keys() != null && this.cXs.keys().hasNext()) {
+            this.cXr = new a();
+            this.cXr.cXx = this.cXs.optString("detail_text");
+            this.cXr.detailUrl = this.cXs.optString("detail_url");
+            this.cXr.cXy = this.cXs.optString("text_color");
+            this.cXr.cXz = this.cXs.optString("keyword");
+            this.cXr.cXA = this.cXs.optString("key_color");
+            JSONObject optJSONObject = this.cXs.optJSONObject("developer_agreements");
             if (optJSONObject != null) {
-                this.cVr.cVB = optJSONObject.optJSONArray("details");
+                this.cXr.cXB = optJSONObject.optJSONArray("details");
             }
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.cVo));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.cXo));
     }
 }

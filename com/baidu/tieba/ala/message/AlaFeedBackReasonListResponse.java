@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaFeedBackReasonListResponse extends JsonHttpResponsedMessage {
     private List<b> mList;
 
@@ -30,7 +30,7 @@ public class AlaFeedBackReasonListResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<b> bXN() {
+    public List<b> bZu() {
         return this.mList;
     }
 }

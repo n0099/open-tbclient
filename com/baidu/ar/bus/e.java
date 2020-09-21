@@ -2,7 +2,7 @@ package com.baidu.ar.bus;
 
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
     final Method kt;
     final ThreadMode ku;

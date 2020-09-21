@@ -1,10 +1,10 @@
 package com.baidu.live.alphavideo;
 
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onEnd();
 

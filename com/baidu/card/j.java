@@ -1,78 +1,93 @@
 package com.baidu.card;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.card.view.ForumEnterLayout;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.view.FollowUserDecorView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
+import com.baidu.tbadk.core.data.bw;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
-public class j extends h {
-    private AbsThreadDataSupport aeY;
-    private ForumEnterLayout afl;
-    private final View.OnClickListener mOnClickListener;
+import com.baidu.tieba.view.FollowUserButton;
+/* loaded from: classes20.dex */
+public class j extends d implements p<bw>, q {
+    private FollowUserDecorView afC;
+    private boolean afD = true;
+    private int mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+    private int mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
-    public j(Context context) {
-        super(context);
-        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.card.j.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (j.this.tw() != null) {
-                    j.this.tw().a(view, j.this.aeY);
-                }
-            }
-        };
-        int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds30);
-        int dimens2 = com.baidu.adp.lib.util.l.getDimens(context, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
-        setTopMargin(dimens);
-        bn(dimens2);
-        this.afl = new ForumEnterLayout(context);
-        this.afl.setOnAfterClickListener(this.mOnClickListener);
+    public j(TbPageContext tbPageContext, boolean z) {
+        this.afC = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.afC.setUseNewStyle(z);
+        setInsertIndex(-1);
+        aG(z);
     }
 
-    public void tE() {
-        if (com.baidu.tbadk.a.d.bad()) {
-            int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30);
-            int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, com.baidu.tbadk.a.b.a.aL(R.dimen.tbds21, R.dimen.tbds0));
-            setTopMargin(dimens);
-            bn(dimens2);
-            return;
+    private void aG(boolean z) {
+        if (z) {
+            this.mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+            this.mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds76);
         }
-        int dimens3 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds10);
-        setTopMargin(dimens3);
-        bn(0);
-        a(this.afl, dimens3, 0);
-    }
-
-    public void a(View view, int i, int i2) {
-        if (view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (marginLayoutParams.topMargin != i || marginLayoutParams.bottomMargin != i2) {
-                marginLayoutParams.topMargin = i;
-                marginLayoutParams.bottomMargin = i2;
-                view.setLayoutParams(marginLayoutParams);
-            }
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mWidth, this.mHeight);
+        layoutParams.addRule(11);
+        layoutParams.addRule(10);
+        layoutParams.topMargin = aT(R.dimen.tbds50);
+        if (z) {
+            layoutParams.topMargin = aT(R.dimen.tbds52);
         }
+        a(layoutParams);
+        H(this.afC);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public View getView() {
-        return this.afl;
+    public void setMarginRight(int i) {
+        if (tD() != null) {
+            tD().rightMargin = i;
+        }
+        this.afC.setLayoutParams(tD());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.o
-    /* renamed from: b */
-    public void F(AbsThreadDataSupport absThreadDataSupport) {
-        this.aeY = absThreadDataSupport;
-        this.afl.setSourceForPb(this.aeT.tN());
-        this.afl.setData(absThreadDataSupport);
+    @Override // com.baidu.card.p
+    /* renamed from: a */
+    public void G(bw bwVar) {
+        if (bwVar == null || bwVar.bfy() == null) {
+            this.afC.setVisibility(8);
+            return;
+        }
+        setMarginRight(aT(this.afD ? R.dimen.tbds120 : R.dimen.tbds44));
+        this.afC.setVisibility(0);
+        this.afC.setData(bwVar);
+        this.afC.setTag(bwVar);
     }
 
-    @Override // com.baidu.card.p
+    public void a(AbsThreadDataSupport absThreadDataSupport, boolean z) {
+        this.afD = z;
+        setSvgIconResId(0);
+        setClickableUnLike(true);
+    }
+
+    private int aT(int i) {
+        return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), i);
+    }
+
+    @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.afl.onChangeSkinType(tbPageContext, i);
+        this.afC.onChangeSkinType(i);
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.afC.setPageUniqueId(bdUniqueId);
+    }
+
+    public void setOnClickEvent(FollowUserButton.a aVar) {
+        this.afC.setOnClickEvent(aVar);
+    }
+
+    public void setSvgIconResId(int i) {
+        this.afC.setSvgIconResId(i);
+    }
+
+    public void setClickableUnLike(boolean z) {
+        this.afC.setClickableUnLike(z);
     }
 }

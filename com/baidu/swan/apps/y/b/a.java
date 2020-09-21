@@ -5,11 +5,11 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected Set<Integer> cEA;
-    double cEz = 1.0d;
+    protected Set<Integer> cGA;
+    double cGz = 1.0d;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -21,22 +21,22 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void iA(int i) {
-        if (this.cEA == null) {
-            this.cEA = new TreeSet();
+    public void iK(int i) {
+        if (this.cGA == null) {
+            this.cGA = new TreeSet();
         } else {
-            this.cEA.clear();
+            this.cGA.clear();
         }
         if (DEBUG) {
             Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.cEA.add(Integer.valueOf(i));
+        this.cGA.add(Integer.valueOf(i));
     }
 
     /* renamed from: com.baidu.swan.apps.y.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0461a {
-        public static a oK(String str) {
+    /* loaded from: classes3.dex */
+    public static class C0456a {
+        public static a pd(String str) {
             return b(str, 0.5d);
         }
 

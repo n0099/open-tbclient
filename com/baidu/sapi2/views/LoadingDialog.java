@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.k.a.a;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class LoadingDialog extends Dialog implements NoProguard {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class Builder implements NoProguard {
         private Context a;
         private String b;

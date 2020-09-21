@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String jOw;
-        public String jOx;
-        public ArrayList<String> jOy = new ArrayList<>();
-        public ArrayList<String> jOz = new ArrayList<>();
+        public String jWZ;
+        public String jXa;
+        public ArrayList<String> jXb = new ArrayList<>();
+        public ArrayList<String> jXc = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.jOw = jSONObject.optString("charge_click_url");
-                this.jOx = jSONObject.optString("charge_show_url");
+                this.jWZ = jSONObject.optString("charge_click_url");
+                this.jXa = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.jOy.add(optString);
+                            this.jXb.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.jOz.add(optString2);
+                            this.jXc.add(optString2);
                         }
                     }
                 }
@@ -46,11 +46,11 @@ public interface b {
                         if (optJSONObject != null) {
                             String optString3 = optJSONObject.optString("show_url");
                             if (!TextUtils.isEmpty(optString3)) {
-                                this.jOy.add(optString3);
+                                this.jXb.add(optString3);
                             }
                             String optString4 = optJSONObject.optString("click_url");
                             if (!TextUtils.isEmpty(optString4)) {
-                                this.jOz.add(optString4);
+                                this.jXc.add(optString4);
                             }
                         }
                     }

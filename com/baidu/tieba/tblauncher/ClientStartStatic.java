@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ClientStartStatic {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -40,7 +40,7 @@ public class ClientStartStatic {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static class a extends BdAsyncTask<Void, Void, Void> {
         private a() {
             setPriority(1);

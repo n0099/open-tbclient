@@ -3,7 +3,7 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.support.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 interface CardViewImpl {
     ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate);
 

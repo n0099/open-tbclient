@@ -3,15 +3,15 @@ package com.baidu.swan.pms.b.a;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class a implements com.baidu.swan.pms.database.b.a<com.baidu.swan.pms.b.a> {
-    public String aTx() {
+    public String aUj() {
         return "swan_mini_pkg";
     }
 
     @Override // com.baidu.swan.pms.database.b.a
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(aTy());
+        sQLiteDatabase.execSQL(aUk());
     }
 
     @Override // com.baidu.swan.pms.database.b.a
@@ -19,14 +19,14 @@ public class a implements com.baidu.swan.pms.database.b.a<com.baidu.swan.pms.b.a
         while (i < i2) {
             switch (i) {
                 case 4:
-                    sQLiteDatabase.execSQL(aTy());
+                    sQLiteDatabase.execSQL(aUk());
                     break;
             }
             i++;
         }
     }
 
-    private String aTy() {
-        return "CREATE TABLE " + aTx() + "(" + IMConstants.MSG_ROW_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL,bundle_id TEXT NOT NULL," + SharedPrefConfig.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0,md5 TEXT NOT NULL,sign TEXT NOT NULL,downloadUrl TEXT NOT NULL, UNIQUE (app_id,bundle_id));";
+    private String aUk() {
+        return "CREATE TABLE " + aUj() + "(" + IMConstants.MSG_ROW_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL,bundle_id TEXT NOT NULL," + SharedPrefConfig.VERSION_NAME + " TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0,md5 TEXT NOT NULL,sign TEXT NOT NULL,downloadUrl TEXT NOT NULL, UNIQUE (app_id,bundle_id));";
     }
 }

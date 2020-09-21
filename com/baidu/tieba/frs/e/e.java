@@ -1,57 +1,57 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public class e {
-    private boolean icw;
-    private boolean isu;
-    private boolean isv;
+    private boolean ijA;
+    private boolean izK;
+    private boolean izL;
 
     public e(String str) {
         if (str == null || !str.matches("\\d{1}_\\d{1}.*")) {
-            this.icw = false;
-            this.isu = true;
+            this.ijA = false;
+            this.izK = true;
             return;
         }
-        this.icw = str.substring(0, 1).contains("1");
-        this.isu = str.substring(2, 3).contains("1");
+        this.ijA = str.substring(0, 1).contains("1");
+        this.izK = str.substring(2, 3).contains("1");
         if (str.length() >= 5) {
-            this.isv = str.substring(4, 5).contains("1");
+            this.izL = str.substring(4, 5).contains("1");
         }
     }
 
     public e(boolean z, boolean z2) {
-        this.icw = z;
-        this.isu = z2;
+        this.ijA = z;
+        this.izK = z2;
     }
 
     public String toString() {
         Object[] objArr = new Object[3];
-        objArr[0] = Integer.valueOf(this.icw ? 1 : 0);
-        objArr[1] = Integer.valueOf(this.isu ? 1 : 0);
-        objArr[2] = Integer.valueOf(this.isv ? 1 : 0);
+        objArr[0] = Integer.valueOf(this.ijA ? 1 : 0);
+        objArr[1] = Integer.valueOf(this.izK ? 1 : 0);
+        objArr[2] = Integer.valueOf(this.izL ? 1 : 0);
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean csI() {
-        return this.icw;
+    public boolean cvX() {
+        return this.ijA;
     }
 
-    public void pd(boolean z) {
-        this.icw = z;
+    public void pj(boolean z) {
+        this.ijA = z;
     }
 
-    public boolean csJ() {
-        return this.isu;
+    public boolean cvY() {
+        return this.izK;
     }
 
-    public void pe(boolean z) {
-        this.isu = z;
+    public void pk(boolean z) {
+        this.izK = z;
     }
 
-    public void pf(boolean z) {
-        this.isv = z;
+    public void pl(boolean z) {
+        this.izL = z;
     }
 
-    public boolean csK() {
-        return this.isv;
+    public boolean cvZ() {
+        return this.izL;
     }
 }

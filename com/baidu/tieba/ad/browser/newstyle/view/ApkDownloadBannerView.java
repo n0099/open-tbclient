@@ -13,12 +13,12 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private BannerDownloadProgressBar foH;
-    private BannerDownloadStateBar foI;
-    private BannerDownloadStateBar foJ;
-    private int foK;
+    private BannerDownloadProgressBar frO;
+    private BannerDownloadStateBar frP;
+    private BannerDownloadStateBar frQ;
+    private int frR;
     private int mMax;
     private View mRootView;
 
@@ -33,37 +33,37 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mMax = 100;
-        this.foK = 1;
-        dL(context);
+        this.frR = 1;
+        dK(context);
         setDownloadStateBarPosition(1);
     }
 
-    private void dL(Context context) {
+    private void dK(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
         setOrientation(0);
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.foH = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.foI = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.foJ = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.foH.setTextColor(Color.parseColor("#999999"));
+        this.frO = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.frP = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.frQ = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.frO.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.foK = i;
-        switch (this.foK) {
+        this.frR = i;
+        switch (this.frR) {
             case 0:
-                this.foI.setVisibility(0);
-                this.foJ.setVisibility(8);
+                this.frP.setVisibility(0);
+                this.frQ.setVisibility(8);
                 return;
             case 1:
-                this.foI.setVisibility(8);
-                this.foJ.setVisibility(0);
+                this.frP.setVisibility(8);
+                this.frQ.setVisibility(0);
                 return;
             default:
-                this.foI.setVisibility(0);
-                this.foJ.setVisibility(8);
+                this.frP.setVisibility(0);
+                this.frQ.setVisibility(8);
                 return;
         }
     }
@@ -71,11 +71,11 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.foI.getVisibility() == 0 ? this.foI : this.foJ;
+        return this.frP.getVisibility() == 0 ? this.frP : this.frQ;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public boolean bC(View view) {
+    public boolean bG(View view) {
         return false;
     }
 
@@ -85,29 +85,29 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void fy(int i) {
-        this.foH.setProgress(i);
+    public void eO(int i) {
+        this.frO.setProgress(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(DownloadStatus downloadStatus, int i) {
         switch (downloadStatus) {
             case STATUS_NONE:
-                fy(0);
-                this.foH.setText("");
+                eO(0);
+                this.frO.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
-                fy(this.mMax);
-                this.foH.setText("");
+                eO(this.mMax);
+                this.frO.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
-                fy(i);
+                eO(i);
                 break;
             default:
-                fy(0);
-                this.foH.setText("");
+                eO(0);
+                this.frO.setText("");
                 break;
         }
         a(downloadStatus);

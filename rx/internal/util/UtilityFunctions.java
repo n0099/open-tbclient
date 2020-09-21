@@ -1,15 +1,15 @@
 package rx.internal.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class UtilityFunctions {
-    public static <T> rx.functions.f<? super T, Boolean> ekI() {
+    public static <T> rx.functions.f<? super T, Boolean> eoG() {
         return AlwaysTrue.INSTANCE;
     }
 
-    public static <T> rx.functions.f<T, T> ekJ() {
+    public static <T> rx.functions.f<T, T> eoH() {
         return Identity.INSTANCE;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     enum AlwaysTrue implements rx.functions.f<Object, Boolean> {
         INSTANCE;
 
@@ -21,7 +21,7 @@ public final class UtilityFunctions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     enum AlwaysFalse implements rx.functions.f<Object, Boolean> {
         INSTANCE;
 
@@ -33,7 +33,7 @@ public final class UtilityFunctions {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     enum Identity implements rx.functions.f<Object, Object> {
         INSTANCE;
 

@@ -13,7 +13,7 @@ import com.baidu.location.PoiRegion;
 import com.baidu.location.b.l;
 import com.baidu.mobstat.Config;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o extends l {
     private double A;
     private double B;
@@ -57,7 +57,7 @@ public class o extends l {
     private boolean R = false;
     private boolean S = true;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private class a implements Runnable {
         final /* synthetic */ o a;
 
@@ -72,7 +72,7 @@ public class o extends l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         private b() {
         }

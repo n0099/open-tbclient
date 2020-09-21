@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static final Object a = new Object();
     private long b = System.currentTimeMillis();

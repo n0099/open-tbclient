@@ -6,27 +6,27 @@ import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class h {
     public static void c(final com.baidu.adp.lib.stats.base.a aVar, final boolean z) {
-        if (aVar != null && aVar.nm() != 0) {
-            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nr(), DiskFileOperate.Action.APPEND) { // from class: com.baidu.adp.lib.stats.b.h.1
+        if (aVar != null && aVar.nr() != 0) {
+            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nw(), DiskFileOperate.Action.APPEND) { // from class: com.baidu.adp.lib.stats.b.h.1
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
                 public void callback(boolean z2) {
                     super.callback(z2);
                     if (z2) {
                         aVar.M(getFileInfo().length());
-                        if (z || aVar.nm() > 20480) {
+                        if (z || aVar.nr() > 20480) {
                             h.p(aVar);
                         }
                     }
                 }
             };
-            dVar.setSdCard(aVar.nI());
-            dVar.setContent(aVar.nG().toString());
-            aVar.ny();
-            if (!aVar.nJ()) {
+            dVar.setSdCard(aVar.nN());
+            dVar.setContent(aVar.nL().toString());
+            aVar.nD();
+            if (!aVar.nO()) {
                 dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 dVar.setTrySuccessWeight(3);
             }
-            if (!com.baidu.adp.lib.Disk.d.lG().c(dVar)) {
+            if (!com.baidu.adp.lib.Disk.d.lK().c(dVar)) {
                 BdLog.e("Track Log write to disk fail!");
             }
         }
@@ -34,21 +34,21 @@ public class h {
 
     public static void p(final com.baidu.adp.lib.stats.base.a aVar) {
         if (aVar != null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nr(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.ns(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.h.2
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nw(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nx(), DiskFileOperate.Action.RENAME) { // from class: com.baidu.adp.lib.stats.b.h.2
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
                 public void callback(boolean z) {
                     super.callback(z);
                     if (z) {
                         aVar.M(0L);
-                        com.baidu.adp.lib.stats.upload.b.nR().b(aVar);
+                        com.baidu.adp.lib.stats.upload.b.nW().b(aVar);
                         return;
                     }
                     BdLog.e("Track Log rename fail!");
                 }
             };
-            diskFileOperate.setSdCard(aVar.nI());
+            diskFileOperate.setSdCard(aVar.nN());
             diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.lG().c(diskFileOperate);
+            com.baidu.adp.lib.Disk.d.lK().c(diskFileOperate);
         }
     }
 
@@ -56,8 +56,8 @@ public class h {
         if (aVar == null) {
             return -1L;
         }
-        if (aVar.nv() <= 0) {
-            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nr(), DiskFileOperate.Action.INFO) { // from class: com.baidu.adp.lib.stats.b.h.3
+        if (aVar.nA() <= 0) {
+            com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.nw(), DiskFileOperate.Action.INFO) { // from class: com.baidu.adp.lib.stats.b.h.3
                 @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
                 public void callback(boolean z) {
                     super.callback(z);
@@ -66,12 +66,12 @@ public class h {
                     }
                 }
             };
-            dVar.setSdCard(aVar.nI());
+            dVar.setSdCard(aVar.nN());
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (com.baidu.adp.lib.Disk.d.lG().c(dVar)) {
-                return aVar.nv();
+            if (com.baidu.adp.lib.Disk.d.lK().c(dVar)) {
+                return aVar.nA();
             }
         }
-        return aVar.nv();
+        return aVar.nA();
     }
 }

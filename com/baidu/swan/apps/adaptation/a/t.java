@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface t {
-    String bo(Context context);
+    String bn(Context context);
 
     String getAndroidId(Context context);
 }

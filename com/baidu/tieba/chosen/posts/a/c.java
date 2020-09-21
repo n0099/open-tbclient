@@ -17,56 +17,56 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private View.OnClickListener aBm;
-    private TextView dSD;
-    private TextView hoI;
-    private TextView hoJ;
-    private TextView hoN;
-    private RelativeLayout hoR;
-    private TbImageView hoS;
-    private TbImageView hoT;
-    private TbImageView hoU;
+    private View.OnClickListener aBS;
+    private TextView dUN;
+    private TextView hvM;
+    private TextView hvN;
+    private TextView hvR;
+    private RelativeLayout hvV;
+    private TbImageView hvW;
+    private TbImageView hvX;
+    private TbImageView hvY;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aBm = new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.1
+        this.aBS = new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Object tag = view2.getTag();
                 if (tag instanceof Integer) {
                     com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4096, new d(((Integer) tag).intValue(), c.this.getData()), null, null);
                     bVar.setUniqueId(c.this.getUniqueId());
-                    c.this.btR().dispatchMvcEvent(bVar);
+                    c.this.buV().dispatchMvcEvent(bVar);
                 }
             }
         };
-        this.dSD = (TextView) view.findViewById(R.id.chosen_picture_title);
-        this.hoI = (TextView) view.findViewById(R.id.chosen_picture_praise);
-        this.hoJ = (TextView) view.findViewById(R.id.chosen_picture_comment);
-        this.hoN = (TextView) view.findViewById(R.id.chosen_picture_head);
-        this.hoR = (RelativeLayout) view.findViewById(R.id.chosen_picture_pic_container);
-        this.hoS = (TbImageView) view.findViewById(R.id.chosen_picture_pic_one);
-        this.hoT = (TbImageView) view.findViewById(R.id.chosen_picture_pic_two);
-        this.hoU = (TbImageView) view.findViewById(R.id.chosen_picture_pic_thr);
-        this.hoS.setOnClickListener(this.aBm);
-        this.hoT.setOnClickListener(this.aBm);
-        this.hoU.setOnClickListener(this.aBm);
+        this.dUN = (TextView) view.findViewById(R.id.chosen_picture_title);
+        this.hvM = (TextView) view.findViewById(R.id.chosen_picture_praise);
+        this.hvN = (TextView) view.findViewById(R.id.chosen_picture_comment);
+        this.hvR = (TextView) view.findViewById(R.id.chosen_picture_head);
+        this.hvV = (RelativeLayout) view.findViewById(R.id.chosen_picture_pic_container);
+        this.hvW = (TbImageView) view.findViewById(R.id.chosen_picture_pic_one);
+        this.hvX = (TbImageView) view.findViewById(R.id.chosen_picture_pic_two);
+        this.hvY = (TbImageView) view.findViewById(R.id.chosen_picture_pic_thr);
+        this.hvW.setOnClickListener(this.aBS);
+        this.hvX.setOnClickListener(this.aBS);
+        this.hvY.setOnClickListener(this.aBS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void aq(final tinfo tinfoVar) {
-        super.aq(tinfoVar);
+    public void ar(final tinfo tinfoVar) {
+        super.ar(tinfoVar);
         if (tinfoVar != null) {
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.dSD.setVisibility(8);
+                this.dUN.setVisibility(8);
             } else {
-                this.dSD.setVisibility(0);
-                this.dSD.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.dSD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.2
+                this.dUN.setVisibility(0);
+                this.dUN.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.dUN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         String str = tinfoVar.forum_name;
@@ -78,22 +78,22 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 });
             }
             if (StringUtils.isNull(tinfoVar.title)) {
-                this.hoN.setVisibility(8);
+                this.hvR.setVisibility(8);
             } else {
-                this.hoN.setVisibility(0);
-                this.hoN.setText(tinfoVar.title);
+                this.hvR.setVisibility(0);
+                this.hvR.setText(tinfoVar.title);
             }
             if (tinfoVar.zan_num == null) {
-                this.hoI.setVisibility(8);
+                this.hvM.setVisibility(8);
             } else {
-                this.hoI.setVisibility(0);
-                this.hoI.setText(tinfoVar.zan_num + "");
+                this.hvM.setVisibility(0);
+                this.hvM.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.hoJ.setVisibility(8);
+                this.hvN.setVisibility(8);
             } else {
-                this.hoJ.setVisibility(0);
-                this.hoJ.setText(tinfoVar.reply_num + "");
+                this.hvN.setVisibility(0);
+                this.hvN.setText(tinfoVar.reply_num + "");
             }
             b(tinfoVar);
         }
@@ -101,8 +101,8 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
 
     private void b(tinfo tinfoVar) {
         if (tinfoVar != null) {
-            if (k.bbM().isShowImages() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
-                this.hoR.setVisibility(0);
+            if (k.bcG().isShowImages() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
+                this.hvV.setVisibility(0);
                 switch (tinfoVar.pics.size()) {
                     case 0:
                     default:
@@ -111,23 +111,23 @@ public class c extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                         break;
                     case 3:
                         String str = tinfoVar.pics.get(2).small_pic;
-                        this.hoU.setVisibility(0);
-                        this.hoU.startLoad(str, 10, false);
-                        this.hoU.setTag(2);
+                        this.hvY.setVisibility(0);
+                        this.hvY.startLoad(str, 10, false);
+                        this.hvY.setTag(2);
                     case 2:
                         String str2 = tinfoVar.pics.get(1).small_pic;
-                        this.hoT.setVisibility(0);
-                        this.hoT.startLoad(str2, 10, false);
-                        this.hoT.setTag(1);
+                        this.hvX.setVisibility(0);
+                        this.hvX.startLoad(str2, 10, false);
+                        this.hvX.setTag(1);
                         break;
                 }
                 String str3 = tinfoVar.pics.get(0).small_pic;
-                this.hoS.setVisibility(0);
-                this.hoS.startLoad(str3, 10, false);
-                this.hoS.setTag(0);
+                this.hvW.setVisibility(0);
+                this.hvW.startLoad(str3, 10, false);
+                this.hvW.setTag(0);
                 return;
             }
-            this.hoR.setVisibility(8);
+            this.hvV.setVisibility(8);
         }
     }
 

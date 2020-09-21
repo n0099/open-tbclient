@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import com.nineoldandroids.animation.Animator;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 class ViewPropertyAnimatorICS extends ViewPropertyAnimator {
     private static final long RETURN_WHEN_NULL = -1;
     private final WeakReference<android.view.ViewPropertyAnimator> mNative;

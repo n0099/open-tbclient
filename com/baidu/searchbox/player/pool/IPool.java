@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.pool;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public interface IPool<T> {
     @Nullable
     T acquire();

@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.GeneralResource;
 /* loaded from: classes.dex */
 public class bq extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eao = BdUniqueId.gen();
-    public int eap;
+    public static final BdUniqueId ecy = BdUniqueId.gen();
+    public int ecz;
     public String res_image;
     public String res_link;
 
@@ -13,12 +13,12 @@ public class bq extends com.baidu.tieba.card.data.b {
         if (generalResource != null) {
             this.res_image = generalResource.res_image;
             this.res_link = generalResource.res_link;
-            this.eap = generalResource.res_floor.intValue();
+            this.ecz = generalResource.res_floor.intValue();
         }
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return eao;
+        return ecy;
     }
 }

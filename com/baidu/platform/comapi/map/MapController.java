@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MapController {
     public static final String ANDROID_SDK_LAYER_TAG = "android_sdk";
     public static final String CITY_AREA_TAG = "cityarea";
@@ -112,7 +112,7 @@ public class MapController {
     private int u = SysOSUtil.getInstance().getScreenWidth();
     private int v = SysOSUtil.getInstance().getScreenHeight();
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum HeatMapType {
         CITY(0),
         SCENERY(1),
@@ -129,7 +129,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum MapControlMode {
         DEFAULT(1),
         INDOOR(2),
@@ -143,12 +143,12 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface MapFirstFrameCallback {
         void onFirstFrameDrawing(MapController mapController);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum MapLayerType {
         DEFAULT(1),
         SATELLITE(2),
@@ -162,7 +162,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum MapSceneMode {
         DEFAULT(0),
         POI(1),
@@ -181,7 +181,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum MapStyleMode {
         DEFAULT(1),
         SEARCH_POI(2),
@@ -204,7 +204,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum RecommendPoiScene {
         BASE(0),
         INTERNATIONAL(1);
@@ -216,7 +216,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum RecycleMemoryLevel {
         NORMAL(0),
         FULL(1);
@@ -232,7 +232,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     class a extends com.baidu.platform.comapi.util.i {
         a() {
             super(Looper.getMainLooper());

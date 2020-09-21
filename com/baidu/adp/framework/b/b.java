@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public abstract class b extends f<CustomMessage<?>, CustomMessageTask> {
     public b(int i) {
         super(i);
-        if (i != 0 && FrameHelper.Y(i) != FrameHelper.TYPE.CUSTOM) {
+        if (i != 0 && FrameHelper.Z(i) != FrameHelper.TYPE.CUSTOM) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

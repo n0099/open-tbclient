@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class h {
     public static String[] a = {"android.permission.READ_PHONE_STATE"};
 

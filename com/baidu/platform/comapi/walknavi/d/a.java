@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d;
 
 import android.graphics.Bitmap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     protected String a;
     protected String b;

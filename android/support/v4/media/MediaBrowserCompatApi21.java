@@ -8,11 +8,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class MediaBrowserCompatApi21 {
     static final String NULL_MEDIA_ITEM_ID = "android.support.v4.media.MediaBrowserCompat.NULL_MEDIA_ITEM";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     interface ConnectionCallback {
         void onConnected();
 
@@ -21,7 +21,7 @@ class MediaBrowserCompatApi21 {
         void onConnectionSuspended();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     interface SubscriptionCallback {
         void onChildrenLoaded(@NonNull String str, List<?> list);
 
@@ -79,7 +79,7 @@ class MediaBrowserCompatApi21 {
         ((MediaBrowser) obj).unsubscribe(str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class ConnectionCallbackProxy<T extends ConnectionCallback> extends MediaBrowser.ConnectionCallback {
         protected final T mConnectionCallback;
 
@@ -103,7 +103,7 @@ class MediaBrowserCompatApi21 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowser.SubscriptionCallback {
         protected final T mSubscriptionCallback;
 
@@ -122,7 +122,7 @@ class MediaBrowserCompatApi21 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class MediaItem {
         MediaItem() {
         }

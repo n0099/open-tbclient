@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class j implements Serializable {
     private String a;
     private String b;

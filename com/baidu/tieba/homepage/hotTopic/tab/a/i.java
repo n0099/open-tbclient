@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class i extends com.baidu.adp.widget.ListView.a<z, aa> {
     private int mSkinType;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), z.WI);
+        super(tbPageContext.getPageActivity(), z.Xa);
         this.mSkinType = 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: h */
-    public aa b(ViewGroup viewGroup) {
+    /* renamed from: i */
+    public aa c(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
         inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         return new aa(inflate);

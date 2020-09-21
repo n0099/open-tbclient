@@ -30,55 +30,54 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.e;
 import com.baidu.tieba.ala.frsgamelive.c.i;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private BdUniqueId ahM;
-    private int aiD = -1;
-    private PbListView fEa;
-    private View fMP;
-    private PopupWindow fMU;
-    private View fMV;
-    private TextView fXB;
-    private TextView fXC;
-    private TextView fXD;
-    private TextView fXE;
-    private View fXF;
-    private NoNetworkView fXG;
-    private TextView fXH;
-    private TextView fXI;
-    private TextView fXJ;
-    private View fXK;
-    private View fXL;
-    private com.baidu.tieba.frs.gametab.b fXN;
-    private BdTypeMultiColumnListView fXe;
-    private boolean fXq;
-    private boolean fXu;
-    private d fXy;
-    private View fYg;
-    private i fYh;
-    private com.baidu.tieba.ala.frsgamelive.a.d fYi;
+    private int aiX = -1;
+    private BdUniqueId aih;
+    private PbListView fHm;
+    private View fQd;
+    private PopupWindow fQi;
+    private View fQj;
     private String forumId;
+    private boolean gaE;
+    private boolean gaI;
+    private d gaM;
+    private TextView gaP;
+    private TextView gaQ;
+    private TextView gaR;
+    private TextView gaS;
+    private View gaT;
+    private NoNetworkView gaU;
+    private TextView gaV;
+    private TextView gaW;
+    private TextView gaX;
+    private View gaY;
+    private View gaZ;
+    private BdTypeMultiColumnListView gas;
+    private com.baidu.tieba.frs.gametab.b gbb;
+    private View gbu;
+    private i gbv;
+    private com.baidu.tieba.ala.frsgamelive.a.d gbw;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
     private g mPullView;
     private View rootView;
 
     public c(TbPageContext tbPageContext, boolean z, BdUniqueId bdUniqueId, String str, boolean z2) {
-        this.fXu = false;
+        this.gaI = false;
         this.mPageContext = tbPageContext;
-        this.fXq = z;
-        this.ahM = bdUniqueId;
+        this.gaE = z;
+        this.aih = bdUniqueId;
         this.forumId = str;
-        this.fXu = z2;
+        this.gaI = z2;
     }
 
     public void initView() {
         this.rootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_game_frs_main_view_layout, (ViewGroup) null);
-        if (this.fXu) {
+        if (this.gaI) {
             this.mNavigationBar = (NavigationBar) this.rootView.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.setVisibility(0);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -93,60 +92,60 @@ public class c {
             });
             this.mNavigationBar.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
         }
-        this.fMP = this.rootView.findViewById(R.id.frs_game_live_topinfo);
-        this.fXB = (TextView) this.rootView.findViewById(R.id.frs_game_live_num);
-        this.fXC = (TextView) this.rootView.findViewById(R.id.frs_game_live_sort);
-        this.fXe = (BdTypeMultiColumnListView) this.rootView.findViewById(R.id.listView);
-        this.fXe.setColumnDiv((int) this.mPageContext.getResources().getDimension(R.dimen.ds16));
-        this.fXG = (NoNetworkView) this.rootView.findViewById(R.id.vNoNetwork);
+        this.fQd = this.rootView.findViewById(R.id.frs_game_live_topinfo);
+        this.gaP = (TextView) this.rootView.findViewById(R.id.frs_game_live_num);
+        this.gaQ = (TextView) this.rootView.findViewById(R.id.frs_game_live_sort);
+        this.gas = (BdTypeMultiColumnListView) this.rootView.findViewById(R.id.listView);
+        this.gas.setColumnDiv((int) this.mPageContext.getResources().getDimension(R.dimen.ds16));
+        this.gaU = (NoNetworkView) this.rootView.findViewById(R.id.vNoNetwork);
         this.mPullView = new g(this.mPageContext);
-        this.mPullView.setTag(this.ahM);
-        this.fXe.setPullRefresh(this.mPullView);
-        this.fEa = new PbListView(this.mPageContext.getPageActivity());
-        this.fEa.createView();
-        this.fYi = new com.baidu.tieba.ala.frsgamelive.a.d(this.mPageContext, this.fXe);
-        this.fXC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.2
+        this.mPullView.setTag(this.aih);
+        this.gas.setPullRefresh(this.mPullView);
+        this.fHm = new PbListView(this.mPageContext.getPageActivity());
+        this.fHm.createView();
+        this.gbw = new com.baidu.tieba.ala.frsgamelive.a.d(this.mPageContext, this.gas);
+        this.gaQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bJK();
+                c.this.bKU();
             }
         });
-        if (this.fXq) {
-            this.fXN = new com.baidu.tieba.frs.gametab.b(this.mPageContext.getPageActivity(), this.ahM, this.fXq);
-            this.fXe.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.3
+        if (this.gaE) {
+            this.gbb = new com.baidu.tieba.frs.gametab.b(this.mPageContext.getPageActivity(), this.aih, this.gaE);
+            this.gas.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.3
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    c.this.fXN.b(view, motionEvent);
+                    c.this.gbb.b(view, motionEvent);
                     return false;
                 }
             });
         }
     }
 
-    public void tk(int i) {
+    public void tD(int i) {
         if (i == 1) {
-            if (this.fXC != null) {
-                this.fXC.setText(this.mPageContext.getString(R.string.frs_game_live_sort_hot));
+            if (this.gaQ != null) {
+                this.gaQ.setText(this.mPageContext.getString(R.string.frs_game_live_sort_hot));
             }
-        } else if (i == 2 && this.fXC != null) {
-            this.fXC.setText(this.mPageContext.getString(R.string.frs_game_live_sort_new));
+        } else if (i == 2 && this.gaQ != null) {
+            this.gaQ.setText(this.mPageContext.getString(R.string.frs_game_live_sort_new));
         }
     }
 
-    public void sN(int i) {
-        if (this.fXB != null) {
-            this.fXB.setText(this.mPageContext.getResources().getString(R.string.frs_game_live_num, at.numberUniformFormatExtra(i)));
+    public void tf(int i) {
+        if (this.gaP != null) {
+            this.gaP.setText(this.mPageContext.getResources().getString(R.string.frs_game_live_num, at.numberUniformFormatExtra(i)));
             if (i <= 1) {
-                this.fXC.setVisibility(8);
+                this.gaQ.setVisibility(8);
             } else {
-                this.fXC.setVisibility(0);
+                this.gaQ.setVisibility(0);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aiD != i) {
-            this.aiD = i;
+        if (this.aiX != i) {
+            this.aiX = i;
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
@@ -155,121 +154,121 @@ public class c {
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             this.mNavigationBar.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
         }
-        ap.setViewTextColor(this.fXB, (int) R.color.cp_cont_d);
-        ap.setViewTextColor(this.fXC, (int) R.color.cp_cont_d);
-        this.fXe.setContentBackgroundColor(ap.getColor(R.color.cp_bg_line_d));
-        this.fXC.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_gamefrs_arrow_n), (Drawable) null);
+        ap.setViewTextColor(this.gaP, R.color.cp_cont_d);
+        ap.setViewTextColor(this.gaQ, R.color.cp_cont_d);
+        this.gas.setContentBackgroundColor(ap.getColor(R.color.cp_bg_line_d));
+        this.gaQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_gamefrs_arrow_n), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJK() {
-        bHc();
+    public void bKU() {
+        bIs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tj(int i) {
-        tk(i);
-        com.baidu.adp.lib.f.g.dismissPopupWindow(this.fMU, this.mPageContext.getPageActivity());
-        if (this.fXy != null) {
-            this.fXy.tj(i);
+    public void tC(int i) {
+        tD(i);
+        com.baidu.adp.lib.f.g.dismissPopupWindow(this.fQi, this.mPageContext.getPageActivity());
+        if (this.gaM != null) {
+            this.gaM.tC(i);
         }
     }
 
-    private void bJL() {
-        if (this.fMV == null) {
-            this.fMV = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_sort_panel, (ViewGroup) null);
-            this.fXD = (TextView) this.fMV.findViewById(R.id.frs_game_live_hot);
-            this.fXE = (TextView) this.fMV.findViewById(R.id.frs_game_live_new);
-            this.fXF = this.fMV.findViewById(R.id.frs_game_live_sort_sepline);
-            this.fXD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.4
+    private void bKV() {
+        if (this.fQj == null) {
+            this.fQj = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_sort_panel, (ViewGroup) null);
+            this.gaR = (TextView) this.fQj.findViewById(R.id.frs_game_live_hot);
+            this.gaS = (TextView) this.fQj.findViewById(R.id.frs_game_live_new);
+            this.gaT = this.fQj.findViewById(R.id.frs_game_live_sort_sepline);
+            this.gaR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.tj(1);
+                    c.this.tC(1);
                 }
             });
-            this.fXE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.5
+            this.gaS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.tj(2);
+                    c.this.tC(2);
                 }
             });
         }
-        if (this.fMU == null) {
-            this.fMU = new PopupWindow(this.mPageContext.getPageActivity());
-            this.fMU.setContentView(this.fMV);
-            this.fMU.setWidth(-2);
-            this.fMU.setHeight(-2);
-            this.fMU.setAnimationStyle(16973826);
-            this.fMU.setBackgroundDrawable(this.mPageContext.getResources().getDrawable(R.drawable.popup_window_transparent));
-            this.fMU.setOutsideTouchable(true);
-            this.fMU.setFocusable(true);
-            this.fMU.setTouchable(true);
-            this.fMU.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.6
+        if (this.fQi == null) {
+            this.fQi = new PopupWindow(this.mPageContext.getPageActivity());
+            this.fQi.setContentView(this.fQj);
+            this.fQi.setWidth(-2);
+            this.fQi.setHeight(-2);
+            this.fQi.setAnimationStyle(16973826);
+            this.fQi.setBackgroundDrawable(this.mPageContext.getResources().getDrawable(R.drawable.popup_window_transparent));
+            this.fQi.setOutsideTouchable(true);
+            this.fQi.setFocusable(true);
+            this.fQi.setTouchable(true);
+            this.fQi.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.6
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    c.this.bJM();
+                    c.this.bKW();
                 }
             });
         }
     }
 
-    private void bHc() {
-        bJL();
-        ap.setBackgroundResource(this.fMV, R.drawable.bg_ala_frs_game_live_sort_panel);
-        ap.setBackgroundResource(this.fXD, R.drawable.ala_frs_game_live_sort_selecor);
-        ap.setBackgroundResource(this.fXE, R.drawable.ala_frs_game_live_sort_selecor);
-        ap.setBackgroundResource(this.fXF, R.color.cp_bg_line_c);
-        ap.setViewTextColor(this.fXD, (int) R.color.cp_cont_f);
-        ap.setViewTextColor(this.fXE, (int) R.color.cp_cont_f);
+    private void bIs() {
+        bKV();
+        ap.setBackgroundResource(this.fQj, R.drawable.bg_ala_frs_game_live_sort_panel);
+        ap.setBackgroundResource(this.gaR, R.drawable.ala_frs_game_live_sort_selecor);
+        ap.setBackgroundResource(this.gaS, R.drawable.ala_frs_game_live_sort_selecor);
+        ap.setBackgroundResource(this.gaT, R.color.cp_bg_line_c);
+        ap.setViewTextColor(this.gaR, R.color.cp_cont_f);
+        ap.setViewTextColor(this.gaS, R.color.cp_cont_f);
         int[] iArr = new int[2];
-        this.fXC.getLocationOnScreen(iArr);
-        int height = ((View) this.fXC.getParent()).getHeight() - this.fXC.getHeight();
-        if (iArr[1] - this.fMU.getHeight() <= 50) {
-            com.baidu.adp.lib.f.g.dismissPopupWindow(this.fMU, this.mPageContext.getPageActivity());
+        this.gaQ.getLocationOnScreen(iArr);
+        int height = ((View) this.gaQ.getParent()).getHeight() - this.gaQ.getHeight();
+        if (iArr[1] - this.fQi.getHeight() <= 50) {
+            com.baidu.adp.lib.f.g.dismissPopupWindow(this.fQi, this.mPageContext.getPageActivity());
             return;
         }
-        com.baidu.adp.lib.f.g.showPopupWindowAtLocation(this.fMU, this.rootView, 0, (iArr[0] - (this.fXC.getWidth() / 2)) - this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24), height + iArr[1] + this.fXC.getHeight());
-        this.fMU.update();
+        com.baidu.adp.lib.f.g.showPopupWindowAtLocation(this.fQi, this.rootView, 0, (iArr[0] - (this.gaQ.getWidth() / 2)) - this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24), height + iArr[1] + this.gaQ.getHeight());
+        this.fQi.update();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJM() {
+    public void bKW() {
     }
 
     public View getRootView() {
         return this.rootView;
     }
 
-    public BdTypeMultiColumnListView bJQ() {
-        return this.fXe;
+    public BdTypeMultiColumnListView bLa() {
+        return this.gas;
     }
 
     public void a(d dVar) {
-        this.fXy = dVar;
+        this.gaM = dVar;
     }
 
     public void completePullRefresh() {
-        this.fXe.completePullRefresh();
+        this.gas.completePullRefresh();
     }
 
-    private void bJR() {
-        if (this.fYg == null) {
-            this.fYg = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_recommand_header, (ViewGroup) null);
-            this.fXH = (TextView) this.fYg.findViewById(R.id.frs_game_live_recommand1);
-            this.fXI = (TextView) this.fYg.findViewById(R.id.frs_game_live_recommand2);
-            this.fXJ = (TextView) this.fYg.findViewById(R.id.frs_game_live_recommand3);
-            this.fXK = this.fYg.findViewById(R.id.frs_game_live_recommand_line1);
-            this.fXL = this.fYg.findViewById(R.id.frs_game_live_recommand_line2);
+    private void bLb() {
+        if (this.gbu == null) {
+            this.gbu = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_frs_game_live_recommand_header, (ViewGroup) null);
+            this.gaV = (TextView) this.gbu.findViewById(R.id.frs_game_live_recommand1);
+            this.gaW = (TextView) this.gbu.findViewById(R.id.frs_game_live_recommand2);
+            this.gaX = (TextView) this.gbu.findViewById(R.id.frs_game_live_recommand3);
+            this.gaY = this.gbu.findViewById(R.id.frs_game_live_recommand_line1);
+            this.gaZ = this.gbu.findViewById(R.id.frs_game_live_recommand_line2);
         }
-        bJJ();
+        bKT();
     }
 
-    private void bJJ() {
-        ap.setViewTextColor(this.fXH, (int) R.color.cp_cont_d);
-        ap.setViewTextColor(this.fXI, (int) R.color.cp_cont_d);
-        ap.setViewTextColor(this.fXJ, (int) R.color.cp_cont_d);
-        ap.setBackgroundResource(this.fXK, R.color.cp_bg_line_c);
-        ap.setBackgroundResource(this.fXL, R.color.cp_bg_line_c);
+    private void bKT() {
+        ap.setViewTextColor(this.gaV, R.color.cp_cont_d);
+        ap.setViewTextColor(this.gaW, R.color.cp_cont_d);
+        ap.setViewTextColor(this.gaX, R.color.cp_cont_d);
+        ap.setBackgroundResource(this.gaY, R.color.cp_bg_line_c);
+        ap.setBackgroundResource(this.gaZ, R.color.cp_bg_line_c);
     }
 
     public void d(List<q> list, boolean z, boolean z2) {
@@ -277,74 +276,74 @@ public class c {
             list = new LinkedList<>();
         }
         if (z2) {
-            bJR();
-            this.fMP.setVisibility(8);
-            if (this.fYg != null) {
-                this.fXe.removeHeaderView(this.fYg);
-                this.fXe.addHeaderView(this.fYg);
+            bLb();
+            this.fQd.setVisibility(8);
+            if (this.gbu != null) {
+                this.gas.removeHeaderView(this.gbu);
+                this.gas.addHeaderView(this.gbu);
             }
-            this.fYi.setDatas(list);
-            this.fXe.setNextPage(null);
+            this.gbw.setDatas(list);
+            this.gas.setNextPage(null);
             return;
         }
-        if (this.fYg != null) {
-            this.fXe.removeHeaderView(this.fYg);
+        if (this.gbu != null) {
+            this.gas.removeHeaderView(this.gbu);
         }
         if (list.size() == 0) {
-            this.fMP.setVisibility(8);
-            this.fYi.setDatas(list);
-            this.fXe.setNextPage(null);
+            this.fQd.setVisibility(8);
+            this.gbw.setDatas(list);
+            this.gas.setNextPage(null);
             return;
         }
-        this.fMP.setVisibility(0);
-        this.fYi.setDatas(list);
+        this.fQd.setVisibility(0);
+        this.gbw.setDatas(list);
         if (z) {
-            bJN();
+            bKX();
         } else {
-            bFS();
+            bHi();
         }
     }
 
-    public void bJN() {
-        if (this.fEa != null) {
-            if (this.fEa.getView().getParent() == null) {
-                this.fXe.setNextPage(this.fEa);
+    public void bKX() {
+        if (this.fHm != null) {
+            if (this.fHm.getView().getParent() == null) {
+                this.gas.setNextPage(this.fHm);
             }
-            this.fEa.setText(this.mPageContext.getResources().getString(R.string.load_more));
-            this.fEa.endLoadData();
+            this.fHm.setText(this.mPageContext.getResources().getString(R.string.load_more));
+            this.fHm.endLoadData();
         }
     }
 
-    public void bFS() {
-        if (this.fYh == null) {
-            this.fYh = new i(this.mPageContext.getPageActivity());
-            this.fYh.createView();
-            this.fYh.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.7
+    public void bHi() {
+        if (this.gbv == null) {
+            this.gbv = new i(this.mPageContext.getPageActivity());
+            this.gbv.createView();
+            this.gbv.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TiebaStatic.log(new aq("c12573").dD("fid", c.this.forumId));
+                    TiebaStatic.log(new aq("c12573").dF("fid", c.this.forumId));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(c.this.mPageContext.getPageActivity())));
                 }
             });
         }
-        if (this.fYh.getView().getParent() == null) {
-            this.fXe.setNextPage(this.fYh);
+        if (this.gbv.getView().getParent() == null) {
+            this.gas.setNextPage(this.gbv);
         }
     }
 
-    public void bFT() {
-        if (this.fEa != null) {
-            if (this.fEa.getView().getParent() == null) {
-                this.fXe.setNextPage(this.fEa);
+    public void bHj() {
+        if (this.fHm != null) {
+            if (this.fHm.getView().getParent() == null) {
+                this.gas.setNextPage(this.fHm);
             }
-            this.fEa.showLoadingViewWithoutEmptyView();
-            this.fEa.startLoadData();
+            this.fHm.showLoadingViewWithoutEmptyView();
+            this.fHm.startLoadData();
         }
     }
 
     public void setOnSrollToBottomListener(final BdMultiColumnListView.OnScrollToBottomListener onScrollToBottomListener) {
-        this.fXe.setOnSrollToBottomListener(onScrollToBottomListener);
-        this.fEa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.8
+        this.gas.setOnSrollToBottomListener(onScrollToBottomListener);
+        this.fHm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.c.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (onScrollToBottomListener != null) {
@@ -358,17 +357,17 @@ public class c {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void b(e eVar) {
-        this.fYi.b(eVar);
+    public void b(com.baidu.tieba.ala.f fVar) {
+        this.gbw.b(fVar);
     }
 
-    public NavigationBar bJI() {
+    public NavigationBar bKS() {
         return this.mNavigationBar;
     }
 
-    public void bGR() {
-        if (this.fXe != null && j.isNetWorkAvailable()) {
-            this.fXe.startPullRefresh();
+    public void bIh() {
+        if (this.gas != null && j.isNetWorkAvailable()) {
+            this.gas.startPullRefresh();
         }
     }
 }

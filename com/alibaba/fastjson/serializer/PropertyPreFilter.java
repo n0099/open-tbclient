@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface PropertyPreFilter extends SerializeFilter {
     boolean apply(JSONSerializer jSONSerializer, Object obj, String str);
 }

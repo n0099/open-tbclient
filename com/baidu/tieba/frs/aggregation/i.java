@@ -3,29 +3,29 @@ package com.baidu.tieba.frs.aggregation;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class i {
-    private VideoAggregationModel.a iaV = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a iia = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void e(List<g> list, boolean z, boolean z2) {
-            if (i.this.ibb != null) {
-                i.this.ibb.hideLoadingView();
+            if (i.this.iig != null) {
+                i.this.iig.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.ibb.d(list, z, z2);
+                i.this.iig.d(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void ue(String str) {
-            if (i.this.ibb != null) {
-                i.this.ibb.hideLoadingView();
-                i.this.ibb.showMsg(str);
-                i.this.ibb.amF();
+        public void ux(String str) {
+            if (i.this.iig != null) {
+                i.this.iig.hideLoadingView();
+                i.this.iig.showMsg(str);
+                i.this.iig.anp();
             }
         }
     };
-    private d ibb;
-    private VideoAggregationModel ibc;
+    private d iig;
+    private VideoAggregationModel iih;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.ibb = dVar;
-        this.ibc = new VideoAggregationModel(tbPageContext, this.iaV);
+        this.iig = dVar;
+        this.iih = new VideoAggregationModel(tbPageContext, this.iia);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.ibc != null) {
-            this.ibc.setId(this.mId);
+        if (this.iih != null) {
+            this.iih.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.ibc != null) {
-            this.ibc.setFrom(str);
+        if (this.iih != null) {
+            this.iih.setFrom(str);
         }
     }
 
-    public void Ix(String str) {
+    public void IU(String str) {
         this.st_type = str;
-        if (this.ibc != null) {
-            this.ibc.Ix(str);
+        if (this.iih != null) {
+            this.iih.IU(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.ibc != null) {
-            this.ibc.setLocation(str);
+        if (this.iih != null) {
+            this.iih.setLocation(str);
         }
     }
 
-    public void coU() {
-        if (this.ibc != null) {
-            this.ibc.coU();
+    public void csh() {
+        if (this.iih != null) {
+            this.iih.csh();
         }
     }
 
-    public void coW() {
-        if (this.ibc != null && this.mHasMore) {
-            this.ibc.LoadData();
+    public void csj() {
+        if (this.iih != null && this.mHasMore) {
+            this.iih.LoadData();
         }
     }
 
-    public void coV() {
-        if (this.ibc != null) {
-            this.ibc.cancelLoadData();
+    public void csi() {
+        if (this.iih != null) {
+            this.iih.cancelLoadData();
         }
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.square.message.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.square.message.ForumSquareSocketResponsedMessage;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ForumSquareStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumSquareActivityConfig.class, ForumSquareActivity.class);
-        cPj();
+        cSO();
     }
 
-    private static void cPj() {
+    private static void cSO() {
         com.baidu.tieba.tbadkCore.a.a.a(309653, ForumSquareSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309653, CmdConfigHttp.CMD_FORUM_SQUARE, TbConfig.URL_FORUM_SQUARE, ForumSquareHttpResponsedMessage.class, false, false, true, false);
     }

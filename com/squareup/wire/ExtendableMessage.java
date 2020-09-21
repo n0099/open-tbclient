@@ -4,7 +4,7 @@ import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes17.dex */
 public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends Message {
     transient ExtensionMap<T> extensionMap;
 
@@ -45,7 +45,7 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
         return this.extensionMap == null ? "{}" : this.extensionMap.toString();
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes17.dex */
     public static abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
         ExtensionMap<T> extensionMap;
 

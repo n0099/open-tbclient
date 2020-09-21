@@ -2,7 +2,7 @@ package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBRoutePlanListener;
 import com.baidu.mapapi.bikenavi.model.BikeRoutePlanError;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class c implements com.baidu.platform.comapi.wnplatform.j.c {
     final /* synthetic */ IBRoutePlanListener a;
     final /* synthetic */ a b;

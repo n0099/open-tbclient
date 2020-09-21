@@ -1,62 +1,62 @@
 package com.facebook.fresco.animation.d;
 
 import com.facebook.fresco.animation.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
-    private final d nrk;
-    private long nsc = -1;
+    private final d nBi;
+    private long nCa = -1;
 
     public a(d dVar) {
-        this.nrk = dVar;
+        this.nBi = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public int M(long j, long j2) {
-        if (!dRC() && j / dRB() >= this.nrk.getLoopCount()) {
+    public int J(long j, long j2) {
+        if (!dVA() && j / dVz() >= this.nBi.getLoopCount()) {
             return -1;
         }
-        return gw(j % dRB());
+        return gK(j % dVz());
     }
 
-    public long dRB() {
-        if (this.nsc != -1) {
-            return this.nsc;
+    public long dVz() {
+        if (this.nCa != -1) {
+            return this.nCa;
         }
-        this.nsc = 0L;
-        int frameCount = this.nrk.getFrameCount();
+        this.nCa = 0L;
+        int frameCount = this.nBi.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.nsc += this.nrk.Lu(i);
+            this.nCa += this.nBi.LZ(i);
         }
-        return this.nsc;
+        return this.nCa;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public long gv(long j) {
+    public long gJ(long j) {
         long j2 = 0;
-        long dRB = dRB();
-        if (dRB == 0) {
+        long dVz = dVz();
+        if (dVz == 0) {
             return -1L;
         }
-        if (dRC() || j / dRB() < this.nrk.getLoopCount()) {
-            long j3 = j % dRB;
-            int frameCount = this.nrk.getFrameCount();
+        if (dVA() || j / dVz() < this.nBi.getLoopCount()) {
+            long j3 = j % dVz;
+            int frameCount = this.nBi.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.nrk.Lu(i);
+                j2 += this.nBi.LZ(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dRC() {
-        return this.nrk.getLoopCount() == 0;
+    public boolean dVA() {
+        return this.nBi.getLoopCount() == 0;
     }
 
-    int gw(long j) {
+    int gK(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.nrk.Lu(i);
+            j2 += this.nBi.LZ(i);
             i++;
         } while (j >= j2);
         return i - 1;

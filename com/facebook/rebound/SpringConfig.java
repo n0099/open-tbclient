@@ -1,5 +1,5 @@
 package com.facebook.rebound;
-/* loaded from: classes4.dex */
+/* loaded from: classes17.dex */
 public class SpringConfig {
     public static SpringConfig defaultConfig = fromOrigamiTensionAndFriction(40.0d, 7.0d);
     public double friction;

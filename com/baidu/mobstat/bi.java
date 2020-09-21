@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class bi {
     private boolean a;
     private List<b> b = new ArrayList();
@@ -18,7 +18,7 @@ public class bi {
     private bk d;
     private boolean e;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(View view, boolean z);
     }
@@ -95,7 +95,7 @@ public class bi {
         return false;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public class b {
         public String a;
         public String b;
@@ -111,7 +111,7 @@ public class bi {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class c {
         public String a;
         public String b;

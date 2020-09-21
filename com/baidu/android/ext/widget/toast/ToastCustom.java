@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.toast.UniversalToast;
-/* loaded from: classes14.dex */
+import com.baidu.android.toast.R;
+/* loaded from: classes5.dex */
 public class ToastCustom {
     public static final int CLICKABLE_TOAST_SHOW_TIME = 3;
     public static final int NORMAL_TOAST_SHOW_TIME = 2;

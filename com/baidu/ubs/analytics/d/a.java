@@ -1,27 +1,27 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a {
     private static final String aP = Environment.getExternalStorageDirectory().getPath();
     static final String aQ = aP + "/baidu/ab/crash/";
     static final String aR = aP + "/baidu/ab/sdklog/";
     public static final String aS = aP + "/baidu/ab/sdkupdata/" + at() + "/";
-    private static int anf = EnumC0851a.aV;
+    private static int anH = EnumC0848a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class EnumC0851a {
+    /* loaded from: classes7.dex */
+    public static final class EnumC0848a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] aX = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean dMN() {
-        return anf == EnumC0851a.aV;
+    public static boolean dQL() {
+        return anH == EnumC0848a.aV;
     }
 
     public static String u() {

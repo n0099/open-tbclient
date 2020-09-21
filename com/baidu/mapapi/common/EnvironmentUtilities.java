@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidubce.services.bos.BosClientConfiguration;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class EnvironmentUtilities {
     static String a;
     static String b;

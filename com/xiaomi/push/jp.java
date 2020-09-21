@@ -3,22 +3,22 @@ package com.xiaomi.push;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class jp extends js {
     protected InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected OutputStream f783a;
+    protected OutputStream f782a;
 
     protected jp() {
         this.a = null;
-        this.f783a = null;
+        this.f782a = null;
     }
 
     public jp(OutputStream outputStream) {
         this.a = null;
-        this.f783a = null;
-        this.f783a = outputStream;
+        this.f782a = null;
+        this.f782a = outputStream;
     }
 
     @Override // com.xiaomi.push.js
@@ -39,11 +39,11 @@ public class jp extends js {
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f783a == null) {
+        if (this.f782a == null) {
             throw new jt(1, "Cannot write to null outputStream");
         }
         try {
-            this.f783a.write(bArr, i, i2);
+            this.f782a.write(bArr, i, i2);
         } catch (IOException e) {
             throw new jt(0, e);
         }

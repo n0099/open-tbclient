@@ -22,19 +22,19 @@ import tv.chushou.zues.widget.adapterview.loadmore.DefaultLoadMoreView;
 import tv.chushou.zues.widget.adapterview.recyclerview.c.a;
 /* loaded from: classes6.dex */
 public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements c {
-    private boolean fFn;
-    private float hFs;
+    private boolean fIz;
+    private float hMt;
     private RecyclerView.OnScrollListener mOnScrollListener;
-    private ExtendedRecyclerView oOe;
-    private View oOf;
-    private b oOg;
-    private boolean oOh;
-    private boolean oOi;
-    private int oOj;
-    private int oOk;
-    private f oOl;
-    private RecyclerView.OnScrollListener oOm;
-    private boolean oOn;
+    private ExtendedRecyclerView oXG;
+    private View oXH;
+    private b oXI;
+    private boolean oXJ;
+    private boolean oXK;
+    private int oXL;
+    private int oXM;
+    private f oXN;
+    private RecyclerView.OnScrollListener oXO;
+    private boolean oXP;
     private float startX;
     private float startY;
 
@@ -44,27 +44,27 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
 
     public SwipRefreshRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fFn = false;
-        this.oOh = true;
-        this.oOi = true;
-        this.oOj = 9;
-        this.oOk = 20;
+        this.fIz = false;
+        this.oXJ = true;
+        this.oXK = true;
+        this.oXL = 9;
+        this.oXM = 20;
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView.3
-            private int oOp = -1;
+            private int oXR = -1;
 
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 boolean z = false;
                 super.onScrolled(recyclerView, i, i2);
-                if (SwipRefreshRecyclerView.this.oOm != null) {
-                    SwipRefreshRecyclerView.this.oOm.onScrolled(recyclerView, i, i2);
+                if (SwipRefreshRecyclerView.this.oXO != null) {
+                    SwipRefreshRecyclerView.this.oXO.onScrolled(recyclerView, i, i2);
                 }
-                if (SwipRefreshRecyclerView.this.oOe.getLayoutManager() != null) {
-                    this.oOp = a.e(SwipRefreshRecyclerView.this.oOe.getLayoutManager());
+                if (SwipRefreshRecyclerView.this.oXG.getLayoutManager() != null) {
+                    this.oXR = a.e(SwipRefreshRecyclerView.this.oXG.getLayoutManager());
                     if (Build.VERSION.SDK_INT < 21) {
                         int top = (recyclerView == null || recyclerView.getChildCount() == 0) ? 0 : recyclerView.getChildAt(0).getTop();
                         SwipRefreshRecyclerView swipRefreshRecyclerView = SwipRefreshRecyclerView.this;
-                        if (top >= recyclerView.getPaddingTop() && SwipRefreshRecyclerView.this.oOi) {
+                        if (top >= recyclerView.getPaddingTop() && SwipRefreshRecyclerView.this.oXK) {
                             z = true;
                         }
                         swipRefreshRecyclerView.setEnabled(z);
@@ -81,158 +81,158 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
                 } else if (i == 2) {
                     tv.chushou.zues.widget.fresco.a.pause();
                 }
-                if (SwipRefreshRecyclerView.this.oOm != null) {
-                    SwipRefreshRecyclerView.this.oOm.onScrollStateChanged(recyclerView, i);
+                if (SwipRefreshRecyclerView.this.oXO != null) {
+                    SwipRefreshRecyclerView.this.oXO.onScrollStateChanged(recyclerView, i);
                 }
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 if (layoutManager != null && (adapter = recyclerView.getAdapter()) != null) {
                     int childCount = layoutManager.getChildCount();
                     int itemCount = layoutManager.getItemCount();
-                    if (childCount > 0 && i == 0 && this.oOp >= itemCount - 1 && SwipRefreshRecyclerView.this.oOn && !SwipRefreshRecyclerView.this.fFn && SwipRefreshRecyclerView.this.oOh && SwipRefreshRecyclerView.this.oOg != null && adapter.getItemCount() > SwipRefreshRecyclerView.this.oOj) {
-                        SwipRefreshRecyclerView.this.oOg.bFE();
-                        SwipRefreshRecyclerView.this.fFn = true;
+                    if (childCount > 0 && i == 0 && this.oXR >= itemCount - 1 && SwipRefreshRecyclerView.this.oXP && !SwipRefreshRecyclerView.this.fIz && SwipRefreshRecyclerView.this.oXJ && SwipRefreshRecyclerView.this.oXI != null && adapter.getItemCount() > SwipRefreshRecyclerView.this.oXL) {
+                        SwipRefreshRecyclerView.this.oXI.bGU();
+                        SwipRefreshRecyclerView.this.fIz = true;
                     }
                 }
             }
         };
-        this.oOe = new ExtendedRecyclerView(getContext(), attributeSet);
-        this.oOe.setId(b.e.zues_swiperefresh_recyclerview);
-        RecyclerView.ItemAnimator itemAnimator = this.oOe.getItemAnimator();
+        this.oXG = new ExtendedRecyclerView(getContext(), attributeSet);
+        this.oXG.setId(b.e.zues_swiperefresh_recyclerview);
+        RecyclerView.ItemAnimator itemAnimator = this.oXG.getItemAnimator();
         if (itemAnimator instanceof SimpleItemAnimator) {
             ((SimpleItemAnimator) itemAnimator).setSupportsChangeAnimations(false);
         }
-        this.oOe.setHasFixedSize(true);
-        addView(this.oOe, new ViewGroup.LayoutParams(-1, -1));
+        this.oXG.setHasFixedSize(true);
+        addView(this.oXG, new ViewGroup.LayoutParams(-1, -1));
         setColorSchemeResources(17170452, 17170459, 17170452, 17170459);
-        this.oOe.addOnScrollListener(this.mOnScrollListener);
+        this.oXG.addOnScrollListener(this.mOnScrollListener);
         super.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView.1
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
-                if (SwipRefreshRecyclerView.this.oOl != null) {
-                    SwipRefreshRecyclerView.this.oOh = true;
+                if (SwipRefreshRecyclerView.this.oXN != null) {
+                    SwipRefreshRecyclerView.this.oXJ = true;
                     tv.chushou.zues.widget.adapterview.recyclerview.a.b adapter = SwipRefreshRecyclerView.this.getAdapter();
                     if (adapter != null) {
-                        adapter.emA();
+                        adapter.eqy();
                     }
-                    SwipRefreshRecyclerView.this.oOl.onRefresh();
+                    SwipRefreshRecyclerView.this.oXN.onRefresh();
                 }
             }
         });
-        setEnabled(this.oOi);
+        setEnabled(this.oXK);
         if (Build.VERSION.SDK_INT < 21) {
             setCanChildScrollUpCallback(new CustomSwipeRefreshLayout.a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.view.SwipRefreshRecyclerView.2
                 @Override // tv.chushou.zues.widget.adapterview.CustomSwipeRefreshLayout.a
-                public boolean emy() {
-                    return SwipRefreshRecyclerView.this.oOe != null && SwipRefreshRecyclerView.this.oOe.getScrollY() > 0;
+                public boolean eqw() {
+                    return SwipRefreshRecyclerView.this.oXG != null && SwipRefreshRecyclerView.this.oXG.getScrollY() > 0;
                 }
             });
         }
-        this.hFs = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.hMt = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     public void setOnePageSize(int i) {
-        this.oOk = i;
+        this.oXM = i;
     }
 
     public ExtendedRecyclerView getInnerRecyclerView() {
-        return this.oOe;
+        return this.oXG;
     }
 
     public void setHasFixedSize(boolean z) {
-        this.oOe.setHasFixedSize(z);
+        this.oXG.setHasFixedSize(z);
     }
 
     public void setUpDefault() {
-        this.oOe.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.oOf = new DefaultLoadMoreView(getContext());
+        this.oXG.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.oXH = new DefaultLoadMoreView(getContext());
     }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
-        this.oOe.setAdapter(adapter);
-        if (this.oOg != null) {
-            this.oOe.setLoadMoreProvider(this);
+        this.oXG.setAdapter(adapter);
+        if (this.oXI != null) {
+            this.oXG.setLoadMoreProvider(this);
         }
     }
 
     public tv.chushou.zues.widget.adapterview.recyclerview.a.b getAdapter() {
-        return this.oOe.getAdapter();
+        return this.oXG.getAdapter();
     }
 
-    public boolean OK(int i) {
-        return this.oOe.OK(i);
+    public boolean Pp(int i) {
+        return this.oXG.Pp(i);
     }
 
     public int getHeaderViewCount() {
-        return this.oOe.getHeaderViewCount();
+        return this.oXG.getHeaderViewCount();
     }
 
-    public boolean OL(int i) {
-        return this.oOe.OL(i);
+    public boolean Pq(int i) {
+        return this.oXG.Pq(i);
     }
 
     public int getFooterViewCount() {
-        return this.oOe.getFooterViewCount();
+        return this.oXG.getFooterViewCount();
     }
 
     public void setEmptyView(@NonNull View view) {
-        this.oOe.setEmptyView(view);
+        this.oXG.setEmptyView(view);
     }
 
     @Nullable
     public View getEmptyView() {
-        return this.oOe.getEmptyView();
+        return this.oXG.getEmptyView();
     }
 
     public void setLoadMoreListener(tv.chushou.zues.widget.adapterview.b bVar) {
-        this.oOg = bVar;
+        this.oXI = bVar;
         if (getAdapter() != null) {
-            this.oOe.setLoadMoreProvider(this);
+            this.oXG.setLoadMoreProvider(this);
         }
     }
 
     public void setLoadMoreFooter(@NonNull View view) {
-        this.oOf = view;
+        this.oXH = view;
     }
 
-    public void emD() {
-        this.fFn = false;
+    public void eqB() {
+        this.fIz = false;
     }
 
     @Override // tv.chushou.zues.widget.adapterview.c
-    public void OG(int i) {
-        if (this.oOh && this.oOe.getAdapter() != null) {
-            if (this.oOf == null) {
-                this.oOf = new DefaultLoadMoreView(getContext());
+    public void Pl(int i) {
+        if (this.oXJ && this.oXG.getAdapter() != null) {
+            if (this.oXH == null) {
+                this.oXH = new DefaultLoadMoreView(getContext());
             }
-            if (i >= this.oOk) {
-                if (!this.oOe.dH(this.oOf)) {
-                    this.oOe.addFooterView(this.oOf, 0);
+            if (i >= this.oXM) {
+                if (!this.oXG.dQ(this.oXH)) {
+                    this.oXG.addFooterView(this.oXH, 0);
                 }
-            } else if (this.oOe.dH(this.oOf)) {
-                this.oOe.dF(this.oOf);
+            } else if (this.oXG.dQ(this.oXH)) {
+                this.oXG.dO(this.oXH);
             }
-            this.fFn = false;
+            this.fIz = false;
         }
     }
 
     @Override // tv.chushou.zues.widget.adapterview.c
-    public boolean emz() {
-        if (this.oOf == null) {
-            this.oOf = new DefaultLoadMoreView(getContext());
+    public boolean eqx() {
+        if (this.oXH == null) {
+            this.oXH = new DefaultLoadMoreView(getContext());
         }
-        return this.oOe.dH(this.oOf);
+        return this.oXG.dQ(this.oXH);
     }
 
     public void setHasMoreItems(boolean z) {
-        this.oOh = z;
-        if (!z && this.oOe.dH(this.oOf)) {
-            this.oOe.dF(this.oOf);
+        this.oXJ = z;
+        if (!z && this.oXG.dQ(this.oXH)) {
+            this.oXG.dO(this.oXH);
         }
     }
 
     public void setPullToRefreshEnabled(boolean z) {
-        this.oOi = z;
-        setEnabled(this.oOi);
+        this.oXK = z;
+        setEnabled(this.oXK);
     }
 
     public void completeRefresh() {
@@ -240,7 +240,7 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
     }
 
     public void setPullToRefreshListener(f fVar) {
-        this.oOl = fVar;
+        this.oXN = fVar;
     }
 
     @Override // android.support.v4.widget.SwipeRefreshLayout
@@ -250,30 +250,30 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
     }
 
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
-        this.oOe.setLayoutManager(layoutManager);
+        this.oXG.setLayoutManager(layoutManager);
     }
 
     public RecyclerView.LayoutManager getLayoutManager() {
-        return this.oOe.getLayoutManager();
+        return this.oXG.getLayoutManager();
     }
 
     public void addItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
-        this.oOe.addItemDecoration(itemDecoration);
+        this.oXG.addItemDecoration(itemDecoration);
     }
 
     public void scrollToPosition(int i) {
-        this.oOe.scrollToPosition(i);
+        this.oXG.scrollToPosition(i);
     }
 
     public void setItemDecration(RecyclerView.ItemDecoration itemDecoration) {
-        this.oOe.addItemDecoration(itemDecoration);
+        this.oXG.addItemDecoration(itemDecoration);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.oOn = false;
+                this.oXP = false;
                 this.startY = motionEvent.getY();
                 this.startX = motionEvent.getX();
                 break;
@@ -281,11 +281,11 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
                 float y = motionEvent.getY();
                 float abs = Math.abs(y - this.startY);
                 float f = y - this.startY;
-                if (abs > this.hFs && f < 0.0f) {
-                    this.oOn = true;
+                if (abs > this.hMt && f < 0.0f) {
+                    this.oXP = true;
                     break;
                 } else {
-                    this.oOn = false;
+                    this.oXP = false;
                     break;
                 }
         }
@@ -293,6 +293,6 @@ public class SwipRefreshRecyclerView extends CustomSwipeRefreshLayout implements
     }
 
     public void setSmallPageSize(int i) {
-        this.oOj = i;
+        this.oXL = i;
     }
 }

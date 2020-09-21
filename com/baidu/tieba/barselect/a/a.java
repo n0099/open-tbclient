@@ -1,8 +1,8 @@
 package com.baidu.tieba.barselect.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
-    public static int hga = 1;
-    public static int hgb = 2;
-    public static int hgc = 3;
-    public static int hgd = 4;
+    public static int hnb = 1;
+    public static int hnc = 2;
+    public static int hnd = 3;
+    public static int hne = 4;
 }

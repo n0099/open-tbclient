@@ -12,30 +12,30 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0731a {
-        public String jOu;
-        public Rect jOv;
+    public static class C0728a {
+        public Rect bry;
+        public String jWX;
+        public Rect jWY;
         public String picUrl;
-        public Rect rect;
 
-        public C0731a() {
+        public C0728a() {
             this.picUrl = "";
-            this.rect = new Rect(0, 0, 0, 0);
-            this.jOu = "";
-            this.jOv = new Rect(0, 0, 0, 0);
+            this.bry = new Rect(0, 0, 0, 0);
+            this.jWX = "";
+            this.jWY = new Rect(0, 0, 0, 0);
         }
 
-        private C0731a(JSONObject jSONObject) {
+        private C0728a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
-            this.rect = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+            this.bry = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
 
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
+            return (TextUtils.isEmpty(this.picUrl) || this.bry.isEmpty()) ? false : true;
         }
 
-        public boolean cLZ() {
-            return (TextUtils.isEmpty(this.jOu) || this.jOv.isEmpty()) ? false : true;
+        public boolean cPF() {
+            return (TextUtils.isEmpty(this.jWX) || this.jWY.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -45,29 +45,29 @@ public interface a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("pic_url", this.picUrl);
-                jSONObject.put("rect_left", this.rect.left);
-                jSONObject.put("rect_top", this.rect.top);
-                jSONObject.put("rect_right", this.rect.right);
-                jSONObject.put("rect_bottom", this.rect.bottom);
+                jSONObject.put("rect_left", this.bry.left);
+                jSONObject.put("rect_top", this.bry.top);
+                jSONObject.put("rect_right", this.bry.right);
+                jSONObject.put("rect_bottom", this.bry.bottom);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             return jSONObject.toString();
         }
 
-        public static C0731a LF(String str) {
+        public static C0728a Mh(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0731a();
+                return new C0728a();
             }
             try {
-                return new C0731a(new JSONObject(str));
+                return new C0728a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0731a();
+                return new C0728a();
             }
         }
 
-        public void LG(String str) {
+        public void Mi(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.jOu = jSONObject.optString("pic_url");
-                                this.jOv = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.jWX = jSONObject.optString("pic_url");
+                                this.jWY = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

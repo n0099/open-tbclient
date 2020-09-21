@@ -1,239 +1,423 @@
 package com.baidu.tieba.ala.view;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Color;
-import android.text.SpannableStringBuilder;
+import android.os.Handler;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.IMConnection;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.data.u;
+import com.baidu.live.data.z;
 import com.baidu.live.sdk.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.live.tbadk.core.util.StringHelper;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.tbadk.statics.SdkStaticKeys;
-import com.baidu.live.tbadk.util.TextHelper;
-import com.baidu.tieba.ala.data.o;
-import com.baidu.tieba.ala.view.f;
-/* loaded from: classes7.dex */
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.widget.TbImageView;
+import java.util.HashMap;
+/* loaded from: classes4.dex */
 public class c {
-    private View contentView;
-    private f.a fWW;
-    private String fvI;
-    private boolean fvJ;
-    private TextView gVX;
-    private TextView gZZ;
-    private HeadImageView haa;
-    private TextView hab;
-    private TextView hac;
-    private TextView had;
-    private TextView hae;
+    private String aEb;
+    private z aFI;
+    private String dHt;
+    private TbImageView hdZ;
+    private LinearLayout hea;
+    private LinearLayout heb;
+    private TextView hec;
+    private ViewGroup hed;
+    private TbImageView hee;
+    private TextView hef;
+    private int heg;
+    private AnimatorSet heh;
+    private AnimatorSet hei;
+    private AnimatorSet hej;
+    private AnimatorSet hek;
+    private ObjectAnimator hel;
+    private AnimatorSet hem;
+    private int hen;
+    private boolean heo;
+    private boolean heq;
+    private long liveId;
     private Context mContext;
     private View mRootView;
+    private Handler mHandler = new Handler();
+    private boolean hep = true;
+    private Runnable her = new Runnable() { // from class: com.baidu.tieba.ala.view.c.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (c.this.hep) {
+                if (c.this.mRootView == null || c.this.mRootView.getParent() != null) {
+                    c.this.ccB();
+                }
+            }
+        }
+    };
 
-    public c(Context context, String str, boolean z) {
+    public c(Context context) {
         this.mContext = context;
-        this.fvI = str;
-        this.fvJ = z;
         initView();
     }
 
     private void initView() {
-        if ("hot".equals(this.fvI) || SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.fvI) || "hour".equals(this.fvI) || "charm_day".equals(this.fvI)) {
-            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_hot_bottom_layout, (ViewGroup) null);
-            this.contentView = this.mRootView.findViewById(a.g.content_view);
-            EF();
-            this.gZZ = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_user_rank);
-            this.haa = (HeadImageView) this.mRootView.findViewById(a.g.ala_rank_list_user_header);
-            this.gVX = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_user_name);
-            this.hab = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_info);
-            this.hac = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_info_extra);
-            this.hae = (TextView) this.mRootView.findViewById(a.g.rank_list_charm_right);
-            this.had = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_support);
-            if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.had.setBackgroundResource(a.f.hk_ala_rank_list_support_bg);
-            } else {
-                this.had.setBackgroundResource(a.f.qm_hour_rank_list_support_bg);
+        this.mRootView = View.inflate(this.mContext, a.h.ala_pk_rank_level_view, null);
+        this.hdZ = (TbImageView) this.mRootView.findViewById(a.g.alaPkLevel);
+        this.hed = (ViewGroup) this.mRootView.findViewById(a.g.ll_kingStar_container);
+        this.hee = (TbImageView) this.mRootView.findViewById(a.g.kingstar_icon);
+        this.hef = (TextView) this.mRootView.findViewById(a.g.kingstar_msg);
+        this.hea = (LinearLayout) this.mRootView.findViewById(a.g.alaPkLevelStar);
+        this.heb = (LinearLayout) this.mRootView.findViewById(a.g.integralToast);
+        this.hec = (TextView) this.mRootView.findViewById(a.g.textInfo);
+        this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                c.this.bY(view);
             }
-            this.had.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (c.this.fWW != null) {
-                        c.this.fWW.g(view, c.this.fvI);
-                    }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bY(View view) {
+        if (!TextUtils.isEmpty(this.aEb)) {
+            com.baidu.live.ae.c cVar = new com.baidu.live.ae.c();
+            cVar.url = this.aEb;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
+        }
+    }
+
+    public void setId(int i) {
+        this.mRootView.setId(i);
+    }
+
+    public void F(u uVar) {
+        if (uVar != null && uVar.aFf != null && uVar.aFf.aFI != null && !G(uVar)) {
+            cancelAnimation();
+            if (uVar.mLiveInfo != null) {
+                this.liveId = uVar.mLiveInfo.live_id;
+            }
+            this.aFI = uVar.aFf.aFI;
+            H(uVar);
+            this.dHt = uVar.aFf.msg;
+            this.heq = uVar.aFf.CQ();
+            if (this.heq) {
+                this.hep = false;
+                com.baidu.live.data.k kVar = uVar.aFf.aFH;
+                if (kVar != null) {
+                    this.hee.startLoad(kVar.iconUrl, 10, false);
+                    this.hef.setText(kVar.msg);
+                    ccz();
+                    return;
                 }
-            });
-        } else if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.fvI) || SdkStaticKeys.RANK_TYPE_CHARM.equals(this.fvI) || "rich".equals(this.fvI)) {
-            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_bottom_view, (ViewGroup) null);
-            this.gZZ = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_user_rank);
-            this.haa = (HeadImageView) this.mRootView.findViewById(a.g.ala_rank_list_user_header);
-            this.gVX = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_user_name);
-            this.hab = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_info);
-            this.had = (TextView) this.mRootView.findViewById(a.g.ala_rank_list_support);
-            if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.had.setBackgroundResource(a.f.hk_ala_rank_list_support_bg);
-            } else {
-                this.had.setBackgroundResource(a.f.qm_ala_rank_list_support_bg);
+                ccy();
+                ccA();
+                return;
             }
-            if (SdkStaticKeys.RANK_TYPE_CHARM.equals(this.fvI) && this.fvJ) {
-                this.had.setVisibility(8);
-            } else {
-                this.had.setVisibility(0);
+            ccy();
+            ccA();
+            this.hep = TextUtils.isEmpty(this.dHt) ? false : true;
+            if (this.hep) {
+                this.mHandler.removeCallbacks(this.her);
+                this.mHandler.postDelayed(this.her, 9000L);
             }
-            this.had.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.c.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (c.this.fWW != null) {
-                        c.this.fWW.g(view, c.this.fvI);
+        }
+    }
+
+    private boolean G(u uVar) {
+        return this.aFI != null && uVar.mLiveInfo != null && this.liveId == uVar.mLiveInfo.live_id && this.aFI.aFE == uVar.aFf.aFI.aFE && TextUtils.equals(this.aFI.division, uVar.aFf.aFI.division) && TextUtils.equals(this.dHt, uVar.aFf.msg) && this.aFI.maxStar == uVar.aFf.aFI.maxStar && this.heq == uVar.aFf.CQ();
+    }
+
+    private void ccy() {
+        this.hed.setVisibility(8);
+        this.hdZ.setVisibility(0);
+        this.hea.setVisibility(0);
+    }
+
+    private void ccz() {
+        this.hed.setVisibility(0);
+        this.hdZ.setVisibility(4);
+        this.heb.setVisibility(4);
+        this.hea.setVisibility(4);
+    }
+
+    private void H(u uVar) {
+        long j;
+        long j2;
+        long j3;
+        if (uVar.mLiveInfo == null || uVar.aEz == null) {
+            j = 0;
+            j2 = 0;
+            j3 = 0;
+        } else {
+            long j4 = uVar.aEz.userId;
+            long j5 = uVar.mLiveInfo.room_id;
+            j = uVar.mLiveInfo.live_id;
+            j2 = j5;
+            j3 = j4;
+        }
+        long j6 = uVar.aFb != null ? uVar.aFb.userId : 0L;
+        HashMap hashMap = new HashMap(2);
+        hashMap.put("pk_anchor_id", ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)));
+        this.aEb = com.baidu.live.utils.b.a(1, uVar.aFf.aEb, uVar.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(j6)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3)), String.valueOf(j2), String.valueOf(j), hashMap);
+    }
+
+    private void ccA() {
+        if (this.aFI != null && !TextUtils.isEmpty(this.aFI.division) && this.aFI.aFE > 0 && this.aFI.maxStar > 0) {
+            int i = this.aFI.maxStar - this.aFI.aFE;
+            this.hdZ.startLoad(this.aFI.iconUrl, 10, false);
+            bS(this.aFI.aFE, i);
+        }
+    }
+
+    private void bS(int i, int i2) {
+        int i3;
+        int i4;
+        if (this.hea != null && this.heb != null) {
+            this.hea.removeAllViews();
+            this.hea.setVisibility(0);
+            this.heb.setVisibility(4);
+            if (i + i2 <= 4) {
+                i4 = a.e.sdk_ds5;
+                i3 = a.e.sdk_ds28;
+            } else {
+                i3 = a.e.sdk_ds22;
+                i4 = a.e.sdk_ds3;
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(this.mContext, i3), BdUtilHelper.getDimens(this.mContext, i3));
+            layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, i4);
+            layoutParams.gravity = 16;
+            for (int i5 = 0; i5 < i; i5++) {
+                this.hea.addView(getSolidStarView(), layoutParams);
+            }
+            for (int i6 = 0; i6 < i2; i6++) {
+                this.hea.addView(getBlankStarView(), layoutParams);
+            }
+            this.hec.setText(this.dHt);
+            this.hen = BdUtilHelper.getTextWidth(this.hec.getPaint(), this.dHt);
+            ViewGroup.LayoutParams layoutParams2 = this.hec.getLayoutParams();
+            if (layoutParams2 != null) {
+                layoutParams2.width = this.hen;
+                this.hec.setLayoutParams(layoutParams2);
+            }
+            this.hec.setTranslationX(0.0f);
+            this.hea.setTranslationY(0.0f);
+            this.heb.setTranslationY(0.0f);
+            this.hea.setAlpha(1.0f);
+            this.hea.setVisibility(0);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ccB() {
+        this.heo = true;
+        ccH();
+        ccI();
+        ccG();
+        ccE();
+        ccD();
+        this.hem = new AnimatorSet();
+        this.hem.play(this.hej).before(this.hek);
+        this.hem.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.4
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                super.onAnimationEnd(animator);
+                c.this.hem.removeAllListeners();
+                c.this.hem.cancel();
+                c.this.ccC();
+            }
+        });
+        this.hem.start();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ccC() {
+        this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if (c.this.heo && c.this.hel != null) {
+                    c.this.hel.start();
+                }
+            }
+        }, 300L);
+    }
+
+    private void ccD() {
+        if (this.hei == null) {
+            this.hei = ca(this.hea);
+            this.hei.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.6
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    super.onAnimationStart(animator);
+                    c.this.hea.setVisibility(0);
+                }
+
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    super.onAnimationEnd(animator);
+                    if (c.this.heo) {
+                        c.this.heo = false;
+                        c.this.mHandler.postDelayed(c.this.her, 9000L);
                     }
                 }
             });
         }
-        if (this.haa != null) {
-            this.haa.setIsRound(true);
-            this.haa.setAutoChangeStyle(false);
+    }
+
+    private void ccE() {
+        if (this.heb != null && this.heh == null) {
+            this.heh = bZ(this.heb);
+            this.heh.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.7
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    super.onAnimationEnd(animator);
+                    c.this.heb.setVisibility(4);
+                    c.this.hec.setTranslationX(0.0f);
+                    c.this.ccF();
+                }
+            });
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ccF() {
+        if (this.heo && this.hei != null) {
+            this.hei.start();
+        }
+    }
+
+    private void ccG() {
+        if (this.heb != null) {
+            this.heg = this.heb.getWidth();
+            this.hel = ObjectAnimator.ofFloat(this.hec, "translationX", 0.0f, -(this.hen - this.heg));
+            this.hel.setDuration(IMConnection.RETRY_DELAY_TIMES);
+            this.hel.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.8
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    super.onAnimationEnd(animator);
+                    c.this.ccJ();
+                }
+            });
+        }
+    }
+
+    private void ccH() {
+        if (this.hej == null) {
+            this.hej = bZ(this.hea);
+        }
+    }
+
+    private void ccI() {
+        if (this.hek == null) {
+            this.hek = ca(this.heb);
+            this.hek.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.9
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator) {
+                    super.onAnimationStart(animator);
+                    c.this.heb.setVisibility(0);
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ccJ() {
+        if (this.heo) {
+            this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.c.10
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (c.this.heo && c.this.heh != null) {
+                        c.this.heh.start();
+                    }
+                }
+            }, 7000L);
+        }
+    }
+
+    private AnimatorSet bZ(final View view) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", 0.0f, -BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds12));
+        ofFloat.setDuration(625L);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f);
+        ofFloat2.setDuration(625L);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(ofFloat).with(ofFloat2);
+        animatorSet.setInterpolator(new DecelerateInterpolator());
+        animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.c.2
+            @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                super.onAnimationEnd(animator);
+                view.setVisibility(4);
+                view.setAlpha(1.0f);
+                view.setTranslationY(0.0f);
+            }
+        });
+        return animatorSet;
+    }
+
+    private AnimatorSet ca(View view) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationY", BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds12), 0.0f);
+        ofFloat.setDuration(625L);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f);
+        ofFloat2.setDuration(625L);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(ofFloat).with(ofFloat2);
+        animatorSet.setInterpolator(new DecelerateInterpolator());
+        return animatorSet;
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public void a(f.a aVar) {
-        this.fWW = aVar;
+    private View getSolidStarView() {
+        ImageView imageView = new ImageView(this.mContext);
+        imageView.setImageResource(a.f.ala_icon_five_pointed_star);
+        return imageView;
     }
 
-    private void a(o oVar) {
-        if (oVar != null) {
-            if (this.fvJ) {
-                this.had.setVisibility(8);
-                if (oVar.fVl) {
-                    this.hae.setVisibility(0);
-                    this.hae.setText(String.format(this.mContext.getString(a.i.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(oVar.fVf)));
-                    return;
-                }
-                this.hae.setVisibility(8);
-            } else if (oVar.fVl) {
-                this.had.setVisibility(8);
-                this.hae.setVisibility(0);
-                this.hae.setText(String.format(this.mContext.getString(a.i.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(oVar.fVf)));
-            } else {
-                this.had.setVisibility(0);
-                this.hae.setVisibility(8);
+    private View getBlankStarView() {
+        ImageView imageView = new ImageView(this.mContext);
+        imageView.setImageResource(a.f.ala_icon_blank_five_pointed_star);
+        return imageView;
+    }
+
+    private void cancelAnimation() {
+        if (this.heo) {
+            this.heo = false;
+            if (this.heh != null) {
+                this.heh.cancel();
             }
+            if (this.hei != null) {
+                this.hei.cancel();
+            }
+            if (this.hej != null) {
+                this.hej.cancel();
+            }
+            if (this.hek != null) {
+                this.hek.cancel();
+            }
+            if (this.hel != null) {
+                this.hel.cancel();
+            }
+            if (this.hem != null) {
+                this.hem.cancel();
+            }
+            this.mHandler.removeCallbacksAndMessages(null);
         }
     }
 
-    public void b(o oVar) {
-        int i = 10;
-        if (oVar != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (TextUtils.equals(this.fvI, "hour")) {
-                if (oVar.fVe <= 0) {
-                    this.gZZ.setText(this.mContext.getString(a.i.ala_rank_list_no_level));
-                    this.gZZ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize28));
-                    this.gZZ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_color_ff1e66));
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gZZ.getLayoutParams();
-                    layoutParams.rightMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds30);
-                    layoutParams.leftMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds34);
-                    this.gZZ.setLayoutParams(layoutParams);
-                    spannableStringBuilder.append((CharSequence) this.mContext.getString(a.i.bottom_rank_list_no_money));
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
-                } else {
-                    this.gZZ.setText(String.valueOf(oVar.fVe));
-                    this.gZZ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize34));
-                    this.gZZ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_d));
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gZZ.getLayoutParams();
-                    layoutParams2.rightMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds28);
-                    layoutParams2.leftMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds34);
-                    this.gZZ.setLayoutParams(layoutParams2);
-                    if (oVar.fVe == 1) {
-                        String format = String.format(this.mContext.getString(a.i.bottom_rank_list_1), StringHelper.formatForHourRankValue(oVar.fVf - oVar.fVh) + "");
-                        spannableStringBuilder.append((CharSequence) format);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format.length(), 34);
-                    } else if (oVar.fVe >= 2 && oVar.fVe <= 10) {
-                        String str = StringHelper.formatForHourRankValue((oVar.fVg - oVar.fVf) + 1) + "";
-                        spannableStringBuilder.append((CharSequence) String.format(this.mContext.getString(a.i.bottom_rank_list_in), str));
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str.length() + 4, 34);
-                    } else if (oVar.fVe > 10) {
-                        String format2 = String.format(this.mContext.getString(a.i.bottom_rank_list_out), "10", StringHelper.formatForHourRankValue(oVar.fVj - oVar.fVf) + "");
-                        spannableStringBuilder.append((CharSequence) format2);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), "10".length() + 4, format2.length(), 34);
-                    }
-                }
-            } else if (TextUtils.equals(this.fvI, "charm_day")) {
-                if (oVar.fVe <= 0 || oVar.fVe > 100) {
-                    this.gZZ.setText(this.mContext.getString(a.i.ala_rank_list_no_level));
-                    this.gZZ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize28));
-                    this.gZZ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_color_ff1e66));
-                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gZZ.getLayoutParams();
-                    layoutParams3.rightMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds30);
-                    layoutParams3.leftMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds34);
-                    this.gZZ.setLayoutParams(layoutParams3);
-                    if (oVar.fVf <= 0) {
-                        spannableStringBuilder.append((CharSequence) this.mContext.getString(a.i.bottom_rank_list_no_money));
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
-                    } else {
-                        String format3 = String.format(this.mContext.getString(a.i.bottom_rank_list_out), "100", StringHelper.formatForHourRankValue(oVar.fVj - oVar.fVf) + "");
-                        spannableStringBuilder.append((CharSequence) format3);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), "100".length() + 4, format3.length(), 34);
-                    }
-                } else {
-                    this.gZZ.setText(String.valueOf(oVar.fVe));
-                    this.gZZ.setTextSize(0, this.mContext.getResources().getDimension(a.e.sdk_fontsize34));
-                    this.gZZ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_d));
-                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.gZZ.getLayoutParams();
-                    layoutParams4.rightMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds28);
-                    layoutParams4.leftMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds34);
-                    this.gZZ.setLayoutParams(layoutParams4);
-                    if (oVar.fVe == 1) {
-                        String format4 = String.format(this.mContext.getString(a.i.bottom_rank_list_1), StringHelper.formatForHourRankValue(oVar.fVf - oVar.fVh) + "");
-                        spannableStringBuilder.append((CharSequence) format4);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 6, format4.length(), 34);
-                    } else {
-                        String str2 = StringHelper.formatForHourRankValue((oVar.fVg - oVar.fVf) + 1) + "";
-                        spannableStringBuilder.append((CharSequence) String.format(this.mContext.getString(a.i.bottom_rank_list_in), str2));
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, str2.length() + 4, 34);
-                    }
-                }
-            }
-            if (this.hac != null) {
-                if ((oVar.fVe == 1 && oVar.bJg()) || oVar.fVl) {
-                    this.hac.setVisibility(8);
-                } else {
-                    this.hac.setVisibility(0);
-                    this.hac.setText(spannableStringBuilder);
-                }
-            }
-            if (!StringUtils.isNull(oVar.fVi)) {
-                this.haa.startLoad(oVar.fVi, 12, false);
-            }
-            if (!StringUtils.isNull(oVar.getNameShow())) {
-                String nameShow = oVar.getNameShow();
-                int textLengthWithEmoji = TextHelper.getTextLengthWithEmoji(oVar.getNameShow());
-                i = (this.hab == null || StringUtils.isNull(this.hab.getText().toString().trim())) ? 16 : 16;
-                if (textLengthWithEmoji > i) {
-                    nameShow = String.format(this.mContext.getString(a.i.ala_rank_list_user_name_limit), TextHelper.subStringWithEmoji(oVar.getNameShow(), i));
-                }
-                this.gVX.setText(nameShow);
-            }
-            a(oVar);
-        }
+    public void IT() {
+        this.aFI = null;
+        this.liveId = 0L;
+        cancelAnimation();
     }
 
-    public void EF() {
-        if (this.contentView != null) {
-            if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                this.contentView.setBackgroundResource(a.f.ala_rank_list_bottom_view_corner_bg);
-            } else {
-                this.contentView.setBackgroundColor(this.mContext.getResources().getColor(a.d.ala_rank_list_bottom_bg_color));
-            }
-        }
+    public void onDestroy() {
+        cancelAnimation();
     }
 }

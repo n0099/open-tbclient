@@ -10,16 +10,16 @@ import com.xiaomi.push.hw;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.il;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c implements eu {
     @Override // com.xiaomi.push.eu
     public void a(Context context, HashMap<String, String> hashMap) {
         il ilVar = new il();
         ilVar.b(eq.a(context).m269a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f477a);
+        ilVar.c(hw.AwakeAppResponse.f476a);
         ilVar.a(com.xiaomi.push.service.an.a());
-        ilVar.f618a = hashMap;
+        ilVar.f617a = hashMap;
         aq.a(context).a((aq) ilVar, hm.Notification, true, (hz) null, true);
         com.xiaomi.channel.commonutils.logger.b.m54a("MoleInfo：\u3000send data in app layer");
     }

@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class m extends a<PointF, PointF> {
     private final PointF DC;
     private final a<Float, Float> DJ;
@@ -25,7 +25,7 @@ public class m extends a<PointF, PointF> {
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).iR();
+                this.listeners.get(i2).iS();
                 i = i2 + 1;
             } else {
                 return;
@@ -35,7 +35,7 @@ public class m extends a<PointF, PointF> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.a.b.a
-    /* renamed from: jo */
+    /* renamed from: jp */
     public PointF getValue() {
         return a(null, 0.0f);
     }

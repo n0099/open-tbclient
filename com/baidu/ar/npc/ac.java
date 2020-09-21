@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.BaiduArView;
 import java.util.Calendar;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class ac implements Runnable {
     final /* synthetic */ MotionEvent a;
     final /* synthetic */ MotionEvent b;

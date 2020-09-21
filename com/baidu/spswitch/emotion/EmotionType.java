@@ -1,5 +1,5 @@
 package com.baidu.spswitch.emotion;
-/* loaded from: classes9.dex */
+/* loaded from: classes24.dex */
 public enum EmotionType {
     EMOTION_CLASSIC_TYPE
 }

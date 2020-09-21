@@ -1,5 +1,5 @@
 package com.google.protobuf.micro;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class WireFormatMicro {
     static final int MESSAGE_SET_ITEM = 1;
     static final int MESSAGE_SET_MESSAGE = 3;

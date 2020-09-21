@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e implements b {
     private final com.airbnb.lottie.model.a.d EG;
     private final GradientType EM;
@@ -38,48 +38,48 @@ public class e implements b {
         return this.name;
     }
 
-    public GradientType jN() {
+    public GradientType jO() {
         return this.EM;
     }
 
-    public com.airbnb.lottie.model.a.c jP() {
+    public com.airbnb.lottie.model.a.c jQ() {
         return this.EO;
     }
 
-    public com.airbnb.lottie.model.a.d jH() {
+    public com.airbnb.lottie.model.a.d jI() {
         return this.EG;
     }
 
-    public com.airbnb.lottie.model.a.f jQ() {
+    public com.airbnb.lottie.model.a.f jR() {
         return this.EP;
     }
 
-    public com.airbnb.lottie.model.a.f jR() {
+    public com.airbnb.lottie.model.a.f jS() {
         return this.ER;
     }
 
-    public com.airbnb.lottie.model.a.b jS() {
+    public com.airbnb.lottie.model.a.b jT() {
         return this.EU;
     }
 
-    public ShapeStroke.LineCapType jT() {
+    public ShapeStroke.LineCapType jU() {
         return this.EV;
     }
 
-    public ShapeStroke.LineJoinType jU() {
+    public ShapeStroke.LineJoinType jV() {
         return this.EW;
     }
 
-    public List<com.airbnb.lottie.model.a.b> jV() {
+    public List<com.airbnb.lottie.model.a.b> jW() {
         return this.EY;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.b jW() {
+    public com.airbnb.lottie.model.a.b jX() {
         return this.EZ;
     }
 
-    public float jX() {
+    public float jY() {
         return this.EX;
     }
 

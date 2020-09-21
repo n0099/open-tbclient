@@ -30,63 +30,63 @@ import com.baidu.tieba.write.video.AlbumVideoCompressingDialogView;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class j implements Handler.Callback, com.baidu.tieba.video.d {
-    private BaseFragmentActivity hwW;
-    private String iwx;
+    private BaseFragmentActivity hEa;
+    private String iDT;
+    private String mFg;
     private String mForumId;
     private String mForumName;
     private String mFrom;
+    private final CustomMessageListener mIJ;
     private Handler mMainThreadHandler;
-    private FrsTabInfoData mNM;
-    private VideoFileInfo mOF;
-    private String mOG;
-    private AlbumVideoCompressingDialogView mOH;
-    private VideoConvertUtil mOI;
-    private boolean mOJ;
-    private com.baidu.tieba.k.h mgu;
-    private String mvu;
-    private final CustomMessageListener myT;
-    private boolean myK = false;
-    private boolean myL = false;
-    private boolean myM = false;
+    private FrsTabInfoData mXJ;
+    private VideoFileInfo mYC;
+    private String mYD;
+    private AlbumVideoCompressingDialogView mYE;
+    private VideoConvertUtil mYF;
+    private boolean mYG;
+    private com.baidu.tieba.k.h mpU;
+    private boolean mIz = false;
+    private boolean mIA = false;
+    private boolean mIB = false;
     private PostPrefixData prefixData = null;
     private AntiData antiData = null;
     private String firstDir = "";
     private String secondDir = "";
-    private int mOK = -1;
+    private int mYH = -1;
 
     public j(BaseFragmentActivity baseFragmentActivity, String str, String str2, String str3) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.mgu = lVar.cRu();
+            this.mpU = lVar.cVa();
         }
-        if (this.mgu != null) {
-            this.mgu.cRd();
+        if (this.mpU != null) {
+            this.mpU.cUJ();
         }
-        this.myT = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.write.album.j.2
+        this.mIJ = new CustomMessageListener(CmdConfigCustom.CMD_VIDEO_WRITE_POST_SUCCESS) { // from class: com.baidu.tieba.write.album.j.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
                     Intent intent = new Intent();
                     intent.putExtra("finish_self", true);
-                    j.this.hwW.setResult(-1, intent);
-                    j.this.hwW.finish();
+                    j.this.hEa.setResult(-1, intent);
+                    j.this.hEa.finish();
                 }
             }
         };
-        this.hwW = baseFragmentActivity;
+        this.hEa = baseFragmentActivity;
         this.mForumName = str;
         this.mForumId = str2;
-        this.mvu = str3;
-        this.mOI = new VideoConvertUtil(baseFragmentActivity);
-        this.mOI.a(this);
+        this.mFg = str3;
+        this.mYF = new VideoConvertUtil(baseFragmentActivity);
+        this.mYF.a(this);
         this.mMainThreadHandler = new Handler(Looper.getMainLooper(), this);
-        MessageManager.getInstance().registerListener(this.myT);
+        MessageManager.getInstance().registerListener(this.mIJ);
     }
 
     public void b(FrsTabInfoData frsTabInfoData) {
-        this.mNM = frsTabInfoData;
+        this.mXJ = frsTabInfoData;
     }
 
     public void setExtraData(AntiData antiData, PostPrefixData postPrefixData, String str, String str2) {
@@ -97,115 +97,115 @@ public class j implements Handler.Callback, com.baidu.tieba.video.d {
     }
 
     public void a(VideoFileInfo videoFileInfo, String str, String str2) {
-        this.mOF = videoFileInfo;
-        this.iwx = str;
+        this.mYC = videoFileInfo;
+        this.iDT = str;
         this.mFrom = str2;
-        if (this.mOF != null && this.hwW != null) {
-            if (this.mOF.videoDuration > 600000) {
-                dCD();
-            } else if (this.mOI == null || !this.mOI.isConvertRunning()) {
-                String str3 = this.mOF.videoPath;
+        if (this.mYC != null && this.hEa != null) {
+            if (this.mYC.videoDuration > 600000) {
+                dGx();
+            } else if (this.mYF == null || !this.mYF.isConvertRunning()) {
+                String str3 = this.mYC.videoPath;
                 if (TextUtils.isEmpty(str3)) {
-                    com.baidu.adp.lib.util.l.showToast(this.hwW, R.string.mv_local_video_video_not_exist);
+                    com.baidu.adp.lib.util.l.showToast(this.hEa, R.string.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REMOVE_NOT_EXSIT_VIDEO, str3));
-                    JA(107);
+                    Ke(107);
                 } else if (!new File(str3).exists()) {
-                    com.baidu.adp.lib.util.l.showToast(this.hwW, R.string.mv_local_video_video_not_exist);
+                    com.baidu.adp.lib.util.l.showToast(this.hEa, R.string.mv_local_video_video_not_exist);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REMOVE_NOT_EXSIT_VIDEO, str3));
-                    JA(106);
+                    Ke(106);
                 } else if (!XiaoyingUtil.isXiaoyingInstalled() || XiaoyingUtil.isXiaoyingForbidden()) {
-                    if (this.mOF != null) {
-                        this.mOG = this.mOF.videoPath;
-                        wH(false);
-                        JA(102);
+                    if (this.mYC != null) {
+                        this.mYD = this.mYC.videoPath;
+                        wQ(false);
+                        Ke(102);
                     }
-                } else if (VideoConvertUtil.RB(str3) >= 1500000) {
-                    if (VideoConvertUtil.dBd()) {
-                        this.mOG = new File(VideoConvertUtil.mtX, "tieba_" + VideoConvertUtil.RA(str3) + "_tiebaconverting.mp4").getAbsolutePath();
-                        this.mOI.setConvertType(1);
-                        this.mOI.fX(str3, this.mOG);
-                        dCy();
-                        this.myL = false;
-                        this.myM = false;
+                } else if (VideoConvertUtil.Sb(str3) >= 1500000) {
+                    if (VideoConvertUtil.dEX()) {
+                        this.mYD = new File(VideoConvertUtil.mDI, "tieba_" + VideoConvertUtil.Sa(str3) + "_tiebaconverting.mp4").getAbsolutePath();
+                        this.mYF.setConvertType(1);
+                        this.mYF.gj(str3, this.mYD);
+                        dGs();
+                        this.mIA = false;
+                        this.mIB = false;
                     }
                 } else {
-                    VideoFileInfo videoFileInfo2 = this.mOF;
+                    VideoFileInfo videoFileInfo2 = this.mYC;
                     if (videoFileInfo2 != null) {
                         if (videoFileInfo2.videoDuration < 15000) {
-                            this.mOG = new File(VideoConvertUtil.mtX, "tieba_" + VideoConvertUtil.RA(str3) + "_tiebaconverting.mp4").getAbsolutePath();
-                            this.mOI.setConvertType(2);
-                            this.mOI.fX(str3, this.mOG);
-                            dCy();
-                            this.myL = false;
-                            this.myM = false;
+                            this.mYD = new File(VideoConvertUtil.mDI, "tieba_" + VideoConvertUtil.Sa(str3) + "_tiebaconverting.mp4").getAbsolutePath();
+                            this.mYF.setConvertType(2);
+                            this.mYF.gj(str3, this.mYD);
+                            dGs();
+                            this.mIA = false;
+                            this.mIB = false;
                             return;
                         }
-                        this.mOG = videoFileInfo2.videoPath;
-                        wH(false);
-                        JA(102);
+                        this.mYD = videoFileInfo2.videoPath;
+                        wQ(false);
+                        Ke(102);
                     }
                 }
             }
         }
     }
 
-    private void dCD() {
-        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.hwW).ns(R.string.mv_local_video_too_long).a(R.string.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.j.1
+    private void dGx() {
+        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.hEa).nD(R.string.mv_local_video_too_long).a(R.string.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.write.album.j.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        a.b(this.hwW.getPageContext());
-        a.ih(false);
-        a.bhg();
+        a.b(this.hEa.getPageContext());
+        a.ie(false);
+        a.bia();
     }
 
-    private void dCy() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.hwW.findViewById(R.id.parent);
+    private void dGs() {
+        RelativeLayout relativeLayout = (RelativeLayout) this.hEa.findViewById(R.id.parent);
         if (relativeLayout != null) {
-            if (this.mOH == null) {
-                this.mOH = new AlbumVideoCompressingDialogView(this.hwW);
+            if (this.mYE == null) {
+                this.mYE = new AlbumVideoCompressingDialogView(this.hEa);
             }
-            if (this.mOH.getParent() == null) {
-                relativeLayout.addView(this.mOH);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mOH.getLayoutParams();
+            if (this.mYE.getParent() == null) {
+                relativeLayout.addView(this.mYE);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mYE.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 layoutParams.addRule(13);
-                this.mOH.setLayoutParams(layoutParams);
+                this.mYE.setLayoutParams(layoutParams);
             } else {
                 return;
             }
         }
-        this.mOH.setPercent(0);
-        this.mOJ = true;
+        this.mYE.setPercent(0);
+        this.mYG = true;
     }
 
-    private void wH(boolean z) {
-        VideoFileInfo SC = SC(this.mOG);
+    private void wQ(boolean z) {
+        VideoFileInfo Tc = Tc(this.mYD);
         VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.mOG);
-        videoInfo.setVideoDuration(SC.videoDuration / 1000);
-        videoInfo.setVideoWidth(SC.videoWidth);
-        videoInfo.setVideoHeight(SC.videoHeight);
-        videoInfo.setVideoLength(new File(SC.videoPath).length());
+        videoInfo.setVideoPath(this.mYD);
+        videoInfo.setVideoDuration(Tc.videoDuration / 1000);
+        videoInfo.setVideoWidth(Tc.videoWidth);
+        videoInfo.setVideoHeight(Tc.videoHeight);
+        videoInfo.setVideoLength(new File(Tc.videoPath).length());
         videoInfo.setVideoType(2);
         videoInfo.setIsCompressedVideo(z);
-        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.hwW, this.iwx, this.mForumName, this.mForumId, this.mvu, videoInfo);
-        editVideoActivityConfig.setProZone(this.mOK);
-        editVideoActivityConfig.setFrsTabInfo(this.mNM);
+        EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.hEa, this.iDT, this.mForumName, this.mForumId, this.mFg, videoInfo);
+        editVideoActivityConfig.setProZone(this.mYH);
+        editVideoActivityConfig.setFrsTabInfo(this.mXJ);
         editVideoActivityConfig.setFrom(this.mFrom);
         editVideoActivityConfig.setExtraData(this.antiData, this.prefixData, this.firstDir, this.secondDir);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editVideoActivityConfig));
-        this.myL = false;
-        this.mOG = null;
-        if (this.mgu != null) {
-            this.mgu.cRg();
+        this.mIA = false;
+        this.mYD = null;
+        if (this.mpU != null) {
+            this.mpU.cUM();
         }
     }
 
-    public static VideoFileInfo SC(String str) {
+    public static VideoFileInfo Tc(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -249,11 +249,11 @@ public class j implements Handler.Callback, com.baidu.tieba.video.d {
     }
 
     @Override // com.baidu.tieba.video.d
-    public void dAY() {
+    public void dES() {
     }
 
     @Override // com.baidu.tieba.video.d
-    public void IJ(int i) {
+    public void Jn(int i) {
         this.mMainThreadHandler.sendEmptyMessage(2);
     }
 
@@ -287,118 +287,118 @@ public class j implements Handler.Callback, com.baidu.tieba.video.d {
         switch (message.what) {
             case 1:
                 this.mMainThreadHandler.removeMessages(1);
-                if (this.mOH != null && this.mOH.isShowing()) {
-                    this.mOH.setPercent(message.arg1);
+                if (this.mYE != null && this.mYE.isShowing()) {
+                    this.mYE.setPercent(message.arg1);
                 }
                 this.mMainThreadHandler.sendMessageDelayed(this.mMainThreadHandler.obtainMessage(5), 60000L);
                 break;
             case 2:
-                if (!this.myM) {
-                    com.baidu.adp.lib.util.l.showToast(this.hwW, R.string.mv_local_video_compress_failed);
-                    JA(103);
+                if (!this.mIB) {
+                    com.baidu.adp.lib.util.l.showToast(this.hEa, R.string.mv_local_video_compress_failed);
+                    Ke(103);
                 }
-                this.mOJ = false;
-                this.myL = false;
-                dCz();
+                this.mYG = false;
+                this.mIA = false;
+                dGt();
                 break;
             case 3:
-                this.mOJ = false;
-                this.myL = true;
-                if (!StringUtils.isNull(this.mOG) && (file = new File(this.mOG)) != null) {
-                    this.mOG = this.mOG.replace("_tiebaconverting.mp4", ".mp4");
-                    file.renameTo(new File(this.mOG));
+                this.mYG = false;
+                this.mIA = true;
+                if (!StringUtils.isNull(this.mYD) && (file = new File(this.mYD)) != null) {
+                    this.mYD = this.mYD.replace("_tiebaconverting.mp4", ".mp4");
+                    file.renameTo(new File(this.mYD));
                 }
-                dCz();
-                if (!this.myK) {
-                    wH(true);
-                    if (this.mgu != null) {
-                        this.mgu.cRg();
+                dGt();
+                if (!this.mIz) {
+                    wQ(true);
+                    if (this.mpU != null) {
+                        this.mpU.cUM();
                         break;
                     }
                 }
                 break;
             case 4:
-                this.mOJ = false;
-                this.myL = false;
-                dCz();
-                JA(104);
+                this.mYG = false;
+                this.mIA = false;
+                dGt();
+                Ke(104);
                 break;
             case 5:
-                this.mOJ = false;
-                com.baidu.adp.lib.util.l.showToast(this.hwW, R.string.mv_local_video_compress_failed);
-                if (this.mOI != null && this.mOI.isConvertRunning()) {
-                    dCA();
+                this.mYG = false;
+                com.baidu.adp.lib.util.l.showToast(this.hEa, R.string.mv_local_video_compress_failed);
+                if (this.mYF != null && this.mYF.isConvertRunning()) {
+                    dGu();
                 }
-                JA(105);
+                Ke(105);
                 break;
         }
         return true;
     }
 
-    private void dCz() {
-        RelativeLayout relativeLayout = (RelativeLayout) this.hwW.findViewById(R.id.parent);
-        if (relativeLayout != null && this.mOH.getParent() != null) {
-            relativeLayout.removeView(this.mOH);
+    private void dGt() {
+        RelativeLayout relativeLayout = (RelativeLayout) this.hEa.findViewById(R.id.parent);
+        if (relativeLayout != null && this.mYE.getParent() != null) {
+            relativeLayout.removeView(this.mYE);
         }
     }
 
-    private void dCA() {
-        if (this.mOI != null) {
-            this.mOI.abortConvert();
+    private void dGu() {
+        if (this.mYF != null) {
+            this.mYF.abortConvert();
         }
-        this.myM = true;
-        if (this.mOG != null) {
-            File file = new File(this.mOG);
+        this.mIB = true;
+        if (this.mYD != null) {
+            File file = new File(this.mYD);
             if (file.exists()) {
                 file.delete();
             }
         }
-        dCz();
-        this.mOG = null;
+        dGt();
+        this.mYD = null;
     }
 
     public void onStart() {
-        this.myK = false;
+        this.mIz = false;
     }
 
     public void onStop() {
-        this.myK = true;
+        this.mIz = true;
     }
 
     public void onResume() {
-        if (this.myL && !TextUtils.isEmpty(this.mOG) && new File(this.mOG).exists()) {
-            wH(true);
-            JA(101);
+        if (this.mIA && !TextUtils.isEmpty(this.mYD) && new File(this.mYD).exists()) {
+            wQ(true);
+            Ke(101);
         }
-        if (this.mgu != null) {
-            this.mgu.MF("album");
+        if (this.mpU != null) {
+            this.mpU.Nh("album");
         }
     }
 
     public void onDestroy() {
-        if (this.mOI != null) {
-            this.mOI.destroy();
+        if (this.mYF != null) {
+            this.mYF.destroy();
         }
         if (this.mMainThreadHandler != null) {
             this.mMainThreadHandler.removeMessages(5);
         }
-        if (this.mgu != null) {
-            this.mgu.MG("album");
+        if (this.mpU != null) {
+            this.mpU.Ni("album");
         }
-        MessageManager.getInstance().unRegisterListener(this.myT);
+        MessageManager.getInstance().unRegisterListener(this.mIJ);
     }
 
-    private void JA(int i) {
-        if (this.mgu != null) {
-            this.mgu.bn(i, "album");
+    private void Ke(int i) {
+        if (this.mpU != null) {
+            this.mpU.br(i, "album");
         }
     }
 
-    public boolean dGr() {
-        return this.mOJ;
+    public boolean dKl() {
+        return this.mYG;
     }
 
     public void setProfessionZone(int i) {
-        this.mOK = i;
+        this.mYH = i;
     }
 }

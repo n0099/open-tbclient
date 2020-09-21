@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class EncryptUtils {
     private static final boolean DEBUG = false;
     public static final String ENCRYPT_MD5 = "MD5";

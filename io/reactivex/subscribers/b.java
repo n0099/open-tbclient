@@ -3,9 +3,9 @@ package io.reactivex.subscribers;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.j;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class b<T> implements j<T>, d {
     final c<? super T> actual;
     final boolean delayError;
@@ -23,7 +23,7 @@ public final class b<T> implements j<T>, d {
         this.delayError = z;
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.validate(this.subscription, dVar)) {
             this.subscription = dVar;
@@ -31,7 +31,7 @@ public final class b<T> implements j<T>, d {
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         if (!this.done) {
             if (t == null) {
@@ -58,7 +58,7 @@ public final class b<T> implements j<T>, d {
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         boolean z = true;
         if (this.done) {
@@ -78,7 +78,7 @@ public final class b<T> implements j<T>, d {
                     if (this.delayError) {
                         aVar.add(error);
                     } else {
-                        aVar.bF(error);
+                        aVar.bH(error);
                     }
                     return;
                 }
@@ -94,7 +94,7 @@ public final class b<T> implements j<T>, d {
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
         if (!this.done) {
             synchronized (this) {
@@ -116,7 +116,7 @@ public final class b<T> implements j<T>, d {
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: org.b.c<? super T>, org.b.c<? super U> */
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: org.a.c<? super T>, org.a.c<? super U> */
     void emitLoop() {
         io.reactivex.internal.util.a<Object> aVar;
         do {
@@ -131,12 +131,12 @@ public final class b<T> implements j<T>, d {
         } while (!aVar.b((c<? super T>) this.actual));
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void request(long j) {
         this.subscription.request(j);
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         this.subscription.cancel();
     }

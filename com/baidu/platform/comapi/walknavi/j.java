@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class j implements WalkNaviModeSwitchListener {
     final /* synthetic */ int a;
     final /* synthetic */ boolean b;

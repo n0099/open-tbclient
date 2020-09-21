@@ -16,7 +16,7 @@ import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static SimpleDateFormat a = null;
 

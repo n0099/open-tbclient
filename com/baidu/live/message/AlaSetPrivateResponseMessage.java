@@ -1,15 +1,15 @@
 package com.baidu.live.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaSetPrivateResponseMessage extends JsonHttpResponsedMessage {
     public AlaSetPrivateResponseMessage() {
         super(1021047);
     }
 
-    public boolean LG() {
+    public boolean Mh() {
         if (getOrginalMessage() instanceof f) {
-            return ((f) getOrginalMessage()).LG();
+            return ((f) getOrginalMessage()).Mh();
         }
         return false;
     }

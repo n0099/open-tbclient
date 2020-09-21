@@ -1,7 +1,7 @@
 package com.baidu.android.util.concurrent.task;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public abstract class Task {
     private AtomicBoolean mCancelled;
     private int mId;
@@ -9,13 +9,13 @@ public abstract class Task {
     private volatile RunningStatus mRunStatus;
     private volatile Status mStatus;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public enum RunningStatus {
         WORK_THREAD,
         UI_THREAD
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public enum Status {
         PENDING,
         RUNNING,

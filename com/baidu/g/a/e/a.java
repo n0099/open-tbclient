@@ -2,13 +2,14 @@ package com.baidu.g.a.e;
 
 import android.text.TextPaint;
 import android.text.TextUtils;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class a {
-    public static int dj(int i) {
+    public static int dn(int i) {
         return (int) ((i * 16.0d) / 9.0d);
     }
 
-    public static int dk(int i) {
+    /* renamed from: do  reason: not valid java name */
+    public static int m22do(int i) {
         return (int) ((i * 9.0d) / 16.0d);
     }
 

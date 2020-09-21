@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.platform.comjni.map.basemap.AppBaseMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class InnerOverlay extends Overlay {
     protected String a;
     protected Bundle b;

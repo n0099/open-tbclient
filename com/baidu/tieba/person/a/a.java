@@ -8,7 +8,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d, com.baidu.tieba.person.b.a> {
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -17,8 +17,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cv */
-    public com.baidu.tieba.person.b.a b(ViewGroup viewGroup) {
+    /* renamed from: cw */
+    public com.baidu.tieba.person.b.a c(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(R.layout.item_person_center_list_interval, viewGroup, false));
     }
 
@@ -28,19 +28,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.aiD != skinType) {
-                aVar.aiD = skinType;
-                ap.setBackgroundResource(aVar.ldV, dVar.backgroundId);
+            if (aVar.aiX != skinType) {
+                aVar.aiX = skinType;
+                ap.setBackgroundResource(aVar.lmM, dVar.backgroundId);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.ldV.getLayoutParams();
-            if (dVar.las > 0) {
-                layoutParams.height = dVar.las;
+            ViewGroup.LayoutParams layoutParams = aVar.lmM.getLayoutParams();
+            if (dVar.ljk > 0) {
+                layoutParams.height = dVar.ljk;
             }
-            if (dVar.lar > 0) {
-                layoutParams.width = dVar.lar;
+            if (dVar.ljj > 0) {
+                layoutParams.width = dVar.ljj;
             }
-            aVar.ldV.setLayoutParams(layoutParams);
-            aVar.ldV.setOnClickListener(null);
+            aVar.lmM.setLayoutParams(layoutParams);
+            aVar.lmM.setOnClickListener(null);
         }
         return view;
     }

@@ -1,5 +1,5 @@
 package android.support.v4.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public class LongSparseArray<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;

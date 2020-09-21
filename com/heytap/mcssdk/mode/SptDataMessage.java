@@ -1,5 +1,5 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class SptDataMessage extends Message {
     private String mAppID;
     private String mContent;

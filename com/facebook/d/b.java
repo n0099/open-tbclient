@@ -7,10 +7,10 @@ import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.HttpStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class b {
-    public static int Mu(int i) {
-        return d.Mu(i);
+    public static int MZ(int i) {
+        return d.MZ(i);
     }
 
     public static int x(InputStream inputStream) {
@@ -32,7 +32,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && Mv(i2)) || i2 == i) {
+            if ((i == 192 && Na(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -45,7 +45,7 @@ public class b {
         return false;
     }
 
-    private static boolean Mv(int i) {
+    private static boolean Na(int i) {
         switch (i) {
             case 192:
             case 193:

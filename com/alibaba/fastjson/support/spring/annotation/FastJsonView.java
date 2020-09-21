@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public @interface FastJsonView {
     FastJsonFilter[] exclude() default {};
 

@@ -14,11 +14,11 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PushJobService extends JobService {
     private Handler a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class a extends Handler {
         private final JobService a;
 

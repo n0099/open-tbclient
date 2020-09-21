@@ -4,10 +4,10 @@ import android.content.ContentValues;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends b {
     @Nullable
-    private ContentValues cqO;
+    private ContentValues csR;
 
     public c(@Nullable Map<String, String> map) {
         super("lifecycle", map);
@@ -15,17 +15,17 @@ public class c extends b {
 
     public c(@NonNull ContentValues contentValues) {
         super("lifecycle", null);
-        this.cqO = contentValues;
+        this.csR = contentValues;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String mx(String str) {
+    public String mQ(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.swan.apps.event.a.A(str, "cuid", com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ())));
-        sb.append(com.baidu.swan.apps.event.a.A(str, "mtjCuid", com.baidu.swan.apps.t.a.aoO().bl(com.baidu.swan.apps.t.a.aoJ())));
-        if (this.cqO != null) {
-            for (String str2 : this.cqO.keySet()) {
-                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.cqO.get(str2)));
+        sb.append(com.baidu.swan.apps.event.a.A(str, "cuid", com.baidu.swan.apps.t.a.apz().bk(com.baidu.swan.apps.t.a.apu())));
+        sb.append(com.baidu.swan.apps.event.a.A(str, "mtjCuid", com.baidu.swan.apps.t.a.apz().bk(com.baidu.swan.apps.t.a.apu())));
+        if (this.csR != null) {
+            for (String str2 : this.csR.keySet()) {
+                sb.append(com.baidu.swan.apps.event.a.c(str, str2, this.csR.get(str2)));
             }
         } else {
             for (Map.Entry<String, String> entry : this.mParams.entrySet()) {

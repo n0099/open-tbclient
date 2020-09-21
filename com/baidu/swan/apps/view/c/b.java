@@ -6,36 +6,36 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.BaseMenuView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b implements com.baidu.swan.menu.a {
-    private FrameLayout cWH = null;
+    private FrameLayout cYH = null;
 
     @Override // com.baidu.swan.menu.a
     public void a(BaseMenuView baseMenuView) {
         if (baseMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.t.a.apf().getNightModeSwitcherState()) {
-                z(baseMenuView);
+            if (com.baidu.swan.apps.t.a.apQ().getNightModeSwitcherState()) {
+                B(baseMenuView);
             } else {
-                A(baseMenuView);
+                C(baseMenuView);
             }
         }
     }
 
-    private void z(ViewGroup viewGroup) {
+    private void B(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.cWH == null) {
-                this.cWH = new FrameLayout(viewGroup.getContext());
-                this.cWH.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.cYH == null) {
+                this.cYH = new FrameLayout(viewGroup.getContext());
+                this.cYH.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.cWH);
-            viewGroup.addView(this.cWH, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.cYH);
+            viewGroup.addView(this.cYH, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    private void A(ViewGroup viewGroup) {
-        if (viewGroup != null && this.cWH != null) {
-            viewGroup.removeView(this.cWH);
-            this.cWH = null;
+    private void C(ViewGroup viewGroup) {
+        if (viewGroup != null && this.cYH != null) {
+            viewGroup.removeView(this.cYH);
+            this.cYH = null;
         }
     }
 }

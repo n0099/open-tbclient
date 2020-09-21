@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class FileUtil {
     private static final String TAG = "FileUtil";
 

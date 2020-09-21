@@ -5,24 +5,24 @@ import kotlin.h;
 import kotlin.jvm.internal.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class f {
-    public static a osC;
-    public static final f osD = new f();
-    private static final a osB = new a(null, null, null);
+    public static a oCj;
+    public static final f oCk = new f();
+    private static final a oCi = new a(null, null, null);
 
     /* JADX INFO: Access modifiers changed from: private */
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final Method osE;
-        public final Method osF;
-        public final Method osG;
+        public final Method oCl;
+        public final Method oCm;
+        public final Method oCn;
 
         public a(Method method, Method method2, Method method3) {
-            this.osE = method;
-            this.osF = method2;
-            this.osG = method3;
+            this.oCl = method;
+            this.oCm = method2;
+            this.oCn = method3;
         }
     }
 
@@ -35,14 +35,14 @@ public final class f {
         Method method2;
         Object invoke2;
         q.m(baseContinuationImpl, "continuation");
-        a aVar = osC;
+        a aVar = oCj;
         if (aVar == null) {
             aVar = e(baseContinuationImpl);
         }
-        if (aVar == osB || (method = aVar.osE) == null || (invoke = method.invoke(baseContinuationImpl.getClass(), new Object[0])) == null || (method2 = aVar.osF) == null || (invoke2 = method2.invoke(invoke, new Object[0])) == null) {
+        if (aVar == oCi || (method = aVar.oCl) == null || (invoke = method.invoke(baseContinuationImpl.getClass(), new Object[0])) == null || (method2 = aVar.oCm) == null || (invoke2 = method2.invoke(invoke, new Object[0])) == null) {
             return null;
         }
-        Method method3 = aVar.osG;
+        Method method3 = aVar.oCn;
         Object invoke3 = method3 != null ? method3.invoke(invoke2, new Object[0]) : null;
         if (!(invoke3 instanceof String)) {
             invoke3 = null;
@@ -53,11 +53,11 @@ public final class f {
     private final a e(BaseContinuationImpl baseContinuationImpl) {
         try {
             a aVar = new a(Class.class.getDeclaredMethod("getModule", new Class[0]), baseContinuationImpl.getClass().getClassLoader().loadClass("java.lang.Module").getDeclaredMethod("getDescriptor", new Class[0]), baseContinuationImpl.getClass().getClassLoader().loadClass("java.lang.module.ModuleDescriptor").getDeclaredMethod("name", new Class[0]));
-            osC = aVar;
+            oCj = aVar;
             return aVar;
         } catch (Exception e) {
-            a aVar2 = osB;
-            osC = aVar2;
+            a aVar2 = oCi;
+            oCj = aVar2;
             return aVar2;
         }
     }

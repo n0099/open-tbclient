@@ -3,7 +3,7 @@ package io.flutter.view;
 import io.flutter.util.Predicate;
 import io.flutter.view.AccessibilityBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class AccessibilityBridge$$Lambda$1 implements Predicate {
     static final Predicate $instance = new AccessibilityBridge$$Lambda$1();
 

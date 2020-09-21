@@ -1,5 +1,5 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class h {
     private final byte[] h;
     private final int[] i;
@@ -21,6 +21,10 @@ class h {
         c();
     }
 
+    private static int a(byte[] bArr, int i) {
+        return (int) (j(bArr, i, 4) & 4294967295L);
+    }
+
     private void c() {
         this.i[0] = (this.k - 1640531535) - 2048144777;
         this.i[1] = this.k - 2048144777;
@@ -28,19 +32,15 @@ class h {
         this.i[3] = this.k - (-1640531535);
     }
 
-    private static int e(byte[] bArr, int i) {
-        return (int) (j(bArr, i, 4) & 4294967295L);
-    }
-
-    private void f(byte[] bArr, int i) {
+    private void e(byte[] bArr, int i) {
         int i2 = this.i[0];
         int i3 = this.i[1];
         int i4 = this.i[2];
         int i5 = this.i[3];
-        this.i[0] = Integer.rotateLeft(i2 + (e(bArr, i) * (-2048144777)), 13) * (-1640531535);
-        this.i[1] = Integer.rotateLeft(i3 + (e(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
-        this.i[2] = Integer.rotateLeft(i4 + (e(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
-        this.i[3] = Integer.rotateLeft(i5 + (e(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
+        this.i[0] = Integer.rotateLeft(i2 + (a(bArr, i) * (-2048144777)), 13) * (-1640531535);
+        this.i[1] = Integer.rotateLeft(i3 + (a(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
+        this.i[2] = Integer.rotateLeft(i4 + (a(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
+        this.i[3] = Integer.rotateLeft(i5 + (a(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
         this.m = 0;
     }
 
@@ -70,12 +70,12 @@ class h {
         if (this.m > 0) {
             int i4 = 16 - this.m;
             System.arraycopy(bArr, i, this.j, this.m, i4);
-            f(this.j, 0);
+            e(this.j, 0);
             i += i4;
         }
         int i5 = i3 - 16;
         while (i <= i5) {
-            f(bArr, i);
+            e(bArr, i);
             i += 16;
         }
         if (i < i3) {
@@ -91,7 +91,7 @@ class h {
         int i2 = rotateLeft;
         int i3 = 0;
         while (i3 <= i) {
-            i2 = Integer.rotateLeft(i2 + (e(this.j, i3) * (-1028477379)), 17) * 668265263;
+            i2 = Integer.rotateLeft(i2 + (a(this.j, i3) * (-1028477379)), 17) * 668265263;
             i3 += 4;
         }
         int i4 = i2;

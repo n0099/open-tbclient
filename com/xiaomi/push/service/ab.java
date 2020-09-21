@@ -2,17 +2,17 @@ package com.xiaomi.push.service;
 
 import android.app.NotificationManager;
 import com.xiaomi.push.ai;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 final class ab extends ai.a {
     final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NotificationManager f836a;
+    final /* synthetic */ NotificationManager f835a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(int i, NotificationManager notificationManager) {
         this.a = i;
-        this.f836a = notificationManager;
+        this.f835a = notificationManager;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -23,6 +23,6 @@ final class ab extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f836a.cancel(this.a);
+        this.f835a.cancel(this.a);
     }
 }

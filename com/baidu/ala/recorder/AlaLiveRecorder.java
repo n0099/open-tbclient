@@ -50,7 +50,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     private static final int ALA_STREAM_CONNECT_SUCC = 1;
     private static final int CHECK_STREAM_INTERVAL = 5000;
@@ -1265,7 +1265,9 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         this.mActivity = null;
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
         this.mNetworkChangedListener = null;
-        this.mMainHandler.removeCallbacksAndMessages(null);
+        if (this.mMainHandler != null) {
+            this.mMainHandler.removeCallbacksAndMessages(null);
+        }
         ((TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")).listen(this.mPhoneStateListener, 0);
     }
 
@@ -1579,7 +1581,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     class SendDataInfo {
         public byte[] data;
         public int displayRotate;
@@ -1591,7 +1593,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public class SendHandler extends Handler {
         public SendHandler(Looper looper) {
             super(looper);

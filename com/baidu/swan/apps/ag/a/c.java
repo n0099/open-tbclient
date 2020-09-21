@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -33,16 +33,16 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.qL(L));
+                        c.a(aVar, c.re(L));
                     }
                 }, "load-WebDomains", 2);
             } else {
-                a(aVar, qL(L));
+                a(aVar, re(L));
             }
         }
     }
 
-    public static boolean qK(String str) {
+    public static boolean rd(String str) {
         return new File(L(str, "aiapps_folder/cloud_config", "web_domains.json")).exists();
     }
 
@@ -64,11 +64,11 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.qL(L), str2);
+                        c.a(aVar, c.re(L), str2);
                     }
                 }, "load-ServerDomains", 2);
             } else {
-                a(aVar, qL(L), str2);
+                a(aVar, re(L), str2);
             }
         }
     }
@@ -88,20 +88,20 @@ public class c {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.qL(L));
+                    c.a(aVar, c.re(L));
                 }
             }, "load-WebActions", 2);
         } else {
-            a(aVar, qL(L));
+            a(aVar, re(L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String qL(String str) {
+    public static String re(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.s.a.ni(str);
+        return com.baidu.swan.apps.s.a.nB(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -254,7 +254,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public ArrayList<String> data = new ArrayList<>();
         public String token;

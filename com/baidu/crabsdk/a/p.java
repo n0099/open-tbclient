@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> amY = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> anA = new LinkedHashMap<>();
     private int X;
-    private Thread amZ;
+    private Thread anB;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.amZ = thread;
+        this.anB = thread;
         this.X = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (amY) {
-            for (Long l : amY.keySet()) {
+        synchronized (anA) {
+            for (Long l : anA.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(amY.get(l));
+                    arrayList.add(anA.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.dt("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dv("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.amZ.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.anB.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (amY) {
-            if (amY.size() == this.X && this.X > 0) {
-                amY.remove(amY.keySet().iterator().next());
+        synchronized (anA) {
+            if (anA.size() == this.X && this.X > 0) {
+                anA.remove(anA.keySet().iterator().next());
             }
-            amY.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            anA.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

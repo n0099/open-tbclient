@@ -7,11 +7,11 @@ import android.support.annotation.NonNull;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.dCZ = true;
+        this.dFa = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c

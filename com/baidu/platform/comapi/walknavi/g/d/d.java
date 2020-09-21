@@ -9,17 +9,17 @@ import com.baidu.platform.comapi.bikenavi.widget.h;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     private a.c a;
     private a.b b;
-    private a.C0212a c;
+    private a.C0211a c;
     private a.c d;
     private a.b e;
-    private a.C0211a f;
+    private a.C0210a f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         static final d a = new d();
     }
@@ -87,7 +87,7 @@ public class d {
                     this.b = new a.b();
                     return;
                 case 3:
-                    this.c = new a.C0212a();
+                    this.c = new a.C0211a();
                     return;
                 case 4:
                     this.d = new a.c();
@@ -96,7 +96,7 @@ public class d {
                     this.e = new a.b();
                     return;
                 case 6:
-                    this.f = new a.C0211a();
+                    this.f = new a.C0210a();
                     return;
                 default:
                     return;

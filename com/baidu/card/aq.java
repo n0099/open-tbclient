@@ -1,95 +1,95 @@
 package com.baidu.card;
 
-import android.widget.RelativeLayout;
-import com.baidu.card.view.UnfollowedDecorView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
-import com.baidu.tbadk.core.data.bw;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
-public class aq extends d implements o<bw>, p {
-    private static final int agb = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    private Align agd;
-    public UnfollowedDecorView ahA;
+import com.baidu.tieba.card.OriginalThreadCardView;
+/* loaded from: classes20.dex */
+public class aq extends b<AbsThreadDataSupport> {
+    private static final int afR = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private TextView afT;
+    private AbsThreadDataSupport afq;
+    private OriginalThreadCardView ahQ;
+    private boolean ahR;
+    private OriginalThreadCardView.a ahS;
+    private View mRootView;
+    private TextView mTitle;
 
-    public aq(TbPageContext tbPageContext, Align align) {
-        setInsertIndex(-1);
-        this.ahA = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.ahA.setId(R.id.decor_item_right_id);
-        H(this.ahA);
-        a(align);
+    public aq(Context context) {
+        super(context);
+        this.ahR = false;
+        this.ahS = new OriginalThreadCardView.a() { // from class: com.baidu.card.aq.1
+            @Override // com.baidu.tieba.card.OriginalThreadCardView.a
+            public void a(OriginalThreadInfo originalThreadInfo) {
+                if (aq.this.afq != null && aq.this.afq.bcY() != null) {
+                    if (aq.this.tB() != null) {
+                        aq.this.tB().a(aq.this.ahQ, aq.this.afq);
+                    }
+                    String id = aq.this.afq.bcY().getId();
+                    com.baidu.tieba.card.m.Hw(id);
+                    aq.this.dk(id);
+                    aq.this.afl.b(new a.C0096a(1));
+                }
+            }
+        };
+        this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+        this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
+        this.afT = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
+        this.ahQ = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
+        this.ahQ.setSubClickListener(this.ahS);
+        com.baidu.tbadk.a.b.a.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
+        com.baidu.tbadk.a.b.a.a(this.afT, R.dimen.tbds7, R.dimen.tbds10);
     }
 
-    public void a(Align align) {
-        if (align != this.agd) {
-            if (align == Align.ALIGN_RIGHT_TOP) {
-                int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int dimens4 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
-                layoutParams.addRule(11);
-                layoutParams.addRule(10);
-                layoutParams.rightMargin = dimens3;
-                layoutParams.topMargin = dimens4;
-                a(layoutParams);
-                this.ahA.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
-                this.ahA.setPadding(dimens2, dimens2, dimens2, dimens2);
-                this.ahA.setLayoutParams(layoutParams);
-            } else if (align == Align.ALIGN_RIGHT_CENTER) {
-                int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds90);
-                int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int dimens7 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens5, dimens5);
-                layoutParams2.addRule(11);
-                layoutParams2.addRule(15);
-                layoutParams2.rightMargin = dimens7;
-                layoutParams2.bottomMargin = 0;
-                a(layoutParams2);
-                this.ahA.setSvgResId(R.drawable.icon_home_delete_n, R.color.cp_cont_g);
-                this.ahA.setPadding(dimens6, dimens6, dimens6, dimens6);
-                this.ahA.setLayoutParams(layoutParams2);
-            } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-                int i = agb;
-                int dimens8 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-                int dimens9 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-                int dimens10 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-                RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
-                layoutParams3.addRule(11);
-                layoutParams3.addRule(12);
-                layoutParams3.rightMargin = dimens9;
-                layoutParams3.bottomMargin = dimens10;
-                a(layoutParams3);
-                this.ahA.setSvgResId(R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g);
-                this.ahA.setPadding(dimens8, dimens8, dimens8, dimens8);
-                this.ahA.setLayoutParams(layoutParams3);
-            }
-            this.agd = align;
-        }
-    }
-
-    public void f(AbsThreadDataSupport absThreadDataSupport) {
-        if (absThreadDataSupport.bci()) {
-            a(Align.ALIGN_RIGHT_TOP);
-        } else if (absThreadDataSupport.bcj()) {
-            if (this.afd != null) {
-                this.afd.a(this);
-            }
-        } else {
-            a(Align.ALIGN_RIGHT_TOP);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public View getView() {
+        return this.mRootView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.o
-    /* renamed from: a */
-    public void F(bw bwVar) {
-        this.ahA.q(bwVar);
+    @Override // com.baidu.card.p
+    /* renamed from: b */
+    public void G(AbsThreadDataSupport absThreadDataSupport) {
+        if (absThreadDataSupport != null && absThreadDataSupport.bcY() != null) {
+            this.afq = absThreadDataSupport;
+            ay.a(this.mTitle, absThreadDataSupport.bcY(), this.ahR);
+            ay.a(this.afT, this.mTitle, absThreadDataSupport.bcY(), afR, this.ahR);
+            this.ahQ.b(absThreadDataSupport.bcY().efS);
+        }
     }
 
-    @Override // com.baidu.card.p
+    public void bD(int i) {
+        this.ahQ.hsV = i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dk(String str) {
+        com.baidu.tieba.card.m.a(this.mTitle, str, R.color.cp_cont_b, R.color.cp_cont_d);
+        com.baidu.tieba.card.m.a(this.afT, str, R.color.cp_cont_b, R.color.cp_cont_d);
+        this.ahQ.setReadState(com.baidu.tieba.card.m.Hx(str));
+    }
+
+    @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ahA.onChangeSkinType();
+        this.ahQ.onChangeSkinType();
+    }
+
+    @Override // com.baidu.card.b
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<AbsThreadDataSupport> aaVar) {
+        super.setOnCardSubClickListener(aaVar);
+    }
+
+    public void setNeedFrsTabName(boolean z) {
+        this.ahR = z;
     }
 }

@@ -8,72 +8,72 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes11.dex */
 public class ah {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private boolean dKF = false;
-    private JSONArray cKG = new JSONArray();
-    private SparseArray<Integer> dKB = new SparseArray<>();
-    private ArrayList<String> dKC = new ArrayList<>();
-    private long dKD = 0;
-    private long dKE = 0;
-    private String dJF = "0";
+    private boolean dMI = false;
+    private JSONArray cMG = new JSONArray();
+    private SparseArray<Integer> dME = new SparseArray<>();
+    private ArrayList<String> dMF = new ArrayList<>();
+    private long dMG = 0;
+    private long dMH = 0;
+    private String dLJ = "0";
 
-    public final void cQ(JSONObject jSONObject) {
-        this.cKG.put(jSONObject);
+    public final void cT(JSONObject jSONObject) {
+        this.cMG.put(jSONObject);
     }
 
-    public final SparseArray<Integer> aWp() {
-        return this.dKB;
+    public final SparseArray<Integer> aXb() {
+        return this.dME;
     }
 
     public final void aF(int i, int i2) {
-        this.dKB.put(i, Integer.valueOf(i2));
+        this.dME.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList aWq() {
-        return this.dKC;
+    public final ArrayList aXc() {
+        return this.dMF;
     }
 
-    public final void xr(String str) {
-        if (!this.dKC.contains(str)) {
-            this.dKC.add(str);
+    public final void xK(String str) {
+        if (!this.dMF.contains(str)) {
+            this.dMF.add(str);
         }
     }
 
-    public final void u(long j, long j2) {
-        if ((j < this.dKD || this.dKD == 0) && j != 0) {
-            this.dKD = j;
+    public final void q(long j, long j2) {
+        if ((j < this.dMG || this.dMG == 0) && j != 0) {
+            this.dMG = j;
         }
-        if (j2 > this.dKE) {
-            this.dKE = j2;
+        if (j2 > this.dMH) {
+            this.dMH = j2;
         }
     }
 
-    public boolean mm(int i) {
-        return this.cKG.toString().getBytes().length >= i;
+    public boolean mx(int i) {
+        return this.cMG.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.cKG.length() == 0;
+        return this.cMG.length() == 0;
     }
 
-    public JSONObject dMo() {
+    public JSONObject dQm() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("data", this.cKG);
-            if (this.dKD == 0 || this.dKE == 0) {
-                this.dKD = this.dKE;
+            jSONObject.put("data", this.cMG);
+            if (this.dMG == 0 || this.dMH == 0) {
+                this.dMG = this.dMH;
             }
-            jSONObject2.put("mintime", Long.toString(this.dKD));
-            jSONObject2.put("maxtime", Long.toString(this.dKE));
+            jSONObject2.put("mintime", Long.toString(this.dMG));
+            jSONObject2.put("maxtime", Long.toString(this.dMH));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-            jSONObject2.put("md5", af.toMd5(this.cKG.toString().getBytes(), true));
+            jSONObject2.put("md5", af.toMd5(this.cMG.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.dJF);
-            jSONObject.put("isreal", this.dKF ? "1" : "0");
+            jSONObject.put("isAbtest", this.dLJ);
+            jSONObject.put("isreal", this.dMI ? "1" : "0");
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCUploadData", "json exception:");
@@ -83,36 +83,36 @@ public class ah {
     }
 
     public void clearData() {
-        this.dKB.clear();
-        this.dKC.clear();
-        this.cKG = null;
+        this.dME.clear();
+        this.dMF.clear();
+        this.cMG = null;
     }
 
-    public void xs(String str) {
-        this.dJF = str;
+    public void xL(String str) {
+        this.dLJ = str;
     }
 
-    public String aWs() {
-        return this.dJF;
+    public String aXe() {
+        return this.dLJ;
     }
 
-    public long aWt() {
-        return this.dKD;
+    public long aXf() {
+        return this.dMG;
     }
 
     public long getMaxTime() {
-        return this.dKE;
+        return this.dMH;
     }
 
-    public JSONArray aWu() {
-        return this.cKG;
+    public JSONArray aXg() {
+        return this.cMG;
     }
 
-    public boolean aWv() {
-        return this.dKF;
+    public boolean aXh() {
+        return this.dMI;
     }
 
-    public void hk(boolean z) {
-        this.dKF = z;
+    public void hi(boolean z) {
+        this.dMI = z;
     }
 }

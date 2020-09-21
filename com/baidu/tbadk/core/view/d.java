@@ -25,7 +25,7 @@ public class d {
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
 
-    public static d ac(Activity activity) {
+    public static d ae(Activity activity) {
         return new d(activity);
     }
 
@@ -60,7 +60,7 @@ public class d {
 
     public void onDestory() {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         if (this.mResizeViewGroup != null) {
@@ -110,7 +110,7 @@ public class d {
                 if (i2 == 0) {
                     this.frameLayoutParams.height = i;
                     resizeForSoftInput();
-                } else {
+                } else if (i2 > 200) {
                     this.frameLayoutParams.height = i - i2;
                     dealyResize(200);
                     if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
@@ -139,7 +139,7 @@ public class d {
 
     private void dealyResize(int i) {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.mS().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.mX().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         this.mDealyResizeRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.d.2
@@ -148,6 +148,6 @@ public class d {
                 d.this.resizeForSoftInput();
             }
         };
-        com.baidu.adp.lib.f.e.mS().postDelayed(this.mDealyResizeRunnable, i);
+        com.baidu.adp.lib.f.e.mX().postDelayed(this.mDealyResizeRunnable, i);
     }
 }

@@ -22,13 +22,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MiPushClient4Hybrid {
     private static MiPushCallback sCallback;
     private static Map<String, b.a> dataMap = new HashMap();
     private static Map<String, Long> sRegisterTimeMap = new HashMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MiPushCallback {
         public void onCommandResult(String str, MiPushCommandMessage miPushCommandMessage) {
         }
@@ -63,23 +63,23 @@ public class MiPushClient4Hybrid {
         b.a aVar;
         String b = inVar.b();
         if (inVar.a() == 0 && (aVar = dataMap.get(b)) != null) {
-            aVar.a(inVar.f671e, inVar.f672f);
+            aVar.a(inVar.f670e, inVar.f671f);
             b.m94a(context).a(b, aVar);
         }
-        if (TextUtils.isEmpty(inVar.f671e)) {
+        if (TextUtils.isEmpty(inVar.f670e)) {
             arrayList = null;
         } else {
             arrayList = new ArrayList();
-            arrayList.add(inVar.f671e);
+            arrayList.add(inVar.f670e);
         }
-        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f320a, arrayList, inVar.f661a, inVar.f670d, null);
+        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f319a, arrayList, inVar.f660a, inVar.f669d, null);
         if (sCallback != null) {
             sCallback.onReceiveRegisterResult(b, generateCommandMessage);
         }
     }
 
     public static void onReceiveUnregisterResult(Context context, it itVar) {
-        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_UNREGISTER.f320a, null, itVar.f737a, itVar.f745d, null);
+        MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_UNREGISTER.f319a, null, itVar.f736a, itVar.f744d, null);
         String a = itVar.a();
         if (sCallback != null) {
             sCallback.onReceiveUnregisterResult(a, generateCommandMessage);
@@ -92,7 +92,7 @@ public class MiPushClient4Hybrid {
             b.a a = b.m94a(context).a(str);
             if (a != null) {
                 arrayList.add(a.c);
-                MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f320a, arrayList, 0L, null, null);
+                MiPushCommandMessage generateCommandMessage = PushMessageHelper.generateCommandMessage(fg.COMMAND_REGISTER.f319a, arrayList, 0L, null, null);
                 if (sCallback != null) {
                     sCallback.onReceiveRegisterResult(str, generateCommandMessage);
                 }
@@ -100,7 +100,7 @@ public class MiPushClient4Hybrid {
             if (shouldPullNotification(context, str)) {
                 il ilVar = new il();
                 ilVar.b(str2);
-                ilVar.c(hw.PullOfflineMessage.f477a);
+                ilVar.c(hw.PullOfflineMessage.f476a);
                 ilVar.a(com.xiaomi.push.service.an.a());
                 ilVar.a(false);
                 aq.a(context).a(ilVar, hm.Notification, false, true, null, false, str, str2);
@@ -144,7 +144,7 @@ public class MiPushClient4Hybrid {
             imVar.c(a3);
         }
         il ilVar2 = new il();
-        ilVar2.c(hw.HybridRegister.f477a);
+        ilVar2.c(hw.HybridRegister.f476a);
         ilVar2.b(b.m94a(context).m95a());
         ilVar2.d(context.getPackageName());
         ilVar2.a(iw.a(imVar));
@@ -207,11 +207,11 @@ public class MiPushClient4Hybrid {
         is isVar = new is();
         isVar.a(com.xiaomi.push.service.an.a());
         isVar.d(str);
-        isVar.b(a.f68a);
+        isVar.b(a.f67a);
         isVar.c(a.c);
         isVar.e(a.b);
         il ilVar = new il();
-        ilVar.c(hw.HybridUnregister.f477a);
+        ilVar.c(hw.HybridUnregister.f476a);
         ilVar.b(b.m94a(context).m95a());
         ilVar.d(context.getPackageName());
         ilVar.a(iw.a(isVar));

@@ -2,7 +2,6 @@ package com.baidu.ala.recorder;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;
-import android.media.AudioManager;
 import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.ala.helper.StreamConfig;
@@ -19,7 +18,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class AlaLivePKPlayer {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -37,7 +36,6 @@ public class AlaLivePKPlayer {
     private boolean mRunOpenSLES;
     private Map<Integer, AlaLivePKVideoPlayer> mPlayersMap = new ConcurrentHashMap();
     private AlaAudioPlayer mAudioPlayer = null;
-    private AudioManager mAudioManager = null;
     private int mNativePlayFlags = 0;
     private volatile boolean mEnableRtcACE = false;
     private volatile boolean mIsAudioThreadRun = false;
@@ -89,36 +87,16 @@ public class AlaLivePKPlayer {
     }
 
     public int startPlay(final String str, final int i, final String str2) {
-        int streamVolume;
-        int streamMaxVolume;
         if (this.mEnableRtcACE) {
-            try {
-                if (this.mAudioManager == null) {
-                    this.mAudioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-                }
-                int curAudioStreamType = this.mAudioPlayer.getCurAudioStreamType(this.mEnableRtcACE);
-                if (curAudioStreamType == 3) {
-                    streamVolume = this.mAudioManager.getStreamVolume(3);
-                    streamMaxVolume = this.mAudioManager.getStreamMaxVolume(3);
-                } else {
-                    streamVolume = this.mAudioManager.getStreamVolume(0);
-                    streamMaxVolume = this.mAudioManager.getStreamMaxVolume(0);
-                }
-                BdLog.e("LIVE_SDK_JNI|stream volume type =" + curAudioStreamType + "|currentStreamVolume =" + streamVolume + "|maxStreamVolume=" + streamMaxVolume);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             if (!this.mRunOpenSLES) {
                 if (this.mAudioPlayer == null) {
                     this.mAudioPlayer = new AlaAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 4, this.mEnableRtcACE);
-                    setAudioRoute();
                 }
             } else if (this.mNativePlayFlags == 0) {
                 this.mNDKAdapter.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
                 if (AudioProcessModule.sharedInstance().createAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
                     BdLog.e("LIVE_SDK_JNIcreateAudioPlayer failed");
                 }
-                setAudioRoute();
                 this.mNativePlayFlags = 1;
             }
         } else if (this.mAudioPlayer == null) {
@@ -143,22 +121,6 @@ public class AlaLivePKPlayer {
             }
         });
         return 0;
-    }
-
-    private void setAudioRoute() {
-        try {
-            if (this.mAudioManager == null) {
-                this.mAudioManager = (AudioManager) this.mContext.get().getSystemService("audio");
-            }
-            if (this.mAudioManager != null) {
-                boolean isWiredHeadsetOn = this.mAudioManager.isWiredHeadsetOn();
-                BdLog.e("LIVE_SDK_JNIpk is wire head set on is wear?" + isWiredHeadsetOn);
-                this.mAudioManager.setMode(3);
-                this.mAudioManager.setSpeakerphoneOn(!isWiredHeadsetOn);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public AlaLivePKVideoPlayer getVideoPlayer(int i) {
@@ -262,13 +224,6 @@ public class AlaLivePKPlayer {
                                 AlaLivePKPlayer.this.mAudioPlayer.writeData(AlaLivePKPlayer.this.mPcmBytes, 0, audioPCMNative);
                             }
                         }
-                        try {
-                            if (AlaLivePKPlayer.this.mAudioManager != null && !AlaLivePKPlayer.this.mRunOpenSLES && AlaLivePKPlayer.this.mEnableRtcACE) {
-                                AlaLivePKPlayer.this.mAudioManager.setMode(0);
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
                         if (AlaLivePKPlayer.this.mAudioPlayer != null) {
                             AlaLivePKPlayer.this.mAudioPlayer.stopAndRelease();
                         }
@@ -279,7 +234,7 @@ public class AlaLivePKPlayer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public class AlaLivePKVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
         private int mIndex;
         private Surface mSurface;

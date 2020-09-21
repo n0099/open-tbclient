@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d extends RecyclerView.ItemDecoration {
     private int dividerHeight;
 

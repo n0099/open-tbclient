@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class b<E> implements Iterable<E> {
     static final /* synthetic */ boolean $assertionsDisabled;
     public final List<E> mObservers = new ArrayList();
-    private int mZI = 0;
+    private int njH = 0;
     private int mCount = 0;
-    private boolean mZJ = false;
+    private boolean njI = false;
 
     static {
         $assertionsDisabled = !b.class.desiredAssertionStatus();
     }
 
-    public boolean aM(E e) {
+    public boolean aO(E e) {
         if (e == null || this.mObservers.contains(e)) {
             return false;
         }
@@ -36,7 +36,7 @@ public class b<E> implements Iterable<E> {
     }
 
     private void compact() {
-        if (!$assertionsDisabled && this.mZI != 0) {
+        if (!$assertionsDisabled && this.njH != 0) {
             throw new AssertionError();
         }
         for (int size = this.mObservers.size() - 1; size >= 0; size--) {
@@ -47,18 +47,18 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJY() {
-        this.mZI++;
+    public void dNW() {
+        this.njH++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dJZ() {
-        this.mZI--;
-        if (!$assertionsDisabled && this.mZI < 0) {
+    public void dNX() {
+        this.njH--;
+        if (!$assertionsDisabled && this.njH < 0) {
             throw new AssertionError();
         }
-        if (this.mZI <= 0 && this.mZJ) {
-            this.mZJ = false;
+        if (this.njH <= 0 && this.njI) {
+            this.njI = false;
             compact();
         }
     }
@@ -69,48 +69,48 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E JZ(int i) {
+    public E KE(int i) {
         return this.mObservers.get(i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     private class a implements c<E> {
         private int mIndex;
-        private int mZK;
-        private boolean mZL;
+        private int njJ;
+        private boolean njK;
 
         private a() {
             this.mIndex = 0;
-            this.mZL = false;
-            b.this.dJY();
-            this.mZK = b.this.capacity();
+            this.njK = false;
+            b.this.dNW();
+            this.njJ = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mZK && b.this.JZ(i) == null) {
+            while (i < this.njJ && b.this.KE(i) == null) {
                 i++;
             }
-            if (i < this.mZK) {
+            if (i < this.njJ) {
                 return true;
             }
-            dKa();
+            dNY();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mZK && b.this.JZ(this.mIndex) == null) {
+            while (this.mIndex < this.njJ && b.this.KE(this.mIndex) == null) {
                 this.mIndex++;
             }
-            if (this.mIndex < this.mZK) {
+            if (this.mIndex < this.njJ) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.JZ(i);
+                return (E) bVar.KE(i);
             }
-            dKa();
+            dNY();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void dKa() {
-            if (!this.mZL) {
-                this.mZL = true;
-                b.this.dJZ();
+        private void dNY() {
+            if (!this.njK) {
+                this.njK = true;
+                b.this.dNX();
             }
         }
     }

@@ -3,11 +3,11 @@ package com.baidu.mobads;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AdService {
-    private AdView bCW;
     protected static String channelId = "";
-    protected static int bCX = -1;
+    protected static int instanceCount = -1;
+    private AdView a;
 
     public static void setChannelId(String str) {
         channelId = str;
@@ -22,19 +22,19 @@ public class AdService {
         if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
             throw new IllegalArgumentException("One of arguments is null");
         }
-        this.bCW = new AdView(context, false, adSize, str);
-        this.bCW.setListener(adViewListener);
-        c(viewGroup, layoutParams);
-        bCX++;
+        this.a = new AdView(context, false, adSize, str);
+        this.a.setListener(adViewListener);
+        a(viewGroup, layoutParams);
+        instanceCount++;
     }
 
-    private void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+    private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.bCW.getParent() != viewGroup) {
-                if (this.bCW.getParent() != null) {
-                    ((ViewGroup) this.bCW.getParent()).removeView(this.bCW);
+            if (this.a.getParent() != viewGroup) {
+                if (this.a.getParent() != null) {
+                    ((ViewGroup) this.a.getParent()).removeView(this.a);
                 }
-                viewGroup.addView(this.bCW, layoutParams);
+                viewGroup.addView(this.a, layoutParams);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
@@ -42,9 +42,9 @@ public class AdService {
     }
 
     public void destroy() {
-        if (this.bCW != null) {
-            this.bCW.destroy();
-            this.bCW = null;
+        if (this.a != null) {
+            this.a.destroy();
+            this.a = null;
         }
     }
 }

@@ -4,7 +4,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static boolean a(int i, int i2, int i3, int i4, int i5, int i6) {
         EGL10 egl10 = (EGL10) EGLContext.getEGL();

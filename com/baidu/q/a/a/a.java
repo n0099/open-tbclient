@@ -1,6 +1,6 @@
 package com.baidu.q.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes25.dex */
 public class a {
     public long time = -1;
-    public c nhH = null;
+    public c nrI = null;
 }

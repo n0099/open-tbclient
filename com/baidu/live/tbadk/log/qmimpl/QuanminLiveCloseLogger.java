@@ -6,14 +6,14 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     @Override // com.baidu.live.tbadk.log.ILiveCloseLogger
     public void doAccessLiveCloseGuestLog(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "live_end");
-            jSONObject.put("k", LogConfig.KEY_ACCESS);
+            jSONObject.put("k", "access");
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);

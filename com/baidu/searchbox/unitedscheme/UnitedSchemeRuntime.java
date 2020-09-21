@@ -4,18 +4,18 @@ import com.baidu.pyramid.a.a.a;
 import com.baidu.pyramid.a.a.b;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class UnitedSchemeRuntime {
     b<UnitedSchemeBaseInterceptor> sInterceptChainList;
     b<UnitedSchemeBaseDispatcher> sSubDispatchersList;
 
     public void initsInterceptChainList() {
-        this.sInterceptChainList = a.Wg();
+        this.sInterceptChainList = a.WP();
         this.sInterceptChainList.a(new UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider());
     }
 
     public void initsSubDispatchersList() {
-        this.sSubDispatchersList = a.Wg();
+        this.sSubDispatchersList = a.WP();
         this.sSubDispatchersList.a(new UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider());
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class RegistrationPolicyAlwaysRegister extends NetworkChangeNotifierAutoDetect.RegistrationPolicy {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy

@@ -4,7 +4,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
 import com.baidubce.services.vod.model.ProcessMediaRequest;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes18.dex */
 public class PriorityProcessMediaRequest extends ProcessMediaRequest {
     private int priority = 0;
 

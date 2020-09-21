@@ -4,7 +4,7 @@ import kotlin.h;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 @h
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 final class TouchHelper$navigationBarHeight$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 

@@ -2,7 +2,7 @@ package com.baidu.ala.dumixar;
 
 import com.baidu.minivideo.arface.bean.Sticker;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class Config {
     public static final String apiKey = "45961827c395b92a2b7b86f531bdc4bf";
     public static final String appId = "17";

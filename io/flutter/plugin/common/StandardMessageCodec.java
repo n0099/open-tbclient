@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     private static final byte BIGINT = 5;
     private static final byte BYTE_ARRAY = 8;
@@ -317,7 +317,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         /* JADX INFO: Access modifiers changed from: package-private */
         public byte[] buffer() {

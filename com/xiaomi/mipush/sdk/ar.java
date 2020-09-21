@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ar extends Handler {
     final /* synthetic */ aq a;
 
@@ -38,72 +38,72 @@ public class ar extends Handler {
                 String str = (String) message.obj;
                 int i = message.arg1;
                 synchronized (ag.class) {
-                    context = this.a.f51a;
+                    context = this.a.f50a;
                     if (ag.a(context).m74a(str)) {
-                        context2 = this.a.f51a;
+                        context2 = this.a.f50a;
                         if (ag.a(context2).a(str) < 10) {
                             if (av.DISABLE_PUSH.ordinal() == i) {
-                                context14 = this.a.f51a;
+                                context14 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context14).a(av.DISABLE_PUSH))) {
                                     this.a.a(str, av.DISABLE_PUSH, true, (HashMap<String, String>) null);
-                                    context13 = this.a.f51a;
+                                    context13 = this.a.f50a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.ENABLE_PUSH.ordinal() == i) {
-                                context12 = this.a.f51a;
+                                context12 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context12).a(av.ENABLE_PUSH))) {
                                     this.a.a(str, av.ENABLE_PUSH, true, (HashMap<String, String>) null);
-                                    context13 = this.a.f51a;
+                                    context13 = this.a.f50a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_HUAWEI_TOKEN.ordinal() == i) {
-                                context10 = this.a.f51a;
+                                context10 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context10).a(av.UPLOAD_HUAWEI_TOKEN))) {
                                     aq aqVar = this.a;
                                     av avVar = av.UPLOAD_HUAWEI_TOKEN;
-                                    context11 = this.a.f51a;
+                                    context11 = this.a.f50a;
                                     aqVar.a(str, avVar, false, h.a(context11, d.ASSEMBLE_PUSH_HUAWEI));
-                                    context13 = this.a.f51a;
+                                    context13 = this.a.f50a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_FCM_TOKEN.ordinal() == i) {
-                                context8 = this.a.f51a;
+                                context8 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context8).a(av.UPLOAD_FCM_TOKEN))) {
                                     aq aqVar2 = this.a;
                                     av avVar2 = av.UPLOAD_FCM_TOKEN;
-                                    context9 = this.a.f51a;
+                                    context9 = this.a.f50a;
                                     aqVar2.a(str, avVar2, false, h.a(context9, d.ASSEMBLE_PUSH_FCM));
-                                    context13 = this.a.f51a;
+                                    context13 = this.a.f50a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_COS_TOKEN.ordinal() == i) {
-                                context6 = this.a.f51a;
+                                context6 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context6).a(av.UPLOAD_COS_TOKEN))) {
                                     aq aqVar3 = this.a;
                                     av avVar3 = av.UPLOAD_COS_TOKEN;
-                                    context7 = this.a.f51a;
+                                    context7 = this.a.f50a;
                                     aqVar3.a(str, avVar3, false, h.a(context7, d.ASSEMBLE_PUSH_COS));
-                                    context13 = this.a.f51a;
+                                    context13 = this.a.f50a;
                                     ag.a(context13).b(str);
                                 }
                             }
                             if (av.UPLOAD_FTOS_TOKEN.ordinal() == i) {
-                                context4 = this.a.f51a;
+                                context4 = this.a.f50a;
                                 if ("syncing".equals(ag.a(context4).a(av.UPLOAD_FTOS_TOKEN))) {
                                     aq aqVar4 = this.a;
                                     av avVar4 = av.UPLOAD_FTOS_TOKEN;
-                                    context5 = this.a.f51a;
+                                    context5 = this.a.f50a;
                                     aqVar4.a(str, avVar4, false, h.a(context5, d.ASSEMBLE_PUSH_FTOS));
                                 }
                             }
-                            context13 = this.a.f51a;
+                            context13 = this.a.f50a;
                             ag.a(context13).b(str);
                         } else {
-                            context3 = this.a.f51a;
+                            context3 = this.a.f50a;
                             ag.a(context3).c(str);
                         }
                     }

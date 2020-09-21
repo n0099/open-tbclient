@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal.brotli;
 
 import com.baidu.webkit.internal.brotli.DecoderJNI;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 final /* synthetic */ class a {
     static final /* synthetic */ int[] a = new int[DecoderJNI.a.values().length];
 

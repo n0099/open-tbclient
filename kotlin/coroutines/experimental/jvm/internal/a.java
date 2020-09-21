@@ -6,7 +6,7 @@ import kotlin.coroutines.experimental.d;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public final class a {
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.coroutines.experimental.b<? super T> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -14,7 +14,7 @@ public final class a {
         b<T> a;
         q.m(dVar, "context");
         q.m(bVar, "continuation");
-        c cVar = (c) dVar.a(c.osx);
+        c cVar = (c) dVar.a(c.oCe);
         return (cVar == null || (a = cVar.a(bVar)) == null) ? bVar : a;
     }
 }

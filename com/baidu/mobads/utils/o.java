@@ -2,7 +2,7 @@ package com.baidu.mobads.utils;
 
 import android.graphics.Bitmap;
 import com.baidu.mobads.interfaces.IXAdResource;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o implements IXAdResource {
     static Bitmap p = null;
     static Bitmap q = null;
@@ -54,7 +54,8 @@ public class o implements IXAdResource {
         return createBitmap(s, this.o);
     }
 
-    protected Bitmap createBitmap(Bitmap bitmap, String str) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Bitmap createBitmap(Bitmap bitmap, String str) {
         if (bitmap == null) {
             return XAdSDKFoundationFacade.getInstance().getBitmapUtils().string2bitmap(str);
         }

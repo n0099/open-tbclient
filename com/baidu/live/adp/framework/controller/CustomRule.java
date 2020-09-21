@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import java.security.InvalidParameterException;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class CustomRule extends MessageRule<CustomMessage<?>, CustomMessageTask> {
     public CustomRule(int i) {
         super(i);

@@ -24,7 +24,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class MapTextureView extends GLTextureView implements MapRenderModeChangeListener, MapViewInterface, af {
     protected com.baidu.mapsdkplatform.comapi.map.d a;
     protected MapController b;
@@ -40,7 +40,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     private b l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a implements GLSurfaceView.EGLContextFactory {
         private int b;
 
@@ -111,7 +111,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
     }

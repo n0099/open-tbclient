@@ -7,9 +7,9 @@ public interface a {
 
     void d(long j, String str, String str2);
 
-    void dO(String str, String str2);
-
-    void dP(String str, String str2);
-
     void dQ(String str, String str2);
+
+    void dR(String str, String str2);
+
+    void dS(String str, String str2);
 }

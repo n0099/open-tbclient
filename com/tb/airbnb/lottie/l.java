@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class l<T> {
     public static Executor Cc = Executors.newCachedThreadPool();
     @Nullable
@@ -23,7 +23,7 @@ public class l<T> {
     private final FutureTask<k<T>> Cg;
     private final Handler handler;
     @Nullable
-    private volatile k<T> oin;
+    private volatile k<T> orX;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public l(Callable<k<T>> callable) {
@@ -35,7 +35,7 @@ public class l<T> {
         this.Ce = new LinkedHashSet(1);
         this.Cf = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.oin = null;
+        this.orX = null;
         this.Cg = new FutureTask<>(callable);
         if (z) {
             try {
@@ -47,58 +47,58 @@ public class l<T> {
             }
         }
         Cc.execute(this.Cg);
-        iO();
+        iP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable k<T> kVar) {
-        if (this.oin != null) {
+        if (this.orX != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.oin = kVar;
-        iN();
+        this.orX = kVar;
+        iO();
     }
 
     public synchronized l<T> a(h<T> hVar) {
-        if (this.oin != null && this.oin.getValue() != null) {
-            hVar.onResult(this.oin.getValue());
+        if (this.orX != null && this.orX.getValue() != null) {
+            hVar.onResult(this.orX.getValue());
         }
         this.Ce.add(hVar);
-        iO();
+        iP();
         return this;
     }
 
     public synchronized l<T> b(h<T> hVar) {
         this.Ce.remove(hVar);
-        iP();
+        iQ();
         return this;
     }
 
     public synchronized l<T> c(h<Throwable> hVar) {
-        if (this.oin != null && this.oin.iM() != null) {
-            hVar.onResult(this.oin.iM());
+        if (this.orX != null && this.orX.iN() != null) {
+            hVar.onResult(this.orX.iN());
         }
         this.Cf.add(hVar);
-        iO();
+        iP();
         return this;
     }
 
     public synchronized l<T> d(h<Throwable> hVar) {
         this.Cf.remove(hVar);
-        iP();
+        iQ();
         return this;
     }
 
-    private void iN() {
+    private void iO() {
         this.handler.post(new Runnable() { // from class: com.tb.airbnb.lottie.l.1
             @Override // java.lang.Runnable
             public void run() {
-                if (l.this.oin != null && !l.this.Cg.isCancelled()) {
-                    k kVar = l.this.oin;
+                if (l.this.orX != null && !l.this.Cg.isCancelled()) {
+                    k kVar = l.this.orX;
                     if (kVar.getValue() != null) {
                         l.this.o(kVar.getValue());
                     } else {
-                        l.this.f(kVar.iM());
+                        l.this.f(kVar.iN());
                     }
                 }
             }
@@ -124,8 +124,8 @@ public class l<T> {
         }
     }
 
-    private synchronized void iO() {
-        if (!iQ() && this.oin == null) {
+    private synchronized void iP() {
+        if (!iR() && this.orX == null) {
             this.Cd = new Thread("LottieTaskObserver") { // from class: com.tb.airbnb.lottie.l.2
                 private boolean Cj = false;
 
@@ -139,7 +139,7 @@ public class l<T> {
                                 l.this.a(new k(e));
                             }
                             this.Cj = true;
-                            l.this.iP();
+                            l.this.iQ();
                         }
                     }
                 }
@@ -150,15 +150,15 @@ public class l<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void iP() {
-        if (iQ() && (this.Ce.isEmpty() || this.oin != null)) {
+    public synchronized void iQ() {
+        if (iR() && (this.Ce.isEmpty() || this.orX != null)) {
             this.Cd.interrupt();
             this.Cd = null;
             c.debug("Stopping TaskObserver thread");
         }
     }
 
-    private boolean iQ() {
+    private boolean iR() {
         return this.Cd != null && this.Cd.isAlive();
     }
 }

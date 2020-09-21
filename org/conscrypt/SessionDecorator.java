@@ -1,5 +1,5 @@
 package org.conscrypt;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 interface SessionDecorator extends ConscryptSession {
     ConscryptSession getDelegate();
 }

@@ -2,7 +2,7 @@ package com.baidu.vi;
 
 import android.media.AudioRecord;
 import android.os.Handler;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class AudioRecorder {
     private static Handler j = new com.baidu.vi.a();
     private volatile AudioRecord a;
@@ -17,7 +17,7 @@ public class AudioRecorder {
     private Thread k = new b(this, AudioRecorder.class.getSimpleName() + "-Record");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a {
         AudioRecorder a;
         byte[] b;

@@ -18,9 +18,9 @@ import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
-import com.baidu.live.data.ah;
-import com.baidu.live.data.r;
+import com.baidu.live.data.am;
 import com.baidu.live.data.u;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -34,33 +34,33 @@ import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.view.DrawableTextView;
 import com.baidu.live.view.ALALevelView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.a> {
-    private static final BdUniqueId gQx = BdUniqueId.gen();
-    private AlaLiveUserInfoData aDG;
-    private AlaLocationData aDH;
-    private AlaRelationData aDI;
-    private boolean aZV;
-    private int aZW;
-    private TextView dTU;
-    private CustomMessageListener fPH;
-    private com.baidu.live.ac.a gCn;
-    private r gPV;
-    private ImageView gQk;
-    private ALALevelView gQl;
-    private TextView gQm;
-    private TextView gQn;
-    private TextView gQo;
-    private LinearLayout gQp;
-    private LinearLayout gQq;
-    private TextView gQr;
-    private TbImageView gQs;
-    private TextView gQt;
-    private TextView gQu;
-    private DrawableTextView gQv;
-    private View gQw;
-    private boolean gQy;
-    private HeadImageView gyT;
+    private static final BdUniqueId gUf = BdUniqueId.gen();
+    private AlaLocationData aEA;
+    private AlaRelationData aEB;
+    private AlaLiveUserInfoData aEz;
+    private boolean bct;
+    private int bcu;
+    private TextView dWe;
+    private CustomMessageListener fSS;
+    private HeadImageView gCe;
+    private com.baidu.live.ad.a gFM;
+    private u gTD;
+    private ImageView gTS;
+    private ALALevelView gTT;
+    private TextView gTU;
+    private TextView gTV;
+    private TextView gTW;
+    private LinearLayout gTX;
+    private LinearLayout gTY;
+    private TextView gTZ;
+    private TbImageView gUa;
+    private TextView gUb;
+    private TextView gUc;
+    private DrawableTextView gUd;
+    private View gUe;
+    private boolean gUg;
     private int liveType;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -69,26 +69,26 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mUserId = -1L;
-        this.aZV = false;
-        this.gQy = false;
+        this.bct = false;
+        this.gUg = false;
         this.liveType = 2;
-        this.fPH = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.b.1
+        this.fSS = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().toUid.equals(String.valueOf(b.this.aDG.userId)) && updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag() != null) {
-                        boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(b.gQx);
-                        b.this.gQy = true;
+                    if (updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid) && updateAttentionMessage.getData().toUid.equals(String.valueOf(b.this.aEz.userId)) && updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag() != null) {
+                        boolean equals = updateAttentionMessage.getOrginalMessage().getTag().equals(b.gUf);
+                        b.this.gUg = true;
                         if (updateAttentionMessage.getData().isSucc) {
                             boolean z = updateAttentionMessage.getData().isAttention;
                             if (!equals) {
-                                b.this.bN(z);
-                                b.this.bO(z);
+                                b.this.bP(z);
+                                b.this.bQ(z);
                                 return;
                             } else if (z) {
-                                com.baidu.live.view.a.Qx().a(b.this.mPageContext, true);
+                                com.baidu.live.view.a.Rg().a(b.this.mPageContext, true);
                                 return;
                             } else {
                                 b.this.mPageContext.showToast(b.this.mPageContext.getResources().getString(a.i.sdk_unfollow_success_toast));
@@ -97,18 +97,18 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                         }
                         boolean z2 = updateAttentionMessage.getData().isAttention;
                         if (equals) {
-                            if (com.baidu.live.view.a.Qx().a(updateAttentionMessage.getData(), (BdPageContext<?>) b.this.mPageContext, false)) {
-                                b.this.aZV = !b.this.aZV;
-                                b.this.bO(b.this.aZV);
-                                b.this.bN(b.this.aZV);
+                            if (com.baidu.live.view.a.Rg().a(updateAttentionMessage.getData(), (BdPageContext<?>) b.this.mPageContext, false)) {
+                                b.this.bct = !b.this.bct;
+                                b.this.bQ(b.this.bct);
+                                b.this.bP(b.this.bct);
                                 return;
                             }
                             if (!StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                                 b.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                             }
-                            b.this.aZV = b.this.aZV ? false : true;
-                            b.this.bO(b.this.aZV);
-                            b.this.bN(b.this.aZV);
+                            b.this.bct = b.this.bct ? false : true;
+                            b.this.bQ(b.this.bct);
+                            b.this.bP(b.this.bct);
                         }
                     }
                 }
@@ -116,35 +116,35 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         };
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.gyT = (HeadImageView) this.mRootView.findViewById(a.g.user_icon);
-        this.gyT.setIsRound(true);
-        this.gyT.setAutoChangeStyle(false);
-        this.dTU = (TextView) this.mRootView.findViewById(a.g.user_name);
-        this.gQk = (ImageView) this.mRootView.findViewById(a.g.user_sex);
-        this.gQl = (ALALevelView) this.mRootView.findViewById(a.g.user_grade);
-        this.gQm = (TextView) this.mRootView.findViewById(a.g.user_attention_count);
-        this.gQn = (TextView) this.mRootView.findViewById(a.g.user_fans_count);
-        this.gQo = (TextView) this.mRootView.findViewById(a.g.user_location);
-        this.gQp = (LinearLayout) this.mRootView.findViewById(a.g.profile_container);
-        this.gQq = (LinearLayout) this.mRootView.findViewById(a.g.combat_authen_container);
-        this.gQs = (TbImageView) this.mRootView.findViewById(a.g.anthen_icon);
-        this.gQr = (TextView) this.mRootView.findViewById(a.g.combat_authen);
-        this.gQt = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_go_to_authen);
-        this.gQt.getPaint().setFlags(8);
-        this.gQt.getPaint().setAntiAlias(true);
-        this.gQu = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_reply_user);
-        this.gQv = (DrawableTextView) this.mRootView.findViewById(a.g.ala_host_tab_attention_btn);
-        this.gQw = this.mRootView.findViewById(a.g.divider_behind_fans_count);
-        this.gQp.setOnClickListener(this);
-        this.gQt.setOnClickListener(this);
-        this.gQu.setOnClickListener(this);
-        this.gQv.setOnClickListener(this);
-        this.gQm.setOnClickListener(this);
-        this.gQn.setOnClickListener(this);
-        MessageManager.getInstance().registerListener(this.fPH);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913049, com.baidu.live.ac.a.class, this.mPageContext);
+        this.gCe = (HeadImageView) this.mRootView.findViewById(a.g.user_icon);
+        this.gCe.setIsRound(true);
+        this.gCe.setAutoChangeStyle(false);
+        this.dWe = (TextView) this.mRootView.findViewById(a.g.user_name);
+        this.gTS = (ImageView) this.mRootView.findViewById(a.g.user_sex);
+        this.gTT = (ALALevelView) this.mRootView.findViewById(a.g.user_grade);
+        this.gTU = (TextView) this.mRootView.findViewById(a.g.user_attention_count);
+        this.gTV = (TextView) this.mRootView.findViewById(a.g.user_fans_count);
+        this.gTW = (TextView) this.mRootView.findViewById(a.g.user_location);
+        this.gTX = (LinearLayout) this.mRootView.findViewById(a.g.profile_container);
+        this.gTY = (LinearLayout) this.mRootView.findViewById(a.g.combat_authen_container);
+        this.gUa = (TbImageView) this.mRootView.findViewById(a.g.anthen_icon);
+        this.gTZ = (TextView) this.mRootView.findViewById(a.g.combat_authen);
+        this.gUb = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_go_to_authen);
+        this.gUb.getPaint().setFlags(8);
+        this.gUb.getPaint().setAntiAlias(true);
+        this.gUc = (TextView) this.mRootView.findViewById(a.g.ala_host_tab_reply_user);
+        this.gUd = (DrawableTextView) this.mRootView.findViewById(a.g.ala_host_tab_attention_btn);
+        this.gUe = this.mRootView.findViewById(a.g.divider_behind_fans_count);
+        this.gTX.setOnClickListener(this);
+        this.gUb.setOnClickListener(this);
+        this.gUc.setOnClickListener(this);
+        this.gUd.setOnClickListener(this);
+        this.gTU.setOnClickListener(this);
+        this.gTV.setOnClickListener(this);
+        MessageManager.getInstance().registerListener(this.fSS);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913049, com.baidu.live.ad.a.class, this.mPageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.gCn = (com.baidu.live.ac.a) runTask.getData();
+            this.gFM = (com.baidu.live.ad.a) runTask.getData();
         }
     }
 
@@ -158,228 +158,228 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.ala.person.hosttabpanel.b.a aVar) {
         String str;
-        if (aVar != null && aVar.gPV != null) {
-            this.gPV = aVar.gPV;
-            this.aDG = aVar.gPV.aDG;
-            this.aDI = aVar.gPV.aDI;
-            this.aDH = aVar.gPV.aDH;
-            if (this.gPV.mLiveInfo != null) {
-                this.liveType = this.gPV.mLiveInfo.live_type;
+        if (aVar != null && aVar.gTD != null) {
+            this.gTD = aVar.gTD;
+            this.aEz = aVar.gTD.aEz;
+            this.aEB = aVar.gTD.aEB;
+            this.aEA = aVar.gTD.aEA;
+            if (this.gTD.mLiveInfo != null) {
+                this.liveType = this.gTD.mLiveInfo.live_type;
             }
-            if (this.aDG != null && this.aDI != null && this.aDH != null) {
-                long j = this.aDG.userId;
-                if (this.aDG.portrait != null && !this.aDG.portrait.equals("")) {
-                    this.gyT.startLoad(this.aDG.portrait, 12, false);
+            if (this.aEz != null && this.aEB != null && this.aEA != null) {
+                long j = this.aEz.userId;
+                if (this.aEz.portrait != null && !this.aEz.portrait.equals("")) {
+                    this.gCe.startLoad(this.aEz.portrait, 12, false);
                 }
-                this.dTU.setText(this.aDG.userName);
+                this.dWe.setText(this.aEz.userName);
                 if (j == 0) {
-                    this.gQk.setVisibility(8);
+                    this.gTS.setVisibility(8);
                 } else {
-                    this.gQk.setVisibility(0);
-                    this.gQk.setImageResource(this.aDG.sex == 1 ? a.f.sdk_icon_mine_boy : a.f.sdk_icon_mine_girl);
+                    this.gTS.setVisibility(0);
+                    this.gTS.setImageResource(this.aEz.sex == 1 ? a.f.sdk_icon_mine_boy : a.f.sdk_icon_mine_girl);
                 }
-                this.gQl.setupLevelIcon(this.aDG.levelId);
+                this.gTT.setupLevelIcon(this.aEz.levelId);
                 if (this.liveType == 2) {
-                    if (!StringUtils.isNull(this.aDG.greatAnchorIcon)) {
-                        this.gQs.startLoad(this.aDG.greatAnchorIcon, 10, false);
+                    if (!StringUtils.isNull(this.aEz.greatAnchorIcon)) {
+                        this.gUa.startLoad(this.aEz.greatAnchorIcon, 10, false);
                     } else {
-                        this.gQs.setVisibility(8);
+                        this.gUa.setVisibility(8);
                     }
-                    if (!StringUtils.isNull(this.aDG.greatAnchorDescRole) && !StringUtils.isNull(this.aDG.greatAnchorDescGrade)) {
-                        this.gQr.setText(this.aDG.greatAnchorDescGrade + this.aDG.greatAnchorDescRole);
+                    if (!StringUtils.isNull(this.aEz.greatAnchorDescRole) && !StringUtils.isNull(this.aEz.greatAnchorDescGrade)) {
+                        this.gTZ.setText(this.aEz.greatAnchorDescGrade + this.aEz.greatAnchorDescRole);
                     } else {
-                        this.gQq.setVisibility(8);
+                        this.gTY.setVisibility(8);
                     }
                 } else {
-                    this.gQq.setVisibility(8);
+                    this.gTY.setVisibility(8);
                 }
-                this.gQm.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_attention_count, StringHelper.numberUniformFormat(this.aDG.followCount)));
-                if (!this.gQy || this.mUserId != this.aDG.userId) {
-                    this.gQy = false;
-                    this.aZW = this.aDG.fansCount;
-                    this.aZV = this.aDI.follow_status != 0;
-                    this.mUserId = this.aDG.userId;
+                this.gTU.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_attention_count, StringHelper.numberUniformFormat(this.aEz.followCount)));
+                if (!this.gUg || this.mUserId != this.aEz.userId) {
+                    this.gUg = false;
+                    this.bcu = this.aEz.fansCount;
+                    this.bct = this.aEB.follow_status != 0;
+                    this.mUserId = this.aEz.userId;
                 }
-                this.gQn.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_fans_count, StringHelper.numberUniformFormat(this.aZW)));
-                bN(this.aZV);
-                if (!StringUtils.isNull(this.aDG.location)) {
-                    str = this.aDG.location;
+                this.gTV.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_fans_count, StringHelper.numberUniformFormat(this.bcu)));
+                bP(this.bct);
+                if (!StringUtils.isNull(this.aEz.location)) {
+                    str = this.aEz.location;
                 } else {
-                    str = this.aDH.location;
+                    str = this.aEA.location;
                 }
                 if (this.liveType != 2 && !TextUtils.isEmpty(str)) {
-                    this.gQo.setVisibility(0);
-                    this.gQw.setVisibility(0);
-                    this.gQo.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_location, str));
+                    this.gTW.setVisibility(0);
+                    this.gUe.setVisibility(0);
+                    this.gTW.setText(this.mPageContext.getResources().getString(a.i.ala_host_tab_location, str));
                     return;
                 }
-                this.gQo.setVisibility(4);
-                this.gQw.setVisibility(4);
+                this.gTW.setVisibility(4);
+                this.gUe.setVisibility(4);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gQp) {
-            bYq();
-        } else if (view == this.gQt) {
-            if (this.gCn != null && this.gPV != null && this.gPV.aEf != null) {
-                this.gCn.a(this.gPV.aEf, "from_host_tab_panel");
+        if (view == this.gTX) {
+            cam();
+        } else if (view == this.gUb) {
+            if (this.gFM != null && this.gTD != null && this.gTD.aFb != null) {
+                this.gFM.a(this.gTD.aFb, "from_host_tab_panel");
             }
-        } else if (view == this.gQu) {
-            bYs();
-        } else if (view == this.gQv) {
-            bYr();
-        } else if (view == this.gQm) {
-            uL(2);
-        } else if (view == this.gQn) {
-            uL(1);
+        } else if (view == this.gUc) {
+            cao();
+        } else if (view == this.gUd) {
+            can();
+        } else if (view == this.gTU) {
+            ve(2);
+        } else if (view == this.gTV) {
+            ve(1);
         }
     }
 
-    private void uL(int i) {
-        if (this.gPV != null && this.gPV.mLiveInfo != null && this.gPV.aDG != null) {
-            AlaLiveUserInfoData alaLiveUserInfoData = this.gPV.aDG;
-            String valueOf = String.valueOf(this.gPV.mLiveInfo.group_id);
-            u uVar = new u();
-            uVar.groupId = valueOf;
-            uVar.aEy = false;
-            uVar.liveId = String.valueOf(alaLiveUserInfoData.liveId);
-            uVar.userId = String.valueOf(alaLiveUserInfoData.userId);
-            uVar.userName = alaLiveUserInfoData.userName;
-            uVar.tabType = i;
+    private void ve(int i) {
+        if (this.gTD != null && this.gTD.mLiveInfo != null && this.gTD.aEz != null) {
+            AlaLiveUserInfoData alaLiveUserInfoData = this.gTD.aEz;
+            String valueOf = String.valueOf(this.gTD.mLiveInfo.group_id);
+            x xVar = new x();
+            xVar.groupId = valueOf;
+            xVar.aFD = false;
+            xVar.liveId = String.valueOf(alaLiveUserInfoData.liveId);
+            xVar.userId = String.valueOf(alaLiveUserInfoData.userId);
+            xVar.userName = alaLiveUserInfoData.userName;
+            xVar.tabType = i;
             com.baidu.live.liveroom.d.c cVar = new com.baidu.live.liveroom.d.c();
-            cVar.bec = uVar;
-            cVar.bed = (short) 4;
+            cVar.bgT = xVar;
+            cVar.bgU = (short) 4;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913042, cVar));
             TiebaInitialize.log(new StatisticItem("c12559"));
         }
     }
 
-    private void bYq() {
+    private void cam() {
     }
 
-    private void bYr() {
-        if (this.aDG != null) {
+    private void can() {
+        if (this.aEz != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
                 return;
             }
-            this.gQy = true;
-            this.aZV = this.aZV ? false : true;
-            if (this.aZV) {
+            this.gUg = true;
+            this.bct = this.bct ? false : true;
+            if (this.bct) {
                 TiebaInitialize.log("c12558");
             }
-            bN(this.aZV);
-            bO(this.aZV);
-            com.baidu.live.data.d dVar = new com.baidu.live.data.d(this.aDG.portrait, String.valueOf(this.aDG.userId), "1", this.aZV, gQx);
-            dVar.setFrom("source_person_card_tab_host");
-            com.baidu.live.view.a.Qx().a(String.valueOf(this.aDG.userId), dVar);
+            bP(this.bct);
+            bQ(this.bct);
+            com.baidu.live.data.e eVar = new com.baidu.live.data.e(this.aEz.portrait, String.valueOf(this.aEz.userId), "1", this.bct, gUf);
+            eVar.setFrom("source_person_card_tab_host");
+            com.baidu.live.view.a.Rg().a(String.valueOf(this.aEz.userId), eVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bN(boolean z) {
-        this.aZV = z;
+    public void bP(boolean z) {
+        this.bct = z;
         if (z) {
-            this.gQv.setEnabled(false);
-            this.gQv.setText(this.mRootView.getContext().getString(a.i.ala_person_has_attention));
-            this.gQv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.gQv.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10109));
-            this.gQv.setGravity(17);
+            this.gUd.setEnabled(false);
+            this.gUd.setText(this.mRootView.getContext().getString(a.i.ala_person_has_attention));
+            this.gUd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.gUd.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10109));
+            this.gUd.setGravity(17);
             return;
         }
-        this.gQv.setEnabled(true);
-        this.gQv.setText(this.mPageContext.getString(a.i.ala_person_attention));
-        this.gQv.setCompoundDrawablesWithIntrinsicBounds(this.mPageContext.getResources().getDrawable(a.f.sdk_icon_add_live_n), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.gQv.setCompoundDrawablePadding(this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds8));
-        this.gQv.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_other_b));
-        this.gQv.setGravity(19);
+        this.gUd.setEnabled(true);
+        this.gUd.setText(this.mPageContext.getString(a.i.ala_person_attention));
+        this.gUd.setCompoundDrawablesWithIntrinsicBounds(this.mPageContext.getResources().getDrawable(a.f.sdk_icon_add_live_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.gUd.setCompoundDrawablePadding(this.mPageContext.getResources().getDimensionPixelSize(a.e.sdk_ds8));
+        this.gUd.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_other_b));
+        this.gUd.setGravity(19);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bO(boolean z) {
+    public void bQ(boolean z) {
         if (z) {
-            TextView textView = this.gQn;
+            TextView textView = this.gTV;
             Resources resources = this.mPageContext.getResources();
             int i = a.i.ala_host_tab_fans_count;
-            int i2 = this.aZW + 1;
-            this.aZW = i2;
+            int i2 = this.bcu + 1;
+            this.bcu = i2;
             textView.setText(resources.getString(i, StringHelper.numberUniformFormat(i2)));
             return;
         }
-        TextView textView2 = this.gQn;
+        TextView textView2 = this.gTV;
         Resources resources2 = this.mPageContext.getResources();
         int i3 = a.i.ala_host_tab_fans_count;
-        int i4 = this.aZW - 1;
-        this.aZW = i4;
+        int i4 = this.bcu - 1;
+        this.bcu = i4;
         textView2.setText(resources2.getString(i3, StringHelper.numberUniformFormat(i4)));
     }
 
-    private void bYs() {
-        if (this.aDG != null) {
+    private void cao() {
+        if (this.aEz != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
-            } else if (this.aDG.userId == 0) {
+            } else if (this.aEz.userId == 0) {
                 BdUtilHelper.showToast(this.mPageContext.getPageActivity(), a.i.ala_cannot_reply_tourist);
-            } else if (String.valueOf(this.aDG.userId).equals(TbadkCoreApplication.getCurrentAccount())) {
+            } else if (String.valueOf(this.aEz.userId).equals(TbadkCoreApplication.getCurrentAccount())) {
                 BdUtilHelper.showToast(this.mPageContext.getPageActivity(), a.i.ala_cannot_reply_self);
             } else {
                 TiebaInitialize.log("c12556");
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, c(this.aDG)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, b(this.aEz)));
                 com.baidu.live.liveroom.d.c cVar = new com.baidu.live.liveroom.d.c();
-                cVar.bed = (short) 1;
+                cVar.bgU = (short) 1;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913047, cVar));
             }
         }
     }
 
-    private ah c(AlaLiveUserInfoData alaLiveUserInfoData) {
+    private am b(AlaLiveUserInfoData alaLiveUserInfoData) {
         if (alaLiveUserInfoData == null) {
             return null;
         }
-        ah ahVar = new ah();
-        ahVar.user_id = String.valueOf(alaLiveUserInfoData.userId);
-        ahVar.verify_info_status = alaLiveUserInfoData.verifyInfoStatus;
-        ahVar.verify_video_status = alaLiveUserInfoData.verifyVideoStatus;
-        ahVar.verify_type = alaLiveUserInfoData.verifyType;
-        ahVar.user_name = alaLiveUserInfoData.userName;
-        ahVar.user_nickname = alaLiveUserInfoData.userName;
-        ahVar.pass_name = alaLiveUserInfoData.passName;
-        ahVar.sex = alaLiveUserInfoData.sex;
-        ahVar.description = alaLiveUserInfoData.description;
-        ahVar.portrait = alaLiveUserInfoData.portrait;
-        ahVar.level_id = alaLiveUserInfoData.levelId;
-        ahVar.level_exp = alaLiveUserInfoData.levelExp;
-        ahVar.is_login = alaLiveUserInfoData.isLogin;
-        ahVar.fans_count = alaLiveUserInfoData.fansCount;
-        ahVar.follow_count = alaLiveUserInfoData.followCount;
-        ahVar.user_status = alaLiveUserInfoData.userStatus;
-        ahVar.live_status = alaLiveUserInfoData.liveStatus;
-        ahVar.live_id = String.valueOf(alaLiveUserInfoData.liveId);
-        ahVar.create_time = String.valueOf(alaLiveUserInfoData.createTime);
-        ahVar.record_count = alaLiveUserInfoData.recordCount;
-        ahVar.location = alaLiveUserInfoData.location;
-        ahVar.lng = alaLiveUserInfoData.lng;
-        ahVar.lat = alaLiveUserInfoData.lat;
-        ahVar.is_block = alaLiveUserInfoData.isBlock;
-        ahVar.stream_id = alaLiveUserInfoData.streamID;
-        ahVar.has_tieba_username = alaLiveUserInfoData.hasTiebaName;
-        ahVar.verify_status = alaLiveUserInfoData.verifyStatus;
-        ahVar.great_anchor_icon = alaLiveUserInfoData.greatAnchorIcon;
-        ahVar.great_anchor_desc_grade = alaLiveUserInfoData.greatAnchorDescGrade;
-        ahVar.great_anchor_desc_role = alaLiveUserInfoData.greatAnchorDescRole;
-        ahVar.petal_num = alaLiveUserInfoData.petalNum;
-        return ahVar;
+        am amVar = new am();
+        amVar.user_id = String.valueOf(alaLiveUserInfoData.userId);
+        amVar.verify_info_status = alaLiveUserInfoData.verifyInfoStatus;
+        amVar.verify_video_status = alaLiveUserInfoData.verifyVideoStatus;
+        amVar.verify_type = alaLiveUserInfoData.verifyType;
+        amVar.user_name = alaLiveUserInfoData.userName;
+        amVar.user_nickname = alaLiveUserInfoData.userName;
+        amVar.pass_name = alaLiveUserInfoData.passName;
+        amVar.sex = alaLiveUserInfoData.sex;
+        amVar.description = alaLiveUserInfoData.description;
+        amVar.portrait = alaLiveUserInfoData.portrait;
+        amVar.level_id = alaLiveUserInfoData.levelId;
+        amVar.level_exp = alaLiveUserInfoData.levelExp;
+        amVar.is_login = alaLiveUserInfoData.isLogin;
+        amVar.fans_count = alaLiveUserInfoData.fansCount;
+        amVar.follow_count = alaLiveUserInfoData.followCount;
+        amVar.user_status = alaLiveUserInfoData.userStatus;
+        amVar.live_status = alaLiveUserInfoData.liveStatus;
+        amVar.live_id = String.valueOf(alaLiveUserInfoData.liveId);
+        amVar.create_time = String.valueOf(alaLiveUserInfoData.createTime);
+        amVar.record_count = alaLiveUserInfoData.recordCount;
+        amVar.location = alaLiveUserInfoData.location;
+        amVar.lng = alaLiveUserInfoData.lng;
+        amVar.lat = alaLiveUserInfoData.lat;
+        amVar.is_block = alaLiveUserInfoData.isBlock;
+        amVar.stream_id = alaLiveUserInfoData.streamID;
+        amVar.has_tieba_username = alaLiveUserInfoData.hasTiebaName;
+        amVar.verify_status = alaLiveUserInfoData.verifyStatus;
+        amVar.great_anchor_icon = alaLiveUserInfoData.greatAnchorIcon;
+        amVar.great_anchor_desc_grade = alaLiveUserInfoData.greatAnchorDescGrade;
+        amVar.great_anchor_desc_role = alaLiveUserInfoData.greatAnchorDescRole;
+        amVar.petal_num = alaLiveUserInfoData.petalNum;
+        return amVar;
     }
 
     @Override // com.baidu.live.tieba.b.a
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.fPH);
-        if (this.gCn != null) {
-            this.gCn.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.fSS);
+        if (this.gFM != null) {
+            this.gFM.onDestroy();
         }
     }
 
@@ -387,13 +387,13 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public b gPS;
+        public b gTA;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.gPS = bVar;
+            this.gTA = bVar;
         }
     }
 }

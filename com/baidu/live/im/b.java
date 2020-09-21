@@ -1,8 +1,8 @@
 package com.baidu.live.im;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
     }
 }

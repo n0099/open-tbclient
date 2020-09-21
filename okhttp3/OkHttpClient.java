@@ -32,8 +32,9 @@ import okhttp3.internal.platform.Platform;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
+    static int sDefaultFallbackConnectDealyMs;
     final Authenticator authenticator;
     @Nullable
     final Cache cache;
@@ -142,6 +143,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
                 return RealCall.newRealCall(okHttpClient, request, true);
             }
         };
+        sDefaultFallbackConnectDealyMs = 0;
     }
 
     public OkHttpClient() {
@@ -226,6 +228,12 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
 
     public int getFallbackConnectDelayMs() {
         return this.fallbackConnectDelayMs;
+    }
+
+    public static void setDefaultFallbackConnectDealyMs(int i) {
+        if (i >= 0) {
+            sDefaultFallbackConnectDealyMs = i;
+        }
     }
 
     public Proxy proxy() {
@@ -334,7 +342,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         return new Builder(this);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         Authenticator authenticator;
         @Nullable
@@ -393,7 +401,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.readTimeout = 10000;
             this.writeTimeout = 10000;
             this.pingInterval = 0;
-            this.fallbackConnectDelayMs = 0;
+            this.fallbackConnectDelayMs = OkHttpClient.sDefaultFallbackConnectDealyMs;
         }
 
         Builder(OkHttpClient okHttpClient) {

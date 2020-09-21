@@ -69,7 +69,7 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
     private static final String a = "LivenessRecog";
@@ -150,7 +150,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private int xa = -1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class a {
         static final int a = 0;
         static final int b = 1;
@@ -168,7 +168,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class b extends AsyncTask<Void, Void, String> {
         private b() {
         }
@@ -199,7 +199,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class c {
         static final int a = 0;
         static final int b = 1;
@@ -232,7 +232,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public class d extends CountDownTimer {
         public d(long j, long j2) {
             super(j, j2);
@@ -723,7 +723,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         if (!a2) {
             u();
         } else {
-            a.C0233a c2 = this.U.c();
+            a.C0231a c2 = this.U.c();
             a(c2);
             this.U.a(this.va);
             this.C.a();
@@ -926,9 +926,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private a.C0233a f() {
+    private a.C0231a f() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0233a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
+        return new a.C0231a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1091,7 +1091,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0233a c2 = this.U.c();
+        a.C0231a c2 = this.U.c();
         Bitmap createBitmap = Bitmap.createBitmap(iArr, c2.b, c2.a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -1104,26 +1104,26 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         return new String(Base64Utils.encode(byteArray));
     }
 
-    private a.C0233a b(a.C0233a c0233a) {
-        if (c0233a == null) {
+    private a.C0231a b(a.C0231a c0231a) {
+        if (c0231a == null) {
             return null;
         }
-        a.C0233a f2 = f();
-        a.C0233a c0233a2 = new a.C0233a(c0233a.a, c0233a.b);
-        float f3 = c0233a.a / c0233a.b;
+        a.C0231a f2 = f();
+        a.C0231a c0231a2 = new a.C0231a(c0231a.a, c0231a.b);
+        float f3 = c0231a.a / c0231a.b;
         float f4 = f2.b / f2.a;
         if (Math.abs(f3 - f4) > 0.02d) {
             if (f3 < f4) {
                 int i2 = f2.b;
-                c0233a2.a = (c0233a.b * i2) / c0233a.a;
-                c0233a2.b = i2;
-                return c0233a2;
+                c0231a2.a = (c0231a.b * i2) / c0231a.a;
+                c0231a2.b = i2;
+                return c0231a2;
             }
-            c0233a2.a = f2.a;
-            c0233a2.b = (f2.a * c0233a.a) / c0233a.b;
-            return c0233a2;
+            c0231a2.a = f2.a;
+            c0231a2.b = (f2.a * c0231a.a) / c0231a.b;
+            return c0231a2;
         }
-        return c0233a2;
+        return c0231a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1424,10 +1424,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         d();
     }
 
-    private void a(a.C0233a c0233a) {
+    private void a(a.C0231a c0231a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.C.getLayoutParams());
-        a.C0233a b2 = b(c0233a);
-        if (b2 != null && (b2.a != c0233a.a || b2.b != c0233a.b)) {
+        a.C0231a b2 = b(c0231a);
+        if (b2 != null && (b2.a != c0231a.a || b2.b != c0231a.b)) {
             layoutParams.width = b2.a;
             layoutParams.height = b2.b;
         } else {

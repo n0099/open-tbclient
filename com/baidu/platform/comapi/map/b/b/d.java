@@ -11,7 +11,7 @@ import com.baidu.platform.comapi.map.b.a;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends a {
     private GeoPoint b;
     private int c;
@@ -95,8 +95,8 @@ public class d extends a {
     }
 
     private void c(MapStatus mapStatus) {
-        double abs = Math.abs(new a.c(new a.C0242a(this.i.b.a, this.i.c.a), this.i.b).a);
-        double abs2 = Math.abs(new a.c(new a.C0242a(this.i.b.b, this.i.c.b), this.i.b).a);
+        double abs = Math.abs(new a.c(new a.C0240a(this.i.b.a, this.i.c.a), this.i.b).a);
+        double abs2 = Math.abs(new a.c(new a.C0240a(this.i.b.b, this.i.c.b), this.i.b).a);
         if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
             return;
         }
@@ -137,8 +137,8 @@ public class d extends a {
                 a(mapStatus, a);
                 return;
             }
-            double abs = Math.abs(new a.c(new a.C0242a(bVar.b.a, bVar.c.a), bVar.b).a);
-            double abs2 = Math.abs(new a.c(new a.C0242a(bVar.b.b, bVar.c.b), bVar.b).a);
+            double abs = Math.abs(new a.c(new a.C0240a(bVar.b.a, bVar.c.a), bVar.b).a);
+            double abs2 = Math.abs(new a.c(new a.C0240a(bVar.b.b, bVar.c.b), bVar.b).a);
             if (this.k != 0.0d && this.k * this.g.b < 0.0d) {
                 a(mapStatus, a);
                 return;

@@ -4,16 +4,16 @@ import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GuardClubInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    public a aXV;
-    public String aXW;
-    public String[] aXX;
-    public boolean aXY;
-    public boolean aXZ;
-    public d[] aYa;
-    public f aYb;
-    public boolean aYc;
+    public boolean baA;
+    public a bat;
+    public String bau;
+    public String[] bav;
+    public boolean baw;
+    public boolean bax;
+    public d[] bay;
+    public f baz;
 
     public GuardClubInfoHttpResponseMessage() {
         super(1021137);
@@ -24,35 +24,35 @@ public class GuardClubInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aXV = new a();
+            this.bat = new a();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.aXV.parseJson(optJSONObject2);
+                this.bat.parseJson(optJSONObject2);
             }
-            this.aXW = optJSONObject.optString("explain_url");
+            this.bau = optJSONObject.optString("explain_url");
             JSONArray optJSONArray = optJSONObject.optJSONArray("privilege_conf");
             if (optJSONArray != null) {
-                this.aXX = new String[optJSONArray.length()];
+                this.bav = new String[optJSONArray.length()];
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    this.aXX[i2] = optJSONArray.getString(i2);
+                    this.bav[i2] = optJSONArray.getString(i2);
                 }
             }
-            this.aXY = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
-            this.aXZ = optJSONObject.optInt("isAnchor") == 1;
+            this.baw = optJSONObject.optInt(GuardClubInfoActivityConfig.IS_CLUB_MEMBER) == 1;
+            this.bax = optJSONObject.optInt("isAnchor") == 1;
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("join_club_privilege");
             if (optJSONArray2 != null) {
-                this.aYa = new d[optJSONArray2.length()];
+                this.bay = new d[optJSONArray2.length()];
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    this.aYa[i3] = new d();
-                    this.aYa[i3].parseJson(optJSONArray2.optJSONObject(i3));
+                    this.bay[i3] = new d();
+                    this.bay[i3].parseJson(optJSONArray2.optJSONObject(i3));
                 }
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject3 != null) {
-                this.aYb = new f();
-                this.aYb.parseJson(optJSONObject3);
+                this.baz = new f();
+                this.baz.parseJson(optJSONObject3);
             }
-            this.aYc = optJSONObject.optInt("has_quit_tips") == 1;
+            this.baA = optJSONObject.optInt("has_quit_tips") == 1;
         }
     }
 }

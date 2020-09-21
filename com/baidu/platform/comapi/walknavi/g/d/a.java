@@ -1,17 +1,17 @@
 package com.baidu.platform.comapi.walknavi.g.d;
 
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static int a = -1;
     private static final int[] b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     static class b {
         static final a a = new a();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(int i, int i2);
     }
@@ -63,7 +63,7 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0253a b2 = b(i);
+            C0251a b2 = b(i);
             i3 = b2.a;
             i2 = b2.b;
         }
@@ -73,8 +73,8 @@ public class a {
         a = i3;
     }
 
-    private C0253a b(int i) {
-        C0253a c0253a = new C0253a();
+    private C0251a b(int i) {
+        C0251a c0251a = new C0251a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -83,12 +83,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0253a.a = c(b[i3]);
-                c0253a.b = i2 / b[i3];
+                c0251a.a = c(b[i3]);
+                c0251a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0253a;
+        return c0251a;
     }
 
     private int c(int i) {
@@ -182,12 +182,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0253a {
+    /* loaded from: classes3.dex */
+    public class C0251a {
         public int a;
         public int b;
 
-        C0253a() {
+        C0251a() {
         }
     }
 }

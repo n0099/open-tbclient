@@ -1,7 +1,7 @@
 package org.conscrypt;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 final class OpenSSLBIOSink {
     private final ByteArrayOutputStream buffer;
     private final long ctx;

@@ -19,8 +19,8 @@ public class c extends LinearLayout implements View.OnClickListener {
     private TextView e;
     private boolean f;
     private int g;
-    private FrescoThumbnailView nTP;
-    private FrescoThumbnailView nTU;
+    private FrescoThumbnailView odJ;
+    private FrescoThumbnailView odO;
 
     public c(Context context) {
         super(context);
@@ -32,12 +32,12 @@ public class c extends LinearLayout implements View.OnClickListener {
     private void a(Context context) {
         this.a = context;
         LayoutInflater.from(context).inflate(a.h.view_lucky_draw_notifier, (ViewGroup) this, true);
-        this.nTU = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
-        this.nTU.setAnim(true);
-        this.nTP = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
+        this.odO = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_icon);
+        this.odO.setAnim(true);
+        this.odJ = (FrescoThumbnailView) findViewById(a.f.iv_lucky_draw_text_bg);
         this.d = (TextView) findViewById(a.f.tv_lucky_draw_text);
         this.e = (TextView) findViewById(a.f.tv_count);
-        this.nTU.setOnClickListener(this);
+        this.odO.setOnClickListener(this);
         this.d.setOnClickListener(this);
     }
 
@@ -47,44 +47,44 @@ public class c extends LinearLayout implements View.OnClickListener {
 
     public void a(com.kascend.chushou.player.ui.h5.d.a aVar) {
         this.g = 2;
-        com.kascend.chushou.player.ui.h5.c.c eav = aVar.eav();
-        if (eav == null) {
+        com.kascend.chushou.player.ui.h5.c.c eet = aVar.eet();
+        if (eet == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.nTU.i(eav.a, a.e.open_vote, b.C1017b.oOR, b.C1017b.oOR);
-            this.nTP.i(eav.b, a.e.open_vote_text_bg, b.C1017b.small, b.C1017b.small);
+            this.odO.i(eet.a, a.e.open_vote, b.C1014b.oYt, b.C1014b.oYt);
+            this.odJ.i(eet.b, a.e.open_vote_text_bg, b.C1014b.small, b.C1014b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(eav.c)) {
+            if (!h.isEmpty(eet.c)) {
                 try {
-                    color = Color.parseColor(eav.c);
+                    color = Color.parseColor(eet.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.e(this.a, eav.e));
+            this.d.setText(b.e(this.a, eet.e));
             this.f = true;
         }
     }
 
     public void a(b bVar) {
         this.g = 1;
-        com.kascend.chushou.player.ui.h5.c.c eav = bVar.eav();
-        if (eav == null) {
+        com.kascend.chushou.player.ui.h5.c.c eet = bVar.eet();
+        if (eet == null) {
             setVisibility(8);
         } else if (!this.f) {
-            this.nTU.i(eav.a, a.e.open_luckydraw, b.C1017b.oOR, b.C1017b.oOR);
-            this.nTP.i(eav.b, a.e.open_luckydraw_text_bg, b.C1017b.small, b.C1017b.small);
+            this.odO.i(eet.a, a.e.open_luckydraw, b.C1014b.oYt, b.C1014b.oYt);
+            this.odJ.i(eet.b, a.e.open_luckydraw_text_bg, b.C1014b.small, b.C1014b.small);
             int color = ContextCompat.getColor(this.a, a.c.kas_white);
-            if (!h.isEmpty(eav.c)) {
+            if (!h.isEmpty(eet.c)) {
                 try {
-                    color = Color.parseColor(eav.c);
+                    color = Color.parseColor(eet.c);
                 } catch (Exception e) {
                     color = ContextCompat.getColor(this.a, a.c.kas_white);
                 }
             }
             this.d.setTextColor(color);
-            this.d.setText(b.e(this.a, eav.e));
+            this.d.setText(b.e(this.a, eet.e));
             if (bVar.e() > 1) {
                 this.e.setVisibility(0);
                 this.e.setText(String.valueOf(bVar.e()));

@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class k implements Runnable {
     final /* synthetic */ j a;
 

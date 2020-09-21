@@ -3,7 +3,7 @@ package com.baidu.location.b;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class j {
     private static j a = null;
     private static String b = "Temp_in.dat";

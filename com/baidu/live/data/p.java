@@ -1,73 +1,29 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.internal.Constants;
-import org.json.JSONException;
+import com.baidu.live.tbadk.core.data.BaseData;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class p {
-    public a mCastIds;
-    public long mRoomId;
-    public String tbs;
+/* loaded from: classes4.dex */
+public class p extends BaseData {
+    public AlaLiveInfoData mLiveInfo;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public String aDY;
-        public String aDZ;
-        public String aEa;
-        public String aEb;
-        public String aEc;
-        public String aEd;
-
-        public void parseJson(JSONObject jSONObject) {
-            if (jSONObject != null) {
-                this.aDY = jSONObject.optString("chat_mcast_id");
-                this.aDZ = jSONObject.optString("ensure_mcast_id");
-                this.aEa = jSONObject.optString("chat_msg_hls_url");
-                this.aEb = jSONObject.optString("host_msg_hls_url");
-                this.aEc = jSONObject.optString("reliable_msg_hls_url");
-                this.aEd = jSONObject.optString("msg_hls_pull_internal_in_second");
-            }
-        }
-
-        public JSONObject toJsonObject() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("chat_mcast_id", this.aDY);
-                jSONObject.put("ensure_mcast_id", this.aDZ);
-                jSONObject.put("chat_msg_hls_url", this.aEa);
-                jSONObject.put("host_msg_hls_url", this.aEb);
-                jSONObject.put("reliable_msg_hls_url", this.aEc);
-                jSONObject.put("msg_hls_pull_internal_in_second", this.aEd);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.tbs = jSONObject.optString("tbs");
-            this.mRoomId = jSONObject.optLong("room_id");
-            JSONObject optJSONObject = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
+            this.mLiveInfo = new AlaLiveInfoData();
+            JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
             if (optJSONObject != null) {
-                this.mCastIds = new a();
-                this.mCastIds.parseJson(optJSONObject);
+                this.mLiveInfo.parserJson(optJSONObject);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("author");
+            if (optJSONObject2 != null) {
+                long optLong = optJSONObject2.optLong("id");
+                String optString = optJSONObject2.optString("name");
+                String optString2 = optJSONObject2.optString("name_show");
+                optJSONObject2.optString("portrait");
+                this.mLiveInfo.user_id = optLong;
+                this.mLiveInfo.user_name = optString;
+                this.mLiveInfo.user_nickname = optString2;
             }
         }
-    }
-
-    public JSONObject toJsonObject() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("tbs", this.tbs);
-            jSONObject.put("room_id", this.mRoomId);
-            if (this.mCastIds != null) {
-                jSONObject.put(Constants.EXTRA_CAST_IDS, this.mCastIds.toJsonObject());
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject;
     }
 }

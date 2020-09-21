@@ -1,16 +1,16 @@
 package com.baidu.q;
 /* loaded from: classes12.dex */
 public class d {
-    private boolean nhn;
-    private int nho;
+    private boolean nro;
+    private int nrp;
 
-    public d xL(boolean z) {
-        this.nhn = z;
+    public d xU(boolean z) {
+        this.nro = z;
         return this;
     }
 
-    public d KF(int i) {
-        this.nho = i;
+    public d Lk(int i) {
+        this.nrp = i;
         return this;
     }
 }

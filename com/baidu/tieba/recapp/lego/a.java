@@ -27,26 +27,26 @@ import com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostImageView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostPbView;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cLV() {
-        jOr.put(17, jOr.size() + 1);
-        jOr.put(26, jOr.size() + 1);
-        jOr.put(27, jOr.size() + 1);
-        jOr.put(31, jOr.size() + 1);
-        jOr.put(32, jOr.size() + 1);
-        jOr.put(33, jOr.size() + 1);
-        jOr.put(34, jOr.size() + 1);
-        jOr.put(99, jOr.size() + 1);
-        jOs.put(17, BdUniqueId.gen());
-        jOs.put(26, BdUniqueId.gen());
-        jOs.put(27, BdUniqueId.gen());
-        jOs.put(31, BdUniqueId.gen());
-        jOs.put(32, BdUniqueId.gen());
-        jOs.put(33, BdUniqueId.gen());
-        jOs.put(34, BdUniqueId.gen());
-        jOs.put(99, BdUniqueId.gen());
+    protected void cPB() {
+        jWU.put(17, jWU.size() + 1);
+        jWU.put(26, jWU.size() + 1);
+        jWU.put(27, jWU.size() + 1);
+        jWU.put(31, jWU.size() + 1);
+        jWU.put(32, jWU.size() + 1);
+        jWU.put(33, jWU.size() + 1);
+        jWU.put(34, jWU.size() + 1);
+        jWU.put(99, jWU.size() + 1);
+        jWV.put(17, BdUniqueId.gen());
+        jWV.put(26, BdUniqueId.gen());
+        jWV.put(27, BdUniqueId.gen());
+        jWV.put(31, BdUniqueId.gen());
+        jWV.put(32, BdUniqueId.gen());
+        jWV.put(33, BdUniqueId.gen());
+        jWV.put(34, BdUniqueId.gen());
+        jWV.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -55,7 +55,7 @@ class a extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public ICardInfo c(JSONObject jSONObject, int i) throws CardParseException {
+    public ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
         switch (i) {
             case 17:
             case 26:

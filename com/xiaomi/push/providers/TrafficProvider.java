@@ -7,14 +7,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.gx;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f792a;
+    private SQLiteOpenHelper f791a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f791a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f790a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
     private static final UriMatcher a = new UriMatcher(-1);
 
     static {
@@ -49,17 +49,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f792a = new a(getContext());
+        this.f791a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f793a) {
+        synchronized (a.f792a) {
             switch (a.match(uri)) {
                 case 1:
-                    query = this.f792a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f791a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);

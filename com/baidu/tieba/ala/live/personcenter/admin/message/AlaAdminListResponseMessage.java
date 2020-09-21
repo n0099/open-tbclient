@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.live.personcenter.admin.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaAdminListResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a ggy;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a gjJ;
 
     public AlaAdminListResponseMessage() {
         super(1021078);
@@ -13,11 +13,11 @@ public class AlaAdminListResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.ggy = new com.baidu.tieba.ala.live.personcenter.admin.b.a();
-        this.ggy.di(jSONObject.optJSONObject("data"));
+        this.gjJ = new com.baidu.tieba.ala.live.personcenter.admin.b.a();
+        this.gjJ.dl(jSONObject.optJSONObject("data"));
     }
 
-    public com.baidu.tieba.ala.live.personcenter.admin.b.a bLr() {
-        return this.ggy;
+    public com.baidu.tieba.ala.live.personcenter.admin.b.a bMB() {
+        return this.gjJ;
     }
 }

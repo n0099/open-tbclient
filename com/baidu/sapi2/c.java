@@ -79,7 +79,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class c {
     private static final String b = "c";
     private static final int c = 6;
@@ -87,7 +87,7 @@ public final class c {
     private SapiConfiguration a = SapiAccountManager.getInstance().getSapiConfiguration();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class a extends HttpHandlerWrap {
         final /* synthetic */ IqiyiLoginCallback a;
         final /* synthetic */ IqiyiLoginResult b;
@@ -155,7 +155,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class b extends HttpHandlerWrap {
         b(Looper looper) {
             super(looper);
@@ -174,13 +174,13 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.c$c  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public class C0292c extends HttpHandlerWrap {
+    /* loaded from: classes25.dex */
+    public class C0290c extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ CheckUserFaceIdResult b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        C0292c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
+        C0290c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
             super(looper);
             this.a = sapiCallback;
             this.b = checkUserFaceIdResult;
@@ -230,7 +230,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class d extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ FaceLoginStatusResult b;
@@ -287,7 +287,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class e extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ CheckUserFaceIdResult b;
@@ -347,7 +347,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class g extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ SapiResult b;
@@ -398,7 +398,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class h extends HttpHandlerWrap {
         final /* synthetic */ OneKeyLoginResult a;
         final /* synthetic */ String b;
@@ -456,12 +456,12 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class i implements com.baidu.sapi2.callback.a.a {
         final /* synthetic */ OneKeyLoginCallback a;
         final /* synthetic */ com.baidu.sapi2.callback.a.b b;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         class a extends HttpHandlerWrap {
             a(Looper looper) {
                 super(looper);
@@ -559,7 +559,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class j extends HttpHandlerWrap {
         final /* synthetic */ String a;
         final /* synthetic */ OneKeyLoginCallback b;
@@ -599,7 +599,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class k extends GetUserInfoCallback {
         final /* synthetic */ Web2NativeLoginResult a;
         final /* synthetic */ Web2NativeLoginCallback b;
@@ -657,7 +657,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class l extends HttpHandlerWrap {
         final /* synthetic */ int a;
 
@@ -696,7 +696,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class m extends HttpHandlerWrap {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ boolean b;
@@ -741,7 +741,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class n extends HttpHandlerWrap {
         final /* synthetic */ SapiCallBack a;
         final /* synthetic */ boolean b;
@@ -774,7 +774,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class o extends HttpHandlerWrap {
         final /* synthetic */ GetUserInfoCallback a;
         final /* synthetic */ GetUserInfoResult b;
@@ -845,7 +845,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class p extends HttpHandlerWrap {
         final /* synthetic */ FillUsernameCallback a;
         final /* synthetic */ FillUsernameResult b;
@@ -917,7 +917,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class q extends HttpHandlerWrap {
         final /* synthetic */ GetTplStokenCallback a;
         final /* synthetic */ GetTplStokenResult b;
@@ -1019,7 +1019,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class r extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ OAuthResult b;
@@ -1078,7 +1078,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class s extends HttpHandlerWrap {
         final /* synthetic */ SapiCallBack a;
 
@@ -1104,7 +1104,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class t extends GetUserInfoCallback {
         final /* synthetic */ IqiyiLoginCallback a;
         final /* synthetic */ IqiyiLoginDTO b;
@@ -1306,7 +1306,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class f extends AsyncTask<String, Void, Long> {
         final /* synthetic */ String a;
         final /* synthetic */ String b;
@@ -1701,7 +1701,7 @@ public final class c {
         if (map != null && !map.isEmpty()) {
             a2.putAll(map);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0292c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0290c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

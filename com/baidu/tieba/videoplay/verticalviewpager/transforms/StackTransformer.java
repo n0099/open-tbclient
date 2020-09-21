@@ -2,7 +2,7 @@ package com.baidu.tieba.videoplay.verticalviewpager.transforms;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class StackTransformer implements ViewPager.PageTransformer {
     @Override // android.support.v4.view.ViewPager.PageTransformer
     public void transformPage(View view, float f) {

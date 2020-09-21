@@ -9,7 +9,7 @@ import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.platform.comapi.util.e;
 import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     private static NACommonMemCache a;
     private static boolean b = false;

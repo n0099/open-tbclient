@@ -51,29 +51,29 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<String> RC;
-    private BroadcastReceiver RD;
-    private com.baidu.adp.plugin.install.a RF;
-    private PluginInstallTask RK;
-    private PluginInstallTask RO;
-    private ServiceConnection RQ;
+    private ArrayList<String> RX;
+    private BroadcastReceiver RY;
+    private com.baidu.adp.plugin.install.a Sa;
+    private PluginInstallTask Sf;
+    private PluginInstallTask Sh;
+    private ServiceConnection Sj;
     private Messenger messenger;
     private static Handler sHandler = new Handler(Looper.getMainLooper());
-    private static volatile c RG = null;
-    private boolean RB = false;
-    private boolean RE = false;
-    private boolean RH = true;
-    private a RI = null;
-    private final Object RJ = new Object();
-    private LinkedList<PluginInstallTask> RL = new LinkedList<>();
-    private LinkedList<PluginInstallTask> RP = new LinkedList<>();
+    private static volatile c Sb = null;
+    private boolean RW = false;
+    private boolean RZ = false;
+    private boolean Sc = true;
+    private a Sd = null;
+    private final Object Se = new Object();
+    private LinkedList<PluginInstallTask> Sg = new LinkedList<>();
+    private LinkedList<PluginInstallTask> Si = new LinkedList<>();
     private Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.plugin.install.c.3
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (c.this.RK != null && message != null) {
+            if (c.this.Sf != null && message != null) {
                 try {
-                    if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).pkgName, c.this.RK.pkgName)) {
-                        c.sHandler.removeCallbacks(c.this.RU);
+                    if (TextUtils.equals(((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).pkgName, c.this.Sf.pkgName)) {
+                        c.sHandler.removeCallbacks(c.this.Sm);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -81,49 +81,49 @@ public class c {
             }
         }
     };
-    private Messenger RR = new Messenger(this.handler);
-    private Runnable RT = new Runnable() { // from class: com.baidu.adp.plugin.install.c.4
+    private Messenger Sk = new Messenger(this.handler);
+    private Runnable Sl = new Runnable() { // from class: com.baidu.adp.plugin.install.c.4
         @Override // java.lang.Runnable
         public void run() {
-            c.this.pm();
-            c.this.pl();
-        }
-    };
-    private Runnable RU = new Runnable() { // from class: com.baidu.adp.plugin.install.c.5
-        @Override // java.lang.Runnable
-        public void run() {
-            c.this.po();
-        }
-    };
-    private Runnable RV = new Runnable() { // from class: com.baidu.adp.plugin.install.c.6
-        @Override // java.lang.Runnable
-        public void run() {
-            c.this.pp();
-        }
-    };
-    private Runnable RW = new Runnable() { // from class: com.baidu.adp.plugin.install.c.7
-        @Override // java.lang.Runnable
-        public void run() {
+            c.this.pr();
             c.this.pq();
         }
     };
+    private Runnable Sm = new Runnable() { // from class: com.baidu.adp.plugin.install.c.5
+        @Override // java.lang.Runnable
+        public void run() {
+            c.this.pt();
+        }
+    };
+    private Runnable Sn = new Runnable() { // from class: com.baidu.adp.plugin.install.c.6
+        @Override // java.lang.Runnable
+        public void run() {
+            c.this.pu();
+        }
+    };
+    private Runnable So = new Runnable() { // from class: com.baidu.adp.plugin.install.c.7
+        @Override // java.lang.Runnable
+        public void run() {
+            c.this.pv();
+        }
+    };
 
-    public static c pg() {
-        if (RG == null) {
+    public static c pl() {
+        if (Sb == null) {
             synchronized (c.class) {
-                if (RG == null) {
-                    RG = new c();
+                if (Sb == null) {
+                    Sb = new c();
                 }
             }
         }
-        return RG;
+        return Sb;
     }
 
     private c() {
-        this.RC = null;
-        this.RD = null;
-        this.RC = new ArrayList<>();
-        this.RD = new BroadcastReceiver() { // from class: com.baidu.adp.plugin.install.c.1
+        this.RX = null;
+        this.RY = null;
+        this.RX = new ArrayList<>();
+        this.RY = new BroadcastReceiver() { // from class: com.baidu.adp.plugin.install.c.1
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=5, 129=5, 130=5, 131=5, 132=5, 133=5, 134=5, 135=5, 136=5, 138=6, 127=6] */
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
@@ -131,18 +131,18 @@ public class c {
                 boolean z = false;
                 try {
                     if (intent == null) {
-                        if (c.this.RK != null && TextUtils.equals(null, c.this.RK.pkgName)) {
-                            c.this.pi();
-                            c.this.RK = null;
+                        if (c.this.Sf != null && TextUtils.equals(null, c.this.Sf.pkgName)) {
+                            c.this.pn();
+                            c.this.Sf = null;
                             c.this.a((PluginInstallTask) null);
                             return;
-                        } else if (c.this.RO == null || !TextUtils.equals(null, c.this.RO.pkgName)) {
+                        } else if (c.this.Sh == null || !TextUtils.equals(null, c.this.Sh.pkgName)) {
                             c.this.a((PluginInstallTask) null);
                             return;
                         } else {
-                            c.this.pj();
+                            c.this.po();
                             c.this.a((PluginInstallTask) null);
-                            com.baidu.adp.plugin.b.a.py().log("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.pD().log("plugin_retry_install_succ");
                             return;
                         }
                     }
@@ -150,18 +150,18 @@ public class c {
                         str = intent.getStringExtra("package_name");
                         try {
                             if (TextUtils.isEmpty(str)) {
-                                if (c.this.RK != null && TextUtils.equals(str, c.this.RK.pkgName)) {
-                                    c.this.pi();
-                                    c.this.RK = null;
+                                if (c.this.Sf != null && TextUtils.equals(str, c.this.Sf.pkgName)) {
+                                    c.this.pn();
+                                    c.this.Sf = null;
                                     c.this.a((PluginInstallTask) null);
                                     return;
-                                } else if (c.this.RO == null || !TextUtils.equals(str, c.this.RO.pkgName)) {
+                                } else if (c.this.Sh == null || !TextUtils.equals(str, c.this.Sh.pkgName)) {
                                     c.this.a((PluginInstallTask) null);
                                     return;
                                 } else {
-                                    c.this.pj();
+                                    c.this.po();
                                     c.this.a((PluginInstallTask) null);
-                                    com.baidu.adp.plugin.b.a.py().log("plugin_retry_install_succ");
+                                    com.baidu.adp.plugin.b.a.pD().log("plugin_retry_install_succ");
                                     return;
                                 }
                             }
@@ -172,41 +172,41 @@ public class c {
                             String action = intent.getAction();
                             if ("com.baidu.adp.plugin.installed".equals(action)) {
                                 c.this.h(str, z);
-                                com.baidu.adp.plugin.packageManager.status.a.qw().cO(str);
+                                com.baidu.adp.plugin.packageManager.status.a.qB().cQ(str);
                             } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                                 if (z) {
-                                    c.this.RH = false;
+                                    c.this.Sc = false;
                                 }
                                 c.this.h(str, z);
-                                com.baidu.adp.plugin.packageManager.status.a.qw().j(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                                com.baidu.adp.plugin.packageManager.status.a.qB().j(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
                             } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
                                 c.this.h(str, z);
                             } else if ("com.baidu.adp.plugin.installrepeat".equals(action)) {
                             }
-                            if (c.this.RK != null && TextUtils.equals(str, c.this.RK.pkgName)) {
-                                c.this.pi();
-                                c.this.RK = null;
+                            if (c.this.Sf != null && TextUtils.equals(str, c.this.Sf.pkgName)) {
+                                c.this.pn();
+                                c.this.Sf = null;
                                 c.this.a((PluginInstallTask) null);
-                            } else if (c.this.RO == null || !TextUtils.equals(str, c.this.RO.pkgName)) {
+                            } else if (c.this.Sh == null || !TextUtils.equals(str, c.this.Sh.pkgName)) {
                                 c.this.a((PluginInstallTask) null);
                             } else {
-                                c.this.pj();
+                                c.this.po();
                                 c.this.a((PluginInstallTask) null);
-                                com.baidu.adp.plugin.b.a.py().log("plugin_retry_install_succ");
+                                com.baidu.adp.plugin.b.a.pD().log("plugin_retry_install_succ");
                             }
                         } catch (Exception e) {
                             e = e;
                             BdLog.detailException(e);
-                            if (c.this.RK != null && TextUtils.equals(str, c.this.RK.pkgName)) {
-                                c.this.pi();
-                                c.this.RK = null;
+                            if (c.this.Sf != null && TextUtils.equals(str, c.this.Sf.pkgName)) {
+                                c.this.pn();
+                                c.this.Sf = null;
                                 c.this.a((PluginInstallTask) null);
-                            } else if (c.this.RO == null || !TextUtils.equals(str, c.this.RO.pkgName)) {
+                            } else if (c.this.Sh == null || !TextUtils.equals(str, c.this.Sh.pkgName)) {
                                 c.this.a((PluginInstallTask) null);
                             } else {
-                                c.this.pj();
+                                c.this.po();
                                 c.this.a((PluginInstallTask) null);
-                                com.baidu.adp.plugin.b.a.py().log("plugin_retry_install_succ");
+                                com.baidu.adp.plugin.b.a.pD().log("plugin_retry_install_succ");
                             }
                         }
                     } catch (Exception e2) {
@@ -214,16 +214,16 @@ public class c {
                         str = null;
                     } catch (Throwable th) {
                         th = th;
-                        if (c.this.RK != null && TextUtils.equals(null, c.this.RK.pkgName)) {
-                            c.this.pi();
-                            c.this.RK = null;
+                        if (c.this.Sf != null && TextUtils.equals(null, c.this.Sf.pkgName)) {
+                            c.this.pn();
+                            c.this.Sf = null;
                             c.this.a((PluginInstallTask) null);
-                        } else if (c.this.RO == null || !TextUtils.equals(null, c.this.RO.pkgName)) {
+                        } else if (c.this.Sh == null || !TextUtils.equals(null, c.this.Sh.pkgName)) {
                             c.this.a((PluginInstallTask) null);
                         } else {
-                            c.this.pj();
+                            c.this.po();
                             c.this.a((PluginInstallTask) null);
-                            com.baidu.adp.plugin.b.a.py().log("plugin_retry_install_succ");
+                            com.baidu.adp.plugin.b.a.pD().log("plugin_retry_install_succ");
                         }
                         throw th;
                     }
@@ -232,7 +232,7 @@ public class c {
                 }
             }
         };
-        ph();
+        pm();
     }
 
     public void n(String str, int i) {
@@ -243,36 +243,36 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(String str, boolean z) {
-        if (this.RC.contains(str)) {
-            this.RC.remove(str);
+        if (this.RX.contains(str)) {
+            this.RX.remove(str);
         }
-        if (!this.RE && z && this.RC.isEmpty()) {
-            this.RE = true;
-            if (this.RF != null) {
-                this.RF.onInstallFinish(this.RH);
+        if (!this.RZ && z && this.RX.isEmpty()) {
+            this.RZ = true;
+            if (this.Sa != null) {
+                this.Sa.onInstallFinish(this.Sc);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_ALL_INSTALL));
-            pk();
+            pp();
         }
     }
 
     public void a(Context context, com.baidu.adp.plugin.install.a aVar) {
-        this.RF = aVar;
-        if (this.RI != null) {
-            this.RI.cancel();
-            this.RI = null;
+        this.Sa = aVar;
+        if (this.Sd != null) {
+            this.Sd.cancel();
+            this.Sd = null;
         }
-        this.RI = new a(context);
-        this.RI.setPriority(4);
-        this.RI.execute(new String[0]);
+        this.Sd = new a(context);
+        this.Sd.setPriority(4);
+        this.Sd.execute(new String[0]);
     }
 
-    public boolean co(String str) {
-        if (this.RK != null) {
-            return TextUtils.equals(str, this.RK.pkgName);
+    public boolean cq(String str) {
+        if (this.Sf != null) {
+            return TextUtils.equals(str, this.Sf.pkgName);
         }
-        if (this.RO != null) {
-            return TextUtils.equals(str, this.RO.pkgName);
+        if (this.Sh != null) {
+            return TextUtils.equals(str, this.Sh.pkgName);
         }
         return false;
     }
@@ -290,9 +290,9 @@ public class c {
             return false;
         }
         String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
-        PluginSetting cw = PluginPackageManager.pO().cw(substring);
-        if (substring != null && substring.length() > 0 && cw != null && cw.apkPath != null) {
-            File file = new File(cw.apkPath);
+        PluginSetting cy = PluginPackageManager.pT().cy(substring);
+        if (substring != null && substring.length() > 0 && cy != null && cy.apkPath != null) {
+            File file = new File(cy.apkPath);
             boolean exists = file.exists();
             boolean isFile = file.isFile();
             long length = file.length();
@@ -305,10 +305,10 @@ public class c {
                             f g = Util.g(fileInputStream);
                             inputStream = context.getAssets().open(str);
                             if (g.compareTo(Util.g(inputStream)) == 0) {
-                                if (this.RF != null) {
-                                    this.RF.cm(substring);
+                                if (this.Sa != null) {
+                                    this.Sa.co(substring);
                                 }
-                                com.baidu.adp.plugin.b.a.py().f("plugin_install", "install_timeequals", substring, g.toString());
+                                com.baidu.adp.plugin.b.a.pD().f("plugin_install", "install_timeequals", substring, g.toString());
                                 com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                                 com.baidu.adp.lib.f.a.close(inputStream);
                                 return false;
@@ -318,12 +318,12 @@ public class c {
                         } catch (Exception e) {
                             e = e;
                             BdLog.e(e);
-                            com.baidu.adp.plugin.b.a.py().f("plugin_install", "install_timeequals_error", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                            com.baidu.adp.plugin.b.a.pD().f("plugin_install", "install_timeequals_error", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                             com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                             com.baidu.adp.lib.f.a.close(inputStream);
                             c(context, "assets://" + str, false);
-                            com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cw, str2);
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cQ(substring)));
+                            com.baidu.adp.plugin.b.a.pD().a("plugin_install", substring, cy, str2);
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qB().cS(substring)));
                             return true;
                         }
                     } catch (Throwable th) {
@@ -343,12 +343,12 @@ public class c {
                     throw th;
                 }
             } else {
-                com.baidu.adp.plugin.b.a.py().f("plugin_install", "install_timeequals_jump", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length);
+                com.baidu.adp.plugin.b.a.pD().f("plugin_install", "install_timeequals_jump", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length);
             }
         }
         c(context, "assets://" + str, false);
-        com.baidu.adp.plugin.b.a.py().a("plugin_install", substring, cw, str2);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qw().cQ(substring)));
+        com.baidu.adp.plugin.b.a.pD().a("plugin_install", substring, cy, str2);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_START, com.baidu.adp.plugin.packageManager.status.a.qB().cS(substring)));
         return true;
     }
 
@@ -360,14 +360,14 @@ public class c {
         String str2;
         boolean z2;
         if (context != null && !TextUtils.isEmpty(str)) {
-            ph();
+            pm();
             String str3 = null;
             PluginInstallTask pluginInstallTask = new PluginInstallTask();
             pluginInstallTask.apkFilePath = str;
             if (str.startsWith("assets://")) {
                 String substring = str.substring(str.lastIndexOf("/") + 1, str.lastIndexOf(".apk"));
                 try {
-                    pluginInstallTask.RA = context.getAssets().open(str.substring("assets://".length())).available();
+                    pluginInstallTask.RV = context.getAssets().open(str.substring("assets://".length())).available();
                 } catch (IOException e) {
                     BdLog.detailException(e);
                 }
@@ -383,14 +383,14 @@ public class c {
                 if (packageArchiveInfo != null) {
                     str3 = packageArchiveInfo.packageName;
                 }
-                pluginInstallTask.RA = new File(substring2).length();
+                pluginInstallTask.RV = new File(substring2).length();
                 str2 = str3;
                 z2 = false;
             }
             if (str2 != null) {
                 pluginInstallTask.pkgName = str2;
                 if (a(pluginInstallTask) && z2) {
-                    this.RC.add(str2);
+                    this.RX.add(str2);
                     return;
                 }
                 return;
@@ -404,24 +404,24 @@ public class c {
         if (pluginInstallTask == null) {
             return false;
         }
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.qq().findPluginSetting(pluginInstallTask.pkgName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.qv().findPluginSetting(pluginInstallTask.pkgName);
         boolean z = pluginInstallTask.apkFilePath != null && pluginInstallTask.apkFilePath.startsWith("assets://");
         if (pluginInstallTask.apkFilePath != null && pluginInstallTask.apkFilePath.startsWith("file://")) {
             if (findPluginSetting != null && findPluginSetting.installStatus == 0 && findPluginSetting.tempVersionCode == 0) {
-                com.baidu.adp.plugin.b.a.py().f("plugin_install", "start_service_install_status_error", pluginInstallTask.pkgName, "apkFilePath_" + pluginInstallTask.apkFilePath);
+                com.baidu.adp.plugin.b.a.pD().f("plugin_install", "start_service_install_status_error", pluginInstallTask.pkgName, "apkFilePath_" + pluginInstallTask.apkFilePath);
                 return false;
             }
             String substring = pluginInstallTask.apkFilePath.substring("file://".length());
             try {
                 if (!new File(substring).exists()) {
-                    com.baidu.adp.plugin.b.a.py().f("plugin_install", "start_service_file_not_find", pluginInstallTask.pkgName, "apkFilePath_" + substring);
+                    com.baidu.adp.plugin.b.a.pD().f("plugin_install", "start_service_file_not_find", pluginInstallTask.pkgName, "apkFilePath_" + substring);
                     return false;
                 }
             } catch (Exception e) {
             }
         }
         String str = "f" + System.currentTimeMillis();
-        com.baidu.adp.plugin.b.a.py().f("plugin_install", "start_install_service", pluginInstallTask.pkgName, "flag=" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginInstallTask.apkFilePath);
+        com.baidu.adp.plugin.b.a.pD().f("plugin_install", "start_install_service", pluginInstallTask.pkgName, "flag=" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginInstallTask.apkFilePath);
         final Intent intent = new Intent(PluginInstallerService.ACTION_INSTALL);
         intent.putExtra("install_src_file", pluginInstallTask.apkFilePath);
         intent.putExtra("package_name", pluginInstallTask.pkgName);
@@ -429,8 +429,8 @@ public class c {
         if (findPluginSetting != null) {
             intent.putExtra("plugin_setting", findPluginSetting);
         }
-        intent.putExtra("is_debug_plugin", PluginPackageManager.pO().pP());
-        if (pluginInstallTask.Rz) {
+        intent.putExtra("is_debug_plugin", PluginPackageManager.pT().pU());
+        if (pluginInstallTask.RU) {
             intent.setClass(context, PluginInstallerRetryService.class);
             try {
                 context.startService(intent);
@@ -440,18 +440,18 @@ public class c {
             }
         }
         intent.setClass(context, PluginInstallerService.class);
-        if (this.RQ == null && z) {
-            this.RQ = new ServiceConnection() { // from class: com.baidu.adp.plugin.install.c.2
+        if (this.Sj == null && z) {
+            this.Sj = new ServiceConnection() { // from class: com.baidu.adp.plugin.install.c.2
                 @Override // android.content.ServiceConnection
                 public void onServiceDisconnected(ComponentName componentName) {
-                    c.this.pn();
+                    c.this.ps();
                 }
 
                 @Override // android.content.ServiceConnection
                 public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                     c.this.messenger = new Messenger(iBinder);
                     String stringExtra = intent.getStringExtra("package_name");
-                    if (c.this.RK != null && TextUtils.equals(stringExtra, c.this.RK.pkgName)) {
+                    if (c.this.Sf != null && TextUtils.equals(stringExtra, c.this.Sf.pkgName)) {
                         try {
                             context.startService(intent);
                         } catch (Throwable th2) {
@@ -459,7 +459,7 @@ public class c {
                     }
                 }
             };
-            if (context.bindService(intent, this.RQ, 1)) {
+            if (context.bindService(intent, this.Sj, 1)) {
                 return true;
             }
             try {
@@ -477,16 +477,16 @@ public class c {
         }
     }
 
-    public static File cp(String str) {
-        PluginSetting cw = PluginPackageManager.pO().cw(str);
-        if (cw == null || cw.apkPath == null || cw.apkPath.length() <= 0) {
+    public static File cr(String str) {
+        PluginSetting cy = PluginPackageManager.pT().cy(str);
+        if (cy == null || cy.apkPath == null || cy.apkPath.length() <= 0) {
             return null;
         }
-        return new File(cw.apkPath);
+        return new File(cy.apkPath);
     }
 
-    private void ph() {
-        if (!this.RB) {
+    private void pm() {
+        if (!this.RW) {
             try {
                 Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
                 IntentFilter intentFilter = new IntentFilter();
@@ -497,8 +497,8 @@ public class c {
                 if (!TextUtils.isEmpty(Build.BRAND) && Build.BRAND.toLowerCase().equals(RomUtils.MANUFACTURER_OPPO)) {
                     intentFilter.setPriority(1000);
                 }
-                applicationContext.registerReceiver(this.RD, intentFilter);
-                this.RB = true;
+                applicationContext.registerReceiver(this.RY, intentFilter);
+                this.RW = true;
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -515,15 +515,15 @@ public class c {
 
     private boolean b(PluginInstallTask pluginInstallTask) {
         boolean z = false;
-        synchronized (this.RJ) {
+        synchronized (this.Se) {
             if (pluginInstallTask == null) {
-                pluginInstallTask = this.RL.poll();
+                pluginInstallTask = this.Sg.poll();
             }
             if (pluginInstallTask == null) {
                 return false;
             }
-            if (this.RK != null) {
-                Iterator<PluginInstallTask> it = this.RL.iterator();
+            if (this.Sf != null) {
+                Iterator<PluginInstallTask> it = this.Sg.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -535,33 +535,33 @@ public class c {
                     }
                 }
                 if (!z) {
-                    this.RL.add(pluginInstallTask);
+                    this.Sg.add(pluginInstallTask);
                 }
                 return true;
             }
-            this.RK = pluginInstallTask;
+            this.Sf = pluginInstallTask;
             if (a(BdBaseApplication.getInst().getApplicationContext(), pluginInstallTask)) {
-                pl();
-                sHandler.removeCallbacks(this.RV);
-                sHandler.postDelayed(this.RV, this.RK.getTimeout());
+                pq();
+                sHandler.removeCallbacks(this.Sn);
+                sHandler.postDelayed(this.Sn, this.Sf.getTimeout());
                 return true;
             }
-            this.RK = null;
+            this.Sf = null;
             return a((PluginInstallTask) null);
         }
     }
 
     private boolean c(PluginInstallTask pluginInstallTask) {
         boolean z = false;
-        synchronized (this.RJ) {
+        synchronized (this.Se) {
             if (pluginInstallTask == null) {
-                pluginInstallTask = this.RP.poll();
+                pluginInstallTask = this.Si.poll();
             }
             if (pluginInstallTask == null) {
                 return false;
             }
-            if (this.RO != null) {
-                Iterator<PluginInstallTask> it = this.RP.iterator();
+            if (this.Sh != null) {
+                Iterator<PluginInstallTask> it = this.Si.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -573,15 +573,15 @@ public class c {
                     }
                 }
                 if (!z) {
-                    this.RP.add(pluginInstallTask);
+                    this.Si.add(pluginInstallTask);
                 }
                 return true;
             }
-            this.RO = pluginInstallTask;
-            pluginInstallTask.Rz = true;
+            this.Sh = pluginInstallTask;
+            pluginInstallTask.RU = true;
             if (a(BdBaseApplication.getInst().getApplicationContext(), pluginInstallTask)) {
-                sHandler.removeCallbacks(this.RW);
-                sHandler.postDelayed(this.RW, this.RO.getTimeout());
+                sHandler.removeCallbacks(this.So);
+                sHandler.postDelayed(this.So, this.Sh.getTimeout());
                 return true;
             }
             return a((PluginInstallTask) null);
@@ -589,109 +589,109 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pi() {
-        sHandler.removeCallbacks(this.RT);
-        sHandler.removeCallbacks(this.RV);
-        sHandler.removeCallbacks(this.RU);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void pj() {
-        this.RO = null;
-        sHandler.removeCallbacks(this.RW);
-    }
-
-    private void pk() {
-        if (this.RQ != null) {
-            BdBaseApplication.getInst().unbindService(this.RQ);
-            this.RQ = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void pl() {
-        sHandler.removeCallbacks(this.RT);
-        sHandler.postDelayed(this.RT, 10000L);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void pm() {
-        if (this.messenger != null && this.RK != null) {
-            Message message = new Message();
-            try {
-                message.setData(OrmObject.bundleWithObject(this.RK));
-                message.replyTo = this.RR;
-                this.messenger.send(message);
-            } catch (RemoteException e) {
-                BdLog.detailException(e);
-            }
-            sHandler.removeCallbacks(this.RU);
-            sHandler.postDelayed(this.RU, 1000L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void pn() {
-        this.RQ = null;
-        this.messenger = null;
-        com.baidu.adp.plugin.b.a.py().f("plugin_install", "system_kill_installprocess", this.RK == null ? "" : this.RK.pkgName, this.RL.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RP.size());
-        pi();
-        pu();
+        sHandler.removeCallbacks(this.Sl);
+        sHandler.removeCallbacks(this.Sn);
+        sHandler.removeCallbacks(this.Sm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void po() {
-        com.baidu.adp.plugin.b.a.py().log("plugin_installprocess_noresponse");
-        com.baidu.adp.plugin.b.a.py().f("plugin_install", "installprocess_noresponse", this.RK == null ? "" : this.RK.pkgName, this.RL.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RP.size());
-        pi();
-        pr();
-        pu();
+        this.Sh = null;
+        sHandler.removeCallbacks(this.So);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void pp() {
-        if (this.RK != null) {
-            com.baidu.adp.plugin.packageManager.status.a.qw().j(this.RK.pkgName, "plugin_install_timeout", null);
+    private void pp() {
+        if (this.Sj != null) {
+            BdBaseApplication.getInst().unbindService(this.Sj);
+            this.Sj = null;
         }
-        PluginInstallTask pluginInstallTask = this.RK;
-        if (!ps()) {
-            com.baidu.adp.plugin.b.a.py().log("plugin_install_timeout_installprocess_notlive");
-            com.baidu.adp.plugin.b.a.py().f("plugin_install", "timeout_installprocess_notlive", pluginInstallTask == null ? "" : pluginInstallTask.pkgName, "timeout-" + (pluginInstallTask == null ? "" : Long.valueOf(pluginInstallTask.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RL.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RP.size());
-        } else {
-            com.baidu.adp.plugin.b.a.py().log("plugin_install_timeout");
-            com.baidu.adp.plugin.b.a.py().f("plugin_install", "timeout", pluginInstallTask == null ? "" : pluginInstallTask.pkgName, "timeout-" + (pluginInstallTask == null ? "" : Long.valueOf(pluginInstallTask.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RL.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RP.size());
-        }
-        pi();
-        pr();
-        pu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pq() {
-        if (this.RO != null) {
-            com.baidu.adp.plugin.packageManager.status.a.qw().j(this.RO.pkgName, "plugin_install_retry_timeout", null);
-        }
-        com.baidu.adp.plugin.b.a.py().f("plugin_install", "timeout", this.RO == null ? "" : this.RO.pkgName, "timeout-" + (this.RO == null ? "" : Long.valueOf(this.RO.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RL.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.RP.size());
-        pj();
+        sHandler.removeCallbacks(this.Sl);
+        sHandler.postDelayed(this.Sl, 10000L);
     }
 
-    private void pr() {
-        if (this.RQ != null) {
-            BdBaseApplication.getInst().getApplicationContext().unbindService(this.RQ);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pr() {
+        if (this.messenger != null && this.Sf != null) {
+            Message message = new Message();
+            try {
+                message.setData(OrmObject.bundleWithObject(this.Sf));
+                message.replyTo = this.Sk;
+                this.messenger.send(message);
+            } catch (RemoteException e) {
+                BdLog.detailException(e);
+            }
+            sHandler.removeCallbacks(this.Sm);
+            sHandler.postDelayed(this.Sm, 1000L);
         }
-        this.RQ = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ps() {
+        this.Sj = null;
         this.messenger = null;
-        int pt = pt();
-        if (pt > 0 && pt != Process.myPid()) {
-            Process.killProcess(pt);
+        com.baidu.adp.plugin.b.a.pD().f("plugin_install", "system_kill_installprocess", this.Sf == null ? "" : this.Sf.pkgName, this.Sg.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Si.size());
+        pn();
+        pz();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pt() {
+        com.baidu.adp.plugin.b.a.pD().log("plugin_installprocess_noresponse");
+        com.baidu.adp.plugin.b.a.pD().f("plugin_install", "installprocess_noresponse", this.Sf == null ? "" : this.Sf.pkgName, this.Sg.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Si.size());
+        pn();
+        pw();
+        pz();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pu() {
+        if (this.Sf != null) {
+            com.baidu.adp.plugin.packageManager.status.a.qB().j(this.Sf.pkgName, "plugin_install_timeout", null);
+        }
+        PluginInstallTask pluginInstallTask = this.Sf;
+        if (!px()) {
+            com.baidu.adp.plugin.b.a.pD().log("plugin_install_timeout_installprocess_notlive");
+            com.baidu.adp.plugin.b.a.pD().f("plugin_install", "timeout_installprocess_notlive", pluginInstallTask == null ? "" : pluginInstallTask.pkgName, "timeout-" + (pluginInstallTask == null ? "" : Long.valueOf(pluginInstallTask.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Sg.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Si.size());
+        } else {
+            com.baidu.adp.plugin.b.a.pD().log("plugin_install_timeout");
+            com.baidu.adp.plugin.b.a.pD().f("plugin_install", "timeout", pluginInstallTask == null ? "" : pluginInstallTask.pkgName, "timeout-" + (pluginInstallTask == null ? "" : Long.valueOf(pluginInstallTask.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Sg.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Si.size());
+        }
+        pn();
+        pw();
+        pz();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void pv() {
+        if (this.Sh != null) {
+            com.baidu.adp.plugin.packageManager.status.a.qB().j(this.Sh.pkgName, "plugin_install_retry_timeout", null);
+        }
+        com.baidu.adp.plugin.b.a.pD().f("plugin_install", "timeout", this.Sh == null ? "" : this.Sh.pkgName, "timeout-" + (this.Sh == null ? "" : Long.valueOf(this.Sh.getTimeout())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Sg.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Si.size());
+        po();
+    }
+
+    private void pw() {
+        if (this.Sj != null) {
+            BdBaseApplication.getInst().getApplicationContext().unbindService(this.Sj);
+        }
+        this.Sj = null;
+        this.messenger = null;
+        int py = py();
+        if (py > 0 && py != Process.myPid()) {
+            Process.killProcess(py);
         }
     }
 
-    private boolean ps() {
-        return pt() > 0;
+    private boolean px() {
+        return py() > 0;
     }
 
-    private int pt() {
+    private int py() {
         ServiceInfo serviceInfo;
         Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
         try {
@@ -714,12 +714,12 @@ public class c {
         return Integer.MIN_VALUE;
     }
 
-    private void pu() {
-        if (this.RK != null) {
-            com.baidu.adp.plugin.b.a.py().E("plugin_retry_install", this.RK.pkgName);
-            com.baidu.adp.plugin.b.a.py().f("plugin_install", "plugin_retry_install", this.RK.pkgName, this.RK.getTimeout() + "");
-            c(this.RK);
-            this.RK = null;
+    private void pz() {
+        if (this.Sf != null) {
+            com.baidu.adp.plugin.b.a.pD().E("plugin_retry_install", this.Sf.pkgName);
+            com.baidu.adp.plugin.b.a.pD().f("plugin_install", "plugin_retry_install", this.Sf.pkgName, this.Sf.getTimeout() + "");
+            c(this.Sf);
+            this.Sf = null;
             return;
         }
         a((PluginInstallTask) null);
@@ -728,7 +728,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Object, String[]> {
-        private String[] RY = {"com.baidu.tieba.pluginInjectAll", "com.baidu.tieba.pluginLive", "com.baidu.tieba.pluginPhotoLive"};
+        private String[] Sq = {"com.baidu.tieba.pluginInjectAll", "com.baidu.tieba.pluginLive", "com.baidu.tieba.pluginPhotoLive"};
         private Context mContext;
 
         public a(Context context) {
@@ -818,12 +818,12 @@ public class c {
             }
         }
 
-        private boolean cq(String str) {
+        private boolean cs(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             if (Build.VERSION.SDK_INT <= 10) {
-                for (String str2 : this.RY) {
+                for (String str2 : this.Sq) {
                     if (str.contains(str2)) {
                         return true;
                     }
@@ -842,13 +842,13 @@ public class c {
             super.onPostExecute(strArr);
             if (strArr != null && strArr.length > 0) {
                 for (String str : strArr) {
-                    if (str != null && str.endsWith(".apk") && cq(str) && c.this.l(this.mContext, "plugins/" + str, "install_from_start")) {
+                    if (str != null && str.endsWith(".apk") && cs(str) && c.this.l(this.mContext, "plugins/" + str, "install_from_start")) {
                         z = true;
                     }
                 }
             }
-            if (!z && c.this.RF != null) {
-                c.this.RF.onInstallFinish(c.this.RH);
+            if (!z && c.this.Sa != null) {
+                c.this.Sa.onInstallFinish(c.this.Sc);
             }
         }
     }

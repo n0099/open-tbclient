@@ -3,7 +3,7 @@ package com.baidu.prologue.service.network;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     private final int netType;
     private final int subType;
@@ -15,27 +15,27 @@ public class g {
         this.subType = (activeNetworkInfo == null || this.netType != 0) ? 0 : activeNetworkInfo.getSubtype();
     }
 
-    public int Wa() {
+    public int WJ() {
         switch (this.netType) {
             case -1:
             default:
                 return 0;
             case 0:
-                return Wb();
+                return WK();
             case 1:
                 return 1;
         }
     }
 
     public boolean isWifi() {
-        return Wa() == 1;
+        return WJ() == 1;
     }
 
     public boolean isMobileNet() {
         return this.netType == 0;
     }
 
-    private int Wb() {
+    private int WK() {
         switch (this.subType) {
             case 1:
             case 2:

@@ -1,7 +1,7 @@
 package android.support.transition;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public abstract class VisibilityPropagation extends TransitionPropagation {
     private static final String PROPNAME_VISIBILITY = "android:visibilityPropagation:visibility";
     private static final String PROPNAME_VIEW_CENTER = "android:visibilityPropagation:center";

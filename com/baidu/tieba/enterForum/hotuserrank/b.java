@@ -12,25 +12,25 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b {
-    private TbPageContext efr;
-    private c.a hxl;
-    private TextView hxm;
-    private TextView hxn;
-    private String hxo;
-    private int hxp;
+    private TbPageContext ehG;
+    private c.a hEo;
+    private TextView hEp;
+    private TextView hEq;
+    private String hEr;
+    private int hEs;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.hxo)) {
-                b.this.efr.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.hEr)) {
+                b.this.ehG.showToast(R.string.load_error_retry);
                 return;
             }
-            be.bju().b(b.this.efr, new String[]{b.this.hxo});
-            if (b.this.hxp != 0) {
-                if (b.this.hxp != 2) {
-                    if (b.this.hxp == 1) {
+            be.bkp().b(b.this.ehG, new String[]{b.this.hEr});
+            if (b.this.hEs != 0) {
+                if (b.this.hEs != 2) {
+                    if (b.this.hEs == 1) {
                         aq aqVar = new aq("c13669");
                         aqVar.ai("obj_locate", 2);
                         TiebaStatic.log(aqVar);
@@ -48,34 +48,34 @@ public class b {
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.efr = tbPageContext;
+        this.ehG = tbPageContext;
         this.mRootView = view;
-        this.hxl = new c.a(view.findViewById(R.id.user_view));
-        this.hxl.we(1);
-        this.hxm = (TextView) view.findViewById(R.id.get_influence);
-        this.hxn = (TextView) view.findViewById(R.id.rank_num);
-        this.hxn.setTextSize(0, l.getDimens(this.efr.getPageActivity(), R.dimen.tbfontsize46));
-        this.hxm.setOnClickListener(this.mOnClickListener);
+        this.hEo = new c.a(view.findViewById(R.id.user_view));
+        this.hEo.wD(1);
+        this.hEp = (TextView) view.findViewById(R.id.get_influence);
+        this.hEq = (TextView) view.findViewById(R.id.rank_num);
+        this.hEq.setTextSize(0, l.getDimens(this.ehG.getPageActivity(), R.dimen.tbfontsize46));
+        this.hEp.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.hxR != null && cVar.hxR.hxN != null && !cVar.hxR.hxN.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.hET != null && cVar.hET.hEP != null && !cVar.hET.hEP.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.hxl.a(cVar.hxR);
-            this.hxl.cfU();
-            this.hxo = cVar.hxS;
+            this.hEo.a(cVar.hET);
+            this.hEo.cjl();
+            this.hEr = cVar.hEU;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.hxl.onChangeSkinType(i);
-        ap.setBackgroundColor(this.hxl.itemView, R.color.cp_bg_line_h);
-        ap.setViewTextColor(this.hxm, R.color.cp_link_tip_a);
+        this.hEo.onChangeSkinType(i);
+        ap.setBackgroundColor(this.hEo.itemView, R.color.cp_bg_line_h);
+        ap.setViewTextColor(this.hEp, R.color.cp_link_tip_a);
     }
 
-    public void wd(int i) {
-        this.hxp = i;
+    public void wC(int i) {
+        this.hEs = i;
     }
 }

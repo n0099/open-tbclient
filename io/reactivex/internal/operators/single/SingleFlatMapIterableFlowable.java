@@ -9,8 +9,8 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.y;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-import org.b.c;
-/* loaded from: classes7.dex */
+import org.a.c;
+/* loaded from: classes25.dex */
 public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final aa<T> source;
@@ -20,7 +20,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
         this.source.a(new FlatMapIterableObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueSubscription<R> implements y<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final c<? super R> actual;
@@ -66,7 +66,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
             this.actual.onError(th);
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
@@ -74,7 +74,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             this.cancelled = true;
             this.d.dispose();

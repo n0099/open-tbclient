@@ -17,40 +17,40 @@ public class c {
         this.url = str;
     }
 
-    public void cMa() {
+    public void cPG() {
         new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.lego.card.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap cMb = c.this.cMb();
+                HashMap cPH = c.this.cPH();
                 e eVar = new e();
-                eVar.ms().setUrl(c.this.url);
-                eVar.ms().setMethod(HttpMessageTask.HTTP_METHOD.GET);
-                if (cMb != null && !cMb.isEmpty()) {
-                    eVar.ms().t(c.this.cMb());
+                eVar.mw().setUrl(c.this.url);
+                eVar.mw().setMethod(HttpMessageTask.HTTP_METHOD.GET);
+                if (cPH != null && !cPH.isEmpty()) {
+                    eVar.mw().t(c.this.cPH());
                 }
                 new com.baidu.adp.lib.network.http.c(eVar).f(1, 0, 0);
-                eVar.mt();
+                eVar.mx();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> cMb() {
+    public HashMap<String, String> cPH() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-            cookie = com.baidu.tbadk.browser.a.dSk;
+            cookie = com.baidu.tbadk.browser.a.dUu;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);
         return hashMap;
     }
 
-    private static void LH(String str) {
+    private static void Mj(String str) {
         if (!TextUtils.isEmpty(str)) {
-            new c(str).cMa();
+            new c(str).cPG();
         }
     }
 
@@ -58,25 +58,25 @@ public class c {
         if (bVar == null || bVar.getParallelCharge() == null) {
             return false;
         }
-        String str = bVar.getParallelCharge().jOw;
-        LH(str);
+        String str = bVar.getParallelCharge().jWZ;
+        Mj(str);
         boolean z = !TextUtils.isEmpty(str);
-        Iterator<String> it = bVar.getParallelCharge().jOz.iterator();
+        Iterator<String> it = bVar.getParallelCharge().jXc.iterator();
         boolean z2 = z;
         while (it.hasNext()) {
             String next = it.next();
             z2 = z2 || !TextUtils.isEmpty(next);
-            LH(next);
+            Mj(next);
         }
         return z2;
     }
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            LH(bVar.getParallelCharge().jOx);
-            Iterator<String> it = bVar.getParallelCharge().jOy.iterator();
+            Mj(bVar.getParallelCharge().jXa);
+            Iterator<String> it = bVar.getParallelCharge().jXb.iterator();
             while (it.hasNext()) {
-                LH(it.next());
+                Mj(it.next());
             }
         }
     }

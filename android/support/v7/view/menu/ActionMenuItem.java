@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActionMenuItem implements SupportMenuItem {
     private static final int CHECKABLE = 1;
     private static final int CHECKED = 2;

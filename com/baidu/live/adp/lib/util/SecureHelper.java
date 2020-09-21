@@ -28,7 +28,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class SecureHelper {
     public static final int AES256_PASSWORD_LENGTH = 32;
     public static final String CIPHER_TRIPLE_AES = "AES/ECB/PKCS5Padding";

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class t {
     private static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f938a = null;
+    private static String f937a = null;
 
     public static int a() {
         try {
@@ -51,8 +51,8 @@ public class t {
     public static synchronized String m584a() {
         String str;
         synchronized (t.class) {
-            if (f938a != null) {
-                str = f938a;
+            if (f937a != null) {
+                str = f937a;
             } else {
                 String str2 = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -69,7 +69,7 @@ public class t {
                 } else {
                     str = str2;
                 }
-                f938a = str;
+                f937a = str;
             }
         }
         return str;
@@ -104,8 +104,8 @@ public class t {
     }
 
     private static String b() {
-        f938a = s.a("ro.build.version.emui", "");
-        return f938a;
+        f937a = s.a("ro.build.version.emui", "");
+        return f937a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
@@ -124,16 +124,16 @@ public class t {
     private static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f938a = "ColorOS_" + a2;
+            f937a = "ColorOS_" + a2;
         }
-        return f938a;
+        return f937a;
     }
 
     private static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f938a = "FuntouchOS_" + a2;
+            f937a = "FuntouchOS_" + a2;
         }
-        return f938a;
+        return f937a;
     }
 }

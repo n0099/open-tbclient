@@ -26,11 +26,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes17.dex */
 public class PortraitService extends AbstractService implements NoProguard {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public class a extends HttpHandlerWrap {
         final /* synthetic */ SetPortraitCallback a;
         final /* synthetic */ SetPortraitResult b;
@@ -90,7 +90,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public class b extends HttpHandlerWrap {
         final /* synthetic */ SetPopularPortraitResult a;
         final /* synthetic */ SetPopularPortraitCallback b;
@@ -139,7 +139,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public class c extends HttpHandlerWrap {
         final /* synthetic */ GetHistoryPortraitsResult a;
         final /* synthetic */ GetHistoryPortraitsCallback b;
@@ -184,7 +184,7 @@ public class PortraitService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes17.dex */
     public class d extends HttpHandlerWrap {
         final /* synthetic */ GetPopularPortraitsCallback a;
         final /* synthetic */ GetPopularPortraitsInfoResult b;

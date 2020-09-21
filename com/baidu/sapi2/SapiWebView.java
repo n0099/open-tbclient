@@ -92,7 +92,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public final class SapiWebView extends WebView {
     public static final String ACCOUNT_CENTER = "account_center";
     public static final String ACCOUNT_CENTER_CHECK = "account_check";
@@ -175,32 +175,32 @@ public final class SapiWebView extends WebView {
     public static final PassNameValuePair EXTRA_SUPPORT_PHONE = new PassNameValuePair("supportPhone", "1");
     public static final PassNameValuePair EXTRA_ERROR_ONE_KEY_LOGIN_FAIL = new PassNameValuePair("sdkError", "oneKeyLoginFail");
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface AccountChangeCallback {
         void onAccountChange();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class AccountDestoryCallback {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static class AccountDestoryResult {
         }
 
         public abstract void onAccountDestory(AccountDestoryResult accountDestoryResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class AccountFreezeCallback {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static class AccountFreezeResult {
         }
 
         public abstract void onAccountFreeze(AccountFreezeResult accountFreezeResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public enum ActivityLifeCycle {
         ON_RESUME("webViewWillAppear"),
         ON_PAUSE("webViewWillDisappear");
@@ -212,22 +212,22 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface BdussChangeCallback {
         void onBdussChange();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface BindWidgetCallback {
         void onPhoneNumberExist(String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface BioScanFaceCallback {
         public static final int BIO_SCAN_FACE_LOGIN = 2;
         public static final int BIO_SCAN_FACE_REG = 1;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static abstract class BioScanFaceResult {
             public int showGuidePage;
             public String subpro;
@@ -242,7 +242,7 @@ public final class SapiWebView extends WebView {
         void onBioScanFace(BioScanFaceResult bioScanFaceResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface BiometricsIdentifyCallback {
         public static final int LIVENESS_RECOG = 1;
         public static final int RECORD_VIDEO = 1;
@@ -250,7 +250,7 @@ public final class SapiWebView extends WebView {
         void onBiometricsIdentify(BiometricsIdentifyResult biometricsIdentifyResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class BiometricsIdentifyResult {
         public static final int ERROR_CODE_GET_STOKEN_FAILED = -402;
         public static final String ERROR_MSG_GET_STOKEN_FAILED = "服务异常，请稍后再试";
@@ -270,12 +270,12 @@ public final class SapiWebView extends WebView {
         public abstract void setIdentifyToken(String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface ChangePwdCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     static class Command {
         private String a;
         private List<String> b = new ArrayList();
@@ -316,27 +316,27 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface CoverWebBdussCallback {
         void onCoverBduss(String str, CoverWebBdussResult coverWebBdussResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class CoverWebBdussResult {
         public abstract void setWebBduss(String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface FileChooserCallback {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
         void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface InvokeScAppCallback {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static abstract class InvokeScAppResult {
             public abstract void setInvokeResult(String str);
         }
@@ -344,7 +344,7 @@ public final class SapiWebView extends WebView {
         void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, InvokeScAppResult invokeScAppResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface LeftBtnVisibleCallback {
         public static final int LEFT_BTN_INVISIBLE = 0;
         public static final int LEFT_BTN_VISIBLE = 1;
@@ -352,23 +352,23 @@ public final class SapiWebView extends WebView {
         void onLeftBtnVisible(int i);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface LoadExternalWebViewCallback {
         void loadExternalWebview(LoadExternalWebViewResult loadExternalWebViewResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class LoadExternalWebViewResult {
         public String defaultTitle;
         public String externalUrl;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface LoadSlideWebViewCallback {
         void loadSlideWebview(LoadSlideWebViewResult loadSlideWebViewResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static class LoadSlideWebViewResult {
         public String adapter;
         public String page;
@@ -376,32 +376,32 @@ public final class SapiWebView extends WebView {
         public String url;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface LocalConfigCallback {
         List<FastLoginFeature> getFastLoginFeatureList();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface OnBackCallback {
         void onBack();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface OnFinishCallback {
         void onFinish();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface OnNewBackCallback {
         boolean onBack();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface OnSlidePageFinishCallback {
         void onFinish(String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface PickPhotoCallback {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
@@ -409,16 +409,16 @@ public final class SapiWebView extends WebView {
         void onPickImage(int i, int i2, int i3, PickPhotoResult pickPhotoResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class PickPhotoResult {
         public void setImageData(String str) {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class PreFillUserNameCallback {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static class PreFillUserNameResult {
             public String userName;
         }
@@ -426,24 +426,24 @@ public final class SapiWebView extends WebView {
         public abstract void onPreFillUserName(PreFillUserNameResult preFillUserNameResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface QrLoginCallback {
         void loginStatusChange(boolean z);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface QuickLoginHandler {
         void handleOtherLogin();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface RealnameAuthenticateCallback {
         void onFailure();
 
         void onSuccess();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     private class ReloadConfig {
         String a;
         boolean b;
@@ -462,15 +462,15 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface ShareAccountClickCallback {
         void onClick(String str, String str2, String str3, String str4, String str5);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public static abstract class SwitchAccountCallback {
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes25.dex */
         public static class Result {
             public String displayName;
             public String encryptedUid;
@@ -483,7 +483,7 @@ public final class SapiWebView extends WebView {
         public abstract void onAccountSwitch(Result result);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     private class TimeoutTask implements Runnable {
         private String a;
 
@@ -506,12 +506,12 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface UniteVerifyCallback {
         void onSuccess(String str, String str2, SapiAccount sapiAccount);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface WebChromeClientCallback {
         boolean isSubClassHandleMessage(String str);
 
@@ -520,12 +520,12 @@ public final class SapiWebView extends WebView {
         boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface WebViewTitleCallback {
         void onTitleChange(String str);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public interface WebviewClientCallback {
         void onPageFinished(WebView webView, String str);
 
@@ -1697,7 +1697,7 @@ public final class SapiWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.SapiWebView$2  reason: invalid class name */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes25.dex */
     public class AnonymousClass2 extends WebViewClient {
         AnonymousClass2() {
         }

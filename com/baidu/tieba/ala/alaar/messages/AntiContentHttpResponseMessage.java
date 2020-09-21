@@ -4,17 +4,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
-    private int bKQ;
-    private int fxD;
-    private int fxE;
-    public List<FuFaceItem> fxF;
+    private int bMQ;
+    private int fAP;
+    private int fAQ;
+    public List<FuFaceItem> fAR;
     private int mask;
 
     public AntiContentHttpResponseMessage() {
         super(1021158);
-        this.fxF = null;
+        this.fAR = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,14 +22,14 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fxD = optJSONObject.optInt("auditType");
+            this.fAP = optJSONObject.optInt("auditType");
             this.mask = optJSONObject.optInt("mask");
-            this.bKQ = optJSONObject.optInt("display");
-            this.fxE = optJSONObject.optInt("ansSense");
+            this.bMQ = optJSONObject.optInt("display");
+            this.fAQ = optJSONObject.optInt("ansSense");
         }
     }
 
-    public boolean bEj() {
-        return this.bKQ == 1;
+    public boolean bFz() {
+        return this.bMQ == 1;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ImageToastView {
     private Context mContext;
     private Toast mToast;

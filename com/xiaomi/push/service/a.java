@@ -6,29 +6,29 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static volatile a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f826a;
+    private Context f825a;
     private volatile String e;
     private volatile String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f827a = new Object();
+    private final Object f826a = new Object();
     private final Object b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f828a = "mipush_region";
+    private final String f827a = "mipush_region";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f829b = "mipush_country_code";
+    private final String f828b = "mipush_country_code";
     private final String c = "mipush_region.lock";
     private final String d = "mipush_country_code.lock";
 
     public a(Context context) {
-        this.f826a = context;
+        this.f825a = context;
     }
 
     public static a a(Context context) {
@@ -181,7 +181,7 @@ public class a {
 
     public String a() {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.f826a, "mipush_region", "mipush_region.lock", this.f827a);
+            this.e = a(this.f825a, "mipush_region", "mipush_region.lock", this.f826a);
         }
         return this.e;
     }
@@ -191,12 +191,12 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f826a, this.e, "mipush_region", "mipush_region.lock", this.f827a);
+        a(this.f825a, this.e, "mipush_region", "mipush_region.lock", this.f826a);
     }
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f826a, "mipush_country_code", "mipush_country_code.lock", this.b);
+            this.f = a(this.f825a, "mipush_country_code", "mipush_country_code.lock", this.b);
         }
         return this.f;
     }
@@ -206,6 +206,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f826a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
+        a(this.f825a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

@@ -10,15 +10,15 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class j extends XMPushService.i {
     final /* synthetic */ i a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f914a;
+    final /* synthetic */ String f913a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ List f915a;
+    final /* synthetic */ List f914a;
     final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,8 +26,8 @@ class j extends XMPushService.i {
     public j(i iVar, int i, String str, List list, String str2) {
         super(i);
         this.a = iVar;
-        this.f914a = str;
-        this.f915a = list;
+        this.f913a = str;
+        this.f914a = list;
         this.b = str2;
     }
 
@@ -40,8 +40,8 @@ class j extends XMPushService.i {
     public void a() {
         String a;
         XMPushService xMPushService;
-        a = this.a.a(this.f914a);
-        ArrayList<il> a2 = bi.a(this.f915a, this.f914a, a, 32768);
+        a = this.a.a(this.f913a);
+        ArrayList<il> a2 = bi.a(this.f914a, this.f913a, a, 32768);
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
@@ -50,8 +50,8 @@ class j extends XMPushService.i {
         while (it.hasNext()) {
             il next = it.next();
             next.a("uploadWay", "longXMPushService");
-            ii a3 = w.a(this.f914a, a, next, hm.Notification);
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f914a, this.b)) {
+            ii a3 = w.a(this.f913a, a, next, hm.Notification);
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f913a, this.b)) {
                 if (a3.m418a() == null) {
                     hz hzVar = new hz();
                     hzVar.a("-1");
@@ -61,7 +61,7 @@ class j extends XMPushService.i {
             }
             byte[] a4 = iw.a(a3);
             xMPushService = this.a.a;
-            xMPushService.a(this.f914a, a4, true);
+            xMPushService.a(this.f913a, a4, true);
         }
     }
 }

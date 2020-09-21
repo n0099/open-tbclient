@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.util;
 
 import com.baidu.vi.VIContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class SysOSUtil {
     private static SysOSUtil g = new SysOSUtil();
     private com.baidu.platform.comapi.util.a.b a = null;

@@ -6,7 +6,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comjni.map.commonmemcache.NACommonMemCache;
 import com.baidu.vi.VIContext;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static NACommonMemCache a = new NACommonMemCache();
 

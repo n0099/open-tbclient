@@ -11,26 +11,26 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.widget.ListView.a<x, a> {
-    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.k.g>> WD;
-    private int WE;
-    private int WF;
+    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.k.g>> WV;
+    private int WW;
+    private int WX;
 
-    private int aP(int i) {
+    private int aT(int i) {
         return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), i);
     }
 
     public w(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), x.WH);
-        this.WD = new LinkedList<>();
-        this.WE = aP(R.dimen.tbds304);
-        this.WF = aP(R.dimen.tbds198);
+        super(tbPageContext.getPageActivity(), x.WZ);
+        this.WV = new LinkedList<>();
+        this.WW = aT(R.dimen.tbds304);
+        this.WX = aT(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: g */
-    public a b(ViewGroup viewGroup) {
+    /* renamed from: h */
+    public a c(ViewGroup viewGroup) {
         RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
@@ -39,17 +39,17 @@ public class w extends com.baidu.adp.widget.ListView.a<x, a> {
         relativeLayout.setGravity(1);
         com.baidu.tbadk.k.g gVar = new com.baidu.tbadk.k.g(this.mContext, 0);
         gVar.attachView(relativeLayout);
-        gVar.setTopMargin(this.WE);
-        gVar.bn(this.WF);
+        gVar.setTopMargin(this.WW);
+        gVar.br(this.WX);
         View view = gVar.getView();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         layoutParams.addRule(14);
         view.setLayoutParams(layoutParams);
-        this.WD.add(new Pair<>(relativeLayout, gVar));
+        this.WV.add(new Pair<>(relativeLayout, gVar));
         a aVar = new a(relativeLayout);
-        aVar.WG = gVar;
+        aVar.WY = gVar;
         return aVar;
     }
 
@@ -57,15 +57,15 @@ public class w extends com.baidu.adp.widget.ListView.a<x, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, x xVar, a aVar) {
-        if (aVar != null && aVar.WG != null) {
-            aVar.WG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (aVar != null && aVar.WY != null) {
+            aVar.WY.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a extends af.a {
-        public com.baidu.tbadk.k.g WG;
+        public com.baidu.tbadk.k.g WY;
 
         public a(View view) {
             super(view);

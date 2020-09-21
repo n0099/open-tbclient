@@ -8,41 +8,41 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private InterfaceC0177a beW;
-    private HttpMessageListener beY = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
+    private InterfaceC0179a bhJ;
+    private HttpMessageListener bhL = new HttpMessageListener(1021154) { // from class: com.baidu.live.l.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.beW != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.bhJ != null) {
                 com.baidu.live.message.a aVar = (com.baidu.live.message.a) httpResponsedMessage.getOrginalMessage();
-                if (aVar.getTag() == a.this.beX) {
+                if (aVar.getTag() == a.this.bhK) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                        a.this.beW.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.bhJ.onFailed(httpResponsedMessage.getErrorString());
                     } else if (httpResponsedMessage.getError() == 0) {
-                        a.this.beW.onSuccess(aVar.LB());
+                        a.this.bhJ.onSuccess(aVar.Md());
                     } else {
-                        a.this.beW.onFailed(httpResponsedMessage.getErrorString());
+                        a.this.bhJ.onFailed(httpResponsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private BdUniqueId beX = BdUniqueId.gen();
+    private BdUniqueId bhK = BdUniqueId.gen();
 
     /* renamed from: com.baidu.live.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0177a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0179a {
         void onFailed(String str);
 
         void onSuccess(int i);
     }
 
     public a() {
-        setUniqueId(this.beX);
+        setUniqueId(this.bhK);
         registerTask();
-        registerListener(this.beY);
+        registerListener(this.bhL);
     }
 
     private void registerTask() {
@@ -65,14 +65,14 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void a(InterfaceC0177a interfaceC0177a) {
-        this.beW = interfaceC0177a;
+    public void a(InterfaceC0179a interfaceC0179a) {
+        this.bhJ = interfaceC0179a;
     }
 
     public void onDestroy() {
         cancelMessage();
-        if (this.beY != null) {
-            MessageManager.getInstance().unRegisterListener(this.beY);
+        if (this.bhL != null) {
+            MessageManager.getInstance().unRegisterListener(this.bhL);
         }
     }
 }

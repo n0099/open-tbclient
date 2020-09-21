@@ -23,31 +23,31 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static final String[] ayi = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
-    private a.C0148a ayf;
-    private ZipFile ayg;
-    private PackageManager ayh;
+    private static final String[] ayK = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
+    private a.C0149a ayH;
+    private ZipFile ayI;
+    private PackageManager ayJ;
     private String k;
     private Context l;
 
     /* renamed from: com.baidu.helios.trusts.zone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    static class C0158a {
+    /* loaded from: classes6.dex */
+    static class C0159a {
         public long a;
 
-        C0158a() {
+        C0159a() {
         }
 
-        public static C0158a a(a aVar) {
+        public static C0159a a(a aVar) {
             try {
                 String a = aVar.a("info");
                 if (!TextUtils.isEmpty(a)) {
                     JSONObject jSONObject = new JSONObject(a);
-                    C0158a c0158a = new C0158a();
-                    c0158a.a = jSONObject.getLong("version");
-                    return c0158a;
+                    C0159a c0159a = new C0159a();
+                    c0159a.a = jSONObject.getLong("version");
+                    return c0159a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -56,13 +56,13 @@ public class a {
         }
     }
 
-    private File Ay() {
-        return this.ayf.getFile("c.dat");
+    private File AM() {
+        return this.ayH.getFile("c.dat");
     }
 
-    private InputStream fz(String str) {
+    private InputStream fB(String str) {
         try {
-            return this.ayg.getInputStream(new ZipEntry(str));
+            return this.ayI.getInputStream(new ZipEntry(str));
         } catch (Exception e) {
             throw new TrustSubject.ConfigNotFoundException(e);
         }
@@ -70,7 +70,7 @@ public class a {
 
     public long a() {
         try {
-            Bundle bundle = this.ayh.getPackageInfo(this.k, 128).applicationInfo.metaData;
+            Bundle bundle = this.ayJ.getPackageInfo(this.k, 128).applicationInfo.metaData;
             if (bundle != null) {
                 String string = bundle.getString("com.baidu.helios.tc.qver");
                 if (!TextUtils.isEmpty(string) && string.startsWith("v")) {
@@ -86,7 +86,7 @@ public class a {
         InputStream inputStream = null;
         try {
             try {
-                inputStream = fz(str);
+                inputStream = fB(str);
                 return d.d(inputStream, "UTF-8");
             } catch (IOException e) {
                 throw new TrustSubject.ConfigNotFoundException(e);
@@ -96,11 +96,11 @@ public class a {
         }
     }
 
-    public void a(String str, Context context, a.C0148a c0148a) {
+    public void a(String str, Context context, a.C0149a c0149a) {
         this.k = str;
         this.l = context;
-        this.ayf = c0148a;
-        this.ayh = context.getPackageManager();
+        this.ayH = c0149a;
+        this.ayJ = context.getPackageManager();
     }
 
     public int b() {
@@ -113,11 +113,11 @@ public class a {
         InputStream inputStream2;
         try {
             AssetManager assets = this.l.createPackageContext(this.k, 0).getAssets();
-            this.ayf.Ai();
-            File Ay = Ay();
+            this.ayH.Aw();
+            File AM = AM();
             try {
-                Ay.delete();
-                file = File.createTempFile("cfg", ".cfgtmp", Ay.getParentFile());
+                AM.delete();
+                file = File.createTempFile("cfg", ".cfgtmp", AM.getParentFile());
                 try {
                     fileOutputStream = new FileOutputStream(file);
                     try {
@@ -150,7 +150,7 @@ public class a {
                                         }
                                     }
                                     HashSet hashSet2 = new HashSet();
-                                    Collections.addAll(hashSet2, ayi);
+                                    Collections.addAll(hashSet2, ayK);
                                     if (!hashSet2.equals(hashSet)) {
                                         c.b(inputStream);
                                         c.b(fileOutputStream);
@@ -162,7 +162,7 @@ public class a {
                                         }
                                         return 3;
                                     }
-                                    file.renameTo(Ay);
+                                    file.renameTo(AM);
                                     c.b(inputStream);
                                     c.b(fileOutputStream);
                                     if (file != null) {
@@ -286,12 +286,12 @@ public class a {
     }
 
     public boolean c() {
-        return Ay().delete();
+        return AM().delete();
     }
 
     public boolean d() {
         boolean z = false;
-        File[] listFiles = this.ayf.Aj().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
+        File[] listFiles = this.ayH.Ax().listFiles(new FilenameFilter() { // from class: com.baidu.helios.trusts.zone.a.a.1
             @Override // java.io.FilenameFilter
             public boolean accept(File file, String str) {
                 return str.endsWith(".cfgtmp");
@@ -310,13 +310,13 @@ public class a {
     }
 
     public boolean e() {
-        if (this.ayg != null) {
+        if (this.ayI != null) {
             return true;
         }
-        File Ay = Ay();
-        if (Ay.exists()) {
+        File AM = AM();
+        if (AM.exists()) {
             try {
-                this.ayg = new ZipFile(Ay);
+                this.ayI = new ZipFile(AM);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -326,16 +326,16 @@ public class a {
     }
 
     public boolean f() {
-        if (this.ayg != null) {
-            c.a(this.ayg);
-            this.ayg = null;
+        if (this.ayI != null) {
+            c.a(this.ayI);
+            this.ayI = null;
             return true;
         }
         return false;
     }
 
     public long g() {
-        C0158a a = C0158a.a(this);
+        C0159a a = C0159a.a(this);
         if (a != null) {
             return a.a;
         }

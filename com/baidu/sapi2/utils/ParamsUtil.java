@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class ParamsUtil implements NoProguard {
     private static HttpCookie a(String str, String str2, String str3) {
         HttpCookie httpCookie = new HttpCookie(str, str2);

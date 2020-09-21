@@ -5,15 +5,15 @@ import java.util.List;
 import tbclient.LotteryRegular;
 /* loaded from: classes.dex */
 public class ao {
-    private String dYX;
-    private List<Integer> dYY;
+    private String ebh;
+    private List<Integer> ebi;
 
     public void a(LotteryRegular lotteryRegular) {
-        this.dYX = lotteryRegular.regular;
-        this.dYY = new ArrayList();
+        this.ebh = lotteryRegular.regular;
+        this.ebi = new ArrayList();
         int size = lotteryRegular.chance.size();
         for (int i = 0; i < size; i++) {
-            this.dYY.add(lotteryRegular.chance.get(i));
+            this.ebi.add(lotteryRegular.chance.get(i));
         }
     }
 }

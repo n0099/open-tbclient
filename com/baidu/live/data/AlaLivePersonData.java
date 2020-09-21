@@ -4,7 +4,7 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLivePersonData implements Serializable {
     public AlaAvtsConfigInfo mAvtsConfigInfo;
     public AlaAvtsData mAvtsData;
@@ -13,7 +13,7 @@ public class AlaLivePersonData implements Serializable {
     public AlaAvtsData mChatAvtsData;
     public long mChatId;
     public AlaLiveInfoData mLiveInfo;
-    public p mLiveSdkInfo;
+    public s mLiveSdkInfo;
     public AlaLocationData mLocationData;
     public AlaPersonPkData mPkData;
     public AlaRelationData mRelationData;
@@ -63,7 +63,7 @@ public class AlaLivePersonData implements Serializable {
             }
             JSONObject jSONObject2 = (JSONObject) jSONObject.opt(CashierData.SDK);
             if (jSONObject2 != null) {
-                this.mLiveSdkInfo = new p();
+                this.mLiveSdkInfo = new s();
                 this.mLiveSdkInfo.parseJson(jSONObject2);
             }
             JSONObject optJSONObject9 = jSONObject.optJSONObject("chat_info");

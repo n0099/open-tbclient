@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class GetBucketAclResponse extends BosResponse {
     public static final int MAX_SUPPORTED_ACL_VERSION = 1;
     private List<Grant> accessControlList;

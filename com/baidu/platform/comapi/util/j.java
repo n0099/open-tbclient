@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class j {
     private static final ExecutorService a = Executors.newSingleThreadExecutor(new c("Single"));
     private static final ExecutorService b = Executors.newFixedThreadPool(4, new c("FixedPool"));

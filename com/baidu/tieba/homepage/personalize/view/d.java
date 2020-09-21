@@ -7,37 +7,37 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class d extends com.baidu.card.b<AbsThreadDataSupport> {
-    private e iQR;
+    private e iZy;
 
     public d(Context context, TbPageContext<?> tbPageContext) {
         super(context);
-        this.iQR = new e(tbPageContext);
+        this.iZy = new e(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.iQR.getView();
+        return this.iZy.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.o
+    @Override // com.baidu.card.p
     /* renamed from: b */
-    public void F(AbsThreadDataSupport absThreadDataSupport) {
+    public void G(AbsThreadDataSupport absThreadDataSupport) {
         if (absThreadDataSupport instanceof com.baidu.tieba.homepage.personalize.data.g) {
-            this.iQR.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
+            this.iZy.a((com.baidu.tieba.homepage.personalize.data.g) absThreadDataSupport);
         }
     }
 
-    @Override // com.baidu.card.p
+    @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-        this.iQR.onChangeSkinType(tbPageContext, i);
+        this.iZy.onChangeSkinType(tbPageContext, i);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        this.iQR.setTag(bdUniqueId);
+        this.iZy.setTag(bdUniqueId);
     }
 }

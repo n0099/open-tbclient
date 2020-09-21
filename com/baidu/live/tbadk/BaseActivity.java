@@ -61,7 +61,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport<T>, IPageStayDuration {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -733,7 +733,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class DelayRunnable implements Runnable {
         private View mView;
 
@@ -750,7 +750,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public abstract class LoadDataCallBack {
         public abstract void callback(Object... objArr);
 
@@ -1092,7 +1092,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

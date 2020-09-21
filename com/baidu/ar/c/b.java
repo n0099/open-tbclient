@@ -7,7 +7,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private int ic = 1500;
     private final ReentrantLock ie = new ReentrantLock();
@@ -16,7 +16,7 @@ public class b {
     private Map<String, a> f1if = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         final Thread ig;
         com.baidu.ar.c.a ih;

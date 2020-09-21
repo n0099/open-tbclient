@@ -4,7 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.ba;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class m {
     private static int a = -1;
 

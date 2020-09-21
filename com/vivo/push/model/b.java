@@ -1,7 +1,7 @@
 package com.vivo.push.model;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class b {
     private String a;
     private String d;

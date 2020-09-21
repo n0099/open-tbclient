@@ -12,14 +12,14 @@ public class d implements l {
     private Object mLockObject;
     private int mSize;
     private int mSortType;
-    private master.flame.danmaku.danmaku.model.d oyA;
-    private master.flame.danmaku.danmaku.model.d oyB;
-    private master.flame.danmaku.danmaku.model.d oyC;
-    private master.flame.danmaku.danmaku.model.d oyD;
-    private l.a oyE;
-    private boolean oyF;
-    public Collection<master.flame.danmaku.danmaku.model.d> oyy;
-    private d oyz;
+    public Collection<master.flame.danmaku.danmaku.model.d> oId;
+    private d oIe;
+    private master.flame.danmaku.danmaku.model.d oIf;
+    private master.flame.danmaku.danmaku.model.d oIg;
+    private master.flame.danmaku.danmaku.model.d oIh;
+    private master.flame.danmaku.danmaku.model.d oIi;
+    private l.a oIj;
+    private boolean oIk;
 
     public d() {
         this(0, false);
@@ -42,12 +42,12 @@ public class d implements l {
             aVar = new l.f(z);
         }
         if (i == 4) {
-            this.oyy = new LinkedList();
+            this.oId = new LinkedList();
         } else {
-            this.oyF = z;
-            aVar.yS(z);
-            this.oyy = new TreeSet(aVar);
-            this.oyE = aVar;
+            this.oIk = z;
+            aVar.za(z);
+            this.oId = new TreeSet(aVar);
+            this.oIj = aVar;
         }
         this.mSortType = i;
         this.mSize = 0;
@@ -65,12 +65,12 @@ public class d implements l {
     }
 
     public void s(Collection<master.flame.danmaku.danmaku.model.d> collection) {
-        if (this.oyF && this.mSortType != 4) {
-            this.oyy.clear();
-            this.oyy.addAll(collection);
-            collection = this.oyy;
+        if (this.oIk && this.mSortType != 4) {
+            this.oId.clear();
+            this.oId.addAll(collection);
+            collection = this.oId;
         } else {
-            this.oyy = collection;
+            this.oId = collection;
         }
         if (collection instanceof List) {
             this.mSortType = 4;
@@ -80,9 +80,9 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean k(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.oyy != null) {
+        if (this.oId != null) {
             try {
-                if (this.oyy.add(dVar)) {
+                if (this.oId.add(dVar)) {
                     this.mSize++;
                     return true;
                 }
@@ -98,82 +98,82 @@ public class d implements l {
         if (dVar == null) {
             return false;
         }
-        if (dVar.ehI()) {
+        if (dVar.elF()) {
             dVar.setVisibility(false);
         }
-        if (this.oyy.remove(dVar)) {
+        if (this.oId.remove(dVar)) {
             this.mSize--;
             return true;
         }
         return false;
     }
 
-    private Collection<master.flame.danmaku.danmaku.model.d> V(long j, long j2) {
-        if (this.mSortType == 4 || this.oyy == null || this.oyy.size() == 0) {
+    private Collection<master.flame.danmaku.danmaku.model.d> S(long j, long j2) {
+        if (this.mSortType == 4 || this.oId == null || this.oId.size() == 0) {
             return null;
         }
-        if (this.oyz == null) {
-            this.oyz = new d(this.oyF);
-            this.oyz.mLockObject = this.mLockObject;
+        if (this.oIe == null) {
+            this.oIe = new d(this.oIk);
+            this.oIe.mLockObject = this.mLockObject;
         }
-        if (this.oyD == null) {
-            this.oyD = Wo("start");
+        if (this.oIi == null) {
+            this.oIi = WQ("start");
         }
-        if (this.oyC == null) {
-            this.oyC = Wo("end");
+        if (this.oIh == null) {
+            this.oIh = WQ("end");
         }
-        this.oyD.setTime(j);
-        this.oyC.setTime(j2);
-        return ((SortedSet) this.oyy).subSet(this.oyD, this.oyC);
+        this.oIi.setTime(j);
+        this.oIh.setTime(j2);
+        return ((SortedSet) this.oId).subSet(this.oIi, this.oIh);
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public l S(long j, long j2) {
-        Collection<master.flame.danmaku.danmaku.model.d> V = V(j, j2);
-        if (V == null || V.isEmpty()) {
+    public l P(long j, long j2) {
+        Collection<master.flame.danmaku.danmaku.model.d> S = S(j, j2);
+        if (S == null || S.isEmpty()) {
             return null;
         }
-        return new d(new LinkedList(V));
+        return new d(new LinkedList(S));
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public l T(long j, long j2) {
-        if (this.oyy == null || this.oyy.size() == 0) {
+    public l Q(long j, long j2) {
+        if (this.oId == null || this.oId.size() == 0) {
             return null;
         }
-        if (this.oyz == null) {
+        if (this.oIe == null) {
             if (this.mSortType == 4) {
-                this.oyz = new d(4);
-                this.oyz.mLockObject = this.mLockObject;
+                this.oIe = new d(4);
+                this.oIe.mLockObject = this.mLockObject;
                 synchronized (this.mLockObject) {
-                    this.oyz.s(this.oyy);
+                    this.oIe.s(this.oId);
                 }
             } else {
-                this.oyz = new d(this.oyF);
-                this.oyz.mLockObject = this.mLockObject;
+                this.oIe = new d(this.oIk);
+                this.oIe.mLockObject = this.mLockObject;
             }
         }
         if (this.mSortType == 4) {
-            return this.oyz;
+            return this.oIe;
         }
-        if (this.oyA == null) {
-            this.oyA = Wo("start");
+        if (this.oIf == null) {
+            this.oIf = WQ("start");
         }
-        if (this.oyB == null) {
-            this.oyB = Wo("end");
+        if (this.oIg == null) {
+            this.oIg = WQ("end");
         }
-        if (this.oyz != null && j - this.oyA.ehR() >= 0 && j2 <= this.oyB.ehR()) {
-            return this.oyz;
+        if (this.oIe != null && j - this.oIf.elO() >= 0 && j2 <= this.oIg.elO()) {
+            return this.oIe;
         }
-        this.oyA.setTime(j);
-        this.oyB.setTime(j2);
+        this.oIf.setTime(j);
+        this.oIg.setTime(j2);
         synchronized (this.mLockObject) {
-            this.oyz.s(((SortedSet) this.oyy).subSet(this.oyA, this.oyB));
+            this.oIe.s(((SortedSet) this.oId).subSet(this.oIf, this.oIg));
         }
-        return this.oyz;
+        return this.oIe;
     }
 
-    private master.flame.danmaku.danmaku.model.d Wo(String str) {
+    private master.flame.danmaku.danmaku.model.d WQ(String str) {
         return new master.flame.danmaku.danmaku.model.e(str);
     }
 
@@ -184,47 +184,47 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void clear() {
-        if (this.oyy != null) {
-            this.oyy.clear();
+        if (this.oId != null) {
+            this.oId.clear();
             this.mSize = 0;
         }
-        if (this.oyz != null) {
-            this.oyz = null;
-            this.oyA = Wo("start");
-            this.oyB = Wo("end");
+        if (this.oIe != null) {
+            this.oIe = null;
+            this.oIf = WQ("start");
+            this.oIg = WQ("end");
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d ehZ() {
-        if (this.oyy != null && !this.oyy.isEmpty()) {
+    public master.flame.danmaku.danmaku.model.d elW() {
+        if (this.oId != null && !this.oId.isEmpty()) {
             if (this.mSortType == 4) {
-                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.oyy).peek();
+                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.oId).peek();
             }
-            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.oyy).first();
+            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.oId).first();
         }
         return null;
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d eia() {
-        if (this.oyy != null && !this.oyy.isEmpty()) {
+    public master.flame.danmaku.danmaku.model.d elX() {
+        if (this.oId != null && !this.oId.isEmpty()) {
             if (this.mSortType == 4) {
-                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.oyy).peekLast();
+                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.oId).peekLast();
             }
-            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.oyy).last();
+            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.oId).last();
         }
         return null;
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean m(master.flame.danmaku.danmaku.model.d dVar) {
-        return this.oyy != null && this.oyy.contains(dVar);
+        return this.oId != null && this.oId.contains(dVar);
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean isEmpty() {
-        return this.oyy == null || this.oyy.isEmpty();
+        return this.oId == null || this.oId.isEmpty();
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
@@ -236,25 +236,25 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void b(l.b<? super master.flame.danmaku.danmaku.model.d, ?> bVar) {
-        bVar.eib();
-        Iterator<master.flame.danmaku.danmaku.model.d> it = this.oyy.iterator();
+        bVar.elY();
+        Iterator<master.flame.danmaku.danmaku.model.d> it = this.oId.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             master.flame.danmaku.danmaku.model.d next = it.next();
             if (next != null) {
-                int bO = bVar.bO(next);
-                if (bO == 1) {
+                int bQ = bVar.bQ(next);
+                if (bQ == 1) {
                     break;
-                } else if (bO == 2) {
+                } else if (bQ == 2) {
                     it.remove();
-                } else if (bO == 3) {
+                } else if (bQ == 3) {
                     it.remove();
                     break;
                 }
             }
         }
-        bVar.eic();
+        bVar.elZ();
     }
 }

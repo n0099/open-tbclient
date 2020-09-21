@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public abstract class ba {
-    protected BaseFragmentActivity hwW;
+    protected BaseFragmentActivity hEa;
     protected View mRootView;
 
     protected abstract void a(e eVar);
 
     public ba(BaseFragmentActivity baseFragmentActivity, View view) {
-        this.hwW = baseFragmentActivity;
+        this.hEa = baseFragmentActivity;
         this.mRootView = view;
     }
 
@@ -19,7 +19,7 @@ public abstract class ba {
     }
 
     public void b(e eVar) {
-        if (this.hwW != null && this.mRootView != null) {
+        if (this.hEa != null && this.mRootView != null) {
             a(eVar);
         }
     }

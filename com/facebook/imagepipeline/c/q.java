@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 public class q {
-    public final int nuo;
-    public final int nup;
-    public final int nuq;
-    public final int nur;
-    public final int nus;
+    public final int nEl;
+    public final int nEm;
+    public final int nEn;
+    public final int nEo;
+    public final int nEp;
 
     public q(int i, int i2, int i3, int i4, int i5) {
-        this.nuo = i;
-        this.nup = i2;
-        this.nuq = i3;
-        this.nur = i4;
-        this.nus = i5;
+        this.nEl = i;
+        this.nEm = i2;
+        this.nEn = i3;
+        this.nEo = i4;
+        this.nEp = i5;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.activity.newstyle;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.NewAdTbWebViewActivityConfig;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class NewWebVideoActivityConfig extends NewAdTbWebViewActivityConfig {
     public static final String KEY_CHARGE_STYLE = "charge_style";
     public static final String KEY_CHARGE_URL = "charge_url";

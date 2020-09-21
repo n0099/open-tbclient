@@ -16,7 +16,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class a {
     private static final String a = a.class.getSimpleName();
     private static HashMap<String, String> b = new HashMap<>();

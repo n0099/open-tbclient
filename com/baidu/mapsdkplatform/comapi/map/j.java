@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.mapsdkplatform.comapi.commonutils.SysUpdateUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.platform.comjni.engine.NAEngine;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class j {
     private static int a;
     private static Context b = BMapManager.getContext();

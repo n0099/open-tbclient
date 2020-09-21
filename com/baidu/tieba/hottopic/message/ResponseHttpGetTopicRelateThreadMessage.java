@@ -7,7 +7,7 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     private d hotThreadItemListData;
     private Page page;

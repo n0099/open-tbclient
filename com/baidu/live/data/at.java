@@ -1,28 +1,28 @@
 package com.baidu.live.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class at {
-    public AlaLiveInfoData aIG;
-    public ao aIH;
-    public AlaLiveUserInfoData aIn;
+    public List<as> aJJ;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.aIn = new AlaLiveUserInfoData();
-                this.aIn.parserJson(optJSONObject);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
-            if (optJSONObject2 != null) {
-                this.aIG = new AlaLiveInfoData();
-                this.aIG.parserJson(optJSONObject2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("rank_info");
-            if (optJSONObject3 != null) {
-                this.aIH = new ao();
-                this.aIH.parserJson(optJSONObject3);
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.aJJ = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        as asVar = new as();
+                        asVar.parserJson(optJSONObject);
+                        this.aJJ.add(asVar);
+                    }
+                }
             }
         }
     }

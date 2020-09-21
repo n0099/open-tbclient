@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.d.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h implements a.c {
     final /* synthetic */ c a;
 
@@ -51,7 +51,7 @@ public class h implements a.c {
                     view = this.a.ah;
                     if (view.getVisibility() == 8) {
                         context3 = this.a.l;
-                        Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context3, R.anim.abc_slide_in_top);
+                        Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context3, R.layout.abc_activity_chooser_view_list_item);
                         view2 = this.a.ah;
                         view2.setAnimation(c);
                         view3 = this.a.ah;

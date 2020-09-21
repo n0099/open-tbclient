@@ -62,7 +62,7 @@ public class a {
         }
     }
 
-    public static int ea(List list) {
+    public static int ei(List list) {
         if (isNull(list) || list.isEmpty()) {
             return 0;
         }

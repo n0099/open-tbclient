@@ -8,13 +8,13 @@ import com.baidu.tbadk.task.b;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoHttpResMessage;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoSocketResMessage;
 import com.baidu.tieba.tbadkCore.a.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class GameVideoStatic {
     static {
-        cwY();
+        cAG();
     }
 
-    private static void cwY() {
+    private static void cAG() {
         b bVar = new b(309646);
         bVar.setResponsedClass(GameVideoSocketResMessage.class);
         bVar.setNeedAck(true);

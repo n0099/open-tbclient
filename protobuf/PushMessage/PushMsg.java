@@ -3,7 +3,7 @@ package protobuf.PushMessage;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.PushMsgInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public final class PushMsg extends Message {
     public static final Integer DEFAULT_CMD = 0;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
@@ -26,7 +26,7 @@ public final class PushMsg extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public static final class Builder extends Message.Builder<PushMsg> {
         public Integer cmd;
         public PushMsgInfo data;

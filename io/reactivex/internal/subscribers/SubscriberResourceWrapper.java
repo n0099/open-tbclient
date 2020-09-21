@@ -4,42 +4,42 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class SubscriberResourceWrapper<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -8612022020200669122L;
-    final org.b.c<? super T> actual;
+    final org.a.c<? super T> actual;
     final AtomicReference<d> subscription = new AtomicReference<>();
 
-    public SubscriberResourceWrapper(org.b.c<? super T> cVar) {
+    public SubscriberResourceWrapper(org.a.c<? super T> cVar) {
         this.actual = cVar;
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this.subscription, dVar)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         this.actual.onNext(t);
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         DisposableHelper.dispose(this);
         this.actual.onError(th);
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
         DisposableHelper.dispose(this);
         this.actual.onComplete();
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
             this.subscription.get().request(j);
@@ -57,7 +57,7 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<io.react
         return this.subscription.get() == SubscriptionHelper.CANCELLED;
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         dispose();
     }

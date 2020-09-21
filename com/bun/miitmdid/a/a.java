@@ -9,16 +9,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes11.dex */
 public class a implements b {
-    public C0853a nhL = new C0853a();
+    public C0850a nrM = new C0850a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0853a {
-        public com.bun.miitmdid.a.a.a nhM;
-        public com.bun.miitmdid.a.a.b nhN;
-        public c nhO;
+    public class C0850a {
+        public com.bun.miitmdid.a.a.a nrN;
+        public com.bun.miitmdid.a.a.b nrO;
+        public c nrP;
 
-        public C0853a() {
+        public C0850a() {
         }
     }
 
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.nhL.nhM = new com.bun.miitmdid.a.a.a();
+            aVar.nrM.nrN = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.nhL.nhM != null;
+        return aVar.nrM.nrN != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.nhL.nhO = new c();
+            aVar.nrM.nrP = new c();
         }
-        return aVar.nhL.nhO != null;
+        return aVar.nrM.nrP != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,12 +53,12 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.a = optJSONObject.optString("appid");
-            aVar.nhL.nhN = bVar;
+            aVar.nrM.nrO = bVar;
         }
-        return aVar.nhL.nhN != null;
+        return aVar.nrM.nrO != null;
     }
 
-    public static a gh(Context context) {
+    public static a gn(Context context) {
         boolean z;
         JSONObject jSONObject;
         JSONObject optJSONObject;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.nhL == null || this.nhL.nhN == null || this.nhL.nhN.a == null) ? "" : this.nhL.nhN.a;
+        return (this.nrM == null || this.nrM.nrO == null || this.nrM.nrO.a == null) ? "" : this.nrM.nrO.a;
     }
 }

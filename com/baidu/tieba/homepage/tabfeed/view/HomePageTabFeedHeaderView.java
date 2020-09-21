@@ -17,17 +17,17 @@ import com.baidu.tbadk.h.f;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.tabfeed.b;
 import com.baidu.tieba.homepage.tabfeed.data.c;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
-    private d<j> aim;
-    private AutoBannerLayout iSL;
-    private GridIconLayout iSM;
-    private f iSN;
+    private d<j> aiG;
+    private AutoBannerLayout jbr;
+    private GridIconLayout jbs;
+    private f jbt;
     private TbPageContext<?> mPageContext;
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.iSN = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jbt = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, j jVar, int i, long j) {
@@ -39,11 +39,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             public void b(View view, j jVar, int i, long j) {
             }
         };
-        this.aim = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
+        this.aiG = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
                 j jVar = new j();
-                jVar.za(str);
+                jVar.zv(str);
                 b.c("c13750", jVar, i);
             }
 
@@ -58,7 +58,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iSN = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jbt = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, j jVar, int i, long j) {
@@ -70,11 +70,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             public void b(View view, j jVar, int i, long j) {
             }
         };
-        this.aim = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
+        this.aiG = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
                 j jVar = new j();
-                jVar.za(str);
+                jVar.zv(str);
                 b.c("c13750", jVar, i);
             }
 
@@ -89,7 +89,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iSN = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jbt = new f<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, j jVar, int i2, long j) {
@@ -101,11 +101,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             public void b(View view, j jVar, int i2, long j) {
             }
         };
-        this.aim = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
+        this.aiG = new d<j>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i2, String str) {
                 j jVar = new j();
-                jVar.za(str);
+                jVar.zv(str);
                 b.c("c13750", jVar, i2);
             }
 
@@ -129,11 +129,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iSL != null) {
-            this.iSL.onChangeSkinType(this.mPageContext, i);
+        if (this.jbr != null) {
+            this.jbr.onChangeSkinType(this.mPageContext, i);
         }
-        if (this.iSM != null) {
-            this.iSM.onChangeSkinType(this.mPageContext, i);
+        if (this.jbs != null) {
+            this.jbs.onChangeSkinType(this.mPageContext, i);
         }
         ap.setBackgroundColor(this, R.color.cp_bg_line_e);
     }
@@ -141,41 +141,41 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public void setData(c cVar) {
         if (cVar != null) {
             setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds60));
-            if (this.iSL == null) {
-                this.iSL = new AutoBannerLayout(getContext());
-                this.iSL.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-                this.iSL.setOnCoverViewCallback(this.aim);
-                this.iSL.setBannerHeight(l.getDimens(getContext(), R.dimen.tbds328));
+            if (this.jbr == null) {
+                this.jbr = new AutoBannerLayout(getContext());
+                this.jbr.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
+                this.jbr.setOnCoverViewCallback(this.aiG);
+                this.jbr.setBannerHeight(l.getDimens(getContext(), R.dimen.tbds328));
                 int dimens = l.getDimens(getContext(), R.dimen.tbds44);
-                this.iSL.setPadding(dimens, 0, dimens, 0);
-                addView(this.iSL);
-                this.iSL.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
+                this.jbr.setPadding(dimens, 0, dimens, 0);
+                addView(this.jbr);
+                this.jbr.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
-                        if (z && HomePageTabFeedHeaderView.this.iSL != null) {
-                            HomePageTabFeedHeaderView.this.iSL.tY();
+                        if (z && HomePageTabFeedHeaderView.this.jbr != null) {
+                            HomePageTabFeedHeaderView.this.jbr.ue();
                         }
                     }
                 });
             }
-            this.iSL.F(cVar.iSF);
-            if (this.iSM == null) {
-                this.iSM = new GridIconLayout(getContext());
-                this.iSM.setOnItemCoverListener(this.iSN);
-                addView(this.iSM);
-                this.iSM.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
+            this.jbr.G(cVar.jbl);
+            if (this.jbs == null) {
+                this.jbs = new GridIconLayout(getContext());
+                this.jbs.setOnItemCoverListener(this.jbt);
+                addView(this.jbs);
+                this.jbs.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
                         if (z) {
-                            b.JM("c13751");
+                            b.Ko("c13751");
                         }
                     }
                 });
-                this.iSM.setPadding(0, l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
-                this.iSM.setVerticalSpace(l.getDimens(getContext(), R.dimen.tbds61));
-                this.iSM.setMaxItem(10);
+                this.jbs.setPadding(0, l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
+                this.jbs.setVerticalSpace(l.getDimens(getContext(), R.dimen.tbds61));
+                this.jbs.setMaxItem(10);
             }
-            this.iSM.F(cVar.iSG);
+            this.jbs.G(cVar.jbm);
         }
     }
 

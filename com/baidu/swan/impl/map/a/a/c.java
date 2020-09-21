@@ -3,29 +3,29 @@ package com.baidu.swan.impl.map.a.a;
 import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class c extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
 
-    public static c aRB() {
+    public static c aSn() {
         return new c();
     }
 
     private boolean d(Context context, com.baidu.swan.apps.w.a.c cVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar, JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("map", "GetScaleAction start");
-        com.baidu.swan.apps.adaptation.b.e lU = com.baidu.swan.apps.v.f.arY().lU(cVar.caY);
-        if (!(lU instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e mn = com.baidu.swan.apps.v.f.asJ().mn(cVar.cda);
+        if (!(mn instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c ws = com.baidu.swan.impl.map.c.aRu().h((com.baidu.swan.apps.adaptation.b.c) lU).ws(cVar.caX);
-        if (ws == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.caX);
+        com.baidu.swan.impl.map.item.c wL = com.baidu.swan.impl.map.c.aSg().h((com.baidu.swan.apps.adaptation.b.c) mn).wL(cVar.ccZ);
+        if (wL == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.ccZ);
             return false;
         }
         try {
-            jSONObject.put("scale", ws.dBs.getMap().getMapStatus().zoom);
+            jSONObject.put("scale", wL.dDt.getMap().getMapStatus().zoom);
         } catch (JSONException e) {
             e.printStackTrace();
         }

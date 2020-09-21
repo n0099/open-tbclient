@@ -5,43 +5,43 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class i {
-    private static volatile boolean cct = false;
-    private static volatile boolean dqW = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> dqX = new ArrayList();
+    private static volatile boolean cev = false;
+    private static volatile boolean dsZ = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> dta = new ArrayList();
 
     private i() {
     }
 
-    public static void dJ(boolean z) {
-        cct = z;
-        com.baidu.swan.apps.console.c.dJ(z);
+    public static void dH(boolean z) {
+        cev = z;
+        com.baidu.swan.apps.console.c.dH(z);
     }
 
-    public static void aMR() {
+    public static void aNC() {
         synchronized (i.class) {
-            dqX = new ArrayList();
+            dta = new ArrayList();
         }
-        dqW = false;
+        dsZ = false;
     }
 
-    public static void aMS() {
-        if (cct && !dqW) {
+    public static void aND() {
+        if (cev && !dsZ) {
             synchronized (i.class) {
-                if (dqX != null) {
-                    for (int i = 0; i < dqX.size(); i++) {
-                        com.baidu.swan.apps.v.f.arY().a("console", dqX.get(i));
+                if (dta != null) {
+                    for (int i = 0; i < dta.size(); i++) {
+                        com.baidu.swan.apps.v.f.asJ().a("console", dta.get(i));
                     }
-                    dqX.clear();
-                    dqX = null;
+                    dta.clear();
+                    dta = null;
                 }
             }
-            dqW = true;
+            dsZ = true;
         }
     }
 
-    private static String la(int i) {
+    private static String ll(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -59,31 +59,31 @@ public class i {
         }
     }
 
-    public static void ad(int i, String str) {
-        cH(la(i), str);
+    public static void ae(int i, String str) {
+        cH(ll(i), str);
     }
 
     public static void cH(String str, String str2) {
-        if (cct) {
+        if (cev) {
             a(c.cF(str, str2));
         }
     }
 
     public static void cI(String str, String str2) {
-        if (cct) {
+        if (cev) {
             a(c.cG(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!dqW) {
+        if (!dsZ) {
             synchronized (i.class) {
-                if (dqX != null) {
-                    dqX.add(bVar);
+                if (dta != null) {
+                    dta.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.v.f.arY().a("console", bVar);
+        com.baidu.swan.apps.v.f.asJ().a("console", bVar);
     }
 }

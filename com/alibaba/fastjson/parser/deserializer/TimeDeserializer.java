@@ -6,7 +6,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.JSONScanner;
 import java.lang.reflect.Type;
 import java.sql.Time;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TimeDeserializer implements ObjectDeserializer {
     public static final TimeDeserializer instance = new TimeDeserializer();
 

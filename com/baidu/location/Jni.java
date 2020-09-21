@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;

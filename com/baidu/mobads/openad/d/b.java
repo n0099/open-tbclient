@@ -2,7 +2,7 @@ package com.baidu.mobads.openad.d;
 
 import com.baidu.mobads.utils.m;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
     final /* synthetic */ a a;
 

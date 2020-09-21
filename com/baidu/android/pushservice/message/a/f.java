@@ -12,7 +12,7 @@ import com.baidu.android.pushservice.message.k;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class f extends b {
     public f(Context context) {
         super(context);

@@ -1,21 +1,24 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+import com.baidu.live.tbadk.encryption.EncryptionHelper;
+/* loaded from: classes4.dex */
 public class e extends HttpMessage {
-    private String aTg;
-    private String beF;
-    private String beG;
+    private String aVu;
+    private String bhv;
+    private String bhw;
 
-    public e(String str, String str2, String str3) {
+    public e(String str, String str2, String str3, String str4, String str5) {
         super(1021120);
-        this.aTg = str;
-        this.beF = str2;
-        this.beG = str3;
-        addParam("scene_from", this.aTg);
+        this.aVu = str;
+        this.bhv = str4;
+        this.bhw = str5;
+        addParam("scene_from", this.aVu);
+        addParam("live_id", str2);
+        addParam("anchor_uk", EncryptionHelper.getEncryptionUserId(str3));
     }
 
-    public String Ha() {
-        return this.beG;
+    public String HA() {
+        return this.bhw;
     }
 }

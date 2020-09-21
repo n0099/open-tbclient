@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.wnplatform.i;
 
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class i implements com.baidu.platform.comapi.wnplatform.c.b {
     final /* synthetic */ f a;
 

@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class c {
-    public static c jhK = new c();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> jhx;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> jhy;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> jhz;
+    public static c jqq = new c();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> jqd;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> jqe;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> jqf;
 
-    private void ff(final Context context) {
-        this.jhx = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
+    private void fl(final Context context) {
+        this.jqd = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cCc */
+            /* renamed from: cFJ */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -46,11 +46,11 @@ public class c {
         };
     }
 
-    private void fg(final Context context) {
-        this.jhy = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
+    private void fm(final Context context) {
+        this.jqe = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cCd */
+            /* renamed from: cFK */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -84,11 +84,11 @@ public class c {
         };
     }
 
-    private void fh(final Context context) {
-        this.jhz = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
+    private void fn(final Context context) {
+        this.jqf = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cCe */
+            /* renamed from: cFL */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }
@@ -121,24 +121,24 @@ public class c {
         }, 1, 0);
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextTopView> fi(Context context) {
-        if (this.jhx == null) {
-            ff(context);
+    public com.baidu.adp.lib.d.b<MultiImageTextTopView> fo(Context context) {
+        if (this.jqd == null) {
+            fl(context);
         }
-        return this.jhx;
+        return this.jqd;
     }
 
-    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> fj(Context context) {
-        if (this.jhy == null) {
-            fg(context);
+    public com.baidu.adp.lib.d.b<MultiImageTextBottomView> fp(Context context) {
+        if (this.jqe == null) {
+            fm(context);
         }
-        return this.jhy;
+        return this.jqe;
     }
 
-    public com.baidu.adp.lib.d.b<SingleImageTextView> fk(Context context) {
-        if (this.jhz == null) {
-            fh(context);
+    public com.baidu.adp.lib.d.b<SingleImageTextView> fq(Context context) {
+        if (this.jqf == null) {
+            fn(context);
         }
-        return this.jhz;
+        return this.jqf;
     }
 }

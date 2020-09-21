@@ -9,7 +9,7 @@ import com.baidu.platform.comapi.wnplatform.p.g;
 import com.google.protobuf.micro.MessageMicro;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
     private int a = 0;
     private int b = 0;
@@ -99,13 +99,13 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vu()) {
-            bVar = dVar.bY(i);
+        if (i < dVar.vI()) {
+            bVar = dVar.cc(i);
         }
         if (bVar == null) {
             i2 = 0;
         } else {
-            Iterator<d.b.C0116b> it = bVar.vx().iterator();
+            Iterator<d.b.C0117b> it = bVar.vL().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -114,9 +114,9 @@ public class e extends a {
                 i3 = it.next().getDuration() + i2;
             }
         }
-        for (com.baidu.f.a.b bVar2 : dVar.wc()) {
-            for (b.C0111b c0111b : bVar2.vt()) {
-                for (b.C0111b.a aVar : c0111b.vx()) {
+        for (com.baidu.f.a.b bVar2 : dVar.wq()) {
+            for (b.C0112b c0112b : bVar2.vH()) {
+                for (b.C0112b.a aVar : c0112b.vL()) {
                     i2 += aVar.getDuration();
                 }
             }
@@ -131,11 +131,11 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vu()) {
-            bVar = dVar.bY(i);
+        if (i < dVar.vI()) {
+            bVar = dVar.cc(i);
         }
         if (bVar != null) {
-            Iterator<d.b.C0116b> it = bVar.vx().iterator();
+            Iterator<d.b.C0117b> it = bVar.vL().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -146,9 +146,9 @@ public class e extends a {
         } else {
             i2 = 0;
         }
-        for (com.baidu.f.a.b bVar2 : dVar.wc()) {
-            for (b.C0111b c0111b : bVar2.vt()) {
-                for (b.C0111b.a aVar : c0111b.vx()) {
+        for (com.baidu.f.a.b bVar2 : dVar.wq()) {
+            for (b.C0112b c0112b : bVar2.vH()) {
+                for (b.C0112b.a aVar : c0112b.vL()) {
                     i2 += aVar.getDistance();
                 }
             }

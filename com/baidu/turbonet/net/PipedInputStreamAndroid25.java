@@ -3,27 +3,27 @@ package com.baidu.turbonet.net;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class PipedInputStreamAndroid25 extends InputStream {
     static final /* synthetic */ boolean $assertionsDisabled;
     protected byte[] buffer;
-    Thread nda;
-    Thread ndb;
-    boolean ncX = false;
-    volatile boolean ncY = false;
-    boolean ncZ = false;
-    protected int ndc = -1;
-    protected int ndd = 0;
+    Thread nmZ;
+    Thread nna;
+    boolean nmW = false;
+    volatile boolean nmX = false;
+    boolean nmY = false;
+    protected int nnb = -1;
+    protected int nnc = 0;
 
     static {
         $assertionsDisabled = !PipedInputStreamAndroid25.class.desiredAssertionStatus();
     }
 
     public PipedInputStreamAndroid25() {
-        Kq(1024);
+        KV(1024);
     }
 
-    private void Kq(int i) {
+    private void KV(int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("Pipe Size <= 0");
         }
@@ -31,45 +31,45 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void Kr(int i) throws IOException {
-        dKU();
-        this.ndb = Thread.currentThread();
-        if (this.ndc == this.ndd) {
-            dKV();
+    public synchronized void KW(int i) throws IOException {
+        dOS();
+        this.nna = Thread.currentThread();
+        if (this.nnb == this.nnc) {
+            dOT();
         }
-        if (this.ndc < 0) {
-            this.ndc = 0;
-            this.ndd = 0;
+        if (this.nnb < 0) {
+            this.nnb = 0;
+            this.nnc = 0;
         }
         byte[] bArr = this.buffer;
-        int i2 = this.ndc;
-        this.ndc = i2 + 1;
+        int i2 = this.nnb;
+        this.nnb = i2 + 1;
         bArr[i2] = (byte) (i & 255);
-        if (this.ndc >= this.buffer.length) {
-            this.ndc = 0;
+        if (this.nnb >= this.buffer.length) {
+            this.nnb = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void t(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        dKU();
-        this.ndb = Thread.currentThread();
+        dOS();
+        this.nna = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
-            if (this.ndc == this.ndd) {
-                dKV();
+            if (this.nnb == this.nnc) {
+                dOT();
             }
-            if (this.ndd < this.ndc) {
-                i3 = this.buffer.length - this.ndc;
-            } else if (this.ndc >= this.ndd) {
+            if (this.nnc < this.nnb) {
+                i3 = this.buffer.length - this.nnb;
+            } else if (this.nnb >= this.nnc) {
                 i3 = 0;
-            } else if (this.ndc == -1) {
-                this.ndd = 0;
-                this.ndc = 0;
-                i3 = this.buffer.length - this.ndc;
+            } else if (this.nnb == -1) {
+                this.nnc = 0;
+                this.nnb = 0;
+                i3 = this.buffer.length - this.nnb;
             } else {
-                i3 = this.ndd - this.ndc;
+                i3 = this.nnc - this.nnb;
             }
             if (i3 > i4) {
                 i3 = i4;
@@ -77,31 +77,31 @@ public class PipedInputStreamAndroid25 extends InputStream {
             if (!$assertionsDisabled && i3 <= 0) {
                 throw new AssertionError();
             }
-            System.arraycopy(bArr, i, this.buffer, this.ndc, i3);
+            System.arraycopy(bArr, i, this.buffer, this.nnb, i3);
             i4 -= i3;
             i += i3;
-            this.ndc = i3 + this.ndc;
-            if (this.ndc >= this.buffer.length) {
-                this.ndc = 0;
+            this.nnb = i3 + this.nnb;
+            if (this.nnb >= this.buffer.length) {
+                this.nnb = 0;
             }
         }
     }
 
-    private void dKU() throws IOException {
-        if (!this.ncZ) {
+    private void dOS() throws IOException {
+        if (!this.nmY) {
             throw new IOException("Pipe not connected");
         }
-        if (this.ncX || this.ncY) {
+        if (this.nmW || this.nmX) {
             throw new IOException("Pipe closed");
         }
-        if (this.nda != null && !this.nda.isAlive()) {
+        if (this.nmZ != null && !this.nmZ.isAlive()) {
             throw new IOException("Read end dead");
         }
     }
 
-    private void dKV() throws IOException {
-        while (this.ndc == this.ndd) {
-            dKU();
+    private void dOT() throws IOException {
+        while (this.nnb == this.nnc) {
+            dOS();
             notifyAll();
             try {
                 wait(1000L);
@@ -113,8 +113,8 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void dKW() {
-        this.ncX = true;
+    public synchronized void dOU() {
+        this.nmW = true;
         notifyAll();
     }
 
@@ -122,22 +122,22 @@ public class PipedInputStreamAndroid25 extends InputStream {
     public synchronized int read() throws IOException {
         int i = -1;
         synchronized (this) {
-            if (!this.ncZ) {
+            if (!this.nmY) {
                 throw new IOException("Pipe not connected");
             }
-            if (this.ncY) {
+            if (this.nmX) {
                 throw new IOException("Pipe closed");
             }
-            if (this.ndb != null && !this.ndb.isAlive() && !this.ncX && this.ndc < 0) {
+            if (this.nna != null && !this.nna.isAlive() && !this.nmW && this.nnb < 0) {
                 throw new IOException("Write end dead");
             }
-            this.nda = Thread.currentThread();
+            this.nmZ = Thread.currentThread();
             int i2 = 2;
             while (true) {
-                if (this.ndc < 0) {
-                    if (this.ncX) {
+                if (this.nnb < 0) {
+                    if (this.nmW) {
                         break;
-                    } else if (this.ndb != null && !this.ndb.isAlive() && i2 - 1 < 0) {
+                    } else if (this.nna != null && !this.nna.isAlive() && i2 - 1 < 0) {
                         throw new IOException("Pipe broken");
                     } else {
                         notifyAll();
@@ -150,14 +150,14 @@ public class PipedInputStreamAndroid25 extends InputStream {
                     }
                 } else {
                     byte[] bArr = this.buffer;
-                    int i3 = this.ndd;
-                    this.ndd = i3 + 1;
+                    int i3 = this.nnc;
+                    this.nnc = i3 + 1;
                     i = bArr[i3] & 255;
-                    if (this.ndd >= this.buffer.length) {
-                        this.ndd = 0;
+                    if (this.nnc >= this.buffer.length) {
+                        this.nnc = 0;
                     }
-                    if (this.ndc == this.ndd) {
-                        this.ndc = -1;
+                    if (this.nnb == this.nnc) {
+                        this.nnb = -1;
                     }
                 }
             }
@@ -183,24 +183,24 @@ public class PipedInputStreamAndroid25 extends InputStream {
                 } else {
                     bArr[i] = (byte) read;
                     i3 = 1;
-                    while (this.ndc >= 0 && i2 > 1) {
-                        if (this.ndc > this.ndd) {
-                            length = Math.min(this.buffer.length - this.ndd, this.ndc - this.ndd);
+                    while (this.nnb >= 0 && i2 > 1) {
+                        if (this.nnb > this.nnc) {
+                            length = Math.min(this.buffer.length - this.nnc, this.nnb - this.nnc);
                         } else {
-                            length = this.buffer.length - this.ndd;
+                            length = this.buffer.length - this.nnc;
                         }
                         if (length > i2 - 1) {
                             length = i2 - 1;
                         }
-                        System.arraycopy(this.buffer, this.ndd, bArr, i + i3, length);
-                        this.ndd += length;
+                        System.arraycopy(this.buffer, this.nnc, bArr, i + i3, length);
+                        this.nnc += length;
                         i3 += length;
                         i2 -= length;
-                        if (this.ndd >= this.buffer.length) {
-                            this.ndd = 0;
+                        if (this.nnc >= this.buffer.length) {
+                            this.nnc = 0;
                         }
-                        if (this.ndc == this.ndd) {
-                            this.ndc = -1;
+                        if (this.nnb == this.nnc) {
+                            this.nnb = -1;
                         }
                     }
                 }
@@ -212,23 +212,23 @@ public class PipedInputStreamAndroid25 extends InputStream {
     @Override // java.io.InputStream
     public synchronized int available() throws IOException {
         int length;
-        if (this.ndc < 0) {
+        if (this.nnb < 0) {
             length = 0;
-        } else if (this.ndc == this.ndd) {
+        } else if (this.nnb == this.nnc) {
             length = this.buffer.length;
-        } else if (this.ndc > this.ndd) {
-            length = this.ndc - this.ndd;
+        } else if (this.nnb > this.nnc) {
+            length = this.nnb - this.nnc;
         } else {
-            length = (this.ndc + this.buffer.length) - this.ndd;
+            length = (this.nnb + this.buffer.length) - this.nnc;
         }
         return length;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.ncY = true;
+        this.nmX = true;
         synchronized (this) {
-            this.ndc = -1;
+            this.nnb = -1;
         }
     }
 }

@@ -6,21 +6,21 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.b.b<? extends T> onN;
-    final org.b.b<? extends T> onO;
+    final org.a.b<? extends T> oxw;
+    final org.a.b<? extends T> oxx;
     final int prefetch;
 
     @Override // io.reactivex.w
     public void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.prefetch, this.comparer);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.onN, this.onO);
+        equalCoordinator.subscribe(this.oxw, this.oxx);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b, FlowableSequenceEqual.a {
         private static final long serialVersionUID = -6178010334400373240L;
         final y<? super Boolean> actual;
@@ -38,7 +38,7 @@ public final class FlowableSequenceEqualSingle<T> extends w<Boolean> {
             this.second = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
         }
 
-        void subscribe(org.b.b<? extends T> bVar, org.b.b<? extends T> bVar2) {
+        void subscribe(org.a.b<? extends T> bVar, org.a.b<? extends T> bVar2) {
             bVar.subscribe(this.first);
             bVar2.subscribe(this.second);
         }

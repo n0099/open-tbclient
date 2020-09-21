@@ -6,9 +6,9 @@ import com.baidu.tieba.video.record.f;
 import com.faceunity.wrapper.faceunity;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class a {
-    public static int gv(Context context) {
+    public static int gC(Context context) {
         try {
             InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
             byte[] bArr = new byte[open.available()];

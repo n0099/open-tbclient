@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaCharmCardActivityConfig extends IntentConfig {
     public static final String CHARM_VALUE = "charm_value";
     public static final String FLOWER_VALUE = "flower_value";
@@ -29,10 +29,10 @@ public class AlaCharmCardActivityConfig extends IntentConfig {
         getIntent().putExtra("live_id", str5);
         getIntent().putExtra("live_owner_flag", z);
         getIntent().putExtra("live_owner_uid", str6);
-        getIntent().putExtra(LOGIN_USER_ID, str7);
-        getIntent().putExtra(LOGIN_USER_NAME, str8);
-        getIntent().putExtra(LOGINUSER_PORTRAIT, str9);
-        getIntent().putExtra(ONLINE_COUNT, j);
+        getIntent().putExtra("login_user_id", str7);
+        getIntent().putExtra("login_user_name", str8);
+        getIntent().putExtra("login_user_portrait", str9);
+        getIntent().putExtra("online_count", j);
         getIntent().putExtra(IntentConfig.OTHER_PARAMS, str10);
         setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CHARM_CARD);
         setIntentAction(IntentAction.ActivityForResult);

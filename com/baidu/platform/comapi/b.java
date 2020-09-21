@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.vi.VIContext;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static Context d;
     private static a e;

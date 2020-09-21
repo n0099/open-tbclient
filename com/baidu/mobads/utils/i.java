@@ -9,7 +9,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class i {
     private static long a = 30000000;
     private Context b;
@@ -120,7 +120,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     class a implements Observer {
         private final Handler b;
         private final String c;

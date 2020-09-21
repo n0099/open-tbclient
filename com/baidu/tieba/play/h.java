@@ -11,11 +11,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class h {
     static {
-        djU();
-        djV();
+        dnA();
+        dnB();
     }
 
-    private static void djU() {
+    private static void dnA() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001804, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -23,7 +23,7 @@ public class h {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void djV() {
+    private static void dnB() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003359, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -37,7 +37,7 @@ public class h {
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM2, str2);
         httpMessage.addParam("obj_type", str3);
-        if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().dki()) {
+        if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().dnP()) {
             httpMessage.addParam("pcdn_state", i);
         }
         a(httpMessage, oVar);
@@ -50,7 +50,7 @@ public class h {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (oVar != null) {
-            httpMessage.addParam("video_md5", oVar.ltt);
+            httpMessage.addParam("video_md5", oVar.lCk);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM2, str2);
@@ -60,19 +60,19 @@ public class h {
 
     private static void a(HttpMessage httpMessage, o oVar) {
         if (httpMessage != null && oVar != null) {
-            httpMessage.addParam("tid", oVar.ala);
-            httpMessage.addParam("fid", oVar.eVx);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, oVar.ltn);
-            httpMessage.addParam("obj_id", oVar.dYs);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, oVar.lto);
+            httpMessage.addParam("tid", oVar.alA);
+            httpMessage.addParam("fid", oVar.eYo);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, oVar.lCf);
+            httpMessage.addParam("obj_id", oVar.eaC);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, oVar.lCg);
             httpMessage.addParam("obj_source", oVar.mSource);
             httpMessage.addParam("obj_locate", oVar.mLocate);
-            httpMessage.addParam("obj_param1", oVar.ltp);
-            if (!StringUtils.isNull(oVar.ltu)) {
-                httpMessage.addParam("topic_type", oVar.ltu);
+            httpMessage.addParam("obj_param1", oVar.lCh);
+            if (!StringUtils.isNull(oVar.lCl)) {
+                httpMessage.addParam("topic_type", oVar.lCl);
             }
-            if (!StringUtils.isNull(oVar.ltv)) {
-                httpMessage.addParam("is_vertical", oVar.ltv);
+            if (!StringUtils.isNull(oVar.lCm)) {
+                httpMessage.addParam("is_vertical", oVar.lCm);
             }
         }
     }

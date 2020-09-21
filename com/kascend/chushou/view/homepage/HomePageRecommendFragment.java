@@ -87,7 +87,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.kascend.chushou.view.homepage.HomePageRecommendFragment.1
             @Override // android.support.v7.widget.GridLayoutManager.SpanSizeLookup
             public int getSpanSize(int i) {
-                if (HomePageRecommendFragment.this.mRecyclerView.OK(i) || HomePageRecommendFragment.this.mRecyclerView.OL(i)) {
+                if (HomePageRecommendFragment.this.mRecyclerView.Pp(i) || HomePageRecommendFragment.this.mRecyclerView.Pq(i)) {
                     return 4;
                 }
                 return com.kascend.chushou.view.a.a.b.a(HomePageRecommendFragment.this.mAdapter.getItemViewType(i - HomePageRecommendFragment.this.mRecyclerView.getHeaderViewCount()), 4);
@@ -206,14 +206,14 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         switch (i) {
             case 1:
                 if (!this.mLoadedSuc) {
-                    this.mEmptyView.Ns(1);
+                    this.mEmptyView.NX(1);
                     this.mRecyclerView.setVisibility(8);
                     return;
                 }
                 return;
             case 2:
                 this.mLoadedSuc = true;
-                this.mEmptyView.Ns(2);
+                this.mEmptyView.NX(2);
                 this.mRecyclerView.completeRefresh();
                 this.mRecyclerView.setVisibility(0);
                 return;
@@ -222,7 +222,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
             case 6:
                 this.mLoadedSuc = false;
                 this.mRecyclerView.completeRefresh();
-                this.mEmptyView.Ns(i);
+                this.mEmptyView.NX(i);
                 this.mRecyclerView.setVisibility(8);
                 return;
             case 5:
@@ -277,9 +277,9 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     public void subscribeResult(boolean z, String str, ListItem listItem) {
         if (z) {
-            int bx = this.mAdapter.bx(listItem);
-            if (bx != -1) {
-                this.mAdapter.notifyItemChanged(bx, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
+            int bz = this.mAdapter.bz(listItem);
+            if (bz != -1) {
+                this.mAdapter.notifyItemChanged(bz, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
                 return;
             }
             return;
@@ -287,7 +287,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
         if (h.isEmpty(str)) {
             str = tv.chushou.widget.a.c.getString(a.i.subscribe_failed);
         }
-        g.y(str);
+        g.w(str);
     }
 
     public int getRecommend() {

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.IInterface;
 import android.os.RemoteException;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes24.dex */
 public interface a extends IInterface {
     void a(String str, Bundle bundle, d dVar) throws RemoteException;
 

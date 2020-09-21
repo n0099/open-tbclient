@@ -15,13 +15,13 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class c {
-    private static MediaCodecInfo[] bAJ;
+    private static MediaCodecInfo[] bEg;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bAI;
+    public MediaCodecInfo bEf;
     public String c;
 
     static {
@@ -102,7 +102,7 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bAI = mediaCodecInfo;
+        cVar.bEf = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
@@ -118,18 +118,18 @@ public class c {
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo hL = hL(str);
-        if (hL != null) {
+        MediaCodecInfo ih = ih(str);
+        if (ih != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = hL.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = ih.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + hL.getName());
-                return hL.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + ih.getName());
+                return ih.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + hL.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + ih.getName() + Constants.ACCEPT_TIME_SEPARATOR_SP + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + Constants.ACCEPT_TIME_SEPARATOR_SP + d2 + "]");
         }
         return null;
     }
@@ -137,26 +137,26 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bAJ == null && Build.VERSION.SDK_INT >= 16) {
+                if (bEg == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bAJ = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bEg = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bAJ = new MediaCodecList(0).getCodecInfos();
+                        bEg = new MediaCodecList(0).getCodecInfos();
                     }
-                    hL(f.b);
-                    hL("video/hevc");
+                    ih(f.b);
+                    ih("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo hL(String str) {
+    private static MediaCodecInfo ih(String str) {
         c cVar;
         String[] supportedTypes;
         c a;
@@ -165,8 +165,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bAJ.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bAJ[i];
+        for (int i = 0; i < bEg.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bEg[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a = a(mediaCodecInfo2, str)) != null) {
@@ -193,7 +193,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bAI);
-        return cVar.bAI;
+        f.put(str, cVar.bEf);
+        return cVar.bEf;
     }
 }

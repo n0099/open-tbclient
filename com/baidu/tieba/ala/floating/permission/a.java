@@ -5,7 +5,7 @@ import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
 import com.baidu.tieba.ala.floating.permission.FloatPermissionUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
     public BdAlertDialog a(final Activity activity, final FloatPermissionUtil.a aVar) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(activity);

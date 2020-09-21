@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.y;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
     public boolean hasMore;
-    public int ihw;
-    public List<q> ihx;
+    public int ioy;
+    public List<q> ioz;
     public String key;
     public int labelId;
     public int pn;
 
-    public int cI(List<q> list) {
+    public int cO(List<q> list) {
         boolean z;
         if (y.isEmpty(list)) {
             return 0;
         }
-        if (y.isEmpty(this.ihx)) {
-            this.ihx = new LinkedList();
-            this.ihx.addAll(list);
+        if (y.isEmpty(this.ioz)) {
+            this.ioz = new LinkedList();
+            this.ioz.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             q qVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.ihx.size()) {
+                if (i2 >= this.ioz.size()) {
                     z = false;
                     break;
                 }
-                q qVar2 = this.ihx.get(i2);
+                q qVar2 = this.ioz.get(i2);
                 if (qVar != null && (qVar instanceof b) && qVar2 != null && (qVar2 instanceof b)) {
-                    bw bce = ((b) qVar).bce();
-                    bw bce2 = ((b) qVar2).bce();
-                    if (bce != null && bce2 != null && bce.getTid() != null && bce2.getTid() != null && bce.getTid().equals(bce2.getTid())) {
+                    bw bcY = ((b) qVar).bcY();
+                    bw bcY2 = ((b) qVar2).bcY();
+                    if (bcY != null && bcY2 != null && bcY.getTid() != null && bcY2.getTid() != null && bcY.getTid().equals(bcY2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            y.addAll(this.ihx, 0, linkedList);
+            y.addAll(this.ioz, 0, linkedList);
         }
         return linkedList.size();
     }

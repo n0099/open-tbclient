@@ -1,14 +1,14 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.be;
+import com.baidu.live.data.bj;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LiveSyncHttpResponseMessage extends JsonHttpResponsedMessage {
-    private be beV;
+    private bj bhI;
 
-    public be LM() {
-        return this.beV;
+    public bj Mn() {
+        return this.bhI;
     }
 
     public LiveSyncHttpResponseMessage() {
@@ -19,10 +19,10 @@ public class LiveSyncHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.beV = new be();
-            this.beV.parserJson(jSONObject);
+            this.bhI = new bj();
+            this.bhI.parserJson(jSONObject);
             if (getError() == 0) {
-                com.baidu.live.c.AD().putString("key_live_sync_data", jSONObject.toString());
+                com.baidu.live.c.AR().putString("key_live_sync_data", jSONObject.toString());
             }
         }
     }

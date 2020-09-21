@@ -27,29 +27,30 @@ import com.baidu.live.tbadk.core.tabhost.FragmentTabWidget;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.maintab.FragmentTabIndicator;
-import com.baidu.live.utils.h;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.utils.i;
 import com.baidu.megapp.ma.Util;
 import com.baidu.tieba.ala.adapter.AlaRankListPKStatusFragmentAdapter;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements View.OnTouchListener {
-    private int aEF;
-    private String fvI;
-    private boolean fvJ;
-    private FragmentTabHost fvQ;
-    private AlaRankListPKStatusFragmentAdapter fvR;
+    private int aFQ;
+    private String fyT;
+    private boolean fyU;
+    private FragmentTabHost fzb;
+    private AlaRankListPKStatusFragmentAdapter fzc;
     private String mPortrait;
     private View mRootView;
     private int mScreenWidth;
     private long mUserId;
     private Handler mHandler = new Handler();
-    CustomMessageListener aNW = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.2
+    CustomMessageListener aPU = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaRankListPKStatusActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener aQW = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.3
+    private ViewTreeObserver.OnGlobalLayoutListener aSZ = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaRankListPKStatusActivity.this.getPageContext().getPageActivity());
@@ -60,7 +61,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
                         @Override // java.lang.Runnable
                         public void run() {
                             if (AlaRankListPKStatusActivity.this.mRootView != null) {
-                                h.Y(AlaRankListPKStatusActivity.this.mRootView);
+                                i.aa(AlaRankListPKStatusActivity.this.mRootView);
                             }
                         }
                     }, 300L);
@@ -77,19 +78,19 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         super.onCreate(bundle);
         if (!isFinishing()) {
             if (bundle != null) {
-                this.aEF = bundle.getInt("live_type", 1);
+                this.aFQ = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = bundle.getLong(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.fvI = bundle.getString("rank_list_type", "");
-                this.fvJ = bundle.getBoolean("rank_list_from");
+                this.fyT = bundle.getString("rank_list_type", "");
+                this.fyU = bundle.getBoolean("rank_list_from");
                 this.mPortrait = bundle.getString("portrait");
             } else {
-                this.aEF = getIntent().getIntExtra("live_type", 1);
+                this.aFQ = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = getIntent().getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.fvI = getIntent().getStringExtra("rank_list_type");
-                this.fvJ = getIntent().getBooleanExtra("rank_list_from", false);
+                this.fyT = getIntent().getStringExtra("rank_list_type");
+                this.fyU = getIntent().getBooleanExtra("rank_list_from", false);
                 this.mPortrait = getIntent().getStringExtra("portrait");
             }
-            registerListener(this.aNW);
+            registerListener(this.aPU);
             initView();
         }
     }
@@ -106,42 +107,42 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.g.ala_rank_list_title)).setText(a.i.ala_rank_list_pk_status_panel_title);
-        bDJ();
+        bFa();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            h.Y(this.mRootView);
+            i.aa(this.mRootView);
         }
     }
 
-    private void bDJ() {
-        this.fvQ = (FragmentTabHost) findViewById(a.g.ala_rank_list_tabhost);
-        this.fvQ.setup(getSupportFragmentManager());
-        this.fvQ.setTabWidgetViewHeight((int) getResources().getDimension(a.e.sdk_ds80));
-        this.fvQ.getFragmentTabWidget().setAbsoluteWeight(true);
-        this.fvQ.getFragmentTabWidget().setDiverColor(getResources().getColor(a.d.sdk_cp_cont_b));
-        this.fvQ.getFragmentTabWidget().setDviderRectWidth(-2);
-        this.fvQ.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds4));
+    private void bFa() {
+        this.fzb = (FragmentTabHost) findViewById(a.g.ala_rank_list_tabhost);
+        this.fzb.setup(getSupportFragmentManager());
+        this.fzb.setTabWidgetViewHeight((int) getResources().getDimension(a.e.sdk_ds80));
+        this.fzb.getFragmentTabWidget().setAbsoluteWeight(true);
+        this.fzb.getFragmentTabWidget().setDiverColor(getResources().getColor(a.d.sdk_cp_cont_b));
+        this.fzb.getFragmentTabWidget().setDviderRectWidth(-2);
+        this.fzb.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.e.sdk_ds4));
     }
 
     private void initTabSpec() {
-        this.fvR = new AlaRankListPKStatusFragmentAdapter(this, this.aEF, this.mUserId, this.fvJ, this.mPortrait);
-        int Ec = this.fvR.Ec(this.fvI);
-        int count = this.fvR.getCount();
+        this.fzc = new AlaRankListPKStatusFragmentAdapter(this, this.aFQ, this.mUserId, this.fyU, this.mPortrait);
+        int Ez = this.fzc.Ez(this.fyT);
+        int count = this.fzc.getCount();
         for (int i = 0; i < count; i++) {
-            Fragment item = this.fvR.getItem(i);
+            Fragment item = this.fzc.getItem(i);
             if (item != null) {
-                a(item, this.fvR.sr(i));
+                a(item, this.fzc.sJ(i));
             }
         }
-        FragmentTabWidget fragmentTabWidget = this.fvQ.getFragmentTabWidget();
+        FragmentTabWidget fragmentTabWidget = this.fzb.getFragmentTabWidget();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fragmentTabWidget.getLayoutParams();
         layoutParams.gravity = 1;
         layoutParams.width = -1;
         layoutParams.leftMargin = (int) getResources().getDimension(a.e.sdk_ds34);
         layoutParams.rightMargin = (int) getResources().getDimension(a.e.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
-        this.fvQ.initViewPagerWithNoType();
-        this.fvQ.setCurrentTab(Ec);
+        this.fzb.initViewPagerWithNoType();
+        this.fzb.setCurrentTab(Ez);
     }
 
     private void a(Fragment fragment, String str) {
@@ -153,7 +154,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             fragmentTabIndicator.setTextColorResId(a.d.ala_rank_list_tab_text_color);
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(a.e.sdk_fontsize32));
             tabSpec.mIndicatorView = fragmentTabIndicator;
-            this.fvQ.addTabSpec(tabSpec);
+            this.fzb.addTabSpec(tabSpec);
         }
     }
 
@@ -162,18 +163,18 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-        bundle.putInt("live_type", this.aEF);
-        bundle.putString("rank_list_type", this.fvI);
-        bundle.putBoolean("rank_list_from", this.fvJ);
+        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aFQ);
+        bundle.putString("rank_list_type", this.fyT);
+        bundle.putBoolean("rank_list_from", this.fyU);
         bundle.putString("portrait", this.mPortrait);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-        bundle.putInt("live_type", this.aEF);
-        bundle.putString("rank_list_type", this.fvI);
-        bundle.putBoolean("rank_list_from", this.fvJ);
+        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aFQ);
+        bundle.putString("rank_list_type", this.fyT);
+        bundle.putBoolean("rank_list_from", this.fyU);
         bundle.putString("portrait", this.mPortrait);
         super.onRestoreInstanceState(bundle);
     }
@@ -199,7 +200,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aQW);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aSZ);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -229,9 +230,9 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void bDK() {
+    private void bFb() {
         if (this instanceof Activity) {
-            overridePendingTransition(a.C0185a.sdk_activity_open_translate_from_right, a.C0185a.sdk_activity_close_translate_to_right);
+            overridePendingTransition(a.C0186a.sdk_activity_open_translate_from_right, a.C0186a.sdk_activity_close_translate_to_right);
         } else {
             overridePendingTransition(Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_in_from_bottom", ResUtils.ANIM), Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_out_to_bottom", ResUtils.ANIM));
         }
@@ -239,12 +240,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        bDK();
+        bFb();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        bDK();
+        bFb();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -256,7 +257,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aQW);
-        this.aQW = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aSZ);
+        this.aSZ = null;
     }
 }

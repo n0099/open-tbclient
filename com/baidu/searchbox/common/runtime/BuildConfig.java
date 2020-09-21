@@ -1,5 +1,5 @@
 package com.baidu.searchbox.common.runtime;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.common.runtime";
     public static final String BUILD_TYPE = "release";

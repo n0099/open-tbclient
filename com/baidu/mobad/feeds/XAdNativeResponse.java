@@ -11,27 +11,28 @@ import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
+import com.baidu.mobads.vo.XAdInstanceInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class XAdNativeResponse implements NativeResponse {
     private IXAdInstanceInfo a;
-    private BaiduNative bCB;
-    private IXAdFeedsRequestParameters bCC;
-    private IXAdContainer bCD;
+    private BaiduNative b;
     private boolean c;
+    private IXAdFeedsRequestParameters d;
+    private IXAdContainer e;
 
     public XAdNativeResponse(IXAdInstanceInfo iXAdInstanceInfo, BaiduNative baiduNative, IXAdFeedsRequestParameters iXAdFeedsRequestParameters, IXAdContainer iXAdContainer) {
         this.c = false;
         this.a = iXAdInstanceInfo;
-        this.bCB = baiduNative;
-        this.bCD = iXAdContainer;
+        this.b = baiduNative;
+        this.e = iXAdContainer;
         if (this.a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload()) {
             this.c = true;
         }
-        this.bCC = iXAdFeedsRequestParameters;
+        this.d = iXAdFeedsRequestParameters;
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -79,7 +80,7 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public boolean isAdAvailable(Context context) {
-        return this.bCB.isAdAvailable(context, this.a, this.bCC);
+        return this.b.isAdAvailable(context, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -120,7 +121,7 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void recordImpression(View view) {
-        this.bCB.c(view, this.a, this.bCC);
+        this.b.recordImpression(view, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -136,30 +137,30 @@ public class XAdNativeResponse implements NativeResponse {
     private void a(View view, int i, IXAdInstanceInfo iXAdInstanceInfo) {
         if (isDownloadApp()) {
             Context context = view.getContext();
-            if (this.bCC.getAPPConfirmPolicy() == 3) {
+            if (this.d.getAPPConfirmPolicy() == 3) {
                 iXAdInstanceInfo.setActionOnlyWifi(false);
-                this.bCB.b(view, iXAdInstanceInfo, i, this.bCC);
+                this.b.handleClick(view, iXAdInstanceInfo, i, this.d);
                 return;
-            } else if (this.bCC.getAPPConfirmPolicy() == 4) {
+            } else if (this.d.getAPPConfirmPolicy() == 4) {
                 a(context);
-                this.bCB.b(view, iXAdInstanceInfo, i, this.bCC);
+                this.b.handleClick(view, iXAdInstanceInfo, i, this.d);
                 return;
-            } else if (this.bCC.getAPPConfirmPolicy() == 2) {
+            } else if (this.d.getAPPConfirmPolicy() == 2) {
                 a(view, i);
                 return;
-            } else if (this.bCC.getAPPConfirmPolicy() == 1) {
+            } else if (this.d.getAPPConfirmPolicy() == 1) {
                 if (XAdSDKFoundationFacade.getInstance().getSystemUtils().is3GConnected(context).booleanValue()) {
                     a(view, i);
                     return;
                 }
                 a(context);
-                this.bCB.b(view, iXAdInstanceInfo, i, this.bCC);
+                this.b.handleClick(view, iXAdInstanceInfo, i, this.d);
                 return;
             } else {
                 return;
             }
         }
-        this.bCB.b(view, this.a, i, this.bCC);
+        this.b.handleClick(view, this.a, i, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -181,7 +182,7 @@ public class XAdNativeResponse implements NativeResponse {
             public void onClick(DialogInterface dialogInterface, int i2) {
                 dialogInterface.dismiss();
                 XAdNativeResponse.this.a(context);
-                XAdNativeResponse.this.bCB.b(view, XAdNativeResponse.this.a, i, XAdNativeResponse.this.bCC);
+                XAdNativeResponse.this.b.handleClick(view, XAdNativeResponse.this.a, i, XAdNativeResponse.this.d);
             }
         });
         builder.setNegativeButton(PayHelper.STATUS_CANCEL_DESC, new DialogInterface.OnClickListener() { // from class: com.baidu.mobad.feeds.XAdNativeResponse.2
@@ -195,27 +196,27 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onStart(Context context) {
-        this.bCB.e(context, this.a, this.bCC);
+        this.b.handleOnStart(context, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onError(Context context, int i, int i2) {
-        this.bCB.b(context, i, i2, this.a);
+        this.b.handleOnError(context, i, i2, this.a);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onComplete(Context context) {
-        this.bCB.f(context, this.a, this.bCC);
+        this.b.handleOnComplete(context, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClose(Context context, int i) {
-        this.bCB.c(context, i, this.a, this.bCC);
+        this.b.handleOnClose(context, i, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onFullScreen(Context context, int i) {
-        this.bCB.d(context, i, this.a, this.bCC);
+        this.b.handleOnFullScreen(context, i, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -246,12 +247,12 @@ public class XAdNativeResponse implements NativeResponse {
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public WebView getWebView() {
-        return (WebView) this.bCD.getAdView();
+        return (WebView) this.e.getAdView();
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
     public void onClickAd(Context context) {
-        this.bCB.g(context, this.a, this.bCC);
+        this.b.handleOnClickAd(context, this.a, this.d);
     }
 
     @Override // com.baidu.mobad.feeds.NativeResponse
@@ -267,5 +268,21 @@ public class XAdNativeResponse implements NativeResponse {
     @Override // com.baidu.mobad.feeds.NativeResponse
     public String getBrandName() {
         return this.a.getAppName();
+    }
+
+    protected boolean supportDownloadDirect() {
+        return this.a.getAction().equals("video") && this.a.getActionType() == XAdSDKFoundationFacade.getInstance().getAdConstants().getActTypeDownload() && this.a.getCreativeType() == IXAdInstanceInfo.CreativeType.VIDEO;
+    }
+
+    protected void handleClickDownloadDirect(View view) {
+        if (supportDownloadDirect()) {
+            try {
+                XAdInstanceInfo xAdInstanceInfo = (XAdInstanceInfo) ((XAdInstanceInfo) this.a).clone();
+                xAdInstanceInfo.setAction("");
+                a(view, -1, xAdInstanceInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

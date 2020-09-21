@@ -2,12 +2,12 @@ package com.tencent.mm.sdk.c;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
 
     /* renamed from: com.tencent.mm.sdk.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0940a {
+    /* loaded from: classes9.dex */
+    public static final class C0937a {
         public static Object a(int i, String str) {
             try {
             } catch (Exception e) {
@@ -33,7 +33,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class b implements BaseColumns {
         public static final Uri CONTENT_URI = Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref");
     }

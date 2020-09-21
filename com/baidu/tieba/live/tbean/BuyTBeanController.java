@@ -33,16 +33,21 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.live.tbadk.pay.PayManager;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.tbadk.util.PageDialogHelper;
-import com.baidu.live.utils.c;
+import com.baidu.live.utils.d;
+import com.baidu.platform.comapi.map.MapController;
 import com.baidu.tieba.live.tbean.AbsBuyTBeanView;
 import com.baidu.tieba.live.tbean.BuyTBeanModel;
 import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
     public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -52,6 +57,8 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private Activity activity;
     private IBuyTBeanActivity buyTBeanActivityImpl;
     private String callback;
+    private String chargeId;
+    private String entry;
     private String extraFromForLog;
     private String from;
     private boolean isTBeanNotEnough;
@@ -63,6 +70,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private String mReferPage;
     private AbsBuyTBeanView mView;
     private TbPageContext<?> tbPageContext;
+    private String tdouNum;
     private boolean mIsFromH5 = false;
     private boolean isInputShowing = false;
     private int mPayStatus = 1;
@@ -90,11 +98,11 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     };
     private AbsBuyTBeanView.OnPayClickListener mOnPayClickListener = new AbsBuyTBeanView.OnPayClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.5
         @Override // com.baidu.tieba.live.tbean.AbsBuyTBeanView.OnPayClickListener
-        public void onClick(IAdapterData iAdapterData, UserInfoData userInfoData) {
+        public void onClick(IAdapterData iAdapterData, UserInfoData userInfoData, int i) {
             if (iAdapterData instanceof GiftBagWrapperData) {
                 GiftBagWrapperData giftBagWrapperData = (GiftBagWrapperData) iAdapterData;
                 if (giftBagWrapperData.mData != null) {
-                    BuyTBeanController.this.payForTbean(giftBagWrapperData.mData.productId, giftBagWrapperData.mData.icon_id, TBeanUtil.getYuanFromFen(giftBagWrapperData.mData.dubi) * 1, 1, giftBagWrapperData.mData.non_member_t * 1, giftBagWrapperData.mData.pic_url, giftBagWrapperData.mData.duration, giftBagWrapperData.mData.name);
+                    BuyTBeanController.this.payForTbean(giftBagWrapperData.mData.productId, giftBagWrapperData.mData.icon_id, TBeanUtil.getYuanFromFen(giftBagWrapperData.mData.dubi) * 1, 1, giftBagWrapperData.mData.non_member_t * 1, giftBagWrapperData.mData.pic_url, giftBagWrapperData.mData.duration, giftBagWrapperData.mData.name, i);
                     TiebaInitialize.log(TbeanStatisticKey.BUY_TBEAN_GIFT_BAG);
                 }
             } else if (iAdapterData instanceof IconInfoWrapperData) {
@@ -103,7 +111,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                     String str = iconInfoWrapperData.info.productId;
                     int yuanFromFen = TBeanUtil.getYuanFromFen(iconInfoWrapperData.info.dubi) * 1;
                     int tBeanNum = TBeanUtil.getTBeanNum(userInfoData, iconInfoWrapperData.info.non_member_t, iconInfoWrapperData.mSetting) * 1;
-                    BuyTBeanController.this.payForTbean(str, iconInfoWrapperData.info.iconId, yuanFromFen, 1, tBeanNum, iconInfoWrapperData.info.picUrl, iconInfoWrapperData.info.duration, iconInfoWrapperData.info.name);
+                    BuyTBeanController.this.payForTbean(str, iconInfoWrapperData.info.iconId, yuanFromFen, 1, tBeanNum, iconInfoWrapperData.info.picUrl, iconInfoWrapperData.info.duration, iconInfoWrapperData.info.name, i);
                     if (TbadkCoreApplication.getInst().isHaokan()) {
                         LogManager.getCommonLogger().doClickBuyTBeanListLog(BuyTBeanController.this.extraFromForLog, BuyTBeanController.this.mOtherParams, String.valueOf(yuanFromFen));
                     }
@@ -167,6 +175,18 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             this.extraFromForLog = "";
         }
         LogManager.getCommonLogger().doDisplayBuyTBeanPageLog(null, this.mOtherParams, this.extraFromForLog);
+        this.entry = this.extraFromForLog;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt("charge_mode", this.isTBeanNotEnough ? "2" : "1");
+            if (this.entry != null) {
+                jSONObject.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+            }
+            jSONObject.putOpt("charge_id", "");
+            jSONObject.putOpt("td_num", "");
+        } catch (Exception e) {
+        }
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "charge_show").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -229,14 +249,27 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
         finishSelf();
     }
 
-    public void payForTbean(String str, String str2, int i, int i2, int i3, String str3, int i4, String str4) {
+    public void payForTbean(String str, String str2, int i, int i2, int i3, String str3, int i4, String str4, int i5) {
         IntentConfig payWalletActivityConfig;
         if (!StringUtils.isNull(str2) && i >= 0 && i2 >= 0 && i3 >= 0) {
+            this.chargeId = String.valueOf(i5 + 1);
+            this.tdouNum = String.valueOf(i3);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                if (this.entry != null) {
+                    jSONObject.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                }
+                jSONObject.putOpt("charge_id", this.chargeId);
+                jSONObject.putOpt("td_num", this.tdouNum);
+            } catch (Exception e) {
+            }
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "charge_clk").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
             TbeanStatisticKey.logWithMember(TbeanStatisticKey.BUY_TBEAN_BUY);
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.ax(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.ax(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -273,12 +306,50 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     public void handlePayResult(int i, int i2, String str) {
         switch (i) {
             case 0:
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                    if (this.entry != null) {
+                        jSONObject.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                    }
+                    jSONObject.putOpt("order_id", this.orderId);
+                    jSONObject.putOpt("charge_status", "1");
+                    jSONObject.putOpt("charge_id", this.chargeId);
+                    jSONObject.putOpt("td_num", this.tdouNum);
+                } catch (Exception e) {
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject));
                 this.mPayStatus = 0;
                 this.mView.showPayResultView(true, this.mLastPayItemTbeanCount, this.mLastPayDataInfo);
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                    if (this.entry != null) {
+                        jSONObject2.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                    }
+                    jSONObject2.putOpt("charge_status", "1");
+                    jSONObject2.putOpt("charge_id", this.chargeId);
+                    jSONObject2.putOpt("td_num", this.tdouNum);
+                } catch (Exception e2) {
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject2));
                 notifyPayResult(true, i2, str);
                 return;
             case 1:
                 this.mPayStatus = 1;
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                    if (this.entry != null) {
+                        jSONObject3.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                    }
+                    jSONObject3.putOpt("order_id", this.orderId);
+                    jSONObject3.putOpt("charge_status", "2");
+                    jSONObject3.putOpt("charge_id", this.chargeId);
+                    jSONObject3.putOpt("td_num", this.tdouNum);
+                } catch (Exception e3) {
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject3));
                 return;
             case 2:
             case 3:
@@ -288,6 +359,19 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                 this.mPayStatus = 2;
                 this.mView.showPayResultView(false, this.mLastPayItemTbeanCount, this.mLastPayDataInfo);
                 notifyPayResult(false, i2, str);
+                JSONObject jSONObject4 = new JSONObject();
+                try {
+                    jSONObject4.putOpt("charge_mode", this.isTBeanNotEnough ? "0" : "1");
+                    if (this.entry != null) {
+                        jSONObject4.putOpt(ZeusPerformanceTiming.KEY_BROWSER_STARTUP, this.entry);
+                    }
+                    jSONObject4.putOpt("order_id", this.orderId);
+                    jSONObject4.putOpt("charge_status", "1");
+                    jSONObject4.putOpt("charge_id", this.chargeId);
+                    jSONObject4.putOpt("td_num", this.tdouNum);
+                } catch (Exception e4) {
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "chargesucc").setContentExt(null, MapController.POPUP_LAYER_TAG, jSONObject4));
                 return;
             default:
                 return;

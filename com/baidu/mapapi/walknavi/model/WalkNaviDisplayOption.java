@@ -2,7 +2,7 @@ package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.a {
     private Bitmap a = null;
     private Bitmap b = null;

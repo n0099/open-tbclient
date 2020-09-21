@@ -12,6 +12,7 @@ import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieJarImpl;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.interceptor.ParamInterceptor;
+import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
@@ -92,12 +93,6 @@ public class RequestCall implements Cancelable {
         return this.realCall;
     }
 
-    private void checkNetworkConnected() throws IOException {
-        if (!this.httpRequest.httpManager.isNetWorkConnected()) {
-            throw new IOException(" no network connected");
-        }
-    }
-
     private void checkExecuteWifiOnly() throws IOException {
         if (this.httpRequest.isWifiOnly && !this.httpRequest.httpManager.isWifi()) {
             throw new IOException(" only allow wifi connected");
@@ -105,7 +100,6 @@ public class RequestCall implements Cancelable {
     }
 
     private void executePreCheck() throws IOException {
-        checkNetworkConnected();
         checkExecuteWifiOnly();
         if (this.requestHandler != null) {
             this.requestHandler.preExecuteRequest();
@@ -119,13 +113,14 @@ public class RequestCall implements Cancelable {
                 executePreCheck();
                 return this.realCall.execute();
             } catch (IOException e) {
+                IOException wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
                 if (this.httpRequest.networkStat != null) {
                     this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e);
                 }
                 if (this.httpRequest.requestNetStat != null) {
-                    this.httpRequest.requestNetStat.exception = e;
+                    this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
                 }
-                throw e;
+                throw wrapNoNetworkExceptionWithDetail;
             }
         } finally {
             long currentTimeMillis = System.currentTimeMillis();
@@ -202,8 +197,9 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendFailResult(Handler handler, final ResponseCallback responseCallback, final Exception exc) {
+    public void sendFailResult(Handler handler, final ResponseCallback responseCallback, Exception exc) {
         if (responseCallback != null) {
+            final Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
             if (this.httpRequest.networkStat != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 this.httpRequest.networkStat.onException(this.httpRequest.okRequest, exc);
@@ -213,24 +209,25 @@ public class RequestCall implements Cancelable {
                 handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        responseCallback.onFail(exc);
+                        responseCallback.onFail(wrapNoNetworkExceptionWithDetail);
                     }
                 });
             } else {
-                responseCallback.onFail(exc);
+                responseCallback.onFail(wrapNoNetworkExceptionWithDetail);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendFailResult(Handler handler, final StatResponseCallback statResponseCallback, final Exception exc) {
+    public void sendFailResult(Handler handler, final StatResponseCallback statResponseCallback, Exception exc) {
         long currentTimeMillis = System.currentTimeMillis();
+        final Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
         if (this.httpRequest.networkStat != null) {
             this.httpRequest.networkStat.onException(this.httpRequest.okRequest, exc);
             this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
         }
         if (this.httpRequest.requestNetStat != null) {
-            this.httpRequest.requestNetStat.exception = exc;
+            this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
             this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
             this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
             if (TextUtils.isEmpty(this.httpRequest.requestNetStat.clientIP) && !TextUtils.isEmpty(HttpManager.getClientIP())) {
@@ -242,11 +239,11 @@ public class RequestCall implements Cancelable {
                 handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        statResponseCallback.onFail(exc);
+                        statResponseCallback.onFail(wrapNoNetworkExceptionWithDetail);
                     }
                 });
             } else {
-                statResponseCallback.onFail(exc);
+                statResponseCallback.onFail(wrapNoNetworkExceptionWithDetail);
             }
         }
     }

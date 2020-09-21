@@ -5,27 +5,27 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class a extends m {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.eLw = false;
-        this.eLv = 3;
-        this.eKB = new PbLocationInfoContainer(context);
-        this.eLx = new int[]{20, 19};
+        this.eNN = false;
+        this.eNM = 3;
+        this.eMS = new PbLocationInfoContainer(context);
+        this.eNO = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.eLw = false;
-        this.eLv = 3;
-        this.eKB = new PbLocationInfoContainer(context);
+        this.eNN = false;
+        this.eNM = 3;
+        this.eMS = new PbLocationInfoContainer(context);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.ds48));
         layoutParams.leftMargin = l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.rightMargin = l.getDimens(getContext(), R.dimen.ds32);
         layoutParams.bottomMargin = l.getDimens(getContext(), R.dimen.ds21);
         layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds21);
-        ((PbLocationInfoContainer) this.eKB).setLayoutParams(layoutParams);
-        this.eLx = new int[]{20, 19};
+        ((PbLocationInfoContainer) this.eMS).setLayoutParams(layoutParams);
+        this.eNO = new int[]{20, 19};
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.helios.dump;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class HeliosDumpService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

@@ -6,8 +6,8 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -7251123623727029452L;
     final io.reactivex.c.a onComplete;
@@ -22,7 +22,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         this.onSubscribe = gVar3;
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             try {
@@ -35,7 +35,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         if (!isDisposed()) {
             try {
@@ -48,7 +48,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         if (get() != SubscriptionHelper.CANCELLED) {
             lazySet(SubscriptionHelper.CANCELLED);
@@ -64,7 +64,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         io.reactivex.e.a.onError(th);
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
         if (get() != SubscriptionHelper.CANCELLED) {
             lazySet(SubscriptionHelper.CANCELLED);
@@ -87,17 +87,17 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
         return get() == SubscriptionHelper.CANCELLED;
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void request(long j) {
         get().request(j);
     }
 
-    @Override // org.b.d
+    @Override // org.a.d
     public void cancel() {
         SubscriptionHelper.cancel(this);
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.omC;
+        return this.onError != Functions.own;
     }
 }

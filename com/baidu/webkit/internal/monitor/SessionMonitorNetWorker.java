@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidubce.http.Headers;
 import java.util.HashMap;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     private static final String LOG_TAG = "ZeusMonitorEngine";
     private static boolean mLogSdkInit;

@@ -4,8 +4,8 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.ai;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.aj;
+import com.baidu.tbadk.util.u;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
 /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public class CompleteTaskReqMsg extends NetMessage {
     protected Object encode(boolean z) {
         if (z) {
             try {
-                getHttpMessage().setUserAgent(ai.getUserAgent());
+                getHttpMessage().setUserAgent(aj.getUserAgent());
             } catch (Exception e) {
                 return null;
             }
@@ -44,7 +44,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         if (this.mToken != null) {
             builder.token = Base64.encodeToString(this.mToken.getBytes(), 2);
         }
-        t.a(builder, true, true, false);
+        u.a(builder, true, true, false);
         CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -15,14 +15,14 @@ import android.support.v4.provider.FontsContractCompat;
 import android.support.v4.util.LruCache;
 import com.xiaomi.mipush.sdk.Constants;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public class TypefaceCompat {
     private static final String TAG = "TypefaceCompat";
     private static final LruCache<String, Typeface> sTypefaceCache;
     private static final TypefaceCompatImpl sTypefaceCompatImpl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public interface TypefaceCompatImpl {
         Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i);
 

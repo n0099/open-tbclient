@@ -9,41 +9,41 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> ghc = new ArrayList<>();
-    private AlaPersonCenterExpActivity ghd;
+    private ArrayList<b> gkn = new ArrayList<>();
+    private AlaPersonCenterExpActivity gko;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.ghd = alaPersonCenterExpActivity;
+        this.gko = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void tw(int i) {
+    public void tP(int i) {
         this.mSkinType = i;
     }
 
     public void ad(ArrayList<b> arrayList) {
-        this.ghc.clear();
-        this.ghc.addAll(arrayList);
+        this.gkn.clear();
+        this.gkn.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ghc == null) {
+        if (this.gkn == null) {
             return 1;
         }
-        return this.ghc.size() + 1;
+        return this.gkn.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.ghc.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.gkn.size())) {
             return null;
         }
-        return this.ghc.get(i - 1);
+        return this.gkn.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.ghd.getLayoutMode().onModeChanged(view);
+        this.gko.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0619a c0619a;
+        C0615a c0615a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0619a c0619a2 = new C0619a(view);
-            view.setTag(c0619a2);
-            c0619a = c0619a2;
+            C0615a c0615a2 = new C0615a(view);
+            view.setTag(c0615a2);
+            c0615a = c0615a2;
         } else {
-            c0619a = (C0619a) view.getTag();
+            c0615a = (C0615a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0619a.aH(bVar.level, bVar.ghg);
+            c0615a.aI(bVar.level, bVar.gkr);
         }
-        this.ghd.getLayoutMode().onModeChanged(view);
+        this.gko.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0619a.fRV.b(a.d.sdk_cp_cont_g, 0.7f);
+            c0615a.fVg.b(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0619a {
-        private ALALevelView fRV;
-        private TextView ghe;
+    /* loaded from: classes4.dex */
+    public class C0615a {
+        private ALALevelView fVg;
+        private TextView gkp;
 
-        public C0619a(View view) {
-            this.fRV = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.ghe = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0615a(View view) {
+            this.fVg = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.gkp = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void aH(int i, String str) {
-            this.fRV.setupLevelIcon(i);
-            this.ghe.setText(str);
+        public void aI(int i, String str) {
+            this.fVg.setupLevelIcon(i);
+            this.gkp.setText(str);
         }
     }
 

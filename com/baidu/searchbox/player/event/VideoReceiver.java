@@ -10,7 +10,7 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
     private static String TAG = "BdVideoReceiver";
@@ -20,7 +20,7 @@ public class VideoReceiver extends BroadcastReceiver {
     private VideoReceiverListener mListener;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i);
 

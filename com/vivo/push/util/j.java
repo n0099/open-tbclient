@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class j implements BaseNotifyLayoutAdapter {
     private Resources a;
     private String b;

@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 import com.baidu.turbonet.net.UrlRequest;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public abstract class ResponseStreamCallbackForUrlRequest extends UrlRequest.Callback {
-    private static ExecutorService bQu = Executors.newCachedThreadPool();
+    private static ExecutorService bSu = Executors.newCachedThreadPool();
 }

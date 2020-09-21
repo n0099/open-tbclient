@@ -3,11 +3,11 @@ package com.baidu.helios.common.cc;
 import com.baidu.helios.common.cc.n;
 import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class f extends e {
-    private a awK;
+    private a axm;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private Class<?> a;
         private Method b;
@@ -18,7 +18,7 @@ public final class f extends e {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long E(Object obj) {
+        public long F(Object obj) {
             try {
                 return ((Long) this.c.invoke(obj, new Object[0])).longValue();
             } catch (Exception e) {
@@ -57,16 +57,16 @@ public final class f extends e {
         this.d = 32;
         this.e = i;
         this.f = i2;
-        this.awK = new a();
+        this.axm = new a();
     }
 
     @Override // com.baidu.helios.common.cc.e
     public com.baidu.helios.common.cc.a n(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.awK.b();
-            this.awK.a(b, bArr, i, i2);
-            j = this.awK.E(b);
+            Object b = this.axm.b();
+            this.axm.a(b, bArr, i, i2);
+            j = this.axm.F(b);
         } catch (Exception e) {
         }
         return com.baidu.helios.common.cc.a.a(new long[]{j});

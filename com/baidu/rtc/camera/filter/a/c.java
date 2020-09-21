@@ -2,7 +2,7 @@ package com.baidu.rtc.camera.filter.a;
 
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class c extends b {
     private boolean mReleaseSurface;
     private Surface mSurface;

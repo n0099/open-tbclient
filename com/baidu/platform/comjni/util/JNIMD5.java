@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.util;
 
 import com.baidu.platform.comjni.JNIBaseApi;
 @Deprecated
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class JNIMD5 extends JNIBaseApi {
     public static native String EncodeUrlParamsValue(String str);
 

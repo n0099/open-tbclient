@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.ap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class bs implements ap.a {
     final /* synthetic */ XMPushService a;
 

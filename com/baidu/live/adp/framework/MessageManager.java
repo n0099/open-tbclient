@@ -41,7 +41,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class MessageManager {
     private static final String MODULE_NAME = "msgmgr";
     private static volatile MessageManager sInstance = null;

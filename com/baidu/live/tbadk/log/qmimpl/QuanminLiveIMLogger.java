@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.log.ILiveIMLogger;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class QuanminLiveIMLogger implements ILiveIMLogger {
     @Override // com.baidu.live.tbadk.log.ILiveIMLogger
     public void doIMLongLinkLog(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9, String str10, String str11) {

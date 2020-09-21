@@ -6,7 +6,7 @@ import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class k {
     public static final boolean a = z.b("ro.vivo.product.overseas", "no").equals("yes");
     public static final String b;

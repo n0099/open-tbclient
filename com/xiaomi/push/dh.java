@@ -20,27 +20,27 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class dh {
     private static String a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private int f203a;
+    private int f202a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f206a;
+    private boolean f205a;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f207b;
+    private String f206b;
     private String c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    private final SimpleDateFormat f204a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private final SimpleDateFormat f203a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private int b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<File> f205a = new ArrayList<>();
+    private ArrayList<File> f204a = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
         int i;
@@ -55,30 +55,30 @@ class dh {
             int i3 = 0;
             while (i2 < read && matcher.find(i2)) {
                 i = matcher.start();
-                String substring = str.substring(i, this.f207b.length() + i);
-                if (this.f206a) {
+                String substring = str.substring(i, this.f206b.length() + i);
+                if (this.f205a) {
                     if (substring.compareTo(this.c) > 0) {
                         z = true;
                         break;
                     }
-                } else if (substring.compareTo(this.f207b) >= 0) {
-                    this.f206a = true;
+                } else if (substring.compareTo(this.f206b) >= 0) {
+                    this.f205a = true;
                     i3 = i;
                 }
                 int indexOf = str.indexOf(10, i);
-                i2 = indexOf != -1 ? i + indexOf : i + this.f207b.length();
+                i2 = indexOf != -1 ? i + indexOf : i + this.f206b.length();
             }
             i = read;
             z = z2;
-            if (this.f206a) {
+            if (this.f205a) {
                 int i4 = i - i3;
-                this.f203a += i4;
+                this.f202a += i4;
                 if (z) {
                     bufferedWriter.write(cArr, i3, i4);
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f203a > this.b) {
+                if (this.f202a > this.b) {
                     return;
                 }
             }
@@ -107,8 +107,8 @@ class dh {
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
-                    this.f203a = 0;
-                    Iterator<File> it = this.f205a.iterator();
+                    this.f202a = 0;
+                    Iterator<File> it = this.f204a.iterator();
                     BufferedReader bufferedReader2 = "\n";
                     while (true) {
                         try {
@@ -168,18 +168,18 @@ class dh {
     /* renamed from: a  reason: collision with other method in class */
     dh m226a(File file) {
         if (file.exists()) {
-            this.f205a.add(file);
+            this.f204a.add(file);
         }
         return this;
     }
 
     dh a(Date date, Date date2) {
         if (date.after(date2)) {
-            this.f207b = this.f204a.format(date2);
-            this.c = this.f204a.format(date);
+            this.f206b = this.f203a.format(date2);
+            this.c = this.f203a.format(date);
         } else {
-            this.f207b = this.f204a.format(date);
-            this.c = this.f204a.format(date2);
+            this.f206b = this.f203a.format(date);
+            this.c = this.f203a.format(date2);
         }
         return this;
     }

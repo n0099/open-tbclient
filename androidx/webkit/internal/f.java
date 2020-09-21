@@ -1,15 +1,19 @@
 package androidx.webkit.internal;
-/* loaded from: classes4.dex */
-public class f implements e {
-    org.a.a.c zU;
 
-    public f(org.a.a.c cVar) {
-        this.zU = cVar;
+import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
+import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
+import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
+/* loaded from: classes17.dex */
+public class f implements e {
+    WebViewProviderFactoryBoundaryInterface zU;
+
+    public f(WebViewProviderFactoryBoundaryInterface webViewProviderFactoryBoundaryInterface) {
+        this.zU = webViewProviderFactoryBoundaryInterface;
     }
 
     @Override // androidx.webkit.internal.e
-    public org.a.a.d hM() {
-        return (org.a.a.d) org.a.a.a.a.a(org.a.a.d.class, this.zU.eji());
+    public WebkitToCompatConverterBoundaryInterface hM() {
+        return (WebkitToCompatConverterBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebkitToCompatConverterBoundaryInterface.class, this.zU.getWebkitToCompatConverter());
     }
 
     @Override // androidx.webkit.internal.e

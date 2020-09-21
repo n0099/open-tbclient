@@ -4,7 +4,7 @@ import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public abstract class ba {
     public static int a = 2;
 

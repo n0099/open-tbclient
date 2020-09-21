@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class PoiBoundSearchOption {
     public LatLngBounds mBound = null;
     public String mKeyword = null;

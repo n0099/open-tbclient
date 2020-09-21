@@ -4,71 +4,71 @@ import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    public static final AtomicReference<a> bKm = new AtomicReference<>();
+    public static final AtomicReference<a> bMm = new AtomicReference<>();
 
     @NonNull
-    Context UK();
+    String VA();
 
     @NonNull
-    String UL();
+    String VB();
 
     @NonNull
-    String UM();
+    String VC();
+
+    boolean VD();
 
     @NonNull
-    String UN();
+    String VE();
 
-    @NonNull
-    String UO();
+    boolean VF();
 
-    @NonNull
-    String UP();
+    String VG();
 
-    @NonNull
-    String UQ();
+    String VH();
 
-    @NonNull
-    String UR();
+    String[] VI();
 
-    @NonNull
-    String US();
+    String VJ();
 
-    @NonNull
-    String UT();
-
-    boolean UU();
-
-    @NonNull
-    String UV();
-
-    boolean UW();
-
-    String UX();
-
-    String UY();
-
-    String[] UZ();
-
-    String Va();
-
-    String Vb();
+    String VK();
 
     @IdRes
-    int Vc();
+    int VL();
 
     @IdRes
-    int Vd();
+    int VM();
 
     @IdRes
-    int Ve();
+    int VN();
 
-    String Vf();
+    String VO();
 
-    int Vg();
+    int VP();
 
-    String Vh();
+    String VQ();
+
+    @NonNull
+    Context Vt();
+
+    @NonNull
+    String Vu();
+
+    @NonNull
+    String Vv();
+
+    @NonNull
+    String Vw();
+
+    @NonNull
+    String Vx();
+
+    @NonNull
+    String Vy();
+
+    @NonNull
+    String Vz();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
@@ -76,7 +76,7 @@ public interface a {
     String androidId();
 
     @NonNull
-    String rt();
+    String ry();
 
     @NonNull
     String userAgent();

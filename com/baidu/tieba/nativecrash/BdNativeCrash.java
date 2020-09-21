@@ -4,49 +4,49 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.b;
 import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.util.h;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class BdNativeCrash {
-    private static BdNativeCrash kkY;
-    private static a kkZ;
-    public static boolean kla;
-    private String kkX;
+    private static BdNativeCrash ktx;
+    private static a kty;
+    public static boolean ktz;
+    private String ktw;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public interface a {
     }
 
     static native boolean initCrashPath(String str);
 
     public void a(a aVar) {
-        kkZ = aVar;
+        kty = aVar;
     }
 
     static {
-        kla = false;
-        kla = h.oc().loadLibrary("nativecrashlog", 1);
+        ktz = false;
+        ktz = h.oi().loadLibrary("nativecrashlog", 1);
     }
 
     private BdNativeCrash() {
     }
 
-    public static BdNativeCrash cSm() {
-        if (kkY == null) {
+    public static BdNativeCrash cVR() {
+        if (ktx == null) {
             synchronized (BdNativeCrash.class) {
-                if (kkY == null) {
-                    kkY = new BdNativeCrash();
+                if (ktx == null) {
+                    ktx = new BdNativeCrash();
                 }
             }
         }
-        return kkY;
+        return ktx;
     }
 
-    public void fo(String str, String str2) {
-        this.kkX = str2;
-        d.lG().initial(str);
-        if (!TextUtils.isEmpty(this.kkX)) {
+    public void fB(String str, String str2) {
+        this.ktw = str2;
+        d.lK().initial(str);
+        if (!TextUtils.isEmpty(this.ktw)) {
             b bVar = new b();
             bVar.setApplicationPath(str);
-            initCrashPath(bVar.checkDir(this.kkX, true, false, false));
+            initCrashPath(bVar.checkDir(this.ktw, true, false, false));
         }
     }
 }

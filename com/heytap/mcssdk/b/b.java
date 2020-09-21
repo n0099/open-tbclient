@@ -4,7 +4,7 @@ import android.content.Context;
 import com.heytap.mcssdk.callback.MessageCallback;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
-/* loaded from: classes9.dex */
+/* loaded from: classes12.dex */
 public final class b implements c {
     @Override // com.heytap.mcssdk.b.c
     public final void a(Context context, Message message, MessageCallback messageCallback) {

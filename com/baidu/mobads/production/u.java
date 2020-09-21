@@ -2,7 +2,7 @@ package com.baidu.mobads.production;
 
 import com.baidu.mobads.interfaces.IXAdContainer;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class u implements Runnable {
     final /* synthetic */ IXAdContainer a;
     final /* synthetic */ HashMap b;

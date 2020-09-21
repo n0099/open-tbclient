@@ -28,15 +28,14 @@ import com.baidu.searchbox.ui.animview.praise.resource.PraiseResourceAPSManager;
 import com.baidu.searchbox.ui.animview.praise.view.ComboPraiseView;
 import com.baidu.searchbox.ui.animview.praise.view.IPraiseStatusListener;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
+import com.baidu.searchbox.ui.animview.util.LinkageControlUtil;
 import java.util.ArrayDeque;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class ComboPraiseManager {
-    private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final int INTERCEPT_MODE_DEFAULT = 0;
     public static final int INTERCEPT_MODE_DISABLE = 0;
     public static final int INTERCEPT_MODE_ENABLE = 1;
     public static final int INTERCEPT_MODE_IGNORE = 2;
-    private static final int LONG_PRESS_TIME_MS = 300;
     private static final int MOTIONEVENT_DOWN = 0;
     private static final int MOTIONEVENT_UP = 1;
     private static final String PRAISE_SOURCE_PREFIX_H5 = "h5";
@@ -63,11 +62,14 @@ public class ComboPraiseManager {
     private NetworkMonitor mNetworkMonitor;
     private PopupWindow mPopupWindow;
     private View mWindowTokenView;
+    private static final boolean DEBUG = DebugUtil.isApkInDebug();
+    private static int LONG_PRESS_TIME_MS = 450;
     private ComboPraiseConfig mPraiseConfig = new ComboPraiseConfig();
+    private boolean mPraiseStatusListenerEnabled = true;
     private TouchListener mTouchListener = new TouchListener();
     private Handler mMainHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface NotifyPraiseAnimCallBack {
         void notifyPraiseAnimStatus(boolean z);
     }
@@ -86,6 +88,7 @@ public class ComboPraiseManager {
                 }
             }
         });
+        LONG_PRESS_TIME_MS = LinkageControlUtil.isPraiseOptimized() ? 450 : 300;
         setPraiseSource(str);
         initWindowTokenView();
         updatePraiseResourceIfNeeded();
@@ -137,6 +140,17 @@ public class ComboPraiseManager {
 
     public void cancelAnimForced() {
         this.mTouchListener.cancelAnimForced(null);
+    }
+
+    public void enablePraiseStatusListener(boolean z) {
+        this.mPraiseStatusListenerEnabled = z;
+    }
+
+    public ComboPraiseManager setFirstPraiseAnimEnabled(boolean z) {
+        if (!getPraiseView().isAnimationRunning()) {
+            this.mPraiseConfig.mFirstPraiseAnimEnabled = z;
+        }
+        return this;
     }
 
     public boolean isAnimationRunning() {
@@ -248,20 +262,23 @@ public class ComboPraiseManager {
                 return false;
             }
             return false;
-        } else if (PraiseResourceAPSManager.getInstance().getProvider(PraiseResourceAPSManager.PRAISE_PACKAGE_NAME_FOR_NORMAL) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "isPraiseEnabled return false, PraiseResourceAPSManager getProvider failed");
-                return false;
-            }
-            return false;
-        } else if (Build.VERSION.SDK_INT <= 21 && TextUtils.equals(str, PraiseSourceDef.NA_PRAISE_SRC_FEED)) {
-            if (DEBUG) {
-                Log.d(TAG, "isPraiseEnabled return false, praiseSource = na_feed, Build.VERSION.SDK_INT = 21");
-                return false;
-            }
-            return false;
         } else {
-            return true;
+            IResourceProvider provider = PraiseResourceAPSManager.getInstance().getProvider(PraiseResourceAPSManager.PRAISE_PACKAGE_NAME_FOR_NORMAL);
+            if (provider == null || provider.getPackageList() == null || provider.getPackageList().isEmpty()) {
+                if (DEBUG) {
+                    Log.d(TAG, "isPraiseEnabled return false, PraiseResourceAPSManager getProvider failed");
+                    return false;
+                }
+                return false;
+            } else if (Build.VERSION.SDK_INT <= 21 && TextUtils.equals(str, PraiseSourceDef.NA_PRAISE_SRC_FEED)) {
+                if (DEBUG) {
+                    Log.d(TAG, "isPraiseEnabled return false, praiseSource = na_feed, Build.VERSION.SDK_INT = 21");
+                    return false;
+                }
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
@@ -420,7 +437,7 @@ public class ComboPraiseManager {
                 @Override // android.view.ViewTreeObserver.OnPreDrawListener
                 public boolean onPreDraw() {
                     ComboPraiseManager.this.getPraiseView().getViewTreeObserver().removeOnPreDrawListener(this);
-                    ComboPraiseManager.this.mMainHandler.postDelayed(runnable, 350L);
+                    ComboPraiseManager.this.mMainHandler.postDelayed(runnable, ComboPraiseManager.LONG_PRESS_TIME_MS + 50);
                     return true;
                 }
             });
@@ -436,7 +453,7 @@ public class ComboPraiseManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public class TouchListener implements View.OnTouchListener {
         private static final int CANCEL_PRAISE_MS = 1000;
         private static final int MOCK_CLICK_INTERVAL_TIME_MS = 100;
@@ -528,6 +545,7 @@ public class ComboPraiseManager {
         }
 
         private void updateBeyondStateForNA(MotionEvent motionEvent) {
+            boolean z = false;
             if (!this.mBeyondSectionForNA) {
                 if (this.mValidClickRectForNA == null || motionEvent == null) {
                     this.mBeyondSectionForNA = false;
@@ -535,9 +553,16 @@ public class ComboPraiseManager {
                 }
                 this.mLastXForNA = (int) motionEvent.getRawX();
                 this.mLastYForNA = (int) motionEvent.getRawY();
-                this.mBeyondSectionForNA = this.mValidClickRectForNA.contains(this.mLastXForNA, this.mLastYForNA) ? false : true;
+                if (LinkageControlUtil.isPraiseOptimized()) {
+                    if (motionEvent.getAction() == 3 || !this.mValidClickRectForNA.contains(this.mLastXForNA, this.mLastYForNA)) {
+                        z = true;
+                    }
+                    this.mBeyondSectionForNA = z;
+                } else {
+                    this.mBeyondSectionForNA = this.mValidClickRectForNA.contains(this.mLastXForNA, this.mLastYForNA) ? false : true;
+                }
                 if (ComboPraiseManager.DEBUG) {
-                    Log.d(ComboPraiseManager.TAG, "x=" + this.mLastXForNA + ", y=" + this.mLastYForNA + ", mValidClickRectForNA:" + this.mValidClickRectForNA.toShortString());
+                    Log.d(ComboPraiseManager.TAG, "x=" + this.mLastXForNA + ", y=" + this.mLastYForNA + ", mValidClickRectForNA:" + this.mValidClickRectForNA.toShortString() + ", current event=" + motionEvent);
                 }
             }
         }
@@ -630,7 +655,7 @@ public class ComboPraiseManager {
                 ComboPraiseManager.this.mMainHandler.removeCallbacks(this.mLongClick);
                 this.mIsLongPress = false;
                 this.mCallFromOuter = z;
-                ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, 300L);
+                ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, ComboPraiseManager.LONG_PRESS_TIME_MS);
             }
         }
 
@@ -686,7 +711,7 @@ public class ComboPraiseManager {
                     ComboPraiseManager.this.mMainHandler.removeCallbacks(this.mMockClick);
                     ComboPraiseManager.this.mMainHandler.removeCallbacks(this.mLongClick);
                     this.mIsLongPress = false;
-                    ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, 300L);
+                    ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, ComboPraiseManager.LONG_PRESS_TIME_MS);
                     break;
                 case 1:
                 case 3:
@@ -733,7 +758,7 @@ public class ComboPraiseManager {
                             }
                         });
                     }
-                    ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, 300L);
+                    ComboPraiseManager.this.mMainHandler.postDelayed(this.mLongClick, ComboPraiseManager.LONG_PRESS_TIME_MS);
                     break;
                 case 1:
                 case 3:
@@ -814,7 +839,7 @@ public class ComboPraiseManager {
             this.mComboPraiseView.addPraiseStatusListener(new IPraiseStatusListener() { // from class: com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.5
                 @Override // com.baidu.searchbox.ui.animview.praise.view.IPraiseStatusListener
                 public void onTargetPraiseCntReached(int i, String str, String str2, String str3) {
-                    if (!TextUtils.equals(PraiseSourceDef.NA_PRAISE_SRC_MINI_VIDEO_DETAIL_SCREEN, ComboPraiseManager.this.mPraiseConfig.mPraiseSource) && ComboPraiseRuntime.getContext() != null) {
+                    if (ComboPraiseManager.this.mPraiseStatusListenerEnabled && ComboPraiseRuntime.getContext() != null) {
                         NotifyPraiseAnimCallBack notifyPraiseAnimCallBack = new NotifyPraiseAnimCallBack() { // from class: com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.5.1
                             @Override // com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.NotifyPraiseAnimCallBack
                             public void notifyPraiseAnimStatus(boolean z) {
@@ -841,11 +866,16 @@ public class ComboPraiseManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dismiss() {
+        if (this.mMainHandler != null) {
+            this.mMainHandler.removeCallbacksAndMessages(null);
+        }
         if (this.mPopupWindow != null && this.mIsPopupWindowShowing && this.mCtx != null) {
             if (!this.mCtx.isFinishing()) {
                 this.mPopupWindow.dismiss();
             }
-            this.mMainHandler.removeCallbacksAndMessages(null);
+            if (this.mMainHandler != null) {
+                this.mMainHandler.removeCallbacksAndMessages(null);
+            }
             this.mIsPopupWindowShowing = false;
         }
     }

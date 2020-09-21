@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.p.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface x {
-    boolean C(@Nullable Activity activity);
+    boolean D(@Nullable Activity activity);
 
     void a(@NonNull Activity activity, String str, String str2, c.a aVar);
 }

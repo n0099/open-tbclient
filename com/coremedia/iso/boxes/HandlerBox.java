@@ -14,15 +14,15 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class HandlerBox extends AbstractFullBox {
     public static final String TYPE = "hdlr";
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0982a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0979a ajc$tjp_5 = null;
     public static final Map<String, String> readableTypes;
     private long a;
     private long b;

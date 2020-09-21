@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import java.util.HashMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class FSMTable {
     private static final byte[] a = new byte[0];
     public static HashMap<String, HashMap<String, String>> dictFSM;

@@ -1,5 +1,6 @@
 package com.baidu.live.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class bi {
-    public int decodeMode;
+    public String aKL;
+    public String aKM;
 }

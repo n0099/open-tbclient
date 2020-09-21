@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.f;
 
 import android.content.Context;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static int a = 621133959;
 

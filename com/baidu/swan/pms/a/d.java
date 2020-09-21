@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public interface d extends e {
-    void air();
+    void ajb();
 
     void bf(String str, String str2);
 }

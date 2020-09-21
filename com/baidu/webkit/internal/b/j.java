@@ -5,7 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public abstract class j {
     /* JADX INFO: Access modifiers changed from: protected */
     public static boolean a(Context context, Intent intent) {

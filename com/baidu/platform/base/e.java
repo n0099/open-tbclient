@@ -13,7 +13,7 @@ import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
     private boolean b = true;
     private boolean c = true;

@@ -4,11 +4,13 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.ColorInt;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,16 +19,23 @@ import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.ui.CustomLinkMovementMethod;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BubbleManager implements View.OnClickListener {
     private static final float ANIMATION_OFFSET = 11.0f;
     private static final int AUTO_DISMISS_INTERVAL = 7000;
     private static final float BUBBLE_BETWEEN_PADDING = 2.0f;
     private static final float BUBBLE_SCREEN_PADDING = 15.0f;
     private static final boolean DEBUG = false;
+    private static final String DEFAULT_DAY_BG_COLOR = "#CC000000";
+    private static final String DEFAULT_DAY_TEXT_COLOR = "#FFFFFF";
+    private static final String DEFAULT_NIGHT_BG_COLOR = "#CC000000";
+    private static final String DEFAULT_NIGHT_TEXT_COLOR = "#666666";
+    private static final int DEFAULT_TEXT_COLOR = -1;
     private static final String TAG = "BubbleManager";
+    private boolean isShowLeftEndPoint;
     private View mAnchorLayer;
     private View mAnchorView;
     private View mArrowDown;
@@ -37,9 +46,17 @@ public class BubbleManager implements View.OnClickListener {
     private int mAutoDismissInterval;
     private float mBetweenPadding;
     @ColorInt
-    private int mBgColor;
+    private int mBgColorDay;
+    @ColorInt
+    private int mBgColorNight;
     private View mBgView;
+    private OnBtnClickListener mBtnClickListener;
+    private CharSequence mBtnText;
+    private float mBtnTextSize;
+    private int mBtnTextUnit;
     private View mBubbleArrow;
+    private TextView mBubbleBtn;
+    private ViewGroup mBubbleContent;
     private BubblePosition mBubbleForceShowPosition;
     private BubbleHandler mBubbleHandler;
     private TextView mBubbleText;
@@ -61,12 +78,17 @@ public class BubbleManager implements View.OnClickListener {
     private int mTextColor;
     private int mUnit;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public interface OnAnchorClickListener {
         void onAnchorClick();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
+    public interface OnBtnClickListener {
+        void onBtnClick();
+    }
+
+    /* loaded from: classes19.dex */
     public interface OnBubbleEventListener {
         void onBubbleClick();
 
@@ -79,13 +101,17 @@ public class BubbleManager implements View.OnClickListener {
         this.mAutoDismiss = true;
         this.mUnit = -1;
         this.mSize = -1.0f;
+        this.mBtnTextUnit = -1;
+        this.mBtnTextSize = -1.0f;
         this.mAutoDismissInterval = 7000;
         this.mBetweenPadding = 2.0f;
-        this.mBgColor = -872415232;
+        this.mBgColorDay = -872415232;
+        this.mBgColorNight = -872415232;
         this.mTextColor = -1;
         this.mEnableClkDismiss = true;
         this.mIsAutoDetectShowPosition = true;
         this.mBubbleForceShowPosition = BubblePosition.INVALID;
+        this.isShowLeftEndPoint = false;
     }
 
     public void dismissBubble() {
@@ -95,11 +121,14 @@ public class BubbleManager implements View.OnClickListener {
             }
             if (this.mEnableBgClk && this.mBgView != null) {
                 this.mRootView.removeView(this.mBgView);
+                BubbleHistory.getInstance().trackBubbleOpHistory("——>dismiss BgView end");
             }
             if (this.mEnableAnchorClk && this.mAnchorLayer != null) {
                 this.mRootView.removeView(this.mAnchorLayer);
+                BubbleHistory.getInstance().trackBubbleOpHistory("——>dismiss anchorLayer end");
             }
             this.mRootView.removeView(this.mBubbleView);
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>dismiss BubbleView end");
             this.mIsShowing = false;
             if (this.mBubbleHandler != null) {
                 this.mBubbleHandler.removeMessages(0);
@@ -114,8 +143,10 @@ public class BubbleManager implements View.OnClickListener {
     private void resetAll() {
         this.mRootView = null;
         this.mBubbleView = null;
+        this.mBubbleContent = null;
         this.mBubbleArrow = null;
         this.mBubbleText = null;
+        this.mBubbleBtn = null;
         this.mAnchorView = null;
         this.mOnBubbleEventListener = null;
         this.mBubbleHandler = null;
@@ -125,6 +156,7 @@ public class BubbleManager implements View.OnClickListener {
         this.mAnchorLayer = null;
         this.mObjectAnimator = null;
         this.mShowText = null;
+        this.mBtnText = null;
     }
 
     public boolean isDismissed() {
@@ -137,21 +169,41 @@ public class BubbleManager implements View.OnClickListener {
         }
     }
 
+    public void setOnBubbleEventListener(OnBubbleEventListener onBubbleEventListener) {
+        this.mOnBubbleEventListener = onBubbleEventListener;
+    }
+
+    public OnBubbleEventListener getOnBubbleEventListener() {
+        return this.mOnBubbleEventListener;
+    }
+
     private boolean isValidate() {
         return (TextUtils.isEmpty(this.mShowText) || this.mAnchorView == null || this.mRootView == null) ? false : true;
     }
 
     private void show() {
+        BubbleHistory.getInstance().trackBubbleOpHistory("——>show");
+        Log.d(TAG, "——>show");
         initViewIfNeed();
         if (this.mEnableBgClk && this.mBgView != null) {
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>check bg view begin");
             checkSafe(this.mBgView);
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>check bg view end");
             this.mRootView.addView(this.mBgView);
         }
         if (this.mEnableAnchorClk && this.mAnchorLayer != null) {
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>checksafe anchor layer begin");
             checkSafe(this.mAnchorLayer);
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>checksafe anchor layer end");
             this.mRootView.addView(this.mAnchorLayer);
+            ViewGroup.LayoutParams layoutParams = this.mAnchorLayer.getLayoutParams();
+            layoutParams.width = 0;
+            layoutParams.height = 0;
+            this.mAnchorLayer.setLayoutParams(layoutParams);
         }
+        BubbleHistory.getInstance().trackBubbleOpHistory("——>check bubble view begin");
         checkSafe(this.mBubbleView);
+        BubbleHistory.getInstance().trackBubbleOpHistory("——>check bubble view end");
         this.mRootView.addView(this.mBubbleView);
         this.mBubbleView.setVisibility(4);
         if (!this.mEnableClkDismiss) {
@@ -162,17 +214,39 @@ public class BubbleManager implements View.OnClickListener {
         if (this.mUnit >= 0 && this.mSize > 0.0f) {
             this.mBubbleText.setTextSize(this.mUnit, this.mSize);
         }
-        this.mAnchorView.post(new Runnable() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.1
+        if (!TextUtils.isEmpty(this.mBtnText)) {
+            if (this.mBtnTextUnit >= 0 && this.mBtnTextSize > 0.0f) {
+                this.mBubbleBtn.setTextSize(this.mBtnTextUnit, this.mBtnTextSize);
+            }
+            this.mBubbleBtn.setTextColor(this.mTextColor);
+            this.mBubbleBtn.setText(this.mBtnText);
+            this.mBubbleBtn.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.customs_bubble_tip_btn_bg));
+            this.mBubbleBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.1
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (BubbleManager.this.mBtnClickListener != null) {
+                        BubbleManager.this.mBtnClickListener.onBtnClick();
+                    }
+                    BubbleManager.this.dismissBubble();
+                }
+            });
+            this.mBubbleBtn.setVisibility(0);
+            BubbleHistory.getInstance().trackBubbleHistory(this.mBtnText.toString());
+        }
+        this.mAnchorView.post(new Runnable() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.2
             @Override // java.lang.Runnable
             public void run() {
                 BubblePosition detectShowPosition = BubbleManager.this.detectShowPosition();
                 if (detectShowPosition == BubblePosition.INVALID) {
                     BubbleManager.this.mRootView.removeView(BubbleManager.this.mBubbleView);
+                    BubbleHistory.getInstance().trackBubbleOpHistory("——>show: remove bubble view end");
                     if (BubbleManager.this.mEnableBgClk && BubbleManager.this.mBgView != null) {
                         BubbleManager.this.mRootView.removeView(BubbleManager.this.mBgView);
+                        BubbleHistory.getInstance().trackBubbleOpHistory("——>show: remove bg view end");
                     }
                     if (BubbleManager.this.mEnableAnchorClk && BubbleManager.this.mAnchorLayer != null) {
                         BubbleManager.this.mRootView.removeView(BubbleManager.this.mAnchorLayer);
+                        BubbleHistory.getInstance().trackBubbleOpHistory("——>show: remove anchorlayer view end");
                         return;
                     }
                     return;
@@ -185,7 +259,7 @@ public class BubbleManager implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showBubbleView(final BubblePosition bubblePosition) {
-        this.mAnchorView.post(new Runnable() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.2
+        this.mAnchorView.post(new Runnable() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.3
             @Override // java.lang.Runnable
             public void run() {
                 int[] showPosition = BubbleManager.this.getShowPosition(bubblePosition);
@@ -264,7 +338,7 @@ public class BubbleManager implements View.OnClickListener {
         this.mBubbleText.setLinkTextColor(resources.getColorStateList(R.color.home_tab_bubble_tips_text_color));
         this.mBubbleText.setHighlightColor(0);
         CustomLinkMovementMethod customLinkMovementMethod = new CustomLinkMovementMethod();
-        customLinkMovementMethod.setLinkMovementListener(new CustomLinkMovementMethod.OnLinkMovementListener() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.3
+        customLinkMovementMethod.setLinkMovementListener(new CustomLinkMovementMethod.OnLinkMovementListener() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.4
             @Override // com.baidu.searchbox.ui.CustomLinkMovementMethod.OnLinkMovementListener
             public void onLinkTouch(TextView textView, MotionEvent motionEvent) {
             }
@@ -284,6 +358,7 @@ public class BubbleManager implements View.OnClickListener {
     private void checkSafe(View view) {
         if (view != null && view.getParent() != null) {
             ((ViewGroup) view.getParent()).removeView(view);
+            BubbleHistory.getInstance().trackBubbleOpHistory("——>checkSafe remove view end");
         }
     }
 
@@ -304,10 +379,16 @@ public class BubbleManager implements View.OnClickListener {
         this.mRootView.getLocationOnScreen(iArr2);
         int[] iArr3 = new int[2];
         if (bubblePosition == BubblePosition.UP) {
-            iArr3[0] = (iArr[0] - iArr2[0]) + (this.mAnchorView.getMeasuredWidth() / 2);
+            iArr3[0] = iArr[0] - iArr2[0];
+            if (!this.isShowLeftEndPoint) {
+                iArr3[0] = iArr3[0] + (this.mAnchorView.getMeasuredWidth() / 2);
+            }
             iArr3[1] = (iArr[1] - iArr2[1]) - DeviceUtil.ScreenInfo.dp2px(this.mAnchorView.getContext(), this.mBetweenPadding);
         } else if (bubblePosition == BubblePosition.DOWN) {
-            iArr3[0] = (iArr[0] - iArr2[0]) + (this.mAnchorView.getMeasuredWidth() / 2);
+            iArr3[0] = iArr[0] - iArr2[0];
+            if (!this.isShowLeftEndPoint) {
+                iArr3[0] = iArr3[0] + (this.mAnchorView.getMeasuredWidth() / 2);
+            }
             iArr3[1] = (iArr[1] - iArr2[1]) + this.mAnchorView.getMeasuredHeight() + DeviceUtil.ScreenInfo.dp2px(this.mAnchorView.getContext(), this.mBetweenPadding);
         } else if (bubblePosition == BubblePosition.LEFT) {
             iArr3[0] = (iArr[0] - iArr2[0]) - DeviceUtil.ScreenInfo.dp2px(this.mAnchorView.getContext(), this.mBetweenPadding);
@@ -369,36 +450,38 @@ public class BubbleManager implements View.OnClickListener {
     private void initViewIfNeed() {
         if (this.mBubbleView == null) {
             this.mBubbleView = LayoutInflater.from(this.mAnchorView.getContext()).inflate(R.layout.bubble_tip, this.mRootView, false);
+            this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.bubble_content);
             this.mBubbleText = (TextView) this.mBubbleView.findViewById(R.id.bubble_text);
+            this.mBubbleBtn = (TextView) this.mBubbleView.findViewById(R.id.bubble_btn);
             this.mArrowUp = this.mBubbleView.findViewById(R.id.bubble_arrow_up);
             this.mArrowDown = this.mBubbleView.findViewById(R.id.bubble_arrow_down);
             this.mArrowLeft = this.mBubbleView.findViewById(R.id.bubble_arrow_left);
             this.mArrowRight = this.mBubbleView.findViewById(R.id.bubble_arrow_right);
             this.mBubbleView.setOnClickListener(this);
-            this.mTextColor = this.mRootView.getContext().getResources().getColor(R.color.white_text);
-            this.mBgColor = this.mRootView.getContext().getResources().getColor(R.color.bubble_bg_color);
+            this.mTextColor = getTextColor();
             this.mBubbleText.setTextColor(this.mTextColor);
-            if (this.mBubbleText.getBackground() instanceof GradientDrawable) {
-                ((GradientDrawable) this.mBubbleText.getBackground()).setColor(this.mBgColor);
+            int i = !NightModeHelper.getNightModeSwitcherState() ? this.mBgColorDay : this.mBgColorNight;
+            if (this.mBubbleContent.getBackground() instanceof GradientDrawable) {
+                ((GradientDrawable) this.mBubbleContent.getBackground()).setColor(i);
             }
             if (this.mArrowUp instanceof ArrowView) {
-                ((ArrowView) this.mArrowUp).setArrowViewColor(this.mBgColor);
+                ((ArrowView) this.mArrowUp).setArrowViewColor(i);
             }
             if (this.mArrowDown instanceof ArrowView) {
-                ((ArrowView) this.mArrowDown).setArrowViewColor(this.mBgColor);
+                ((ArrowView) this.mArrowDown).setArrowViewColor(i);
             }
             if (this.mArrowLeft instanceof ArrowView) {
-                ((ArrowView) this.mArrowLeft).setArrowViewColor(this.mBgColor);
+                ((ArrowView) this.mArrowLeft).setArrowViewColor(i);
             }
             if (this.mArrowRight instanceof ArrowView) {
-                ((ArrowView) this.mArrowRight).setArrowViewColor(this.mBgColor);
+                ((ArrowView) this.mArrowRight).setArrowViewColor(i);
             }
             this.mBubbleHandler = new BubbleHandler(this);
             this.mBgView = new View(this.mAnchorView.getContext());
             this.mBgView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             this.mBgView.setOnClickListener(this);
             this.mAnchorLayer = new View(this.mAnchorView.getContext());
-            this.mAnchorLayer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.4
+            this.mAnchorLayer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.bubble.BubbleManager.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BubbleManager.this.onClickCore(view);
@@ -521,6 +604,13 @@ public class BubbleManager implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void setBtnText(CharSequence charSequence) {
+        if (!TextUtils.isEmpty(charSequence)) {
+            this.mBtnText = charSequence;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void setAnchor(View view) {
         this.mAnchorView = view;
         if (this.mAnchorView != null) {
@@ -535,6 +625,12 @@ public class BubbleManager implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void setBtnFontSizew(int i, float f) {
+        this.mBtnTextUnit = i;
+        this.mBtnTextSize = f;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void setAnchorAndRootView(View view, ViewGroup viewGroup) {
         this.mAnchorView = view;
         this.mRootView = viewGroup;
@@ -546,8 +642,13 @@ public class BubbleManager implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setBackground(@ColorInt int i) {
-        this.mBgColor = i;
+    public void setDayModeBackground(@ColorInt int i) {
+        this.mBgColorDay = i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setNightModeBackground(@ColorInt int i) {
+        this.mBgColorNight = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -570,13 +671,13 @@ public class BubbleManager implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setOnBubbleEventListener(OnBubbleEventListener onBubbleEventListener) {
-        this.mOnBubbleEventListener = onBubbleEventListener;
+    public void setOnAnchorEventListener(OnAnchorClickListener onAnchorClickListener) {
+        this.mOnAnchorClickListener = onAnchorClickListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setOnAnchorEventListener(OnAnchorClickListener onAnchorClickListener) {
-        this.mOnAnchorClickListener = onAnchorClickListener;
+    public void setOnBtnClickListener(OnBtnClickListener onBtnClickListener) {
+        this.mBtnClickListener = onBtnClickListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -612,7 +713,7 @@ public class BubbleManager implements View.OnClickListener {
         return new Builder();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class Builder {
         private BubbleManager mBubbleManager;
 
@@ -629,8 +730,37 @@ public class BubbleManager implements View.OnClickListener {
             return this;
         }
 
+        public Builder setBtnText(CharSequence charSequence) {
+            this.mBubbleManager.setBtnText(charSequence);
+            return this;
+        }
+
         public Builder setTextColor(@ColorInt int i) {
             this.mBubbleManager.setTextColor(i);
+            return this;
+        }
+
+        public Builder setDayModeBackgroundColor(String str) {
+            if (TextUtils.isEmpty(str)) {
+                str = "#CC000000";
+            }
+            try {
+                this.mBubbleManager.setDayModeBackground(Color.parseColor(str));
+            } catch (Exception e) {
+                this.mBubbleManager.setDayModeBackground(Color.parseColor("#CC000000"));
+            }
+            return this;
+        }
+
+        public Builder setNightBackgroundColor(String str) {
+            if (TextUtils.isEmpty(str)) {
+                str = "#CC000000";
+            }
+            try {
+                this.mBubbleManager.setNightModeBackground(Color.parseColor(str));
+            } catch (Exception e) {
+                this.mBubbleManager.setNightModeBackground(Color.parseColor("#CC000000"));
+            }
             return this;
         }
 
@@ -649,8 +779,14 @@ public class BubbleManager implements View.OnClickListener {
             return this;
         }
 
+        public Builder setBtnFontSize(int i, float f) {
+            this.mBubbleManager.setBtnFontSizew(i, f);
+            return this;
+        }
+
+        @Deprecated
         public Builder setBackground(@ColorInt int i) {
-            this.mBubbleManager.setBackground(i);
+            this.mBubbleManager.setDayModeBackground(i);
             return this;
         }
 
@@ -676,6 +812,11 @@ public class BubbleManager implements View.OnClickListener {
 
         public Builder setOnAnchorClickListener(OnAnchorClickListener onAnchorClickListener) {
             this.mBubbleManager.setOnAnchorEventListener(onAnchorClickListener);
+            return this;
+        }
+
+        public Builder setOnBtnClickListener(OnBtnClickListener onBtnClickListener) {
+            this.mBubbleManager.setOnBtnClickListener(onBtnClickListener);
             return this;
         }
 
@@ -714,10 +855,15 @@ public class BubbleManager implements View.OnClickListener {
             this.mBubbleManager.mBubbleForceShowPosition = bubblePosition;
             return this;
         }
+
+        public Builder setForceShowLeftEndPoint() {
+            this.mBubbleManager.isShowLeftEndPoint = true;
+            return this;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class BubbleHandler extends Handler {
         static final int MSG_DISMISS = 0;
         private final WeakReference<BubbleManager> mBubbleManager;
@@ -733,5 +879,30 @@ public class BubbleManager implements View.OnClickListener {
                 bubbleManager.dismissBubble();
             }
         }
+    }
+
+    public void onNightModeChanged(boolean z) {
+        updateBubble(z ? this.mBgColorNight : this.mBgColorDay);
+    }
+
+    private void updateBubble(int i) {
+        try {
+            if (!isDismissed() && this.mBubbleContent != null && (this.mBubbleContent.getBackground() instanceof GradientDrawable) && this.mBubbleArrow != null && (this.mBubbleArrow instanceof ArrowView) && this.mBubbleText != null && this.mBubbleText.getVisibility() == 0 && !TextUtils.isEmpty(this.mBubbleText.getText())) {
+                ((GradientDrawable) this.mBubbleContent.getBackground()).setColor(i);
+                ((ArrowView) this.mBubbleArrow).setArrowViewColor(i);
+                this.mBubbleText.setTextColor(getTextColor());
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private int getTextColor() {
+        if (this.mTextColor == -1) {
+            if (NightModeHelper.getNightModeSwitcherState()) {
+                return Color.parseColor(DEFAULT_NIGHT_TEXT_COLOR);
+            }
+            return Color.parseColor(DEFAULT_DAY_TEXT_COLOR);
+        }
+        return this.mTextColor;
     }
 }

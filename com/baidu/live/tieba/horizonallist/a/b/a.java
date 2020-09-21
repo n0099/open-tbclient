@@ -3,7 +3,7 @@ package com.baidu.live.tieba.horizonallist.a.b;
 import android.annotation.TargetApi;
 import android.view.View;
 import com.baidu.live.tieba.horizonallist.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends a.b {
     public a(View view) {
         super(view);

@@ -6,13 +6,13 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> ooZ;
-    final Callable<? extends C> opa;
+    final a<? extends T> oyI;
+    final Callable<? extends C> oyJ;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -21,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.opa.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.k(this.oyJ.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.J(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.ooZ.a(cVarArr2);
+            this.oyI.a(cVarArr2);
         }
     }
 
@@ -39,11 +39,11 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int efo() {
-        return this.ooZ.efo();
+    public int ejl() {
+        return this.oyI.ejl();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ParallelCollectSubscriber<T, C> extends DeferredScalarSubscriber<T, C> {
         private static final long serialVersionUID = -4767392946044436228L;
         C collection;
@@ -56,7 +56,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             this.collector = bVar;
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -66,7 +66,7 @@ public final class ParallelCollect<T, C> extends a<C> {
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: C, ? super C */
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
                 try {
@@ -79,7 +79,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -90,7 +90,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             this.actual.onError(th);
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.b.c
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -100,7 +100,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             }
         }
 
-        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.s.cancel();

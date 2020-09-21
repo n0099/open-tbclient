@@ -10,7 +10,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class b extends ExtractorProvider {
     private MediaExtractor a = new MediaExtractor();
 

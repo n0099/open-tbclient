@@ -1,7 +1,7 @@
 package com.baidu.sofire.jni;
 
 import com.baidu.sofire.i.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public class Asc {
     public native byte[] ac(byte[] bArr, byte[] bArr2);
 

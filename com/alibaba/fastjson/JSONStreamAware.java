@@ -1,7 +1,7 @@
 package com.alibaba.fastjson;
 
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface JSONStreamAware {
     void writeJSONString(Appendable appendable) throws IOException;
 }

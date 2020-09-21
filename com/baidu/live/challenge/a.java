@@ -4,53 +4,53 @@ import com.baidu.live.data.AlaAvtsConfigInfo;
 import com.baidu.live.data.AlaAvtsData;
 import com.baidu.live.data.AlaLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public int aCn;
-    public String aCo;
-    public long aCp;
-    public String aCq;
-    public String aCr;
-    public long aCs;
-    public AlaAvtsData aCt;
-    public AlaAvtsConfigInfo aCu;
-    public AlaLiveInfoData aCv;
+    public int aCW;
+    public String aCX;
+    public long aCY;
+    public String aCZ;
+    public String aDa;
+    public long aDb;
+    public AlaAvtsData aDc;
+    public AlaAvtsConfigInfo aDd;
+    public AlaLiveInfoData aDe;
     public long challengeId;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aCn = jSONObject.optInt("match_status");
-            this.aCo = jSONObject.optString("status_text");
-            this.aCp = jSONObject.optLong("match_user_id");
-            this.aCq = jSONObject.optString("match_user_name");
-            this.aCr = jSONObject.optString("match_avatar");
-            this.aCs = jSONObject.optLong("match_time");
+            this.aCW = jSONObject.optInt("match_status");
+            this.aCX = jSONObject.optString("status_text");
+            this.aCY = jSONObject.optLong("match_user_id");
+            this.aCZ = jSONObject.optString("match_user_name");
+            this.aDa = jSONObject.optString("match_avatar");
+            this.aDb = jSONObject.optLong("match_time");
             this.challengeId = jSONObject.optLong("challenge_id");
             if (jSONObject.optJSONObject("avts_addr") != null) {
-                this.aCt = new AlaAvtsData();
-                this.aCt.parserJson(jSONObject.optJSONObject("avts_addr"));
+                this.aDc = new AlaAvtsData();
+                this.aDc.parserJson(jSONObject.optJSONObject("avts_addr"));
             }
             if (jSONObject.optJSONObject("avts_conf") != null) {
-                this.aCu = new AlaAvtsConfigInfo();
-                this.aCu.parserJson(jSONObject.optJSONObject("avts_conf"));
+                this.aDd = new AlaAvtsConfigInfo();
+                this.aDd.parserJson(jSONObject.optJSONObject("avts_conf"));
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("match_live_info");
             if (optJSONObject != null) {
-                this.aCv = new AlaLiveInfoData();
-                this.aCv.parserJson(optJSONObject);
+                this.aDe = new AlaLiveInfoData();
+                this.aDe.parserJson(optJSONObject);
             }
         }
     }
 
-    public boolean BD() {
-        return this.aCn == 1;
+    public boolean BS() {
+        return this.aCW == 1;
     }
 
     public boolean isTimeout() {
-        return this.aCn == 2;
+        return this.aCW == 2;
     }
 
     public boolean isValid() {
-        return this.aCp > 0 && this.challengeId > 0 && this.aCv.getLiveID() > 0 && this.aCt.isValid();
+        return this.aCY > 0 && this.challengeId > 0 && this.aDe.getLiveID() > 0 && this.aDc.isValid();
     }
 }

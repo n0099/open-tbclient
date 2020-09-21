@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.http.HttpHost;
 @NotProguard
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class WebGLImageLoader {
     private static final String ASSET_URL = "asset://";
     static final String BDFILE = "bdfile://";
@@ -87,7 +87,7 @@ public class WebGLImageLoader {
         }
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (a.iu(str2)) {
+            if (a.iN(str2)) {
                 bitmap = BitmapFactory.decodeFile(str2, options);
                 if (bitmap == null) {
                     bitmap = BitmapFactory.decodeFile(str2);
@@ -267,7 +267,7 @@ public class WebGLImageLoader {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes4.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         private final WebGLImage mImage;
         private final int mImageId;

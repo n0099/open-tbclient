@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class h implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ boolean b;

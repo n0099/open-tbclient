@@ -25,7 +25,7 @@ import com.baidu.wallet.base.widget.MistView;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.utils.AccessibilityUtils;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class BankCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     private static final String e = BankCardDetectionActivity.class.getSimpleName();
     private MistView f;

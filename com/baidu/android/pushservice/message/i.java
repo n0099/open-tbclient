@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.h.a.b;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class i {
     public String a;
     public String b;

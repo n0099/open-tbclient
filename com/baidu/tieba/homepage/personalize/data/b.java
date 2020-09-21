@@ -5,18 +5,18 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.card.data.q;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b extends com.baidu.tieba.card.data.j implements q {
-    private CardForum iPT;
+    private CardForum iYz;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.iPT = cardForum;
+            this.iYz = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(cct() + cardForum.position.intValue());
+                setYuelaouLocate(cfI() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(cct() + 0);
+                setYuelaouLocate(cfI() + 0);
             }
             if (y.getCount(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -35,24 +35,24 @@ public class b extends com.baidu.tieba.card.data.j implements q {
 
     @Override // com.baidu.tieba.card.data.q
     public int getPosition() {
-        if (this.iPT != null) {
-            return this.iPT.position.intValue();
+        if (this.iYz != null) {
+            return this.iYz.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public boolean ccr() {
+    public boolean cfG() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void np(boolean z) {
+    public void nv(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.q
-    public void nq(boolean z) {
+    public void nw(boolean z) {
         this.showBottomDivider = z;
     }
 
@@ -63,7 +63,7 @@ public class b extends com.baidu.tieba.card.data.j implements q {
         return false;
     }
 
-    public static boolean zY(int i) {
+    public static boolean Az(int i) {
         return i == 1;
     }
 }

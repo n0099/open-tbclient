@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.adapter;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface IBNaviStatusListener {
     void onNaviExit();
 }

@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final b a = new b();
     private c b = new c(com.baidu.platform.comapi.b.e(), "res.json");

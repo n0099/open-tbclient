@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a eUJ;
-    private com.baidu.tbadk.coreExtra.data.a eDx;
-    private ABTestExtraData eDy;
+    private static a eXz;
+    private com.baidu.tbadk.coreExtra.data.a eFC;
+    private ABTestExtraData eFD;
 
-    public static a buV() {
-        if (eUJ == null) {
+    public static a bvZ() {
+        if (eXz == null) {
             synchronized (a.class) {
-                if (eUJ == null) {
-                    eUJ = new a();
+                if (eXz == null) {
+                    eXz = new a();
                 }
             }
         }
-        return eUJ;
+        return eXz;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,26 +26,26 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.eDx == null || aVar.bmo() != this.eDx.bmo()) ? true : true;
-        this.eDx = aVar;
+        z = (aVar == null || this.eFC == null || aVar.bni() != this.eFC.bni()) ? true : true;
+        this.eFC = aVar;
         if (z) {
-            CE("zan_or_cai_smallflow");
+            Da("zan_or_cai_smallflow");
         }
     }
 
-    private void CE(String str) {
+    private void Da(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.eDy = aBTestExtraData;
+        this.eFD = aBTestExtraData;
     }
 
-    public String buW() {
-        if (this.eDy == null) {
-            this.eDy = new ABTestExtraData();
-            this.eDy.parserABTestExtraFormSharedPref();
+    public String bwa() {
+        if (this.eFD == null) {
+            this.eFD = new ABTestExtraData();
+            this.eFD.parserABTestExtraFormSharedPref();
         }
-        return this.eDy.getABTestResult();
+        return this.eFD.getABTestResult();
     }
 }

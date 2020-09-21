@@ -6,7 +6,7 @@ import com.baidu.b.f;
 import com.baidu.b.g;
 import com.baidu.b.h;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static boolean a = true;
     private static volatile a e;
@@ -74,9 +74,9 @@ public final class a {
     }
 
     private h.a b(String str) {
-        f cY = this.d.cY(str);
-        if (cY != null) {
-            return this.c.a(cY);
+        f da = this.d.da(str);
+        if (da != null) {
+            return this.c.a(da);
         }
         return null;
     }

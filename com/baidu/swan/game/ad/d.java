@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class d extends b {
-    private boolean djn;
+    private boolean dlp;
 
     public d(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         super(context, adElementInfo, aVar);
-        this.djn = false;
+        this.dlp = false;
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aIc() {
+    public View aIN() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 
@@ -25,14 +25,14 @@ public class d extends b {
     public void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         int videoWidth = adElementInfo.getVideoWidth();
         int videoHeight = adElementInfo.getVideoHeight();
-        this.bKz = com.baidu.swan.games.view.a.c.aQt();
-        this.bKA = com.baidu.swan.games.view.a.c.aQu();
+        this.bMz = com.baidu.swan.games.view.a.c.aRf();
+        this.bMA = com.baidu.swan.games.view.a.c.aRg();
         if (videoWidth < videoHeight) {
-            this.djn = true;
-            int i = (int) (((this.bKz - videoWidth) / 2) * 0.8d);
-            int i2 = (int) (((this.bKz - videoWidth) / 2) * 0.1d);
+            this.dlp = true;
+            int i = (int) (((this.bMz - videoWidth) / 2) * 0.8d);
+            int i2 = (int) (((this.bMz - videoWidth) / 2) * 0.1d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
-            layoutParams.leftMargin = (this.bKz - i) - i2;
+            layoutParams.leftMargin = (this.bMz - i) - i2;
             layoutParams.addRule(15);
             layoutParams.removeRule(13);
             layoutParams.removeRule(12);
@@ -43,7 +43,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aId() {
-        return this.djn ? "reward_banner_land_html" : "reward_banner_html";
+    public String aIO() {
+        return this.dlp ? "reward_banner_land_html" : "reward_banner_html";
     }
 }

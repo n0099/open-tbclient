@@ -4,7 +4,7 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberCaptureManager;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class CaptureManagerProvider {
     public abstract void destroySurface();
 

@@ -1,35 +1,36 @@
 package com.baidu.ubc;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public class k {
-    private String dJC;
-    private String dJD;
-    private int dJE;
-    private String dJF;
-    private int dJG;
-    private int dJH;
-    private String dJI;
+    private String dLG;
+    private String dLH;
+    private int dLI;
+    private String dLJ;
+    private int dLK;
+    private int dLL;
+    private String dLM;
     private String mCategory;
     private String mId;
     private int mRate;
     private String mType;
     private String mVersion;
-    private String nfD;
-    private String nfE;
-    private String nfF;
-    private String nfG;
+    private String npE;
+    private String npF;
+    private String npG;
+    private String npH;
+    private String npI;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.dJC = str2;
-        this.dJD = str3;
-        this.dJE = i;
+        this.dLG = str2;
+        this.dLH = str3;
+        this.dLI = i;
         this.mType = str4;
-        this.dJF = str5;
+        this.dLJ = str5;
     }
 
-    public void mg(int i) {
+    public void mr(int i) {
         this.mRate = i;
     }
 
@@ -37,47 +38,47 @@ public class k {
         this.mCategory = str;
     }
 
-    public void mh(int i) {
-        this.dJG = i;
+    public void ms(int i) {
+        this.dLK = i;
     }
 
-    public void mi(int i) {
-        this.dJH = i;
+    public void mt(int i) {
+        this.dLL = i;
     }
 
-    public void TD(String str) {
-        this.nfD = str;
+    public void Ue(String str) {
+        this.npE = str;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String aVH() {
-        return this.dJC;
+    public String aWt() {
+        return this.dLG;
     }
 
-    public String aVI() {
-        return this.dJD;
+    public String aWu() {
+        return this.dLH;
     }
 
     public int getTimeout() {
-        return this.dJE;
+        return this.dLI;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String aVJ() {
-        return this.dJF;
+    public String aWv() {
+        return this.dLJ;
     }
 
-    public String dLY() {
-        return this.nfD;
+    public String dPW() {
+        return this.npE;
     }
 
-    public int aVK() {
+    public int aWw() {
         return this.mRate;
     }
 
@@ -85,28 +86,28 @@ public class k {
         return this.mCategory;
     }
 
-    public int aVL() {
-        return this.dJG;
+    public int aWx() {
+        return this.dLK;
     }
 
-    public int aVM() {
-        return this.dJH;
+    public int aWy() {
+        return this.dLL;
     }
 
-    public void xk(String str) {
-        this.dJI = str;
+    public void xD(String str) {
+        this.dLM = str;
     }
 
-    public String aVN() {
-        return this.dJI;
+    public String aWz() {
+        return this.dLM;
     }
 
-    public String dLZ() {
-        return this.nfE;
+    public String dPX() {
+        return this.npF;
     }
 
-    public void TE(String str) {
-        this.nfE = str;
+    public void Uf(String str) {
+        this.npF = str;
     }
 
     public void setVersion(String str) {
@@ -117,19 +118,27 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void TF(String str) {
-        this.nfF = str;
+    public void Ug(String str) {
+        this.npG = str;
     }
 
-    public String dMa() {
-        return this.nfF;
+    public String dPY() {
+        return this.npG;
     }
 
-    public void TG(String str) {
-        this.nfG = str;
+    public void Uh(String str) {
+        this.npH = str;
     }
 
-    public String dMb() {
-        return this.nfG;
+    public String dPZ() {
+        return this.npH;
+    }
+
+    public String dQa() {
+        return this.npI;
+    }
+
+    public void Ui(String str) {
+        this.npI = str;
     }
 }

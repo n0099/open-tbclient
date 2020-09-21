@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     static final String a = d.class.getSimpleName();
     private static Map<String, Method> b = new HashMap();
@@ -48,19 +48,19 @@ public class d {
         if (bArr != null && bArr.length != 0) {
             int i = ByteBuffer.wrap(bArr, 0, 4).order(ByteOrder.BIG_ENDIAN).getInt();
             com.baidu.f.a.c w = com.baidu.f.a.c.w(a(new ByteArrayInputStream(bArr, 4, i)));
-            int vQ = w.vQ();
+            int we = w.we();
             int i2 = i + 4;
-            for (int i3 = 0; i3 < vQ; i3++) {
-                c.a bV = w.bV(i3);
-                String name = bV.getName();
-                int vS = bV.vS();
-                int offset = bV.getOffset() + i2;
+            for (int i3 = 0; i3 < we; i3++) {
+                c.a bZ = w.bZ(i3);
+                String name = bZ.getName();
+                int wg = bZ.wg();
+                int offset = bZ.getOffset() + i2;
                 if (name.equals("M")) {
                     b bVar = new b();
-                    bVar.a = a(new ByteArrayInputStream(bArr, offset, vS));
+                    bVar.a = a(new ByteArrayInputStream(bArr, offset, wg));
                     arrayList.add(bVar);
                 } else {
-                    MessageMicro a2 = a(str, name, bArr, offset, vS);
+                    MessageMicro a2 = a(str, name, bArr, offset, wg);
                     if (a2 != null) {
                         arrayList.add(a2);
                     }

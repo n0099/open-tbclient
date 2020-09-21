@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.model;
 
 import android.os.Bundle;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
     private e a;
     private d b;

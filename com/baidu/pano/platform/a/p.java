@@ -12,7 +12,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class p {
     private AtomicInteger a;
     private final Map<String, Queue<n<?>>> b;
@@ -26,7 +26,7 @@ public class p {
     private c j;
     private List<a> k;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a<T> {
         void a(n<T> nVar);
     }

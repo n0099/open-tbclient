@@ -1,4 +1,4 @@
 package org.aspectj.lang;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public interface c {
 }

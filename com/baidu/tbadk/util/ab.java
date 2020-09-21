@@ -1,24 +1,16 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
 /* loaded from: classes.dex */
 public class ab {
-    private static String mThreadId;
+    private aa eYx;
+    private View.OnTouchListener eYy;
 
-    public static void CL(String str) {
-        mThreadId = str;
+    public aa bwQ() {
+        return this.eYx;
     }
 
-    public static String bvJ() {
-        if (StringUtils.isNull(mThreadId)) {
-            return null;
-        }
-        return mThreadId;
-    }
-
-    public static void bvK() {
-        if (mThreadId != null) {
-            mThreadId = null;
-        }
+    public View.OnTouchListener bwR() {
+        return this.eYy;
     }
 }

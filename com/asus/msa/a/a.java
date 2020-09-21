@@ -9,14 +9,14 @@ public interface a extends IInterface {
 
     /* renamed from: com.asus.msa.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC0012a extends Binder implements a {
+    public static abstract class AbstractBinderC0013a extends Binder implements a {
 
         /* renamed from: com.asus.msa.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0013a implements a {
+        public static class C0014a implements a {
             public IBinder a;
 
-            public C0013a(IBinder iBinder) {
+            public C0014a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -106,7 +106,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0013a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0014a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.ek;
 import com.xiaomi.push.service.ap;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class fk {
     public static void a(ap.b bVar, String str, fs fsVar) {
         String a;
@@ -18,16 +18,16 @@ class fk {
         if (!TextUtils.isEmpty(bVar.f)) {
             cVar.e(bVar.f);
         }
-        cVar.b(bVar.f862a ? "1" : "0");
+        cVar.b(bVar.f861a ? "1" : "0");
         if (TextUtils.isEmpty(bVar.d)) {
             cVar.c("XIAOMI-SASL");
         } else {
             cVar.c(bVar.d);
         }
         fl flVar = new fl();
-        flVar.c(bVar.f863b);
+        flVar.c(bVar.f862b);
         flVar.a(Integer.parseInt(bVar.g));
-        flVar.b(bVar.f860a);
+        flVar.b(bVar.f859a);
         flVar.a("BIND", (String) null);
         flVar.a(flVar.e());
         com.xiaomi.channel.commonutils.logger.b.m54a("[Slim]: bind id=" + flVar.e());
@@ -35,10 +35,10 @@ class fk {
         hashMap.put("challenge", str);
         hashMap.put("token", bVar.c);
         hashMap.put("chid", bVar.g);
-        hashMap.put("from", bVar.f863b);
+        hashMap.put("from", bVar.f862b);
         hashMap.put("id", flVar.e());
         hashMap.put("to", "xiaomi.com");
-        if (bVar.f862a) {
+        if (bVar.f861a) {
             hashMap.put("kick", "1");
         } else {
             hashMap.put("kick", "0");

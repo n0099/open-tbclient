@@ -18,24 +18,24 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static h pB(String str) {
+    public static h pU(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return com.baidu.swan.pms.database.a.aTt().df(str, "0.0.0");
+        return com.baidu.swan.pms.database.a.aUf().df(str, "0.0.0");
     }
 
-    public static String pC(String str) {
+    public static String pV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        h pB = pB(str);
-        if ((pB == null || TextUtils.isEmpty(pB.appKey)) ? false : true) {
-            return pB.appKey;
+        h pU = pU(str);
+        if ((pU == null || TextUtils.isEmpty(pU.appKey)) ? false : true) {
+            return pU.appKey;
         }
         com.baidu.swan.apps.ac.d.a.print("get plugin appKey form db, but empty, plugin appId = " + str);
         return null;
@@ -50,12 +50,12 @@ public class b {
             com.baidu.swan.apps.ac.d.a.print("getDownloadKey, app.json is null");
             return null;
         }
-        SwanAppConfigData.i iVar = m.cQX;
+        SwanAppConfigData.i iVar = m.cSX;
         if (iVar == null) {
             com.baidu.swan.apps.ac.d.a.print("getDownloadKey, sub pkg obj is null");
             return null;
         }
-        HashMap<String, String> hashMap = iVar.cRA;
+        HashMap<String, String> hashMap = iVar.cTA;
         if (hashMap == null) {
             com.baidu.swan.apps.ac.d.a.print("getDownloadKey, sub pkg map is null");
             return null;
@@ -63,10 +63,10 @@ public class b {
         return hashMap.get(str2);
     }
 
-    public static void awK() {
-        f XX = com.baidu.swan.apps.v.f.arY().XX();
-        if (XX != null && (XX.ahm() instanceof g)) {
-            com.baidu.swan.apps.v.f.arY().arI().onBackPressed();
+    public static void axt() {
+        f YG = com.baidu.swan.apps.v.f.asJ().YG();
+        if (YG != null && (YG.ahW() instanceof g)) {
+            com.baidu.swan.apps.v.f.asJ().ast().onBackPressed();
         }
     }
 
@@ -75,16 +75,16 @@ public class b {
             com.baidu.swan.apps.ac.d.a.print("parse app.json is null");
             return null;
         }
-        List<com.baidu.swan.apps.ac.f.a> jn = swanAppConfigData.jn(4);
-        if (jn == null || jn.isEmpty()) {
+        List<com.baidu.swan.apps.ac.f.a> jy = swanAppConfigData.jy(4);
+        if (jy == null || jy.isEmpty()) {
             ca("pluginPath", null);
             com.baidu.swan.apps.ac.d.a.print("this swan app not apply on someone plugin");
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (com.baidu.swan.apps.ac.f.a aVar : jn) {
+        for (com.baidu.swan.apps.ac.f.a aVar : jy) {
             if (aVar != null && aVar.isValid()) {
-                jSONArray.put(aVar.cID);
+                jSONArray.put(aVar.cKD);
             }
         }
         String jSONArray2 = jSONArray.toString();
@@ -97,17 +97,17 @@ public class b {
             com.baidu.swan.apps.ac.d.a.print("parse app.json is null");
             return null;
         }
-        List<com.baidu.swan.apps.ac.f.a> jn = swanAppConfigData.jn(4);
-        if (jn == null || jn.isEmpty()) {
+        List<com.baidu.swan.apps.ac.f.a> jy = swanAppConfigData.jy(4);
+        if (jy == null || jy.isEmpty()) {
             com.baidu.swan.apps.ac.d.a.print("this swan app not apply on someone plugin");
             return null;
         }
         String cb = cb("pluginPath", null);
         if (TextUtils.isEmpty(cb)) {
             JSONArray jSONArray = new JSONArray();
-            for (com.baidu.swan.apps.ac.f.a aVar : jn) {
+            for (com.baidu.swan.apps.ac.f.a aVar : jy) {
                 if (aVar != null && aVar.isValid()) {
-                    jSONArray.put(aVar.cID);
+                    jSONArray.put(aVar.cKD);
                 }
             }
             String jSONArray2 = jSONArray.toString();
@@ -118,18 +118,18 @@ public class b {
     }
 
     public static void ca(String str, String str2) {
-        e azI;
-        if (!TextUtils.isEmpty(str) && (azI = e.azI()) != null) {
-            azI.aAa().putString(str, str2);
+        e aAr;
+        if (!TextUtils.isEmpty(str) && (aAr = e.aAr()) != null) {
+            aAr.aAJ().putString(str, str2);
         }
     }
 
     public static String cb(String str, String str2) {
-        e azI = e.azI();
-        if (azI == null || TextUtils.isEmpty(str)) {
+        e aAr = e.aAr();
+        if (aAr == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return azI.aAa().getString(str, str2);
+        return aAr.aAJ().getString(str, str2);
     }
 
     public static void c(Map<String, String> map, String str) {
@@ -158,7 +158,7 @@ public class b {
                         String optString = optJSONObject.optString("plugin_id");
                         if (!TextUtils.isEmpty(optString)) {
                             h hVar = new h();
-                            hVar.dFn = optString;
+                            hVar.dHr = optString;
                             hVar.versionCode = optJSONObject.optInt("version_code");
                             hVar.versionName = optJSONObject.optString(SharedPrefConfig.VERSION_NAME, "0.0.0");
                             hVar.token = optJSONObject.optString("token");
@@ -171,7 +171,7 @@ public class b {
                             hVar.downloadUrl = "";
                             arrayList.add(hVar);
                             if (z) {
-                                com.baidu.swan.pms.database.a.aTt().c(hVar);
+                                com.baidu.swan.pms.database.a.aUf().c(hVar);
                             }
                         }
                     }
@@ -185,53 +185,53 @@ public class b {
         }
     }
 
-    public static h pD(String str) {
+    public static h pW(String str) {
         List<h> list;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (com.baidu.swan.apps.console.debugger.a.e.aee() || com.baidu.swan.apps.ad.a.a.axd()) {
-            e azI = e.azI();
-            if (azI == null) {
+        if (com.baidu.swan.apps.console.debugger.a.e.aeO() || com.baidu.swan.apps.ad.a.a.axM()) {
+            e aAr = e.aAr();
+            if (aAr == null) {
                 return null;
             }
-            SwanAppConfigData azR = azI.azR();
-            if (azR == null || (list = azR.cRf) == null) {
+            SwanAppConfigData aAA = aAr.aAA();
+            if (aAA == null || (list = aAA.cTf) == null) {
                 return null;
             }
             for (h hVar : list) {
-                if (TextUtils.equals(str, hVar.dFn)) {
+                if (TextUtils.equals(str, hVar.dHr)) {
                     return hVar;
                 }
             }
             return null;
         }
-        return pB(str);
+        return pU(str);
     }
 
     private static String b(Map<String, String> map, String str, int i) {
         if (map == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        e azI = e.azI();
-        String string = azI != null ? azI.aAa().getString(str, (String) null) : null;
+        e aAr = e.aAr();
+        String string = aAr != null ? aAr.aAJ().getString(str, (String) null) : null;
         if (!TextUtils.isEmpty(string)) {
             map.put(str, string);
             return string;
         }
-        SwanAppConfigData azR = azI != null ? azI.azR() : null;
+        SwanAppConfigData aAA = aAr != null ? aAr.aAA() : null;
         if (i == 3) {
-            if (c.awm()) {
-                com.baidu.swan.apps.ac.b.a.b(azR, false);
+            if (c.awV()) {
+                com.baidu.swan.apps.ac.b.a.b(aAA, false);
             } else {
-                com.baidu.swan.apps.ac.b.a.a(azR, false);
+                com.baidu.swan.apps.ac.b.a.a(aAA, false);
             }
             string = cb(str, null);
         } else if (i == 4) {
-            if (c.awm()) {
-                string = f(azR);
+            if (c.awV()) {
+                string = f(aAA);
             } else {
-                string = e(azR);
+                string = e(aAA);
             }
         }
         map.put(str, string);

@@ -19,7 +19,7 @@ import com.baidu.rtc.utils.d;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class RTCSession {
     private static final int NETWORK_UNAVAILABLE = 0;
     private static final int NETWORK_WWAN = 2;
@@ -65,8 +65,8 @@ public class RTCSession {
         @Override // com.baidu.rtc.ndk.AlaNDKRecorderAdapter.OnNDKCallback
         public void onRemoteUserOnLine(int i, long j, int i2) {
             RTCSession.this.mNdkPlayer.startPlayerNative(String.format("rtc://%s:%d?room_id=%d&line_index=%d&user_id=%d", RTCSession.this.mRtcConfig.hostName, Integer.valueOf(RTCSession.this.mRtcConfig.hostPort), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)), RTCSession.this.mPlayMediaIndex, RTCSession.this.getNetworkState(), RTCSession.this.mBaseInfo.toJsonString(), RTCSession.this.mRtcConfig.enableAudio, RTCSession.this.mRtcConfig.enableVideo);
-            if (RTCSession.this.mVideoDevices.Xj() != null) {
-                RTCSession.this.mVideoDevices.Xj().Xl();
+            if (RTCSession.this.mVideoDevices.XS() != null) {
+                RTCSession.this.mVideoDevices.XS().XU();
             }
             if (RTCSession.this.mRtcHandler != null) {
                 RTCSession.this.mRtcHandler.onRemoteUserOnLine(i, i2);
@@ -103,8 +103,8 @@ public class RTCSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.Xn().Xo()) {
-            NetworkManager.Xn().init((Application) context.getApplicationContext());
+        if (!NetworkManager.XW().XX()) {
+            NetworkManager.XW().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.RTCSession.4
             @Override // java.lang.Runnable
@@ -151,7 +151,7 @@ public class RTCSession {
                 startAudioRecord();
                 startAudioPlayer();
                 this.mVideoDevices.a(this.mRtcConfig);
-                NetworkManager.Xn().a(this.mNetworkChangeListener);
+                NetworkManager.XW().a(this.mNetworkChangeListener);
                 this.mHasStart = true;
                 this.mIsStop = false;
                 return 0;
@@ -169,7 +169,7 @@ public class RTCSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.Xn().b(this.mNetworkChangeListener);
+        NetworkManager.XW().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -183,7 +183,7 @@ public class RTCSession {
     }
 
     public View getPlayerView() {
-        return this.mVideoDevices.Xj();
+        return this.mVideoDevices.XS();
     }
 
     public void destroy() {
@@ -340,9 +340,9 @@ public class RTCSession {
                 } else if (!d.useOpenSLES()) {
                     while (!RTCSession.this.mIsStop && !RTCSession.this.mRecordService.isShutdown()) {
                         try {
-                            byte[] Xg = RTCSession.this.mAudioDevices.Xg();
-                            if (Xg != null) {
-                                RTCSession.this.mNDKAdapter.sendPCMDataNative2(Xg, 2048);
+                            byte[] XP = RTCSession.this.mAudioDevices.XP();
+                            if (XP != null) {
+                                RTCSession.this.mNDKAdapter.sendPCMDataNative2(XP, 2048);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -366,7 +366,7 @@ public class RTCSession {
         c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.Xn().Xp().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.XW().XY().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -408,12 +408,12 @@ public class RTCSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int Xq = NetworkManager.Xn().Xq();
-        if (Xq <= 0) {
+        int XZ = NetworkManager.XW().XZ();
+        if (XZ <= 0) {
             return 0;
         }
-        if (Xq < 2) {
-            return Xq;
+        if (XZ < 2) {
+            return XZ;
         }
         return 2;
     }

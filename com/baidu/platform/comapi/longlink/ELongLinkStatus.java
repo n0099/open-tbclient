@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.longlink;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum ELongLinkStatus {
     OK(0),
     SendFormatError(OK.getStatusCode() + 1),

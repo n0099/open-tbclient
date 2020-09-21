@@ -3,7 +3,7 @@ package com.tencent.mm.sdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WXMusicObject implements WXMediaMessage.IMediaObject {
     private static final int LENGTH_LIMIT = 10240;
     private static final String TAG = "MicroMsg.SDK.WXMusicObject";

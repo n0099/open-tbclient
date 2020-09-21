@@ -9,17 +9,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class NetworkManager {
-    private static NetworkManager bPl;
+    private static NetworkManager bRl;
     private Application mApp;
-    private NetworkType bPm = null;
+    private NetworkType bRm = null;
     private boolean isNetAvailable = true;
-    private final LinkedList<a> bPn = new LinkedList<>();
-    private NetworkConnectChangedReceiver bPo = new NetworkConnectChangedReceiver();
-    private Object bPp = new Object();
+    private final LinkedList<a> bRn = new LinkedList<>();
+    private NetworkConnectChangedReceiver bRo = new NetworkConnectChangedReceiver();
+    private Object bRp = new Object();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void onNetworkChanged(NetworkType networkType, NetworkType networkType2);
     }
@@ -27,26 +27,26 @@ public class NetworkManager {
     private NetworkManager() {
     }
 
-    public static NetworkManager Xn() {
-        if (bPl == null) {
+    public static NetworkManager XW() {
+        if (bRl == null) {
             synchronized (NetworkManager.class) {
-                if (bPl == null) {
-                    bPl = new NetworkManager();
+                if (bRl == null) {
+                    bRl = new NetworkManager();
                 }
             }
         }
-        return bPl;
+        return bRl;
     }
 
     public void init(Application application) {
         this.mApp = application;
-        this.bPm = aX(this.mApp);
+        this.bRm = aW(this.mApp);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        this.mApp.registerReceiver(this.bPo, intentFilter);
+        this.mApp.registerReceiver(this.bRo, intentFilter);
     }
 
-    public boolean Xo() {
+    public boolean XX() {
         return this.mApp != null;
     }
 
@@ -55,7 +55,7 @@ public class NetworkManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public NetworkType aX(Context context) {
+    public NetworkType aW(Context context) {
         NetworkType networkType = NetworkType.NETWORK_NO;
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
         if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
@@ -101,15 +101,15 @@ public class NetworkManager {
         return networkType2;
     }
 
-    public NetworkType Xp() {
-        return this.bPm == null ? NetworkType.NETWORK_UNKNOWN : this.bPm;
+    public NetworkType XY() {
+        return this.bRm == null ? NetworkType.NETWORK_UNKNOWN : this.bRm;
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            synchronized (this.bPp) {
-                if (!this.bPn.contains(aVar)) {
-                    this.bPn.add(aVar);
+            synchronized (this.bRp) {
+                if (!this.bRn.contains(aVar)) {
+                    this.bRn.add(aVar);
                 }
             }
         }
@@ -117,19 +117,19 @@ public class NetworkManager {
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.bPp) {
-                if (this.bPn.contains(aVar)) {
-                    this.bPn.remove(aVar);
+            synchronized (this.bRp) {
+                if (this.bRn.contains(aVar)) {
+                    this.bRn.remove(aVar);
                 }
             }
         }
     }
 
-    public int Xq() {
-        if (this.bPm == null) {
+    public int XZ() {
+        if (this.bRm == null) {
             return -1;
         }
-        switch (this.bPm) {
+        switch (this.bRm) {
             case NETWORK_WIFI:
                 return 1;
             case NETWORK_2G:
@@ -145,24 +145,24 @@ public class NetworkManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public class NetworkConnectChangedReceiver extends BroadcastReceiver {
         public NetworkConnectChangedReceiver() {
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            NetworkType aX;
-            if (intent.getAction() == "android.net.conn.CONNECTIVITY_CHANGE" && (aX = NetworkManager.this.aX(NetworkManager.this.mApp)) != NetworkManager.this.bPm) {
-                NetworkType networkType = NetworkManager.this.bPm;
-                NetworkManager.this.bPm = aX;
-                if (!NetworkManager.this.bPn.isEmpty()) {
-                    synchronized (NetworkManager.this.bPp) {
-                        Iterator it = NetworkManager.this.bPn.iterator();
+            NetworkType aW;
+            if (intent.getAction() == "android.net.conn.CONNECTIVITY_CHANGE" && (aW = NetworkManager.this.aW(NetworkManager.this.mApp)) != NetworkManager.this.bRm) {
+                NetworkType networkType = NetworkManager.this.bRm;
+                NetworkManager.this.bRm = aW;
+                if (!NetworkManager.this.bRn.isEmpty()) {
+                    synchronized (NetworkManager.this.bRp) {
+                        Iterator it = NetworkManager.this.bRn.iterator();
                         while (it.hasNext()) {
                             a aVar = (a) it.next();
                             if (aVar != null) {
-                                aVar.onNetworkChanged(NetworkManager.this.bPm, networkType);
+                                aVar.onNetworkChanged(NetworkManager.this.bRm, networkType);
                             }
                         }
                     }
@@ -171,7 +171,7 @@ public class NetworkManager {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public enum NetworkType {
         NETWORK_WIFI("WiFi"),
         NETWORK_4G("4G"),

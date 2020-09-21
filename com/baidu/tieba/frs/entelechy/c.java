@@ -4,15 +4,15 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.frs.f.g;
+import com.baidu.tieba.frs.f.i;
 import com.baidu.tieba.frs.vc.h;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c implements com.baidu.tieba.frs.entelechy.b.b {
-    private float eFC = 0.16875f;
+    private float eHJ = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, FrsViewData frsViewData) {
@@ -23,7 +23,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<q> it = threadList.iterator();
                 while (it.hasNext()) {
                     q next = it.next();
-                    if (next.getType() == bw.eaV) {
+                    if (next.getType() == bw.edf) {
                         arrayList.add(next);
                     }
                 }
@@ -33,14 +33,14 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean xI(int i) {
+    public boolean yh(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, com.baidu.tieba.frs.q qVar, FrsViewData frsViewData) {
         if (hVar != null && qVar != null && frsViewData != null) {
-            hVar.ctv();
+            hVar.cwM();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 qVar.a(frsViewData.getForum().getFrsBannerData());
             }
@@ -49,11 +49,11 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public int a(int i, FrsRequestData frsRequestData) {
-        return g.a(i, frsRequestData);
+        return i.a(i, frsRequestData);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void cg(View view) {
+    public void cp(View view) {
         view.setVisibility(8);
     }
 }

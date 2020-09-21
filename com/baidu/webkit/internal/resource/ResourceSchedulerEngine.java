@@ -3,13 +3,13 @@ package com.baidu.webkit.internal.resource;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.lang.ref.WeakReference;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class ResourceSchedulerEngine implements INoProGuard {
     private static final String LOG_TAG = "ResourceTaskSchedulerEngine";
     private static ResourceSchedulerEngine sIntance;
     private WeakReference<IResourceScheduler> mZeusResourceScheduler;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     public interface IResourceScheduler extends INoProGuard {
         void fetchIntegrationInfoFromServer();
 

@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.map.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b {
     public boolean a;
     public boolean b;

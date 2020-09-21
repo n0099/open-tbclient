@@ -7,12 +7,12 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor JI;
+    private Cursor JQ;
     private final Set<String> keySet;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.JI = cursor;
+        this.JQ = cursor;
         this.values = null;
         this.keySet = new TreeSet();
         if (cursor != null) {
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.JI.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.JI.getColumnCount()) {
+        int columnIndex = this.JQ.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.JQ.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.JI.getShort(columnIndex));
+                valueOf = Short.valueOf(this.JQ.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.JI.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.JQ.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.JI.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.JQ.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.JI.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.JQ.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.JI.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.JQ.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.JI.getString(columnIndex);
+                    string = this.JQ.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.JI.getBlob(columnIndex);
+                        return this.JQ.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -155,9 +155,9 @@ public class b implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h v = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.v(object);
-            if (v != null) {
-                return v.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h w = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.w(object);
+            if (w != null) {
+                return w.g(cVar);
             }
             return object;
         }

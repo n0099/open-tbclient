@@ -6,7 +6,7 @@ import com.xiaomi.push.gq;
 import com.xiaomi.push.gu;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e implements gp {
     public static gg a(XmlPullParser xmlPullParser) {
         String str;

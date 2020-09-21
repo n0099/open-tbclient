@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.d.g;
 import com.baidu.android.pushservice.d.j;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     private static volatile c a;
     private Context b;
@@ -14,7 +14,7 @@ public class c {
     private Runnable d;
     private volatile boolean e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i, String str);
     }

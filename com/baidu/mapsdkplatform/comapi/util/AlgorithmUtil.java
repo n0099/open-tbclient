@@ -5,7 +5,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class AlgorithmUtil {
     private AlgorithmUtil() {
     }

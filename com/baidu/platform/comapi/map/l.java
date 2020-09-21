@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapController;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class l implements Runnable {
     final /* synthetic */ MapController.a a;
 

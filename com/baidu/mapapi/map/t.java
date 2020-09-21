@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.t.a;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class t<T extends a> {
     private final l a;
     private final int b;
@@ -13,7 +13,7 @@ class t<T extends a> {
     private List<t<T>> d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a {
         abstract Point a();
     }

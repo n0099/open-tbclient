@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class c {
-    private static final Map<String, a> oLT = new HashMap();
+    private static final Map<String, a> oVx = new HashMap();
 
-    public static a WL(@NonNull String str) {
+    public static a Xn(@NonNull String str) {
         a aVar;
-        synchronized (oLT) {
-            aVar = oLT.get(str);
+        synchronized (oVx) {
+            aVar = oVx.get(str);
             if (aVar == null) {
                 aVar = new b();
-                oLT.put(str, aVar);
+                oVx.put(str, aVar);
             }
         }
         return aVar;

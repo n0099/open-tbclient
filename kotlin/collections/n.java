@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class n implements Iterator<Character> {
-    public abstract char efZ();
+    public abstract char ejW();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class n implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: efY */
+    /* renamed from: ejV */
     public final Character next() {
-        return Character.valueOf(efZ());
+        return Character.valueOf(ejW());
     }
 }

@@ -10,19 +10,19 @@ import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private com.baidu.swan.apps.jsbridge.a cvC;
-    private com.baidu.swan.apps.jsbridge.a cvD;
-    private SwanAppUtilsJavaScriptInterface cvE;
-    private com.baidu.swan.apps.api.a cvF;
+    private com.baidu.swan.apps.jsbridge.a cxD;
+    private com.baidu.swan.apps.jsbridge.a cxE;
+    private SwanAppUtilsJavaScriptInterface cxF;
+    private com.baidu.swan.apps.api.a cxG;
 
     public void a(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         if (aVar != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
-            this.cvF = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
-            a(aVar, context, callbackHandler, unitedSchemeMainDispatcher, this.cvF);
+            this.cxG = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
+            a(aVar, context, callbackHandler, unitedSchemeMainDispatcher, this.cxG);
             if (aVar instanceof com.baidu.swan.games.f.b) {
-                a(aVar, context, this.cvF);
+                a(aVar, context, this.cxG);
             } else {
                 e(aVar);
             }
@@ -30,17 +30,17 @@ public class a {
     }
 
     public void a(Context context, com.baidu.swan.apps.core.container.a aVar) {
-        this.cvE = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.cvE.setSource("swan_");
-        aVar.addJavascriptInterface(this.cvE, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-        this.cvE.setForceShareLight(true);
+        this.cxF = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.cxF.setSource("swan_");
+        aVar.addJavascriptInterface(this.cxF, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.cxF.setForceShareLight(true);
     }
 
     private void a(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull com.baidu.swan.apps.api.a aVar2) {
-        this.cvC = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.cvC, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        this.cvD = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.cvD, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.cxD = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.cxD, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.cxE = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.cxE, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar2.a(aVar);
     }
@@ -50,24 +50,24 @@ public class a {
     }
 
     private void a(@NonNull com.baidu.swan.apps.core.container.a aVar, Context context, @NonNull com.baidu.swan.apps.api.a aVar2) {
-        this.cvE = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.cvE.setSource("swan_");
-        aVar.addJavascriptInterface(this.cvE, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.cxF = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.cxF.setSource("swan_");
+        aVar.addJavascriptInterface(this.cxF, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
         aVar2.c(aVar);
     }
 
-    public void E(Activity activity) {
-        if (this.cvC != null) {
-            this.cvC.setActivityRef(activity);
+    public void F(Activity activity) {
+        if (this.cxD != null) {
+            this.cxD.setActivityRef(activity);
         }
-        if (this.cvD != null) {
-            this.cvD.setActivityRef(activity);
+        if (this.cxE != null) {
+            this.cxE.setActivityRef(activity);
         }
-        if (this.cvE != null) {
-            this.cvE.setActivity(activity);
+        if (this.cxF != null) {
+            this.cxF.setActivity(activity);
         }
-        if (this.cvF != null) {
-            this.cvF.setActivityRef(activity);
+        if (this.cxG != null) {
+            this.cxG.setActivityRef(activity);
         }
     }
 }

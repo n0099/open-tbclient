@@ -3,7 +3,7 @@ package com.baidu.live.adp.base;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BdBaseListItemView<T> extends BdBaseView<T> {
     protected View mConvertView;
 

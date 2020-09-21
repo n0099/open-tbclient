@@ -17,13 +17,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static long d = 0;
     public e a;
     public Context b;
     public Receiver c;
-    private HandlerC0321a e = new HandlerC0321a(m.a());
+    private HandlerC0316a e = new HandlerC0316a(m.a());
     private com.baidu.sofire.g.a f;
 
     public a(Context context) {
@@ -38,9 +38,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class HandlerC0321a extends Handler {
-        public HandlerC0321a(Looper looper) {
+    /* loaded from: classes12.dex */
+    public class HandlerC0316a extends Handler {
+        public HandlerC0316a(Looper looper) {
             super(looper);
         }
 

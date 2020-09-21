@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.extrajump;
 
 import com.baidu.live.tbadk.extrajump.interfaces.IExtraJump;
 import com.baidu.live.tbadk.extrajump.interfaces.IExtraJumpBuilder;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ExtraJumpManager {
     private IExtraJump mExtraJump;
     private IExtraJumpBuilder mExtraJumpBuilder;
@@ -33,7 +33,7 @@ public class ExtraJumpManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class InstanceHolder {
         private static final ExtraJumpManager sInst = new ExtraJumpManager();
     }

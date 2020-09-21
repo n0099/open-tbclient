@@ -2,7 +2,7 @@ package com.baidubce.services.vod.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class MediaMeta {
     private Long durationInSeconds;
     private Long sizeInBytes;

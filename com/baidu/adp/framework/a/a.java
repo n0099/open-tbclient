@@ -32,9 +32,9 @@ public class a {
         final HashSet hashSet = new HashSet();
         List<String> sourcePaths = getSourcePaths(application);
         final CountDownLatch countDownLatch = new CountDownLatch(sourcePaths.size());
-        ThreadPoolExecutor aa = c.aa(sourcePaths.size());
+        ThreadPoolExecutor ab = c.ab(sourcePaths.size());
         for (final String str2 : sourcePaths) {
-            aa.execute(new Runnable() { // from class: com.baidu.adp.framework.a.a.1
+            ab.execute(new Runnable() { // from class: com.baidu.adp.framework.a.a.1
                 /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
                 /* JADX WARN: Removed duplicated region for block: B:41:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
                 @Override // java.lang.Runnable

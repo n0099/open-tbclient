@@ -1,21 +1,21 @@
 package com.baidu.live.i;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.k;
-import com.baidu.live.data.r;
-/* loaded from: classes7.dex */
+import com.baidu.live.data.n;
+import com.baidu.live.data.u;
+/* loaded from: classes4.dex */
 public interface a {
-    void Iq();
+    void IT();
 
-    void It();
+    void IW();
 
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void a(n nVar);
 
-    void a(k kVar);
+    void a(u uVar);
 
-    void a(r rVar);
+    void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
-    void bK(boolean z);
+    void bM(boolean z);
 
     void onDestroy();
 

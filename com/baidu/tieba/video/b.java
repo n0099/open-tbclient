@@ -7,18 +7,18 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean LJ;
+    private boolean LX;
     public BaseActivity activity;
     public String coverPath;
     public String filterName;
     public boolean isMute;
-    public String mtP;
+    public String mDA;
     public String musicPath;
     public String originPath;
 
-    public abstract void dAW();
+    public abstract void dEQ();
 
-    public abstract void dAX();
+    public abstract void dER();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -47,33 +47,33 @@ public abstract class b {
         }
     }
 
-    public void wA(boolean z) {
-        this.LJ = z;
+    public void wJ(boolean z) {
+        this.LX = z;
     }
 
     public boolean isCancel() {
-        return this.LJ;
+        return this.LX;
     }
 
-    private void dAV() {
-        if (!at.isEmpty(this.mtP)) {
-            n.deleteFile(new File(this.mtP));
+    private void dEP() {
+        if (!at.isEmpty(this.mDA)) {
+            n.deleteFile(new File(this.mDA));
         }
     }
 
     public void onCancel() {
-        dAV();
+        dEP();
     }
 
-    public void bC(int i, String str) {
-        dAV();
+    public void bG(int i, String str) {
+        dEP();
     }
 
-    public void bD(int i, String str) {
-        dAV();
+    public void bH(int i, String str) {
+        dEP();
     }
 
     public void a(VideoInfo videoInfo) {
-        dAV();
+        dEP();
     }
 }

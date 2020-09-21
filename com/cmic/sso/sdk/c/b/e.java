@@ -11,7 +11,7 @@ public class e extends g {
     private String c;
     private String d;
     private boolean e = false;
-    private a niV;
+    private a nsV;
 
     public void a(boolean z) {
         this.e = z;
@@ -30,16 +30,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.niV = aVar;
+        this.nsV = aVar;
     }
 
-    public a dNr() {
-        return this.niV;
+    public a dRp() {
+        return this.nsV;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.niV.a();
+        return this.nsV.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -48,7 +48,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.niV.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.nsV.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -112,11 +112,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.a = Ug(str);
+            this.a = UI(str);
         }
 
         public void f(String str) {
-            this.b = Ug(str);
+            this.b = UI(str);
         }
 
         public String a() {
@@ -124,82 +124,82 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = Ug(str);
+            this.c = UI(str);
         }
 
         public void h(String str) {
-            this.d = Ug(str);
+            this.d = UI(str);
         }
 
         public void i(String str) {
-            this.e = Ug(str);
+            this.e = UI(str);
         }
 
         public void j(String str) {
-            this.f = Ug(str);
+            this.f = UI(str);
         }
 
         public void k(String str) {
-            this.g = Ug(str);
+            this.g = UI(str);
         }
 
         public void l(String str) {
-            this.h = Ug(str);
+            this.h = UI(str);
         }
 
         public void m(String str) {
-            this.i = Ug(str);
+            this.i = UI(str);
         }
 
         public void n(String str) {
-            String Ug = Ug(str);
+            String UI = UI(str);
             try {
-                this.j = URLEncoder.encode(Ug, "utf-8");
+                this.j = URLEncoder.encode(UI, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = Ug;
+                this.j = UI;
             }
         }
 
         public void o(String str) {
-            String Ug = Ug(str);
+            String UI = UI(str);
             try {
-                this.k = URLEncoder.encode(Ug, "utf-8");
+                this.k = URLEncoder.encode(UI, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = Ug;
+                this.k = UI;
             }
         }
 
         public void p(String str) {
-            this.l = Ug(str);
+            this.l = UI(str);
         }
 
         public void q(String str) {
-            this.m = Ug(str);
+            this.m = UI(str);
         }
 
         public void r(String str) {
-            this.o = Ug(str);
+            this.o = UI(str);
         }
 
         public void s(String str) {
-            this.p = Ug(str);
+            this.p = UI(str);
         }
 
         public void t(String str) {
-            this.A = Ug(str);
+            this.A = UI(str);
         }
 
         public void u(String str) {
-            this.B = Ug(str);
+            this.B = UI(str);
         }
 
         public void v(String str) {
-            this.E = Ug(str);
+            this.E = UI(str);
         }
 
-        public String Uf(String str) {
+        public String UH(String str) {
             return com.cmic.sso.sdk.e.d.a(this.b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
@@ -207,7 +207,7 @@ public class e extends g {
             return this.a + ETAG.ITEM_SEPARATOR + this.b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String Ug(String str) {
+        private String UI(String str) {
             return str == null ? "" : str;
         }
     }

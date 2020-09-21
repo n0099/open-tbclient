@@ -4,12 +4,12 @@ import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes.dex */
 public class d {
     public static int i = 1;
-    public String bLJ;
-    public String dXE;
-    public boolean dXG;
-    public int dXH;
-    public String dXz;
-    public String eya;
+    public String bNJ;
+    public String dZJ;
+    public String dZO;
+    public boolean dZQ;
+    public int dZR;
+    public String eAg;
     public String mDescription;
     public int mStatus;
     public String mTitle;
@@ -17,12 +17,12 @@ public class d {
     public void a(UrlParserResIdl urlParserResIdl) {
         if (urlParserResIdl != null && urlParserResIdl.data != null) {
             this.mStatus = urlParserResIdl.data.status.intValue();
-            this.dXH = urlParserResIdl.data.url_type.intValue();
-            this.bLJ = urlParserResIdl.data.image;
+            this.dZR = urlParserResIdl.data.url_type.intValue();
+            this.bNJ = urlParserResIdl.data.image;
             this.mTitle = urlParserResIdl.data.title;
-            this.dXE = urlParserResIdl.data.link_from;
-            this.eya = urlParserResIdl.data.price_txt;
-            this.dXG = urlParserResIdl.data.is_recognize.intValue() == 1;
+            this.dZO = urlParserResIdl.data.link_from;
+            this.eAg = urlParserResIdl.data.price_txt;
+            this.dZQ = urlParserResIdl.data.is_recognize.intValue() == 1;
             this.mDescription = urlParserResIdl.data.description;
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.ar.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class s {
     public static String xu = "https://dusee.baidu.com";
 

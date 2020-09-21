@@ -14,7 +14,7 @@ import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class PbListView extends BdIListPage {
     private String endText;
     private int lineColor;
@@ -31,10 +31,11 @@ public class PbListView extends BdIListPage {
     private View mRoot;
     private int mSkinType;
     private int mTextColor;
+    private float mTextSize;
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD
@@ -61,6 +62,7 @@ public class PbListView extends BdIListPage {
         this.mTopExtraView = null;
         this.mIsMoreViewVisible = true;
         this.mSkinType = -1;
+        this.mTextSize = 11.0f;
         this.mContainerBackgroundColorResId = 0;
         this.mContext = context;
     }
@@ -74,6 +76,7 @@ public class PbListView extends BdIListPage {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(a.h.sdk_new_pb_list_more, (ViewGroup) null);
         this.mContainer = (LinearLayout) this.mRoot.findViewById(a.g.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(a.g.pb_more_text);
+        this.mTextView.setTextSize(this.mTextSize);
         if (this.mIsMoreViewVisible) {
             this.mContainer.setVisibility(0);
         } else {
@@ -123,6 +126,10 @@ public class PbListView extends BdIListPage {
 
     public void setTextSize(int i) {
         this.mTextView.setTextSize(0, BdUtilHelper.getDimens(this.mContext, i));
+    }
+
+    public void setmTextSize(float f) {
+        this.mTextSize = f;
     }
 
     public LinearLayout getTopExtraView() {

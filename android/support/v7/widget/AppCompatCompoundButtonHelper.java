@@ -12,7 +12,7 @@ import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class AppCompatCompoundButtonHelper {
     private ColorStateList mButtonTintList = null;
     private PorterDuff.Mode mButtonTintMode = null;
@@ -21,7 +21,7 @@ class AppCompatCompoundButtonHelper {
     private boolean mSkipNextApply;
     private final CompoundButton mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     interface DirectSetButtonDrawableInterface {
         void setButtonDrawable(Drawable drawable);
     }

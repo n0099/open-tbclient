@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int ccj = 5;
-    private int[] cck;
+    private static int cem = 5;
+    private int[] cen;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.cck = new int[gI(i - 1) + 1];
-        int length = this.cck.length;
+        this.cen = new int[gR(i - 1) + 1];
+        int length = this.cen.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.cck[i2] = -1;
+                this.cen[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.cck.length << ccj) - 1;
+        int length = (this.cen.length << cem) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.cck;
-        int gI = gI(i);
-        iArr[gI] = iArr[gI] | (1 << i);
+        int[] iArr = this.cen;
+        int gR = gR(i);
+        iArr[gR] = iArr[gR] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.cck.length << ccj) - 1;
+        int length = (this.cen.length << cem) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.cck[gI(i)] & (1 << i)) != 0;
+        return (this.cen[gR(i)] & (1 << i)) != 0;
     }
 
-    private int gI(int i) {
-        return i >> ccj;
+    private int gR(int i) {
+        return i >> cem;
     }
 }

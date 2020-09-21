@@ -5,7 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class r implements SensorEventListener {
     private static r d;
     private float[] a;

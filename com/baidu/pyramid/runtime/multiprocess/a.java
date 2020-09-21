@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
-    private static volatile int bML = 0;
+    private static volatile int bOL = 0;
     private static volatile String sProcessName;
 
-    public static int Wh() {
-        int i = bML;
+    public static int WQ() {
+        int i = bOL;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,13 +26,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            bML = i;
+            bOL = i;
         }
         return i;
     }
 
-    public static boolean Wi() {
-        return (Wh() & 2) != 0;
+    public static boolean WR() {
+        return (WQ() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +42,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = Wk();
+                    str = WT();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +53,7 @@ public class a {
         return str;
     }
 
-    public static int Wj() {
+    public static int WS() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +87,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String Wk() {
+    private static String WT() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;

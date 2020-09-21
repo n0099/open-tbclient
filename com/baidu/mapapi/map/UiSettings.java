@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class UiSettings {
     private com.baidu.mapsdkplatform.comapi.map.d a;
 

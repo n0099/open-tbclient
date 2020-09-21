@@ -4,34 +4,34 @@ import kotlin.h;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public interface c {
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public interface b extends c {
-        InterfaceC0971c<?> egk();
+        InterfaceC0968c<?> ekh();
 
         @Override // kotlin.coroutines.c
-        <E extends b> E get(InterfaceC0971c<E> interfaceC0971c);
+        <E extends b> E get(InterfaceC0968c<E> interfaceC0968c);
     }
 
     @h
     /* renamed from: kotlin.coroutines.c$c  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public interface InterfaceC0971c<E extends b> {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0968c<E extends b> {
     }
 
     <R> R fold(R r, m<? super R, ? super b, ? extends R> mVar);
 
-    <E extends b> E get(InterfaceC0971c<E> interfaceC0971c);
+    <E extends b> E get(InterfaceC0968c<E> interfaceC0968c);
 
-    c minusKey(InterfaceC0971c<?> interfaceC0971c);
+    c minusKey(InterfaceC0968c<?> interfaceC0968c);
 
     c plus(c cVar);
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static c a(c cVar, c cVar2) {
             q.m(cVar2, "context");

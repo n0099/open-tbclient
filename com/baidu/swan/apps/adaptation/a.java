@@ -3,19 +3,19 @@ package com.baidu.swan.apps.adaptation;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.i;
 import com.baidu.swan.bdprivate.a.u;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class a {
-    private i bSy;
+    private i bUy;
 
     @NonNull
-    public i Yq() {
-        if (this.bSy == null) {
-            this.bSy = Yr();
+    public i YZ() {
+        if (this.bUy == null) {
+            this.bUy = Za();
         }
-        return this.bSy;
+        return this.bUy;
     }
 
-    public i Yr() {
+    public i Za() {
         return new u();
     }
 }

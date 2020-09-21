@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.ap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 /* synthetic */ class hb {
     static final /* synthetic */ int[] a = new int[ap.c.values().length];
 

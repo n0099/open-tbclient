@@ -6,21 +6,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a();
     }
 
-    /* loaded from: classes20.dex */
-    public interface b extends a, InterfaceC0249c {
+    /* loaded from: classes3.dex */
+    public interface b extends a, InterfaceC0247c {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public interface InterfaceC0249c {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0247c {
         void a(long j, long j2);
     }
 
@@ -46,18 +46,18 @@ public class c {
         }
     }
 
-    public static void a(InputStream inputStream, File file, long j, InterfaceC0249c interfaceC0249c) throws IOException {
+    public static void a(InputStream inputStream, File file, long j, InterfaceC0247c interfaceC0247c) throws IOException {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = com.baidu.platform.comapi.walknavi.d.a.d.a.a.d(file);
-            a(inputStream, fileOutputStream, j, interfaceC0249c);
+            a(inputStream, fileOutputStream, j, interfaceC0247c);
         } finally {
             a(fileOutputStream);
         }
     }
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0249c interfaceC0249c) throws IOException {
-        a(inputStream, outputStream, j, (b) new d(interfaceC0249c));
+    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0247c interfaceC0247c) throws IOException {
+        a(inputStream, outputStream, j, (b) new d(interfaceC0247c));
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream, long j, b bVar) throws IOException {

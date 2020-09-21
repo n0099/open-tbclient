@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import com.baidu.prologue.business.data.d;
 import com.baidu.prologue.business.data.e;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends a<com.baidu.prologue.business.c.c> {
     protected static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
 
@@ -17,10 +17,10 @@ public class b extends a<com.baidu.prologue.business.c.c> {
     @Override // com.baidu.prologue.business.b.a
     public void a(com.baidu.prologue.business.c.c cVar) {
         super.a((b) cVar);
-        File aO = d.aO(this.bLm.url, this.bLm.md5);
+        File aO = d.aO(this.bNm.url, this.bNm.md5);
         if (aO != null) {
             cVar.f(BitmapFactory.decodeFile(aO.getAbsolutePath()));
         }
-        cVar.setImageUrl(this.bLm.url);
+        cVar.setImageUrl(this.bNm.url);
     }
 }

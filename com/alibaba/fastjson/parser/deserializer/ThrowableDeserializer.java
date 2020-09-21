@@ -9,7 +9,7 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ThrowableDeserializer extends JavaBeanDeserializer {
     public ThrowableDeserializer(ParserConfig parserConfig, Class<?> cls) {
         super(parserConfig, cls, cls);

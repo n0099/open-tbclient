@@ -3,7 +3,7 @@ package com.baidu.pano.platform.plugin.indooralbum;
 import android.view.View;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.pano.platform.plugin.indooralbum.IndoorAlbumCallback;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class IndoorAlbumPlugin {
     protected static Object mLock = new Object();
     protected static IndoorAlbumPlugin mPlugin = null;

@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class sysParamters {
-    private static volatile sysParamters nip;
+    private static volatile sysParamters nsp;
     private String a;
     private String b;
     private String c;
@@ -42,15 +42,15 @@ public class sysParamters {
         return a.versionName;
     }
 
-    public static sysParamters dNm() {
-        if (nip == null) {
+    public static sysParamters dRk() {
+        if (nsp == null) {
             synchronized (sysParamters.class) {
-                if (nip == null) {
-                    nip = new sysParamters();
+                if (nsp == null) {
+                    nsp = new sysParamters();
                 }
             }
         }
-        return nip;
+        return nsp;
     }
 
     public static String f() {

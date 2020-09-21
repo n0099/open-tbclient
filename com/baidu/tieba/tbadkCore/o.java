@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    private ForumData iAE;
+    private ForumData iHZ;
 
     public o(ForumData forumData) {
-        this.iAE = forumData;
+        this.iHZ = forumData;
     }
 
     @Override // com.baidu.adp.widget.ListView.q

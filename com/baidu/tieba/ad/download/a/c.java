@@ -1,9 +1,9 @@
 package com.baidu.tieba.ad.download.a;
 
 import com.baidu.tieba.ad.download.state.StopStatus;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public interface c {
-    void Dy(String str);
+    void DV(String str);
 
     void a(String str, StopStatus stopStatus);
 

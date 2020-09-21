@@ -1,8 +1,8 @@
 package com.baidu.tieba.video;
 
 import android.os.Environment;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class e {
-    public static final String mtW = Environment.getExternalStorageDirectory().toString();
-    public static final String mtX = c.mtS;
+    public static final String mDH = Environment.getExternalStorageDirectory().toString();
+    public static final String mDI = c.mDD;
 }

@@ -1,63 +1,63 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class f extends g {
-    private String dGo;
-    private String dGr;
-    private String dGs;
-    private int dGt;
-    private String dGv;
-    private int dGx;
+    private int dIB;
+    private String dIs;
+    private String dIv;
+    private String dIw;
+    private int dIx;
+    private String dIz;
 
     public f(String str, int i, String str2, int i2) {
         super(i2);
-        this.dGt = -1;
-        this.dGo = str;
-        this.dGv = str2;
-        this.dGx = i;
+        this.dIx = -1;
+        this.dIs = str;
+        this.dIz = str2;
+        this.dIB = i;
     }
 
     public f(String str, String str2, String str3, int i) {
         super(i);
-        this.dGt = -1;
-        this.dGo = str;
-        this.dGv = str3;
+        this.dIx = -1;
+        this.dIs = str;
+        this.dIz = str3;
         try {
-            this.dGx = Integer.valueOf(str2).intValue();
+            this.dIB = Integer.valueOf(str2).intValue();
         } catch (NumberFormatException e) {
-            this.dGx = 0;
+            this.dIB = 0;
         }
     }
 
-    public f wM(String str) {
-        this.dGr = str;
+    public f xf(String str) {
+        this.dIv = str;
         return this;
     }
 
-    public int aUm() {
-        return this.dGt;
+    public int aUY() {
+        return this.dIx;
     }
 
-    public void wN(String str) {
-        this.dGs = str;
+    public void xg(String str) {
+        this.dIw = str;
     }
 
     public String getBundleId() {
-        return this.dGo;
+        return this.dIs;
     }
 
-    public String aUr() {
-        return this.dGv;
+    public String aVd() {
+        return this.dIz;
     }
 
-    public int aUt() {
-        return this.dGx;
+    public int aVf() {
+        return this.dIB;
     }
 
-    public String aUn() {
-        return this.dGr;
+    public String aUZ() {
+        return this.dIv;
     }
 
-    public String aUo() {
-        return this.dGs;
+    public String aVa() {
+        return this.dIw;
     }
 }

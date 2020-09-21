@@ -17,7 +17,7 @@ public class k {
         return a.getSharedPreferences("ssoconfigs", 0).getInt(d.a(str), i);
     }
 
-    public static long L(String str, long j) {
+    public static long M(String str, long j) {
         return a.getSharedPreferences("ssoconfigs", 0).getLong(d.a(str), j);
     }
 
@@ -31,7 +31,7 @@ public class k {
         return a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2);
     }
 
-    public static a dNy() {
+    public static a dRw() {
         return new a(a.getSharedPreferences("ssoconfigs", 0).edit());
     }
 

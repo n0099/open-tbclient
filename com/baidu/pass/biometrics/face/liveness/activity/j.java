@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 class j implements Runnable {
     final /* synthetic */ LivenessRecogActivity a;
 

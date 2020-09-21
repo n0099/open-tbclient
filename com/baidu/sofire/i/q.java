@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class q {
     private static String a = "";
 

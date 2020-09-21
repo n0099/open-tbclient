@@ -7,7 +7,7 @@ import kotlin.jvm.a.b;
 import kotlin.jvm.internal.q;
 import kotlin.l;
 @h
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public final class FloatingViewClickUtilKt {
     public static final <T extends View> void setLastClickTime(T t, long j) {
         q.m(t, "$receiver");

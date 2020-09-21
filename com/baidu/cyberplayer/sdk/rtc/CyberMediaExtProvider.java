@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 import android.content.Context;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class CyberMediaExtProvider {
     public abstract CaptureManagerProvider createCaptureManagerProvider(Context context, int i, int i2, int i3, int i4, int i5);
 

@@ -2,7 +2,7 @@ package com.baidu.vi;
 
 import android.media.AudioRecord;
 import android.os.Process;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class b extends Thread {
     final /* synthetic */ AudioRecorder a;
 

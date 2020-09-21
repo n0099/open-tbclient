@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class WebViewDelegate {
     private WebView mWebView;
 

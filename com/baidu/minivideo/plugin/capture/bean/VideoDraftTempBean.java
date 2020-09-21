@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes18.dex */
 public class VideoDraftTempBean {
     public String mFilterId;
     public String mPath;

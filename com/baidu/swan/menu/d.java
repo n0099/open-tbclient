@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import com.baidu.swan.menu.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes23.dex */
 public class d extends RecyclerView.Adapter<a> {
-    private List<i> dDK = new ArrayList();
-    private List<i> dDL = new ArrayList();
+    private List<i> dFL = new ArrayList();
+    private List<i> dFM = new ArrayList();
     private Context mContext;
     private int mItemWidth;
 
@@ -24,14 +24,14 @@ public class d extends RecyclerView.Adapter<a> {
         int max;
         List<i> list2;
         List<i> list3;
-        this.dDK.clear();
-        this.dDL.clear();
+        this.dFL.clear();
+        this.dFM.clear();
         if (list != null) {
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.dDK.addAll(list3);
+                this.dFL.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.dDL.addAll(list2);
+                this.dFM.addAll(list2);
             }
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
             if (i == 0) {
@@ -39,13 +39,13 @@ public class d extends RecyclerView.Adapter<a> {
             } else {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
-            this.mItemWidth = (int) (max / (gZ(z) ? 5.5f : 5.0f));
+            this.mItemWidth = (int) (max / (gX(z) ? 5.5f : 5.0f));
             notifyDataSetChanged();
         }
     }
 
-    private boolean gZ(boolean z) {
-        return z || this.dDK.size() > 5 || this.dDL.size() > 5;
+    private boolean gX(boolean z) {
+        return z || this.dFL.size() > 5 || this.dFM.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,39 +72,39 @@ public class d extends RecyclerView.Adapter<a> {
             layoutParams.width = this.mItemWidth;
             aVar.itemView.setLayoutParams(layoutParams);
         }
-        if (i < this.dDK.size()) {
-            aVar.dDM.setVisibility(0);
-            aVar.dDM.f(this.dDK.get(i));
-            aVar.dDM.setOnClickListener(null);
+        if (i < this.dFL.size()) {
+            aVar.dFN.setVisibility(0);
+            aVar.dFN.f(this.dFL.get(i));
+            aVar.dFN.setOnClickListener(null);
         } else {
-            aVar.dDM.setVisibility(this.dDK.size() == 0 ? 8 : 4);
-            aVar.dDM.setOnClickListener(null);
+            aVar.dFN.setVisibility(this.dFL.size() == 0 ? 8 : 4);
+            aVar.dFN.setOnClickListener(null);
         }
-        if (i < this.dDL.size()) {
-            aVar.dDN.setVisibility(0);
-            aVar.dDN.f(this.dDL.get(i));
-            aVar.dDN.setOnClickListener(null);
+        if (i < this.dFM.size()) {
+            aVar.dFO.setVisibility(0);
+            aVar.dFO.f(this.dFM.get(i));
+            aVar.dFO.setOnClickListener(null);
             return;
         }
-        aVar.dDN.setVisibility(this.dDL.size() != 0 ? 4 : 8);
-        aVar.dDN.setOnClickListener(null);
+        aVar.dFO.setVisibility(this.dFM.size() != 0 ? 4 : 8);
+        aVar.dFO.setOnClickListener(null);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.dDK.size(), this.dDL.size());
+        return Math.max(this.dFL.size(), this.dFM.size());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes23.dex */
     public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView dDM;
-        SwanAppMenuItemView dDN;
+        SwanAppMenuItemView dFN;
+        SwanAppMenuItemView dFO;
 
         public a(View view) {
             super(view);
-            this.dDM = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
-            this.dDN = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
+            this.dFN = (SwanAppMenuItemView) view.findViewById(g.d.first_line_menu_item_view);
+            this.dFO = (SwanAppMenuItemView) view.findViewById(g.d.second_line_menu_item_view);
         }
     }
 }

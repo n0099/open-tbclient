@@ -1,25 +1,25 @@
 package kotlin.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class o extends n {
-    public static final f eg(int i, int i2) {
-        return f.oto.al(i, i2, -1);
+    public static final f ek(int i, int i2) {
+        return f.oCV.ao(i, i2, -1);
     }
 
-    public static final h eh(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.otq.egH() : new h(i, i2 - 1);
+    public static final h el(int i, int i2) {
+        return i2 <= Integer.MIN_VALUE ? h.oCX.ekE() : new h(i, i2 - 1);
     }
 
-    public static final int ei(int i, int i2) {
+    public static final int em(int i, int i2) {
         return i < i2 ? i2 : i;
     }
 
-    public static final int ej(int i, int i2) {
+    public static final int en(int i, int i2) {
         return i > i2 ? i2 : i;
     }
 
-    public static final int am(int i, int i2, int i3) {
+    public static final int ap(int i, int i2, int i3) {
         if (i2 > i3) {
             throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + i3 + " is less than minimum " + i2 + '.');
         }

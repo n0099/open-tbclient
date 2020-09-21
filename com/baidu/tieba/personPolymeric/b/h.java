@@ -28,18 +28,18 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class h implements View.OnClickListener {
-    private com.baidu.tieba.person.e dSU;
-    protected String eDT;
-    private com.baidu.tieba.ueg.a jBC;
-    private com.baidu.tieba.person.f llI;
-    private BlackListModel llJ;
-    protected boolean llK;
-    protected com.baidu.tieba.personPolymeric.c.a llL;
-    private boolean llM;
-    private al llN;
-    private final com.baidu.adp.framework.listener.c llO = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.personPolymeric.b.h.7
+    private com.baidu.tieba.person.e dVe;
+    protected String eFZ;
+    private com.baidu.tieba.ueg.a jKe;
+    private com.baidu.tieba.person.f luF;
+    private BlackListModel luG;
+    protected boolean luH;
+    protected com.baidu.tieba.personPolymeric.c.a luI;
+    private boolean luJ;
+    private al luK;
+    private final com.baidu.adp.framework.listener.c luL = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.personPolymeric.b.h.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -49,12 +49,12 @@ public class h implements View.OnClickListener {
                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                     if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                        h.this.llJ.setMaskType(1);
+                        h.this.luG.setMaskType(1);
                     } else {
-                        h.this.llJ.setMaskType(0);
+                        h.this.luG.setMaskType(0);
                     }
                     if (responseUpdateMaskInfoMessage.getError() == 0) {
-                        if (h.this.llJ.getMaskType() == 1) {
+                        if (h.this.luG.getMaskType() == 1) {
                             h.this.mPageContext.showToast(h.this.mPageContext.getString(R.string.chat_message_blocked));
                             return;
                         } else {
@@ -67,7 +67,7 @@ public class h implements View.OnClickListener {
             }
         }
     };
-    final com.baidu.adp.framework.listener.c llP = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_DELETE_NEW_FRIEND) { // from class: com.baidu.tieba.personPolymeric.b.h.8
+    final com.baidu.adp.framework.listener.c luM = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_DELETE_NEW_FRIEND) { // from class: com.baidu.tieba.personPolymeric.b.h.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -76,7 +76,7 @@ public class h implements View.OnClickListener {
                 int error = responseDeleteFriendMessage.getError();
                 String errorString = responseDeleteFriendMessage.getErrorString();
                 if (error == 0) {
-                    h.this.uG(false);
+                    h.this.uO(false);
                 } else {
                     errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? h.this.mPageContext.getResources().getString(R.string.neterror) : responseDeleteFriendMessage.getErrorString();
                 }
@@ -84,30 +84,30 @@ public class h implements View.OnClickListener {
             }
         }
     };
-    final CustomMessageListener llQ = new CustomMessageListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL) { // from class: com.baidu.tieba.personPolymeric.b.h.9
+    final CustomMessageListener luN = new CustomMessageListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL) { // from class: com.baidu.tieba.personPolymeric.b.h.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
-                h.this.uG(true);
+                h.this.uO(true);
             }
         }
     };
-    private final CustomMessageListener llR = new CustomMessageListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL) { // from class: com.baidu.tieba.personPolymeric.b.h.10
+    private final CustomMessageListener luO = new CustomMessageListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL) { // from class: com.baidu.tieba.personPolymeric.b.h.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == -1) {
-                    h.this.uG(false);
+                    h.this.uO(false);
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                    h.this.uG(true);
+                    h.this.uO(true);
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c llS = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_APPLY_MESSAGE) { // from class: com.baidu.tieba.personPolymeric.b.h.2
+    private final com.baidu.adp.framework.listener.c luP = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_APPLY_MESSAGE) { // from class: com.baidu.tieba.personPolymeric.b.h.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -116,7 +116,7 @@ public class h implements View.OnClickListener {
             }
         }
     };
-    protected d lly;
+    protected d luv;
     protected BdUniqueId mBdUniqueId;
     protected TbPageContext mPageContext;
     protected long mUserId;
@@ -124,17 +124,17 @@ public class h implements View.OnClickListener {
 
     public h(TbPageContext tbPageContext, d dVar, BlackListModel blackListModel, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.lly = dVar;
-        this.llJ = blackListModel;
+        this.luv = dVar;
+        this.luG = blackListModel;
         this.mBdUniqueId = bdUniqueId;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, com.baidu.tieba.ueg.a.class, tbPageContext.getPageActivity());
         if (runTask != null) {
-            this.jBC = (com.baidu.tieba.ueg.a) runTask.getData();
-            this.jBC.x(bdUniqueId);
+            this.jKe = (com.baidu.tieba.ueg.a) runTask.getData();
+            this.jKe.w(bdUniqueId);
         }
         registerListener();
-        this.llN = new al(tbPageContext, this.mBdUniqueId);
-        this.llN.a(new al.a() { // from class: com.baidu.tieba.personPolymeric.b.h.1
+        this.luK = new al(tbPageContext, this.mBdUniqueId);
+        this.luK.a(new al.a() { // from class: com.baidu.tieba.personPolymeric.b.h.1
             @Override // com.baidu.tbadk.core.util.al.a
             public void a(int i, String str, long j, boolean z) {
                 if (z && i != 2260104) {
@@ -145,114 +145,114 @@ public class h implements View.OnClickListener {
                     }
                 }
                 if (j == h.this.mUserId && i == 0) {
-                    h.this.llM = false;
+                    h.this.luJ = false;
                 }
             }
         });
     }
 
     public void registerListener() {
-        this.llO.setTag(this.mBdUniqueId);
-        this.llP.setTag(this.mBdUniqueId);
-        this.llS.setTag(this.mBdUniqueId);
-        this.llR.setTag(this.mBdUniqueId);
-        this.llQ.setTag(this.mBdUniqueId);
-        this.mPageContext.registerListener(this.llO);
-        this.mPageContext.registerListener(this.llP);
-        this.mPageContext.registerListener(this.llS);
-        this.mPageContext.registerListener(this.llR);
-        this.mPageContext.registerListener(this.llQ);
+        this.luL.setTag(this.mBdUniqueId);
+        this.luM.setTag(this.mBdUniqueId);
+        this.luP.setTag(this.mBdUniqueId);
+        this.luO.setTag(this.mBdUniqueId);
+        this.luN.setTag(this.mBdUniqueId);
+        this.mPageContext.registerListener(this.luL);
+        this.mPageContext.registerListener(this.luM);
+        this.mPageContext.registerListener(this.luP);
+        this.mPageContext.registerListener(this.luO);
+        this.mPageContext.registerListener(this.luN);
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.llJ != null && aVar != null && aVar.getUserData() != null) {
-            this.llL = aVar;
+        if (this.luG != null && aVar != null && aVar.getUserData() != null) {
+            this.luI = aVar;
             UserData userData = aVar.getUserData();
-            this.llK = aVar.cIL();
-            this.llJ.setMaskType(userData.isMask() ? 1 : 0);
+            this.luH = aVar.cMr();
+            this.luG.setMaskType(userData.isMask() ? 1 : 0);
             this.mUserName = userData.getName_show();
             this.mUserId = userData.getUserIdLong();
-            this.eDT = userData.getPortrait();
-            this.llM = userData.getIsMyFans() == 1;
+            this.eFZ = userData.getPortrait();
+            this.luJ = userData.getIsMyFans() == 1;
         }
     }
 
-    public void div() {
-        if (this.lly != null && this.llJ != null) {
-            a(this.llK, this.llJ.getMaskType() == 1, this.lly.dil(), this.llM);
+    public void dma() {
+        if (this.luv != null && this.luG != null) {
+            a(this.luH, this.luG.getMaskType() == 1, this.luv.dlQ(), this.luJ);
         }
     }
 
     private void a(boolean z, boolean z2, int i, boolean z3) {
-        this.llI = new com.baidu.tieba.person.f(this.mPageContext, this);
-        this.llI.k(z, z2, z3);
+        this.luF = new com.baidu.tieba.person.f(this.mPageContext, this);
+        this.luF.l(z, z2, z3);
         if (i != -1) {
-            this.llI.Fe(i);
+            this.luF.FF(i);
         }
-        if (this.llL != null && this.llL.getUserData() != null) {
-            if (this.llL.getUserData().getBaijiahaoInfo() != null && !StringUtils.isNull(this.llL.getUserData().getBaijiahaoInfo().name)) {
-                this.llI.setUserName(this.llL.getUserData().getBaijiahaoInfo().name);
+        if (this.luI != null && this.luI.getUserData() != null) {
+            if (this.luI.getUserData().getBaijiahaoInfo() != null && !StringUtils.isNull(this.luI.getUserData().getBaijiahaoInfo().name)) {
+                this.luF.setUserName(this.luI.getUserData().getBaijiahaoInfo().name);
             } else {
-                this.llI.setUserName(this.llL.getUserData().getUserName());
+                this.luF.setUserName(this.luI.getUserData().getUserName());
             }
         }
-        this.llI.onChangeSkinType();
-        this.dSU = new com.baidu.tieba.person.e(this.mPageContext.getPageActivity(), this.llI.getView());
-        this.dSU.show();
+        this.luF.onChangeSkinType();
+        this.dVe = new com.baidu.tieba.person.e(this.mPageContext.getPageActivity(), this.luF.getView());
+        this.dVe.show();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            com.baidu.adp.lib.f.g.dismissDialog(this.dSU, this.mPageContext.getPageActivity());
-            if (this.llI.dgp() != null && view.getId() == this.llI.dgp().getId()) {
-                dix();
-            } else if (this.llI.dgo() != null && view.getId() == this.llI.dgo().getId()) {
-                if (this.llK) {
+            com.baidu.adp.lib.f.g.dismissDialog(this.dVe, this.mPageContext.getPageActivity());
+            if (this.luF.djS() != null && view.getId() == this.luF.djS().getId()) {
+                dmc();
+            } else if (this.luF.djR() != null && view.getId() == this.luF.djR().getId()) {
+                if (this.luH) {
                     RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
                     requestDeleteFriendMessage.setFriendId(this.mUserId);
                     MessageManager.getInstance().sendMessage(requestDeleteFriendMessage);
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.mPageContext.getPageActivity(), String.valueOf(this.mUserId), this.mUserName, this.eDT, null, false, null)));
-            } else if (this.llI.dgq() != null && view.getId() == this.llI.dgq().getId()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.mPageContext.getPageActivity(), String.valueOf(this.mUserId), this.mUserName, this.eFZ, null, false, null)));
+            } else if (this.luF.djT() != null && view.getId() == this.luF.djT().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     this.mPageContext.showToast(R.string.neterror);
-                } else if (this.lly != null) {
-                    if (this.lly.dil() == 0) {
+                } else if (this.luv != null) {
+                    if (this.luv.dlQ() == 0) {
                         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                        userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.lly.dim(), this.lly.getUniqueId());
-                        userMuteAddAndDelCustomMessage.mId = this.lly.getUniqueId();
-                        this.lly.a(false, userMuteAddAndDelCustomMessage, this.lly.dim(), this.mUserName);
-                    } else if (this.lly.dil() == 1) {
+                        userMuteAddAndDelCustomMessage.setData(false, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.luv.dlR(), this.luv.getUniqueId());
+                        userMuteAddAndDelCustomMessage.mId = this.luv.getUniqueId();
+                        this.luv.a(false, userMuteAddAndDelCustomMessage, this.luv.dlR(), this.mUserName);
+                    } else if (this.luv.dlQ() == 1) {
                         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage2 = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                        userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.lly.dim(), this.lly.getUniqueId());
-                        userMuteAddAndDelCustomMessage2.mId = this.lly.getUniqueId();
-                        this.lly.a(true, userMuteAddAndDelCustomMessage2, null, this.mUserName);
+                        userMuteAddAndDelCustomMessage2.setData(true, String.valueOf(this.mUserId), this.mUserName, null, null, 0, this.luv.dlR(), this.luv.getUniqueId());
+                        userMuteAddAndDelCustomMessage2.mId = this.luv.getUniqueId();
+                        this.luv.a(true, userMuteAddAndDelCustomMessage2, null, this.mUserName);
                     }
                 }
-            } else if (this.llI.dgr() != null && view.getId() == this.llI.dgr().getId()) {
-                if (this.jBC != null) {
+            } else if (this.luF.djU() != null && view.getId() == this.luF.djU().getId()) {
+                if (this.jKe != null) {
                     TiebaStatic.log(new aq("c13063").ai("obj_locate", 1));
-                    this.jBC.NX(String.valueOf(this.mUserId));
+                    this.jKe.Oy(String.valueOf(this.mUserId));
                 }
-            } else if (this.llI.dgs() != null && view.getId() == this.llI.dgs().getId()) {
+            } else if (this.luF.djV() != null && view.getId() == this.luF.djV().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     l.showToast(this.mPageContext.getPageActivity(), (int) R.string.neterror);
                 } else {
-                    diw();
+                    dmb();
                 }
             }
         }
     }
 
-    private void diw() {
+    private void dmb() {
         if (this.mUserId != 0) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.h.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    h.this.llN.cF(h.this.mUserId);
+                    h.this.luK.cG(h.this.mUserId);
                     aVar2.dismiss();
                 }
             });
@@ -262,13 +262,13 @@ public class h implements View.OnClickListener {
                     aVar2.dismiss();
                 }
             });
-            aVar.zA(String.format(this.mPageContext.getString(R.string.remove_fans_alert_text), this.mUserName));
+            aVar.zV(String.format(this.mPageContext.getString(R.string.remove_fans_alert_text), this.mUserName));
             aVar.b(this.mPageContext);
-            aVar.bhg();
+            aVar.bia();
         }
     }
 
-    protected void dix() {
+    protected void dmc() {
         String format;
         if (this.mUserName != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -276,10 +276,10 @@ public class h implements View.OnClickListener {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     if (h.this.mUserId > 0) {
-                        if (h.this.llJ.getMaskType() == 1) {
-                            h.this.llJ.removeFromBlackList(h.this.mUserId);
+                        if (h.this.luG.getMaskType() == 1) {
+                            h.this.luG.removeFromBlackList(h.this.mUserId);
                         } else {
-                            h.this.llJ.addToBlackList(h.this.mUserId);
+                            h.this.luG.addToBlackList(h.this.mUserId);
                         }
                     }
                     aVar2.dismiss();
@@ -291,25 +291,25 @@ public class h implements View.OnClickListener {
                     aVar2.dismiss();
                 }
             });
-            if (this.llJ.getMaskType() == 1) {
+            if (this.luG.getMaskType() == 1) {
                 format = String.format(this.mPageContext.getString(R.string.block_chat_ensure_toremove_text), this.mUserName);
             } else {
                 format = String.format(this.mPageContext.getString(R.string.block_chat_message_alert), this.mUserName);
             }
-            aVar.zA(format);
+            aVar.zV(format);
             aVar.b(this.mPageContext);
-            aVar.bhg();
+            aVar.bia();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uG(boolean z) {
-        this.llK = z;
-        if (this.llL != null) {
-            this.llL.uH(this.llK);
+    public void uO(boolean z) {
+        this.luH = z;
+        if (this.luI != null) {
+            this.luI.uP(this.luH);
         }
-        if (this.llI != null && this.llJ != null) {
-            this.llI.k(this.llK, this.llJ.getMaskType() == 1, this.llM);
+        if (this.luF != null && this.luG != null) {
+            this.luF.l(this.luH, this.luG.getMaskType() == 1, this.luJ);
         }
     }
 }

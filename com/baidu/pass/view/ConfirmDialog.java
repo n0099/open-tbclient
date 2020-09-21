@@ -17,10 +17,10 @@ import android.widget.TextView;
 import com.baidu.pass.R;
 import com.baidu.pass.utils.CommonViewUtility;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ConfirmDialog extends Dialog implements com.baidu.pass.a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder implements com.baidu.pass.a {
         private Context a;
         private String b;

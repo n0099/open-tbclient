@@ -5,11 +5,11 @@ import UserPost.UserPostReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
 import tbclient.User;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     private int from;
     private boolean isHost;
@@ -144,7 +144,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.subtype = Integer.valueOf(this.sub_type);
         builder.is_view_card = Integer.valueOf(this.is_view_card);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

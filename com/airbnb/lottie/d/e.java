@@ -6,7 +6,7 @@ import android.support.annotation.FloatRange;
 import com.airbnb.lottie.a.a.j;
 import com.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static PointF a(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -14,25 +14,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF kl = hVar.kl();
-        path.moveTo(kl.x, kl.y);
-        PointF pointF = new PointF(kl.x, kl.y);
+        PointF km = hVar.km();
+        path.moveTo(km.x, km.y);
+        PointF pointF = new PointF(km.x, km.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.km().size()) {
+            if (i2 >= hVar.kn().size()) {
                 break;
             }
-            com.airbnb.lottie.model.a aVar = hVar.km().get(i2);
-            PointF js = aVar.js();
+            com.airbnb.lottie.model.a aVar = hVar.kn().get(i2);
             PointF jt = aVar.jt();
             PointF ju = aVar.ju();
-            if (js.equals(pointF) && jt.equals(ju)) {
-                path.lineTo(ju.x, ju.y);
+            PointF jv = aVar.jv();
+            if (jt.equals(pointF) && ju.equals(jv)) {
+                path.lineTo(jv.x, jv.y);
             } else {
-                path.cubicTo(js.x, js.y, jt.x, jt.y, ju.x, ju.y);
+                path.cubicTo(jt.x, jt.y, ju.x, ju.y, jv.x, jv.y);
             }
-            pointF.set(ju.x, ju.y);
+            pointF.set(jv.x, jv.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {

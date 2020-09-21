@@ -3,7 +3,7 @@ package com.baidu.ar.npc;
 import android.util.Log;
 import com.baidu.ar.npc.ArBridge;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class o implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ int b;

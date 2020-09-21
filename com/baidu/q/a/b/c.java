@@ -3,27 +3,27 @@ package com.baidu.q.a.b;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.q.a.a.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes25.dex */
 public class c extends d {
     private static String TAG = "XMUnionID";
-    private static boolean DEBUG = com.baidu.q.a.a.dMX();
+    private static boolean DEBUG = com.baidu.q.a.a.dQV();
 
     public c(Context context) {
         super(context);
         if (DEBUG) {
             Log.e(TAG, "xiaomi XMUnionID !!");
         }
-        this.nhh = "";
-        this.nhf = false;
-        this.nhI = false;
+        this.nri = "";
+        this.nrg = false;
+        this.nrJ = false;
         this.mStatusCode = -200;
     }
 
     @Override // com.baidu.q.a.a.c
-    public com.baidu.q.a.a.c dNe() {
+    public com.baidu.q.a.a.c dRc() {
         try {
-            this.nhI = com.a.b.a.isSupported();
-            this.nhh = com.a.b.a.bo(this.mCtx);
+            this.nrJ = com.a.b.a.isSupported();
+            this.nri = com.a.b.a.bn(this.mCtx);
             this.mStatusCode = 0;
         } catch (Exception e) {
             if (DEBUG) {

@@ -8,15 +8,15 @@ import com.baidu.ar.recorder.MovieRecorder;
 import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class fb {
     private static volatile fb a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f312a;
+    private Context f311a;
 
     private fb(Context context) {
-        this.f312a = context;
+        this.f311a = context;
     }
 
     public static fb a(Context context) {
@@ -32,9 +32,9 @@ public class fb {
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
         if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f312a, (PerfClientReport) aVar);
+            ClientReportClient.reportPerf(this.f311a, (PerfClientReport) aVar);
         } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f312a, (EventClientReport) aVar);
+            ClientReportClient.reportEvent(this.f311a, (EventClientReport) aVar);
         }
     }
 
@@ -42,7 +42,7 @@ public class fb {
         if (i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = fa.a(this.f312a, i, j, j2);
+        PerfClientReport a2 = fa.a(this.f311a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);
@@ -66,7 +66,7 @@ public class fb {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = fa.a(this.f312a, str2, str3, i, j, str4);
+        EventClientReport a2 = fa.a(this.f311a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_7_5");
         a(a2);

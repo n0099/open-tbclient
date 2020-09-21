@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.container.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface b {
-    void Yx();
+    void Zg();
 }

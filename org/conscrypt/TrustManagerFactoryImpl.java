@@ -6,7 +6,7 @@ import java.security.KeyStoreException;
 import javax.net.ssl.ManagerFactoryParameters;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactorySpi;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class TrustManagerFactoryImpl extends TrustManagerFactorySpi {
     private KeyStore keyStore;
 

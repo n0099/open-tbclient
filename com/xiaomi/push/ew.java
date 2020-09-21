@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ew implements et {
     private void a(Service service, Intent intent) {
         String stringExtra = intent.getStringExtra("awake_info");

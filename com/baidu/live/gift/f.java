@@ -1,11 +1,11 @@
 package com.baidu.live.gift;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class f {
-    public boolean aMJ;
-    public boolean aMS = false;
-    public boolean aMT;
+    public boolean aOB;
+    public boolean aOK = false;
+    public boolean aOL;
     public Context context;
     public String fromType;
 }

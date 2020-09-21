@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView aaz;
-    private View mDT;
-    private View mDU;
-    private View mDV;
-    private ObjectAnimator mDW;
-    private ObjectAnimator mDX;
-    private ObjectAnimator mDY;
-    private ObjectAnimator mDZ;
+    private TextView aaR;
+    private View mNE;
+    private View mNF;
+    private View mNG;
+    private ObjectAnimator mNH;
+    private ObjectAnimator mNI;
+    private ObjectAnimator mNJ;
+    private ObjectAnimator mNK;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.mDT = findViewById(R.id.record_layer1);
-        this.mDU = findViewById(R.id.record_layer2);
-        this.mDV = findViewById(R.id.record_layer3);
-        this.aaz = (TextView) findViewById(R.id.tv_tip);
-        this.mDV.setScaleX(0.766f);
-        this.mDV.setScaleY(0.766f);
+        this.mNE = findViewById(R.id.record_layer1);
+        this.mNF = findViewById(R.id.record_layer2);
+        this.mNG = findViewById(R.id.record_layer3);
+        this.aaR = (TextView) findViewById(R.id.tv_tip);
+        this.mNG.setScaleX(0.766f);
+        this.mNG.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.mDV;
+        return this.mNG;
     }
 
     public View getLayer1() {
-        return this.mDT;
+        return this.mNE;
     }
 
     public View getLayer2() {
-        return this.mDU;
+        return this.mNF;
     }
 
     public TextView getTvTip() {
-        return this.aaz;
+        return this.aaR;
     }
 
-    public void dEo() {
-        if (this.mDZ != null && this.mDZ.isRunning()) {
-            this.mDY.cancel();
+    public void dIi() {
+        if (this.mNK != null && this.mNK.isRunning()) {
+            this.mNJ.cancel();
         }
-        if (this.mDY == null) {
-            this.mDY = ObjectAnimator.ofPropertyValuesHolder(this.mDU, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.mDY.setDuration(200L);
+        if (this.mNJ == null) {
+            this.mNJ = ObjectAnimator.ofPropertyValuesHolder(this.mNF, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.mNJ.setDuration(200L);
         }
-        this.mDY.start();
+        this.mNJ.start();
     }
 
-    public void dEp() {
-        if (this.mDY != null && this.mDY.isRunning()) {
-            this.mDY.cancel();
+    public void dIj() {
+        if (this.mNJ != null && this.mNJ.isRunning()) {
+            this.mNJ.cancel();
         }
-        if (this.mDU.getScaleX() != 1.0f) {
-            if (this.mDZ == null) {
-                this.mDZ = ObjectAnimator.ofPropertyValuesHolder(this.mDU, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.mDZ.setDuration(200L);
+        if (this.mNF.getScaleX() != 1.0f) {
+            if (this.mNK == null) {
+                this.mNK = ObjectAnimator.ofPropertyValuesHolder(this.mNF, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.mNK.setDuration(200L);
             }
-            this.mDZ.start();
+            this.mNK.start();
         }
     }
 
-    public void wP(boolean z) {
-        if (this.mDX != null && this.mDX.isRunning()) {
-            this.mDX.cancel();
+    public void wY(boolean z) {
+        if (this.mNI != null && this.mNI.isRunning()) {
+            this.mNI.cancel();
         }
-        if (this.mDW == null) {
-            this.mDW = ObjectAnimator.ofPropertyValuesHolder(this.mDV, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.mDW.setRepeatCount(-1);
-            this.mDW.setRepeatMode(2);
-            this.mDW.setDuration(1000L);
+        if (this.mNH == null) {
+            this.mNH = ObjectAnimator.ofPropertyValuesHolder(this.mNG, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.mNH.setRepeatCount(-1);
+            this.mNH.setRepeatMode(2);
+            this.mNH.setDuration(1000L);
         }
-        this.mDV.setVisibility(0);
+        this.mNG.setVisibility(0);
         if (z) {
-            this.mDT.setVisibility(8);
+            this.mNE.setVisibility(8);
         } else {
-            this.mDT.setBackgroundResource(R.drawable.red_square_bg);
+            this.mNE.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.aaz.setVisibility(8);
-        this.mDW.start();
+        this.aaR.setVisibility(8);
+        this.mNH.start();
     }
 
-    public void dEd() {
-        if (this.mDW != null && this.mDW.isRunning()) {
-            this.mDW.cancel();
+    public void dHX() {
+        if (this.mNH != null && this.mNH.isRunning()) {
+            this.mNH.cancel();
         }
-        if (this.mDX == null) {
-            this.mDX = ObjectAnimator.ofPropertyValuesHolder(this.mDV, PropertyValuesHolder.ofFloat("scaleX", this.mDV.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.mDV.getScaleY(), 0.766f));
-            this.mDX.setDuration((500.0f * Math.abs(0.766f - this.mDV.getScaleX())) / 0.3f);
+        if (this.mNI == null) {
+            this.mNI = ObjectAnimator.ofPropertyValuesHolder(this.mNG, PropertyValuesHolder.ofFloat("scaleX", this.mNG.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.mNG.getScaleY(), 0.766f));
+            this.mNI.setDuration((500.0f * Math.abs(0.766f - this.mNG.getScaleX())) / 0.3f);
         }
-        this.mDT.setVisibility(0);
-        this.mDT.setBackgroundResource(R.drawable.red_circle_bg);
-        this.mDX.start();
+        this.mNE.setVisibility(0);
+        this.mNE.setBackgroundResource(R.drawable.red_circle_bg);
+        this.mNI.start();
     }
 }

@@ -11,61 +11,61 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.aa;
+import com.baidu.tbadk.util.ab;
 import com.baidu.tieba.frs.aq;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class GameVideoFragment extends BaseFragment implements aq {
-    private c iJV;
+    private c iSB;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.iJV == null) {
-            this.iJV = new c(getPageContext(), getUniqueId());
+        if (this.iSB == null) {
+            this.iSB = new c(getPageContext(), getUniqueId());
         }
-        this.iJV.init();
+        this.iSB.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.iJV == null || this.iJV.getView() == null) {
+        if (this.iSB == null || this.iSB.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.iJV.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.iJV.getView().getParent()).removeView(this.iJV.getView());
+        if (this.iSB.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.iSB.getView().getParent()).removeView(this.iSB.getView());
         }
-        return this.iJV.getView();
+        return this.iSB.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.iJV != null) {
-            this.iJV.loadData();
+        if (this.iSB != null) {
+            this.iSB.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void OA() {
-        if (this.iJV != null) {
-            this.iJV.OA();
+    public void Pd() {
+        if (this.iSB != null) {
+            this.iSB.Pd();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bFZ() {
+    public void bHp() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bGa() {
+    public void bHq() {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
+    public void setRecommendFrsNavigationAnimDispatcher(ab abVar) {
     }
 
     @Override // com.baidu.tieba.frs.aq
@@ -73,15 +73,15 @@ public class GameVideoFragment extends BaseFragment implements aq {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bkF() {
+    public void blA() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iJV != null) {
-            this.iJV.bkF();
+        if (this.iSB != null) {
+            this.iSB.blA();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements aq {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.iJV != null) {
-            this.iJV.setPrimary(isPrimary());
+        if (this.iSB != null) {
+            this.iSB.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.iJV != null) {
-            this.iJV.onPause();
+        if (this.iSB != null) {
+            this.iSB.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iJV != null) {
-            this.iJV.onDestroy();
+        if (this.iSB != null) {
+            this.iSB.onDestroy();
         }
     }
 

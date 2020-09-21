@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum ParsedResultType {
     ADDRESSBOOK,
     EMAIL_ADDRESS,

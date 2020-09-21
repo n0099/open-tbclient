@@ -4,12 +4,12 @@ import android.app.Application;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class x {
     private final z mViewModelStore;
     private final b zI;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         @NonNull
         <T extends w> T create(@NonNull Class<T> cls);
@@ -44,7 +44,7 @@ public class x {
         return t;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class c implements b {
         @Override // android.arch.lifecycle.x.b
         @NonNull
@@ -59,7 +59,7 @@ public class x {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class a extends c {
         private static a zJ;
         private Application mApplication;

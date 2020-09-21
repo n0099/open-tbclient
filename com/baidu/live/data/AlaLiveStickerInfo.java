@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveStickerInfo implements Serializable {
     public static final int ALA_STICKER_TYPE_IMAGE = 1;
     public static final int ALA_STICKER_TYPE_TEXT = 2;

@@ -21,7 +21,7 @@ public class b extends PopupWindow implements View.OnClickListener {
     private static final int[] b = {6666, ResponseCode.MCASAT_SEND_MSG_COLSE_ROOM, 520, Opcodes.NEWARRAY, 66, 10, 1};
     private static final int[] c = {a.i.str_gift_count_6666, a.i.str_gift_count_1314, a.i.str_gift_count_520, a.i.str_gift_count_188, a.i.str_gift_count_66, a.i.str_gift_count_10, a.i.str_gift_count_1};
     private List<Pair<String, String>> a;
-    private a ocs;
+    private a omd;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -33,7 +33,7 @@ public class b extends PopupWindow implements View.OnClickListener {
         this.a = new ArrayList();
         View inflate = LayoutInflater.from(context).inflate(a.h.popup_gift_count, (ViewGroup) null, false);
         setContentView(inflate);
-        this.ocs = aVar;
+        this.omd = aVar;
         inflate.findViewById(a.f.tv_customize).setOnClickListener(this);
         for (int i = 0; i < b.length; i++) {
             this.a.add(new Pair<>(String.valueOf(b[i]), context.getString(c[i])));
@@ -42,19 +42,19 @@ public class b extends PopupWindow implements View.OnClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new tv.chushou.zues.widget.adapterview.recyclerview.a.a<Pair<String, String>>(this.a, a.h.item_gift_count, new tv.chushou.zues.widget.adapterview.d() { // from class: com.kascend.chushou.widget.gifts.b.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void C(View view, int i2) {
+            public void D(View view, int i2) {
                 Pair pair = (Pair) b.this.a.get(i2);
-                if (b.this.ocs != null) {
-                    b.this.ocs.a(false, Integer.parseInt((String) pair.first));
+                if (b.this.omd != null) {
+                    b.this.omd.a(false, Integer.parseInt((String) pair.first));
                 }
                 b.this.dismiss();
             }
         }) { // from class: com.kascend.chushou.widget.gifts.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC1014a view$OnLongClickListenerC1014a, Pair<String, String> pair) {
-                view$OnLongClickListenerC1014a.a(a.f.tv_count, (CharSequence) pair.first);
-                ((TextView) view$OnLongClickListenerC1014a.qW(a.f.tv_desc)).setText((CharSequence) pair.second);
+            public void a(a.View$OnLongClickListenerC1011a view$OnLongClickListenerC1011a, Pair<String, String> pair) {
+                view$OnLongClickListenerC1011a.a(a.f.tv_count, (CharSequence) pair.first);
+                ((TextView) view$OnLongClickListenerC1011a.rn(a.f.tv_desc)).setText((CharSequence) pair.second);
             }
         });
         setWidth(tv.chushou.zues.utils.a.dip2px(context, 160.0f));
@@ -68,8 +68,8 @@ public class b extends PopupWindow implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == a.f.tv_customize) {
             dismiss();
-            if (this.ocs != null) {
-                this.ocs.a(true, -1);
+            if (this.omd != null) {
+                this.omd.a(true, -1);
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.sofire.i;
 
 import android.content.Context;
 import android.os.Process;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class s {
     public static boolean a(Context context, String[] strArr) {
         for (int i = 0; i <= 0; i++) {

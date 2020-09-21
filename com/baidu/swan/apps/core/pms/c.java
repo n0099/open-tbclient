@@ -4,12 +4,12 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<com.baidu.swan.pms.model.e, Set<b>> ckb;
+    private HashMap<com.baidu.swan.pms.model.e, Set<b>> cmc;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(PMSDownloadType pMSDownloadType);
 
@@ -17,21 +17,21 @@ public class c {
     }
 
     private c() {
-        this.ckb = new HashMap<>();
+        this.cmc = new HashMap<>();
     }
 
     public synchronized void a(com.baidu.swan.pms.model.e eVar, PMSDownloadType pMSDownloadType) {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.ckb.get(eVar);
+        Set<b> set = this.cmc.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType);
                 }
             }
-            this.ckb.remove(eVar);
+            this.cmc.remove(eVar);
         }
     }
 
@@ -39,14 +39,14 @@ public class c {
         if (DEBUG) {
             Log.i("PMSDownloadRepeatSync", "downloadError:" + eVar + " : " + pMSDownloadType);
         }
-        Set<b> set = this.ckb.get(eVar);
+        Set<b> set = this.cmc.get(eVar);
         if (set != null) {
             for (b bVar : set) {
                 if (bVar != null) {
                     bVar.a(pMSDownloadType, aVar);
                 }
             }
-            this.ckb.remove(eVar);
+            this.cmc.remove(eVar);
         }
     }
 
@@ -55,23 +55,23 @@ public class c {
             Log.i("PMSDownloadRepeatSync", "registerResultListener:" + eVar);
         }
         if (eVar != null && bVar != null) {
-            Set<b> set = this.ckb.get(eVar);
+            Set<b> set = this.cmc.get(eVar);
             if (set != null) {
                 set.add(bVar);
             } else {
                 HashSet hashSet = new HashSet();
                 hashSet.add(bVar);
-                this.ckb.put(eVar, hashSet);
+                this.cmc.put(eVar, hashSet);
             }
         }
     }
 
-    public static c ait() {
-        return a.ckc;
+    public static c ajd() {
+        return a.cme;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        private static c ckc = new c();
+        private static c cme = new c();
     }
 }

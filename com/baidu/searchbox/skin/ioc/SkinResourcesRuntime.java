@@ -1,5 +1,5 @@
 package com.baidu.searchbox.skin.ioc;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class SkinResourcesRuntime {
     private static DefaultSkinResourcesContext sDefaultSkinResourcesContext = new DefaultSkinResourcesContext();
 

@@ -22,75 +22,73 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class d extends HttpURLConnection {
     private final List<Pair<String, String>> mRequestHeaders;
-    private UrlResponseInfo naD;
-    private String nbG;
-    private String nbH;
-    private boolean nbz;
-    private final TurbonetEngine ncT;
-    private boolean ndJ;
-    private boolean neA;
-    private boolean neB;
-    private List<Map.Entry<String, String>> neC;
-    private Map<String, List<String>> neD;
-    private boolean neE;
-    private int neF;
-    private final g nem;
-    private boolean neo;
-    private boolean nep;
-
-    /* renamed from: new  reason: not valid java name */
-    private UrlRequest f6new;
-    private e nex;
-    private f ney;
-    private UrlRequestException nez;
+    private UrlResponseInfo nkC;
+    private String nlF;
+    private String nlG;
+    private boolean nly;
+    private final TurbonetEngine nmS;
+    private boolean nnI;
+    private boolean noA;
+    private boolean noB;
+    private List<Map.Entry<String, String>> noC;
+    private Map<String, List<String>> noD;
+    private boolean noE;
+    private int noF;
+    private final g nol;
+    private boolean non;
+    private boolean noo;
+    private UrlRequest nov;
+    private e nox;
+    private f noy;
+    private UrlRequestException noz;
 
     public d(URL url, TurbonetEngine turbonetEngine) {
         super(url);
-        this.neA = false;
-        this.neB = false;
-        this.neE = false;
-        this.neF = 0;
-        this.neo = false;
-        this.nep = false;
-        this.ncT = turbonetEngine;
-        this.nem = new g(getURL().toString());
-        this.nex = new e(this);
+        this.noA = false;
+        this.noB = false;
+        this.noE = false;
+        this.noF = 0;
+        this.non = false;
+        this.noo = false;
+        this.nmS = turbonetEngine;
+        this.nol = new g(getURL().toString());
+        this.nox = new e(this);
         this.mRequestHeaders = new ArrayList();
     }
 
     @Override // java.net.URLConnection
     public void connect() throws IOException {
         getOutputStream();
-        dLH();
+        dPF();
     }
 
     @Override // java.net.HttpURLConnection
     public void disconnect() {
         if (this.connected) {
-            this.f6new.cancel();
+            this.nov.cancel();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
-        dLI();
-        return this.naD.dLr();
+        dPG();
+        return this.nkC.dPp();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
-        dLI();
-        return this.naD.getHttpStatusCode();
+        dPG();
+        return this.nkC.getHttpStatusCode();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
         try {
-            dLI();
-            return dLL();
+            dPG();
+            return dPJ();
         } catch (IOException e) {
             return Collections.emptyMap();
         }
@@ -99,10 +97,10 @@ public class d extends HttpURLConnection {
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
         try {
-            dLI();
-            Map<String, List<String>> dLL = dLL();
-            if (dLL.containsKey(str)) {
-                List<String> list = dLL.get(str);
+            dPG();
+            Map<String, List<String>> dPJ = dPJ();
+            if (dPJ.containsKey(str)) {
+                List<String> list = dPJ.get(str);
                 return list.get(list.size() - 1);
             }
             return null;
@@ -113,68 +111,68 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i) {
-        Map.Entry<String, String> Kz = Kz(i);
-        if (Kz == null) {
+        Map.Entry<String, String> Le = Le(i);
+        if (Le == null) {
             return null;
         }
-        return Kz.getKey();
+        return Le.getKey();
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i) {
-        Map.Entry<String, String> Kz = Kz(i);
-        if (Kz == null) {
+        Map.Entry<String, String> Le = Le(i);
+        if (Le == null) {
             return null;
         }
-        return Kz.getValue();
+        return Le.getValue();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        dLI();
-        if (!this.instanceFollowRedirects && this.neA) {
+        dPG();
+        if (!this.instanceFollowRedirects && this.noA) {
             throw new IOException("Cannot read response body of a redirect.");
         }
-        if (this.naD.getHttpStatusCode() >= 400) {
+        if (this.nkC.getHttpStatusCode() >= 400) {
             throw new FileNotFoundException(this.url.toString());
         }
-        return this.nex;
+        return this.nox;
     }
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        if (this.ney == null && this.doOutput) {
+        if (this.noy == null && this.doOutput) {
             if (this.connected) {
                 throw new ProtocolException("Cannot write to OutputStream after receiving response.");
             }
-            if (dLK()) {
-                this.ney = new b(this, this.chunkLength, this.nem, this.neo, this.nep);
-                dLH();
+            if (dPI()) {
+                this.noy = new b(this, this.chunkLength, this.nol, this.non, this.noo);
+                dPF();
             } else {
-                long dLG = dLG();
-                if (dLG != -1) {
-                    this.ney = new c(this, dLG, this.nem);
-                    dLH();
+                long dPE = dPE();
+                if (dPE != -1) {
+                    this.noy = new c(this, dPE, this.nol);
+                    dPF();
                 } else {
                     com.baidu.turbonet.base.a.d("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
                     String requestProperty = getRequestProperty("Content-Length");
                     if (requestProperty == null) {
-                        this.ney = new com.baidu.turbonet.net.a.a(this);
+                        this.noy = new com.baidu.turbonet.net.a.a(this);
                     } else {
                         try {
-                            this.ney = new com.baidu.turbonet.net.a.a(this, Long.parseLong(requestProperty));
+                            this.noy = new com.baidu.turbonet.net.a.a(this, Long.parseLong(requestProperty));
                         } catch (NumberFormatException e) {
                             com.baidu.turbonet.base.a.g("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                            this.ney = new com.baidu.turbonet.net.a.a(this);
+                            this.noy = new com.baidu.turbonet.net.a.a(this);
                         }
                     }
                 }
             }
         }
-        return this.ney;
+        return this.noy;
     }
 
-    private long dLG() {
+    private long dPE() {
         long j = this.fixedContentLength;
         try {
             long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
@@ -184,19 +182,19 @@ public class d extends HttpURLConnection {
         }
     }
 
-    private void dLH() throws IOException {
+    private void dPF() throws IOException {
         if (!this.connected) {
-            UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.nem, this.ncT);
+            UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.nol, this.nmS);
             if (this.doOutput) {
                 if (this.method.equals("GET")) {
                     this.method = "POST";
                 }
-                if (this.ney != null) {
-                    builder.b(this.ney.dLC(), this.nem);
-                    if (getRequestProperty("Content-Length") == null && !dLK()) {
-                        addRequestProperty("Content-Length", Long.toString(this.ney.dLC().getLength()));
+                if (this.noy != null) {
+                    builder.b(this.noy.dPA(), this.nol);
+                    if (getRequestProperty("Content-Length") == null && !dPI()) {
+                        addRequestProperty("Content-Length", Long.toString(this.noy.dPA().getLength()));
                     }
-                    this.ney.dLA();
+                    this.noy.dPy();
                 } else if (getRequestProperty("Content-Length") == null) {
                     addRequestProperty("Content-Length", "0");
                 }
@@ -205,39 +203,39 @@ public class d extends HttpURLConnection {
                 }
             }
             for (Pair<String, String> pair : this.mRequestHeaders) {
-                builder.gj((String) pair.first, (String) pair.second);
+                builder.gv((String) pair.first, (String) pair.second);
             }
             if (!getUseCaches()) {
-                builder.dLm();
+                builder.dPk();
             }
-            builder.Tt(this.method);
-            if (this.ndJ) {
-                builder.dLn();
+            builder.TS(this.method);
+            if (this.nnI) {
+                builder.dPl();
             }
-            if (this.nbz) {
-                builder.dLo();
+            if (this.nly) {
+                builder.dPm();
             }
-            if (!TextUtils.isEmpty(this.nbG)) {
-                builder.Tu(this.nbG);
+            if (!TextUtils.isEmpty(this.nlF)) {
+                builder.TT(this.nlF);
             }
-            if (!TextUtils.isEmpty(this.nbH)) {
-                builder.Tv(this.nbH);
+            if (!TextUtils.isEmpty(this.nlG)) {
+                builder.TU(this.nlG);
             }
-            builder.Kt(getConnectTimeout());
-            builder.Ku(getReadTimeout());
-            builder.Ks(getRequestTimeout());
+            builder.KY(getConnectTimeout());
+            builder.KZ(getReadTimeout());
+            builder.KX(getRequestTimeout());
             this.connected = true;
-            this.f6new = builder.dLp();
-            this.f6new.start();
+            this.nov = builder.dPn();
+            this.nov.start();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
         try {
-            dLI();
-            if (this.naD.getHttpStatusCode() >= 400) {
-                return this.nex;
+            dPG();
+            if (this.nkC.getHttpStatusCode() >= 400) {
+                return this.nox;
             }
             return null;
         } catch (IOException e) {
@@ -259,10 +257,10 @@ public class d extends HttpURLConnection {
         if (this.connected) {
             throw new IllegalStateException("Cannot modify request property after connection is made.");
         }
-        int Tw = Tw(str);
-        if (Tw >= 0) {
+        int TV = TV(str);
+        if (TV >= 0) {
             if (z) {
-                this.mRequestHeaders.remove(Tw);
+                this.mRequestHeaders.remove(TV);
             } else {
                 throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
             }
@@ -289,9 +287,9 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        int Tw = Tw(str);
-        if (Tw >= 0) {
-            return (String) this.mRequestHeaders.get(Tw).second;
+        int TV = TV(str);
+        if (TV >= 0) {
+            return (String) this.mRequestHeaders.get(TV).second;
         }
         return null;
     }
@@ -303,11 +301,11 @@ public class d extends HttpURLConnection {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(ByteBuffer byteBuffer) throws IOException {
-        this.f6new.m(byteBuffer);
-        this.nem.KA(getReadTimeout());
+        this.nov.m(byteBuffer);
+        this.nol.Lf(getReadTimeout());
     }
 
-    private int Tw(String str) {
+    private int TV(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -324,47 +322,47 @@ public class d extends HttpURLConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public class a extends UrlRequest.Callback {
         public a() {
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.naD = urlResponseInfo;
-            d.this.nem.quit();
+            d.this.nkC = urlResponseInfo;
+            d.this.nol.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            d.this.naD = urlResponseInfo;
-            d.this.nem.quit();
+            d.this.nkC = urlResponseInfo;
+            d.this.nol.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            d.this.neA = true;
+            d.this.noA = true;
             try {
                 URL url = new URL(str);
                 boolean equals = url.getProtocol().equals(d.this.url.getProtocol());
                 if (d.this.instanceFollowRedirects) {
                     d.this.url = url;
                 }
-                if (d.this.instanceFollowRedirects && (equals || d.this.neE)) {
-                    d.this.f6new.dKs();
+                if (d.this.instanceFollowRedirects && (equals || d.this.noE)) {
+                    d.this.nov.dOq();
                     return;
                 }
             } catch (MalformedURLException e) {
             }
-            d.this.naD = urlResponseInfo;
-            d.this.f6new.cancel();
+            d.this.nkC = urlResponseInfo;
+            d.this.nov.cancel();
             c(null);
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             com.baidu.turbonet.base.a.f("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.getUrl(), Integer.valueOf(urlResponseInfo.getHttpStatusCode()), Long.valueOf(urlResponseInfo.getReceivedBytesCount()));
-            d.this.naD = urlResponseInfo;
+            d.this.nkC = urlResponseInfo;
             c(null);
         }
 
@@ -374,79 +372,79 @@ public class d extends HttpURLConnection {
                 throw new IllegalStateException("Exception cannot be null in onFailed.");
             }
             com.baidu.turbonet.base.a.g("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", d.this.getURL().toString(), urlRequestException);
-            d.this.naD = urlResponseInfo;
-            d.this.nez = urlRequestException;
-            c(d.this.nez);
+            d.this.nkC = urlResponseInfo;
+            d.this.noz = urlRequestException;
+            c(d.this.noz);
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.naD = urlResponseInfo;
+            d.this.nkC = urlResponseInfo;
             c(new IOException("stream closed"));
         }
 
         private void c(IOException iOException) {
-            if (d.this.nex != null) {
-                d.this.nex.c(iOException);
+            if (d.this.nox != null) {
+                d.this.nox.c(iOException);
             }
-            if (d.this.ney != null) {
-                d.this.ney.d(iOException);
+            if (d.this.noy != null) {
+                d.this.noy.d(iOException);
             }
-            d.this.neB = true;
-            d.this.nem.quit();
+            d.this.noB = true;
+            d.this.nol.quit();
         }
     }
 
-    private void dLI() throws IOException {
-        if (this.ney != null) {
-            this.ney.dLB();
-            if (dLK()) {
-                this.ney.close();
+    private void dPG() throws IOException {
+        if (this.noy != null) {
+            this.noy.dPz();
+            if (dPI()) {
+                this.noy.close();
             }
         }
-        if (!this.neB) {
-            dLH();
-            this.nem.KA(getReadTimeout());
-            this.neB = true;
+        if (!this.noB) {
+            dPF();
+            this.nol.Lf(getReadTimeout());
+            this.noB = true;
         }
-        dLJ();
+        dPH();
     }
 
-    private void dLJ() throws IOException {
-        if (!this.neB) {
+    private void dPH() throws IOException {
+        if (!this.noB) {
             throw new IllegalStateException("No response.");
         }
-        if (this.nez != null) {
-            throw this.nez;
+        if (this.noz != null) {
+            throw this.noz;
         }
-        if (this.naD == null) {
+        if (this.nkC == null) {
             throw new NullPointerException("Response info is null when there is no exception.");
         }
     }
 
-    private Map.Entry<String, String> Kz(int i) {
+    private Map.Entry<String, String> Le(int i) {
         try {
-            dLI();
-            List<Map.Entry<String, String>> dLs = dLs();
-            if (i >= dLs.size()) {
+            dPG();
+            List<Map.Entry<String, String>> dPq = dPq();
+            if (i >= dPq.size()) {
                 return null;
             }
-            return dLs.get(i);
+            return dPq.get(i);
         } catch (IOException e) {
             return null;
         }
     }
 
-    private boolean dLK() {
+    private boolean dPI() {
         return this.chunkLength > 0;
     }
 
-    private Map<String, List<String>> dLL() {
-        if (this.neD != null) {
-            return this.neD;
+    private Map<String, List<String>> dPJ() {
+        if (this.noD != null) {
+            return this.noD;
         }
         TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        for (Map.Entry<String, String> entry : dLs()) {
+        for (Map.Entry<String, String> entry : dPq()) {
             ArrayList arrayList = new ArrayList();
             if (treeMap.containsKey(entry.getKey())) {
                 arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -454,33 +452,33 @@ public class d extends HttpURLConnection {
             arrayList.add(entry.getValue());
             treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
         }
-        this.neD = Collections.unmodifiableMap(treeMap);
-        return this.neD;
+        this.noD = Collections.unmodifiableMap(treeMap);
+        return this.noD;
     }
 
-    private List<Map.Entry<String, String>> dLs() {
-        if (this.neC != null) {
-            return this.neC;
+    private List<Map.Entry<String, String>> dPq() {
+        if (this.noC != null) {
+            return this.noC;
         }
-        this.neC = new ArrayList();
-        for (Map.Entry<String, String> entry : this.naD.dLs()) {
+        this.noC = new ArrayList();
+        for (Map.Entry<String, String> entry : this.nkC.dPq()) {
             if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
-                this.neC.add(new AbstractMap.SimpleImmutableEntry(entry));
+                this.noC.add(new AbstractMap.SimpleImmutableEntry(entry));
             }
         }
-        this.neC = Collections.unmodifiableList(this.neC);
-        return this.neC;
+        this.noC = Collections.unmodifiableList(this.noC);
+        return this.noC;
     }
 
-    public UrlResponseInfo dLM() {
-        return this.naD;
+    public UrlResponseInfo dPK() {
+        return this.nkC;
     }
 
-    public void dLN() {
-        this.neE = true;
+    public void dPL() {
+        this.noE = true;
     }
 
     public int getRequestTimeout() {
-        return this.neF;
+        return this.noF;
     }
 }

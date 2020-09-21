@@ -12,7 +12,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private boolean a = false;
     private boolean b = true;
@@ -22,7 +22,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     private boolean f = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     public class a implements Callable<Object> {
         a() {
         }
@@ -47,21 +47,21 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     private void a(Context context) {
         l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-        i sW = i.sW();
-        sW.b();
+        i tb = i.tb();
+        tb.b();
         BDHttpDns P = BDHttpDns.P(context);
         refreshIpReachable();
-        ArrayList<String> b = P.sN().b();
+        ArrayList<String> b = P.sS().b();
         if (this.b) {
-            P.sN().a();
-            P.sO().a();
+            P.sS().a();
+            P.sT().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
             } else if (b == null || b.isEmpty()) {
             } else {
-                sW.a(b, new k(context));
+                tb.a(b, new k(context));
             }
         }
     }

@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.util.ah;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class e implements ah, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> kTX;
-    public String kTY;
+    private ArrayList<PreLoadImageInfo> lcB;
+    public String lcC;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.kTX = new ArrayList<>(1);
+            this.lcB = new ArrayList<>(1);
             this.src = excContent.src;
-            this.kTY = excContent.bsize;
-            if (this.kTY != null) {
+            this.lcC = excContent.bsize;
+            if (this.lcC != null) {
                 try {
-                    String[] split = this.kTY.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    String[] split = this.lcC.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -45,7 +45,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.kTX.add(preLoadImageInfo);
+            this.lcB.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +53,7 @@ public class e implements ah, d {
         return this.src;
     }
 
-    public int EJ(int i) {
+    public int Fk(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ah, d {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.kTX;
+        return this.lcB;
     }
 }

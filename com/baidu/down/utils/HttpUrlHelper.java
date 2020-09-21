@@ -19,7 +19,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class HttpUrlHelper {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -348,7 +348,7 @@ public final class HttpUrlHelper {
         return this.url;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         String encodedFragment;
         List<String> encodedQueryNamesAndValues;
@@ -360,7 +360,7 @@ public final class HttpUrlHelper {
         final List<String> encodedPathSegments = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes14.dex */
         public enum ParseResult {
             SUCCESS,
             MISSING_SCHEME,

@@ -22,21 +22,21 @@ import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.live.view.f;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d extends f {
-    private RoundRectRelativeLayout bjq;
-    private TextView bjr;
-    private float bjs;
-    private a bjt;
+    private float bjQ;
+    private RoundRectRelativeLayout bmk;
+    private TextView bml;
+    private a bmm;
     private boolean isHost;
     private Activity mActivity;
     private ViewGroup mContentLayout;
     private ListView mListView;
     private TextView mTitleTextView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void Na();
+        void NE();
 
         void e(com.baidu.live.sdk.goods.a.a aVar);
 
@@ -54,18 +54,18 @@ public class d extends f {
     public void setHost(boolean z) {
         this.isHost = z;
         if (z) {
-            this.bjr.setVisibility(0);
+            this.bml.setVisibility(0);
         }
     }
 
     public void a(a aVar) {
-        this.bjt = aVar;
+        this.bmm = aVar;
     }
 
     public void setData(List<com.baidu.live.sdk.goods.a.a> list) {
         this.mTitleTextView.setText("全部商品 " + (list != null ? list.size() : 0));
         if (list == null || list.isEmpty()) {
-            Nd();
+            NH();
             return;
         }
         if (!(this.mListView.getAdapter() instanceof b)) {
@@ -74,23 +74,31 @@ public class d extends f {
             bVar.a(new b.a() { // from class: com.baidu.live.sdk.goods.c.d.1
                 @Override // com.baidu.live.sdk.goods.c.b.a
                 public void u(String str, boolean z) {
-                    if (d.this.bjt != null) {
-                        d.this.bjt.u(str, z);
+                    if (d.this.bmm != null) {
+                        d.this.bmm.u(str, z);
                     }
                 }
 
                 @Override // com.baidu.live.sdk.goods.c.b.a
                 public void v(String str, boolean z) {
-                    if (d.this.bjt != null) {
-                        d.this.bjt.v(str, z);
+                    if (d.this.bmm != null) {
+                        d.this.bmm.v(str, z);
                     }
                 }
             });
         }
         ((b) this.mListView.getAdapter()).e(this.isHost, list);
+        if (!this.isHost) {
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).blv) {
+                    this.mListView.setSelection(i);
+                    return;
+                }
+            }
+        }
     }
 
-    public void eE(int i) {
+    public void eR(int i) {
         View findViewById;
         if (this.mActivity != null && !this.mActivity.isFinishing() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             n(i, false);
@@ -101,25 +109,25 @@ public class d extends f {
 
     public void n(int i, boolean z) {
         if (i == 2) {
-            this.bjq.setCornerRadius(this.bjs, 0.0f, 0.0f, this.bjs);
+            this.bmk.setCornerRadius(this.bjQ, 0.0f, 0.0f, this.bjQ);
             setAnimationStyle(a.j.sdk_goods_list_right_left);
-            Ne();
+            MO();
         } else {
-            this.bjq.setCornerRadius(this.bjs, this.bjs, 0.0f, 0.0f);
+            this.bmk.setCornerRadius(this.bjQ, this.bjQ, 0.0f, 0.0f);
             setAnimationStyle(a.j.sdk_goods_list_up_to_top);
         }
-        int[] eG = eG(i);
+        int[] eN = eN(i);
         if (z) {
-            update(eG[0], eG[1]);
+            update(eN[0], eN[1]);
             return;
         }
-        setWidth(eG[0]);
-        setHeight(eG[1]);
+        setWidth(eN[0]);
+        setHeight(eN[1]);
     }
 
-    public void eF(int i) {
+    public void eM(int i) {
         if (i == 2) {
-            Ne();
+            MO();
         }
     }
 
@@ -132,7 +140,7 @@ public class d extends f {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.sdk.goods.c.d.2
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                d.this.Nf();
+                d.this.NI();
                 if (ShowUtil.windowCount > 0) {
                     ShowUtil.windowCount--;
                 }
@@ -141,18 +149,18 @@ public class d extends f {
     }
 
     private void initView() {
-        this.bjs = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
+        this.bjQ = this.mActivity.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
         setContentView(LayoutInflater.from(this.mActivity).inflate(a.h.live_goods_display_list_popup, (ViewGroup) null));
-        this.bjq = (RoundRectRelativeLayout) getContentView().findViewById(a.g.rrrl_goods_display_list);
+        this.bmk = (RoundRectRelativeLayout) getContentView().findViewById(a.g.rrrl_goods_display_list);
         this.mTitleTextView = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_title);
-        this.bjr = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_config);
+        this.bml = (TextView) getContentView().findViewById(a.g.tv_goods_display_list_config);
         this.mContentLayout = (ViewGroup) getContentView().findViewById(a.g.layout_goods_display_list_content);
         this.mListView = (ListView) getContentView().findViewById(a.g.lv_good_display_list);
-        this.bjr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
+        this.bml.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.sdk.goods.c.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.bjt != null) {
-                    d.this.bjt.Na();
+                if (d.this.bmm != null) {
+                    d.this.bmm.NE();
                 }
             }
         });
@@ -166,14 +174,14 @@ public class d extends f {
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
                 Object tag = view.getTag();
-                if (tag instanceof b.C0187b) {
-                    ((b.C0187b) tag).recycle();
+                if (tag instanceof b.C0188b) {
+                    ((b.C0188b) tag).recycle();
                 }
             }
         });
     }
 
-    private int[] eG(int i) {
+    private int[] eN(int i) {
         int[] iArr = new int[2];
         if (i == 2) {
             iArr[0] = (int) (ScreenHelper.getRealScreenWidth(this.mActivity) * 0.5f);
@@ -187,15 +195,15 @@ public class d extends f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onItemClick(int i) {
-        if (this.bjt != null && this.mListView != null && this.mListView.getAdapter() != null) {
+        if (this.bmm != null && this.mListView != null && this.mListView.getAdapter() != null) {
             Object item = this.mListView.getAdapter().getItem(i);
             if (item instanceof com.baidu.live.sdk.goods.a.a) {
-                this.bjt.e((com.baidu.live.sdk.goods.a.a) item);
+                this.bmm.e((com.baidu.live.sdk.goods.a.a) item);
             }
         }
     }
 
-    private void Nd() {
+    private void NH() {
         if (this.mActivity != null && this.mContentLayout != null && this.mListView != null) {
             View emptyView = this.mListView.getEmptyView();
             if (!(emptyView instanceof CommonEmptyView)) {
@@ -216,14 +224,14 @@ public class d extends f {
         }
     }
 
-    private void Ne() {
+    private void MO() {
         if (getContentView() != null && Build.VERSION.SDK_INT >= 19) {
             getContentView().setSystemUiVisibility(5380);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Nf() {
+    public void NI() {
         if (this.mListView != null) {
             int i = 0;
             while (true) {
@@ -232,8 +240,8 @@ public class d extends f {
                     View childAt = this.mListView.getChildAt(i2);
                     if (childAt != null) {
                         Object tag = childAt.getTag();
-                        if (tag instanceof b.C0187b) {
-                            ((b.C0187b) tag).recycle();
+                        if (tag instanceof b.C0188b) {
+                            ((b.C0188b) tag).recycle();
                         }
                     }
                     i = i2 + 1;

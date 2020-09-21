@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -101,8 +101,8 @@ public class SdkLiveInfoData {
                 this.rtmpUrl = jSONObject.optString("rtmp_url");
                 this.hlsUrl = jSONObject.optString("hls_url");
                 this.audienceCount = jSONObject.optLong("audience_count");
-                this.liveType = jSONObject.optInt("live_type");
-                this.screenDirection = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
+                this.liveType = jSONObject.optInt(UbcStatConstant.KEY_LIVE_TYPE);
+                this.screenDirection = jSONObject.optInt("screen_direction");
                 JSONObject optJSONObject = jSONObject.optJSONObject("challenge_info");
                 if (optJSONObject != null) {
                     this.challengeInfoData = new AlaChallengeInfoData();

@@ -2,7 +2,7 @@ package android.support.constraint.solver;
 
 import android.support.media.ExifInterface;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class SolverVariable {
     private static final boolean INTERNAL_DEBUG = false;
     static final int MAX_STRENGTH = 7;
@@ -30,7 +30,7 @@ public class SolverVariable {
     private static int uniqueConstantId = 1;
     private static int uniqueId = 1;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes8.dex */
     public enum Type {
         UNRESTRICTED,
         CONSTANT,

@@ -50,7 +50,7 @@ public class c extends com.facebook.drawee.span.b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.text.SpannableStringBuilder, android.text.Editable, java.lang.Appendable
-    /* renamed from: A */
+    /* renamed from: y */
     public c append(CharSequence charSequence) {
         super.append(charSequence);
         return this;
@@ -75,7 +75,7 @@ public class c extends com.facebook.drawee.span.b {
         return this;
     }
 
-    public c L(Context context, @DrawableRes int i) {
+    public c N(Context context, @DrawableRes int i) {
         Drawable drawable = ContextCompat.getDrawable(context, i);
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());

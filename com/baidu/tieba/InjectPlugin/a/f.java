@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.af;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
     protected TbPageContext mPageContext;
 
@@ -21,7 +21,7 @@ public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public af.a b(ViewGroup viewGroup) {
+    public af.a c(ViewGroup viewGroup) {
         return null;
     }
 

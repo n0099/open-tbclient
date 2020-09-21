@@ -3,10 +3,10 @@ package com.baidu.ala.recorder.video.listener;
 import android.content.res.Configuration;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public interface TextureViewListener {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public interface SurfaceHolder {
         Surface getSurface();
 

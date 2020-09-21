@@ -5,12 +5,17 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class g implements q {
     @Override // com.baidu.ubc.q
-    public String avl() {
+    public String avU() {
         return null;
     }
 
     @Override // com.baidu.ubc.q
-    public boolean oR(String str) {
+    public boolean pk(String str) {
+        return false;
+    }
+
+    @Override // com.baidu.ubc.q
+    public boolean isBeta() {
         return false;
     }
 
@@ -20,7 +25,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> dty() {
+    public List<String> dxr() {
         return null;
     }
 }

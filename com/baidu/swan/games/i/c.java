@@ -1,10 +1,10 @@
 package com.baidu.swan.games.i;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
     public String digest;
-    public byte[] drF;
+    public byte[] dtI;
     public int errCode;
     public String errMsg;
     public List<d> fileList;

@@ -1,5 +1,5 @@
 package io.reactivex;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public interface y<T> {
     void onError(Throwable th);
 

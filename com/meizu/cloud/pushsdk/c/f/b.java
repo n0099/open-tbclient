@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public enum b {
     OFF(0),
     ERROR(1),

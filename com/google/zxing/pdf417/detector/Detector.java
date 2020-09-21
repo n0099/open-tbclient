@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class Detector {
     private static final int BARCODE_MIN_HEIGHT = 10;
     private static final float MAX_AVG_VARIANCE = 0.42f;

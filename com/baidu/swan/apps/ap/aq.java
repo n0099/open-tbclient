@@ -2,14 +2,14 @@ package com.baidu.swan.apps.ap;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class aq {
-    private final Queue<Runnable> cQa = new ArrayDeque();
-    private Runnable dbF = null;
-    private boolean dbG = false;
+    private final Queue<Runnable> cSa = new ArrayDeque();
+    private Runnable ddH = null;
+    private boolean ddI = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aFC() != false) goto L9;
+        if (aGm() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -19,7 +19,7 @@ public class aq {
         synchronized (this) {
             boolean z2 = runnable == null;
             if (!z2) {
-                this.cQa.offer(runnable);
+                this.cSa.offer(runnable);
             }
             if (!z2) {
             }
@@ -28,34 +28,34 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aFz() {
-        boolean aFB;
-        aFB = aFB();
-        this.dbG = true;
-        return aFB;
+    public synchronized boolean aGj() {
+        boolean aGl;
+        aGl = aGl();
+        this.ddI = true;
+        return aGl;
     }
 
-    public synchronized void aFA() {
-        this.dbG = false;
-        aFC();
+    public synchronized void aGk() {
+        this.ddI = false;
+        aGm();
     }
 
-    private boolean aFB() {
-        return !this.dbG && this.dbF == null;
+    private boolean aGl() {
+        return !this.ddI && this.ddH == null;
     }
 
-    private synchronized boolean aFC() {
-        boolean aFB;
-        aFB = aFB();
-        if (aFB) {
-            while (!this.cQa.isEmpty()) {
-                this.dbF = this.cQa.poll();
-                if (this.dbF != null) {
-                    this.dbF.run();
+    private synchronized boolean aGm() {
+        boolean aGl;
+        aGl = aGl();
+        if (aGl) {
+            while (!this.cSa.isEmpty()) {
+                this.ddH = this.cSa.poll();
+                if (this.ddH != null) {
+                    this.ddH.run();
                 }
             }
-            this.dbF = null;
+            this.ddH = null;
         }
-        return aFB;
+        return aGl;
     }
 }

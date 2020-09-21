@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.jsbridge;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public enum CommandType {
     ACTION_URL("setActionUrl"),
     GET_CONFS("getConfs"),

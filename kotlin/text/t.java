@@ -6,7 +6,7 @@ import java.util.Iterator;
 import kotlin.collections.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class t extends s {
     public static final boolean H(String str, String str2, boolean z) {
         if (str == null) {
@@ -22,10 +22,10 @@ public class t extends s {
         if ((i & 4) != 0) {
             z = false;
         }
-        return l.j(str, str2, str3, z);
+        return l.k(str, str2, str3, z);
     }
 
-    public static final String j(String str, String str2, String str3, boolean z) {
+    public static final String k(String str, String str2, String str3, boolean z) {
         String a;
         kotlin.jvm.internal.q.m(str, "receiver$0");
         kotlin.jvm.internal.q.m(str2, "oldValue");
@@ -51,9 +51,9 @@ public class t extends s {
         boolean z;
         kotlin.jvm.internal.q.m(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h w = l.w(charSequence);
-            if (!(w instanceof Collection) || !((Collection) w).isEmpty()) {
-                Iterator<Integer> it = w.iterator();
+            kotlin.b.h u = l.u(charSequence);
+            if (!(u instanceof Collection) || !((Collection) u).isEmpty()) {
+                Iterator<Integer> it = u.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;

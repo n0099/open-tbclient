@@ -20,7 +20,7 @@ import com.baidu.mobads.utils.e;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;

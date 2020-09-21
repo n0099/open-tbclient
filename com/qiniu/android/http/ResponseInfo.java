@@ -14,46 +14,46 @@ public final class ResponseInfo {
     public final String error;
     public final String host;
     public final String ip;
-    public final long ofY;
-    public final String ogh;
-    public final String ogi;
-    public final long ogj;
-    public final UpToken ogk;
-    public final JSONObject ogl;
+    public final long opH;
+    public final String opQ;
+    public final String opR;
+    public final long opS;
+    public final UpToken opT;
+    public final JSONObject opU;
     public final String path;
     public final int port;
     public final String reqId;
     public final int statusCode;
-    public final String id = UserAgent.ecv().id;
+    public final String id = UserAgent.egs().id;
     public final long timeStamp = System.currentTimeMillis() / 1000;
 
     private ResponseInfo(JSONObject jSONObject, int i, String str, String str2, String str3, String str4, String str5, String str6, int i2, long j, long j2, String str7, UpToken upToken, long j3) {
-        this.ogl = jSONObject;
+        this.opU = jSONObject;
         this.statusCode = i;
         this.reqId = str;
-        this.ogh = str2;
-        this.ogi = str3;
+        this.opQ = str2;
+        this.opR = str3;
         this.host = str4;
         this.path = str5;
         this.duration = j;
         this.error = str7;
         this.ip = str6;
         this.port = i2;
-        this.ogj = j2;
-        this.ogk = upToken;
-        this.ofY = j3;
+        this.opS = j2;
+        this.opT = upToken;
+        this.opH = j3;
     }
 
     public static ResponseInfo a(JSONObject jSONObject, final int i, final String str, String str2, String str3, final String str4, final String str5, String str6, final int i2, final long j, final long j2, String str7, UpToken upToken, final long j3) {
         String str8 = (str6 + "").split(":")[0];
         final String substring = str8.substring(Math.max(0, str8.indexOf("/") + 1));
         ResponseInfo responseInfo = new ResponseInfo(jSONObject, i, str, str2, str3, str4, str5, substring, i2, j, j2, str7, upToken, j3);
-        if (Config.ofj || upToken != null) {
+        if (Config.ooR || upToken != null) {
             final String str9 = responseInfo.timeStamp + "";
             UploadInfoCollector.a(upToken, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.http.ResponseInfo.1
                 @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
-                public String ecn() {
-                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Vt(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                public String egk() {
+                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.VV(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             });
         }
@@ -61,7 +61,7 @@ public final class ResponseInfo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String Vt(String str) {
+    public static String VV(String str) {
         if (str == null || !str.startsWith("/")) {
             return "";
         }
@@ -126,7 +126,7 @@ public final class ResponseInfo {
         return a(null, -4, "", "", "", "", "", "", 80, 0L, 0L, str, upToken, 0L);
     }
 
-    public static ResponseInfo Vu(String str) {
+    public static ResponseInfo VW(String str) {
         return a(null, -5, "", "", "", "", "", "", 80, 0L, 0L, str, null, 0L);
     }
 
@@ -138,7 +138,7 @@ public final class ResponseInfo {
         return a(null, i, "", "", "", "", "", "", 80, 0L, 0L, "Network error during preQuery", upToken, 0L);
     }
 
-    public static boolean NF(int i) {
+    public static boolean Ok(int i) {
         return i == -1 || i == -1003 || i == -1004 || i == -1001 || i == -1005;
     }
 
@@ -146,35 +146,35 @@ public final class ResponseInfo {
         return this.statusCode == -2;
     }
 
-    public boolean eco() {
-        return this.statusCode == 200 && this.error == null && (ecu() || this.ogl != null);
+    public boolean egl() {
+        return this.statusCode == 200 && this.error == null && (egr() || this.opU != null);
     }
 
-    public boolean ecp() {
+    public boolean egm() {
         return this.statusCode == -1 || this.statusCode == -1003 || this.statusCode == -1004 || this.statusCode == -1001 || this.statusCode == -1005;
     }
 
-    public boolean ecq() {
+    public boolean egn() {
         return (this.statusCode >= 500 && this.statusCode < 600 && this.statusCode != 579) || this.statusCode == 996;
     }
 
-    public boolean ecr() {
-        return ecp() || ecq();
+    public boolean ego() {
+        return egm() || egn();
     }
 
-    public boolean ecs() {
-        return !isCancelled() && (ecr() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (ect() && !this.ogk.ecC())));
+    public boolean egp() {
+        return !isCancelled() && (ego() || this.statusCode == 406 || ((this.statusCode == 200 && this.error != null) || (egq() && !this.opT.egz())));
     }
 
-    public boolean ect() {
-        return this.statusCode < 500 && this.statusCode >= 200 && !ecu() && this.ogl == null;
+    public boolean egq() {
+        return this.statusCode < 500 && this.statusCode >= 200 && !egr() && this.opU == null;
     }
 
     public String toString() {
-        return String.format(Locale.ENGLISH, "{ver:%s,ResponseInfo:%s,status:%d, reqId:%s, xlog:%s, xvia:%s, host:%s, path:%s, ip:%s, port:%d, duration:%d s, time:%d, sent:%d,error:%s}", "7.3.13", this.id, Integer.valueOf(this.statusCode), this.reqId, this.ogh, this.ogi, this.host, this.path, this.ip, Integer.valueOf(this.port), Long.valueOf(this.duration), Long.valueOf(this.timeStamp), Long.valueOf(this.ogj), this.error);
+        return String.format(Locale.ENGLISH, "{ver:%s,ResponseInfo:%s,status:%d, reqId:%s, xlog:%s, xvia:%s, host:%s, path:%s, ip:%s, port:%d, duration:%d s, time:%d, sent:%d,error:%s}", "7.3.13", this.id, Integer.valueOf(this.statusCode), this.reqId, this.opQ, this.opR, this.host, this.path, this.ip, Integer.valueOf(this.port), Long.valueOf(this.duration), Long.valueOf(this.timeStamp), Long.valueOf(this.opS), this.error);
     }
 
-    public boolean ecu() {
+    public boolean egr() {
         return this.reqId != null;
     }
 }

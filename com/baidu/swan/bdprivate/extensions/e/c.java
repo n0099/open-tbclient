@@ -44,23 +44,23 @@ public class c extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            boolean cM = b.cM(context);
+            boolean cL = b.cL(context);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("authorized", cM);
+                jSONObject.put("authorized", cL);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            if (cM) {
+            if (cL) {
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } else {
                 b.a(context, a(context, jSONObject, optString, callbackHandler));
             }
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("authorized", cM);
+                jSONObject2.put("authorized", cL);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
                 return true;
             } catch (JSONException e2) {
@@ -78,7 +78,7 @@ public class c extends aa {
             @Override // com.baidu.swan.bdprivate.extensions.e.b.a
             public void onResult(boolean z) {
                 if (z) {
-                    b.dk(context);
+                    b.dj(context);
                 }
                 try {
                     jSONObject.put("canceled", z);

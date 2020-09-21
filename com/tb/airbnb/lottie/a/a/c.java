@@ -8,8 +8,8 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f {
+/* loaded from: classes17.dex */
+public class c implements d, l, a.InterfaceC0929a, com.tb.airbnb.lottie.model.f {
     @Nullable
     private List<l> CD;
     private final List<b> contents;
@@ -17,7 +17,7 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     private final Matrix matrix;
     private final String name;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.o oiw;
+    private com.tb.airbnb.lottie.a.b.o osg;
     private final Path path;
     private final RectF rect;
 
@@ -39,7 +39,7 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     }
 
     @Nullable
-    static com.tb.airbnb.lottie.model.a.l fT(List<com.tb.airbnb.lottie.model.content.b> list) {
+    static com.tb.airbnb.lottie.model.a.l gc(List<com.tb.airbnb.lottie.model.content.b> list) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -57,7 +57,7 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     }
 
     public c(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.j jVar) {
-        this(fVar, aVar, jVar.getName(), a(fVar, aVar, jVar.getItems()), fT(jVar.getItems()));
+        this(fVar, aVar, jVar.getName(), a(fVar, aVar, jVar.getItems()), gc(jVar.getItems()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -69,9 +69,9 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
         this.lottieDrawable = fVar;
         this.contents = list;
         if (lVar != null) {
-            this.oiw = lVar.edx();
-            this.oiw.a(aVar);
-            this.oiw.a(this);
+            this.osg = lVar.ehu();
+            this.osg.a(aVar);
+            this.osg.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -85,8 +85,8 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0932a
-    public void iR() {
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0929a
+    public void iS() {
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -107,7 +107,7 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<l> iS() {
+    public List<l> iT() {
         if (this.CD == null) {
             this.CD = new ArrayList();
             int i = 0;
@@ -127,25 +127,25 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Matrix iT() {
-        if (this.oiw != null) {
-            return this.oiw.getMatrix();
+    public Matrix iU() {
+        if (this.osg != null) {
+            return this.osg.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path iU() {
+    public Path iV() {
         this.matrix.reset();
-        if (this.oiw != null) {
-            this.matrix.set(this.oiw.getMatrix());
+        if (this.osg != null) {
+            this.matrix.set(this.osg.getMatrix());
         }
         this.path.reset();
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
             if (bVar instanceof l) {
-                this.path.addPath(((l) bVar).iU(), this.matrix);
+                this.path.addPath(((l) bVar).iV(), this.matrix);
             }
         }
         return this.path;
@@ -154,9 +154,9 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.oiw != null) {
-            this.matrix.preConcat(this.oiw.getMatrix());
-            i = (int) ((((this.oiw.edj().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.osg != null) {
+            this.matrix.preConcat(this.osg.getMatrix());
+            i = (int) ((((this.osg.ehg().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             b bVar = this.contents.get(size);
@@ -169,8 +169,8 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     @Override // com.tb.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.oiw != null) {
-            this.matrix.preConcat(this.oiw.getMatrix());
+        if (this.osg != null) {
+            this.matrix.preConcat(this.osg.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.contents.size() - 1; size >= 0; size--) {
@@ -190,7 +190,7 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
     public void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
         if (eVar.h(getName(), i)) {
             if (!"__container".equals(getName())) {
-                eVar2 = eVar2.VE(getName());
+                eVar2 = eVar2.Wg(getName());
                 if (eVar.j(getName(), i)) {
                     list.add(eVar2.a(this));
                 }
@@ -216,8 +216,8 @@ public class c implements d, l, a.InterfaceC0932a, com.tb.airbnb.lottie.model.f 
 
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
-        if (this.oiw != null) {
-            this.oiw.b(t, cVar);
+        if (this.osg != null) {
+            this.osg.b(t, cVar);
         }
     }
 }

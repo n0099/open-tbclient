@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class ActivityUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "ActivityUtils";
@@ -89,6 +89,35 @@ public final class ActivityUtils {
         return startActivitySafely(context, intent, true, z);
     }
 
+    public static boolean startActivityForResultSafely(Context context, Intent intent, int i) {
+        return startActivityForResultSafely((Activity) context, intent, i, false, false);
+    }
+
+    public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i, boolean z, boolean z2) {
+        if (z) {
+            intent.addFlags(268435456);
+        }
+        try {
+            activity.startActivityForResult(intent, i);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            if (z2) {
+                Toast.makeText(activity, R.string.activity_not_found, 0).show();
+                return false;
+            }
+            return false;
+        } catch (SecurityException e2) {
+            if (z2) {
+                Toast.makeText(activity, R.string.activity_not_found, 0).show();
+            }
+            if (DEBUG) {
+                Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
+                return false;
+            }
+            return false;
+        }
+    }
+
     public static void setTaskDescription(Activity activity, String str, Bitmap bitmap, int i) {
         if (Color.alpha(i) != 255) {
             i = Color.argb(255, Color.red(i), Color.green(i), Color.blue(i));
@@ -127,35 +156,6 @@ public final class ActivityUtils {
             }
         }
         return true;
-    }
-
-    public static boolean startActivityForResultSafely(Context context, Intent intent, int i) {
-        return startActivityForResultSafely((Activity) context, intent, i, false, false);
-    }
-
-    public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i, boolean z, boolean z2) {
-        if (z) {
-            intent.addFlags(268435456);
-        }
-        try {
-            activity.startActivityForResult(intent, i);
-            return true;
-        } catch (ActivityNotFoundException e) {
-            if (z2) {
-                Toast.makeText(activity, R.string.activity_not_found, 0).show();
-                return false;
-            }
-            return false;
-        } catch (SecurityException e2) {
-            if (z2) {
-                Toast.makeText(activity, R.string.activity_not_found, 0).show();
-            }
-            if (DEBUG) {
-                Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
-                return false;
-            }
-            return false;
-        }
     }
 
     public static boolean isDestroyed(Activity activity) {

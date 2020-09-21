@@ -7,7 +7,7 @@ import java.lang.reflect.Type;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SqlDateDeserializer extends AbstractDateDeserializer implements ObjectDeserializer {
     public static final SqlDateDeserializer instance = new SqlDateDeserializer();
     public static final SqlDateDeserializer instance_timestamp = new SqlDateDeserializer(true);

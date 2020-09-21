@@ -2,10 +2,10 @@ package com.baidu.swan.pms.node.d;
 
 import com.baidu.swan.pms.model.i;
 import java.util.Collection;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class a {
-    public com.baidu.swan.pms.model.d dGX;
-    public com.baidu.swan.pms.model.d dGY;
-    public Collection<i> dGZ;
-    public com.baidu.swan.pms.model.b dGl;
+    public com.baidu.swan.pms.model.b dIp;
+    public com.baidu.swan.pms.model.d dJb;
+    public com.baidu.swan.pms.model.d dJc;
+    public Collection<i> dJd;
 }

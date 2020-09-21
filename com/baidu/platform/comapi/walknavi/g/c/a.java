@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.g.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void B();
 }

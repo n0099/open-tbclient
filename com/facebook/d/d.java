@@ -2,14 +2,14 @@ package com.facebook.d;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes12.dex */
 class d {
-    private static final Class<?> njM = d.class;
+    private static final Class<?> ntL = d.class;
 
     d() {
     }
 
-    public static int Mu(int i) {
+    public static int MZ(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -31,20 +31,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.nAw - 8;
+        int i2 = aVar.nKt - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.nAu, 274), aVar.nAu);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.nKr, 274), aVar.nKr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        boolean nAu;
-        int nAv;
-        int nAw;
+        boolean nKr;
+        int nKs;
+        int nKt;
 
         private a() {
         }
@@ -54,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.nAv = c.a(inputStream, 4, false);
+        aVar.nKs = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.nAv != 1229531648 && aVar.nAv != 1296891946) {
-            com.facebook.common.c.a.h(njM, "Invalid TIFF header");
+        if (aVar.nKs != 1229531648 && aVar.nKs != 1296891946) {
+            com.facebook.common.c.a.h(ntL, "Invalid TIFF header");
             return 0;
         }
-        aVar.nAu = aVar.nAv == 1229531648;
-        aVar.nAw = c.a(inputStream, 4, aVar.nAu);
+        aVar.nKr = aVar.nKs == 1229531648;
+        aVar.nKt = c.a(inputStream, 4, aVar.nKr);
         int i3 = i2 - 4;
-        if (aVar.nAw < 8 || aVar.nAw - 8 > i3) {
-            com.facebook.common.c.a.h(njM, "Invalid offset");
+        if (aVar.nKt < 8 || aVar.nKt - 8 > i3) {
+            com.facebook.common.c.a.h(ntL, "Invalid offset");
             return 0;
         }
         return i3;

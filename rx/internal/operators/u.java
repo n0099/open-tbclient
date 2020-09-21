@@ -4,10 +4,10 @@ import rx.d;
 import rx.h;
 import rx.internal.operators.t;
 import rx.internal.producers.SingleProducer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class u<T, R> implements h.a<R> {
-    final h.a<T> oHE;
-    final d.b<? extends R, ? super T> oHK;
+    final h.a<T> oRj;
+    final d.b<? extends R, ? super T> oRp;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -16,10 +16,10 @@ public final class u<T, R> implements h.a<R> {
         t.a aVar = new t.a(iVar);
         iVar.add(aVar);
         try {
-            rx.j<? super T> call = rx.c.c.c(this.oHK).call(aVar);
+            rx.j<? super T> call = rx.c.c.c(this.oRp).call(aVar);
             rx.i c = c(call);
             call.onStart();
-            this.oHE.call(c);
+            this.oRj.call(c);
         } catch (Throwable th) {
             rx.exceptions.a.a(th, iVar);
         }
@@ -32,7 +32,7 @@ public final class u<T, R> implements h.a<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a<T> extends rx.i<T> {
         final rx.j<? super T> actual;
 

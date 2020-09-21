@@ -1,12 +1,14 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.squareup.wire.Wire;
+import java.util.HashMap;
 import java.util.LinkedList;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes.dex */
 public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<VisitedForumData> mForumData;
 
@@ -16,10 +18,6 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
 
     public LinkedList<VisitedForumData> getForumData() {
         return this.mForumData;
-    }
-
-    public void setForumData(LinkedList<VisitedForumData> linkedList) {
-        this.mForumData = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,10 +33,21 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
             }
             if (getError() == 0 && getHistoryForumResIdl.data != null && getHistoryForumResIdl.data.history_forum != null) {
                 this.mForumData = new LinkedList<>();
-                for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.history_forum) {
-                    VisitedForumData visitedForumData = new VisitedForumData();
-                    visitedForumData.a(historyForumInfo);
-                    this.mForumData.add(visitedForumData);
+                HashMap hashMap = new HashMap();
+                if (!y.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
+                    for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {
+                        if (historyForumInfo != null && historyForumInfo.forum_id != null) {
+                            hashMap.put(historyForumInfo.forum_id, historyForumInfo);
+                        }
+                    }
+                }
+                for (HistoryForumInfo historyForumInfo2 : getHistoryForumResIdl.data.history_forum) {
+                    if (historyForumInfo2 != null && historyForumInfo2.forum_id != null) {
+                        VisitedForumData visitedForumData = new VisitedForumData();
+                        visitedForumData.a(historyForumInfo2);
+                        visitedForumData.ja(hashMap.containsKey(historyForumInfo2.forum_id));
+                        this.mForumData.add(visitedForumData);
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public final class DataRes extends Message {
     public static final List<GroupInfo> DEFAULT_GROUPS = Collections.emptyList();
     @ProtoField(tag = 2)
@@ -29,7 +29,7 @@ public final class DataRes extends Message {
         this.groupPerm = builder.groupPerm;
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public GroupPermission groupPerm;
         public List<GroupInfo> groups;

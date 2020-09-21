@@ -1,10 +1,12 @@
 package com.baidu.live.tbadk.core.sharedpref;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tieba.compatible.EditorHelper;
-/* loaded from: classes7.dex */
+import java.util.Set;
+/* loaded from: classes4.dex */
 public class SharedPrefHelper {
     private static SharedPrefHelper spHelper = null;
     private SharedPreferences mSP = null;
@@ -51,6 +53,11 @@ public class SharedPrefHelper {
         return this.mSP.getString(str, str2);
     }
 
+    public Set<String> getStringSet(String str, Set<String> set) {
+        this.mSP = getSharedPreferences();
+        return this.mSP.getStringSet(str, set);
+    }
+
     public void putBoolean(String str, boolean z) {
         this.mSP = getSharedPreferences();
         EditorHelper.putBoolean(this.mSP, str, z);
@@ -74,6 +81,17 @@ public class SharedPrefHelper {
     public void putLong(String str, long j) {
         this.mSP = getSharedPreferences();
         EditorHelper.putLong(this.mSP, str, j);
+    }
+
+    public void putStringSet(String str, Set<String> set) {
+        this.mSP = getSharedPreferences();
+        SharedPreferences.Editor edit = this.mSP.edit();
+        edit.putStringSet(str, set);
+        if (Build.VERSION.SDK_INT >= 9) {
+            edit.apply();
+        } else {
+            edit.commit();
+        }
     }
 
     public void remove(String str) {

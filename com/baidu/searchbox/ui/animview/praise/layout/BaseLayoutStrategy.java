@@ -5,8 +5,9 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ui.animview.base.IAnimatedElement;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
+import com.baidu.searchbox.ui.animview.praise.layout.ILayoutStrategy;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseLayoutStrategy implements ILayoutStrategy {
     private static final float ERUPTION_SIZE_DP = 313.0f;
     private static final float PRAISELEVEL_SIZE_DP = 170.0f;
@@ -17,6 +18,18 @@ public abstract class BaseLayoutStrategy implements ILayoutStrategy {
     private static final float SHAKE_SIZE_DP = 21.0f;
     private static final float WAVE_SIZE_DP = 116.0f;
     private Rect mBaseRect;
+    private ILayoutStrategy.ICallback mCallback = new ILayoutStrategy.ICallback() { // from class: com.baidu.searchbox.ui.animview.praise.layout.BaseLayoutStrategy.1
+        @Override // com.baidu.searchbox.ui.animview.praise.layout.ILayoutStrategy.ICallback
+        public void init(IAnimatedElement iAnimatedElement, int i, int i2, int i3, int i4, IResourceProvider iResourceProvider, Object... objArr) {
+            if (iAnimatedElement != null) {
+                if (objArr == null) {
+                    iAnimatedElement.init(i, i2, i3, i4, iResourceProvider, new Object[0]);
+                } else {
+                    iAnimatedElement.init(i, i2, i3, i4, iResourceProvider, objArr);
+                }
+            }
+        }
+    };
     private int mCanvasHeight;
     private int mCanvasWidth;
     private IResourceProvider mProvider;
@@ -56,9 +69,15 @@ public abstract class BaseLayoutStrategy implements ILayoutStrategy {
 
     @Override // com.baidu.searchbox.ui.animview.praise.layout.ILayoutStrategy
     public void layout(int i, Map<Integer, IAnimatedElement> map) {
+        layout(i, map, null);
+    }
+
+    @Override // com.baidu.searchbox.ui.animview.praise.layout.ILayoutStrategy
+    public void layout(int i, Map<Integer, IAnimatedElement> map, ILayoutStrategy.ICallback iCallback) {
         IAnimatedElement iAnimatedElement;
         int centerX;
         int centerY;
+        ILayoutStrategy.ICallback iCallback2 = iCallback == null ? this.mCallback : iCallback;
         if (map != null && map.size() > 0 && (iAnimatedElement = map.get(Integer.valueOf(i))) != null) {
             int[] iArr = new int[2];
             getSize(i, map, iArr);
@@ -75,7 +94,7 @@ public abstract class BaseLayoutStrategy implements ILayoutStrategy {
                 case 3:
                     IAnimatedElement iAnimatedElement2 = map.get(2);
                     if (iAnimatedElement2 != null) {
-                        iAnimatedElement.init(((iAnimatedElement2.getLeft() + (iAnimatedElement2.getWidth() / 2)) - ((int) ((getPraiseNumFactorPosX() * iAnimatedElement2.getWidth()) + 0.5f))) - iArr[0], (int) ((((iAnimatedElement2.getTop() + iAnimatedElement2.getHeight()) - (iAnimatedElement2.getHeight() * getPraiseNumFactorPosY())) - iArr[1]) + 0.5f), iArr[0], iArr[1], this.mProvider, Integer.valueOf((int) ((iAnimatedElement2.getWidth() * getPraiseNumFactorDeltaX()) + 0.5f)));
+                        iCallback2.init(iAnimatedElement, ((iAnimatedElement2.getLeft() + (iAnimatedElement2.getWidth() / 2)) - ((int) ((getPraiseNumFactorPosX() * iAnimatedElement2.getWidth()) + 0.5f))) - iArr[0], (int) ((((iAnimatedElement2.getTop() + iAnimatedElement2.getHeight()) - (iAnimatedElement2.getHeight() * getPraiseNumFactorPosY())) - iArr[1]) + 0.5f), iArr[0], iArr[1], this.mProvider, Integer.valueOf((int) ((iAnimatedElement2.getWidth() * getPraiseNumFactorDeltaX()) + 0.5f)));
                         return;
                     }
                     return;
@@ -86,7 +105,7 @@ public abstract class BaseLayoutStrategy implements ILayoutStrategy {
                 default:
                     return;
             }
-            iAnimatedElement.init(centerX, centerY, iArr[0], iArr[1], this.mProvider, new Object[0]);
+            iCallback2.init(iAnimatedElement, centerX, centerY, iArr[0], iArr[1], this.mProvider, new Object[0]);
         }
     }
 

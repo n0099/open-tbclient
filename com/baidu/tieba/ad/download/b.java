@@ -4,39 +4,39 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> foU;
+    private Map<DownloadCacheKey, AdDownloadData> fsb;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     private static final class a {
-        private static final b foV = new b();
+        private static final b fsc = new b();
     }
 
     private b() {
-        this.foU = new HashMap();
+        this.fsb = new HashMap();
     }
 
-    public static b bBd() {
-        return a.foV;
+    public static b bCp() {
+        return a.fsc;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.foU.get(downloadCacheKey) == null) {
-            this.foU.put(downloadCacheKey, adDownloadData);
+        if (this.fsb.get(downloadCacheKey) == null) {
+            this.fsb.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.foU.get(downloadCacheKey);
+        return this.fsb.get(downloadCacheKey);
     }
 
-    public Map<DownloadCacheKey, AdDownloadData> Ds(String str) {
-        HashMap hashMap = new HashMap(this.foU.size());
+    public Map<DownloadCacheKey, AdDownloadData> DP(String str) {
+        HashMap hashMap = new HashMap(this.fsb.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.foU.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.fsb.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

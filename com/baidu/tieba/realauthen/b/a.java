@@ -9,7 +9,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static void a(EditText editText, InputFilter[] inputFilterArr) {
         if (editText != null) {
@@ -17,11 +17,11 @@ public class a {
         }
     }
 
-    public static boolean t(CharSequence charSequence) {
+    public static boolean r(CharSequence charSequence) {
         return Pattern.compile("[^一-龥]").matcher(charSequence).find();
     }
 
-    public static void h(EditText editText) {
+    public static void g(EditText editText) {
         a(editText, new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.realauthen.b.a.1
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
@@ -29,7 +29,7 @@ public class a {
                     return "";
                 }
                 while (i < i2) {
-                    if (!a.t(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
+                    if (!a.r(charSequence) || charSequence.toString().contains("·") || charSequence.toString().contains("•")) {
                         i++;
                     } else {
                         return "";
@@ -40,7 +40,7 @@ public class a {
         }});
     }
 
-    public static void i(EditText editText) {
+    public static void h(EditText editText) {
         if (editText != null) {
             try {
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");

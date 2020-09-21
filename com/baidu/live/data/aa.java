@@ -1,32 +1,35 @@
 package com.baidu.live.data;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class aa {
-    public String aDU;
-    public String aDi;
-    public int aEH;
-    public int aEI;
-    public String aEJ;
-    public int duration;
-    public String iconUrl;
-    public int limit;
-    public String picUrl;
+    public String aEb;
+    public k aFH;
+    public z aFI;
+    private int aFJ;
+    public String msg;
 
-    public void parseJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aEH = optJSONObject.optInt("interval");
-            this.picUrl = optJSONObject.optString("pic_url");
-            this.aEI = optJSONObject.optInt("is_month_super_customer");
-            this.aDi = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
-            this.duration = optJSONObject.optInt("duration");
-            this.aDU = optJSONObject.optString("toast_text");
-            this.iconUrl = optJSONObject.optString("icon_url");
-            this.aEJ = optJSONObject.optString("btn_url");
+    public boolean CQ() {
+        return this.aFJ == 1;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.msg = jSONObject.optString("msg");
+            this.aEb = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
+            if (optJSONObject != null) {
+                this.aFH = new k();
+                this.aFH.iconUrl = optJSONObject.optString("icon_url");
+                this.aFH.msg = optJSONObject.optString("msg");
+            }
+            this.aFJ = jSONObject.optInt("is_season_over", 0);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
+            if (optJSONObject2 != null) {
+                this.aFI = new z();
+                this.aFI.parserJson(optJSONObject2);
+            }
         }
     }
 }

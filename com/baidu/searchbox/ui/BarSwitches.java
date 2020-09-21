@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ui;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BarSwitches {
     private static final int SWITCH_ACTIONBAR = 1;
     private static final int SWITCH_MENU = 2;

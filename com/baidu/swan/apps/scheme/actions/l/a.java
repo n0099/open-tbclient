@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a extends aa {
     private String mName;
 
@@ -55,14 +55,14 @@ public class a extends aa {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap aFb = ah.aFb();
-                if (aFb == null) {
+                final Bitmap aFL = ah.aFL();
+                if (aFL == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     p.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(aFb, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aFL, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -93,9 +93,9 @@ public class a extends aa {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String rI = b.rI(eVar.id);
-        if (rI != null) {
-            String str = rI + File.separator + StatisticConstants.SCREENSHOT;
+        String sb = b.sb(eVar.id);
+        if (sb != null) {
+            String str = sb + File.separator + StatisticConstants.SCREENSHOT;
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -106,14 +106,14 @@ public class a extends aa {
             }
             StringBuilder append = new StringBuilder().append(str).append(File.separator).append(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())).append(this.mName);
             ?? r1 = ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
-            String sb = append.append(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX).toString();
+            String sb2 = append.append(ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX).toString();
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(sb);
+                    fileOutputStream = new FileOutputStream(sb2);
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                        c.i("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.cq(sb, eVar.id), "success"), 0));
+                        c.i("Screenshot", "save screenshot to " + sb2);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.cq(sb2, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {

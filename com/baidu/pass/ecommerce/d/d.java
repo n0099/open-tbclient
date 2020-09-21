@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.d;
 
 import android.view.ViewGroup;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface d {
     void a();
 

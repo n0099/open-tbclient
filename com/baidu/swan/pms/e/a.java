@@ -9,27 +9,27 @@ import com.baidu.swan.pms.d;
 import com.baidu.swan.pms.utils.AbiType;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class a {
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> dHb = new HashMap();
-    private static Map<String, Map<String, a>> dHc = new HashMap();
-    public final String cpP;
-    public final String dFn;
-    public final AbiType dFt;
+    private static Map<String, a> dJf = new HashMap();
+    private static Map<String, Map<String, a>> dJg = new HashMap();
+    public final String crS;
+    public final String dHr;
+    public final AbiType dHx;
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
-        this.cpP = TextUtils.isEmpty(str) ? "" : str;
-        this.dFt = abiType;
-        this.dFn = c(str, abiType);
+        this.crS = TextUtils.isEmpty(str) ? "" : str;
+        this.dHx = abiType;
+        this.dHr = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.dFn + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.dHr + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.dFn;
+        return this.dHr;
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
-        if (android.text.TextUtils.equals(r6, r0.cpP) == false) goto L21;
+        if (android.text.TextUtils.equals(r6, r0.crS) == false) goto L21;
      */
     @Nullable
     /*
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                wR(str);
-                aVar = dHb.get(str2);
+                xk(str);
+                aVar = dJf.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> wQ(@NonNull String str) {
+    public static synchronized Map<String, a> xj(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(wR(str));
+            hashMap = new HashMap(xk(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> wR(@NonNull String str) {
+    private static synchronized Map<String, a> xk(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = dHc.get(str);
+            map = dJg.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.dFn, aVar);
+                        map.put(aVar.dHr, aVar);
                     }
-                    dHb.putAll(map);
-                    dHc.put(str, map);
+                    dJf.putAll(map);
+                    dJg.put(str, map);
                 }
             }
         }

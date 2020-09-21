@@ -5,106 +5,106 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private int eyB;
-    private List<bw> eyH;
-    private List<bw> eyI;
-    private boolean eyJ;
-    private boolean eyK;
-    private int eyL = 2;
-    private int eyM = 1;
+    private int eAF;
+    private List<bw> eAL;
+    private List<bw> eAM;
+    private boolean eAN;
+    private boolean eAO;
+    private int eAP = 2;
+    private int eAQ = 1;
 
     public b(List<bw> list, boolean z, int i) {
-        this.eyB = 2;
-        this.eyK = z;
-        this.eyB = i;
-        bS(list);
+        this.eAF = 2;
+        this.eAO = z;
+        this.eAF = i;
+        bX(list);
     }
 
-    public void bS(List<bw> list) {
+    public void bX(List<bw> list) {
         if (list != null) {
-            this.eyH = list;
-            if (list != null && list.size() >= this.eyL && list.size() <= this.eyB) {
-                this.eyJ = true;
-            } else if (list.size() > this.eyB && this.eyK) {
-                this.eyJ = true;
+            this.eAL = list;
+            if (list != null && list.size() >= this.eAP && list.size() <= this.eAF) {
+                this.eAN = true;
+            } else if (list.size() > this.eAF && this.eAO) {
+                this.eAN = true;
             } else {
-                this.eyJ = false;
+                this.eAN = false;
             }
-            this.eyI = blR();
+            this.eAM = bmL();
         }
     }
 
-    private List<bw> blR() {
+    private List<bw> bmL() {
         ArrayList arrayList = new ArrayList();
-        if (this.eyH != null) {
-            if (this.eyJ) {
-                if (this.eyH.size() > this.eyB && this.eyH.size() >= this.eyM) {
-                    arrayList.addAll(this.eyH.subList(0, this.eyB));
-                    arrayList.addAll(0, this.eyH.subList(this.eyB - this.eyM, this.eyB));
-                    arrayList.addAll(this.eyH.subList(0, this.eyM));
+        if (this.eAL != null) {
+            if (this.eAN) {
+                if (this.eAL.size() > this.eAF && this.eAL.size() >= this.eAQ) {
+                    arrayList.addAll(this.eAL.subList(0, this.eAF));
+                    arrayList.addAll(0, this.eAL.subList(this.eAF - this.eAQ, this.eAF));
+                    arrayList.addAll(this.eAL.subList(0, this.eAQ));
                 } else {
-                    arrayList.addAll(this.eyH);
-                    arrayList.addAll(0, this.eyH.subList(this.eyH.size() - this.eyM, this.eyH.size()));
-                    arrayList.addAll(this.eyH.subList(0, this.eyM));
+                    arrayList.addAll(this.eAL);
+                    arrayList.addAll(0, this.eAL.subList(this.eAL.size() - this.eAQ, this.eAL.size()));
+                    arrayList.addAll(this.eAL.subList(0, this.eAQ));
                 }
-            } else if (this.eyH != null && this.eyH.size() > 0 && this.eyH.size() >= this.eyM) {
-                arrayList.addAll(this.eyH.subList(0, this.eyM));
+            } else if (this.eAL != null && this.eAL.size() > 0 && this.eAL.size() >= this.eAQ) {
+                arrayList.addAll(this.eAL.subList(0, this.eAQ));
             }
         }
         return arrayList;
     }
 
-    public int pp(int i) {
-        if (this.eyJ) {
-            int size = this.eyI.size();
+    public int pC(int i) {
+        if (this.eAN) {
+            int size = this.eAM.size();
             if (i == 0) {
-                return (size - 1) - this.eyM;
+                return (size - 1) - this.eAQ;
             }
-            if (i == size - this.eyM) {
-                return this.eyM;
+            if (i == size - this.eAQ) {
+                return this.eAQ;
             }
             return i;
         }
         return i;
     }
 
-    public int pq(int i) {
-        if (this.eyJ) {
-            return i - this.eyM;
+    public int pD(int i) {
+        if (this.eAN) {
+            return i - this.eAQ;
         }
         return i;
     }
 
-    public int blS() {
-        if (this.eyH == null) {
+    public int bmM() {
+        if (this.eAL == null) {
             return 0;
         }
-        return this.eyH.size();
+        return this.eAL.size();
     }
 
-    public int blT() {
-        if (this.eyJ) {
-            return this.eyM;
+    public int bmN() {
+        if (this.eAN) {
+            return this.eAQ;
         }
         return 0;
     }
 
-    public void pr(int i) {
-        this.eyB = i;
-        bS(this.eyH);
+    public void pE(int i) {
+        this.eAF = i;
+        bX(this.eAL);
     }
 
-    public void ps(int i) {
-        this.eyL = i;
-        bS(this.eyH);
+    public void pF(int i) {
+        this.eAP = i;
+        bX(this.eAL);
     }
 
-    public List<bw> blU() {
-        return this.eyI;
+    public List<bw> bmO() {
+        return this.eAM;
     }
 
-    public void pt(int i) {
-        this.eyM = i;
-        bS(this.eyH);
+    public void pG(int i) {
+        this.eAQ = i;
+        bX(this.eAL);
     }
 }

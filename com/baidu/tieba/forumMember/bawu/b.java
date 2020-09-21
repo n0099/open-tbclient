@@ -2,47 +2,47 @@ package com.baidu.tieba.forumMember.bawu;
 
 import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b implements i {
-    private String hOd;
+    private String hVd;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
-    private boolean hOb = false;
-    private boolean hOc = false;
+    private boolean hVb = false;
+    private boolean hVc = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int ckd() {
+    public int cnq() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> cke() {
+    public ArrayList<BawuRoleInfoPub> cnr() {
         return this.mMembers;
     }
 
-    public void as(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void au(ArrayList<BawuRoleInfoPub> arrayList) {
         this.mMembers = arrayList;
     }
 
     public boolean isLast() {
-        return this.hOb;
+        return this.hVb;
     }
 
-    public void nW(boolean z) {
-        this.hOb = z;
+    public void oc(boolean z) {
+        this.hVb = z;
     }
 
-    public boolean ckf() {
-        return this.hOc;
+    public boolean cns() {
+        return this.hVc;
     }
 
-    public void nX(boolean z) {
-        this.hOc = z;
+    public void od(boolean z) {
+        this.hVc = z;
     }
 
-    public String ckg() {
-        return this.hOd;
+    public String cnt() {
+        return this.hVd;
     }
 
-    public void If(String str) {
-        this.hOd = str;
+    public void IC(String str) {
+        this.hVd = str;
     }
 }

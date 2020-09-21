@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import rx.d;
 import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] orn = new Object[0];
-    private final SubjectSubscriptionManager<T> oKv;
+    private static final Object[] oAU = new Object[0];
+    private final SubjectSubscriptionManager<T> oUa;
 
-    public static <T> a<T> elq() {
+    public static <T> a<T> epo() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.oKv = subjectSubscriptionManager;
+        this.oUa = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.oKv.getLatest() == null || this.oKv.active) {
-            Object ekj = NotificationLite.ekj();
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.terminate(ekj)) {
-                bVar.cj(ekj);
+        if (this.oUa.getLatest() == null || this.oUa.active) {
+            Object eoh = NotificationLite.eoh();
+            for (SubjectSubscriptionManager.b<T> bVar : this.oUa.terminate(eoh)) {
+                bVar.cj(eoh);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.oKv.getLatest() == null || this.oKv.active) {
+        if (this.oUa.getLatest() == null || this.oUa.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.oUa.terminate(error)) {
                 try {
                     bVar.cj(error);
                 } catch (Throwable th2) {
@@ -60,15 +60,15 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.gc(arrayList);
+            rx.exceptions.a.gl(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.oKv.getLatest() == null || this.oKv.active) {
+        if (this.oUa.getLatest() == null || this.oUa.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.oKv.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.oUa.next(next)) {
                 bVar.cj(next);
             }
         }

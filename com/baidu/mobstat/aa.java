@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public final class aa {
     public static boolean a = true;
     public static final String b;

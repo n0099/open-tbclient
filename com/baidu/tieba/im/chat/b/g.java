@@ -15,29 +15,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g jjY;
+    private static g jsC;
 
     private g() {
     }
 
-    public static synchronized g cCw() {
+    public static synchronized g cGc() {
         g gVar;
         synchronized (g.class) {
-            if (jjY == null) {
-                jjY = new g();
+            if (jsC == null) {
+                jsC = new g();
             }
-            gVar = jjY;
+            gVar = jsC;
         }
         return gVar;
     }
 
-    public void G(String str, long j) {
+    public void H(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long fc(long j) {
+    public long fq(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 
@@ -70,7 +70,7 @@ public class g {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
                 CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
-                customMessage.setData(new at(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                customMessage.setData(new at(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
                 MessageManager.getInstance().sendMessage(customMessage);
             }
             if (groupMsgData.getListMessage().size() > 0) {
@@ -82,7 +82,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean Kd(String str) {
+            public boolean KF(String str) {
                 return true;
             }
         }, false);

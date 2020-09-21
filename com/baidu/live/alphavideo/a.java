@@ -1,31 +1,33 @@
 package com.baidu.live.alphavideo;
 
+import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.be;
-/* loaded from: classes7.dex */
+import com.baidu.live.data.bj;
+/* loaded from: classes4.dex */
 public class a {
-    private boolean ayS;
+    private boolean azy;
 
-    public static a AH() {
-        return C0165a.ayT;
+    public static a AW() {
+        return C0167a.azz;
     }
 
-    public boolean AI() {
-        be beVar = com.baidu.live.w.a.Nk().bkd;
-        if (beVar == null || beVar.aJD == null || beVar.aJD.aLw) {
-            return this.ayS;
+    public boolean AX() {
+        bj bjVar = com.baidu.live.x.a.NN().bmW;
+        if (bjVar != null && bjVar.aKT != null && !bjVar.aKT.aNe) {
+            return false;
         }
-        return false;
+        Log.e("entereffect", "云控透明视频开关： " + this.azy);
+        return this.azy;
     }
 
     private a() {
-        this.ayS = MessageManager.getInstance().findTask(2913180) != null;
+        this.azy = MessageManager.getInstance().findTask(2913180) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.alphavideo.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0165a {
-        private static a ayT = new a();
+    /* loaded from: classes4.dex */
+    public static class C0167a {
+        private static a azz = new a();
     }
 }

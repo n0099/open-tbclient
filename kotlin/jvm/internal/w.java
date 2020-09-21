@@ -1,15 +1,15 @@
 package kotlin.jvm.internal;
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class w {
     private static <T extends Throwable> T Q(T t) {
         return (T) q.c(t, w.class.getName());
     }
 
     public static void n(Object obj, String str) {
-        Wl((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
+        WN((obj == null ? "null" : obj.getClass().getName()) + " cannot be cast to " + str);
     }
 
-    public static void Wl(String str) {
+    public static void WN(String str) {
         throw a(new ClassCastException(str));
     }
 
@@ -17,7 +17,7 @@ public class w {
         throw ((ClassCastException) Q(classCastException));
     }
 
-    public static int bN(Object obj) {
+    public static int bP(Object obj) {
         if (obj instanceof p) {
             return ((p) obj).getArity();
         }
@@ -94,7 +94,7 @@ public class w {
     }
 
     public static boolean j(Object obj, int i) {
-        return (obj instanceof kotlin.c) && bN(obj) == i;
+        return (obj instanceof kotlin.c) && bP(obj) == i;
     }
 
     public static Object k(Object obj, int i) {

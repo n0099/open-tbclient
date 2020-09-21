@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.hybrid;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,13 +10,14 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 public class r {
     public static boolean unZipFiles(String str, String str2) {
         return unZipFiles(new File(str), str2);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4, 65=4, 66=4, 59=5, 60=4, 61=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=5, 65=4, 66=4, 69=4, 70=4, 71=4] */
     /* JADX WARN: Removed duplicated region for block: B:117:0x00c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:125:0x00bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:129:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -211,5 +214,92 @@ public class r {
             return z2;
         }
         return false;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [124=5] */
+    public static boolean dB(String str, String str2) {
+        ZipOutputStream zipOutputStream;
+        try {
+            try {
+                zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
+                try {
+                    File file = new File(str);
+                    if (!file.exists()) {
+                        com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                        return false;
+                    }
+                    a(file.getParent(), file.getName(), zipOutputStream);
+                    zipOutputStream.finish();
+                    zipOutputStream.close();
+                    com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                    return true;
+                } catch (FileNotFoundException e) {
+                    e = e;
+                    e.printStackTrace();
+                    com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                    return false;
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                    return false;
+                } catch (Exception e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+                throw th;
+            }
+        } catch (FileNotFoundException e4) {
+            e = e4;
+            zipOutputStream = null;
+        } catch (IOException e5) {
+            e = e5;
+            zipOutputStream = null;
+        } catch (Exception e6) {
+            e = e6;
+            zipOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            zipOutputStream = null;
+            com.baidu.adp.lib.util.n.close((OutputStream) zipOutputStream);
+            throw th;
+        }
+    }
+
+    private static void a(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+        if (zipOutputStream != null) {
+            File file = new File(str, str2);
+            if (file.exists()) {
+                if (file.isFile()) {
+                    ZipEntry zipEntry = new ZipEntry(str2);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    zipOutputStream.putNextEntry(zipEntry);
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read != -1) {
+                            zipOutputStream.write(bArr, 0, read);
+                        } else {
+                            zipOutputStream.closeEntry();
+                            return;
+                        }
+                    }
+                } else if (file.isDirectory()) {
+                    String[] list = file.list();
+                    if (list.length <= 0) {
+                        zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
+                        zipOutputStream.closeEntry();
+                    }
+                    for (int i = 0; i < list.length; i++) {
+                        a(str, str2 + File.separator + list[i], zipOutputStream);
+                    }
+                }
+            }
+        }
     }
 }

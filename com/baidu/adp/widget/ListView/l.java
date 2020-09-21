@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 /* loaded from: classes.dex */
 public class l {
-    private float VZ = 8.0f;
-    private float Wa = 15.0f;
-    private float Wb = 4.0f;
-    private float Wc = 60.0f;
-    private int We = 150;
-    private int Wf = 150;
-    private int Wg = 500;
-    private float Wh = 0.4f;
-    private float Wi = 1.0f;
-    private float Wj = 20.0f;
-    private float Wk = 10.0f;
-    private int Wl = EncoderTextureDrawer.X264_WIDTH;
-    private float Wm = 5.0f;
+    private float Ws = 8.0f;
+    private float Wt = 15.0f;
+    private float Wu = 4.0f;
+    private float Wv = 60.0f;
+    private int Ww = 150;
+    private int Wx = 150;
+    private int Wy = 500;
+    private float Wz = 0.4f;
+    private float WA = 1.0f;
+    private float WB = 20.0f;
+    private float WC = 10.0f;
+    private int WD = EncoderTextureDrawer.X264_WIDTH;
+    private float WE = 5.0f;
 
-    public float qQ() {
-        return this.VZ;
+    public float qV() {
+        return this.Ws;
     }
 
-    public float qR() {
-        return this.Wa;
-    }
-
-    public float qS() {
-        return this.Wb;
-    }
-
-    public float qT() {
-        return this.Wc;
-    }
-
-    public int qU() {
-        return this.We;
-    }
-
-    public int qV() {
-        return this.Wf;
-    }
-
-    public int qW() {
-        return this.Wg;
+    public float qW() {
+        return this.Wt;
     }
 
     public float qX() {
-        return this.Wh;
+        return this.Wu;
     }
 
     public float qY() {
-        return this.Wi;
+        return this.Wv;
     }
 
-    public float qZ() {
-        return this.Wj;
+    public int qZ() {
+        return this.Ww;
     }
 
-    public float ra() {
-        return this.Wk;
+    public int ra() {
+        return this.Wx;
     }
 
     public int rb() {
-        return this.Wl;
+        return this.Wy;
+    }
+
+    public float rc() {
+        return this.Wz;
+    }
+
+    public float rd() {
+        return this.WA;
+    }
+
+    public float re() {
+        return this.WB;
+    }
+
+    public float rf() {
+        return this.WC;
+    }
+
+    public int rg() {
+        return this.WD;
     }
 }

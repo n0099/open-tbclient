@@ -9,23 +9,23 @@ import rx.internal.schedulers.d;
 import rx.internal.schedulers.e;
 import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> oEd = new AtomicReference<>();
-    private final g oKl;
-    private final g oKm;
-    private final g oKn;
+    private static final AtomicReference<Schedulers> oNI = new AtomicReference<>();
+    private final g oTQ;
+    private final g oTR;
+    private final g oTS;
 
-    private static Schedulers elm() {
+    private static Schedulers epk() {
         Schedulers schedulers;
         while (true) {
-            schedulers = oEd.get();
+            schedulers = oNI.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (oEd.compareAndSet(null, schedulers)) {
+                if (oNI.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.elo();
+                schedulers.epm();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g eld = f.ekY().eld();
-        g elh = eld.elh();
-        if (elh != null) {
-            this.oKl = elh;
+        rx.c.g epb = f.eoW().epb();
+        g epf = epb.epf();
+        if (epf != null) {
+            this.oTQ = epf;
         } else {
-            this.oKl = rx.c.g.ele();
+            this.oTQ = rx.c.g.epc();
         }
-        g eli = eld.eli();
-        if (eli != null) {
-            this.oKm = eli;
+        g epg = epb.epg();
+        if (epg != null) {
+            this.oTR = epg;
         } else {
-            this.oKm = rx.c.g.elf();
+            this.oTR = rx.c.g.epd();
         }
-        g elj = eld.elj();
-        if (elj != null) {
-            this.oKn = elj;
+        g eph = epb.eph();
+        if (eph != null) {
+            this.oTS = eph;
         } else {
-            this.oKn = rx.c.g.elg();
+            this.oTS = rx.c.g.epe();
         }
     }
 
     public static g immediate() {
-        return e.oIs;
+        return e.oRX;
     }
 
     public static g trampoline() {
-        return j.oIQ;
+        return j.oSv;
     }
 
     public static g newThread() {
-        return c.k(elm().oKn);
+        return c.k(epk().oTS);
     }
 
     public static g computation() {
-        return c.i(elm().oKl);
+        return c.i(epk().oTQ);
     }
 
     public static g io() {
-        return c.j(elm().oKm);
+        return c.j(epk().oTR);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = oEd.getAndSet(null);
+        Schedulers andSet = oNI.getAndSet(null);
         if (andSet != null) {
-            andSet.elo();
+            andSet.epm();
         }
     }
 
     public static void start() {
-        Schedulers elm = elm();
-        elm.eln();
-        synchronized (elm) {
-            d.oIq.start();
+        Schedulers epk = epk();
+        epk.epl();
+        synchronized (epk) {
+            d.oRV.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers elm = elm();
-        elm.elo();
-        synchronized (elm) {
-            d.oIq.shutdown();
+        Schedulers epk = epk();
+        epk.epm();
+        synchronized (epk) {
+            d.oRV.shutdown();
         }
     }
 
-    synchronized void eln() {
-        if (this.oKl instanceof h) {
-            ((h) this.oKl).start();
+    synchronized void epl() {
+        if (this.oTQ instanceof h) {
+            ((h) this.oTQ).start();
         }
-        if (this.oKm instanceof h) {
-            ((h) this.oKm).start();
+        if (this.oTR instanceof h) {
+            ((h) this.oTR).start();
         }
-        if (this.oKn instanceof h) {
-            ((h) this.oKn).start();
+        if (this.oTS instanceof h) {
+            ((h) this.oTS).start();
         }
     }
 
-    synchronized void elo() {
-        if (this.oKl instanceof h) {
-            ((h) this.oKl).shutdown();
+    synchronized void epm() {
+        if (this.oTQ instanceof h) {
+            ((h) this.oTQ).shutdown();
         }
-        if (this.oKm instanceof h) {
-            ((h) this.oKm).shutdown();
+        if (this.oTR instanceof h) {
+            ((h) this.oTR).shutdown();
         }
-        if (this.oKn instanceof h) {
-            ((h) this.oKn).shutdown();
+        if (this.oTS instanceof h) {
+            ((h) this.oTS).shutdown();
         }
     }
 }

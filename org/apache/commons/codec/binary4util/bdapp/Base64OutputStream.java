@@ -4,7 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 public class Base64OutputStream extends FilterOutputStream {
     private static byte[] EMPTY = new byte[0];
     private int bpos;

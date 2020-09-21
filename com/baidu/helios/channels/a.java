@@ -7,9 +7,9 @@ import com.baidu.helios.common.c.a;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
-    public static Comparator<a> avQ = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> aws = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,30 +18,44 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0143a avO;
-    protected a.C0148a avP;
+    protected C0144a awq;
+    protected a.C0149a awr;
     private final String b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    public static class C0143a {
+    /* loaded from: classes10.dex */
+    public static class C0144a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a avR;
-        public com.baidu.helios.ids.b avS;
+        public com.baidu.helios.common.c.a awt;
+        public com.baidu.helios.ids.b awu;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b {
-        private a.C0148a avy;
+        private a.C0149a awa;
         private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0148a c0148a, String str) {
-            this.avy = c0148a;
+        public b(a.C0149a c0149a, String str) {
+            this.awa = c0149a;
             this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
+        }
+
+        public boolean Aa() {
+            if (this.d) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    q(jSONObject);
+                    this.awa.d(this.c, jSONObject.toString(), true);
+                    aT(false);
+                    return true;
+                } catch (Exception e) {
+                }
+            }
+            return false;
         }
 
         public void aT(boolean z) {
@@ -52,8 +66,8 @@ public abstract class a {
 
         public abstract void q(JSONObject jSONObject);
 
-        public boolean zL() {
-            String q = this.avy.q(this.c, true);
+        public boolean zZ() {
+            String q = this.awa.q(this.c, true);
             if (!TextUtils.isEmpty(q)) {
                 try {
                     p(new JSONObject(q));
@@ -64,31 +78,17 @@ public abstract class a {
             }
             return false;
         }
-
-        public boolean zM() {
-            if (this.d) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    q(jSONObject);
-                    this.avy.d(this.c, jSONObject.toString(), true);
-                    aT(false);
-                    return true;
-                } catch (Exception e) {
-                }
-            }
-            return false;
-        }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class c {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class d {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class e {
         private int a;
         private int b;
@@ -100,29 +100,29 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static e dm(int i) {
+        public static e Ab() {
+            return new e(0, 0, null);
+        }
+
+        public static e Ac() {
+            return dq(0);
+        }
+
+        public static e dq(int i) {
             return new e(-1, i, null);
         }
 
         public static e i(Exception exc) {
             return new e(-1, 0, exc);
         }
-
-        public static e zN() {
-            return new e(0, 0, null);
-        }
-
-        public static e zO() {
-            return dm(0);
-        }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class f {
         public boolean useCache;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class g {
         public int errCode;
         public Exception exception;
@@ -134,7 +134,7 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g dn(int i) {
+        public static g dr(int i) {
             return new g(i, null, null);
         }
 
@@ -142,7 +142,7 @@ public abstract class a {
             return new g(i, null, exc);
         }
 
-        public static g fu(String str) {
+        public static g fw(String str) {
             return new g(0, str, null);
         }
 
@@ -164,9 +164,9 @@ public abstract class a {
 
     public abstract g a(String str, f fVar);
 
-    public final void a(C0143a c0143a) {
-        this.avO = c0143a;
-        this.avP = c0143a.avR.Ah().fw(IXAdRequestInfo.CS);
+    public final void a(C0144a c0144a) {
+        this.awq = c0144a;
+        this.awr = c0144a.awt.Av().fy(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

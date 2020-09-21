@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    protected String ewW;
-    protected String ewX;
-    private com.baidu.tbadk.core.view.commonBtn.b kZp;
-    private com.baidu.tbadk.core.view.commonBtn.b kZq;
-    public View.OnClickListener kZr;
+    protected String ezd;
+    protected String eze;
+    private com.baidu.tbadk.core.view.commonBtn.b lih;
+    private com.baidu.tbadk.core.view.commonBtn.b lii;
+    public View.OnClickListener lij;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -32,21 +32,21 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     private void init() {
-        this.ewW = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.ewX = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.ezd = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.eze = TbadkCoreApplication.getInst().getString(R.string.attention);
         setTextSize(R.dimen.tbds36);
-        setText(this.ewX);
-        this.kZp = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.kZp.pb(R.color.cp_link_tip_a);
-        this.kZp.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-        this.kZp.oX(l.getDimens(getContext(), R.dimen.tbds36));
-        this.kZq = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.kZq.pd(R.color.cp_cont_d);
-        setConfig(this.kZp);
+        setText(this.eze);
+        this.lih = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lih.pp(R.color.cp_link_tip_a);
+        this.lih.a(R.drawable.ic_icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+        this.lih.pj(l.getDimens(getContext(), R.dimen.tbds36));
+        this.lii = new com.baidu.tbadk.core.view.commonBtn.b();
+        this.lii.pr(R.color.cp_cont_d);
+        setConfig(this.lih);
     }
 
     public void setFollowIconSize(int i) {
-        this.kZp.oX(i);
+        this.lih.pj(i);
     }
 
     @Override // android.view.View
@@ -55,18 +55,18 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void aN(boolean z) {
-        if (!(this.ewv instanceof Boolean) || ((Boolean) this.ewv).booleanValue() != z) {
-            this.ewv = Boolean.valueOf(z);
+        if (!(this.eyC instanceof Boolean) || ((Boolean) this.eyC).booleanValue() != z) {
+            this.eyC = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);
-                setText(this.ewW);
-                setConfig(this.kZq);
+                setText(this.ezd);
+                setConfig(this.lii);
             } else {
                 setVisibility(0);
                 setClickable(true);
-                setText(this.ewX);
-                setConfig(this.kZp);
+                setText(this.eze);
+                setConfig(this.lih);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -84,12 +84,12 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void pk(int i) {
+    public void py(int i) {
     }
 
-    public void bk(View view) {
-        if (this.kZr != null) {
-            this.kZr.onClick(view);
+    public void bm(View view) {
+        if (this.lij != null) {
+            this.lij.onClick(view);
         }
     }
 
@@ -99,6 +99,6 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
     }
 
     public void onChangeSkinType(int i) {
-        bkF();
+        blA();
     }
 }

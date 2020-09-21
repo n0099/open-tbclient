@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class ForumSquareActivityConfig extends IntentConfig {
     public static final String FORUM_CLASS_NAME = "class_name";
+    public static final String SHOW_CREATE_BAR = "show_create_bar";
 
     public ForumSquareActivityConfig(Context context) {
         super(context);
@@ -21,6 +22,13 @@ public class ForumSquareActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void showCreateBar(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(SHOW_CREATE_BAR, i);
         }
     }
 }

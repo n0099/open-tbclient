@@ -1,5 +1,5 @@
 package com.tb.airbnb.lottie.model.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public interface m<K, A> {
-    com.tb.airbnb.lottie.a.b.a<K, A> edo();
+    com.tb.airbnb.lottie.a.b.a<K, A> ehl();
 }

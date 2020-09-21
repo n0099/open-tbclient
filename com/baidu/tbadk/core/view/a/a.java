@@ -7,10 +7,10 @@ import android.text.style.ReplacementSpan;
 import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class a extends ReplacementSpan {
-    private int cLV;
-    private int exi;
-    private int exj;
-    private int exk = 0;
+    private int cNV;
+    private int ezp;
+    private int ezq;
+    private int ezr = 0;
     private int mRadius;
     private int mSize;
     private int mTextColorId;
@@ -18,20 +18,20 @@ public class a extends ReplacementSpan {
     private int mTopPadding;
 
     public a(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.exi = i;
+        this.ezp = i;
         this.mRadius = i2;
         this.mTextSize = i3;
         this.mTextColorId = i4;
-        this.cLV = i5;
+        this.cNV = i5;
         this.mTopPadding = i6;
-        this.exj = i7;
+        this.ezq = i7;
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
         float textSize = paint.getTextSize();
         paint.setTextSize(this.mTextSize);
-        this.mSize = (int) (paint.measureText(charSequence, i, i2) + (this.mRadius * 2) + (this.cLV * 2) + this.exk);
+        this.mSize = (int) (paint.measureText(charSequence, i, i2) + (this.mRadius * 2) + (this.cNV * 2) + this.ezr);
         paint.setTextSize(textSize);
         return this.mSize;
     }
@@ -40,15 +40,15 @@ public class a extends ReplacementSpan {
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         float textSize = paint.getTextSize();
         int color = paint.getColor();
-        float f2 = this.exj + f;
+        float f2 = this.ezq + f;
         paint.setTextSize(this.mTextSize);
-        paint.setColor(ap.getColor(this.exi));
+        paint.setColor(ap.getColor(this.ezp));
         paint.setAntiAlias(true);
-        RectF rectF = new RectF(f2, ((((i3 + i5) - this.mTextSize) - this.mRadius) - this.mTopPadding) / 2, (this.mSize + f2) - this.exk, ((((i3 + i5) + this.mTextSize) + this.mRadius) + this.mTopPadding) / 2);
+        RectF rectF = new RectF(f2, ((((i3 + i5) - this.mTextSize) - this.mRadius) - this.mTopPadding) / 2, (this.mSize + f2) - this.ezr, ((((i3 + i5) + this.mTextSize) + this.mRadius) + this.mTopPadding) / 2);
         canvas.drawRoundRect(rectF, this.mRadius, this.mRadius, paint);
         paint.setColor(ap.getColor(this.mTextColorId));
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        canvas.drawText(charSequence, i, i2, f2 + this.mRadius + this.cLV, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
+        canvas.drawText(charSequence, i, i2, f2 + this.mRadius + this.cNV, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
         paint.setTextSize(textSize);
         paint.setColor(color);
     }

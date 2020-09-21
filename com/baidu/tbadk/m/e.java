@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class e {
-    private static e eRp = null;
+    private static e eUg = null;
     private int maxCost;
     private boolean isSmallFlowOpen = false;
-    private boolean eRq = false;
+    private boolean eUh = false;
 
     private e() {
     }
 
-    public static e bua() {
-        if (eRp == null) {
+    public static e bve() {
+        if (eUg == null) {
             synchronized (e.class) {
-                if (eRp == null) {
-                    eRp = new e();
+                if (eUg == null) {
+                    eUg = new e();
                 }
             }
         }
-        return eRp;
+        return eUg;
     }
 
     public void a(Context context, d dVar, b bVar) {
@@ -45,13 +45,13 @@ public class e {
                         }
                     };
                 }
-                if (bVar.a(dVar)) {
+                if (bVar.canStat(dVar)) {
                     aq aqVar = new aq(PageStayDurationConstants.ROUTE_URL_KEY);
-                    aqVar.dD("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                    aqVar.dD("obj_locate", dVar.getCurrentPageKey());
-                    aqVar.dD("obj_type", "0");
+                    aqVar.dF("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                    aqVar.dF("obj_locate", dVar.getCurrentPageKey());
+                    aqVar.dF("obj_type", "0");
                     if (!StringUtils.isNull(dVar.objID)) {
-                        aqVar.dD("obj_id", dVar.objID);
+                        aqVar.dF("obj_id", dVar.objID);
                     }
                     com.baidu.tbadk.l.e.a(context, aqVar, dVar);
                     TiebaStatic.log(aqVar);
@@ -72,52 +72,52 @@ public class e {
                     }
                 };
             }
-            if (bVar.isSwitchOpen() && bVar.a(dVar)) {
+            if (bVar.isSwitchOpen() && bVar.canStat(dVar)) {
                 aq aqVar2 = new aq(PageStayDurationConstants.URL_KEY);
-                aqVar2.dD("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                aqVar2.dD("obj_type", dVar.getCurrentPageKey());
-                aqVar2.dD("obj_duration", String.valueOf(dVar.getStayDurationTime()));
+                aqVar2.dF("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                aqVar2.dF("obj_type", dVar.getCurrentPageKey());
+                aqVar2.dF("obj_duration", String.valueOf(dVar.getStayDurationTime()));
                 if (dVar.getFid() > 0) {
-                    aqVar2.dD("fid", String.valueOf(dVar.getFid()));
+                    aqVar2.dF("fid", String.valueOf(dVar.getFid()));
                 }
                 if (dVar.getTid() > 0) {
-                    aqVar2.dD("tid", String.valueOf(dVar.getTid()));
+                    aqVar2.dF("tid", String.valueOf(dVar.getTid()));
                 }
                 if (!StringUtils.isNull(dVar.getNid())) {
-                    aqVar2.dD("nid", dVar.getNid());
+                    aqVar2.dF("nid", dVar.getNid());
                 }
                 if (dVar.getPid() > 0) {
-                    aqVar2.dD("pid", String.valueOf(dVar.getPid()));
+                    aqVar2.dF("pid", String.valueOf(dVar.getPid()));
                 }
                 if (!StringUtils.isNull(dVar.objParam1)) {
-                    aqVar2.dD("obj_param1", dVar.objParam1);
+                    aqVar2.dF("obj_param1", dVar.objParam1);
                 }
                 if (!StringUtils.isNull(dVar.isVertical)) {
-                    aqVar2.dD("is_vertical", dVar.isVertical);
+                    aqVar2.dF("is_vertical", dVar.isVertical);
                 }
-                if (!StringUtils.isNull(dVar.eRo)) {
-                    aqVar2.dD("is_dynamic", dVar.eRo);
+                if (!StringUtils.isNull(dVar.eUf)) {
+                    aqVar2.dF("is_dynamic", dVar.eUf);
                 }
                 if (!StringUtils.isNull(dVar.resourceId)) {
-                    aqVar2.dD("resource_id", dVar.resourceId);
+                    aqVar2.dF("resource_id", dVar.resourceId);
                 }
                 if (!at.isEmpty(dVar.getTaskId())) {
-                    aqVar2.dD("task_id", String.valueOf(dVar.getTaskId()));
+                    aqVar2.dF("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!at.isEmpty(dVar.btY())) {
-                    aqVar2.dD("ab_tag", dVar.btY());
+                if (!at.isEmpty(dVar.bvc())) {
+                    aqVar2.dF("ab_tag", dVar.bvc());
                 }
-                if (bub()) {
+                if (bvf()) {
                     if (!StringUtils.isNull(dVar.objID)) {
-                        aqVar2.dD("obj_id", dVar.objID);
+                        aqVar2.dF("obj_id", dVar.objID);
                     }
-                    if (!StringUtils.isNull(dVar.eRm)) {
-                        aqVar2.dD("obj_name", dVar.eRm);
+                    if (!StringUtils.isNull(dVar.eUd)) {
+                        aqVar2.dF("obj_name", dVar.eUd);
                     }
-                    aqVar2.dD("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+                    aqVar2.dF("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.btZ())) {
-                    aqVar2.dD("obj_location", dVar.btZ());
+                if (!StringUtils.isNull(dVar.bvd())) {
+                    aqVar2.dF("obj_location", dVar.bvd());
                 }
                 com.baidu.tbadk.l.e.a(context, aqVar2, dVar);
                 TiebaStatic.log(aqVar2);
@@ -125,12 +125,12 @@ public class e {
         }
     }
 
-    public boolean bub() {
-        return this.eRq;
+    public boolean bvf() {
+        return this.eUh;
     }
 
-    public void jB(boolean z) {
-        this.eRq = z;
+    public void jC(boolean z) {
+        this.eUh = z;
     }
 
     public boolean isSmallFlowOpen() {
@@ -142,11 +142,11 @@ public class e {
     }
 
     public int getMaxCostFromServer() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.bik().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.bjf().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
     }
 
     public void setMaxCostFromServer(int i) {
         this.maxCost = i;
-        com.baidu.tbadk.core.sharedPref.b.bik().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
+        com.baidu.tbadk.core.sharedPref.b.bjf().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
     }
 }

@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.bdtls.model.Bdtls;
 import com.baidu.swan.games.bdtls.model.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static void a(j jVar, Bdtls.Alert alert) {
         if (a.DEBUG) {
@@ -19,10 +19,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.aMr() != null ? jVar.aMr().intValue() : -1;
-            int intValue2 = jVar.aMs() != null ? jVar.aMs().intValue() : -1;
-            int intValue3 = jVar.aMt() != null ? jVar.aMt().intValue() : -1;
-            int intValue4 = jVar.aMu() != null ? jVar.aMu().intValue() : -1;
+            int intValue = jVar.aNc() != null ? jVar.aNc().intValue() : -1;
+            int intValue2 = jVar.aNd() != null ? jVar.aNd().intValue() : -1;
+            int intValue3 = jVar.aNe() != null ? jVar.aNe().intValue() : -1;
+            int intValue4 = jVar.aNf() != null ? jVar.aNf().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -47,12 +47,12 @@ public class f {
         }
     }
 
-    public static void uH(String str) {
+    public static void va(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j aLo = e.aLn().aLo();
-        if (aLo == null) {
+        j aLZ = e.aLY().aLZ();
+        if (aLZ == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -60,10 +60,10 @@ public class f {
             return;
         }
         try {
-            int intValue = aLo.aMr() != null ? aLo.aMr().intValue() : -1;
-            int intValue2 = aLo.aMs() != null ? aLo.aMs().intValue() : -1;
-            int intValue3 = aLo.aMt() != null ? aLo.aMt().intValue() : -1;
-            int intValue4 = aLo.aMu() != null ? aLo.aMu().intValue() : -1;
+            int intValue = aLZ.aNc() != null ? aLZ.aNc().intValue() : -1;
+            int intValue2 = aLZ.aNd() != null ? aLZ.aNd().intValue() : -1;
+            int intValue3 = aLZ.aNe() != null ? aLZ.aNe().intValue() : -1;
+            int intValue4 = aLZ.aNf() != null ? aLZ.aNf().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }

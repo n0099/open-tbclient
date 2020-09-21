@@ -7,9 +7,9 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public abstract class b<T> {
-    public abstract ContentValues af(T t);
+    public abstract ContentValues ag(T t);
 
     public abstract List<T> h(Cursor cursor) throws SQLException;
 
@@ -36,7 +36,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.dFn = string;
+            eVar.dHr = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -48,7 +48,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.dFo = cursor.getLong(columnIndex9);
+            eVar.dHs = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -57,7 +57,7 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.dFn);
+        contentValues.put("bundle_id", eVar.dHr);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Long.valueOf(eVar.versionCode));

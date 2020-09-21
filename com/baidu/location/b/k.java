@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class k {
     private static Object c = new Object();
     private static k d = null;
@@ -25,7 +25,7 @@ public class k {
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.e.f {
         private String b = null;
         private String c = null;

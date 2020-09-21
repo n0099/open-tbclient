@@ -15,7 +15,7 @@ public class CustomCircle implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Nn */
+        /* renamed from: NS */
         public CustomCircle[] newArray(int i) {
             return new CustomCircle[i];
         }

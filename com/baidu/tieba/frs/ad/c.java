@@ -6,69 +6,69 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AdInfo;
 import tbclient.Media;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hZl = BdUniqueId.gen();
-    private String dWk;
-    private String dWl;
-    public boolean hOb = false;
-    private String hZm;
-    private String hZn;
-    private List<MediaData> hZo;
-    private int hZp;
+    public static final BdUniqueId igp = BdUniqueId.gen();
+    private String dYu;
+    private String dYv;
+    public boolean hVb = false;
+    private String igq;
+    private String igr;
+    private List<MediaData> igs;
+    private int igt;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.hZm = adInfo.portrait;
-            this.dWk = adInfo.ad_name;
-            this.hZn = adInfo.ad_desc;
-            this.dWl = adInfo.ad_url;
-            this.hZp = adInfo.show_rule.intValue();
+            this.igq = adInfo.portrait;
+            this.dYu = adInfo.ad_name;
+            this.igr = adInfo.ad_desc;
+            this.dYv = adInfo.ad_url;
+            this.igt = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.hZo = new ArrayList();
+                this.igs = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.hZo.add(mediaData);
+                    this.igs.add(mediaData);
                 }
             }
         }
     }
 
-    public int cow() {
-        return this.hZp;
+    public int crJ() {
+        return this.igt;
     }
 
-    public String cox() {
-        return this.hZm;
+    public String crK() {
+        return this.igq;
     }
 
-    public String coy() {
-        return this.dWk;
+    public String crL() {
+        return this.dYu;
     }
 
-    public String coz() {
-        return this.hZn;
+    public String crM() {
+        return this.igr;
     }
 
-    public String bvb() {
-        return this.dWl;
+    public String bwf() {
+        return this.dYv;
     }
 
-    public List<MediaData> coA() {
-        return this.hZo;
+    public List<MediaData> crN() {
+        return this.igs;
     }
 
-    public void oD(boolean z) {
-        this.hOb = z;
+    public void oJ(boolean z) {
+        this.hVb = z;
     }
 
-    public boolean coB() {
-        return this.hOb;
+    public boolean crO() {
+        return this.hVb;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return hZl;
+        return igp;
     }
 }

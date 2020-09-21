@@ -4,70 +4,64 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface r {
-    String ZA();
+    boolean ZX();
 
-    String ZB();
+    String ZY();
 
-    String ZC();
+    String ZZ();
 
-    String ZD();
+    void aaS();
 
-    String ZE();
+    void aaT();
 
-    String ZF();
+    String aaU();
 
-    @Nullable
-    String ZG();
+    String aaV();
 
-    long ZH();
+    boolean aaW();
 
-    String ZI();
+    int aaX();
 
-    String ZJ();
+    String aaY();
 
-    String ZK();
+    String aaZ();
 
-    boolean Zo();
+    String aaa();
 
-    String Zp();
+    String aab();
 
-    String Zq();
+    String aac();
 
-    String Zr();
+    String aad();
 
-    String Zs();
+    String aae();
 
-    String Zt();
+    String aaf();
 
-    String Zu();
+    String aag();
 
-    String Zv();
+    String aah();
 
-    String Zw();
+    String aai();
 
-    String Zx();
+    String aaj();
 
-    String Zy();
-
-    String Zz();
-
-    void aaj();
-
-    void aak();
+    String aak();
 
     String aal();
 
     String aam();
 
-    boolean aan();
+    String aan();
 
-    int aao();
+    String aao();
 
+    @Nullable
     String aap();
 
-    String aaq();
+    long aaq();
 
     String aar();
 
@@ -75,7 +69,13 @@ public interface r {
 
     String aat();
 
-    String bn(Context context);
+    String aba();
+
+    String abb();
+
+    String abc();
+
+    String bm(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -87,11 +87,11 @@ public interface r {
 
     HttpRequest i(Context context, Map<String, String> map);
 
-    String iI(String str);
-
     boolean isDebug();
 
     HttpRequest j(Context context, Map<String, String> map);
+
+    String jb(String str);
 
     HttpRequest k(Context context, Map<String, String> map);
 }

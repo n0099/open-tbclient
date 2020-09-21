@@ -4,27 +4,27 @@ import java.util.Hashtable;
 import java.util.StringTokenizer;
 import org.aspectj.a.b.c;
 import org.aspectj.lang.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public final class b {
-    static Hashtable oAv = new Hashtable();
-    private static Object[] oAw;
-    static Class oAx;
+    static Hashtable oKa = new Hashtable();
+    private static Object[] oKb;
+    static Class oKc;
     int count = 0;
     String filename;
-    Class oAt;
-    ClassLoader oAu;
+    Class oJY;
+    ClassLoader oJZ;
 
     static {
-        oAv.put("void", Void.TYPE);
-        oAv.put("boolean", Boolean.TYPE);
-        oAv.put("byte", Byte.TYPE);
-        oAv.put("char", Character.TYPE);
-        oAv.put("short", Short.TYPE);
-        oAv.put("int", Integer.TYPE);
-        oAv.put("long", Long.TYPE);
-        oAv.put("float", Float.TYPE);
-        oAv.put("double", Double.TYPE);
-        oAw = new Object[0];
+        oKa.put("void", Void.TYPE);
+        oKa.put("boolean", Boolean.TYPE);
+        oKa.put("byte", Byte.TYPE);
+        oKa.put("char", Character.TYPE);
+        oKa.put("short", Short.TYPE);
+        oKa.put("int", Integer.TYPE);
+        oKa.put("long", Long.TYPE);
+        oKa.put("float", Float.TYPE);
+        oKa.put("double", Double.TYPE);
+        oKb = new Object[0];
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,7 +33,7 @@ public final class b {
         if (str.equals("*")) {
             return null;
         }
-        Class cls2 = (Class) oAv.get(str);
+        Class cls2 = (Class) oKa.get(str);
         if (cls2 == null) {
             try {
                 if (classLoader == null) {
@@ -43,18 +43,18 @@ public final class b {
                 }
                 return cls;
             } catch (ClassNotFoundException e) {
-                if (oAx == null) {
-                    Class Wp = Wp("java.lang.ClassNotFoundException");
-                    oAx = Wp;
-                    return Wp;
+                if (oKc == null) {
+                    Class WR = WR("java.lang.ClassNotFoundException");
+                    oKc = WR;
+                    return WR;
                 }
-                return oAx;
+                return oKc;
             }
         }
         return cls2;
     }
 
-    static Class Wp(String str) {
+    static Class WR(String str) {
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e) {
@@ -64,36 +64,36 @@ public final class b {
 
     public b(String str, Class cls) {
         this.filename = str;
-        this.oAt = cls;
-        this.oAu = cls.getClassLoader();
+        this.oJY = cls;
+        this.oJZ = cls.getClassLoader();
     }
 
-    public a.InterfaceC0982a a(String str, org.aspectj.lang.c cVar, int i) {
+    public a.InterfaceC0979a a(String str, org.aspectj.lang.c cVar, int i) {
         int i2 = this.count;
         this.count = i2 + 1;
-        return new c.a(i2, str, cVar, en(i, -1));
+        return new c.a(i2, str, cVar, er(i, -1));
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0982a interfaceC0982a, Object obj, Object obj2) {
-        return new c(interfaceC0982a, obj, obj2, oAw);
+    public static org.aspectj.lang.a a(a.InterfaceC0979a interfaceC0979a, Object obj, Object obj2) {
+        return new c(interfaceC0979a, obj, obj2, oKb);
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0982a interfaceC0982a, Object obj, Object obj2, Object obj3) {
-        return new c(interfaceC0982a, obj, obj2, new Object[]{obj3});
+    public static org.aspectj.lang.a a(a.InterfaceC0979a interfaceC0979a, Object obj, Object obj2, Object obj3) {
+        return new c(interfaceC0979a, obj, obj2, new Object[]{obj3});
     }
 
-    public static org.aspectj.lang.a a(a.InterfaceC0982a interfaceC0982a, Object obj, Object obj2, Object[] objArr) {
-        return new c(interfaceC0982a, obj, obj2, objArr);
+    public static org.aspectj.lang.a a(a.InterfaceC0979a interfaceC0979a, Object obj, Object obj2, Object[] objArr) {
+        return new c(interfaceC0979a, obj, obj2, objArr);
     }
 
     public org.aspectj.lang.reflect.c d(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         int parseInt = Integer.parseInt(str, 16);
-        Class b = b(str3, this.oAu);
+        Class b = b(str3, this.oJZ);
         StringTokenizer stringTokenizer = new StringTokenizer(str4, ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i = 0; i < countTokens; i++) {
-            clsArr[i] = b(stringTokenizer.nextToken(), this.oAu);
+            clsArr[i] = b(stringTokenizer.nextToken(), this.oJZ);
         }
         StringTokenizer stringTokenizer2 = new StringTokenizer(str5, ":");
         int countTokens2 = stringTokenizer2.countTokens();
@@ -105,12 +105,12 @@ public final class b {
         int countTokens3 = stringTokenizer3.countTokens();
         Class[] clsArr2 = new Class[countTokens3];
         for (int i3 = 0; i3 < countTokens3; i3++) {
-            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.oAu);
+            clsArr2[i3] = b(stringTokenizer3.nextToken(), this.oJZ);
         }
-        return new e(parseInt, str2, b, clsArr, strArr, clsArr2, b(str7, this.oAu));
+        return new e(parseInt, str2, b, clsArr, strArr, clsArr2, b(str7, this.oJZ));
     }
 
-    public org.aspectj.lang.reflect.d en(int i, int i2) {
-        return new g(this.oAt, this.filename, i);
+    public org.aspectj.lang.reflect.d er(int i, int i2) {
+        return new g(this.oJY, this.filename, i);
     }
 }

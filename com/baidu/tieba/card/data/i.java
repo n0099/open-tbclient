@@ -2,11 +2,11 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class i extends b {
-    public static BdUniqueId hmK = BdUniqueId.gen();
-    public static BdUniqueId hmL = BdUniqueId.gen();
-    public MetaData ecf;
+    public static BdUniqueId htN = BdUniqueId.gen();
+    public static BdUniqueId htO = BdUniqueId.gen();
+    public MetaData eep;
     public int type = 0;
     public int rank = 1;
 
@@ -14,11 +14,11 @@ public class i extends b {
     public BdUniqueId getType() {
         switch (this.type) {
             case 0:
-                return hmK;
+                return htN;
             case 1:
-                return hmL;
+                return htO;
             default:
-                return hmK;
+                return htN;
         }
     }
 }

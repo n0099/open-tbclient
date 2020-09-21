@@ -7,13 +7,13 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.core.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0381a {
+    /* loaded from: classes3.dex */
+    public static class C0376a {
         public int maxCount;
         public int sizeLimit;
     }
@@ -35,9 +35,9 @@ public final class a {
         }
         switch (c) {
             case 0:
-                C0381a afM = b.afM();
-                codeCacheSetting.maxCount = afM.maxCount;
-                codeCacheSetting.sizeLimit = afM.sizeLimit;
+                C0376a agw = b.agw();
+                codeCacheSetting.maxCount = agw.maxCount;
+                codeCacheSetting.sizeLimit = agw.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;
@@ -65,76 +65,76 @@ public final class a {
         return 0;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private static int cgp = -1;
-        private static int cgq = -1;
-        private static int cgr = -1;
-        private static int cgs = -1;
+        private static int cir = -1;
+        private static int cis = -1;
+        private static int cit = -1;
+        private static int ciu = -1;
 
-        public static String afJ() {
+        public static String agt() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_app_v8_code_cache", "ab");
         }
 
-        private static boolean gS(int i) {
+        private static boolean hb(int i) {
             switch (i) {
                 case 0:
-                    return afK();
+                    return agu();
                 case 1:
-                    return afL();
+                    return agv();
                 default:
-                    return afK();
+                    return agu();
             }
         }
 
-        private static boolean afK() {
-            boolean awM = com.baidu.swan.apps.ad.a.a.awM();
-            if (awM) {
-                cgp = 1;
+        private static boolean agu() {
+            boolean axv = com.baidu.swan.apps.ad.a.a.axv();
+            if (axv) {
+                cir = 1;
             }
-            if (cgp < 0) {
-                cgp = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_app_v8_code_cache", 1);
+            if (cir < 0) {
+                cir = com.baidu.swan.apps.t.a.apx().getSwitch("swan_app_v8_code_cache", 1);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + cgp + (awM ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanAppCodeCacheAbSwitch() switcher: " + cir + (axv ? " forceAb" : ""));
             }
-            return cgp == 1;
+            return cir == 1;
         }
 
-        private static boolean afL() {
-            boolean awM = com.baidu.swan.apps.ad.a.a.awM();
-            if (awM) {
-                cgq = 1;
+        private static boolean agv() {
+            boolean axv = com.baidu.swan.apps.ad.a.a.axv();
+            if (axv) {
+                cis = 1;
             }
-            if (cgq < 0) {
-                cgq = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_game_v8_code_cache", 2);
+            if (cis < 0) {
+                cis = com.baidu.swan.apps.t.a.apx().getSwitch("swan_game_v8_code_cache", 2);
             }
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + cgq + (awM ? " forceAb" : ""));
+                Log.d("CodeCacheSwitcher", "getSwanGameCodeCacheAbSwitch() switcher: " + cis + (axv ? " forceAb" : ""));
             }
-            return cgq == 1;
+            return cis == 1;
         }
 
-        public static boolean gr(int i) {
+        public static boolean gA(int i) {
             if (DEBUG) {
-                String afJ = afJ();
+                String agt = agt();
                 char c = 65535;
-                switch (afJ.hashCode()) {
+                switch (agt.hashCode()) {
                     case 3105:
-                        if (afJ.equals("ab")) {
+                        if (agt.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 143821548:
-                        if (afJ.equals("enable_code_cache")) {
+                        if (agt.equals("enable_code_cache")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 2081401959:
-                        if (afJ.equals("disable_code_cache")) {
+                        if (agt.equals("disable_code_cache")) {
                             c = 1;
                             break;
                         }
@@ -146,34 +146,34 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return gS(i);
+                        return hb(i);
                 }
             }
-            return gS(i);
+            return hb(i);
         }
 
-        public static C0381a afM() {
-            C0381a c0381a = new C0381a();
-            c0381a.maxCount = afN();
-            c0381a.sizeLimit = afO();
+        public static C0376a agw() {
+            C0376a c0376a = new C0376a();
+            c0376a.maxCount = agx();
+            c0376a.sizeLimit = agy();
             if (DEBUG) {
-                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0381a.maxCount + " ,sizeLimit: " + c0381a.sizeLimit);
+                Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + c0376a.maxCount + " ,sizeLimit: " + c0376a.sizeLimit);
             }
-            return c0381a;
+            return c0376a;
         }
 
-        private static int afN() {
-            if (cgr < 0) {
-                cgr = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_code_cache_max_count", 5);
+        private static int agx() {
+            if (cit < 0) {
+                cit = com.baidu.swan.apps.t.a.apx().getSwitch("swan_code_cache_max_count", 5);
             }
-            return cgr;
+            return cit;
         }
 
-        private static int afO() {
-            if (cgs < 0) {
-                cgs = com.baidu.swan.apps.t.a.aoM().getSwitch("swan_code_cache_size_limit", 100);
+        private static int agy() {
+            if (ciu < 0) {
+                ciu = com.baidu.swan.apps.t.a.apx().getSwitch("swan_code_cache_size_limit", 100);
             }
-            return cgs * 1024;
+            return ciu * 1024;
         }
     }
 }

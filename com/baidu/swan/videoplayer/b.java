@@ -3,20 +3,20 @@ package com.baidu.swan.videoplayer;
 import android.util.Log;
 import android.view.View;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes25.dex */
 public final class b {
-    private WeakReference<View> dKX;
-    private int dKY;
-    private int dKZ;
-    private int dLa;
-    private int dLb = 0;
+    private WeakReference<View> dNa;
+    private int dNb;
+    private int dNc;
+    private int dNd;
+    private int dNe = 0;
     private int mMeasuredHeight;
     private int mMeasuredWidth;
     private int mVideoHeight;
     private int mVideoWidth;
 
     public b(View view) {
-        this.dKX = new WeakReference<>(view);
+        this.dNa = new WeakReference<>(view);
     }
 
     public void setVideoSize(int i, int i2) {
@@ -25,12 +25,12 @@ public final class b {
     }
 
     public void setVideoSampleAspectRatio(int i, int i2) {
-        this.dKY = i;
-        this.dKZ = i2;
+        this.dNb = i;
+        this.dNc = i2;
     }
 
     public void setVideoRotation(int i) {
-        this.dLa = i;
+        this.dNd = i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0104, code lost:
@@ -45,13 +45,13 @@ public final class b {
         float f2;
         int i4;
         int i5;
-        if (this.dLa == 90 || this.dLa == 270) {
+        if (this.dNd == 90 || this.dNd == 270) {
             i = i2;
             i2 = i;
         }
         int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
         int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.dLb != 3) {
+        if (this.dNe != 3) {
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int size = View.MeasureSpec.getSize(i);
@@ -59,10 +59,10 @@ public final class b {
                 int size2 = View.MeasureSpec.getSize(i2);
                 if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
                     float f3 = size / size2;
-                    switch (this.dLb) {
+                    switch (this.dNe) {
                         case 4:
                             f = 1.7777778f;
-                            if (this.dLa == 90 || this.dLa == 270) {
+                            if (this.dNd == 90 || this.dNd == 270) {
                                 f2 = 1.0f / 1.7777778f;
                                 break;
                             }
@@ -70,7 +70,7 @@ public final class b {
                             break;
                         case 5:
                             f = 1.3333334f;
-                            if (this.dLa == 90 || this.dLa == 270) {
+                            if (this.dNd == 90 || this.dNd == 270) {
                                 f2 = 1.0f / 1.3333334f;
                                 break;
                             }
@@ -78,15 +78,15 @@ public final class b {
                             break;
                         default:
                             f = this.mVideoWidth / this.mVideoHeight;
-                            if (this.dKY > 0 && this.dKZ > 0) {
-                                f2 = (f * this.dKY) / this.dKZ;
+                            if (this.dNb > 0 && this.dNc > 0) {
+                                f2 = (f * this.dNb) / this.dNc;
                                 break;
                             }
                             f2 = f;
                             break;
                     }
                     boolean z = f2 > f3;
-                    switch (this.dLb) {
+                    switch (this.dNe) {
                         case 0:
                         case 4:
                         case 5:
@@ -166,15 +166,15 @@ public final class b {
         this.mMeasuredHeight = i2;
     }
 
-    public int aWK() {
+    public int aXw() {
         return this.mMeasuredWidth;
     }
 
-    public int aWL() {
+    public int aXx() {
         return this.mMeasuredHeight;
     }
 
     public void setAspectRatio(int i) {
-        this.dLb = i;
+        this.dNe = i;
     }
 }

@@ -5,8 +5,8 @@ import android.content.Intent;
 import com.baidu.platform.comapi.walknavi.widget.a;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
-public class i implements a.InterfaceC0254a {
+/* loaded from: classes3.dex */
+public class i implements a.InterfaceC0252a {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class i implements a.InterfaceC0254a {
         this.a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0254a
+    @Override // com.baidu.platform.comapi.walknavi.widget.a.InterfaceC0252a
     public void a() {
         Activity activity;
         Activity activity2;
@@ -26,7 +26,7 @@ public class i implements a.InterfaceC0254a {
         } catch (Exception e) {
             activity = this.a.f;
             activity2 = this.a.f;
-            com.baidu.platform.comapi.walknavi.g.d.c.a(activity, com.baidu.platform.comapi.wnplatform.p.a.a.b(activity2, R.string.abc_searchview_description_clear));
+            com.baidu.platform.comapi.walknavi.g.d.c.a(activity, com.baidu.platform.comapi.wnplatform.p.a.a.b(activity2, R.raw.card_live_bg_night));
         }
     }
 }

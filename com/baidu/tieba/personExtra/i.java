@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class i {
-    private a lkd;
+    private a lsZ;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a dOV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
+    private com.baidu.adp.framework.listener.a dRa = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.i.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             i.this.isLoading = false;
@@ -22,7 +22,7 @@ public class i {
         }
     };
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes23.dex */
     public interface a {
         void a(boolean z, com.baidu.tieba.personExtra.a aVar);
     }
@@ -38,10 +38,10 @@ public class i {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.dOV);
+        MessageManager.getInstance().registerListener(this.dRa);
     }
 
-    public void buR() {
+    public void bvV() {
         if (!this.isLoading) {
             this.isLoading = true;
             MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
@@ -50,12 +50,12 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.lkd != null) {
-            this.lkd.a(z, aVar);
+        if (this.lsZ != null) {
+            this.lsZ.a(z, aVar);
         }
     }
 
     public void a(a aVar) {
-        this.lkd = aVar;
+        this.lsZ = aVar;
     }
 }

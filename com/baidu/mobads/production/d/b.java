@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class b implements Runnable {
     final /* synthetic */ a a;
 

@@ -14,98 +14,98 @@ import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class f {
-    private FragmentActivity kWH;
-    private ViewGroup kWI;
-    private View kWJ;
-    private ViewGroup.LayoutParams kWK;
-    private ViewGroup.LayoutParams kWL;
-    private View kWM;
-    private Rect kWN;
-    private Rect kWO;
-    private ValueAnimator kWQ;
-    private ValueAnimator kWR;
-    private Animator.AnimatorListener kWS;
-    private View[] kWT;
+    private FragmentActivity lfm;
+    private ViewGroup lfn;
+    private View lfo;
+    private ViewGroup.LayoutParams lfp;
+    private ViewGroup.LayoutParams lfq;
+    private View lfr;
+    private Rect lfs;
+    private Rect lft;
+    private ValueAnimator lfv;
+    private ValueAnimator lfw;
+    private Animator.AnimatorListener lfx;
+    private View[] lfy;
     private View mMaskView;
     private ViewGroup mRootView;
     private SwipeBackLayout mSwipeBackLayout;
-    private boolean kWP = true;
-    private boolean aAX = false;
+    private boolean lfu = true;
+    private boolean aBD = false;
 
     public f(FragmentActivity fragmentActivity, View view) {
-        this.kWH = fragmentActivity;
-        this.kWJ = view;
-        this.kWI = (ViewGroup) fragmentActivity.getWindow().getDecorView();
-        this.kWM = this.kWI.findViewById(R.id.appbar_layout);
-        this.mRootView = (ViewGroup) this.kWI.findViewById(R.id.video_pb_root);
+        this.lfm = fragmentActivity;
+        this.lfo = view;
+        this.lfn = (ViewGroup) fragmentActivity.getWindow().getDecorView();
+        this.lfr = this.lfn.findViewById(R.id.appbar_layout);
+        this.mRootView = (ViewGroup) this.lfn.findViewById(R.id.video_pb_root);
     }
 
     private void init() {
-        this.kWT = new View[3];
-        this.kWT[0] = this.kWI.findViewById(R.id.pb_video_view_pager);
-        this.kWT[1] = this.kWI.findViewById(R.id.pb_video_tab_strip);
-        this.kWT[2] = this.kWI.findViewById(R.id.video_pb_comment_container);
-        this.kWI.findViewById(16908290).setBackgroundResource(R.color.transparent);
-        this.kWI.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
-        this.kWI.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
-        this.kWI.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
-        this.kWI.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
-        this.kWI.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
-        if (this.kWI.getChildAt(0) instanceof SwipeBackLayout) {
-            this.mSwipeBackLayout = (SwipeBackLayout) this.kWI.getChildAt(0);
+        this.lfy = new View[3];
+        this.lfy[0] = this.lfn.findViewById(R.id.pb_video_view_pager);
+        this.lfy[1] = this.lfn.findViewById(R.id.pb_video_tab_strip);
+        this.lfy[2] = this.lfn.findViewById(R.id.video_pb_comment_container);
+        this.lfn.findViewById(16908290).setBackgroundResource(R.color.transparent);
+        this.lfn.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
+        this.lfn.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
+        this.lfn.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
+        this.lfn.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
+        this.lfn.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
+        if (this.lfn.getChildAt(0) instanceof SwipeBackLayout) {
+            this.mSwipeBackLayout = (SwipeBackLayout) this.lfn.getChildAt(0);
             this.mSwipeBackLayout.setBgTransparent();
         }
-        this.mMaskView = new View(this.kWH);
+        this.mMaskView = new View(this.lfm);
         ap.setBackgroundColor(this.mMaskView, R.color.cp_bg_line_d);
-        this.kWI.addView(this.mMaskView, 0, new ViewGroup.LayoutParams(-1, -1));
-        this.kWQ = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.kWQ.setInterpolator(new DecelerateInterpolator());
-        this.kWQ.setDuration(300L);
-        this.kWQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.f.1
+        this.lfn.addView(this.mMaskView, 0, new ViewGroup.LayoutParams(-1, -1));
+        this.lfv = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.lfv.setInterpolator(new DecelerateInterpolator());
+        this.lfv.setDuration(300L);
+        this.lfv.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.f.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 f.this.az(valueAnimator.getAnimatedFraction());
             }
         });
-        this.kWQ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.f.2
+        this.lfv.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.f.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                if (f.this.kWS != null) {
-                    f.this.kWS.onAnimationStart(animator);
+                if (f.this.lfx != null) {
+                    f.this.lfx.onAnimationStart(animator);
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.deE();
+                f.this.dii();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.deE();
+                f.this.dii();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.kWR = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.kWR.setDuration(100L);
-        this.kWR.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.f.3
+        this.lfw = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.lfw.setDuration(100L);
+        this.lfw.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.f.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 f.this.ay(valueAnimator.getAnimatedFraction());
             }
         });
-        this.kWR.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.f.4
+        this.lfw.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.f.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 View[] viewArr;
-                f.this.kWI.removeView(f.this.mMaskView);
+                f.this.lfn.removeView(f.this.mMaskView);
                 ap.setBackgroundColor(f.this.mRootView, R.color.cp_bg_line_d);
-                for (View view : f.this.kWT) {
+                for (View view : f.this.lfy) {
                     view.setVisibility(0);
                     view.setAlpha(0.0f);
                 }
@@ -113,17 +113,17 @@ public class f {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.this.deD();
-                if (f.this.kWS != null) {
-                    f.this.kWS.onAnimationEnd(animator);
+                f.this.dih();
+                if (f.this.lfx != null) {
+                    f.this.lfx.onAnimationEnd(animator);
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                f.this.deD();
-                if (f.this.kWS != null) {
-                    f.this.kWS.onAnimationCancel(animator);
+                f.this.dih();
+                if (f.this.lfx != null) {
+                    f.this.lfx.onAnimationCancel(animator);
                 }
             }
 
@@ -134,92 +134,92 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deD() {
-        this.aAX = false;
-        for (View view : this.kWT) {
+    public void dih() {
+        this.aBD = false;
+        for (View view : this.lfy) {
             view.setAlpha(1.0f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deE() {
+    public void dii() {
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(1.0f);
         }
-        this.kWJ.setTranslationX(0.0f);
-        this.kWJ.setTranslationY(0.0f);
-        this.kWM.setLayoutParams(this.kWK);
-        if (this.kWM.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
-            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.kWM.getLayoutParams()).getBehavior();
-            if ((behavior instanceof VideoZoomBehavior) && (this.kWJ instanceof VideoContainerLayout)) {
-                ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) this.kWJ).getOriginHeight() - ((VideoContainerLayout) this.kWJ).getMaxHeight());
+        this.lfo.setTranslationX(0.0f);
+        this.lfo.setTranslationY(0.0f);
+        this.lfr.setLayoutParams(this.lfp);
+        if (this.lfr.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
+            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.lfr.getLayoutParams()).getBehavior();
+            if ((behavior instanceof VideoZoomBehavior) && (this.lfo instanceof VideoContainerLayout)) {
+                ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) this.lfo).getOriginHeight() - ((VideoContainerLayout) this.lfo).getMaxHeight());
             }
         }
-        this.kWJ.setLayoutParams(this.kWL);
-        this.kWR.start();
+        this.lfo.setLayoutParams(this.lfq);
+        this.lfw.start();
     }
 
     public void b(Rect rect, Rect rect2) {
-        this.kWN = rect;
-        this.kWO = rect2;
-        if (deF()) {
+        this.lfs = rect;
+        this.lft = rect2;
+        if (dij()) {
             init();
         }
     }
 
     public void start() {
-        this.kWP = false;
-        this.aAX = true;
-        for (View view : this.kWT) {
+        this.lfu = false;
+        this.aBD = true;
+        for (View view : this.lfy) {
             view.setVisibility(8);
         }
-        this.kWK = this.kWM.getLayoutParams();
-        this.kWM.setLayoutParams(new CoordinatorLayout.LayoutParams(l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst())));
-        this.kWL = this.kWJ.getLayoutParams();
-        this.kWJ.setLayoutParams(new RelativeLayout.LayoutParams(this.kWL.width, this.kWL.height));
+        this.lfp = this.lfr.getLayoutParams();
+        this.lfr.setLayoutParams(new CoordinatorLayout.LayoutParams(l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst())));
+        this.lfq = this.lfo.getLayoutParams();
+        this.lfo.setLayoutParams(new RelativeLayout.LayoutParams(this.lfq.width, this.lfq.height));
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(0.0f);
         }
-        this.kWQ.start();
+        this.lfv.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ay(float f) {
-        for (View view : this.kWT) {
+        for (View view : this.lfy) {
             view.setAlpha(f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void az(float f) {
-        float width = this.kWN.width() + ((this.kWO.width() - this.kWN.width()) * f);
-        float height = this.kWN.height() + ((this.kWO.height() - this.kWN.height()) * f);
-        float f2 = this.kWN.left + ((this.kWO.left - this.kWN.left) * f);
-        float f3 = this.kWN.top + ((this.kWO.top - this.kWN.top) * f);
-        int i = (int) (f2 - this.kWO.left);
-        int i2 = (int) (f3 - this.kWO.top);
+        float width = this.lfs.width() + ((this.lft.width() - this.lfs.width()) * f);
+        float height = this.lfs.height() + ((this.lft.height() - this.lfs.height()) * f);
+        float f2 = this.lfs.left + ((this.lft.left - this.lfs.left) * f);
+        float f3 = this.lfs.top + ((this.lft.top - this.lfs.top) * f);
+        int i = (int) (f2 - this.lft.left);
+        int i2 = (int) (f3 - this.lft.top);
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(f);
         }
-        this.kWJ.setTranslationX(i);
-        this.kWJ.setTranslationY(i2);
-        ViewGroup.LayoutParams layoutParams = this.kWJ.getLayoutParams();
+        this.lfo.setTranslationX(i);
+        this.lfo.setTranslationY(i2);
+        ViewGroup.LayoutParams layoutParams = this.lfo.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = (int) width;
             layoutParams.height = (int) height;
-            this.kWJ.setLayoutParams(layoutParams);
+            this.lfo.setLayoutParams(layoutParams);
         }
     }
 
-    public boolean deF() {
-        return (!this.kWP || this.kWN == null || this.kWN.isEmpty() || this.kWO == null || this.kWO.isEmpty()) ? false : true;
+    public boolean dij() {
+        return (!this.lfu || this.lfs == null || this.lfs.isEmpty() || this.lft == null || this.lft.isEmpty()) ? false : true;
     }
 
     public void a(Animator.AnimatorListener animatorListener) {
-        this.kWS = animatorListener;
+        this.lfx = animatorListener;
     }
 
     public boolean isPlaying() {
-        return this.aAX;
+        return this.aBD;
     }
 }

@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int mim = 524288;
-    private static int mio = 6144000;
-    private static int mip = 524288;
-    private h mgu;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b miq;
+    private static int mrL = 524288;
+    private static int mrM = 6144000;
+    private static int mrN = 524288;
+    private h mpU;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b mrO;
 
     public a(h hVar) {
-        this.mgu = hVar;
+        this.mpU = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.miq = new d(str2, mip, this.mgu);
+                this.mrO = new d(str2, mrN, this.mpU);
             } else {
-                this.miq = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, mim, mio, this.mgu);
+                this.mrO = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, mrL, mrM, this.mpU);
             }
-            this.miq.a(eVar);
-            return this.miq.bI(str2, i);
+            this.mrO.a(eVar);
+            return this.mrO.bI(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.mgu != null) {
-                this.mgu.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.r(e));
+            if (this.mpU != null) {
+                this.mpU.m(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.r(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.miq != null) {
-            this.miq.cancel();
+        if (this.mrO != null) {
+            this.mrO.cancel();
         }
     }
 
-    public static void Ic(int i) {
+    public static void IF(int i) {
         if (i <= 0) {
-            mip = 524288;
+            mrN = 524288;
         } else {
-            mip = i;
+            mrN = i;
         }
     }
 
-    public static void Id(int i) {
+    public static void IG(int i) {
         if (i <= 0) {
-            mim = 524288;
+            mrL = 524288;
         } else {
-            mim = i;
+            mrL = i;
         }
     }
 
-    public static void Ie(int i) {
+    public static void IH(int i) {
         if (i <= 0) {
-            mio = 6144000;
+            mrM = 6144000;
         } else {
-            mio = i;
+            mrM = i;
         }
     }
 }

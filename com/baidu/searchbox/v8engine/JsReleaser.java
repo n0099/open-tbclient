@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine;
 import com.baidu.smallgame.sdk.Log;
 import java.util.concurrent.atomic.AtomicLong;
 @NotProguard
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public abstract class JsReleaser {
     private static final boolean DEBUG = false;
     private static final String TAG = "JsReleaser";

@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.widget.TextView;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class d implements ValueAnimator.AnimatorUpdateListener {
     private IntEvaluator a = new IntEvaluator();
     final /* synthetic */ LivenessRecogActivity b;

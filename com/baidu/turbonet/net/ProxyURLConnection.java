@@ -18,32 +18,32 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.turbonet.net.proxy.b {
-    private TurbonetEngine ncT;
-    private ProxyConfig ncf;
-    private a ndk;
-    private HttpURLConnection ndl;
-    private d ndm;
+    private TurbonetEngine nmS;
+    private ProxyConfig nme;
+    private a nnj;
+    private HttpURLConnection nnk;
+    private d nnl;
 
     @Override // java.net.URLConnection
     public final void addRequestProperty(String str, String str2) {
-        if (!this.ncf.dKE()) {
-            this.ndm.addRequestProperty(str, str2);
+        if (!this.nme.dOC()) {
+            this.nnl.addRequestProperty(str, str2);
         } else {
-            this.ndl.addRequestProperty(str, str2);
+            this.nnk.addRequestProperty(str, str2);
         }
     }
 
     @Override // java.net.URLConnection
     public void connect() throws IOException {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "connect by libtype: " + this.ncf.toString());
-        if (!this.ncf.dKE()) {
-            this.ndm.connect();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "connect by libtype: " + this.nme.toString());
+        if (!this.nme.dOC()) {
+            this.nnl.connect();
             return;
         }
         try {
-            this.ndl.connect();
+            this.nnk.connect();
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -52,19 +52,19 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public int getConnectTimeout() {
-        return !this.ncf.dKE() ? this.ndm.getConnectTimeout() : this.ndl.getConnectTimeout();
+        return !this.nme.dOC() ? this.nnl.getConnectTimeout() : this.nnk.getConnectTimeout();
     }
 
     @Override // java.net.URLConnection
     public Object getContent() throws IOException {
-        if (!this.ncf.dKE()) {
-            return this.ndm.getContent();
+        if (!this.nme.dOC()) {
+            return this.nnl.getContent();
         }
         try {
-            long contentLength = this.ndl.getContentLength();
-            this.ndk.ncs = contentLength;
+            long contentLength = this.nnk.getContentLength();
+            this.nnj.nmr = contentLength;
             onComplete(contentLength);
-            return this.ndl.getContent();
+            return this.nnk.getContent();
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -73,14 +73,14 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public Object getContent(Class[] clsArr) throws IOException {
-        if (!this.ncf.dKE()) {
-            return this.ndm.getContent(clsArr);
+        if (!this.nme.dOC()) {
+            return this.nnl.getContent(clsArr);
         }
         try {
-            long contentLength = this.ndl.getContentLength();
-            this.ndk.ncs = contentLength;
+            long contentLength = this.nnk.getContentLength();
+            this.nnj.nmr = contentLength;
             onComplete(contentLength);
-            return this.ndl.getContent(clsArr);
+            return this.nnk.getContent(clsArr);
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -89,98 +89,98 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public String getContentEncoding() {
-        return !this.ncf.dKE() ? this.ndm.getContentEncoding() : this.ndl.getContentEncoding();
+        return !this.nme.dOC() ? this.nnl.getContentEncoding() : this.nnk.getContentEncoding();
     }
 
     @Override // java.net.URLConnection
     public int getContentLength() {
-        return !this.ncf.dKE() ? this.ndm.getContentLength() : this.ndl.getContentLength();
+        return !this.nme.dOC() ? this.nnl.getContentLength() : this.nnk.getContentLength();
     }
 
     @Override // java.net.URLConnection
     public String getContentType() {
-        return !this.ncf.dKE() ? this.ndm.getContentType() : this.ndl.getContentType();
+        return !this.nme.dOC() ? this.nnl.getContentType() : this.nnk.getContentType();
     }
 
     @Override // java.net.URLConnection
     public long getDate() {
-        return !this.ncf.dKE() ? this.ndm.getDate() : this.ndl.getDate();
+        return !this.nme.dOC() ? this.nnl.getDate() : this.nnk.getDate();
     }
 
     @Override // java.net.URLConnection
     public boolean getDefaultUseCaches() {
-        return !this.ncf.dKE() ? this.ndm.getDefaultUseCaches() : this.ndl.getDefaultUseCaches();
+        return !this.nme.dOC() ? this.nnl.getDefaultUseCaches() : this.nnk.getDefaultUseCaches();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoInput() {
-        return !this.ncf.dKE() ? this.ndm.getDoInput() : this.ndl.getDoInput();
+        return !this.nme.dOC() ? this.nnl.getDoInput() : this.nnk.getDoInput();
     }
 
     @Override // java.net.URLConnection
     public boolean getDoOutput() {
-        return !this.ncf.dKE() ? this.ndm.getDoOutput() : this.ndl.getDoOutput();
+        return !this.nme.dOC() ? this.nnl.getDoOutput() : this.nnk.getDoOutput();
     }
 
     @Override // java.net.URLConnection
     public long getExpiration() {
-        return !this.ncf.dKE() ? this.ndm.getExpiration() : this.ndl.getExpiration();
+        return !this.nme.dOC() ? this.nnl.getExpiration() : this.nnk.getExpiration();
     }
 
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
-        if (!this.ncf.dKE()) {
-            return this.ndm.getHeaderField(str);
+        if (!this.nme.dOC()) {
+            return this.nnl.getHeaderField(str);
         }
-        String headerField = this.ndl.getHeaderField(str);
-        this.ndk.dKF();
+        String headerField = this.nnk.getHeaderField(str);
+        this.nnj.dOD();
         return headerField;
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i) {
-        if (!this.ncf.dKE()) {
-            return this.ndm.getHeaderField(i);
+        if (!this.nme.dOC()) {
+            return this.nnl.getHeaderField(i);
         }
-        return this.ndl.getHeaderField(i);
+        return this.nnk.getHeaderField(i);
     }
 
     @Override // java.net.URLConnection
     public int getHeaderFieldInt(String str, int i) {
-        return !this.ncf.dKE() ? this.ndm.getHeaderFieldInt(str, i) : this.ndl.getHeaderFieldInt(str, i);
+        return !this.nme.dOC() ? this.nnl.getHeaderFieldInt(str, i) : this.nnk.getHeaderFieldInt(str, i);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public long getHeaderFieldDate(String str, long j) {
-        return !this.ncf.dKE() ? this.ndm.getHeaderFieldDate(str, j) : this.ndl.getHeaderFieldDate(str, j);
+        return !this.nme.dOC() ? this.nnl.getHeaderFieldDate(str, j) : this.nnk.getHeaderFieldDate(str, j);
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i) {
-        return !this.ncf.dKE() ? this.ndm.getHeaderFieldKey(i) : this.ndl.getHeaderFieldKey(i);
+        return !this.nme.dOC() ? this.nnl.getHeaderFieldKey(i) : this.nnk.getHeaderFieldKey(i);
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
-        if (!this.ncf.dKE()) {
-            return this.ndm.getHeaderFields();
+        if (!this.nme.dOC()) {
+            return this.nnl.getHeaderFields();
         }
-        return this.ndl.getHeaderFields();
+        return this.nnk.getHeaderFields();
     }
 
     @Override // java.net.URLConnection
     public long getIfModifiedSince() {
-        return !this.ncf.dKE() ? this.ndm.getIfModifiedSince() : this.ndl.getIfModifiedSince();
+        return !this.nme.dOC() ? this.nnl.getIfModifiedSince() : this.nnk.getIfModifiedSince();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getInputStream by libtype: " + this.ncf.toString());
-        if (!this.ncf.dKE()) {
-            return this.ndm.getInputStream();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getInputStream by libtype: " + this.nme.toString());
+        if (!this.nme.dOC()) {
+            return this.nnl.getInputStream();
         }
         try {
-            return new com.baidu.turbonet.net.proxy.a(this.ndl.getInputStream(), this);
+            return new com.baidu.turbonet.net.proxy.a(this.nnk.getInputStream(), this);
         } catch (IOException e) {
             a(e, 0L);
             throw e;
@@ -189,151 +189,151 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        return !this.ncf.dKE() ? this.ndm.getOutputStream() : this.ndl.getOutputStream();
+        return !this.nme.dOC() ? this.nnl.getOutputStream() : this.nnk.getOutputStream();
     }
 
     @Override // java.net.URLConnection
     public long getLastModified() {
-        return !this.ncf.dKE() ? this.ndm.getLastModified() : this.ndl.getLastModified();
+        return !this.nme.dOC() ? this.nnl.getLastModified() : this.nnk.getLastModified();
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public Permission getPermission() throws IOException {
-        return !this.ncf.dKE() ? this.ndm.getPermission() : this.ndl.getPermission();
+        return !this.nme.dOC() ? this.nnl.getPermission() : this.nnk.getPermission();
     }
 
     @Override // java.net.URLConnection
     public int getReadTimeout() {
-        return !this.ncf.dKE() ? this.ndm.getReadTimeout() : this.ndl.getReadTimeout();
+        return !this.nme.dOC() ? this.nnl.getReadTimeout() : this.nnk.getReadTimeout();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getRequestProperties() {
-        return !this.ncf.dKE() ? this.ndm.getRequestProperties() : this.ndl.getRequestProperties();
+        return !this.nme.dOC() ? this.nnl.getRequestProperties() : this.nnk.getRequestProperties();
     }
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        return !this.ncf.dKE() ? this.ndm.getRequestProperty(str) : this.ndl.getRequestProperty(str);
+        return !this.nme.dOC() ? this.nnl.getRequestProperty(str) : this.nnk.getRequestProperty(str);
     }
 
     @Override // java.net.URLConnection
     public URL getURL() {
-        return !this.ncf.dKE() ? this.ndm.getURL() : this.ndl.getURL();
+        return !this.nme.dOC() ? this.nnl.getURL() : this.nnk.getURL();
     }
 
     @Override // java.net.URLConnection
     public boolean getUseCaches() {
-        return !this.ncf.dKE() ? this.ndm.getUseCaches() : this.ndl.getUseCaches();
+        return !this.nme.dOC() ? this.nnl.getUseCaches() : this.nnk.getUseCaches();
     }
 
     @Override // java.net.URLConnection
     public void setConnectTimeout(int i) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setConnectTimeout(i);
+        if (!this.nme.dOC()) {
+            this.nnl.setConnectTimeout(i);
         } else {
-            this.ndl.setConnectTimeout(i);
+            this.nnk.setConnectTimeout(i);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDefaultUseCaches(boolean z) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setDefaultUseCaches(z);
+        if (!this.nme.dOC()) {
+            this.nnl.setDefaultUseCaches(z);
         } else {
-            this.ndl.setDefaultUseCaches(z);
+            this.nnk.setDefaultUseCaches(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoInput(boolean z) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setDoInput(z);
+        if (!this.nme.dOC()) {
+            this.nnl.setDoInput(z);
         } else {
-            this.ndl.setDoInput(z);
+            this.nnk.setDoInput(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setDoOutput(boolean z) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setDoOutput(z);
+        if (!this.nme.dOC()) {
+            this.nnl.setDoOutput(z);
         } else {
-            this.ndl.setDoOutput(z);
+            this.nnk.setDoOutput(z);
         }
     }
 
     @Override // java.net.URLConnection
     public void setIfModifiedSince(long j) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setIfModifiedSince(j);
+        if (!this.nme.dOC()) {
+            this.nnl.setIfModifiedSince(j);
         } else {
-            this.ndl.setIfModifiedSince(j);
+            this.nnk.setIfModifiedSince(j);
         }
     }
 
     @Override // java.net.URLConnection
     public void setReadTimeout(int i) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setReadTimeout(i);
+        if (!this.nme.dOC()) {
+            this.nnl.setReadTimeout(i);
         } else {
-            this.ndl.setReadTimeout(i);
+            this.nnk.setReadTimeout(i);
         }
     }
 
     @Override // java.net.URLConnection
     public final void setRequestProperty(String str, String str2) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setRequestProperty(str, str2);
+        if (!this.nme.dOC()) {
+            this.nnl.setRequestProperty(str, str2);
         } else {
-            this.ndl.setRequestProperty(str, str2);
+            this.nnk.setRequestProperty(str, str2);
         }
     }
 
     @Override // java.net.URLConnection
     public void setUseCaches(boolean z) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setUseCaches(z);
+        if (!this.nme.dOC()) {
+            this.nnl.setUseCaches(z);
         } else {
-            this.ndl.setUseCaches(z);
+            this.nnk.setUseCaches(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void disconnect() {
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "disconnect by libtype: " + this.ncf.toString());
-        if (!this.ncf.dKE()) {
-            this.ndm.disconnect();
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "disconnect by libtype: " + this.nme.toString());
+        if (!this.nme.dOC()) {
+            this.nnl.disconnect();
         } else {
-            this.ndl.disconnect();
+            this.nnk.disconnect();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
-        return !this.ncf.dKE() ? this.ndm.getErrorStream() : this.ndl.getErrorStream();
+        return !this.nme.dOC() ? this.nnl.getErrorStream() : this.nnk.getErrorStream();
     }
 
     @Override // java.net.HttpURLConnection
     public boolean getInstanceFollowRedirects() {
-        return !this.ncf.dKE() ? this.ndm.getInstanceFollowRedirects() : this.ndl.getInstanceFollowRedirects();
+        return !this.nme.dOC() ? this.nnl.getInstanceFollowRedirects() : this.nnk.getInstanceFollowRedirects();
     }
 
     @Override // java.net.HttpURLConnection
     public String getRequestMethod() {
-        return !this.ncf.dKE() ? this.ndm.getRequestMethod() : this.ndl.getRequestMethod();
+        return !this.nme.dOC() ? this.nnl.getRequestMethod() : this.nnk.getRequestMethod();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
         int responseCode;
-        if (!this.ncf.dKE()) {
-            responseCode = this.ndm.getResponseCode();
+        if (!this.nme.dOC()) {
+            responseCode = this.nnl.getResponseCode();
         } else {
             try {
-                responseCode = this.ndl.getResponseCode();
-                this.ndk.ncr = responseCode;
-                this.ndk.dKF();
+                responseCode = this.nnk.getResponseCode();
+                this.nnj.nmq = responseCode;
+                this.nnj.dOD();
                 if (responseCode != 200) {
                     onComplete(0L);
                 }
@@ -342,165 +342,165 @@ public class ProxyURLConnection extends HttpsURLConnection implements com.baidu.
                 throw e;
             }
         }
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseCode: " + responseCode + " by libtype: " + this.ncf.toString());
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseCode: " + responseCode + " by libtype: " + this.nme.toString());
         return responseCode;
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
         String responseMessage;
-        if (!this.ncf.dKE()) {
-            responseMessage = this.ndm.getResponseMessage();
+        if (!this.nme.dOC()) {
+            responseMessage = this.nnl.getResponseMessage();
         } else {
-            responseMessage = this.ndl.getResponseMessage();
+            responseMessage = this.nnk.getResponseMessage();
         }
-        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseMessage by libtype: " + this.ncf.toString() + " Message: " + responseMessage);
+        com.baidu.turbonet.base.a.d("ProxyURLConn", "getResponseMessage by libtype: " + this.nme.toString() + " Message: " + responseMessage);
         return responseMessage;
     }
 
     @Override // java.net.HttpURLConnection
     public void setChunkedStreamingMode(int i) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setChunkedStreamingMode(i);
+        if (!this.nme.dOC()) {
+            this.nnl.setChunkedStreamingMode(i);
         } else {
-            this.ndl.setChunkedStreamingMode(i);
+            this.nnk.setChunkedStreamingMode(i);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setFixedLengthStreamingMode(int i) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setFixedLengthStreamingMode(i);
+        if (!this.nme.dOC()) {
+            this.nnl.setFixedLengthStreamingMode(i);
         } else {
-            this.ndl.setFixedLengthStreamingMode(i);
+            this.nnk.setFixedLengthStreamingMode(i);
         }
     }
 
     @Override // java.net.HttpURLConnection
     @TargetApi(19)
     public void setFixedLengthStreamingMode(long j) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setFixedLengthStreamingMode(j);
+        if (!this.nme.dOC()) {
+            this.nnl.setFixedLengthStreamingMode(j);
         } else {
-            this.ndl.setFixedLengthStreamingMode(j);
+            this.nnk.setFixedLengthStreamingMode(j);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setInstanceFollowRedirects(boolean z) {
-        if (!this.ncf.dKE()) {
-            this.ndm.setInstanceFollowRedirects(z);
+        if (!this.nme.dOC()) {
+            this.nnl.setInstanceFollowRedirects(z);
         } else {
-            this.ndl.setInstanceFollowRedirects(z);
+            this.nnk.setInstanceFollowRedirects(z);
         }
     }
 
     @Override // java.net.HttpURLConnection
     public void setRequestMethod(String str) throws ProtocolException {
-        if (!this.ncf.dKE()) {
-            this.ndm.setRequestMethod(str);
+        if (!this.nme.dOC()) {
+            this.nnl.setRequestMethod(str);
             return;
         }
-        this.ndl.setRequestMethod(str);
-        this.ndk.dqa = str;
+        this.nnk.setRequestMethod(str);
+        this.nnj.dsc = str;
     }
 
     @Override // java.net.HttpURLConnection
     public boolean usingProxy() {
-        return !this.ncf.dKE() ? this.ndm.usingProxy() : this.ndl.usingProxy();
+        return !this.nme.dOC() ? this.nnl.usingProxy() : this.nnk.usingProxy();
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public String getCipherSuite() {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getCipherSuite();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getCipherSuite();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public HostnameVerifier getHostnameVerifier() {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getHostnameVerifier();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getHostnameVerifier();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getLocalCertificates() {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getLocalCertificates();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getLocalCertificates();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getLocalPrincipal() {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getLocalPrincipal();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getLocalPrincipal();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Principal getPeerPrincipal() throws SSLPeerUnverifiedException {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getPeerPrincipal();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getPeerPrincipal();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public SSLSocketFactory getSSLSocketFactory() {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getSSLSocketFactory();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getSSLSocketFactory();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public Certificate[] getServerCertificates() throws SSLPeerUnverifiedException {
-        if (this.ndl instanceof HttpsURLConnection) {
-            return ((HttpsURLConnection) this.ndl).getServerCertificates();
+        if (this.nnk instanceof HttpsURLConnection) {
+            return ((HttpsURLConnection) this.nnk).getServerCertificates();
         }
         return null;
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setHostnameVerifier(HostnameVerifier hostnameVerifier) {
-        if (this.ndl instanceof HttpsURLConnection) {
-            ((HttpsURLConnection) this.ndl).setHostnameVerifier(hostnameVerifier);
+        if (this.nnk instanceof HttpsURLConnection) {
+            ((HttpsURLConnection) this.nnk).setHostnameVerifier(hostnameVerifier);
         }
     }
 
     @Override // javax.net.ssl.HttpsURLConnection
     public void setSSLSocketFactory(SSLSocketFactory sSLSocketFactory) {
-        if (this.ndl instanceof HttpsURLConnection) {
-            ((HttpsURLConnection) this.ndl).setSSLSocketFactory(sSLSocketFactory);
+        if (this.nnk instanceof HttpsURLConnection) {
+            ((HttpsURLConnection) this.nnk).setSSLSocketFactory(sSLSocketFactory);
         }
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
     public void a(Exception exc, long j) {
-        this.ndk.ncs = j;
-        this.ndk.dKG();
-        this.ndk.A(exc);
-        this.ndk.a(this.ncT);
+        this.nnj.nmr = j;
+        this.nnj.dOE();
+        this.nnj.A(exc);
+        this.nnj.a(this.nmS);
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
     public void onComplete(long j) {
-        this.ndk.ncs = j;
-        this.ndk.dKG();
-        this.ndk.ncq = 0;
-        this.ndk.a(this.ncT);
+        this.nnj.nmr = j;
+        this.nnj.dOE();
+        this.nnj.nmp = 0;
+        this.nnj.a(this.nmS);
     }
 
     @Override // com.baidu.turbonet.net.proxy.b
-    public void ge(long j) {
-        this.ndk.ncs = j;
-        this.ndk.dKG();
-        this.ndk.ncq = -12;
-        this.ndk.a(this.ncT);
+    public void gs(long j) {
+        this.nnj.nmr = j;
+        this.nnj.dOE();
+        this.nnj.nmp = -12;
+        this.nnj.a(this.nmS);
     }
 }

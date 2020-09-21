@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RoundRectDrawableWithShadow;
-/* loaded from: classes19.dex */
+/* loaded from: classes12.dex */
 class CardViewBaseImpl implements CardViewImpl {
     private final RectF mCornerRect = new RectF();
 

@@ -5,7 +5,7 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class DuMixInput {
     private int R;
     private int S;

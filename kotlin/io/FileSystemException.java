@@ -5,7 +5,7 @@ import java.io.IOException;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class FileSystemException extends IOException {
     private final File file;
     private final File other;

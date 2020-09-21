@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.BdDatabaseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class SDCardDatabaseHelper implements BdDatabaseHelper {
     private BdDatabaseHelper.OnDatabaseCreatedCallback callback;
     private SQLiteDatabase database = null;

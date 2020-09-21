@@ -1,13 +1,13 @@
 package com.baidu.media.duplayer;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class d {
     private int a;
     private String b;
-    private a bAK;
+    private a bEh;
     private String c;
     private String d;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes16.dex */
     public enum a {
         LIB_TYPE_JAR,
         LIB_TYPE_SO
@@ -17,16 +17,16 @@ public class d {
         this.a = i;
         this.b = str;
         this.c = str2;
-        this.bAK = a.LIB_TYPE_SO;
+        this.bEh = a.LIB_TYPE_SO;
     }
 
     public d(int i, String str, String str2, a aVar) {
         this(i, str, str2);
-        this.bAK = aVar;
+        this.bEh = aVar;
     }
 
-    public a SQ() {
-        return this.bAK;
+    public a TH() {
+        return this.bEh;
     }
 
     public String a() {

@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.a, com.baidu.swan.games.h.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cqW;
+    private static volatile c csZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c amf() {
-        if (cqW == null) {
+    public static c amP() {
+        if (csZ == null) {
             synchronized (c.class) {
-                if (cqW == null) {
-                    cqW = new c();
+                if (csZ == null) {
+                    csZ = new c();
                 }
             }
         }
-        return cqW;
+        return csZ;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore ako() {
+    public ExtensionCore akY() {
         if (ProcessUtils.isMainProcess()) {
-            return amk();
+            return amU();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -45,13 +45,13 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
         return extensionCore;
     }
 
-    /* loaded from: classes8.dex */
-    private static class a extends a.C0402a {
+    /* loaded from: classes3.dex */
+    private static class a extends a.C0397a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0402a
-        protected int XP() {
+        @Override // com.baidu.swan.apps.extcore.a.C0397a
+        protected int Yy() {
             return 1;
         }
     }

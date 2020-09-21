@@ -11,7 +11,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class UBC {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -34,7 +34,7 @@ public class UBC {
     private static volatile IRemoteUBCService sProxy;
 
     public static final q getUBCContext() {
-        return com.baidu.tieba.q.h.dtz();
+        return com.baidu.tieba.q.h.dxs();
     }
 
     public static final void onEvent(String str) {
@@ -70,11 +70,11 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        String TK = com.baidu.p.a.TK(str3);
+        String Um = com.baidu.p.a.Um(str3);
         if (DEBUG) {
-            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + TK);
+            Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + Um);
         }
-        d.dLU().g(str, str2, TK, 8);
+        d.dPS().g(str, str2, Um, 8);
     }
 
     public static final Flow beginFlow(String str) {
@@ -107,6 +107,20 @@ public class UBC {
 
     public static Flow beginFlow(String str, JSONObject jSONObject, int i) {
         return ((ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE)).beginFlow(str, jSONObject, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void uploadLocalDatas() {
+        ad adVar = (ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE);
+        if (adVar != null) {
+            adVar.uploadLocalDatas();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String getUploadType(String str) {
+        ad adVar = (ad) com.baidu.pyramid.runtime.service.c.a(ad.SERVICE_REFERENCE);
+        return adVar != null ? adVar.getUploadType(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

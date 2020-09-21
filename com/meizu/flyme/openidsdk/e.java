@@ -10,13 +10,13 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class e {
     public static boolean b;
-    public static volatile e ocZ;
+    public static volatile e omK;
     public Boolean g;
-    public BroadcastReceiver ode;
-    public a oda = new a("udid");
-    public a odb = new a("oaid");
-    public a odd = new a("vaid");
-    public a odc = new a("aaid");
+    public BroadcastReceiver omP;
+    public a omL = new a("udid");
+    public a omM = new a("oaid");
+    public a omO = new a("vaid");
+    public a omN = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e ebb() {
-        if (ocZ == null) {
+    public static final e eeZ() {
+        if (omK == null) {
             synchronized (e.class) {
-                ocZ = new e();
+                omK = new e();
             }
         }
-        return ocZ;
+        return omK;
     }
 
-    public a Vj(String str) {
+    public a VL(String str) {
         if ("oaid".equals(str)) {
-            return this.odb;
+            return this.omM;
         }
         if ("vaid".equals(str)) {
-            return this.odd;
+            return this.omO;
         }
         if ("aaid".equals(str)) {
-            return this.odc;
+            return this.omN;
         }
         if ("udid".equals(str)) {
-            return this.oda;
+            return this.omL;
         }
         return null;
     }
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.ode == null) {
+        if (this.omP == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.ode = new d();
-            context.registerReceiver(this.ode, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.omP = new d();
+            context.registerReceiver(this.omP, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 

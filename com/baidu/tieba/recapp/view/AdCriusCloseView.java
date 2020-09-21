@@ -7,49 +7,49 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class AdCriusCloseView extends AdCloseView {
-    private int lIO;
+    private int lRI;
 
     public AdCriusCloseView(Context context) {
         super(context);
-        this.lIO = R.drawable.icon_home_card_delete;
+        this.lRI = R.drawable.icon_home_card_delete;
     }
 
     public AdCriusCloseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lIO = R.drawable.icon_home_card_delete;
+        this.lRI = R.drawable.icon_home_card_delete;
     }
 
     public AdCriusCloseView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lIO = R.drawable.icon_home_card_delete;
+        this.lRI = R.drawable.icon_home_card_delete;
     }
 
     public void resetSkin(int i) {
         if (i == 1 || i == 2) {
-            this.lIO = R.drawable.ic_icon_pure_card_delete_svg;
+            this.lRI = R.drawable.ic_icon_pure_card_delete_svg;
         }
     }
 
     @Override // com.baidu.tieba.recapp.view.AdCloseView
     protected void init() {
-        this.lIB = new ImageView(getContext());
-        this.lIB.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.lRv = new ImageView(getContext());
+        this.lRv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds31), getContext().getResources().getDimensionPixelSize(R.dimen.tbds31));
         layoutParams.gravity = 21;
-        addView(this.lIB, layoutParams);
+        addView(this.lRv, layoutParams);
         this.mXOffset = l.getDimens(this.mContext, R.dimen.ds32);
         this.mYOffset = l.getDimens(this.mContext, R.dimen.ds10);
         this.mWindowHeight = l.getDimens(this.mContext, R.dimen.ds278);
         this.mWindowWidth = l.getEquipmentWidth(this.mContext) - (this.mXOffset * 2);
-        this.flL = l.getDimens(this.mContext, R.dimen.ds120);
-        setOnClickListener(this.flF);
-        ap.setImageResource(this.lIB, this.lIO);
+        this.foE = l.getDimens(this.mContext, R.dimen.ds120);
+        setOnClickListener(this.foy);
+        ap.setImageResource(this.lRv, this.lRI);
     }
 
     @Override // com.baidu.tieba.recapp.view.AdCloseView
     public void onChangeSkinType() {
-        ap.setImageResource(this.lIB, this.lIO);
+        ap.setImageResource(this.lRv, this.lRI);
     }
 }

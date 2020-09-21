@@ -3,7 +3,7 @@ package com.baidu.ar.audio;
 import android.media.AudioRecord;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class c {
     private static final String TAG = c.class.getSimpleName();
     private static volatile boolean iA = false;

@@ -19,7 +19,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.iw;
 import com.xiaomi.push.ix;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class aj {
     /* JADX INFO: Access modifiers changed from: protected */
     public static <T extends ix<T, ?>> ii a(Context context, T t, hm hmVar) {
@@ -47,8 +47,8 @@ public class aj {
             }
         }
         ib ibVar = new ib();
-        ibVar.f527a = 5L;
-        ibVar.f528a = "fakeid";
+        ibVar.f526a = 5L;
+        ibVar.f527a = "fakeid";
         iiVar.a(ibVar);
         iiVar.a(ByteBuffer.wrap(a));
         iiVar.a(hmVar);
@@ -70,7 +70,7 @@ public class aj {
         } else {
             m424a = iiVar.m424a();
         }
-        ix a = a(iiVar.a(), iiVar.f607b);
+        ix a = a(iiVar.a(), iiVar.f606b);
         if (a != null) {
             iw.a(a, m424a);
         }

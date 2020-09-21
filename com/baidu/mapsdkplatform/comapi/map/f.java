@@ -30,12 +30,12 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static final String a = f.class.getSimpleName();
     private AsyncHttpClient b;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String str, String str2);
 
@@ -44,7 +44,7 @@ public class f {
         void a(boolean z, String str);
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class b {
         private static final f a = new f(null);
     }

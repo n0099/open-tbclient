@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.baidu.sofire.k.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class b implements com.baidu.sofire.j.b {
     private a a;
 

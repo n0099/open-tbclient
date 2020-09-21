@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     static String a = "BVideoView";
     private float A;
@@ -215,15 +215,15 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList<a.C0103a> b;
+        ArrayList<a.C0104a> b;
         if (this.c == null || (b = this.v.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0103a c0103a = b.get(i);
-            if (c0103a != null && c0103a.a() != null) {
-                this.c.setExternalInfo(c0103a.a(), c0103a.b());
+            a.C0104a c0104a = b.get(i);
+            if (c0104a != null && c0104a.a() != null) {
+                this.c.setExternalInfo(c0104a.a(), c0104a.b());
             }
         }
     }

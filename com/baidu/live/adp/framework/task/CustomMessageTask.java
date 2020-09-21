@@ -4,19 +4,19 @@ import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CustomMessageTask extends MessageTask {
     private boolean isImme;
     private BdAsyncTaskParallel mBdAsyncTaskParallel;
     private CustomRunnable<?> mRunnable;
     private TASK_TYPE mType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface CustomRunnable<T> {
         CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public enum TASK_TYPE {
         SYNCHRONIZED,
         ASYNCHRONIZED

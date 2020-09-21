@@ -8,7 +8,7 @@ import com.baidu.mapapi.walknavi.params.WalkNaviLaunchParam;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.j.b;
 import com.baidu.platform.comapi.wnplatform.p.g;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class a implements b {
     final /* synthetic */ IWRoutePlanListener a;
     final /* synthetic */ WalkNaviLaunchParam b;
@@ -32,7 +32,7 @@ class a implements b {
         com.baidu.mapapi.walknavi.controllers.a.a aVar;
         c cVar;
         d Q = com.baidu.platform.comapi.walknavi.b.a().Q();
-        if (Q == null || !Q.vq() || Q.vX() == null || !Q.vX().hasStart() || Q.vX().wi() == null || Q.vX().wi().wL() != 2 || !Q.vX().wi().wC() || Q.vX().wi().wB() == null) {
+        if (Q == null || !Q.vE() || Q.wl() == null || !Q.wl().hasStart() || Q.wl().ww() == null || Q.wl().ww().wZ() != 2 || !Q.wl().ww().wQ() || Q.wl().ww().wP() == null) {
             this.a.onRoutePlanFail(WalkRoutePlanError.PARSE_FAIL);
             return;
         }

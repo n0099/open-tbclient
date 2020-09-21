@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class o implements d, i, j, l, a.InterfaceC0010a {
     private final com.airbnb.lottie.model.layer.a Cs;
     private final com.airbnb.lottie.a.b.a<Float, Float> Dk;
@@ -26,13 +26,13 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
         this.lottieDrawable = gVar;
         this.Cs = aVar;
         this.name = gVar2.getName();
-        this.Dk = gVar2.ki().jB();
+        this.Dk = gVar2.kj().jC();
         aVar.a(this.Dk);
         this.Dk.b(this);
-        this.Dl = gVar2.kj().jB();
+        this.Dl = gVar2.kk().jC();
         aVar.a(this.Dl);
         this.Dl.b(this);
-        this.Dm = gVar2.kk().jK();
+        this.Dm = gVar2.kl().jL();
         this.Dm.a(aVar);
         this.Dm.a(this);
     }
@@ -63,14 +63,14 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path iU() {
-        Path iU = this.Dn.iU();
+    public Path iV() {
+        Path iV = this.Dn.iV();
         this.path.reset();
         float floatValue = this.Dk.getValue().floatValue();
         float floatValue2 = this.Dl.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
             this.matrix.set(this.Dm.i(i + floatValue2));
-            this.path.addPath(iU, this.matrix);
+            this.path.addPath(iV, this.matrix);
         }
         return this.path;
     }
@@ -79,8 +79,8 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         float floatValue = this.Dk.getValue().floatValue();
         float floatValue2 = this.Dl.getValue().floatValue();
-        float floatValue3 = this.Dm.jq().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.Dm.jr().getValue().floatValue() / 100.0f;
+        float floatValue3 = this.Dm.jr().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.Dm.js().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
             this.matrix.preConcat(this.Dm.i(i2 + floatValue2));
@@ -94,7 +94,7 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void iR() {
+    public void iS() {
         this.lottieDrawable.invalidateSelf();
     }
 

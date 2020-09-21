@@ -24,19 +24,19 @@ import com.xiaomi.mipush.sdk.Constants;
 public class a {
     public static void a(TbPageContext<?> tbPageContext, AntiData antiData, int i) {
         if (antiData != null && antiData.isSexyForum()) {
-            if (b.bzf()) {
+            if (b.bAo()) {
                 c(tbPageContext, i);
-            } else if (CX(antiData.getTeenModeInterval())) {
+            } else if (Dt(antiData.getTeenModeInterval())) {
                 d(tbPageContext, i);
             }
         }
     }
 
-    private static boolean CX(String str) {
-        if (com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_youngster_frs_dialog_no_tip_again", false) || !TbadkCoreApplication.isLogin()) {
+    private static boolean Dt(String str) {
+        if (com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean("key_youngster_frs_dialog_no_tip_again", false) || !TbadkCoreApplication.isLogin()) {
             return false;
         }
-        return System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bik().getLong("key_youngster_frs_dialog_show_time", 0L) >= k(CY(str));
+        return System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bjf().getLong("key_youngster_frs_dialog_show_time", 0L) >= k(Du(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -64,10 +64,10 @@ public class a {
         youngsterFrsDialogView.setTxtYoungsterDialogTitleText(R.string.youngster_open_title);
         youngsterFrsDialogView.setTxtYoungsterDialogContentText(R.string.youngster_dialog_close_message);
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds95));
-        aVar.aX(youngsterFrsDialogView);
-        aVar.nw(5);
-        aVar.ig(false);
-        aVar.b(tbPageContext).bhg();
+        aVar.aZ(youngsterFrsDialogView);
+        aVar.nH(5);
+        aVar.id(false);
+        aVar.b(tbPageContext).bia();
         CustomMessageListener customMessageListener = new CustomMessageListener(2921484) { // from class: com.baidu.tbadk.youngster.b.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -82,7 +82,7 @@ public class a {
                 switch (i2) {
                     case 3:
                         aVar.dismiss();
-                        new BdTopToast(tbPageContext.getPageActivity(), 2000).wU(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                        new BdTopToast(tbPageContext.getPageActivity(), 2000).xd(true).SP(tbPageContext.getPageActivity().getString(R.string.youngster_close_title)).aF((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                         return;
                     default:
                         return;
@@ -103,7 +103,7 @@ public class a {
         youngsterFrsDialogView.setLeftOnClickListener(R.string.youngster_settings_open_title, new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.b.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bhe());
+                com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bhY());
                 YoungsterIntroduceActivityConfig youngsterIntroduceActivityConfig = new YoungsterIntroduceActivityConfig(tbPageContext.getPageActivity());
                 youngsterIntroduceActivityConfig.setKeyYoungsterPasswordFrom(1);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, youngsterIntroduceActivityConfig));
@@ -112,8 +112,8 @@ public class a {
         youngsterFrsDialogView.setRightOnClickListener(R.string.youngster_dialog_negative_button, new View.OnClickListener() { // from class: com.baidu.tbadk.youngster.b.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bhe());
-                new BdTopToast(tbPageContext.getPageActivity(), 2000).wU(true).Sp(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aE((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
+                com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean("key_youngster_frs_dialog_no_tip_again", YoungsterFrsDialogView.this.bhY());
+                new BdTopToast(tbPageContext.getPageActivity(), 2000).xd(true).SP(tbPageContext.getPageActivity().getString(R.string.youngster_frs_top_toast)).aF((ViewGroup) tbPageContext.getPageActivity().findViewById(i));
                 aVar.dismiss();
             }
         });
@@ -121,13 +121,13 @@ public class a {
         youngsterFrsDialogView.setTxtYoungsterDialogTitleText(R.string.youngster_setting);
         youngsterFrsDialogView.setTxtYoungsterDialogContentText(R.string.youngster_dialog_message);
         youngsterFrsDialogView.setYoungsterDialogGroupMarginTop(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds65));
-        aVar.aX(youngsterFrsDialogView);
-        aVar.nw(5);
-        aVar.ig(false);
-        aVar.b(tbPageContext).bhg();
-        com.baidu.tbadk.core.sharedPref.b.bik().putLong("key_youngster_frs_dialog_show_time", System.currentTimeMillis());
-        int i2 = com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_youngster_frs_showed_times", 0) + 1;
-        com.baidu.tbadk.core.sharedPref.b.bik().putInt("key_youngster_frs_showed_times", i2 <= 2 ? i2 : 2);
+        aVar.aZ(youngsterFrsDialogView);
+        aVar.nH(5);
+        aVar.id(false);
+        aVar.b(tbPageContext).bia();
+        com.baidu.tbadk.core.sharedPref.b.bjf().putLong("key_youngster_frs_dialog_show_time", System.currentTimeMillis());
+        int i2 = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("key_youngster_frs_showed_times", 0) + 1;
+        com.baidu.tbadk.core.sharedPref.b.bjf().putInt("key_youngster_frs_showed_times", i2 <= 2 ? i2 : 2);
         CustomMessageListener customMessageListener = new CustomMessageListener(2921487) { // from class: com.baidu.tbadk.youngster.b.a.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -144,7 +144,7 @@ public class a {
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    private static int[] CY(String str) {
+    private static int[] Du(String str) {
         int[] iArr = {0, 0, 0};
         if (!StringUtils.isNull(str)) {
             String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -158,7 +158,7 @@ public class a {
     }
 
     private static long k(int[] iArr) {
-        int i = com.baidu.tbadk.core.sharedPref.b.bik().getInt("key_youngster_frs_showed_times", 0);
+        int i = com.baidu.tbadk.core.sharedPref.b.bjf().getInt("key_youngster_frs_showed_times", 0);
         if (iArr.length <= 2 || i < 0 || i >= 3 || iArr[i] <= 1) {
             return 0L;
         }

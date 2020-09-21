@@ -49,7 +49,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BuyTBeanView extends AbsBuyTBeanView {
     private Activity activity;
     private LinearLayout buyBeanCustomLayout;
@@ -298,7 +298,7 @@ public class BuyTBeanView extends AbsBuyTBeanView {
                 if (BuyTBeanView.this.mOnPayClickListener != null && iconInfoData != null && BuyTBeanView.this.mData != null && BuyTBeanView.this.mData.getCommodityList() != null) {
                     for (IAdapterData iAdapterData : BuyTBeanView.this.mData.getCommodityList()) {
                         if ((iAdapterData instanceof IconInfoWrapperData) && iconInfoData == ((IconInfoWrapperData) iAdapterData).info) {
-                            BuyTBeanView.this.mOnPayClickListener.onClick(iAdapterData, BuyTBeanView.this.mData.getUserInfo());
+                            BuyTBeanView.this.mOnPayClickListener.onClick(iAdapterData, BuyTBeanView.this.mData.getUserInfo(), i);
                         }
                     }
                 }
@@ -331,7 +331,7 @@ public class BuyTBeanView extends AbsBuyTBeanView {
                     if (BuyTBeanView.this.buyTBeanController != null) {
                         int i = JavaTypesHelper.toInt(BuyTBeanView.this.editCustomPrice.getText().toString(), 0);
                         if (i != 0) {
-                            BuyTBeanView.this.buyTBeanController.payForTbean(userDefineTbeanWrapperData.mData.productId, userDefineTbeanWrapperData.mData.icon_id, i, i, TBeanUtil.getTBeanNum(userDefineTbeanWrapperData.userInfo, i * 1000, userDefineTbeanWrapperData.mSetting) * 1, userDefineTbeanWrapperData.mData.pic_url, userDefineTbeanWrapperData.mData.duration, userDefineTbeanWrapperData.mData.name);
+                            BuyTBeanView.this.buyTBeanController.payForTbean(userDefineTbeanWrapperData.mData.productId, userDefineTbeanWrapperData.mData.icon_id, i, i, TBeanUtil.getTBeanNum(userDefineTbeanWrapperData.userInfo, i * 1000, userDefineTbeanWrapperData.mSetting) * 1, userDefineTbeanWrapperData.mData.pic_url, userDefineTbeanWrapperData.mData.duration, userDefineTbeanWrapperData.mData.name, -1);
                         } else {
                             return;
                         }

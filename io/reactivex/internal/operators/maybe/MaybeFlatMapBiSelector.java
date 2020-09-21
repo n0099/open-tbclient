@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
     final h<? super T, ? extends o<? extends U>> mapper;
     final c<? super T, ? super U, ? extends R> resultSelector;
@@ -16,30 +16,30 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         this.source.a(new FlatMapBiMainObserver(mVar, this.mapper, this.resultSelector));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class FlatMapBiMainObserver<T, U, R> implements io.reactivex.disposables.b, m<T> {
         final h<? super T, ? extends o<? extends U>> mapper;
-        final InnerObserver<T, U, R> ook;
+        final InnerObserver<T, U, R> oxT;
 
         FlatMapBiMainObserver(m<? super R> mVar, h<? super T, ? extends o<? extends U>> hVar, c<? super T, ? super U, ? extends R> cVar) {
-            this.ook = new InnerObserver<>(mVar, cVar);
+            this.oxT = new InnerObserver<>(mVar, cVar);
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            DisposableHelper.dispose(this.ook);
+            DisposableHelper.dispose(this.oxT);
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.ook.get());
+            return DisposableHelper.isDisposed(this.oxT.get());
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this.ook, bVar)) {
-                this.ook.actual.onSubscribe(this);
+            if (DisposableHelper.setOnce(this.oxT, bVar)) {
+                this.oxT.actual.onSubscribe(this);
             }
         }
 
@@ -47,27 +47,27 @@ public final class MaybeFlatMapBiSelector<T, U, R> extends a<T, R> {
         public void onSuccess(T t) {
             try {
                 o oVar = (o) io.reactivex.internal.functions.a.k(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                if (DisposableHelper.replace(this.ook, null)) {
-                    this.ook.value = t;
-                    oVar.a(this.ook);
+                if (DisposableHelper.replace(this.oxT, null)) {
+                    this.oxT.value = t;
+                    oVar.a(this.oxT);
                 }
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
-                this.ook.actual.onError(th);
+                this.oxT.actual.onError(th);
             }
         }
 
         @Override // io.reactivex.m
         public void onError(Throwable th) {
-            this.ook.actual.onError(th);
+            this.oxT.actual.onError(th);
         }
 
         @Override // io.reactivex.m
         public void onComplete() {
-            this.ook.actual.onComplete();
+            this.oxT.actual.onComplete();
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         static final class InnerObserver<T, U, R> extends AtomicReference<io.reactivex.disposables.b> implements m<U> {
             private static final long serialVersionUID = -2897979525538174559L;
             final m<? super R> actual;

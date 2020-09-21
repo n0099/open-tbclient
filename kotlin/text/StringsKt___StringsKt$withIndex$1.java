@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<kotlin.collections.n> {
     final /* synthetic */ CharSequence $this_withIndex;
 
@@ -15,6 +15,6 @@ final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final kotlin.collections.n invoke() {
-        return l.v(this.$this_withIndex);
+        return l.t(this.$this_withIndex);
     }
 }

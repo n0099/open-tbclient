@@ -8,24 +8,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public String fKg;
-    public String fKh;
-    public String fKi;
-    public int fKj;
-    public int fKk;
-    public List<bw> fky;
+    public String fNu;
+    public String fNv;
+    public String fNw;
+    public int fNx;
+    public int fNy;
+    public List<bw> fnr;
 
     public void parse(JSONObject jSONObject) {
         int i = 0;
         if (jSONObject != null) {
-            this.fKg = jSONObject.optString("head_pic");
-            this.fKh = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
-            this.fKi = jSONObject.optString("url");
-            this.fKj = jSONObject.optInt("head_type", 0);
-            this.fKk = jSONObject.optInt("is_set", -1);
+            this.fNu = jSONObject.optString("head_pic");
+            this.fNv = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
+            this.fNw = jSONObject.optString("url");
+            this.fNx = jSONObject.optInt("head_type", 0);
+            this.fNy = jSONObject.optInt("is_set", -1);
             JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fky = new ArrayList(optJSONArray.length());
+                this.fnr = new ArrayList(optJSONArray.length());
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
@@ -33,7 +33,7 @@ public class a {
                         if (jSONObject2 != null) {
                             bw bwVar = new bw();
                             bwVar.parserJson(jSONObject2);
-                            this.fky.add(bwVar);
+                            this.fnr.add(bwVar);
                         }
                         i = i2 + 1;
                     } else {

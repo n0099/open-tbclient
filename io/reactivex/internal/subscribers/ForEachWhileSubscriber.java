@@ -5,8 +5,8 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;
@@ -20,14 +20,14 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         this.onComplete = aVar;
     }
 
-    @Override // io.reactivex.j, org.b.c
+    @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
         if (SubscriptionHelper.setOnce(this, dVar)) {
             dVar.request(Long.MAX_VALUE);
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onNext(T t) {
         if (!this.done) {
             try {
@@ -43,7 +43,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onError(Throwable th) {
         if (this.done) {
             io.reactivex.e.a.onError(th);
@@ -58,7 +58,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         }
     }
 
-    @Override // org.b.c
+    @Override // org.a.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;

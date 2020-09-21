@@ -3,10 +3,10 @@ package com.baidu.browser.core;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class b extends ContextWrapper {
-    private static b adJ;
-    private h adK;
+    private static b aeb;
+    private h aec;
 
     public b() {
         super(null);
@@ -14,12 +14,12 @@ public class b extends ContextWrapper {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.content.ContextWrapper, android.content.Context
-    /* renamed from: sZ */
+    /* renamed from: te */
     public h getResources() {
-        if (this.adK == null) {
-            this.adK = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.aec == null) {
+            this.aec = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.adK;
+        return this.aec;
     }
 
     @Override // android.content.ContextWrapper
@@ -27,13 +27,13 @@ public class b extends ContextWrapper {
         super.attachBaseContext(context);
     }
 
-    public static synchronized b ta() {
+    public static synchronized b tf() {
         b bVar;
         synchronized (b.class) {
-            if (adJ == null) {
-                adJ = new b();
+            if (aeb == null) {
+                aeb = new b();
             }
-            bVar = adJ;
+            bVar = aeb;
         }
         return bVar;
     }

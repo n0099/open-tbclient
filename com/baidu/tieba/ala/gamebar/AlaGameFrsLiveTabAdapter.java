@@ -6,15 +6,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaGameFrsLiveTabAdapter extends FragmentPagerAdapter {
-    private int[] fYS;
+    private int[] gcg;
     private List<Fragment> list;
 
     public AlaGameFrsLiveTabAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.fYS = new int[]{0, 1};
+        this.gcg = new int[]{0, 1};
     }
 
-    public void bL(List<Fragment> list) {
+    public void bQ(List<Fragment> list) {
         this.list = list;
     }
 

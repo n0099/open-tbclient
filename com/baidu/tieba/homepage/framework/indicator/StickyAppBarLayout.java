@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private StickyAppBarLayoutBehavior iJL;
-    private a iJM;
+    private StickyAppBarLayoutBehavior iSr;
+    private a iSs;
     CustomMessageListener listener;
     private int mSkinType;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public interface a {
-        void pF(boolean z);
+        void pN(boolean z);
     }
 
     public StickyAppBarLayout(Context context) {
@@ -33,9 +33,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cwR();
+                        StickyAppBarLayout.this.cAz();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cwS();
+                        StickyAppBarLayout.this.cAA();
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cwR();
+                        StickyAppBarLayout.this.cAz();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cwS();
+                        StickyAppBarLayout.this.cAA();
                     }
                 }
             }
@@ -64,69 +64,69 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        cwQ();
+        cAy();
     }
 
-    private void cwQ() {
+    private void cAy() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.iJL = (StickyAppBarLayoutBehavior) behavior;
+                this.iSr = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean cwR() {
-        if (this.iJL == null) {
-            cwQ();
+    public boolean cAz() {
+        if (this.iSr == null) {
+            cAy();
         }
-        if (this.iJL != null) {
-            if (isSticky() && this.iJL.cwW() != null && this.iJL.cwW().getVisibility() == 0) {
-                cwT();
+        if (this.iSr != null) {
+            if (isSticky() && this.iSr.cAE() != null && this.iSr.cAE().getVisibility() == 0) {
+                cAB();
             }
-            this.iJL.cwU();
+            this.iSr.cAC();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cwS() {
-        if (this.iJL == null) {
-            cwQ();
+    public boolean cAA() {
+        if (this.iSr == null) {
+            cAy();
         }
-        if (this.iJL != null) {
-            this.iJL.cwV();
+        if (this.iSr != null) {
+            this.iSr.cAD();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.iJL == null) {
-            cwQ();
+        if (this.iSr == null) {
+            cAy();
         }
-        if (this.iJL != null) {
-            return this.iJL.isSticky();
+        if (this.iSr != null) {
+            return this.iSr.isSticky();
         }
         return false;
     }
 
-    private void cwT() {
+    private void cAB() {
         aq aqVar = new aq("c13422");
         aqVar.ai("obj_type", 1);
         aqVar.ai("obj_locate", 1);
         aqVar.ai("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
-        aqVar.dD("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
+        aqVar.dF("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
         TiebaStatic.log(aqVar);
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.iJM = aVar;
+        this.iSs = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.iJM;
+        return this.iSs;
     }
 
     @Override // android.view.ViewGroup, android.view.View

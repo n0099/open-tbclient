@@ -2,12 +2,12 @@ package com.baidu.location.b;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class z {
     private ExecutorService a;
     private ExecutorService b;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static z a = new z();
     }

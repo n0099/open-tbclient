@@ -3,7 +3,7 @@ package com.baidu.fsg.face.liveness.datamodel;
 import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class AudioVideoUploadModel implements IBeanResponse, Serializable {
     public String callbackkey;
     public int uploadStatus;

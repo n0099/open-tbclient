@@ -5,12 +5,12 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class CyberCaptureManager {
     private CaptureManagerProvider a;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public interface OnCaptureReadyCallback {
         void onVideoCaptureReady(boolean z);
     }

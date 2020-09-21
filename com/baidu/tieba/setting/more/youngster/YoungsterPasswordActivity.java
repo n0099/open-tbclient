@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.youngster.YoungsterPasswordView;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes25.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
-    private YoungsterPasswordView lSe;
-    private Runnable lSf = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
-        @Override // java.lang.Runnable
-        public void run() {
-            YoungsterPasswordActivity.this.finish();
-        }
-    };
     private View mBack;
     private int mFrom;
     private NavigationBar mNavigationBar;
     private int mPageType;
     private String mPassword;
+    private YoungsterPasswordView mbo;
+    private Runnable mbp = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
+        @Override // java.lang.Runnable
+        public void run() {
+            YoungsterPasswordActivity.this.finish();
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,20 +33,20 @@ public class YoungsterPasswordActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(this);
-        this.lSe = new YoungsterPasswordView(getPageContext());
-        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.lSe);
+        this.mbo = new YoungsterPasswordView(getPageContext());
+        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mbo);
         Intent intent = getIntent();
         if (intent != null) {
             this.mPageType = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);
-            rO(this.mPageType);
+            sf(this.mPageType);
             this.mPassword = intent.getStringExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_INPUT);
-            this.lSe.setPrePassword(this.mPassword);
+            this.mbo.setPrePassword(this.mPassword);
             this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
-            this.lSe.setFrom(this.mFrom);
+            this.mbo.setFrom(this.mFrom);
         }
     }
 
-    private void rO(int i) {
+    private void sf(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -60,7 +60,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                 break;
         }
-        this.lSe.rO(i);
+        this.mbo.sf(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,15 +68,15 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lSe.onChangeSkinType();
+        this.mbo.onChangeSkinType();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mBack) {
-            this.lSe.byY();
-            e.mS().postDelayed(this.lSf, 200L);
+            this.mbo.bAh();
+            e.mX().postDelayed(this.mbp, 200L);
         }
     }
 
@@ -84,8 +84,8 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lSe != null) {
-            this.lSe.byX();
+        if (this.mbo != null) {
+            this.mbo.bAg();
         }
     }
 
@@ -93,6 +93,6 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        e.mS().removeCallbacks(this.lSf);
+        e.mX().removeCallbacks(this.mbp);
     }
 }

@@ -2,12 +2,12 @@ package androidx.lifecycle;
 
 import android.support.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface Lifecycle {
     @NonNull
     public static final AtomicReference<Object> zL = new AtomicReference<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum State {
         DESTROYED,
         INITIALIZED,

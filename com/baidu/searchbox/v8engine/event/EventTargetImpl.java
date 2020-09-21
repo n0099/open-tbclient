@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes20.dex */
+/* loaded from: classes4.dex */
 public class EventTargetImpl implements EventTarget {
     private static final boolean DEBUG = false;
     private static final String EVENT_TYPE = "type";

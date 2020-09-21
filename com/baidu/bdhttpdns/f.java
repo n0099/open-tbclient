@@ -8,23 +8,23 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes18.dex */
 final class f {
-    private static volatile f adv;
+    private static volatile f adN;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes18.dex */
     private class b implements Runnable {
-        private a adw;
+        private a adO;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.adw = aVar;
+            this.adO = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.adw.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.adO.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -85,15 +85,15 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static f sV() {
-        if (adv == null) {
+    public static f ta() {
+        if (adN == null) {
             synchronized (f.class) {
-                if (adv == null) {
-                    adv = new f();
+                if (adN == null) {
+                    adN = new f();
                 }
             }
         }
-        return adv;
+        return adN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,11 +101,11 @@ final class f {
         if (str == null || str.isEmpty()) {
             return;
         }
-        m.sY().b().execute(new b(str, aVar));
+        m.td().b().execute(new b(str, aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult de(String str) {
+    public BDHttpDnsResult dg(String str) {
         ArrayList arrayList;
         ArrayList arrayList2 = null;
         Map<String, ArrayList> b2 = b(str);

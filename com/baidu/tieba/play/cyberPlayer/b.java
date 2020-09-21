@@ -11,95 +11,95 @@ import com.baidu.tieba.play.h;
 import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
-    private bw dUW;
-    private long ltD;
-    private o ltE;
-    private boolean ltG;
-    private long ltC = 0;
+    private bw dXg;
+    private long lCu;
+    private o lCv;
+    private boolean lCx;
+    private long lCt = 0;
     private long mStartTime = 0;
-    private String ltF = "1";
-    private k ltH = new k();
+    private String lCw = "1";
+    private k lCy = new k();
 
-    public void dkk() {
-        this.ltH.cRr();
+    public void dnR() {
+        this.lCy.cUX();
     }
 
-    public void fP(long j) {
-        this.ltD = j;
-        this.ltH.cRs();
+    public void gd(long j) {
+        this.lCu = j;
+        this.lCy.cUY();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.ltC = (System.currentTimeMillis() - this.mStartTime) + this.ltC;
+            this.lCt = (System.currentTimeMillis() - this.mStartTime) + this.lCt;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.ltG = true;
-        this.ltH.cRt();
+        this.lCx = true;
+        this.lCy.cUZ();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.ltH.a(tbCyberVideoView);
+        this.lCy.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.ltC = (System.currentTimeMillis() - this.mStartTime) + this.ltC;
+            this.lCt = (System.currentTimeMillis() - this.mStartTime) + this.lCt;
             this.mStartTime = 0L;
         }
-        this.ltG = false;
+        this.lCx = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.ltC = (System.currentTimeMillis() - this.mStartTime) + this.ltC;
+            this.lCt = (System.currentTimeMillis() - this.mStartTime) + this.lCt;
             this.mStartTime = 0L;
         }
-        dkl();
-        this.ltC = 0L;
+        dnS();
+        this.lCt = 0L;
         this.mStartTime = 0L;
-        this.ltG = false;
-        this.ltH.cRq();
+        this.lCx = false;
+        this.lCy.cUW();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.ltC = (System.currentTimeMillis() - this.mStartTime) + this.ltC;
+            this.lCt = (System.currentTimeMillis() - this.mStartTime) + this.lCt;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.ltE = oVar;
+        this.lCv = oVar;
     }
 
     public void setThreadData(bw bwVar) {
-        this.dUW = bwVar;
+        this.dXg = bwVar;
     }
 
     public void setPlayMode(String str) {
-        this.ltF = str;
+        this.lCw = str;
     }
 
-    private void dkl() {
-        if (this.ltC >= 0 && this.ltC < 86400000) {
-            if (this.ltC > 0) {
+    private void dnS() {
+        if (this.lCt >= 0 && this.lCt < 86400000) {
+            if (this.lCt > 0) {
                 aq aqVar = new aq(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                aqVar.u("obj_duration", this.ltC);
-                aqVar.dD("obj_type", this.ltF);
-                aqVar.u("playduration", this.ltD);
+                aqVar.u("obj_duration", this.lCt);
+                aqVar.dF("obj_type", this.lCw);
+                aqVar.u("playduration", this.lCu);
                 aqVar.ai("player_type", 1);
                 if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                    aqVar.dD("task_id", TbadkCoreApplication.getInst().getTaskId());
+                    aqVar.dF("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.ltE != null) {
-                    this.ltE.f(aqVar);
+                if (this.lCv != null) {
+                    this.lCv.f(aqVar);
                 }
-                if (!aqVar.Ad("obj_param5") && this.dUW != null) {
-                    if (this.dUW.getBaijiahaoData() != null) {
-                        if (this.dUW.getBaijiahaoData().oriUgcType == 2) {
+                if (!aqVar.Az("obj_param5") && this.dXg != null) {
+                    if (this.dXg.getBaijiahaoData() != null) {
+                        if (this.dXg.getBaijiahaoData().oriUgcType == 2) {
                             aqVar.ai("obj_param5", 3);
-                        } else if (this.dUW.getBaijiahaoData().oriUgcType == 4) {
+                        } else if (this.dXg.getBaijiahaoData().oriUgcType == 4) {
                             aqVar.ai("obj_param5", 2);
                         }
                     } else {
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(aqVar);
-                h.a(this.ltC, this.ltF, this.ltE, "", this.ltD);
-            } else if (this.ltG) {
-                h.a(this.ltC, this.ltF, this.ltE, "", this.ltD);
+                h.a(this.lCt, this.lCw, this.lCv, "", this.lCu);
+            } else if (this.lCx) {
+                h.a(this.lCt, this.lCw, this.lCv, "", this.lCu);
             }
         }
     }

@@ -17,11 +17,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class t {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int[] aEQ() {
+    public static int[] aFA() {
         int[] iArr = new int[1];
         GLES10.glGetIntegerv(3379, iArr, 0);
         if (iArr[0] != 0) {
@@ -57,8 +57,8 @@ public final class t {
         return Uri.parse(str);
     }
 
-    public static File sB(String str) {
-        return cv(com.baidu.swan.apps.v.f.arY().arE().aCZ(), str);
+    public static File sU(String str) {
+        return cv(com.baidu.swan.apps.v.f.asJ().asp().aDJ(), str);
     }
 
     public static File cv(String str, String str2) {

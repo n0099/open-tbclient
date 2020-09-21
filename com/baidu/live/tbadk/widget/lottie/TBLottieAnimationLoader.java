@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
     private OnLoadedCallback mCallback;
     private NetWork mNetWork;
     private String mPath;
     private String mUrl;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface OnLoadedCallback {
         void onLoaded(boolean z, String str);
     }

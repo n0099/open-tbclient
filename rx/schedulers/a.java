@@ -1,16 +1,16 @@
 package rx.schedulers;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class a<T> {
-    private final long oKu;
+    private final long oTZ;
     private final T value;
 
     public a(long j, T t) {
         this.value = t;
-        this.oKu = j;
+        this.oTZ = j;
     }
 
-    public long elp() {
-        return this.oKu;
+    public long epn() {
+        return this.oTZ;
     }
 
     public T getValue() {
@@ -23,7 +23,7 @@ public final class a<T> {
         }
         if (obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
-            if (this.oKu == aVar.oKu) {
+            if (this.oTZ == aVar.oTZ) {
                 if (this.value == aVar.value) {
                     return true;
                 }
@@ -37,10 +37,10 @@ public final class a<T> {
     }
 
     public int hashCode() {
-        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.oKu ^ (this.oKu >>> 32))) + 31) * 31);
+        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.oTZ ^ (this.oTZ >>> 32))) + 31) * 31);
     }
 
     public String toString() {
-        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.oKu), this.value.toString());
+        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.oTZ), this.value.toString());
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.android.common.others;
-/* loaded from: classes10.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.android.common.others";
     public static final String BUILD_TYPE = "release";

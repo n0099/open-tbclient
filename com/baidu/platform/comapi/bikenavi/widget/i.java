@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.bikenavi.widget;
 import android.view.View;
 import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class i implements Animation.AnimationListener {
     final /* synthetic */ h a;
 

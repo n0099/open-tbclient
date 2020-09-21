@@ -7,7 +7,7 @@ import android.util.Base64;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class e {
     public SharedPreferences a;
     public SharedPreferences b;

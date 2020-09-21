@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class IqiyiLoginResult extends SapiResult {
     public static final int ERROR_CODE_ACCESSTOKEN_NULL_FAILURE = -101;
     public static final String ERROR_MSG_ACCESSTOKEN_NULL_FAILURE = "无权限（accesstoken == null)";

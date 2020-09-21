@@ -5,41 +5,41 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public abstract class b {
-    protected boolean icw;
-    protected g isn;
-    protected a iso;
-    protected boolean isp;
+    protected boolean ijA;
+    protected g izD;
+    protected a izE;
+    protected boolean izF;
     protected Intent mIntent;
     protected int mState = 0;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes21.dex */
     public interface a {
         void onStateChanged(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void csB();
+    public abstract void cvQ();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void csC();
+    public abstract void cvR();
 
     public b(g gVar, Intent intent) {
-        this.isp = true;
-        this.icw = false;
-        this.isn = gVar;
+        this.izF = true;
+        this.ijA = false;
+        this.izD = gVar;
         this.mIntent = intent;
-        e IW = d.csH().IW(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.isp = IW.csJ();
-        this.icw = IW.csI();
-        if (IW.csK()) {
-            ((RelativeLayout.LayoutParams) this.isn.isD.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        e Ju = d.cvW().Ju(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.izF = Ju.cvY();
+        this.ijA = Ju.cvX();
+        if (Ju.cvZ()) {
+            ((RelativeLayout.LayoutParams) this.izD.izT.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.iso = aVar;
+        this.izE = aVar;
     }
 
     public int getState() {

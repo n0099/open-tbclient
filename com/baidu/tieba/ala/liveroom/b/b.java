@@ -5,13 +5,13 @@ import android.widget.FrameLayout;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.r;
+import com.baidu.live.data.u;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private CustomMessageListener fPT = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
+    private CustomMessageListener fTe = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -24,7 +24,7 @@ public class b {
             }
         }
     };
-    private c gma;
+    private c gph;
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
     private String otherParams;
@@ -32,14 +32,14 @@ public class b {
     public b(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.fPT.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fPT);
+        this.fTe.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.fTe);
     }
 
-    public void b(ViewGroup viewGroup, r rVar) {
-        if (viewGroup != null && this.mTbPageContext != null && rVar != null) {
-            this.gma = new c(this.mTbPageContext);
-            bNc();
+    public void c(ViewGroup viewGroup, u uVar) {
+        if (viewGroup != null && this.mTbPageContext != null && uVar != null) {
+            this.gph = new c(this.mTbPageContext);
+            bOl();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds144) + UtilHelper.getStatusBarHeight();
@@ -48,16 +48,16 @@ public class b {
             }
             layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds22);
             layoutParams.gravity = 5;
-            viewGroup.addView(this.gma.getView(), 2, layoutParams);
-            if (rVar.aDG != null) {
-                this.gma.ec(rVar.aDG.alaId);
+            viewGroup.addView(this.gph.getView(), 2, layoutParams);
+            if (uVar.aEz != null) {
+                this.gph.ee(uVar.aEz.alaId);
             }
         }
     }
 
-    public void lF(boolean z) {
-        if (this.gma != null) {
-            ViewGroup.LayoutParams layoutParams = this.gma.getView().getLayoutParams();
+    public void lH(boolean z) {
+        if (this.gph != null) {
+            ViewGroup.LayoutParams layoutParams = this.gph.getView().getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
                 if (z) {
@@ -73,20 +73,20 @@ public class b {
                 }
                 layoutParams2.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds22);
                 layoutParams2.gravity = 5;
-                this.gma.getView().setLayoutParams(layoutParams2);
+                this.gph.getView().setLayoutParams(layoutParams2);
             }
         }
     }
 
-    public void bNc() {
-        if (this.gma != null && this.gma.getView() != null && this.gma.getView().getParent() != null) {
-            ((ViewGroup) this.gma.getView().getParent()).removeView(this.gma.getView());
+    public void bOl() {
+        if (this.gph != null && this.gph.getView() != null && this.gph.getView().getParent() != null) {
+            ((ViewGroup) this.gph.getView().getParent()).removeView(this.gph.getView());
         }
     }
 
-    public void Fb() {
-        if (this.fPT != null) {
-            MessageManager.getInstance().unRegisterListener(this.fPT);
+    public void FB() {
+        if (this.fTe != null) {
+            MessageManager.getInstance().unRegisterListener(this.fTe);
         }
     }
 }

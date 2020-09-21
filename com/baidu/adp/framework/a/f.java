@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    public static a IG = null;
+    public static a IR = null;
 
     private static SharedPreferences getMultiDexPreferences(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
@@ -67,18 +67,18 @@ public class f {
     }
 
     public static void J(Context context) throws PackageManager.NameNotFoundException, IOException {
-        IG = new a(getSourcePaths(context));
-        IG.execute(new List[0]);
+        IR = new a(getSourcePaths(context));
+        IR.execute(new List[0]);
     }
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<List<String>, Integer, String> {
-        public List<String> IH;
+        public List<String> IS;
         public boolean finished = false;
-        public String II = "";
+        public String IT = "";
 
         public a(List<String> list) {
-            this.IH = list;
+            this.IS = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +88,7 @@ public class f {
         public String doInBackground(List<String>... listArr) throws IOException {
             DexFile dexFile;
             Looper.prepare();
-            for (String str : this.IH) {
+            for (String str : this.IS) {
                 try {
                     if (str.endsWith(".zip")) {
                         dexFile = DexFile.loadDex(str, str + ".tmp", 0);
@@ -99,9 +99,9 @@ public class f {
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith("Static")) {
-                            this.II = nextElement;
+                            this.IT = nextElement;
                             Class.forName(nextElement);
-                            this.II = "";
+                            this.IT = "";
                             Log.e("MultiLoadHelper", nextElement + l.isMainThread());
                         }
                     }
@@ -120,8 +120,8 @@ public class f {
             this.finished = true;
         }
 
-        public boolean bs(String str) {
-            return (str == null || !str.equals(this.II) || this.finished) ? false : true;
+        public boolean bu(String str) {
+            return (str == null || !str.equals(this.IT) || this.finished) ? false : true;
         }
     }
 }

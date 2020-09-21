@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.downloader.exception;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class DownloadPauseException extends DownloadException {
     public DownloadPauseException(int i) {
         super(i);

@@ -10,11 +10,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private com.baidu.tbadk.core.dialog.a aaD;
-    private TbImageView hLS;
-    private TextView lou;
+    private com.baidu.tbadk.core.dialog.a aaV;
+    private TbImageView hST;
+    private TextView lxn;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private TextView mTip;
@@ -22,43 +22,43 @@ public class a {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.tab.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.aaD != null) {
-                a.this.aaD.dismiss();
+            if (a.this.aaV != null) {
+                a.this.aaV.dismiss();
             }
         }
     };
-    private boolean lot = com.baidu.tbadk.core.sharedPref.b.bik().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
+    private boolean lxm = com.baidu.tbadk.core.sharedPref.b.bjf().getBoolean("key_person_dynamic_tab_guide_has_shown", false);
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void djj() {
-        if (!this.lot) {
-            this.lot = true;
-            com.baidu.tbadk.core.sharedPref.b.bik().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
+    public void dmO() {
+        if (!this.lxm) {
+            this.lxm = true;
+            com.baidu.tbadk.core.sharedPref.b.bjf().putBoolean("key_person_dynamic_tab_guide_has_shown", true);
             initView();
-            this.aaD = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            this.aaD.nw(1);
-            this.aaD.ig(true);
-            this.aaD.ih(false);
-            this.aaD.aX(this.mRootView);
-            this.aaD.b(this.mTbPageContext).bhg();
+            this.aaV = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
+            this.aaV.nH(1);
+            this.aaV.id(true);
+            this.aaV.ie(false);
+            this.aaV.aZ(this.mRootView);
+            this.aaV.b(this.mTbPageContext).bia();
         }
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
-        this.hLS = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
-        j(this.hLS);
-        this.hLS.setAutoChangeStyle(true);
-        this.hLS.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
-        this.hLS.setConrers(3);
-        this.hLS.setIsBitmapPic(true);
+        this.hST = (TbImageView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
+        j(this.hST);
+        this.hST.setAutoChangeStyle(true);
+        this.hST.setRadius(l.getDimens(this.mTbPageContext.getPageActivity(), R.dimen.tbds24));
+        this.hST.setConrers(3);
+        this.hST.setIsBitmapPic(true);
         this.mTip = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-        this.lou = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-        this.lou.setOnClickListener(this.mOnClickListener);
+        this.lxn = (TextView) this.mRootView.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+        this.lxn.setOnClickListener(this.mOnClickListener);
         onChangeSkinType();
     }
 
@@ -72,14 +72,14 @@ public class a {
         }
     }
 
-    public boolean djk() {
-        return this.lot;
+    public boolean dmP() {
+        return this.lxm;
     }
 
     private void onChangeSkinType() {
-        ap.setImageResource(this.hLS, R.drawable.pic_person_center_dynamic_guide);
+        ap.setImageResource(this.hST, R.drawable.pic_person_center_dynamic_guide);
         ap.setViewTextColor(this.mTip, (int) R.color.cp_cont_j);
         ap.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);
-        ap.setViewTextColor(this.lou, (int) R.color.cp_link_tip_a);
+        ap.setViewTextColor(this.lxn, (int) R.color.cp_link_tip_a);
     }
 }

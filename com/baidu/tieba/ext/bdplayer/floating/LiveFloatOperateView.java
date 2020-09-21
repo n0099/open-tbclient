@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LiveFloatOperateView extends FrameLayout implements View.OnClickListener {
-    private a hEO;
-    private ImageView hEP;
+    private a hLQ;
+    private ImageView hLR;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(LiveFloatOperateView liveFloatOperateView);
 
@@ -39,32 +39,32 @@ public class LiveFloatOperateView extends FrameLayout implements View.OnClickLis
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.h.ala_live_floating_operate_layout, (ViewGroup) this, true);
-        this.hEP = (ImageView) findViewById(a.g.scale_btn);
+        this.hLR = (ImageView) findViewById(a.g.scale_btn);
         findViewById(a.g.close_btn).setOnClickListener(this);
-        this.hEP.setOnClickListener(this);
+        this.hLR.setOnClickListener(this);
     }
 
     public void setScaleMode(boolean z) {
         if (z) {
-            this.hEP.setImageResource(a.f.ala_float_scale_small);
+            this.hLR.setImageResource(a.f.ala_float_scale_small);
         } else {
-            this.hEP.setImageResource(a.f.ala_float_scale_large);
+            this.hLR.setImageResource(a.f.ala_float_scale_large);
         }
     }
 
     public void setOnViewOperatorListener(a aVar) {
-        this.hEO = aVar;
+        this.hLQ = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == a.g.close_btn) {
-            if (this.hEO != null) {
-                this.hEO.onCloseClicked();
+            if (this.hLQ != null) {
+                this.hLQ.onCloseClicked();
             }
-        } else if (id == a.g.scale_btn && this.hEO != null) {
-            this.hEO.a(this);
+        } else if (id == a.g.scale_btn && this.hLQ != null) {
+            this.hLQ.a(this);
         }
     }
 }

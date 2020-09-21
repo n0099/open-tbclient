@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.statistic;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 enum LogType {
     SESSION_START,
     SESSION_END,

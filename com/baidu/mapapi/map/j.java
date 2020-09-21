@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Bitmap;
 import com.baidu.mapapi.map.BaiduMap;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class j implements com.baidu.platform.comapi.map.c {
     final /* synthetic */ BaiduMap a;
 

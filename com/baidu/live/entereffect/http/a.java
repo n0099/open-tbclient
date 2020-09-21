@@ -2,7 +2,7 @@ package com.baidu.live.entereffect.http;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private boolean isHost;
 

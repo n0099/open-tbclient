@@ -16,40 +16,40 @@ import com.baidu.swan.apps.u.c.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private boolean cTi;
-    private List<String> cTj;
-    private String cTk;
+    private boolean cVi;
+    private List<String> cVj;
+    private String cVk;
     private static String TAG = "SwanAppPageForbidden";
     private static boolean DEBUG = b.DEBUG;
 
     private a() {
-        this.cTi = false;
+        this.cVi = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.scheme.actions.forbidden.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0436a {
-        private static final a cTo = new a();
+    /* loaded from: classes3.dex */
+    public static class C0431a {
+        private static final a cVo = new a();
     }
 
-    public static a aAS() {
-        return C0436a.cTo;
+    public static a aBB() {
+        return C0431a.cVo;
     }
 
-    public boolean qO(String str) {
+    public boolean rh(String str) {
         boolean z = false;
-        if (!TextUtils.isEmpty(str) && com.baidu.swan.apps.f.a.a(d.azE().azA().XZ())) {
+        if (!TextUtils.isEmpty(str) && com.baidu.swan.apps.f.a.a(d.aAn().aAj().YI())) {
             String delAllParamsFromUrl = ai.delAllParamsFromUrl(str);
             if (!TextUtils.isEmpty(delAllParamsFromUrl) && delAllParamsFromUrl.startsWith("/")) {
                 delAllParamsFromUrl = delAllParamsFromUrl.substring(1);
             }
-            if (!this.cTi) {
-                aAU();
+            if (!this.cVi) {
+                aBD();
             }
-            z = qP(delAllParamsFromUrl);
+            z = ri(delAllParamsFromUrl);
             if (DEBUG) {
                 Log.d(TAG, "check, hitPath = " + z + " path = " + str);
             }
@@ -59,11 +59,11 @@ public class a {
 
     public boolean f(com.baidu.swan.apps.model.b bVar) {
         boolean z = false;
-        if (bVar != null && com.baidu.swan.apps.f.a.a(d.azE().azA().XZ())) {
-            if (!this.cTi) {
-                aAU();
+        if (bVar != null && com.baidu.swan.apps.f.a.a(d.aAn().aAj().YI())) {
+            if (!this.cVi) {
+                aBD();
             }
-            z = (qP(bVar.mPage) || qP(bVar.cDG)) ? true : true;
+            z = (ri(bVar.mPage) || ri(bVar.cFG)) ? true : true;
             if (DEBUG) {
                 Log.d(TAG, "check, hitPath = " + z + " params = " + bVar.toString());
             }
@@ -72,10 +72,10 @@ public class a {
     }
 
     public void c(final String str, com.baidu.swan.apps.model.b bVar) {
-        final f XX;
+        final f YG;
         String d;
-        if (bVar != null && (XX = com.baidu.swan.apps.v.f.arY().XX()) != null && !(XX.ahm() instanceof com.baidu.swan.apps.core.d.d)) {
-            if (qP(bVar.cDG)) {
+        if (bVar != null && (YG = com.baidu.swan.apps.v.f.asJ().YG()) != null && !(YG.ahW() instanceof com.baidu.swan.apps.core.d.d)) {
+            if (ri(bVar.cFG)) {
                 d = com.baidu.swan.apps.model.b.e(bVar);
             } else {
                 d = com.baidu.swan.apps.model.b.d(bVar);
@@ -83,14 +83,14 @@ public class a {
             if (DEBUG) {
                 Log.d(TAG, "jump from " + str + " ; path = " + d);
             }
-            e azA = d.azE().azA();
-            b.a azM = azA.azM();
+            e aAj = d.aAn().aAj();
+            b.a aAv = aAj.aAv();
             ForbiddenInfo forbiddenInfo = new ForbiddenInfo();
-            forbiddenInfo.appId = azA.getAppId();
-            forbiddenInfo.appKey = azA.getAppKey();
-            forbiddenInfo.appTitle = azM.akO();
-            forbiddenInfo.forbiddenReason = aAT();
-            forbiddenInfo.launchSource = azM.aqN();
+            forbiddenInfo.appId = aAj.getAppId();
+            forbiddenInfo.appKey = aAj.getAppKey();
+            forbiddenInfo.appTitle = aAv.aly();
+            forbiddenInfo.forbiddenReason = aBC();
+            forbiddenInfo.launchSource = aAv.arx();
             forbiddenInfo.launchPath = d;
             forbiddenInfo.enableSlidingFlag = 0;
             a(forbiddenInfo);
@@ -98,48 +98,48 @@ public class a {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.forbidden.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    XX.lo(str).al(f.cik, f.cim).f(a).ahx();
+                    YG.lH(str).al(f.ckl, f.ckn).f(a).aih();
                 }
             });
         }
     }
 
     private void a(ForbiddenInfo forbiddenInfo) {
-        SwanAppActivity azC;
-        e azJ = e.azJ();
-        if (azJ != null && (azC = azJ.azA().azC()) != null) {
-            String a = com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.v.f.arY().arA(), azJ.XZ().getAppFrameType());
+        SwanAppActivity aAl;
+        e aAs = e.aAs();
+        if (aAs != null && (aAl = aAs.aAj().aAl()) != null) {
+            String a = com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.v.f.asJ().ask(), aAs.YI().getAppFrameType());
             com.baidu.swan.apps.am.a aVar = new com.baidu.swan.apps.am.a();
-            aVar.bO(10L).bP(48L).sl("path forbiddeon");
-            forbiddenInfo.forbiddenDetail = azC.getString(a.h.aiapps_open_failed_detail_format, ak.getVersionName(), a, String.valueOf(aVar.aEc()));
+            aVar.bP(10L).bQ(48L).sF("path forbiddeon");
+            forbiddenInfo.forbiddenDetail = aAl.getString(a.h.aiapps_open_failed_detail_format, ak.getVersionName(), a, String.valueOf(aVar.aEM()));
         }
     }
 
-    public String aAT() {
-        return this.cTk;
+    public String aBC() {
+        return this.cVk;
     }
 
-    private boolean qP(String str) {
-        if (TextUtils.isEmpty(str) || this.cTj == null || this.cTj.isEmpty()) {
+    private boolean ri(String str) {
+        if (TextUtils.isEmpty(str) || this.cVj == null || this.cVj.isEmpty()) {
             return false;
         }
-        return this.cTj.contains(str);
+        return this.cVj.contains(str);
     }
 
-    private String qQ(String str) {
+    private String rj(String str) {
         return str + "_forbidden_path";
     }
 
-    private String qR(String str) {
+    private String rk(String str) {
         return str + "_forbidden_tips";
     }
 
     public void c(JSONArray jSONArray, String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            String qQ = qQ(str2);
-            String qR = qR(str2);
+            String rj = rj(str2);
+            String rk = rk(str2);
             if (jSONArray == null || jSONArray.length() == 0) {
-                h.aDf().edit().remove(qQ).remove(qR).apply();
+                h.aDP().edit().remove(rj).remove(rk).apply();
                 if (DEBUG) {
                     Log.d(TAG, "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str);
                     return;
@@ -147,47 +147,47 @@ public class a {
                 return;
             }
             String jSONArray2 = jSONArray.toString();
-            h.aDf().edit().putString(qQ, jSONArray2).putString(qR, str).apply();
+            h.aDP().edit().putString(rj, jSONArray2).putString(rk, str).apply();
             if (DEBUG) {
                 Log.d(TAG, "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str + " ; path = " + jSONArray2);
             }
         }
     }
 
-    private void aAU() {
-        com.baidu.swan.apps.storage.c.b aDf = h.aDf();
-        String appKey = d.azE().azA().getAppKey();
-        String string = aDf.getString(qQ(appKey), null);
+    private void aBD() {
+        com.baidu.swan.apps.storage.c.b aDP = h.aDP();
+        String appKey = d.aAn().aAj().getAppKey();
+        String string = aDP.getString(rj(appKey), null);
         if (DEBUG) {
-            Log.d(TAG, "readDataSwanKv, appKey = " + appKey + " ; tips = " + this.cTk + " ; path = " + string);
+            Log.d(TAG, "readDataSwanKv, appKey = " + appKey + " ; tips = " + this.cVk + " ; path = " + string);
         }
         if (TextUtils.isEmpty(string)) {
-            this.cTj = null;
-            this.cTk = null;
+            this.cVj = null;
+            this.cVk = null;
         } else {
-            JSONArray sC = v.sC(string);
-            int length = sC.length();
-            this.cTj = new ArrayList();
+            JSONArray sV = v.sV(string);
+            int length = sV.length();
+            this.cVj = new ArrayList();
             for (int i = 0; i < length; i++) {
-                String optString = sC.optString(i);
+                String optString = sV.optString(i);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.cTj.add(optString);
+                    this.cVj.add(optString);
                 }
             }
-            this.cTk = aDf.getString(qR(appKey), null);
+            this.cVk = aDP.getString(rk(appKey), null);
         }
-        this.cTi = true;
+        this.cVi = true;
     }
 
-    public void aAV() {
+    public void aBE() {
         if (DEBUG) {
             Log.d(TAG, "releaseData");
         }
-        this.cTi = false;
-        this.cTk = null;
-        if (this.cTj != null) {
-            this.cTj.clear();
-            this.cTj = null;
+        this.cVi = false;
+        this.cVk = null;
+        if (this.cVj != null) {
+            this.cVj.clear();
+            this.cVj = null;
         }
     }
 }

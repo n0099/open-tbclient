@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class c extends a {
     public c(i iVar, Context context) {
         super(iVar, context);

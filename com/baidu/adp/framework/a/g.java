@@ -8,7 +8,7 @@ public interface g<K, V> {
 
     void d(Map<K, V> map);
 
-    List<V> s(K k);
-
     List<V> t(K k);
+
+    List<V> u(K k);
 }

@@ -17,24 +17,26 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.live.tieba.pb.interactionpopupwindow.d;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public abstract class a<V extends d, D extends IBaseDialogData> implements c {
-    protected V bno;
-    protected D bnp;
+    private DialogInterface.OnDismissListener bqf;
+    protected V bqj;
+    protected D bqk;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean bnm = true;
-    private boolean bnn = false;
+    private boolean bqg = true;
+    private boolean bqh = false;
+    private boolean bqi = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.bno = v;
-        this.bnp = d;
+        this.bqj = v;
+        this.bqk = d;
         a(d);
     }
 
@@ -43,16 +45,23 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.bnn) {
-            this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog).create();
+        if (this.bqh) {
+            if (this.bqi) {
+                this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog_from_bottom_in).create();
+            } else {
+                this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_search_dialog).create();
+            }
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(Of());
-        this.mDialog.setCancelable(Og());
+        this.mDialog.setCanceledOnTouchOutside(OI());
+        this.mDialog.setCancelable(OJ());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
+        }
+        if (this.bqf != null) {
+            this.mDialog.setOnDismissListener(this.bqf);
         }
         ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
@@ -76,9 +85,9 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.bno.getViewGroup());
+            window.setContentView(this.bqj.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.bno.getViewGroup(), false, new ViewHelper.ViewCallback() { // from class: com.baidu.live.tieba.pb.interactionpopupwindow.a.1
+            ViewHelper.processAllViewsIn(this.bqj.getViewGroup(), false, new ViewHelper.ViewCallback() { // from class: com.baidu.live.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.live.tbadk.core.util.ViewHelper.ViewCallback
                 public boolean onViewFound(View view) {
                     if (view instanceof EditText) {
@@ -108,19 +117,19 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return false;
     }
 
-    public a fk(int i) {
+    public a fv(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a cr(boolean z) {
-        this.bnn = z;
+    public a cs(boolean z) {
+        this.bqh = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.bno != null) {
-            this.bno.a(d);
+        if (this.bqj != null) {
+            this.bqj.a(d);
         }
     }
 }

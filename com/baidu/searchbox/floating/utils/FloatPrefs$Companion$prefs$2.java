@@ -5,7 +5,7 @@ import kotlin.h;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 @h
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 final class FloatPrefs$Companion$prefs$2 extends Lambda implements a<SharedPrefsWrapper> {
     public static final FloatPrefs$Companion$prefs$2 INSTANCE = new FloatPrefs$Companion$prefs$2();
 

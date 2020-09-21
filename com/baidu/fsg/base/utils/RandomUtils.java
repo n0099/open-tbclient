@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import java.util.Random;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public final class RandomUtils {
     public static String getRandomString(int i) {
         StringBuffer stringBuffer = new StringBuffer();

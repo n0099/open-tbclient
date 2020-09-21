@@ -1,41 +1,95 @@
 package com.google.gson.internal;
 
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
+import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.internal.bind.TypeAdapters;
+import com.google.gson.stream.MalformedJsonException;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.Writer;
+/* loaded from: classes23.dex */
 public final class h {
-    private static final Map<Class<?>, Class<?>> nDK;
-    private static final Map<Class<?>, Class<?>> nDL;
-
-    static {
-        HashMap hashMap = new HashMap(16);
-        HashMap hashMap2 = new HashMap(16);
-        a(hashMap, hashMap2, Boolean.TYPE, Boolean.class);
-        a(hashMap, hashMap2, Byte.TYPE, Byte.class);
-        a(hashMap, hashMap2, Character.TYPE, Character.class);
-        a(hashMap, hashMap2, Double.TYPE, Double.class);
-        a(hashMap, hashMap2, Float.TYPE, Float.class);
-        a(hashMap, hashMap2, Integer.TYPE, Integer.class);
-        a(hashMap, hashMap2, Long.TYPE, Long.class);
-        a(hashMap, hashMap2, Short.TYPE, Short.class);
-        a(hashMap, hashMap2, Void.TYPE, Void.class);
-        nDK = Collections.unmodifiableMap(hashMap);
-        nDL = Collections.unmodifiableMap(hashMap2);
+    public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
+        boolean z = true;
+        try {
+            aVar.ebw();
+            z = false;
+            return TypeAdapters.nPy.read(aVar);
+        } catch (MalformedJsonException e) {
+            throw new JsonSyntaxException(e);
+        } catch (EOFException e2) {
+            if (z) {
+                return JsonNull.INSTANCE;
+            }
+            throw new JsonSyntaxException(e2);
+        } catch (IOException e3) {
+            throw new JsonIOException(e3);
+        } catch (NumberFormatException e4) {
+            throw new JsonSyntaxException(e4);
+        }
     }
 
-    private static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
-        map.put(cls, cls2);
-        map2.put(cls2, cls);
+    public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
+        TypeAdapters.nPy.write(bVar, jsonElement);
     }
 
-    public static boolean j(Type type) {
-        return nDK.containsKey(type);
+    public static Writer a(Appendable appendable) {
+        return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
     }
 
-    public static <T> Class<T> G(Class<T> cls) {
-        Class<T> cls2 = (Class<T>) nDK.get(a.checkNotNull(cls));
-        return cls2 == null ? cls : cls2;
+    /* loaded from: classes23.dex */
+    private static final class a extends Writer {
+        private final Appendable nNI;
+        private final C0875a nNJ = new C0875a();
+
+        a(Appendable appendable) {
+            this.nNI = appendable;
+        }
+
+        @Override // java.io.Writer
+        public void write(char[] cArr, int i, int i2) throws IOException {
+            this.nNJ.chars = cArr;
+            this.nNI.append(this.nNJ, i, i + i2);
+        }
+
+        @Override // java.io.Writer
+        public void write(int i) throws IOException {
+            this.nNI.append((char) i);
+        }
+
+        @Override // java.io.Writer, java.io.Flushable
+        public void flush() {
+        }
+
+        @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+        public void close() {
+        }
+
+        /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
+        /* loaded from: classes23.dex */
+        static class C0875a implements CharSequence {
+            char[] chars;
+
+            C0875a() {
+            }
+
+            @Override // java.lang.CharSequence
+            public int length() {
+                return this.chars.length;
+            }
+
+            @Override // java.lang.CharSequence
+            public char charAt(int i) {
+                return this.chars[i];
+            }
+
+            @Override // java.lang.CharSequence
+            public CharSequence subSequence(int i, int i2) {
+                return new String(this.chars, i, i2 - i);
+            }
+        }
     }
 }

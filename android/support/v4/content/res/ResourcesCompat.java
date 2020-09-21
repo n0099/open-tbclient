@@ -22,7 +22,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class ResourcesCompat {
     private static final String TAG = "ResourcesCompat";
 
@@ -60,7 +60,7 @@ public final class ResourcesCompat {
         return loadFont(context, i, new TypedValue(), 0, null, null, false);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes23.dex */
     public static abstract class FontCallback {
         public abstract void onFontRetrievalFailed(int i);
 

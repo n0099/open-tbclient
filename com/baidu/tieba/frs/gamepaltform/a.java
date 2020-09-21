@@ -17,20 +17,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.d.d;
 import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
 import com.baidu.tieba.frs.k;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a extends k<com.baidu.tieba.h.b, b> implements d {
-    private com.baidu.tieba.frs.d.b icR;
+    private com.baidu.tieba.frs.d.b ijV;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.icR = new com.baidu.tieba.frs.d.b();
+        this.ijV = new com.baidu.tieba.frs.d.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
-    public b b(ViewGroup viewGroup) {
+    /* renamed from: br */
+    public b c(ViewGroup viewGroup) {
         return new b(LayoutInflater.from(this.mContext).inflate(R.layout.game_rank_list_item, (ViewGroup) null));
     }
 
@@ -43,31 +43,31 @@ public class a extends k<com.baidu.tieba.h.b, b> implements d {
             return null;
         }
         ap.setBackgroundColor(view, R.color.cp_bg_line_d);
-        if (this.icR != null) {
-            TiebaStatic.log(new aq("c12104").dD("fid", this.icR.irb));
+        if (this.ijV != null) {
+            TiebaStatic.log(new aq("c12104").dF("fid", this.ijV.iyr));
         }
-        if (bVar2.iiT != null) {
-            bVar2.iiT.setData(bVar);
-            bVar2.iiT.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.ipV != null) {
+            bVar2.ipV.setData(bVar);
+            bVar2.ipV.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
-                        if (a.this.icR != null) {
-                            TiebaStatic.log(new aq("c12105").dD("fid", a.this.icR.irb).ai("obj_locate", i2 + 1));
+                        if (a.this.ijV != null) {
+                            TiebaStatic.log(new aq("c12105").dF("fid", a.this.ijV.iyr).ai("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.cuV())) {
-                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.cuV());
+                        if (!StringUtils.isNull(aVar.cyo())) {
+                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.cyo());
                         }
                     }
                 }
             });
         }
-        if (bVar2.iiU != null) {
-            bVar2.iiU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.ipW != null) {
+            bVar2.ipW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    com.baidu.tbadk.core.sharedPref.b.bik().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
-                    com.baidu.tbadk.core.sharedPref.b.bik().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                    com.baidu.tbadk.core.sharedPref.b.bjf().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
+                    com.baidu.tbadk.core.sharedPref.b.bjf().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_GAME_RANK_CARD));
                 }
             });
@@ -79,6 +79,6 @@ public class a extends k<com.baidu.tieba.h.b, b> implements d {
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return this.icR;
+        return this.ijV;
     }
 }

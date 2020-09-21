@@ -4,27 +4,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
-    public final String ccm;
-    public final Map<String, String> ccn = new HashMap();
+    public final String cep;
+    public final Map<String, String> ceq = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static b adu() {
+    public static b aee() {
         return new b(0L);
     }
 
     private b(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.ccm = Long.toHexString(kC(this.serverTime + "#" + this.delta));
-        this.ccn.put("timestamp", Long.toString(this.serverTime));
-        this.ccn.put("delta", Long.toString(this.delta));
-        this.ccn.put("rasign", this.ccm);
+        this.cep = Long.toHexString(kV(this.serverTime + "#" + this.delta));
+        this.ceq.put("timestamp", Long.toString(this.serverTime));
+        this.ceq.put("delta", Long.toString(this.delta));
+        this.ceq.put("rasign", this.cep);
     }
 
-    private long kC(String str) {
+    private long kV(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,14 +32,14 @@ public class b {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.ccm;
-    }
-
-    public String aN(long j) {
-        return Long.toHexString(kC(j + "#smartapp_formid"));
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cep;
     }
 
     public String aO(long j) {
-        return Long.toHexString(kC(j + "#payid"));
+        return Long.toHexString(kV(j + "#smartapp_formid"));
+    }
+
+    public String aP(long j) {
+        return Long.toHexString(kV(j + "#payid"));
     }
 }

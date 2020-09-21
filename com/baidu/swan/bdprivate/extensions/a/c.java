@@ -36,11 +36,11 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            eVar.azU().b(context, "mapp_i_get_bduss", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.c.1
+            eVar.aAD().b(context, "mapp_i_get_bduss", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ap.e.b
                 /* renamed from: a */
-                public void I(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void J(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     c.this.a(hVar, context, callbackHandler, optString);
                 }
             });
@@ -56,10 +56,10 @@ public class c extends aa {
             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, str);
             return;
         }
-        String cT = com.baidu.swan.bdprivate.a.a.cT(context);
+        String cS = com.baidu.swan.bdprivate.a.a.cS(context);
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", cT);
+            jSONObject.put("bduss", cS);
             wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
         } catch (JSONException e) {
             if (DEBUG) {

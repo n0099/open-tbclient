@@ -3,10 +3,10 @@ package rx.subjects;
 import rx.b.d;
 import rx.d;
 import rx.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b<T, R> extends c<T, R> {
-    private final d<T> oKD;
-    private final c<T, R> oKE;
+    private final d<T> oUi;
+    private final c<T, R> oUj;
 
     public b(final c<T, R> cVar) {
         super(new d.a<R>() { // from class: rx.subjects.b.1
@@ -19,22 +19,22 @@ public class b<T, R> extends c<T, R> {
                 c.this.a((j) jVar);
             }
         });
-        this.oKE = cVar;
-        this.oKD = new rx.b.d<>(cVar);
+        this.oUj = cVar;
+        this.oUi = new rx.b.d<>(cVar);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.oKD.onCompleted();
+        this.oUi.onCompleted();
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.oKD.onError(th);
+        this.oUi.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.oKD.onNext(t);
+        this.oUi.onNext(t);
     }
 }

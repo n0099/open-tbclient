@@ -5,12 +5,12 @@ import com.coremedia.iso.boxes.MetaBox;
 import com.google.gson.a.c;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class CommonSyncServerData implements NoProGuard, Serializable {
     @c("items")
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class MetaItemInfo implements NoProGuard {
         @c(MetaBox.TYPE)
         public MetaData metaData;
@@ -19,7 +19,7 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class MetaData implements NoProGuard {
         @c("logo_url")
         public String logoUrl;
@@ -36,7 +36,7 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class PlatConf implements NoProGuard {
         @c("h5")
         public PlatH5 platH5;
@@ -45,7 +45,7 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class PlatH5 implements NoProGuard {
         @c("url")
         public String url;
@@ -54,7 +54,7 @@ public class CommonSyncServerData implements NoProGuard, Serializable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class OtherData implements NoProGuard {
         @c("app_key")
         public String appKey;

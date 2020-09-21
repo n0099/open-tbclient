@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class BdTouchDelegate extends TouchDelegate {
     private Map<View, ExpandBounds> mDelegateViewExpandMap;
 
@@ -73,8 +73,6 @@ public class BdTouchDelegate extends TouchDelegate {
                     return z;
                 }
                 z2 = z;
-            } else {
-                return z2;
             }
         }
         return z2;
@@ -87,7 +85,7 @@ public class BdTouchDelegate extends TouchDelegate {
             key.getGlobalVisibleRect(value.bounds);
             value.bounds.left -= value.expandLeft;
             value.bounds.right += value.expandRight;
-            value.bounds.top -= value.expandLeft;
+            value.bounds.top -= value.expandTop;
             value.bounds.bottom += value.expandBottom;
             value.slop = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
             value.slopBounds = new Rect(value.bounds);
@@ -96,7 +94,7 @@ public class BdTouchDelegate extends TouchDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public class ExpandBounds {
         public Rect bounds;
         public int expandBottom;

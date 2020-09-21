@@ -4,30 +4,30 @@ import kotlin.h;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class d {
-    public static final b ota = new b(null);
-    private static final d osY = kotlin.internal.c.osH.ego();
-    public static final a osZ = a.otb;
+    public static final b oCH = new b(null);
+    private static final d oCF = kotlin.internal.c.oCo.ekl();
+    public static final a oCG = a.oCI;
 
-    public abstract int NX(int i);
+    public abstract int OC(int i);
 
     public int nextInt() {
-        return NX(32);
+        return OC(32);
     }
 
     public int nextInt(int i) {
-        return ed(0, i);
+        return eh(0, i);
     }
 
-    public int ed(int i, int i2) {
+    public int eh(int i, int i2) {
         int nextInt;
         int i3;
-        e.ef(i, i2);
+        e.ej(i, i2);
         int i4 = i2 - i;
         if (i4 > 0 || i4 == Integer.MIN_VALUE) {
             if (((-i4) & i4) == i4) {
-                i3 = NX(c.NY(i4));
+                i3 = OC(c.OD(i4));
             } else {
                 do {
                     nextInt = nextInt() >>> 1;
@@ -49,15 +49,15 @@ public abstract class d {
     }
 
     public boolean nextBoolean() {
-        return NX(1) != 0;
+        return OC(1) != 0;
     }
 
     public double nextDouble() {
-        return c.ec(NX(26), NX(27));
+        return c.eg(OC(26), OC(27));
     }
 
     public float nextFloat() {
-        return NX(24) / 16777216;
+        return OC(24) / 16777216;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0054  */
@@ -87,9 +87,9 @@ public abstract class d {
                         i += 4;
                     }
                     int i5 = i2 - i;
-                    int NX = NX(i5 * 8);
+                    int OC = OC(i5 * 8);
                     for (int i6 = 0; i6 < i5; i6++) {
-                        bArr[i + i6] = (byte) (NX >>> (i6 * 8));
+                        bArr[i + i6] = (byte) (OC >>> (i6 * 8));
                     }
                     return bArr;
                 }
@@ -107,7 +107,7 @@ public abstract class d {
     }
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class b extends d {
         private b() {
         }
@@ -117,69 +117,69 @@ public abstract class d {
         }
 
         @Override // kotlin.random.d
-        public int NX(int i) {
-            return d.osY.NX(i);
+        public int OC(int i) {
+            return d.oCF.OC(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.osY.nextInt();
+            return d.oCF.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.osY.nextInt(i);
+            return d.oCF.nextInt(i);
         }
 
         @Override // kotlin.random.d
-        public int ed(int i, int i2) {
-            return d.osY.ed(i, i2);
+        public int eh(int i, int i2) {
+            return d.oCF.eh(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.osY.nextLong();
+            return d.oCF.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.osY.nextBoolean();
+            return d.oCF.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.osY.nextDouble();
+            return d.oCF.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.osY.nextFloat();
+            return d.oCF.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] az(byte[] bArr) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.osY.az(bArr);
+            return d.oCF.az(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] x(byte[] bArr, int i, int i2) {
             q.m(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.osY.x(bArr, i, i2);
+            return d.oCF.x(bArr, i, i2);
         }
     }
 
     @h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends d {
-        public static final a otb = new a();
+        public static final a oCI = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
-        public int NX(int i) {
-            return d.ota.NX(i);
+        public int OC(int i) {
+            return d.oCH.OC(i);
         }
     }
 }

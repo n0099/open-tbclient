@@ -2,7 +2,7 @@ package pl.droidsonroids.gif;
 
 import android.support.annotation.NonNull;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum GifError {
     NO_ERROR(0, "No error"),
     OPEN_FAILED(101, "Failed to open given input"),

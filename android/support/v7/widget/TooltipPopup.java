@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 class TooltipPopup {
     private static final String TAG = "TooltipPopup";
     private final View mContentView;

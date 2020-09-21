@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class af {
     static final char[] a = "0123456789ABCDEF".toCharArray();
 
@@ -16,6 +16,6 @@ public class af {
     }
 
     public static boolean a(Context context) {
-        return ae.f94a;
+        return ae.f93a;
     }
 }

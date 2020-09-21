@@ -8,7 +8,7 @@ import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public final class f {
     private static final PathMeasure DG = new PathMeasure();
     private static final Path DI = new Path();
@@ -50,7 +50,7 @@ public final class f {
 
     public static void a(Path path, @Nullable r rVar) {
         if (rVar != null) {
-            a(path, rVar.edf().getValue().floatValue() / 100.0f, rVar.edg().getValue().floatValue() / 100.0f, rVar.edh().getValue().floatValue() / 360.0f);
+            a(path, rVar.ehc().getValue().floatValue() / 100.0f, rVar.ehd().getValue().floatValue() / 100.0f, rVar.ehe().getValue().floatValue() / 360.0f);
         }
     }
 
@@ -134,7 +134,7 @@ public final class f {
         return i;
     }
 
-    public static float kZ() {
+    public static float la() {
         if (GW == -1.0f) {
             GW = Resources.getSystem().getDisplayMetrics().density;
         }

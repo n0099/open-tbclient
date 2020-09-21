@@ -18,73 +18,73 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private String beu;
-    private a fPC;
-    private HttpMessageListener fPD;
-    private HttpMessageListener fPE;
-    private List<d> fPl;
+    private String bhk;
+    private a fSN;
+    private HttpMessageListener fSO;
+    private HttpMessageListener fSP;
+    private List<d> fSw;
     private String mLiveId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void aD(int i, String str);
+        void aE(int i, String str);
 
-        void bHO();
+        void bIW();
 
-        void bHP();
+        void bIX();
 
-        void bHQ();
+        void bIY();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2) {
         super(tbPageContext);
-        this.fPD = new HttpMessageListener(1021191) { // from class: com.baidu.tieba.ala.category.c.b.1
+        this.fSO = new HttpMessageListener(1021191) { // from class: com.baidu.tieba.ala.category.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaTagResponseMessage) {
                     AlaTagResponseMessage alaTagResponseMessage = (AlaTagResponseMessage) httpResponsedMessage;
                     if (!alaTagResponseMessage.isSuccess() || ListUtils.isEmpty(alaTagResponseMessage.getTagList())) {
-                        if (b.this.fPC != null) {
-                            b.this.fPC.aD(alaTagResponseMessage.getError(), alaTagResponseMessage.getErrorString());
+                        if (b.this.fSN != null) {
+                            b.this.fSN.aE(alaTagResponseMessage.getError(), alaTagResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    b.this.fPl = alaTagResponseMessage.getTagList();
-                    if (b.this.fPC != null) {
-                        b.this.fPC.bHO();
+                    b.this.fSw = alaTagResponseMessage.getTagList();
+                    if (b.this.fSN != null) {
+                        b.this.fSN.bIW();
                     }
                 }
             }
         };
-        this.fPE = new HttpMessageListener(1021192) { // from class: com.baidu.tieba.ala.category.c.b.2
+        this.fSP = new HttpMessageListener(1021192) { // from class: com.baidu.tieba.ala.category.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
-                    if (b.this.fPC != null) {
-                        b.this.fPC.bHQ();
+                    if (b.this.fSN != null) {
+                        b.this.fSN.bIY();
                     }
-                } else if (b.this.fPC != null) {
-                    b.this.fPC.bHP();
+                } else if (b.this.fSN != null) {
+                    b.this.fSN.bIX();
                 }
             }
         };
-        this.beu = str;
+        this.bhk = str;
         this.mLiveId = str2;
         registerTask();
         registerListener();
     }
 
     private void registerTask() {
-        bIe();
-        bIf();
+        bJm();
+        bJn();
     }
 
-    private void bIe() {
+    private void bJm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021191, TbConfig.SERVER_ADDRESS + "/ala/tag/getAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -93,7 +93,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bIf() {
+    private void bJn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021192, TbConfig.SERVER_ADDRESS + "/ala/tag/addAnchorTags");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -103,21 +103,21 @@ public class b extends BdBaseModel {
     }
 
     private void registerListener() {
-        registerListener(this.fPD);
-        registerListener(this.fPE);
+        registerListener(this.fSO);
+        registerListener(this.fSP);
     }
 
     public List<d> getTagList() {
-        return this.fPl;
+        return this.fSw;
     }
 
-    public void bIg() {
+    public void bJo() {
         HttpMessage httpMessage = new HttpMessage(1021191);
-        httpMessage.addParam("anchor_id", this.beu);
+        httpMessage.addParam("anchor_id", this.bhk);
         sendMessage(httpMessage);
     }
 
-    public void bJ(List<String> list) {
+    public void bO(List<String> list) {
         if (!ListUtils.isEmpty(list)) {
             JSONArray jSONArray = new JSONArray();
             for (String str : list) {
@@ -134,7 +134,7 @@ public class b extends BdBaseModel {
                 }
                 if (!StringUtils.isNull(str2)) {
                     HttpMessage httpMessage = new HttpMessage(1021192);
-                    httpMessage.addParam("anchor_id", this.beu);
+                    httpMessage.addParam("anchor_id", this.bhk);
                     httpMessage.addParam("live_id", this.mLiveId);
                     httpMessage.addParam(CommandMessage.TYPE_TAGS, str2);
                     sendMessage(httpMessage);
@@ -154,6 +154,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fPC = aVar;
+        this.fSN = aVar;
     }
 }

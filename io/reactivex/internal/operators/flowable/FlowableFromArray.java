@@ -2,12 +2,12 @@ package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableFromArray<T> extends io.reactivex.g<T> {
     final T[] array;
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super T> cVar) {
+    public void a(org.a.c<? super T> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
             cVar.onSubscribe(new ArrayConditionalSubscription((io.reactivex.internal.a.a) cVar, this.array));
         } else {
@@ -15,7 +15,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         final T[] array;
@@ -56,7 +56,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
             this.index = this.array.length;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
                 if (j == Long.MAX_VALUE) {
@@ -67,18 +67,18 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void cancel() {
             this.cancelled = true;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
-        final org.b.c<? super T> actual;
+        final org.a.c<? super T> actual;
 
-        ArraySubscription(org.b.c<? super T> cVar, T[] tArr) {
+        ArraySubscription(org.a.c<? super T> cVar, T[] tArr) {
             super(tArr);
             this.actual = cVar;
         }
@@ -87,7 +87,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         void fastPath() {
             T[] tArr = this.array;
             int length = tArr.length;
-            org.b.c<? super T> cVar = this.actual;
+            org.a.c<? super T> cVar = this.actual;
             for (int i = this.index; i != length; i++) {
                 if (!this.cancelled) {
                     T t = tArr[i];
@@ -110,7 +110,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
             T[] tArr = this.array;
             int length = tArr.length;
             int i = this.index;
-            org.b.c<? super T> cVar = this.actual;
+            org.a.c<? super T> cVar = this.actual;
             long j2 = 0;
             while (true) {
                 if (j2 != j && i != length) {
@@ -149,7 +149,7 @@ public final class FlowableFromArray<T> extends io.reactivex.g<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super T> actual;

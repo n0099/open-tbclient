@@ -61,9 +61,9 @@ public class a {
 
     public static final Map<String, Object> d(c cVar, int i) {
         Class<?> fieldClass = cVar.getFieldClass();
-        Type[] lL = cVar.lL();
+        Type[] lP = cVar.lP();
         if (com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(fieldClass, Map.class)) {
-            if (lL != null && lL.length >= 2 && lL[0] == String.class) {
+            if (lP != null && lP.length >= 2 && lP[0] == String.class) {
                 if (fieldClass == Map.class) {
                     return new HashMap(i);
                 }

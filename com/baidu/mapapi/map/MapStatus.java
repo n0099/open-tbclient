@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class MapStatus implements Parcelable {
     public static final Parcelable.Creator<MapStatus> CREATOR = new o();
     com.baidu.mapsdkplatform.comapi.map.w a;
@@ -21,7 +21,7 @@ public final class MapStatus implements Parcelable {
     public WinRound winRound;
     public final float zoom;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private float a;
         private LatLng b;

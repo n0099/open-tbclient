@@ -7,7 +7,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.Charsets;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes7.dex */
+/* loaded from: classes24.dex */
 public class Hex implements BinaryDecoder, BinaryEncoder {
     public static final String DEFAULT_CHARSET_NAME = "UTF-8";
     private final Charset charset;

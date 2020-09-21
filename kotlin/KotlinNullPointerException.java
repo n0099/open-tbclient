@@ -1,6 +1,6 @@
 package kotlin;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class KotlinNullPointerException extends NullPointerException {
     public KotlinNullPointerException() {
     }

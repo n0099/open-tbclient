@@ -14,17 +14,17 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private String dBV;
-    private InterfaceC0746a jXE;
+    private String dDW;
+    private InterfaceC0743a kgh;
     private Context mContext;
     private List<String> mDataList;
 
     /* renamed from: com.baidu.tieba.majorsearch.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes18.dex */
-    public interface InterfaceC0746a {
-        void Ma(String str);
+    /* loaded from: classes23.dex */
+    public interface InterfaceC0743a {
+        void MC(String str);
     }
 
     public a(Context context) {
@@ -34,7 +34,7 @@ public class a extends RecyclerView.Adapter<b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: E */
+    /* renamed from: G */
     public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new b(LayoutInflater.from(this.mContext).inflate(R.layout.search_major_item_layout, viewGroup, false));
     }
@@ -46,15 +46,15 @@ public class a extends RecyclerView.Adapter<b> {
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                bVar.jXH.setText(str);
-                ap.setViewTextColor(bVar.jXH, R.color.cp_cont_b);
+                bVar.kgk.setText(str);
+                ap.setViewTextColor(bVar.kgk, R.color.cp_cont_b);
                 ap.setBackgroundResource(bVar.itemView, R.drawable.more_pop_item_bg_selector);
-                c(bVar.jXH, str);
+                d(bVar.kgk, str);
                 bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (a.this.jXE != null) {
-                            a.this.jXE.Ma(str);
+                        if (a.this.kgh != null) {
+                            a.this.kgh.MC(str);
                         }
                     }
                 });
@@ -70,8 +70,8 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0746a interfaceC0746a) {
-        this.jXE = interfaceC0746a;
+    public void b(InterfaceC0743a interfaceC0743a) {
+        this.kgh = interfaceC0743a;
     }
 
     public void setData(List<String> list) {
@@ -79,31 +79,31 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public void cPk() {
+    public void cSP() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void LQ(String str) {
-        this.dBV = str;
+    public void Ms(String str) {
+        this.dDW = str;
     }
 
-    /* loaded from: classes18.dex */
+    /* loaded from: classes23.dex */
     public class b extends RecyclerView.ViewHolder {
-        TextView jXH;
+        TextView kgk;
 
         public b(View view) {
             super(view);
-            this.jXH = (TextView) view.findViewById(R.id.tv_major_name);
+            this.kgk = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
-    private void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dBV)) {
+    private void d(TextView textView, String str) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.dDW)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.dBV.toLowerCase();
+            String lowerCase2 = this.dDW.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -111,7 +111,7 @@ public class a extends RecyclerView.Adapter<b> {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dBV.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.dDW.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

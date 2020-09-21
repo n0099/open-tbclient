@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
     private com.baidu.ar.filter.a A;
     private DuMixInput W;
@@ -55,7 +55,7 @@ public class e {
     private boolean as = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -525,8 +525,8 @@ public class e {
         CaseModel caseModel = new CaseModel(aRType, str, str2);
         if (this.ai == null || !caseModel.equals(this.ai)) {
             this.ai = caseModel;
-            com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0083a() { // from class: com.baidu.ar.e.1
-                @Override // com.baidu.ar.libloader.a.InterfaceC0083a
+            com.baidu.ar.libloader.b.a(aRType, str, str2, new a.InterfaceC0084a() { // from class: com.baidu.ar.e.1
+                @Override // com.baidu.ar.libloader.a.InterfaceC0084a
                 public void a(ARType aRType2, String str3, String str4) {
                     e.this.b(aRType2, str3, str4);
                 }

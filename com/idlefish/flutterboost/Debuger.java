@@ -2,7 +2,7 @@ package com.idlefish.flutterboost;
 
 import com.idlefish.flutterboost.log.AndroidLog;
 import com.idlefish.flutterboost.log.ILog;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Debuger {
     private static final Debuger DEBUG = new Debuger();
     private static boolean sSafeMode = false;

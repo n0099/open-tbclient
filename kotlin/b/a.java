@@ -2,11 +2,11 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class a implements Iterable<Character> {
-    public static final C0969a ote = new C0969a(null);
-    private final char otc;
-    private final char otd;
+    public static final C0966a oCL = new C0966a(null);
+    private final char oCJ;
+    private final char oCK;
     private final int step;
 
     public a(char c, char c2, int i) {
@@ -16,53 +16,53 @@ public class a implements Iterable<Character> {
         if (i == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        this.otc = c;
-        this.otd = (char) kotlin.internal.d.ak(c, c2, i);
+        this.oCJ = c;
+        this.oCK = (char) kotlin.internal.d.an(c, c2, i);
         this.step = i;
     }
 
-    public final char egz() {
-        return this.otc;
+    public final char ekw() {
+        return this.oCJ;
     }
 
-    public final char egA() {
-        return this.otd;
+    public final char ekx() {
+        return this.oCK;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: egB */
+    /* renamed from: eky */
     public kotlin.collections.n iterator() {
-        return new b(this.otc, this.otd, this.step);
+        return new b(this.oCJ, this.oCK, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.otc > this.otd : this.otc < this.otd;
+        return this.step > 0 ? this.oCJ > this.oCK : this.oCJ < this.oCK;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.otc == ((a) obj).otc && this.otd == ((a) obj).otd && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.oCJ == ((a) obj).oCJ && this.oCK == ((a) obj).oCK && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.otc * 31) + this.otd) * 31) + this.step;
+        return (((this.oCJ * 31) + this.oCK) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? this.otc + IStringUtil.TOP_PATH + this.otd + " step " + this.step : this.otc + " downTo " + this.otd + " step " + (-this.step);
+        return this.step > 0 ? this.oCJ + IStringUtil.TOP_PATH + this.oCK + " step " + this.step : this.oCJ + " downTo " + this.oCK + " step " + (-this.step);
     }
 
     @kotlin.h
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static final class C0969a {
-        private C0969a() {
+    /* loaded from: classes5.dex */
+    public static final class C0966a {
+        private C0966a() {
         }
 
-        public /* synthetic */ C0969a(kotlin.jvm.internal.o oVar) {
+        public /* synthetic */ C0966a(kotlin.jvm.internal.o oVar) {
             this();
         }
     }

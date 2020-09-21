@@ -18,63 +18,63 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b extends BaseAdapter {
-    private Activity cAc;
-    private ArrayList<e> may;
-    View.OnClickListener maz = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private Activity byQ;
+    private ArrayList<e> mjZ;
+    View.OnClickListener mka = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).maD) != null) {
-                if (eVar.lYy == null) {
-                    com.baidu.tieba.square.square.a.g(b.this.dvs(), null);
+            if ((tag instanceof a) && (eVar = ((a) tag).mke) != null) {
+                if (eVar.mia == null) {
+                    com.baidu.tieba.square.square.a.g(b.this.dzl(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dvs(), eVar.lYx, eVar.lYy, eVar.lYz)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.dzl(), eVar.mhZ, eVar.mia, eVar.mib)));
                 }
             }
         }
     };
 
     public b(Activity activity, c cVar, boolean z) {
-        this.cAc = activity;
-        this.may = cVar.dvr();
+        this.byQ = activity;
+        this.mjZ = cVar.dzk();
     }
 
-    public ArrayList<e> dvr() {
-        return this.may;
+    public ArrayList<e> dzk() {
+        return this.mjZ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public static class a {
-        public TextView dzm;
-        public BarImageView maB;
-        public BestStringsFitTextView maC;
-        public e maD;
+        public TextView dBn;
+        public BarImageView mkc;
+        public BestStringsFitTextView mkd;
+        public e mke;
 
         protected a() {
         }
     }
 
-    public void bb(ArrayList<e> arrayList) {
-        this.may = arrayList;
+    public void bd(ArrayList<e> arrayList) {
+        this.mjZ = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.may == null) {
+        if (this.mjZ == null) {
             return 0;
         }
-        return (this.may.size() * 2) + 1;
+        return (this.mjZ.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = J(viewGroup, itemViewType);
+            view = L(viewGroup, itemViewType);
             bg.prepareNewView(view);
         }
         bg.processCurrentSkin(view);
@@ -93,41 +93,41 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    private View J(ViewGroup viewGroup, int i) {
+    private View L(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.cAc).inflate(R.layout.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.byQ).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.cAc).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.byQ).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.cAc).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.maz);
+        View inflate = LayoutInflater.from(this.byQ).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.mka);
         a aVar = new a();
-        aVar.maB = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.dzm = (TextView) inflate.findViewById(R.id.name);
-        aVar.maC = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.mkc = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.dBn = (TextView) inflate.findViewById(R.id.name);
+        aVar.mkd = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.may.get(i / 2);
-        aVar.maD = eVar;
-        aVar.dzm.setText(eVar.lYx);
-        if (eVar.maG != null) {
-            aVar.maC.setVisibility(0);
-            String[] strArr = new String[eVar.maG.size()];
-            for (int i2 = 0; i2 < eVar.maG.size(); i2++) {
-                strArr[i2] = eVar.maG.get(i2).lYx;
+        e eVar = this.mjZ.get(i / 2);
+        aVar.mke = eVar;
+        aVar.dBn.setText(eVar.mhZ);
+        if (eVar.mkh != null) {
+            aVar.mkd.setVisibility(0);
+            String[] strArr = new String[eVar.mkh.size()];
+            for (int i2 = 0; i2 < eVar.mkh.size(); i2++) {
+                strArr[i2] = eVar.mkh.get(i2).mhZ;
             }
-            aVar.maC.setTextArray(strArr);
+            aVar.mkd.setTextArray(strArr);
         } else {
-            aVar.maC.setVisibility(8);
+            aVar.mkd.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.cAc, 45.0f);
-            aVar.maB.setTag(eVar.logoUrl);
-            aVar.maB.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            int dip2px = l.dip2px(this.byQ, 45.0f);
+            aVar.mkc.setTag(eVar.logoUrl);
+            aVar.mkc.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class b extends BaseAdapter {
         return 2;
     }
 
-    protected Activity dvs() {
-        return this.cAc;
+    protected Activity dzl() {
+        return this.byQ;
     }
 }

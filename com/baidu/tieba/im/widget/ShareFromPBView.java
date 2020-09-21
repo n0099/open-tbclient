@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView izy;
-    private ShareFromPBMsgData jAy;
-    private TextView jcS;
+    private HeadImageView iGT;
+    private ShareFromPBMsgData jJa;
+    private TextView jly;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.izy = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.jcS = (TextView) findViewById(R.id.chat_group_desc);
+        this.iGT = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.jly = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.jcS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.jly.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.jcS.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.jly.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.jAy = shareFromPBMsgData;
+        this.jJa = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.jAy.getTitle());
-        this.izy.setPlaceHolder(1);
-        this.izy.setAutoChangeStyle(false);
-        this.izy.startLoad(this.jAy.getImageUrl(), 10, false);
-        this.jcS.setText(this.jAy.getContent());
+        this.title.setText(this.jJa.getTitle());
+        this.iGT.setPlaceHolder(1);
+        this.iGT.setAutoChangeStyle(false);
+        this.iGT.startLoad(this.jJa.getImageUrl(), 10, false);
+        this.jly.setText(this.jJa.getContent());
     }
 }

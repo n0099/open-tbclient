@@ -7,13 +7,13 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import org.conscrypt.OpenSSLX509Certificate;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 public class CertificateEntry {
     private final byte[] certificate;
     private final LogEntryType entryType;
     private final byte[] issuerKeyHash;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes8.dex */
     public enum LogEntryType {
         X509_ENTRY,
         PRECERT_ENTRY

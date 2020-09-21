@@ -6,32 +6,32 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class e implements j, l, a.InterfaceC0932a {
+/* loaded from: classes17.dex */
+public class e implements j, l, a.InterfaceC0929a {
     private boolean CI;
     private final com.tb.airbnb.lottie.f lottieDrawable;
     private final String name;
     @Nullable
-    private r oiv;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oix;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> oiy;
-    private final com.tb.airbnb.lottie.model.content.a oiz;
+    private r osf;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> osh;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> osi;
+    private final com.tb.airbnb.lottie.model.content.a osj;
     private final Path path = new Path();
 
     public e(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.lottieDrawable = fVar;
-        this.oix = aVar2.edy().edo();
-        this.oiy = aVar2.edr().edo();
-        this.oiz = aVar2;
-        aVar.a(this.oix);
-        aVar.a(this.oiy);
-        this.oix.b(this);
-        this.oiy.b(this);
+        this.osh = aVar2.ehv().ehl();
+        this.osi = aVar2.eho().ehl();
+        this.osj = aVar2;
+        aVar.a(this.osh);
+        aVar.a(this.osi);
+        this.osh.b(this);
+        this.osi.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0932a
-    public void iR() {
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0929a
+    public void iS() {
         invalidate();
     }
 
@@ -47,9 +47,9 @@ public class e implements j, l, a.InterfaceC0932a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).ede() == ShapeTrimPath.Type.Simultaneously) {
-                    this.oiv = (r) bVar;
-                    this.oiv.a(this);
+                if ((bVar instanceof r) && ((r) bVar).ehb() == ShapeTrimPath.Type.Simultaneously) {
+                    this.osf = (r) bVar;
+                    this.osf.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -64,18 +64,18 @@ public class e implements j, l, a.InterfaceC0932a {
     }
 
     @Override // com.tb.airbnb.lottie.a.a.l
-    public Path iU() {
+    public Path iV() {
         if (this.CI) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.oix.getValue();
+        PointF value = this.osh.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
         this.path.reset();
-        if (this.oiz.isReversed()) {
+        if (this.osj.isReversed()) {
             this.path.moveTo(0.0f, -f2);
             this.path.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
@@ -88,10 +88,10 @@ public class e implements j, l, a.InterfaceC0932a {
             this.path.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
             this.path.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.oiy.getValue();
+        PointF value2 = this.osi.getValue();
         this.path.offset(value2.x, value2.y);
         this.path.close();
-        com.tb.airbnb.lottie.d.f.a(this.path, this.oiv);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.osf);
         this.CI = true;
         return this.path;
     }
@@ -104,9 +104,9 @@ public class e implements j, l, a.InterfaceC0932a {
     @Override // com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.j.BK) {
-            this.oix.a(cVar);
+            this.osh.a(cVar);
         } else if (t == com.tb.airbnb.lottie.j.BL) {
-            this.oiy.a(cVar);
+            this.osi.a(cVar);
         }
     }
 }

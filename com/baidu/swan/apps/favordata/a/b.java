@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.favordata.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface b {
-    void agi();
+    void agS();
 
-    void agj();
+    void agT();
 }

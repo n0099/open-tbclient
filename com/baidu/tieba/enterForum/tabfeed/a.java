@@ -18,91 +18,91 @@ import com.baidu.tieba.enterForum.tabfeed.a.m;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bbw = new LinkedList();
-    private EnterForumTabFeedFragment hAD;
-    private BdTypeRecyclerView hAE;
-    private k hAF;
-    private com.baidu.tieba.enterForum.tabfeed.a.b hAG;
-    private d hAH;
-    private c hAI;
-    private e hAJ;
-    private l hAK;
-    private g hAL;
-    private i hAM;
-    private h hAN;
-    private f hAO;
-    private j hAP;
-    private com.baidu.tieba.enterForum.tabfeed.a.a hAQ;
-    private m hAR;
+    private List<com.baidu.adp.widget.ListView.a> bdV = new LinkedList();
+    private EnterForumTabFeedFragment hHF;
+    private BdTypeRecyclerView hHG;
+    private k hHH;
+    private com.baidu.tieba.enterForum.tabfeed.a.b hHI;
+    private d hHJ;
+    private c hHK;
+    private e hHL;
+    private l hHM;
+    private g hHN;
+    private i hHO;
+    private h hHP;
+    private f hHQ;
+    private j hHR;
+    private com.baidu.tieba.enterForum.tabfeed.a.a hHS;
+    private m hHT;
 
     public a(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.hAD = enterForumTabFeedFragment;
-        this.hAE = bdTypeRecyclerView;
-        Jv();
+        this.hHF = enterForumTabFeedFragment;
+        this.hHG = bdTypeRecyclerView;
+        JZ();
     }
 
-    private void Jv() {
-        this.hAF = new k(this.hAD.getPageContext(), bw.ebb, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAF.a(this.hAE);
-        this.bbw.add(this.hAF);
-        this.hAG = new com.baidu.tieba.enterForum.tabfeed.a.b(this.hAD.getPageContext(), bw.ebg, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAG.a(this.hAE);
-        this.bbw.add(this.hAG);
-        this.hAH = new d(this.hAD.getPageContext(), bw.ebe, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAH.a(this.hAE);
-        this.bbw.add(this.hAH);
-        this.hAI = new c(this.hAD.getPageContext(), bw.ebf, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAI.a(this.hAE);
-        this.bbw.add(this.hAI);
-        this.hAJ = new e(this.hAD.getPageContext(), bw.ebc, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAJ.a(this.hAE);
-        this.bbw.add(this.hAJ);
-        this.hAK = new l(this.hAD.getPageContext(), bw.ebs, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAK.a(this.hAE);
-        this.bbw.add(this.hAK);
-        this.hAL = new g(this.hAD.getPageContext(), bw.ebm, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAL.a(this.hAE);
-        this.bbw.add(this.hAL);
-        this.hAM = new i(this.hAD.getPageContext(), bw.ebo, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAM.a(this.hAE);
-        this.bbw.add(this.hAM);
-        this.hAN = new h(this.hAD.getPageContext(), bw.ebp, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAN.a(this.hAE);
-        this.bbw.add(this.hAN);
-        this.hAO = new f(this.hAD.getPageContext(), bw.ebl, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAO.a(this.hAE);
-        this.bbw.add(this.hAO);
-        this.hAP = new j(this.hAD.getPageContext(), bw.ebh, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAP.a(this.hAE);
-        this.bbw.add(this.hAP);
-        this.hAQ = new com.baidu.tieba.enterForum.tabfeed.a.a(this.hAD.getPageContext(), bw.ebk, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAQ.a(this.hAE);
-        this.bbw.add(this.hAQ);
-        this.hAR = new m(this.hAD.getPageContext(), bq.eao, this.hAD.getUniqueId(), this.hAD.getTabName());
-        this.hAR.a(this.hAE);
-        this.bbw.add(this.hAR);
-        this.hAE.addAdapters(this.bbw);
+    private void JZ() {
+        this.hHH = new k(this.hHF.getPageContext(), bw.edl, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHH.a(this.hHG);
+        this.bdV.add(this.hHH);
+        this.hHI = new com.baidu.tieba.enterForum.tabfeed.a.b(this.hHF.getPageContext(), bw.edq, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHI.a(this.hHG);
+        this.bdV.add(this.hHI);
+        this.hHJ = new d(this.hHF.getPageContext(), bw.edo, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHJ.a(this.hHG);
+        this.bdV.add(this.hHJ);
+        this.hHK = new c(this.hHF.getPageContext(), bw.edp, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHK.a(this.hHG);
+        this.bdV.add(this.hHK);
+        this.hHL = new e(this.hHF.getPageContext(), bw.edm, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHL.a(this.hHG);
+        this.bdV.add(this.hHL);
+        this.hHM = new l(this.hHF.getPageContext(), bw.edC, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHM.a(this.hHG);
+        this.bdV.add(this.hHM);
+        this.hHN = new g(this.hHF.getPageContext(), bw.edw, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHN.a(this.hHG);
+        this.bdV.add(this.hHN);
+        this.hHO = new i(this.hHF.getPageContext(), bw.edy, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHO.a(this.hHG);
+        this.bdV.add(this.hHO);
+        this.hHP = new h(this.hHF.getPageContext(), bw.edz, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHP.a(this.hHG);
+        this.bdV.add(this.hHP);
+        this.hHQ = new f(this.hHF.getPageContext(), bw.edv, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHQ.a(this.hHG);
+        this.bdV.add(this.hHQ);
+        this.hHR = new j(this.hHF.getPageContext(), bw.edr, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHR.a(this.hHG);
+        this.bdV.add(this.hHR);
+        this.hHS = new com.baidu.tieba.enterForum.tabfeed.a.a(this.hHF.getPageContext(), bw.edu, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHS.a(this.hHG);
+        this.bdV.add(this.hHS);
+        this.hHT = new m(this.hHF.getPageContext(), bq.ecy, this.hHF.getUniqueId(), this.hHF.getTabName());
+        this.hHT.a(this.hHG);
+        this.bdV.add(this.hHT);
+        this.hHG.addAdapters(this.bdV);
     }
 
     public void notifyDataSetChanged() {
-        this.hAE.getAdapter().notifyDataSetChanged();
+        this.hHG.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(ArrayList<q> arrayList) {
-        this.hAE.setData(arrayList);
+        this.hHG.setData(arrayList);
     }
 
     public void setIsFromCDN(boolean z) {
-        if (this.hAG != null) {
-            this.hAG.setFromCDN(z);
+        if (this.hHI != null) {
+            this.hHI.setFromCDN(z);
         }
-        if (this.hAI != null) {
-            this.hAI.setFromCDN(z);
+        if (this.hHK != null) {
+            this.hHK.setFromCDN(z);
         }
-        if (this.hAH != null) {
-            this.hAH.setFromCDN(z);
+        if (this.hHJ != null) {
+            this.hHJ.setFromCDN(z);
         }
     }
 }

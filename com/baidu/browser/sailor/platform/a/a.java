@@ -1,9 +1,9 @@
 package com.baidu.browser.sailor.platform.a;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.baidu.browser.core.a {
-    private static a aeJ;
+    private static a afb;
 
     public static void a() {
-        aeJ = null;
+        afb = null;
     }
 }

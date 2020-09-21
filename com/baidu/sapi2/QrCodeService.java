@@ -21,13 +21,13 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class QrCodeService extends AbstractService implements NoProguard {
     private static QrCodeService b;
     private HttpClientWrap a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ GetQrCodeImageResult b;
@@ -88,7 +88,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public class b extends HttpHandlerWrap {
         final /* synthetic */ boolean a;
         final /* synthetic */ QrLoginStatusCheckCallback b;
@@ -166,7 +166,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public class c extends HttpHandlerWrap {
         final /* synthetic */ QrLoginStatusCheckCallback a;
         final /* synthetic */ QrLoginStatusCheckResult b;
@@ -229,7 +229,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public class d extends HttpHandlerWrap {
         final /* synthetic */ SapiCallback a;
         final /* synthetic */ QrAppLoginResult b;

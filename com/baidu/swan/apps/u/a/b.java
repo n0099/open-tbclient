@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> cvN;
+    private final LruCache<String, Object> cxO;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        static final b cvO = new b();
+        static final b cxP = new b();
     }
 
     private b() {
-        this.cvN = new LruCache<>(10);
+        this.cxO = new LruCache<>(10);
     }
 
-    public static b aqu() {
-        return a.cvO;
+    public static b are() {
+        return a.cxP;
     }
 
-    public synchronized <RESULT> RESULT nm(String str) {
+    public synchronized <RESULT> RESULT nF(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.cvN.get(str);
+                Object obj = this.cxO.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -52,22 +52,22 @@ public final class b {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.cvN.put(str, result);
+            this.cxO.put(str, result);
         }
     }
 
-    public synchronized void nn(String str) {
+    public synchronized void nG(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.cvN.remove(str);
+            this.cxO.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.cvN != null) {
-            this.cvN.evictAll();
+        if (this.cxO != null) {
+            this.cxO.evictAll();
         }
     }
 }

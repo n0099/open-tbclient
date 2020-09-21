@@ -3,7 +3,7 @@ package com.baidu.pano.platform.comapi.map;
 import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class a implements GLSurfaceView.Renderer {
     final /* synthetic */ BaseGLMapView a;
 

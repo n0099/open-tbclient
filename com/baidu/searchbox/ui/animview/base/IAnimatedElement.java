@@ -3,9 +3,11 @@ package com.baidu.searchbox.ui.animview.base;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public interface IAnimatedElement {
     BaseAnimatedElement cloneInstance();
+
+    void copyAttribute(BaseAnimatedElement baseAnimatedElement);
 
     void dispatchAnimate(Canvas canvas, float f, long j);
 
@@ -24,6 +26,8 @@ public interface IAnimatedElement {
     void setDrawableCallback(Drawable.Callback callback);
 
     void setInterpolator(Interpolator interpolator);
+
+    void setRotate(float f, float f2, float f3);
 
     void setVisibility(boolean z);
 }

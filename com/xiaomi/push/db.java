@@ -3,22 +3,22 @@ package com.xiaomi.push;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class db extends cv {
     cv a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cz f199a;
+    final /* synthetic */ cz f198a;
     final /* synthetic */ cv b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public db(cz czVar, String str, cv cvVar) {
         super(str);
-        this.f199a = czVar;
+        this.f198a = czVar;
         this.b = cvVar;
         this.a = this.b;
-        this.f185b = this.f185b;
+        this.f184b = this.f184b;
         if (this.b != null) {
             this.f = this.b.f;
         }
@@ -32,7 +32,7 @@ public class db extends cv {
             arrayList.addAll(this.a.a(true));
         }
         synchronized (cz.b) {
-            cv cvVar = cz.b.get(this.f185b);
+            cv cvVar = cz.b.get(this.f184b);
             if (cvVar != null) {
                 Iterator<String> it = cvVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -41,8 +41,8 @@ public class db extends cv {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(this.f185b);
-                arrayList.add(this.f185b);
+                arrayList.remove(this.f184b);
+                arrayList.add(this.f184b);
             }
         }
         return arrayList;

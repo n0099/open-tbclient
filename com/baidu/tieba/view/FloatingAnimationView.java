@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class FloatingAnimationView extends FrameLayout {
-    private TbImageView fGS;
-    private ImageView mHA;
-    private a mHB;
-    private FrameAnimationView mHz;
+    private TbImageView fKe;
+    private FrameAnimationView mRl;
+    private ImageView mRm;
+    private a mRn;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes20.dex */
     public interface a {
-        void dFk();
+        void dJe();
 
-        void dFl();
+        void dJf();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -40,36 +40,36 @@ public class FloatingAnimationView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.mHz = new FrameAnimationView(context);
-        this.mHz.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.mRl = new FrameAnimationView(context);
+        this.mRl.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds200), l.getDimens(context, R.dimen.tbds200));
         layoutParams.gravity = 17;
-        addView(this.mHz, layoutParams);
-        this.fGS = new TbImageView(context);
-        this.fGS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        addView(this.mRl, layoutParams);
+        this.fKe = new TbImageView(context);
+        this.fKe.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds62), l.getDimens(context, R.dimen.tbds62));
         layoutParams2.gravity = 53;
-        this.fGS.setAutoChangeStyle(false);
-        addView(this.fGS, layoutParams2);
-        this.mHA = new ImageView(context);
-        this.mHA.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fKe.setAutoChangeStyle(false);
+        addView(this.fKe, layoutParams2);
+        this.mRm = new ImageView(context);
+        this.mRm.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds14);
-        addView(this.mHA, layoutParams3);
-        this.mHz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
+        addView(this.mRm, layoutParams3);
+        this.mRl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.mHB != null) {
-                    FloatingAnimationView.this.mHB.dFk();
+                if (FloatingAnimationView.this.mRn != null) {
+                    FloatingAnimationView.this.mRn.dJe();
                 }
             }
         });
-        this.mHz.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
+        this.mRl.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (FloatingAnimationView.this.mHz.getBdImage() == null && !at.isEmpty(FloatingAnimationView.this.mHz.getUrl())) {
-                    FloatingAnimationView.this.mHz.startLoad(FloatingAnimationView.this.mHz.getUrl(), 10, false);
+                if (FloatingAnimationView.this.mRl.getBdImage() == null && !at.isEmpty(FloatingAnimationView.this.mRl.getUrl())) {
+                    FloatingAnimationView.this.mRl.startLoad(FloatingAnimationView.this.mRl.getUrl(), 10, false);
                 }
             }
 
@@ -77,11 +77,11 @@ public class FloatingAnimationView extends FrameLayout {
             public void b(TbImageView tbImageView, Canvas canvas) {
             }
         });
-        this.fGS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
+        this.fKe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.mHB != null) {
-                    FloatingAnimationView.this.mHB.dFl();
+                if (FloatingAnimationView.this.mRn != null) {
+                    FloatingAnimationView.this.mRn.dJf();
                 }
             }
         });
@@ -90,27 +90,27 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         if (!at.isEmpty(str)) {
-            this.mHz.setData(str);
+            this.mRl.setData(str);
         }
     }
 
     public void setData(List<String> list, int i) {
-        if (this.mHz != null) {
-            this.mHz.setData(list, i);
+        if (this.mRl != null) {
+            this.mRl.setData(list, i);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.mHz != null) {
-            this.mHz.setPageId(bdUniqueId);
+        if (this.mRl != null) {
+            this.mRl.setPageId(bdUniqueId);
         }
     }
 
     public void setCallback(a aVar) {
-        this.mHB = aVar;
+        this.mRn = aVar;
     }
 
     public void onChangeSkinType() {
-        ap.setImageResource(this.fGS, R.drawable.icon_live_close_n);
+        ap.setImageResource(this.fKe, R.drawable.icon_live_close_n);
     }
 }

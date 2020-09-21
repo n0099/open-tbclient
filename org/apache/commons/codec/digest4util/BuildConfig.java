@@ -1,5 +1,5 @@
 package org.apache.commons.codec.digest4util;
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "org.apache.commons.codec.digest4util";
     public static final String BUILD_TYPE = "release";

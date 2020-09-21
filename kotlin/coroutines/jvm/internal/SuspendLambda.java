@@ -5,7 +5,7 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.q;
 import kotlin.jvm.internal.t;
 @h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public abstract class SuspendLambda extends ContinuationImpl implements p<Object> {
     private final int arity;
 

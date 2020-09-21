@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public final class AnimatorProxy extends Animation {
     public static final boolean NEEDS_PROXY;
     private static final WeakHashMap<View, AnimatorProxy> a;

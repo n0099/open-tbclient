@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.editvideo.scale;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class b {
     private int mHeight;
     private int mWidth;

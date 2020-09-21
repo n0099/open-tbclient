@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements a {
     private boolean sv = false;
     private e sw = new e();
@@ -20,9 +20,9 @@ public class c implements a {
     }
 
     @Override // com.baidu.ar.libloader.a
-    public void a(ARType aRType, String str, String str2, a.InterfaceC0083a interfaceC0083a) {
-        if (interfaceC0083a != null) {
-            interfaceC0083a.a(aRType, str, str2);
+    public void a(ARType aRType, String str, String str2, a.InterfaceC0084a interfaceC0084a) {
+        if (interfaceC0084a != null) {
+            interfaceC0084a.a(aRType, str, str2);
         }
     }
 

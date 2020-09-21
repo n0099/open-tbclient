@@ -15,7 +15,7 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
@@ -60,14 +60,14 @@ public class a implements c {
                         bw bwVar = new bw();
                         bwVar.setUserMap(this.userMap);
                         bwVar.a(threadInfo);
-                        bwVar.bfC();
-                        if (bwVar.getType() == bw.eaW || bwVar.getType() == bw.ebr || bwVar.getType() == bw.ebw || bwVar.getType() == bw.ebs || bwVar.getType() == bw.ebA || bwVar.getType() == bw.ebB) {
+                        bwVar.bgw();
+                        if (bwVar.getType() == bw.edg || bwVar.getType() == bw.edB || bwVar.getType() == bw.edG || bwVar.getType() == bw.edC || bwVar.getType() == bw.edK || bwVar.getType() == bw.edL) {
                             this.threadList.add(bwVar);
                         }
                     }
                 }
             }
-            com.baidu.tbadk.a.a.a.aG(this.threadList);
+            com.baidu.tbadk.a.a.a.aK(this.threadList);
             this.hasMore = dataRes.has_more.intValue() == 1;
         }
     }

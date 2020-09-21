@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.u.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public static boolean hY(int i) {
+    public static boolean ii(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean hZ(int i) {
+    public static boolean ij(int i) {
         return (i & 2) == 2;
     }
 }

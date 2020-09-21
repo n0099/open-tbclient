@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.e;
 import com.google.protobuf.micro.MessageMicro;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c implements f<List<MessageMicro>> {
     private List<MessageMicro> a;
     private int b;

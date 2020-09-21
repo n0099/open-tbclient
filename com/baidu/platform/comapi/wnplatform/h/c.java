@@ -13,8 +13,7 @@ import com.baidu.mapapi.map.ItemizedOverlay;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c extends ItemizedOverlay {
     private View b;
     private TextView c;
@@ -22,7 +21,7 @@ public class c extends ItemizedOverlay {
     private Context e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         static final c a = new c();
     }
@@ -65,7 +64,7 @@ public class c extends ItemizedOverlay {
 
     private BitmapDescriptor a(Context context, int i) {
         try {
-            this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_list_menu_item_layout, (ViewGroup) null);
+            this.b = ((Activity) context).getLayoutInflater().inflate(2130903055, (ViewGroup) null);
             this.c = (TextView) this.b.findViewById(2131165326);
             this.d = (ImageView) this.b.findViewById(2131165325);
             if (com.baidu.platform.comapi.wnplatform.a.a().h() == 2) {

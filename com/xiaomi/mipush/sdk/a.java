@@ -12,7 +12,7 @@ import com.xiaomi.push.fb;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     private Set<String> a = new HashSet();
 

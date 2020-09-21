@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.k;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class h {
     private boolean b = false;
     private g a = new g();

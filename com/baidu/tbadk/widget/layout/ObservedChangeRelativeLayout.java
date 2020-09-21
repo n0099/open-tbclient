@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class ObservedChangeRelativeLayout extends RelativeLayout {
-    private e fcM;
+    private e ffE;
 
     public void setOnSizeChangeListener(e eVar) {
-        this.fcM = eVar;
+        this.ffE = eVar;
     }
 
     public e getOnSizeChangeListener() {
-        return this.fcM;
+        return this.ffE;
     }
 
     public ObservedChangeRelativeLayout(Context context) {
@@ -26,8 +26,8 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.fcM != null) {
-            this.fcM.d(this, i, i2, i3, i4);
+        if (this.ffE != null) {
+            this.ffE.d(this, i, i2, i3, i4);
         }
     }
 

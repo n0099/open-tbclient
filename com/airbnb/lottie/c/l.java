@@ -7,7 +7,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
     private int Gz;
 
@@ -82,7 +82,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
             }
             for (int i5 = 0; i5 < cVar.getSize(); i5++) {
                 int i6 = cVar.getColors()[i5];
-                cVar.getColors()[i5] = Color.argb(a(cVar.jM()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+                cVar.getColors()[i5] = Color.argb(a(cVar.jN()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.g.c;
 import android.content.Context;
 import com.baidu.platform.comapi.walknavi.g.c.c;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 class u implements Runnable {
     final /* synthetic */ t a;
 
@@ -24,7 +24,7 @@ class u implements Runnable {
                 c cVar = this.a.b;
                 String str = this.a.a;
                 context3 = this.a.b.l;
-                cVar.a(str, com.baidu.platform.comapi.wnplatform.p.a.a.b(context3, R.string.permission_name_microphone), 4);
+                cVar.a(str, com.baidu.platform.comapi.wnplatform.p.a.a.b(context3, R.raw.lottie_common_pull_refresh_2), 4);
                 return;
             }
             return;

@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 import java.util.Hashtable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class i extends Handler {
     final /* synthetic */ LBSAuthManager a;
 

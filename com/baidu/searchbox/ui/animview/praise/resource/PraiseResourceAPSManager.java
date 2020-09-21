@@ -9,16 +9,20 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.skin.callback.NightModeChangeListener;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
+import com.baidu.searchbox.ui.animview.praise.element.IPraiseElementBuilder;
+import com.baidu.searchbox.ui.animview.praise.element.PraiseAnimElementBuilderEx;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.EruptionElementBuilder;
 import com.baidu.searchbox.ui.animview.praise.ioc.ComboPraiseRuntime;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.searchbox.ui.animview.util.DebugUtil;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class PraiseResourceAPSManager implements NightModeChangeListener {
     private static final boolean DEBUG = DebugUtil.isApkInDebug();
     private static final String PRAISE_DOWNLOAD_DIR_NAME = "download";
@@ -33,13 +37,13 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
     private final Object mNightModeSubObj;
     private Map<String, PraiseResourceInfo> mResourceMap;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public interface PraiseInstallResultCb {
         void onResult(int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public static final class Holder {
         private static final PraiseResourceAPSManager sINSTANCE = new PraiseResourceAPSManager();
 
@@ -182,6 +186,7 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
                         String[] strArr = new String[1];
                         strArr[0] = z ? "day" : ComboPraiseProvider.DIR_PREFIX_NIGHT;
                         iResourceProvider.loadResource(strArr);
+                        PraiseResourceAPSManager.this.preInitPraiseElements();
                         if (z) {
                             if (PraiseResourceAPSManager.DEBUG) {
                                 Log.d(PraiseResourceAPSManager.TAG, praiseResourceInfo.mPkgName + " has been switched to night mode");
@@ -252,6 +257,7 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
                     restorePraiseResourceInfo.mProvider = build;
                     this.mResourceMap.put(restorePraiseResourceInfo.mPkgName, restorePraiseResourceInfo);
                     this.mLoaded = true;
+                    preInitPraiseElements();
                     if (DEBUG) {
                         Log.d(TAG, "loadResourcesIfNeeded success, pkgName = " + restorePraiseResourceInfo.mPkgName);
                     }
@@ -341,10 +347,22 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
                 Log.d(TAG, "loadToMem success, pkgName = " + praiseResourceInfo.mPkgName);
             }
         }
+        preInitPraiseElements();
         praiseInstallResultCb.onResult(0, "praise install success, loadToMem = " + z);
         if (DEBUG) {
             Log.d(TAG, "praise install success, loadToMem = " + z);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void preInitPraiseElements() {
+        HashMap hashMap = new HashMap();
+        hashMap.put(4, 8);
+        IPraiseElementBuilder.PreBuildConfig preBuildConfig = new IPraiseElementBuilder.PreBuildConfig();
+        preBuildConfig.setResourceProvider(getProvider(PRAISE_PACKAGE_NAME_FOR_NORMAL));
+        preBuildConfig.setElementCntsMap(hashMap);
+        PraiseAnimElementBuilderEx.getInstance().preBuild(preBuildConfig);
+        EruptionElementBuilder.getInstance().preBuild(preBuildConfig);
     }
 
     private void savePraiseResourceInfo(PraiseResourceInfo praiseResourceInfo) {

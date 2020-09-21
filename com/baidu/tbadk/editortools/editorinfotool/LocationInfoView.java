@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
-    private a eLA;
-    private TBSpecificationBtn eLz;
+    private TBSpecificationBtn eNR;
+    private a eNS;
     private int mSkinType;
 
     /* loaded from: classes.dex */
     public interface a {
-        void brK();
+        void bsM();
     }
 
     public LocationInfoView(Context context) {
@@ -35,29 +35,29 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     }
 
     public TBSpecificationBtn getLocationBtn() {
-        return this.eLz;
+        return this.eNR;
     }
 
     private void initUI() {
         setOrientation(0);
         setGravity(16);
         b bVar = new b();
-        bVar.pd(R.color.cp_cont_b);
+        bVar.pr(R.color.cp_cont_b);
         bVar.a(R.drawable.ic_icon_pure_post_location16_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.oY(R.color.cp_cont_e);
+        bVar.pk(R.color.cp_cont_e);
         bVar.ba(l.getDimens(getContext(), R.dimen.tbds22), l.getDimens(getContext(), R.dimen.tbds28));
-        this.eLz = new TBSpecificationBtn(getContext());
-        this.eLz.setConfig(bVar);
-        this.eLz.setTextSize(R.dimen.tbds32);
-        this.eLz.setOnClickListener(this);
-        this.eLz.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.eLz, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        this.eNR = new TBSpecificationBtn(getContext());
+        this.eNR.setConfig(bVar);
+        this.eNR.setTextSize(R.dimen.tbds32);
+        this.eNR.setOnClickListener(this);
+        this.eNR.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.eNR, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.eLz.bkF();
+            this.eNR.blA();
             this.mSkinType = i;
         }
     }
@@ -68,23 +68,23 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.eLz.setText(at.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+            this.eNR.setText(at.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
         } else if (i == 1) {
-            this.eLz.setText(getContext().getString(R.string.location_loading));
+            this.eNR.setText(getContext().getString(R.string.location_loading));
         } else {
-            this.eLz.setText(getContext().getString(R.string.location_where_are_you));
+            this.eNR.setText(getContext().getString(R.string.location_where_are_you));
         }
-        this.eLz.ewv = Integer.valueOf(i);
+        this.eNR.eyC = Integer.valueOf(i);
     }
 
     public void setLocationClickListener(a aVar) {
-        this.eLA = aVar;
+        this.eNS = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eLA != null) {
-            this.eLA.brK();
+        if (this.eNS != null) {
+            this.eNS.bsM();
         }
     }
 }

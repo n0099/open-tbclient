@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.card.ad;
-import com.baidu.card.aj;
-import com.baidu.card.al;
+import com.baidu.card.ae;
+import com.baidu.card.ak;
+import com.baidu.card.am;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,32 +17,32 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-/* loaded from: classes15.dex */
-public class m extends a<bj, al<bj>> implements com.baidu.tieba.a.f {
-    private String agJ;
-    private com.baidu.tbadk.h.f ahY;
-    private PullLeftRefreshLayout.a akA;
-    private v akK;
-    private View.OnClickListener akz;
-    public BdUniqueId ePz;
+/* loaded from: classes20.dex */
+public class m extends a<bj, am<bj>> implements com.baidu.tieba.a.f {
+    private String ahc;
+    private com.baidu.tbadk.h.f ait;
+    private View.OnClickListener akY;
+    private PullLeftRefreshLayout.a akZ;
+    private v alj;
+    public BdUniqueId eSq;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akz = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
+        this.akY = new View.OnClickListener() { // from class: com.baidu.tieba.newdetail.adapter.a.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.akA = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
+        this.akZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.newdetail.adapter.a.m.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bwU() {
+            public void byd() {
                 m.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(m.this.mPageContext.getPageActivity(), m.this.mTabName)));
             }
         };
-        this.ahY = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
+        this.ait = new com.baidu.tbadk.h.f<bi>() { // from class: com.baidu.tieba.newdetail.adapter.a.m.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bi biVar, int i, long j) {
@@ -66,50 +66,50 @@ public class m extends a<bj, al<bj>> implements com.baidu.tieba.a.f {
     }
 
     public void a(v vVar) {
-        this.akK = vVar;
+        this.alj = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
-    public al b(ViewGroup viewGroup) {
-        aj.a aVar = new aj.a(this.mPageContext.getPageActivity(), false);
-        ad adVar = new ad(this.mPageContext, this.ePz);
-        adVar.setShowSquareEntrance(false);
-        adVar.setEnableShowInto(false);
-        adVar.setShowMore(false);
-        adVar.setOnRullOkCallbackr(this.akA);
-        adVar.setOnClickRightArrowListener(this.akz);
-        adVar.setOnItemCoverListener(this.ahY);
-        aVar.c(adVar);
-        aVar.tP().bv(0);
-        aVar.tP().bx(0);
-        aVar.tP().bw(0);
-        aVar.tP().br(0);
-        al alVar = new al(aVar.a(true, viewGroup, this.akK));
-        alVar.setPageId(this.ePz);
-        return alVar;
+    /* renamed from: aR */
+    public am c(ViewGroup viewGroup) {
+        ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
+        ae aeVar = new ae(this.mPageContext, this.eSq);
+        aeVar.setShowSquareEntrance(false);
+        aeVar.setEnableShowInto(false);
+        aeVar.setShowMore(false);
+        aeVar.setOnRullOkCallbackr(this.akZ);
+        aeVar.setOnClickRightArrowListener(this.akY);
+        aeVar.setOnItemCoverListener(this.ait);
+        aVar.c(aeVar);
+        aVar.tU().bz(0);
+        aVar.tU().bB(0);
+        aVar.tU().bA(0);
+        aVar.tU().bv(0);
+        am amVar = new am(aVar.a(true, viewGroup, this.alj));
+        amVar.setPageId(this.eSq);
+        return amVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bj bjVar, al<bj> alVar) {
-        if (bjVar == null || alVar == null || alVar.getView() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, bj bjVar, am<bj> amVar) {
+        if (bjVar == null || amVar == null || amVar.getView() == null) {
             return null;
         }
-        alVar.tR().setPosition(i);
-        if (alVar.tR() instanceof com.baidu.tieba.a.e) {
-            alVar.tR().setPage(this.agJ);
+        amVar.tW().setPosition(i);
+        if (amVar.tW() instanceof com.baidu.tieba.a.e) {
+            amVar.tW().setPage(this.ahc);
         }
-        alVar.b((al<bj>) bjVar);
-        alVar.tR().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return alVar.getView();
+        amVar.b((am<bj>) bjVar);
+        amVar.tW().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return amVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Dk(String str) {
-        this.agJ = str;
+    public void DH(String str) {
+        this.ahc = str;
     }
 }

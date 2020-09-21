@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.baidu.platform.comapi.map.b.a;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f {
     public final int a;
     public final int b;

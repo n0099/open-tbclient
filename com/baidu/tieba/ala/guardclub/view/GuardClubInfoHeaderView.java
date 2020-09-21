@@ -13,23 +13,23 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GuardClubInfoHeaderView extends LinearLayout {
-    public TextView aAR;
-    public TextView fRR;
-    public TextView gaJ;
-    public TextView gdA;
-    public LinearLayout gdB;
-    public TextView gdC;
-    public HeadImageView gdr;
-    public TbImageView gds;
-    public ImageView gdt;
-    public ImageView gdu;
-    public TextView gdv;
-    public ProgressBar gdw;
-    public TextView gdx;
-    public LinearLayout gdy;
-    public TextView gdz;
+    public TextView aBx;
+    public TextView fVc;
+    public TextView gdW;
+    public HeadImageView ggD;
+    public TbImageView ggE;
+    public ImageView ggF;
+    public ImageView ggG;
+    public TextView ggH;
+    public ProgressBar ggI;
+    public TextView ggJ;
+    public LinearLayout ggK;
+    public TextView ggL;
+    public TextView ggM;
+    public LinearLayout ggN;
+    public TextView ggO;
 
     public GuardClubInfoHeaderView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -41,20 +41,20 @@ public class GuardClubInfoHeaderView extends LinearLayout {
             case 0:
                 setBackgroundColor(0);
                 setPadding(0, 0, 0, 0);
-                this.aAR.setTypeface(Typeface.defaultFromStyle(0));
-                this.gaJ.setTypeface(Typeface.defaultFromStyle(0));
-                this.gdx.setTextColor(getResources().getColor(a.d.sdk_white_alpha60));
-                this.gdA.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
-                this.fRR.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.aBx.setTypeface(Typeface.defaultFromStyle(0));
+                this.gdW.setTypeface(Typeface.defaultFromStyle(0));
+                this.ggJ.setTextColor(getResources().getColor(a.d.sdk_white_alpha60));
+                this.ggM.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
+                this.fVc.setTextColor(getResources().getColor(a.d.sdk_white_alpha100));
                 return;
             case 1:
                 setBackgroundResource(a.f.guard_club_info_header_card_bg);
                 setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds30), getResources().getDimensionPixelOffset(a.e.sdk_ds32), getResources().getDimensionPixelOffset(a.e.sdk_ds56), getResources().getDimensionPixelOffset(a.e.sdk_ds30));
-                this.aAR.setTypeface(Typeface.defaultFromStyle(1));
-                this.gaJ.setTypeface(Typeface.defaultFromStyle(1));
-                this.gdx.setTextColor(getResources().getColor(a.d.sdk_white_alpha80));
-                this.gdA.setTextColor(-11337753);
-                this.fRR.setTextColor(-11337753);
+                this.aBx.setTypeface(Typeface.defaultFromStyle(1));
+                this.gdW.setTypeface(Typeface.defaultFromStyle(1));
+                this.ggJ.setTextColor(getResources().getColor(a.d.sdk_white_alpha80));
+                this.ggM.setTextColor(-11337753);
+                this.fVc.setTextColor(-11337753);
                 return;
             default:
                 return;
@@ -64,20 +64,20 @@ public class GuardClubInfoHeaderView extends LinearLayout {
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_info_header, (ViewGroup) this, true);
-        this.gdr = (HeadImageView) findViewById(a.g.header_imageView);
-        this.gds = (TbImageView) findViewById(a.g.headwear_imageView);
-        this.aAR = (TextView) findViewById(a.g.name_textView);
-        this.gaJ = (TextView) findViewById(a.g.nameSuffix_textView);
-        this.gdt = (ImageView) findViewById(a.g.edit_imageView);
-        this.gdu = (ImageView) findViewById(a.g.explain_imageView);
-        this.gdv = (TextView) findViewById(a.g.score_textView);
-        this.gdw = (ProgressBar) findViewById(a.g.score_progressBar);
-        this.gdx = (TextView) findViewById(a.g.next_textView);
-        this.gdy = (LinearLayout) findViewById(a.g.memberNum_layout);
-        this.gdz = (TextView) findViewById(a.g.memberNumTitle_textView);
-        this.gdA = (TextView) findViewById(a.g.memberNum_textView);
-        this.gdB = (LinearLayout) findViewById(a.g.rank_layout);
-        this.gdC = (TextView) findViewById(a.g.rankTitle_textView);
-        this.fRR = (TextView) findViewById(a.g.rank_textView);
+        this.ggD = (HeadImageView) findViewById(a.g.header_imageView);
+        this.ggE = (TbImageView) findViewById(a.g.headwear_imageView);
+        this.aBx = (TextView) findViewById(a.g.name_textView);
+        this.gdW = (TextView) findViewById(a.g.nameSuffix_textView);
+        this.ggF = (ImageView) findViewById(a.g.edit_imageView);
+        this.ggG = (ImageView) findViewById(a.g.explain_imageView);
+        this.ggH = (TextView) findViewById(a.g.score_textView);
+        this.ggI = (ProgressBar) findViewById(a.g.score_progressBar);
+        this.ggJ = (TextView) findViewById(a.g.next_textView);
+        this.ggK = (LinearLayout) findViewById(a.g.memberNum_layout);
+        this.ggL = (TextView) findViewById(a.g.memberNumTitle_textView);
+        this.ggM = (TextView) findViewById(a.g.memberNum_textView);
+        this.ggN = (LinearLayout) findViewById(a.g.rank_layout);
+        this.ggO = (TextView) findViewById(a.g.rankTitle_textView);
+        this.fVc = (TextView) findViewById(a.g.rank_textView);
     }
 }

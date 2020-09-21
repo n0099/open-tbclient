@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.util;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TiebaStaticHelper {
     private static final HashMap<String, String> mActivityNames = new HashMap<>();
     private static String mCurrentActivityAllName;

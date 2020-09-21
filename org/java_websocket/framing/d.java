@@ -3,24 +3,24 @@ package org.java_websocket.framing;
 import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public abstract class d extends f {
     public d(Framedata.Opcode opcode) {
         super(opcode);
     }
 
     @Override // org.java_websocket.framing.f
-    public void ejy() throws InvalidDataException {
-        if (!aeC()) {
+    public void env() throws InvalidDataException {
+        if (!afm()) {
             throw new InvalidFrameException("Control frame cant have fin==false set");
         }
-        if (ejB()) {
+        if (eny()) {
             throw new InvalidFrameException("Control frame cant have rsv1==true set");
         }
-        if (ejC()) {
+        if (enz()) {
             throw new InvalidFrameException("Control frame cant have rsv2==true set");
         }
-        if (ejD()) {
+        if (enA()) {
             throw new InvalidFrameException("Control frame cant have rsv3==true set");
         }
     }

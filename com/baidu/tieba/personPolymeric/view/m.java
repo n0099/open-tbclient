@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric.view;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
-public class m extends com.baidu.card.g {
-    private com.baidu.tieba.play.operableVideoView.c lqy;
+/* loaded from: classes23.dex */
+public class m extends com.baidu.card.h {
+    private com.baidu.tieba.play.operableVideoView.c lzr;
 
     public m(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.card.g, com.baidu.card.as
-    protected com.baidu.tieba.play.operableVideoView.a tC() {
-        this.lqy = new com.baidu.tieba.play.operableVideoView.c(this.mContext, this.ahJ);
-        return this.lqy;
+    @Override // com.baidu.card.h, com.baidu.card.at
+    protected com.baidu.tieba.play.operableVideoView.a tH() {
+        this.lzr = new com.baidu.tieba.play.operableVideoView.c(this.mContext, this.aie);
+        return this.lzr;
     }
 
-    @Override // com.baidu.card.as
+    @Override // com.baidu.card.at
     public void onPause() {
         super.onPause();
     }
 
-    @Override // com.baidu.card.as
+    @Override // com.baidu.card.at
     public void onResume() {
         super.onResume();
     }

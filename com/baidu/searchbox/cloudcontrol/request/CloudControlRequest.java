@@ -26,7 +26,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes23.dex */
 public class CloudControlRequest {
     private static final String DEFAULT_TIME = "300";
     private static final String REQUEST_CONTENT_TYPE = "application/json";
@@ -163,7 +163,7 @@ public class CloudControlRequest {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes23.dex */
     private class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         private HashMap<String, Object> mCheckData;
         private HashMap<String, Boolean> mIsForceDispatchs;

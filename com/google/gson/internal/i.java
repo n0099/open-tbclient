@@ -1,95 +1,72 @@
 package com.google.gson.internal;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonNull;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.internal.a.n;
-import com.google.gson.stream.MalformedJsonException;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.Writer;
-/* loaded from: classes3.dex */
-public final class i {
-    public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
-        boolean z = true;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamClass;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+/* loaded from: classes23.dex */
+public abstract class i {
+    public abstract <T> T newInstance(Class<T> cls) throws Exception;
+
+    public static i ebt() {
         try {
-            aVar.dXy();
-            z = false;
-            return n.nFC.read(aVar);
-        } catch (MalformedJsonException e) {
-            throw new JsonSyntaxException(e);
-        } catch (EOFException e2) {
-            if (z) {
-                return JsonNull.INSTANCE;
+            Class<?> cls = Class.forName("sun.misc.Unsafe");
+            Field declaredField = cls.getDeclaredField("theUnsafe");
+            declaredField.setAccessible(true);
+            final Object obj = declaredField.get(null);
+            final Method method = cls.getMethod("allocateInstance", Class.class);
+            return new i() { // from class: com.google.gson.internal.i.1
+                @Override // com.google.gson.internal.i
+                public <T> T newInstance(Class<T> cls2) throws Exception {
+                    H(cls2);
+                    return (T) method.invoke(obj, cls2);
+                }
+            };
+        } catch (Exception e) {
+            try {
+                Method declaredMethod = ObjectStreamClass.class.getDeclaredMethod("getConstructorId", Class.class);
+                declaredMethod.setAccessible(true);
+                final int intValue = ((Integer) declaredMethod.invoke(null, Object.class)).intValue();
+                final Method declaredMethod2 = ObjectStreamClass.class.getDeclaredMethod("newInstance", Class.class, Integer.TYPE);
+                declaredMethod2.setAccessible(true);
+                return new i() { // from class: com.google.gson.internal.i.2
+                    @Override // com.google.gson.internal.i
+                    public <T> T newInstance(Class<T> cls2) throws Exception {
+                        H(cls2);
+                        return (T) declaredMethod2.invoke(null, cls2, Integer.valueOf(intValue));
+                    }
+                };
+            } catch (Exception e2) {
+                try {
+                    final Method declaredMethod3 = ObjectInputStream.class.getDeclaredMethod("newInstance", Class.class, Class.class);
+                    declaredMethod3.setAccessible(true);
+                    return new i() { // from class: com.google.gson.internal.i.3
+                        @Override // com.google.gson.internal.i
+                        public <T> T newInstance(Class<T> cls2) throws Exception {
+                            H(cls2);
+                            return (T) declaredMethod3.invoke(null, cls2, Object.class);
+                        }
+                    };
+                } catch (Exception e3) {
+                    return new i() { // from class: com.google.gson.internal.i.4
+                        @Override // com.google.gson.internal.i
+                        public <T> T newInstance(Class<T> cls2) {
+                            throw new UnsupportedOperationException("Cannot allocate " + cls2);
+                        }
+                    };
+                }
             }
-            throw new JsonSyntaxException(e2);
-        } catch (IOException e3) {
-            throw new JsonIOException(e3);
-        } catch (NumberFormatException e4) {
-            throw new JsonSyntaxException(e4);
         }
     }
 
-    public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        n.nFC.write(bVar, jsonElement);
-    }
-
-    public static Writer a(Appendable appendable) {
-        return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
-    }
-
-    /* loaded from: classes3.dex */
-    private static final class a extends Writer {
-        private final Appendable nDM;
-        private final C0878a nDN = new C0878a();
-
-        a(Appendable appendable) {
-            this.nDM = appendable;
+    static void H(Class<?> cls) {
+        int modifiers = cls.getModifiers();
+        if (Modifier.isInterface(modifiers)) {
+            throw new UnsupportedOperationException("Interface can't be instantiated! Interface name: " + cls.getName());
         }
-
-        @Override // java.io.Writer
-        public void write(char[] cArr, int i, int i2) throws IOException {
-            this.nDN.chars = cArr;
-            this.nDM.append(this.nDN, i, i + i2);
-        }
-
-        @Override // java.io.Writer
-        public void write(int i) throws IOException {
-            this.nDM.append((char) i);
-        }
-
-        @Override // java.io.Writer, java.io.Flushable
-        public void flush() {
-        }
-
-        @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-        public void close() {
-        }
-
-        /* renamed from: com.google.gson.internal.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        static class C0878a implements CharSequence {
-            char[] chars;
-
-            C0878a() {
-            }
-
-            @Override // java.lang.CharSequence
-            public int length() {
-                return this.chars.length;
-            }
-
-            @Override // java.lang.CharSequence
-            public char charAt(int i) {
-                return this.chars[i];
-            }
-
-            @Override // java.lang.CharSequence
-            public CharSequence subSequence(int i, int i2) {
-                return new String(this.chars, i, i2 - i);
-            }
+        if (Modifier.isAbstract(modifiers)) {
+            throw new UnsupportedOperationException("Abstract class can't be instantiated! Class name: " + cls.getName());
         }
     }
 }

@@ -9,7 +9,7 @@ import android.util.Base64;
 import android.view.View;
 import com.baidu.swan.apps.ap.ah;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends a {
     private int mHeight;
     private int mWidth;
@@ -29,7 +29,7 @@ public class c extends a {
         }
     }
 
-    public JSONObject aj(@NonNull View view) {
+    public JSONObject al(@NonNull View view) {
         int i;
         int i2 = 0;
         int measuredWidth = view.getMeasuredWidth();
@@ -66,7 +66,7 @@ public class c extends a {
 
     @NonNull
     private Bitmap i(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aoJ());
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.apu());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

@@ -1,34 +1,34 @@
 package com.baidu.swan.apps.ap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ap {
-    private int dbD;
+    private int ddF;
 
     private ap() {
-        this.dbD = 0;
+        this.ddF = 0;
     }
 
-    public void ko(int i) {
-        this.dbD = i;
+    public void kz(int i) {
+        this.ddF = i;
     }
 
     public void reset() {
-        this.dbD = 0;
+        this.ddF = 0;
     }
 
-    public boolean aFv() {
-        return this.dbD != 0;
+    public boolean aGf() {
+        return this.ddF != 0;
     }
 
-    public int aFw() {
-        return aFv() ? 1 : 0;
+    public int aGg() {
+        return aGf() ? 1 : 0;
     }
 
-    public static ap aFx() {
-        return a.dbE;
+    public static ap aGh() {
+        return a.ddG;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private static class a {
-        private static final ap dbE = new ap();
+        private static final ap ddG = new ap();
     }
 }

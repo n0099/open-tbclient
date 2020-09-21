@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class c {
     public String className;
     private List<RecommendForumInfo> forumList;
@@ -14,7 +14,7 @@ public class c {
     private List<q> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int lYm = 0;
+    public int mhO = 0;
     public int scrollOffset = 0;
 
     public List<q> getDataList() {

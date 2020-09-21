@@ -1,7 +1,7 @@
 package com.baidu.live.sdk.goods.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class d extends HttpMessage {
     public String gid;
     public String liveId;
@@ -11,7 +11,7 @@ public class d extends HttpMessage {
         super(1021208);
     }
 
-    public void gc(String str) {
+    public void gi(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

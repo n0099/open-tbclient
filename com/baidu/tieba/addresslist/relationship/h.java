@@ -5,19 +5,19 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class h {
-    private static volatile SQLiteDatabase frA;
+    private static volatile SQLiteDatabase fuM;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized void bBW() {
+    public static synchronized void bDi() {
         synchronized (h.class) {
-            n.close(frA);
+            n.close(fuM);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase bBX() {
+    public static synchronized SQLiteDatabase bDj() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (h.class) {
             try {
@@ -26,11 +26,11 @@ public class h {
             }
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 sQLiteDatabase = null;
-            } else if (frA != null && frA.isOpen()) {
-                sQLiteDatabase = frA;
+            } else if (fuM != null && fuM.isOpen()) {
+                sQLiteDatabase = fuM;
             } else {
-                frA = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                sQLiteDatabase = frA;
+                fuM = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                sQLiteDatabase = fuM;
             }
         }
         return sQLiteDatabase;

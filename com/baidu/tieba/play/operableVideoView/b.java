@@ -17,99 +17,99 @@ import com.baidu.tieba.video.VideoItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends d {
-    private VideoSerializeVideoThreadInfo iwv;
-    private VideoItemData luk;
-    private bw lul;
+    private VideoSerializeVideoThreadInfo iDR;
+    private VideoItemData lDb;
+    private bw lDc;
 
     public b(Context context, View view) {
         super(context, view);
-        this.lum = 5000;
+        this.lDd = 5000;
     }
 
     public b(Context context, View view, boolean z) {
         this(context, view);
-        vg(z);
+        vo(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.lvb.setOnTouchListener(null);
-        this.lvb.setOnClickListener(this);
+        this.lDS.setOnTouchListener(null);
+        this.lDS.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bw bwVar) {
         super.setData(bwVar);
-        this.lul = bwVar;
-        if (this.akZ) {
-            this.luk = new VideoItemData();
-            this.luk.buildWithThreadData(bwVar);
+        this.lDc = bwVar;
+        if (this.alz) {
+            this.lDb = new VideoItemData();
+            this.lDb.buildWithThreadData(bwVar);
             return;
         }
-        this.iwv = new VideoSerializeVideoThreadInfo();
-        this.iwv.copyFromThreadInfo(bwVar);
-        this.iwv.source = bwVar.mRecomSource;
-        this.iwv.extra = bwVar.mRecomExtra;
-        this.iwv.ab_tag = bwVar.mRecomAbTag;
-        this.iwv.weight = bwVar.mRecomWeight;
+        this.iDR = new VideoSerializeVideoThreadInfo();
+        this.iDR.copyFromThreadInfo(bwVar);
+        this.iDR.source = bwVar.mRecomSource;
+        this.iDR.extra = bwVar.mRecomExtra;
+        this.iDR.ab_tag = bwVar.mRecomAbTag;
+        this.iDR.weight = bwVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dfm() {
+    public void diQ() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dfl() {
-        this.luE = 32;
+    public void diP() {
+        this.lDv = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                dkJ();
+                doq();
                 return;
             }
             if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, R.string.no_network_guide);
-            } else if (this.akZ) {
-                cbH();
+            } else if (this.alz) {
+                ceW();
             } else if ("index".equals(this.mFrom) || "frs".equals(this.mFrom) || "concern_tab".equals(this.mFrom) || "video_tab".equals(this.mFrom) || "14".equals(this.mFrom)) {
-                cbI();
+                ceX();
             } else {
-                cbI();
+                ceX();
             }
-            if (this.aiC != null) {
-                this.aiC.onClick(djP());
+            if (this.aiW != null) {
+                this.aiW.onClick(dnv());
             }
         }
     }
 
-    private void cbH() {
-        if (this.luk != null) {
+    private void ceW() {
+        if (this.lDb != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.lul != null) {
-                this.luk.buildWithThreadData(this.lul);
+            if (this.lDc != null) {
+                this.lDb.buildWithThreadData(this.lDc);
             }
-            arrayList.add(this.luk);
+            arrayList.add(this.lDb);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.mContext, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", this.mFrom, this.mFrom);
-            if (this.lul != null && this.lul.getBaijiahaoData() != null) {
-                videoPlayActivityConfig.setNid(this.lul.getBaijiahaoData().oriUgcNid);
+            if (this.lDc != null && this.lDc.getBaijiahaoData() != null) {
+                videoPlayActivityConfig.setNid(this.lDc.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
         }
     }
 
-    private void cbI() {
-        if (this.iwv != null) {
-            if (this.lul != null) {
-                this.iwv.copyFromThreadInfo(this.lul);
+    private void ceX() {
+        if (this.iDR != null) {
+            if (this.lDc != null) {
+                this.iDR.copyFromThreadInfo(this.lDc);
             }
-            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.ala, m.beq(), "", this.iwv);
-            if (this.lul != null && this.lul.getBaijiahaoData() != null) {
-                videoMiddlePageActivityConfig.setNid(this.lul.getBaijiahaoData().oriUgcNid);
+            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.alA, m.bfk(), "", this.iDR);
+            if (this.lDc != null && this.lDc.getBaijiahaoData() != null) {
+                videoMiddlePageActivityConfig.setNid(this.lDc.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -122,18 +122,18 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dfj() {
-        if (this.luL == this.luD) {
-            dkB();
+    public void diN() {
+        if (this.lDC == this.lDu) {
+            doi();
         }
     }
 
-    public void dkB() {
-        EQ(this.luE);
+    public void doi() {
+        Fr(this.lDv);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean dkA() {
+    public boolean doh() {
         return false;
     }
 }

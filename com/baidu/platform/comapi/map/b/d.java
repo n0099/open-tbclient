@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapViewInterface;
 import java.util.IllegalFormatException;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d {
     private float a;
     private StringBuffer b = new StringBuffer();
@@ -12,7 +12,7 @@ public class d {
     private MapController d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         ZOOM_OUT,
         ZOOM_IN,

@@ -6,7 +6,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
-/* loaded from: classes12.dex */
+import android.view.animation.LinearInterpolator;
+/* loaded from: classes11.dex */
 public abstract class BaseAnimatedElement implements IAnimatedElement {
     protected static final int DEBUG_PAINT_COLOR = -16776961;
     protected static final int DEBUG_PAINT_STROKE_WIDTH = 10;
@@ -17,16 +18,19 @@ public abstract class BaseAnimatedElement implements IAnimatedElement {
     protected int mHeight;
     protected Interpolator mInterpolator;
     protected int mLeft;
+    private int mPivotX;
+    private int mPivotY;
     protected IResourceProvider mResourceProvider;
     protected ScaleType mScaleType;
     protected int mTop;
     protected int mWidth;
     protected boolean mDrawDebugRect = false;
     protected boolean mVisibility = true;
+    private float mRotateAngle = 0.0f;
 
     protected abstract void onDispatchAnimate(Canvas canvas, float f, long j);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes11.dex */
     public enum ScaleType {
         FIT_XY(1),
         FIT_START(2),
@@ -86,18 +90,30 @@ public abstract class BaseAnimatedElement implements IAnimatedElement {
     }
 
     @Override // com.baidu.searchbox.ui.animview.base.IAnimatedElement
+    public void setRotate(float f, float f2, float f3) {
+        this.mRotateAngle = f;
+        this.mPivotX = (int) (this.mWidth * f2);
+        this.mPivotY = (int) (this.mHeight * f3);
+    }
+
+    @Override // com.baidu.searchbox.ui.animview.base.IAnimatedElement
     public void dispatchAnimate(Canvas canvas, float f, long j) {
         if (this.mDrawDebugRect) {
             canvas.save();
             canvas.translate(this.mLeft, this.mTop);
+            canvas.rotate(this.mRotateAngle, this.mPivotX, this.mPivotY);
             canvas.drawRect(0.0f, 0.0f, this.mWidth, this.mHeight, this.mDebugPaint);
             canvas.restore();
         }
         canvas.save();
         canvas.translate(this.mLeft, this.mTop);
+        canvas.rotate(this.mRotateAngle, this.mPivotX, this.mPivotY);
         if (this.mVisibility) {
             performCanvasDrawMatrix(canvas);
-            onDispatchAnimate(canvas, f, j);
+            if (this.mInterpolator == null) {
+                this.mInterpolator = new LinearInterpolator();
+            }
+            onDispatchAnimate(canvas, this.mInterpolator.getInterpolation(f), j);
         }
         canvas.restore();
     }
@@ -140,8 +156,7 @@ public abstract class BaseAnimatedElement implements IAnimatedElement {
         setScaleType(this.mScaleType, drawable);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void performCanvasDrawMatrix(Canvas canvas) {
+    protected void performCanvasDrawMatrix(Canvas canvas) {
         if (canvas != null && this.mDrawMatrix != null) {
             canvas.concat(this.mDrawMatrix);
         }
@@ -179,5 +194,9 @@ public abstract class BaseAnimatedElement implements IAnimatedElement {
     @Override // com.baidu.searchbox.ui.animview.base.IAnimatedElement
     public BaseAnimatedElement cloneInstance() {
         return null;
+    }
+
+    @Override // com.baidu.searchbox.ui.animview.base.IAnimatedElement
+    public void copyAttribute(BaseAnimatedElement baseAnimatedElement) {
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class o extends b {
     private static final String a = "bduss";
     private static final String b = "certinfo";

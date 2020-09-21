@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comapi.map.OverlayItem;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 /* synthetic */ class aa {
     static final /* synthetic */ int[] a = new int[OverlayItem.AnimEffect.values().length];
 

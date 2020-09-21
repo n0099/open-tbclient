@@ -7,10 +7,10 @@ import android.service.media.MediaBrowserService;
 import android.support.annotation.RequiresApi;
 import android.support.v4.media.MediaBrowserServiceCompatApi21;
 @RequiresApi(23)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class MediaBrowserServiceCompatApi23 {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface ServiceCompatProxy extends MediaBrowserServiceCompatApi21.ServiceCompatProxy {
         void onLoadItem(String str, MediaBrowserServiceCompatApi21.ResultWrapper<Parcel> resultWrapper);
     }
@@ -22,7 +22,7 @@ class MediaBrowserServiceCompatApi23 {
         return new MediaBrowserServiceAdaptor(context, serviceCompatProxy);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     static class MediaBrowserServiceAdaptor extends MediaBrowserServiceCompatApi21.MediaBrowserServiceAdaptor {
         /* JADX INFO: Access modifiers changed from: package-private */
         public MediaBrowserServiceAdaptor(Context context, ServiceCompatProxy serviceCompatProxy) {

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import java.io.File;
 import org.apache.http.HttpHost;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GenerateImageAddressImpl implements IGenerateImageAddress {
     public static String sBigHeaderPhotoUrlPrefix = null;
     private static final String sDefaultHeaderPhotoPrefix = "https://himg.baidu.com/sys/portrait/item/";

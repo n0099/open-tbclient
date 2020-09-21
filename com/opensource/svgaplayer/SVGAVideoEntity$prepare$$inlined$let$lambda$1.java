@@ -5,7 +5,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 @h
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda implements kotlin.jvm.a.a<l> {
     final /* synthetic */ kotlin.jvm.a.a $callback$inlined;
     final /* synthetic */ f this$0;
@@ -22,7 +22,7 @@ public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda 
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ l invoke() {
         invoke2();
-        return l.osf;
+        return l.oBM;
     }
 
     @Override // kotlin.jvm.a.a

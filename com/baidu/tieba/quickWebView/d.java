@@ -4,52 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d lBl;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> lBi = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b lBj = null;
-    private boolean lBk = false;
+    private static d lKf;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> lKc = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b lKd = null;
+    private boolean lKe = false;
 
-    public static d dmN() {
-        if (lBl == null) {
+    public static d dqw() {
+        if (lKf == null) {
             synchronized (d.class) {
-                if (lBl == null) {
-                    lBl = new d();
+                if (lKf == null) {
+                    lKf = new d();
                 }
             }
         }
-        return lBl;
+        return lKf;
     }
 
     private d() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a Pg(String str) {
-        if (this.lBi == null || !this.lBk) {
+    public com.baidu.tieba.quickWebView.data.a PG(String str) {
+        if (this.lKc == null || !this.lKe) {
             return null;
         }
-        return this.lBi.get(str);
+        return this.lKc.get(str);
     }
 
-    public List<String> Ph(String str) {
-        if (this.lBj == null || this.lBj.lBp == null || !this.lBk) {
+    public List<String> PH(String str) {
+        if (this.lKd == null || this.lKd.lKj == null || !this.lKe) {
             return null;
         }
-        return this.lBj.lBp.get(str);
+        return this.lKd.lKj.get(str);
     }
 
     public void F(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.lBi = hashMap;
+        this.lKc = hashMap;
+    }
+
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dqx() {
+        return this.lKc;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.lBj = bVar;
+        this.lKd = bVar;
     }
 
-    public boolean dmO() {
-        return this.lBk;
+    public boolean dqy() {
+        return this.lKe;
     }
 
-    public void vn(boolean z) {
-        this.lBk = z;
+    public void vv(boolean z) {
+        this.lKe = z;
     }
 }

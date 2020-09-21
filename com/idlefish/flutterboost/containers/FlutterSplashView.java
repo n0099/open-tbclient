@@ -21,7 +21,7 @@ import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
     @NonNull
@@ -187,7 +187,7 @@ public class FlutterSplashView extends FrameLayout {
     public void onAttach() {
         Debuger.log("BoostFlutterView onAttach");
         this.flutterView.attachToFlutterEngine(this.mFlutterEngine);
-        if (this.splashScreenView.isAttachedToWindow()) {
+        if (this.splashScreenView != null && this.splashScreenView.isAttachedToWindow()) {
             this.flutterView.addOnFirstFrameRenderedListener(this.removeSplashListener);
         }
     }

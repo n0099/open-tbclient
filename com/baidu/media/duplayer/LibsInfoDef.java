@@ -5,7 +5,7 @@ import com.baidu.media.duplayer.d;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class LibsInfoDef {
     public static final String CYBER_CODEC_MONITOR_NAME = "cyber-monitor";
     public static final String CYBER_CODEC_MONITOR_VERSION = "1.0.0.5";

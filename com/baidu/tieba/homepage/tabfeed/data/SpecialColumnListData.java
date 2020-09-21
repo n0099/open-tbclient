@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class SpecialColumnListData extends AbsThreadDataSupport implements Parcelable {
     public static final int MAX_SIZE = 3;
     private List<SpecialColumnItemData> mListData;
@@ -28,7 +28,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ac */
+        /* renamed from: AD */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -79,16 +79,16 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public bw bce() {
+    public bw bcY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-    public ar bcg() {
+    public ar bda() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cyT() {
+    public List<SpecialColumnItemData> cCA() {
         return this.mListData;
     }
 
@@ -96,7 +96,7 @@ public class SpecialColumnListData extends AbsThreadDataSupport implements Parce
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bGj() {
+    public List<SpecialColumnItemData> bHz() {
         return this.mResultListData;
     }
 

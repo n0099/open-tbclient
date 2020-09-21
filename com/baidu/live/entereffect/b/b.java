@@ -3,7 +3,6 @@ package com.baidu.live.entereffect.b;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.download.DownloadData;
 import com.baidu.live.tbadk.download.FileDownloadCallBack;
 import com.baidu.live.tbadk.download.FileSerialDownLoader;
@@ -20,10 +19,10 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private boolean aMm;
-    private com.baidu.live.entereffect.a.a aMn;
+    private boolean aOe;
+    private com.baidu.live.entereffect.a.a aOf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final boolean z, final com.baidu.live.entereffect.a.a aVar, final String str, final String str2, final String str3) {
@@ -36,10 +35,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                     return null;
                 }
-                b.this.aMm = z;
-                b.this.aMn = aVar;
+                b.this.aOe = z;
+                b.this.aOf = aVar;
                 if (com.baidu.live.f.a.existFile(str2)) {
-                    b.this.fX(str2);
+                    b.this.gc(str2);
                 } else if (!new File(str2).mkdirs()) {
                     return null;
                 }
@@ -57,7 +56,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public boolean onPreDownload(DownloadData downloadData2) {
-                        return BdNetTypeUtil.isWifiNet();
+                        return true;
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -138,14 +137,14 @@ public class b {
                 public List<String> doInBackground(Void... voidArr) {
                     List<String> al = b.this.al(str, str2);
                     if (al == null || al.isEmpty()) {
-                        b.this.fX(str);
-                        b.this.fX(str2);
+                        b.this.gc(str);
+                        b.this.gc(str2);
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
                             String str3 = "";
-                            if (b.this.aMn != null) {
-                                str3 = b.this.aMm ? b.this.aMn.videoUrl : b.this.aMn.aMc;
+                            if (b.this.aOf != null) {
+                                str3 = b.this.aOe ? b.this.aOf.videoUrl : b.this.aOf.aNU;
                             }
                             jSONObject2.put("step_error", 6);
                             jSONObject2.put("down_type", UbcStatConstant.ContentType.UBC_TYPE_ENTEREFFECT_DYNAMIC_LIST);
@@ -166,7 +165,7 @@ public class b {
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.Dj().a(b.this.aMm, b.this.aMn, str2, list);
+                        c.Dz().a(b.this.aOe, b.this.aOf, str2, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -288,7 +287,7 @@ public class b {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [371=5, 372=5, 373=5, 375=5, 376=5] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -303,7 +302,7 @@ public class b {
             return null;
         }
         try {
-            String str3 = str + (str2.split("/").length > 1 ? split[split.length - 1] : split[0]);
+            String str3 = str + "/" + (str2.split("/").length > 1 ? split[split.length - 1] : split[0]);
             File file = new File(str3);
             String parent = file.getParent();
             if (!TextUtils.isEmpty(parent)) {
@@ -400,7 +399,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fX(String str) {
+    public void gc(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.f.a.cleanDir(new File(str));
         }

@@ -7,30 +7,30 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes18.dex */
 public class a {
-    private C0100a alp;
+    private C0101a alO;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public final class C0100a {
-        private C0100a alT;
+    /* loaded from: classes18.dex */
+    public final class C0101a {
+        private C0101a ams;
         private File b;
         private String c;
         private boolean e;
 
-        C0100a(File file) {
+        C0101a(File file) {
             this.e = false;
             this.e = true;
             this.b = file;
             this.c = file.getName();
         }
 
-        C0100a(String str, C0100a c0100a) {
+        C0101a(String str, C0101a c0101a) {
             this.e = false;
             this.c = str;
-            this.alT = c0100a;
+            this.ams = c0101a;
             this.e = false;
         }
 
@@ -45,7 +45,7 @@ public class a {
         public File b() {
             File file = this.b;
             if (file == null) {
-                file = this.alT == null ? new File(a.this.a(), this.c) : new File(this.alT.b(), this.c);
+                file = this.ams == null ? new File(a.this.a(), this.c) : new File(this.ams.b(), this.c);
                 this.b = file;
             }
             return file;
@@ -63,31 +63,32 @@ public class a {
             return a.a(b(), str, str2, "UTF-8", z);
         }
 
-        public C0100a dm(String str) {
-            return new C0100a(str, this);
+        /* renamed from: do  reason: not valid java name */
+        public C0101a m21do(String str) {
+            return new C0101a(str, this);
         }
 
-        public C0100a j(File file) {
+        public C0101a j(File file) {
             if (this.e) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0100a c0100a = this;
+            C0101a c0101a = this;
             do {
-                arrayList.add(c0100a.c());
-                c0100a = c0100a.ur();
-            } while (c0100a != null);
+                arrayList.add(c0101a.c());
+                c0101a = c0101a.ux();
+            } while (c0101a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0100a(file);
+            return new C0101a(file);
         }
 
-        public C0100a ur() {
-            return this.alT;
+        public C0101a ux() {
+            return this.ams;
         }
     }
 
@@ -193,10 +194,10 @@ public class a {
         return new File(this.d.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0100a uq() {
-        if (this.alp == null) {
-            this.alp = new C0100a(".cesium", null);
+    public synchronized C0101a uw() {
+        if (this.alO == null) {
+            this.alO = new C0101a(".cesium", null);
         }
-        return this.alp;
+        return this.alO;
     }
 }

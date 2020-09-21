@@ -13,11 +13,11 @@ import tv.chushou.zues.utils.h;
 public class a {
     private final List<e> a = new ArrayList();
     private io.reactivex.disposables.a c = new io.reactivex.disposables.a();
-    private InterfaceC0898a nVn;
+    private InterfaceC0895a ofi;
 
     /* renamed from: com.kascend.chushou.player.ui.h5.redpacket.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0898a {
+    public interface InterfaceC0895a {
         void D();
 
         void a(int i);
@@ -25,9 +25,9 @@ public class a {
 
     public a(Context context) {
         try {
-            this.nVn = (InterfaceC0898a) context;
+            this.ofi = (InterfaceC0895a) context;
         } catch (Exception e) {
-            this.nVn = null;
+            this.ofi = null;
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
         if (!h.isEmpty(str)) {
             for (e eVar : this.a) {
                 if (str.equals(eVar.a())) {
-                    eVar.Nm(2);
+                    eVar.NR(2);
                     return;
                 }
             }
@@ -63,8 +63,8 @@ public class a {
                 it.remove();
             }
         }
-        if (this.nVn != null) {
-            this.nVn.a(this.a.size());
+        if (this.ofi != null) {
+            this.ofi.a(this.a.size());
         }
     }
 
@@ -90,26 +90,26 @@ public class a {
         RxExecutor.post(this.c, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.player.ui.h5.redpacket.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.nVn != null) {
-                    a.this.nVn.a(a.this.a.size());
+                if (a.this.ofi != null) {
+                    a.this.ofi.a(a.this.a.size());
                 }
             }
         });
-        if (com.kascend.chushou.d.h.dYA().q() && this.a.size() > 0 && this.nVn != null) {
-            this.nVn.D();
+        if (com.kascend.chushou.d.h.ecy().q() && this.a.size() > 0 && this.ofi != null) {
+            this.ofi.D();
         }
     }
 
-    public H5Positon Nl(int i) {
+    public H5Positon NQ(int i) {
         if (this.a.size() == 0) {
             return null;
         }
         e eVar = this.a.get(0);
         if (i == 2) {
-            return eVar.eax();
+            return eVar.eev();
         }
         if (i == 1) {
-            return eVar.eaw();
+            return eVar.eeu();
         }
         return null;
     }

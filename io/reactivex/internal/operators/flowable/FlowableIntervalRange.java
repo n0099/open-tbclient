@@ -8,7 +8,7 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableIntervalRange extends io.reactivex.g<Long> {
     final long end;
     final long initialDelay;
@@ -27,41 +27,41 @@ public final class FlowableIntervalRange extends io.reactivex.g<Long> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super Long> cVar) {
+    public void a(org.a.c<? super Long> cVar) {
         IntervalRangeSubscriber intervalRangeSubscriber = new IntervalRangeSubscriber(cVar, this.start, this.end);
         cVar.onSubscribe(intervalRangeSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c efd = vVar.efd();
-            intervalRangeSubscriber.setResource(efd);
-            efd.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eja = vVar.eja();
+            intervalRangeSubscriber.setResource(eja);
+            eja.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeSubscriber.setResource(vVar.a(intervalRangeSubscriber, this.initialDelay, this.period, this.unit));
     }
 
-    /* loaded from: classes7.dex */
-    static final class IntervalRangeSubscriber extends AtomicLong implements Runnable, org.b.d {
+    /* loaded from: classes25.dex */
+    static final class IntervalRangeSubscriber extends AtomicLong implements Runnable, org.a.d {
         private static final long serialVersionUID = -2809475196591179431L;
-        final org.b.c<? super Long> actual;
+        final org.a.c<? super Long> actual;
         long count;
         final long end;
         final AtomicReference<io.reactivex.disposables.b> resource = new AtomicReference<>();
 
-        IntervalRangeSubscriber(org.b.c<? super Long> cVar, long j, long j2) {
+        IntervalRangeSubscriber(org.a.c<? super Long> cVar, long j, long j2) {
             this.actual = cVar;
             this.count = j;
             this.end = j2;
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this, j);
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public void cancel() {
             DisposableHelper.dispose(this.resource);
         }

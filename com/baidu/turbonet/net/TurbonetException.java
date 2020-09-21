@@ -1,5 +1,5 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class TurbonetException extends UrlRequestException {
     /* JADX INFO: Access modifiers changed from: package-private */
     public TurbonetException(String str, Throwable th) {

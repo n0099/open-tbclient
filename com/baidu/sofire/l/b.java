@@ -7,7 +7,7 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class b {
     Context b;
     public com.baidu.sofire.j.c c;

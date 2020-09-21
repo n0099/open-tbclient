@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public final class BookmarkDoCoMoResultParser extends AbstractDoCoMoResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal.b;
 
 import android.content.Context;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class a extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {

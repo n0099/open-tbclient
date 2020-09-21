@@ -15,32 +15,32 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    protected TextView aWR;
-    private LinearLayout eHz;
-    private NestedScrollView ePm;
-    protected TbImageView ePn;
-    protected TBSpecificationBtn ePo;
-    private LinearLayout ePp;
-    private int ePq;
-    Rect rect;
+    protected TextView aZl;
+    Rect bry;
+    private LinearLayout eJG;
+    private NestedScrollView eSd;
+    protected TbImageView eSe;
+    protected TBSpecificationBtn eSf;
+    private LinearLayout eSg;
+    private int eSh;
     protected TextView subTextView;
 
     public c(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
-        this.ePq = 0;
-        this.rect = new Rect();
-        this.ePm = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
-        this.eHz = (LinearLayout) this.attachedView.findViewById(R.id.container);
-        this.ePn = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.eSh = 0;
+        this.bry = new Rect();
+        this.eSd = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
+        this.eJG = (LinearLayout) this.attachedView.findViewById(R.id.container);
+        this.eSe = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.aWR = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.ePp = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.ePo = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.aZl = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.eSg = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.eSf = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.ePo.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.ePo.setTextSize(R.dimen.tbds42);
-        this.ePo.setConfig(aVar);
-        this.ePo.setOnClickListener(onClickListener);
+        this.eSf.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.eSf.setTextSize(R.dimen.tbds42);
+        this.eSf.setConfig(aVar);
+        this.eSf.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
     }
 
@@ -55,13 +55,13 @@ public class c extends a {
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aWR.setText(str);
+            this.aZl.setText(str);
         }
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.ePo.setText(str);
+            this.eSf.setText(str);
         }
     }
 
@@ -76,23 +76,23 @@ public class c extends a {
     @Override // com.baidu.tbadk.k.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.ePn.setImageResource(0);
+        this.eSe.setImageResource(0);
     }
 
     public void showRefreshButton() {
-        this.ePo.setVisibility(0);
-        this.aWR.setVisibility(0);
+        this.eSf.setVisibility(0);
+        this.aZl.setVisibility(0);
         ap.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        ap.setImageResource(this.ePn, R.drawable.new_pic_emotion_08);
+        ap.setImageResource(this.eSe, R.drawable.new_pic_emotion_08);
         ap.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
-        ap.setViewTextColor(this.aWR, R.color.cp_cont_j, 1, skinType);
+        ap.setViewTextColor(this.aZl, R.color.cp_cont_j, 1, skinType);
         ap.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
-        if (this.ePo != null) {
-            this.ePo.bkF();
+        if (this.eSf != null) {
+            this.eSf.blA();
         }
     }
 
@@ -100,43 +100,43 @@ public class c extends a {
         return this.attachedView;
     }
 
-    public void qs(int i) {
-        if (this.ePq <= 0) {
-            this.ePq = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+    public void qJ(int i) {
+        if (this.eSh <= 0) {
+            this.eSh = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (this.ePm != null) {
+        if (this.eSd != null) {
             if (i == 0) {
-                this.ePm.post(new Runnable() { // from class: com.baidu.tbadk.k.c.1
+                this.eSd.post(new Runnable() { // from class: com.baidu.tbadk.k.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.qs(-1);
+                        c.this.qJ(-1);
                     }
                 });
             }
-            if (this.ePm.getLocalVisibleRect(this.rect)) {
-                int i2 = this.rect.bottom;
-                int abs = Math.abs(this.eHz.getTop());
-                int abs2 = i2 - Math.abs(this.eHz.getBottom());
-                ViewGroup.LayoutParams layoutParams = this.eHz.getLayoutParams();
+            if (this.eSd.getLocalVisibleRect(this.bry)) {
+                int i2 = this.bry.bottom;
+                int abs = Math.abs(this.eJG.getTop());
+                int abs2 = i2 - Math.abs(this.eJG.getBottom());
+                ViewGroup.LayoutParams layoutParams = this.eJG.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (abs < this.ePq) {
-                        marginLayoutParams.topMargin = this.ePq;
-                        this.eHz.setLayoutParams(marginLayoutParams);
-                    } else if (abs == this.ePq) {
-                        if (abs2 > this.ePq) {
-                            marginLayoutParams.topMargin = ((abs2 - this.ePq) / 2) + this.ePq;
-                            this.eHz.setLayoutParams(marginLayoutParams);
+                    if (abs < this.eSh) {
+                        marginLayoutParams.topMargin = this.eSh;
+                        this.eJG.setLayoutParams(marginLayoutParams);
+                    } else if (abs == this.eSh) {
+                        if (abs2 > this.eSh) {
+                            marginLayoutParams.topMargin = ((abs2 - this.eSh) / 2) + this.eSh;
+                            this.eJG.setLayoutParams(marginLayoutParams);
                         }
-                    } else if (abs > this.ePq) {
-                        if (abs2 < this.ePq) {
-                            marginLayoutParams.topMargin = this.ePq;
-                        } else if (abs2 == this.ePq) {
-                            marginLayoutParams.topMargin = this.ePq;
-                        } else if (abs2 > this.ePq) {
+                    } else if (abs > this.eSh) {
+                        if (abs2 < this.eSh) {
+                            marginLayoutParams.topMargin = this.eSh;
+                        } else if (abs2 == this.eSh) {
+                            marginLayoutParams.topMargin = this.eSh;
+                        } else if (abs2 > this.eSh) {
                             marginLayoutParams.topMargin = (abs + abs2) / 2;
                         }
-                        this.eHz.setLayoutParams(marginLayoutParams);
+                        this.eJG.setLayoutParams(marginLayoutParams);
                     }
                 }
             }

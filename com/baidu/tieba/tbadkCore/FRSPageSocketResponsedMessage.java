@@ -63,7 +63,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
         int i2;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().bcK(), true) && !this.responseData.getBookInfo().bcK().equals("0") && this.responseData.getBookInfo().bcL() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().bcK(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().bdE(), true) && !this.responseData.getBookInfo().bdE().equals("0") && this.responseData.getBookInfo().bdF() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().bdE(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -73,11 +73,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String f = e.dvK().f("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String f = e.dzD().f("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                e.dvK().p(f, bArr);
+                e.dzD().p(f, bArr);
             } else {
-                e.dvK().c(f, bArr, true);
+                e.dzD().c(f, bArr, true);
             }
         }
     }

@@ -11,21 +11,21 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 import com.baidu.poly.widget.coupon.a;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class b extends BaseAdapter {
     private Context mContext;
-    private List<a.C0277a> mData;
+    private List<a.C0275a> mData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        TextView bIt;
-        ImageView bIu;
+        TextView bKu;
+        ImageView bKv;
         TextView title;
 
         a(View view) {
             this.title = (TextView) view.findViewById(b.e.coupon_title);
-            this.bIt = (TextView) view.findViewById(b.e.coupon_subtitle);
-            this.bIu = (ImageView) view.findViewById(b.e.select_icon);
+            this.bKu = (TextView) view.findViewById(b.e.coupon_subtitle);
+            this.bKv = (ImageView) view.findViewById(b.e.select_icon);
         }
     }
 
@@ -34,14 +34,14 @@ public class b extends BaseAdapter {
         this.mContext = context;
     }
 
-    public void b(List<a.C0277a> list) {
+    public void b(List<a.C0275a> list) {
         this.mData = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<a.C0277a> list = this.mData;
+        List<a.C0275a> list = this.mData;
         if (list == null) {
             return 0;
         }
@@ -55,7 +55,7 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        a.C0277a item = getItem(i);
+        a.C0275a item = getItem(i);
         if (item != null) {
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(b.f.coupon_list_item, (ViewGroup) null, false);
@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
             }
             if (view.getTag() != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
-                aVar.title.setText(item.bIq);
+                aVar.title.setText(item.bKr);
                 if (TextUtils.isEmpty(item.af)) {
-                    aVar.bIt.setVisibility(8);
+                    aVar.bKu.setVisibility(8);
                 } else {
-                    aVar.bIt.setVisibility(0);
-                    aVar.bIt.setText(item.af);
+                    aVar.bKu.setVisibility(0);
+                    aVar.bKu.setText(item.af);
                 }
-                aVar.bIu.setSelected(item.cf == 1);
+                aVar.bKv.setSelected(item.cf == 1);
             }
         }
         return view;
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fU */
-    public a.C0277a getItem(int i) {
+    /* renamed from: gd */
+    public a.C0275a getItem(int i) {
         if (i < this.mData.size()) {
             return this.mData.get(i);
         }

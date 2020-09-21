@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.Session;
-/* loaded from: classes11.dex */
+/* loaded from: classes24.dex */
 enum ae extends Session.c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(String str, int i, int i2, Class cls) {

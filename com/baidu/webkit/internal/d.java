@@ -7,14 +7,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public final class d {
     private byte[] a;
     private int b;
     private int c;
     private byte[] d;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes8.dex */
     static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);

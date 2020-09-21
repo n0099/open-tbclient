@@ -1,5 +1,5 @@
 package org.java_websocket.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public interface b extends a, c {
-    void Ww(String str);
+    void WY(String str);
 }

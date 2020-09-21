@@ -5,10 +5,9 @@ import com.baidu.pyramid.a.a;
 import com.baidu.swan.apps.scheme.g;
 import com.baidu.swan.apps.scheme.h;
 import com.baidu.swan.apps.scheme.i;
-import com.baidu.tieba.write.b.a.o;
-import com.baidu.tieba.write.b.a.p;
+import com.baidu.tieba.write.b.a.j;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements a {
     @Override // com.baidu.pyramid.a.a
     public Object get() {
@@ -20,8 +19,8 @@ public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider impleme
         arrayList.add(new i());
         arrayList.add(new com.baidu.o.e.a());
         arrayList.add(new b());
-        arrayList.add(new o());
-        arrayList.add(new p());
+        arrayList.add(new com.baidu.tieba.write.b.a.i());
+        arrayList.add(new j());
         return arrayList;
     }
 }

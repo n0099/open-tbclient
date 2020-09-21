@@ -11,50 +11,50 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class i implements o {
-    HeadImageView jkG;
-    ImageView jkH;
-    TextView jkI;
-    private com.baidu.adp.widget.ImageView.a jkJ = null;
-    private a jkK = null;
-    CreateGroupStepActivity jkg;
-    private int jkk;
+    CreateGroupStepActivity jsK;
+    private int jsO;
+    HeadImageView jtk;
+    ImageView jtl;
+    TextView jtm;
+    private com.baidu.adp.widget.ImageView.a jtn = null;
+    private a jto = null;
     private int mIndex;
     private int mStep;
     View mView;
 
     public i(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.jkg = null;
+        this.jsK = null;
         this.mView = null;
-        this.jkG = null;
-        this.jkH = null;
-        this.jkI = null;
-        this.jkg = createGroupStepActivity;
+        this.jtk = null;
+        this.jtl = null;
+        this.jtm = null;
+        this.jsK = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step3_view, (ViewGroup) null);
-        this.jkH = (ImageView) this.mView.findViewById(R.id.step3_img_bg);
-        this.jkG = (HeadImageView) this.mView.findViewById(R.id.step3_img_scr);
-        this.jkI = (TextView) this.mView.findViewById(R.id.create_group3);
+        this.jtl = (ImageView) this.mView.findViewById(R.id.step3_img_bg);
+        this.jtk = (HeadImageView) this.mView.findViewById(R.id.step3_img_scr);
+        this.jtm = (TextView) this.mView.findViewById(R.id.create_group3);
         this.mIndex = i;
         this.mStep = i2;
-        this.jkk = i3;
+        this.jsO = i3;
     }
 
-    public void cCU() {
-        if (this.jkK != null) {
-            this.jkK.cancel();
+    public void cGA() {
+        if (this.jto != null) {
+            this.jto.cancel();
         }
-        this.jkJ = null;
-        this.jkK = new a();
-        this.jkK.execute(new Object[0]);
+        this.jtn = null;
+        this.jto = new a();
+        this.jto.execute(new Object[0]);
     }
 
-    public ImageView cCV() {
-        return this.jkH;
+    public ImageView cGB() {
+        return this.jtl;
     }
 
-    public TextView cCW() {
-        return this.jkI;
+    public TextView cGC() {
+        return this.jtm;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -63,19 +63,19 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cCF() {
-        this.jkH.setBackgroundDrawable(null);
+    public void cGl() {
+        this.jtl.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void cCG() {
-        this.jkg.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.jkg.getLayoutMode().onModeChanged(this.mView);
-        this.jkG.refresh();
+    public void cGm() {
+        this.jsK.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.jsK.getLayoutMode().onModeChanged(this.mView);
+        this.jtk.refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes22.dex */
     public class a extends BdAsyncTask<Object, Integer, Bitmap> {
         private a() {
         }
@@ -111,33 +111,33 @@ public class i implements o {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
             if (bitmap != null) {
-                i.this.jkG.setVisibility(0);
-                i.this.jkJ = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
-                i.this.jkJ.drawImageTo(i.this.jkG);
+                i.this.jtk.setVisibility(0);
+                i.this.jtn = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
+                i.this.jtn.drawImageTo(i.this.jtk);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.jkg.getPageContext().getString(R.string.group_create_step_photo), Integer.valueOf(this.mStep));
+        return String.format(this.jsK.getPageContext().getString(R.string.group_create_step_photo), Integer.valueOf(this.mStep));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String cCI() {
-        if (this.mIndex != this.jkk) {
-            return this.jkg.getPageContext().getString(R.string.next_step);
+    public String cGo() {
+        if (this.mIndex != this.jsO) {
+            return this.jsK.getPageContext().getString(R.string.next_step);
         }
-        return this.jkg.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.jsK.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cCJ() {
+    public boolean cGp() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int cCz() {
+    public int cGf() {
         return this.mIndex;
     }
 
@@ -147,7 +147,7 @@ public class i implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean cCK() {
+    public boolean cGq() {
         return true;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import tbclient.GiftInfo;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class o extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId lna = BdUniqueId.gen();
+    public static final BdUniqueId lvX = BdUniqueId.gen();
     public long giftNum;
     public String picUrl;
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lna;
+        return lvX;
     }
 
     public void a(GiftInfo giftInfo) {

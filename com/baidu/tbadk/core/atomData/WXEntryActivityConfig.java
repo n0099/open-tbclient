@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class WXEntryActivityConfig extends IntentConfig {
     public static final String ACTION_WX_SHARE_RESULT = "com.baidu.tieba.share.wx.result";
     public static final String KEY_RESULT_WX_SHARE = "key_share_wx";

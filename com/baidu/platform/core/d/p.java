@@ -3,7 +3,7 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class p extends com.baidu.platform.base.e {
     public p(WalkingRoutePlanOption walkingRoutePlanOption) {
         a(walkingRoutePlanOption);

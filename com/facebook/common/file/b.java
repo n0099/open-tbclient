@@ -1,7 +1,7 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public interface b {
     void ag(File file);
 

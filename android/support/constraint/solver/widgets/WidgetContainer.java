@@ -3,7 +3,7 @@ package android.support.constraint.solver.widgets;
 import android.support.constraint.solver.Cache;
 import android.support.v7.widget.ActivityChooserView;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes8.dex */
 public class WidgetContainer extends ConstraintWidget {
     protected ArrayList<ConstraintWidget> mChildren;
 

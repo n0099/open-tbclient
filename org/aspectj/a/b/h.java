@@ -1,66 +1,66 @@
 package org.aspectj.a.b;
 
 import java.lang.reflect.Modifier;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 class h {
-    static h oAS = new h();
-    static h oAT;
-    static h oAU;
-    boolean oAJ = true;
-    boolean oAK = true;
-    boolean oAL = false;
-    boolean oAM = false;
-    boolean oAN = false;
-    boolean oAO = true;
-    boolean oAP = true;
-    boolean oAQ = true;
-    int oAR;
+    static h oKx = new h();
+    static h oKy;
+    static h oKz;
+    boolean oKo = true;
+    boolean oKp = true;
+    boolean oKq = false;
+    boolean oKr = false;
+    boolean oKs = false;
+    boolean oKt = true;
+    boolean oKu = true;
+    boolean oKv = true;
+    int oKw;
 
     h() {
     }
 
     static {
-        oAS.oAJ = true;
-        oAS.oAK = false;
-        oAS.oAL = false;
-        oAS.oAM = false;
-        oAS.oAN = true;
-        oAS.oAO = false;
-        oAS.oAP = false;
-        oAS.oAR = 0;
-        oAT = new h();
-        oAT.oAJ = true;
-        oAT.oAK = true;
-        oAT.oAL = false;
-        oAT.oAM = false;
-        oAT.oAN = false;
-        oAS.oAR = 1;
-        oAU = new h();
-        oAU.oAJ = false;
-        oAU.oAK = true;
-        oAU.oAL = false;
-        oAU.oAM = true;
-        oAU.oAN = false;
-        oAU.oAQ = false;
-        oAU.oAR = 2;
+        oKx.oKo = true;
+        oKx.oKp = false;
+        oKx.oKq = false;
+        oKx.oKr = false;
+        oKx.oKs = true;
+        oKx.oKt = false;
+        oKx.oKu = false;
+        oKx.oKw = 0;
+        oKy = new h();
+        oKy.oKo = true;
+        oKy.oKp = true;
+        oKy.oKq = false;
+        oKy.oKr = false;
+        oKy.oKs = false;
+        oKx.oKw = 1;
+        oKz = new h();
+        oKz.oKo = false;
+        oKz.oKp = true;
+        oKz.oKq = false;
+        oKz.oKr = true;
+        oKz.oKs = false;
+        oKz.oKv = false;
+        oKz.oKw = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Wq(String str) {
+    public String WS(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Ol(int i) {
-        if (this.oAM) {
+    public String OQ(int i) {
+        if (this.oKr) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String Wr(String str) {
+    String WT(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Wr(str).replace('$', '.');
+            return WT(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.oAJ);
+        return b(cls, cls.getName(), this.oKo);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.oAN);
+        return b(cls, str, this.oKs);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.oAK) {
+            if (!this.oKp) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.oAL && clsArr != null && clsArr.length != 0) {
+        if (this.oKq && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

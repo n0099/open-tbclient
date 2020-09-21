@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.pb.main.c;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ae;
-import com.baidu.card.an;
+import com.baidu.card.af;
+import com.baidu.card.ao;
 import com.baidu.card.b;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AbsThreadDataSupport;
@@ -14,57 +14,57 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.aa;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class b extends a {
-    private int kCO;
-    private AbsThreadDataSupport kQg;
-    private ae kQh;
-    private an kQi;
-    private bw kQj;
+    private int kLm;
+    private AbsThreadDataSupport kYI;
+    private af kYJ;
+    private ao kYK;
+    private bw kYL;
     private LinearLayout mRootView;
 
     public b(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.kCO = i;
+        this.kLm = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.efr.getPageActivity());
+            this.mRootView = new LinearLayout(this.ehG.getPageActivity());
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.kQh == null) {
-            this.kQh = new ae(this.efr);
-            this.kQh.b((Boolean) true);
+        if (this.kYJ == null) {
+            this.kYJ = new af(this.ehG);
+            this.kYJ.b((Boolean) true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.efr.getResources().getDimensionPixelOffset(R.dimen.tbds39);
-        layoutParams.leftMargin = this.efr.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        layoutParams.rightMargin = this.efr.getResources().getDimensionPixelOffset(R.dimen.tbds44);
-        this.mRootView.addView(this.kQh.getView(), layoutParams);
-        if (this.kQi == null) {
-            this.kQi = new an(this.efr.getPageActivity());
+        layoutParams.topMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds39);
+        layoutParams.leftMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        layoutParams.rightMargin = this.ehG.getResources().getDimensionPixelOffset(R.dimen.tbds44);
+        this.mRootView.addView(this.kYJ.getView(), layoutParams);
+        if (this.kYK == null) {
+            this.kYK = new ao(this.ehG.getPageActivity());
         }
-        this.mRootView.addView(this.kQi.getView());
+        this.mRootView.addView(this.kYK.getView());
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.kQf = originalThreadInfo;
-        this.kQj = originalThreadInfo == null ? null : originalThreadInfo.bdf();
-        this.kQg = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.b.1
+        this.kYH = originalThreadInfo;
+        this.kYL = originalThreadInfo == null ? null : originalThreadInfo.bdZ();
+        this.kYI = new AbsThreadDataSupport() { // from class: com.baidu.tieba.pb.pb.main.c.b.1
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public bw bce() {
-                return b.this.kQj;
+            public bw bcY() {
+                return b.this.kYL;
             }
 
             @Override // com.baidu.tbadk.core.data.AbsThreadDataSupport
-            public ar bcg() {
+            public ar bda() {
                 return null;
             }
 
@@ -73,37 +73,37 @@ public class b extends a {
                 return null;
             }
         };
-        if (this.kQi != null) {
-            this.kQi.F(this.kQg);
+        if (this.kYK != null) {
+            this.kYK.G(this.kYI);
         }
-        if (this.kQh != null) {
-            this.kQh.F(this.kQg);
+        if (this.kYJ != null) {
+            this.kYJ.G(this.kYI);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(aa aaVar) {
         super.a(aaVar);
-        if (this.kQi != null) {
-            this.kQi.setOnCardSubClickListener(this.kQe);
+        if (this.kYK != null) {
+            this.kYK.setOnCardSubClickListener(this.kYG);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(b.a aVar) {
         super.a(aVar);
-        if (this.kQi != null) {
-            this.kQi.a(aVar);
+        if (this.kYK != null) {
+            this.kYK.a(aVar);
         }
-        if (this.kQh != null) {
-            this.kQh.a(aVar);
+        if (this.kYJ != null) {
+            this.kYJ.a(aVar);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.aeW != null) {
-                        b.this.aeW.a(b.this.kQg);
+                    if (b.this.afo != null) {
+                        b.this.afo.a(b.this.kYI);
                     }
                 }
             });
@@ -115,11 +115,11 @@ public class b extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.cp_bg_line_g);
-            if (this.kQh != null) {
-                this.kQh.onChangeSkinType(tbPageContext, i);
+            if (this.kYJ != null) {
+                this.kYJ.onChangeSkinType(tbPageContext, i);
             }
-            if (this.kQi != null) {
-                this.kQi.onChangeSkinType(tbPageContext, i);
+            if (this.kYK != null) {
+                this.kYK.onChangeSkinType(tbPageContext, i);
             }
         }
     }

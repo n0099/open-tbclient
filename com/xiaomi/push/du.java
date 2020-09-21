@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class du {
     private static void a(byte[] bArr) {
         if (bArr.length >= 2) {

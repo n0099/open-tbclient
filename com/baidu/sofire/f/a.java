@@ -1,5 +1,5 @@
 package com.baidu.sofire.f;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public int a;
     public String b;

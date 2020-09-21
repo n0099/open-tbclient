@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.bridge;
-/* loaded from: classes14.dex */
+/* loaded from: classes19.dex */
 public class UploadProviderImpl_Factory {
     private static volatile UploadProviderImpl instance;
 

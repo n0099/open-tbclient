@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class JavaBeanDeserializer implements ObjectDeserializer {
     private final Map<String, FieldDeserializer> alterNameFieldDeserializers;
     public final JavaBeanInfo beanInfo;

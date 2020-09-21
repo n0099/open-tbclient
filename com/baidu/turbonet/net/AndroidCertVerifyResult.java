@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class AndroidCertVerifyResult {
     private final int mStatus;
-    private final boolean nap;
-    private final List<X509Certificate> naq;
+    private final boolean nko;
+    private final List<X509Certificate> nkp;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         this.mStatus = i;
-        this.nap = z;
-        this.naq = new ArrayList(list);
+        this.nko = z;
+        this.nkp = new ArrayList(list);
     }
 
     public AndroidCertVerifyResult(int i) {
         this.mStatus = i;
-        this.nap = false;
-        this.naq = Collections.emptyList();
+        this.nko = false;
+        this.nkp = Collections.emptyList();
     }
 
     @CalledByNative
@@ -33,15 +33,15 @@ public class AndroidCertVerifyResult {
 
     @CalledByNative
     public boolean isIssuedByKnownRoot() {
-        return this.nap;
+        return this.nko;
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.naq.size()];
-        for (int i = 0; i < this.naq.size(); i++) {
+        byte[][] bArr = new byte[this.nkp.size()];
+        for (int i = 0; i < this.nkp.size(); i++) {
             try {
-                bArr[i] = this.naq.get(i).getEncoded();
+                bArr[i] = this.nkp.get(i).getEncoded();
             } catch (CertificateEncodingException e) {
                 return new byte[0];
             }

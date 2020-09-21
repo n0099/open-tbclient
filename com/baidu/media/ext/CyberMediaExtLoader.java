@@ -8,7 +8,7 @@ import com.baidu.media.duplayer.b;
 import com.baidu.media.duplayer.e;
 import java.io.File;
 @Keep
-/* loaded from: classes12.dex */
+/* loaded from: classes16.dex */
 public class CyberMediaExtLoader {
     private static ClassLoader a = null;
 
@@ -18,7 +18,7 @@ public class CyberMediaExtLoader {
             return;
         }
         String str = b.c() + File.separator + "libs";
-        File file = new File(e.SR().fH(2048).c());
+        File file = new File(e.TI().fQ(2048).c());
         if (file == null || !file.exists()) {
             CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
         } else {

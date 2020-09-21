@@ -7,7 +7,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.vivo.push.PushClientConstants;
 import com.xiaomi.push.bf;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 class ac {
     public static HashMap<String, String> a(Context context, String str) {
         HashMap<String, String> hashMap = new HashMap<>();

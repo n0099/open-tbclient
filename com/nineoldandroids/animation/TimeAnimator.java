@@ -1,10 +1,10 @@
 package com.nineoldandroids.animation;
-/* loaded from: classes9.dex */
+/* loaded from: classes14.dex */
 public class TimeAnimator extends ValueAnimator {
     private TimeListener mListener;
     private long mPreviousTime = -1;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes14.dex */
     public interface TimeListener {
         void onTimeUpdate(TimeAnimator timeAnimator, long j, long j2);
     }

@@ -3,21 +3,21 @@ package com.baidu.tieba.square.square;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class c extends com.baidu.tieba.square.data.a {
-    private ArrayList<e> maE = new ArrayList<>();
+    private ArrayList<e> mkf = new ArrayList<>();
 
-    public ArrayList<e> dvr() {
-        return this.maE;
+    public ArrayList<e> dzk() {
+        return this.mkf;
     }
 
-    public void bb(ArrayList<e> arrayList) {
-        this.maE = arrayList;
+    public void bd(ArrayList<e> arrayList) {
+        this.mkf = arrayList;
         setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.square.data.a
-    protected void eb(JSONObject jSONObject) throws Exception {
+    protected void ej(JSONObject jSONObject) throws Exception {
         ArrayList<e> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
         if (optJSONArray != null) {
@@ -27,6 +27,6 @@ public class c extends com.baidu.tieba.square.data.a {
                 arrayList.add(eVar);
             }
         }
-        bb(arrayList);
+        bd(arrayList);
     }
 }

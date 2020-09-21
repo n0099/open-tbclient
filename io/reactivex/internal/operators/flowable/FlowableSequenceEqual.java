@@ -8,15 +8,15 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes25.dex */
 public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.b.b<? extends T> onN;
-    final org.b.b<? extends T> onO;
+    final org.a.b<? extends T> oxw;
+    final org.a.b<? extends T> oxx;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public interface a {
         void drain();
 
@@ -24,13 +24,13 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     }
 
     @Override // io.reactivex.g
-    public void a(org.b.c<? super Boolean> cVar) {
+    public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.onN, this.onO);
+        equalCoordinator.subscribe(this.oxw, this.oxx);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements a {
         private static final long serialVersionUID = -6178010334400373240L;
         final io.reactivex.c.d<? super T, ? super T> comparer;
@@ -41,7 +41,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
         T v2;
         final AtomicInteger wip;
 
-        EqualCoordinator(org.b.c<? super Boolean> cVar, int i, io.reactivex.c.d<? super T, ? super T> dVar) {
+        EqualCoordinator(org.a.c<? super Boolean> cVar, int i, io.reactivex.c.d<? super T, ? super T> dVar) {
             super(cVar);
             this.comparer = dVar;
             this.wip = new AtomicInteger();
@@ -50,12 +50,12 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             this.error = new AtomicThrowable();
         }
 
-        void subscribe(org.b.b<? extends T> bVar, org.b.b<? extends T> bVar2) {
+        void subscribe(org.a.b<? extends T> bVar, org.a.b<? extends T> bVar2) {
             bVar.subscribe(this.first);
             bVar2.subscribe(this.second);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.b.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
         public void cancel() {
             super.cancel();
             this.first.cancel();
@@ -179,8 +179,8 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public static final class EqualSubscriber<T> extends AtomicReference<org.b.d> implements j<T> {
+    /* loaded from: classes25.dex */
+    public static final class EqualSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
         private static final long serialVersionUID = 4804128302091633067L;
         volatile boolean done;
         final int limit;
@@ -197,8 +197,8 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             this.prefetch = i;
         }
 
-        @Override // io.reactivex.j, org.b.c
-        public void onSubscribe(org.b.d dVar) {
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
@@ -221,7 +221,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(T t) {
             if (this.sourceMode == 0 && !this.queue.offer(t)) {
                 onError(new MissingBackpressureException());
@@ -230,12 +230,12 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.innerError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             this.done = true;
             this.parent.drain();

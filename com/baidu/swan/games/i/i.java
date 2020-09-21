@@ -8,33 +8,33 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile i dsI;
-    private ArrayList<h> dsG = new ArrayList<>();
-    private g dsH = new g();
+    private static volatile i duK;
+    private ArrayList<h> duI = new ArrayList<>();
+    private g duJ = new g();
 
     private i() {
     }
 
-    public static i aNw() {
-        if (dsI == null) {
+    public static i aOh() {
+        if (duK == null) {
             synchronized (i.class) {
-                if (dsI == null) {
-                    dsI = new i();
+                if (duK == null) {
+                    duK = new i();
                 }
             }
         }
-        return dsI;
+        return duK;
     }
 
     public synchronized void a(@NonNull Runnable runnable, String str, String... strArr) {
         h hVar = new h(this, runnable, str, strArr);
-        ArrayList<h> y = this.dsH.y(strArr);
-        this.dsH.a(hVar, strArr);
+        ArrayList<h> y = this.duJ.y(strArr);
+        this.duJ.a(hVar, strArr);
         if (y == null || y.size() == 0) {
-            hVar.aNr();
+            hVar.aOc();
         } else {
             a(hVar, y);
         }
@@ -42,17 +42,17 @@ public class i {
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.dsH.b(hVar, hVar.aNs());
-            if (hVar.aNt()) {
+            this.duJ.b(hVar, hVar.aOd());
+            if (hVar.aOe()) {
                 if (DEBUG) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dsG.size());
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + this.duI.size());
                 }
-                for (int size = this.dsG.size() - 1; size >= 0; size--) {
-                    h hVar2 = this.dsG.get(size);
+                for (int size = this.duI.size() - 1; size >= 0; size--) {
+                    h hVar2 = this.duI.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.aNv()) {
-                        this.dsG.remove(size);
-                        hVar2.aNr();
+                    if (hVar2.aOg()) {
+                        this.duI.remove(size);
+                        hVar2.aOc();
                     }
                 }
             }
@@ -60,22 +60,22 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.dsH.aoj();
-        Iterator<h> it = this.dsG.iterator();
+        this.duJ.aoT();
+        Iterator<h> it = this.duI.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aNq();
+                next.aOb();
             }
         }
-        this.dsG.clear();
+        this.duI.clear();
     }
 
     public static synchronized void release() {
         synchronized (i.class) {
-            if (dsI != null) {
-                dsI.onDestroy();
-                dsI = null;
+            if (duK != null) {
+                duK.onDestroy();
+                duK = null;
             }
         }
     }
@@ -92,7 +92,7 @@ public class i {
 
     private synchronized boolean a(Semaphore semaphore, String... strArr) {
         boolean z;
-        ArrayList<h> y = this.dsH.y(strArr);
+        ArrayList<h> y = this.duJ.y(strArr);
         if (y == null || y.size() == 0) {
             z = false;
         } else {
@@ -104,15 +104,15 @@ public class i {
 
     private void a(@NonNull h hVar, @NonNull ArrayList<h> arrayList) {
         if (DEBUG) {
-            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.dsG.size());
+            Log.i("FileSystemTaskManager", "addToWaitList: " + hVar + Constants.ACCEPT_TIME_SEPARATOR_SP + arrayList.size() + Constants.ACCEPT_TIME_SEPARATOR_SP + this.duI.size());
         }
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aNu();
+            next.aOf();
             hVar.a(next);
         }
-        this.dsG.add(hVar);
+        this.duI.add(hVar);
     }
 
     private void a(Semaphore semaphore) {

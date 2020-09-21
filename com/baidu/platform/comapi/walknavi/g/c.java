@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.widget.FrameLayout;
 import com.baidu.platform.comapi.walknavi.g.c.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c implements c.a {
     final /* synthetic */ a a;
 

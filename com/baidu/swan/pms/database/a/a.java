@@ -7,7 +7,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes24.dex */
 public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -34,7 +34,7 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: t */
-    public ContentValues af(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues ag(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
             contentValues.put("app_id", pMSAppInfo.appId);
@@ -74,13 +74,13 @@ public class a extends b<PMSAppInfo> {
             if (0 < lastLaunchTime) {
                 contentValues.put("last_launch_time", Long.valueOf(lastLaunchTime));
             }
-            int aFd = pMSAppInfo.aFd();
-            if (aFd > 0) {
-                contentValues.put("launch_count", Integer.valueOf(aFd));
+            int aFN = pMSAppInfo.aFN();
+            if (aFN > 0) {
+                contentValues.put("launch_count", Integer.valueOf(aFN));
             }
-            int aiN = pMSAppInfo.aiN();
-            if (aiN > 0) {
-                contentValues.put("install_src", Integer.valueOf(aiN));
+            int ajx = pMSAppInfo.ajx();
+            if (ajx > 0) {
+                contentValues.put("install_src", Integer.valueOf(ajx));
             }
             contentValues.put("web_url", pMSAppInfo.webUrl);
             contentValues.put("cs_protocol_version", Integer.valueOf(pMSAppInfo.csProtocolVersion));
@@ -162,9 +162,9 @@ public class a extends b<PMSAppInfo> {
             pMSAppInfo.paNumber = cursor.getString(columnIndex31);
             pMSAppInfo.brandsInfo = cursor.getString(columnIndex32);
             pMSAppInfo.quickAppKey = cursor.getString(columnIndex36);
-            pMSAppInfo.cg(cursor.getLong(columnIndex33));
-            pMSAppInfo.lN(cursor.getInt(columnIndex34));
-            pMSAppInfo.lO(cursor.getInt(columnIndex35));
+            pMSAppInfo.ch(cursor.getLong(columnIndex33));
+            pMSAppInfo.lY(cursor.getInt(columnIndex34));
+            pMSAppInfo.lZ(cursor.getInt(columnIndex35));
             pMSAppInfo.webUrl = cursor.getString(columnIndex37);
             pMSAppInfo.csProtocolVersion = cursor.getInt(columnIndex38);
             return pMSAppInfo;

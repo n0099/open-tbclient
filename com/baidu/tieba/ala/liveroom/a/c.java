@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.liveroom.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    void FL(String str);
+    void Gi(String str);
 
     void aC(String str, int i);
 
-    void dz(int i);
+    void dD(int i);
 
     void e(long j, String str, String str2);
 

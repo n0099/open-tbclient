@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a extends HttpMessage {
     private long mAudienceCount;
     private List<Long> mIds;

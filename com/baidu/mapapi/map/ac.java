@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class ac implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ int b;

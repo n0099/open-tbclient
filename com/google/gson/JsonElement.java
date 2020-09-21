@@ -1,12 +1,12 @@
 package com.google.gson;
 
-import com.google.gson.internal.i;
+import com.google.gson.internal.h;
 import com.google.gson.stream.b;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public abstract class JsonElement {
     public abstract JsonElement deepCopy();
 
@@ -110,8 +110,8 @@ public abstract class JsonElement {
         try {
             StringWriter stringWriter = new StringWriter();
             b bVar = new b(stringWriter);
-            bVar.yq(true);
-            i.a(this, bVar);
+            bVar.yz(true);
+            h.a(this, bVar);
             return stringWriter.toString();
         } catch (IOException e) {
             throw new AssertionError(e);

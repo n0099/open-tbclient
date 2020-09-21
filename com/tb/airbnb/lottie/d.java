@@ -10,7 +10,7 @@ import com.tb.airbnb.lottie.model.layer.Layer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes17.dex */
 public class d {
     private Map<String, List<Layer>> AQ;
     private Map<String, com.tb.airbnb.lottie.model.c> AR;
@@ -22,7 +22,7 @@ public class d {
     private float AZ;
     private Rect bounds;
     private Map<String, g> images;
-    private final m oia = new m();
+    private final m orK = new m();
     private final HashSet<String> AP = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
@@ -45,15 +45,15 @@ public class d {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.oia.setEnabled(z);
+        this.orK.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.oia;
+        return this.orK;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer gK(long j) {
+    public Layer gY(long j) {
         return this.AV.get(j);
     }
 

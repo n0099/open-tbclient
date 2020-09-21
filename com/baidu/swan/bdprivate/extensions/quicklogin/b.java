@@ -10,9 +10,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.e.b
             /* renamed from: B */
-            public void I(Bundle bundle2) {
+            public void J(Bundle bundle2) {
                 if (bundle2 != null) {
-                    b.this.cIK.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
+                    b.this.cKK.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
                 }
                 b.this.finish();
             }
@@ -24,11 +24,11 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
                 if (quickLoginInfo == null) {
-                    bVar.I(null);
+                    bVar.J(null);
                     return;
                 }
-                b.this.cIK.putParcelable("quick_login_info_result", quickLoginInfo);
-                bVar.I(b.this.cIK);
+                b.this.cKK.putParcelable("quick_login_info_result", quickLoginInfo);
+                bVar.J(b.this.cKK);
             }
         });
     }

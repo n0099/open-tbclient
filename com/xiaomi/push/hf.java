@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.ek;
 import com.xiaomi.push.service.be;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class hf extends be.a {
     final /* synthetic */ he a;
 

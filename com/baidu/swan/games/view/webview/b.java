@@ -2,10 +2,10 @@ package com.baidu.swan.games.view.webview;
 
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         @V8JavascriptField
         public String url;
@@ -21,14 +21,14 @@ public class b {
     }
 
     /* renamed from: com.baidu.swan.games.view.webview.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0513b extends a {
+    /* loaded from: classes3.dex */
+    public static class C0508b extends a {
         @V8JavascriptField
         public String errCode;
         @V8JavascriptField
         public String errMsg;
 
-        public C0513b(String str, String str2, String str3) {
+        public C0508b(String str, String str2, String str3) {
             super(str);
             this.errCode = str2;
             this.errMsg = str3;

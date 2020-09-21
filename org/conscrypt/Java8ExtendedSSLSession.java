@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.net.ssl.SNIHostName;
 import javax.net.ssl.SNIServerName;
-/* loaded from: classes12.dex */
+/* loaded from: classes8.dex */
 class Java8ExtendedSSLSession extends Java7ExtendedSSLSession {
     public Java8ExtendedSSLSession(ConscryptSession conscryptSession) {
         super(conscryptSession);

@@ -13,7 +13,7 @@ import com.baidubce.services.sts.model.GetSessionTokenRequest;
 import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public class StsClient extends AbstractBceClient {
     private static final String GET_SESSION_TOKEN_PATH = "sessionToken";
     private static HttpResponseHandler[] stsHandlers = {new BceMetadataResponseHandler(), new BceErrorResponseHandler(), new BceStsJsonResponseHandler()};

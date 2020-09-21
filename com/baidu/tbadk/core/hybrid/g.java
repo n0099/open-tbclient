@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a ehj = null;
+    private a ejy = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g ehv = new g();
+        private static final g ejK = new g();
     }
 
-    public static g bhN() {
-        return c.ehv;
+    public static g biH() {
+        return c.ejK;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.ehj = new a(i, jVar);
-                this.ehj.bhO();
+                this.ejy = new a(i, jVar);
+                this.ejy.biI();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a ehj;
-        private final List<Long> eht = new ArrayList(240);
-        private final List<Integer> ehu = new ArrayList(15);
+        private final List<Long> ejI = new ArrayList(240);
+        private final List<Integer> ejJ = new ArrayList(15);
+        protected a ejy;
 
         public b(a aVar) {
-            this.ehj = aVar;
+            this.ejy = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.eht.add(Long.valueOf(j));
-            this.ehj.bhO();
+            this.ejI.add(Long.valueOf(j));
+            this.ejy.biI();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ehj = null;
-            this.eht.clear();
-            this.ehu.clear();
+            this.ejy = null;
+            this.ejI.clear();
+            this.ejJ.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> ehk;
-        private final Object ehl;
-        private final Class<?> ehm;
-        private final Method ehn;
-        private final Object eho;
-        private final Method ehp;
-        private final b ehq;
-        private final j ehr;
+        private final Object ejA;
+        private final Class<?> ejB;
+        private final Method ejC;
+        private final Object ejD;
+        private final Method ejE;
+        private final b ejF;
+        private final j ejG;
+        private final Class<?> ejz;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.ehm = Class.forName("android.view.Choreographer");
-            this.ehk = Class.forName("android.view.Choreographer$FrameCallback");
-            this.ehq = new b(this);
-            this.ehl = Proxy.newProxyInstance(this.ehk.getClassLoader(), new Class[]{this.ehk}, this.ehq);
-            this.ehn = this.ehm.getMethod("getInstance", new Class[0]);
-            this.eho = this.ehn.invoke(null, new Object[0]);
-            this.ehp = this.ehm.getMethod("postFrameCallback", this.ehk);
+            this.ejB = Class.forName("android.view.Choreographer");
+            this.ejz = Class.forName("android.view.Choreographer$FrameCallback");
+            this.ejF = new b(this);
+            this.ejA = Proxy.newProxyInstance(this.ejz.getClassLoader(), new Class[]{this.ejz}, this.ejF);
+            this.ejC = this.ejB.getMethod("getInstance", new Class[0]);
+            this.ejD = this.ejC.invoke(null, new Object[0]);
+            this.ejE = this.ejB.getMethod("postFrameCallback", this.ejz);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.ehr = jVar;
+            this.ejG = jVar;
         }
 
-        private void kW() throws InvocationTargetException, IllegalAccessException {
-            this.ehp.invoke(this.eho, this.ehl);
+        private void kX() throws InvocationTargetException, IllegalAccessException {
+            this.ejE.invoke(this.ejD, this.ejA);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void bhO() {
+        public void biI() {
             if (this.index >= this.MAX_FRAME_COUNT) {
-                com.baidu.adp.lib.f.e.mS().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
+                com.baidu.adp.lib.f.e.mX().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.ehr.aU(a.this.bhQ());
-                        a.this.ehq.destroy();
+                        a.this.ejG.aY(a.this.biK());
+                        a.this.ejF.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class g {
             }
             this.index++;
             try {
-                kW();
+                kX();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> bhP() {
-            return this.ehq.eht;
+        private List<Long> biJ() {
+            return this.ejF.ejI;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ehq.destroy();
+            this.ejF.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> bhQ() {
+        public List<Long> biK() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> bhP = bhP();
-            int size = bhP.size();
+            List<Long> biJ = biJ();
+            int size = biJ.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(bhP.get(i2 + 1).longValue() - bhP.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(biJ.get(i2 + 1).longValue() - biJ.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

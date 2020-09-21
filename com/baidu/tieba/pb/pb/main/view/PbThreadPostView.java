@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f kAH;
-    public View kRl;
-    public TextView kRm;
-    public TextView kRn;
+    private f kJe;
+    public View kZO;
+    public TextView kZP;
+    public TextView kZQ;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        uf();
+        ul();
     }
 
-    private void uf() {
-        this.kRl = findViewById(R.id.pb_thread_post_container);
-        this.kRm = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.kRn = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void ul() {
+        this.kZO = findViewById(R.id.pb_thread_post_container);
+        this.kZP = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.kZQ = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.kAH = fVar;
-        tl(TbadkCoreApplication.getInst().getSkinType());
+        this.kJe = fVar;
+        tE(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.kRn.setOnClickListener(this.mOnClickListener);
+            this.kZQ.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void tl(int i) {
-        ap.setBackgroundColor(this.kRl, R.color.cp_bg_line_e, i);
-        ap.setViewTextColor(this.kRm, R.color.cp_cont_j);
-        ap.setViewTextColor(this.kRn, R.color.cp_link_tip_a);
+    public void tE(int i) {
+        ap.setBackgroundColor(this.kZO, R.color.cp_bg_line_e, i);
+        ap.setViewTextColor(this.kZP, R.color.cp_cont_j);
+        ap.setViewTextColor(this.kZQ, R.color.cp_link_tip_a);
     }
 }

@@ -7,22 +7,22 @@ import com.baidu.swan.apps.r.d;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, c> cQQ = null;
+    private Map<String, c> cSQ = null;
 
     public c a(String str, String str2, @NonNull c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return cVar;
         }
-        if (this.cQQ == null) {
-            this.cQQ = new TreeMap();
+        if (this.cSQ == null) {
+            this.cSQ = new TreeMap();
         }
-        c cVar2 = this.cQQ.get(str2);
+        c cVar2 = this.cSQ.get(str2);
         if (cVar2 == null) {
             c c = c(str, str2, cVar);
-            this.cQQ.put(str2, c);
+            this.cSQ.put(str2, c);
             return c;
         }
         return cVar2;
@@ -31,7 +31,7 @@ public final class a {
     public c b(String str, @NonNull String str2, @NonNull c cVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             c c = c(str, str2, cVar);
-            this.cQQ.put(str2, c);
+            this.cSQ.put(str2, c);
             return c;
         }
         return cVar;

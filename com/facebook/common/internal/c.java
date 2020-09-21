@@ -3,29 +3,29 @@ package com.facebook.common.internal;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes17.dex */
 public class c extends FilterOutputStream {
-    private long fQt;
+    private long fTD;
 
     public c(OutputStream outputStream) {
         super(outputStream);
-        this.fQt = 0L;
+        this.fTD = 0L;
     }
 
     public long getCount() {
-        return this.fQt;
+        return this.fTD;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         this.out.write(bArr, i, i2);
-        this.fQt += i2;
+        this.fTD += i2;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(int i) throws IOException {
         this.out.write(i);
-        this.fQt++;
+        this.fTD++;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable

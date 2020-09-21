@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public List<PostData> list;
 
@@ -30,7 +30,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.mfJ = 102;
+                postData.mpi = 102;
                 this.list.add(postData);
             }
         }

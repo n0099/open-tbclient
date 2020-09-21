@@ -3,8 +3,8 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.ContentValues;
 import android.support.annotation.Nullable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface y {
     @Nullable
-    List<ContentValues> ZL();
+    List<ContentValues> aau();
 }

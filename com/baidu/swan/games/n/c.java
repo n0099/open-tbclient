@@ -5,21 +5,21 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c {
-    public int duy;
-    public String duz;
-    public String duv = "";
+    public String dwA;
+    public int dwz;
+    public String dww = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean duw = false;
-    public boolean dux = false;
+    public boolean dwx = false;
+    public boolean dwy = false;
 
     public boolean h(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.duv = cVar.optString("defaultValue");
+            this.dww = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.duw = cVar.optBoolean("multiple");
-            this.dux = cVar.optBoolean("confirmHold");
+            this.dwx = cVar.optBoolean("multiple");
+            this.dwy = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -56,28 +56,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.duy = 6;
-                    this.duz = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dwz = 6;
+                    this.dwA = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
                 case 1:
-                    this.duy = 5;
-                    this.duz = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.dwz = 5;
+                    this.dwA = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.duy = 3;
-                    this.duz = "search";
+                    this.dwz = 3;
+                    this.dwA = "search";
                     return true;
                 case 3:
-                    this.duy = 2;
-                    this.duz = "go";
+                    this.dwz = 2;
+                    this.dwA = "go";
                     return true;
                 case 4:
-                    this.duy = 4;
-                    this.duz = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
+                    this.dwz = 4;
+                    this.dwA = UbcStatConstant.ContentType.UBC_TYPE_IM_SEND;
                     return true;
                 default:
-                    this.duy = 6;
-                    this.duz = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
+                    this.dwz = 6;
+                    this.dwA = AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE;
                     return true;
             }
         } catch (Exception e) {

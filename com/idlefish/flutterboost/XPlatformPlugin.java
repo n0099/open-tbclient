@@ -15,7 +15,7 @@ import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class XPlatformPlugin {
     private Activity activity;
     private PlatformChannel.SystemChromeStyle currentTheme;

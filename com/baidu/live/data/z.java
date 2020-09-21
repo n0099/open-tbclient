@@ -1,24 +1,25 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class z {
-    public int aEF;
-    public int aEG;
-    public String mAppid;
-    public int mOpenType;
+    public int aFE;
+    public long aFF;
+    public long aFG;
+    public String division;
+    public String iconUrl;
+    public int maxStar;
+    public String name;
 
-    public String toJsonString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt("live_type", Integer.valueOf(this.aEF));
-            jSONObject.putOpt("open_type", Integer.valueOf(this.mOpenType));
-            jSONObject.putOpt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION, Integer.valueOf(this.aEG));
-            jSONObject.putOpt("appid", this.mAppid);
-            return jSONObject.toString();
-        } catch (Exception e) {
-            return "";
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.division = jSONObject.optString("division");
+            this.aFE = jSONObject.optInt("cur_star");
+            this.maxStar = jSONObject.optInt("max_star", 5);
+            this.aFF = jSONObject.optInt("min_score");
+            this.aFG = jSONObject.optInt("max_score");
+            this.name = jSONObject.optString("name");
+            this.iconUrl = jSONObject.optString("icon_url");
         }
     }
 }

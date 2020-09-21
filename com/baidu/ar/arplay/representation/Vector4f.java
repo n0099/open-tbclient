@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.representation;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Vector4f extends Renderable implements Serializable {
     private static final long serialVersionUID = 1;
     protected float[] points = {0.0f, 0.0f, 0.0f, 0.0f};

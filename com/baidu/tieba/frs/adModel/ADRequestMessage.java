@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class ADRequestMessage extends NetMessage {
     private long fid;
     private long offset;
@@ -21,7 +21,7 @@ public class ADRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            t.a(builder, true);
+            u.a(builder, true);
         }
         GetADListReqIdl.Builder builder2 = new GetADListReqIdl.Builder();
         builder2.data = builder.build(false);

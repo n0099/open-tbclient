@@ -9,6 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class NetworkStatRecord {
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
+    public String bdTraceId;
     public String clientIP;
     public String errheaders;
     public Exception exception;
@@ -123,6 +124,9 @@ public class NetworkStatRecord {
                 jSONObject.put("user_log", this.extraUserInfo.toString());
             }
             jSONObject.put("ipStack", this.ipStack);
+            if (!TextUtils.isEmpty(this.bdTraceId)) {
+                jSONObject.put("bdTraceId", this.bdTraceId);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

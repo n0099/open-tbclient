@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.a;
 
 import android.content.Intent;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a extends v {
     private Intent b;
 

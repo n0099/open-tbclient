@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String mtm;
-    private a mtn;
+    private String mCU;
+    private a mCV;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cKX();
+        void cOD();
 
-        void cKY();
+        void cOE();
 
-        void cKZ();
+        void cOF();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.mtm = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.mtn = aVar;
+        this.mCU = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.mCV = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.mtm);
-            aaVar.biQ().bjv().mIsNeedAddCommenParam = false;
-            aaVar.biQ().bjv().mIsUseCurrentBDUSS = false;
+            aa aaVar = new aa(this.mCU);
+            aaVar.bjL().bkq().mIsNeedAddCommenParam = false;
+            aaVar.bjL().bkq().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.mtn != null && num != null) {
+        if (this.mCV != null && num != null) {
             if (num.intValue() == -1) {
-                this.mtn.onError(null);
+                this.mCV.onError(null);
             } else if (num.intValue() == 1) {
-                this.mtn.cKX();
+                this.mCV.cOD();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.mtn.cKY();
+                this.mCV.cOE();
             } else {
-                this.mtn.cKZ();
+                this.mCV.cOF();
             }
         }
     }

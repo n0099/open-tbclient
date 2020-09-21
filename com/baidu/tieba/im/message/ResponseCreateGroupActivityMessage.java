@@ -6,7 +6,7 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupActivity.AddGroupActivityResIdl;
 import protobuf.AddGroupActivity.DataRes;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class ResponseCreateGroupActivityMessage extends SocketResponsedMessage {
     private GroupActivityData activityData;
 

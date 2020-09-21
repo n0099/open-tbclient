@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class FunctionReference extends CallableReference implements p, kotlin.reflect.e {
     private final int arity;
 

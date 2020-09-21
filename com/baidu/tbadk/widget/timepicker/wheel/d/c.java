@@ -3,15 +3,15 @@ package com.baidu.tbadk.widget.timepicker.wheel.d;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public final class c extends TimerTask {
-    private final WheelView fiM;
+    private final WheelView flD;
     private int offset;
     private int realTotalOffset = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int realOffset = 0;
 
     public c(WheelView wheelView, int i) {
-        this.fiM = wheelView;
+        this.flD = wheelView;
         this.offset = i;
     }
 
@@ -29,23 +29,23 @@ public final class c extends TimerTask {
             }
         }
         if (Math.abs(this.realTotalOffset) <= 1) {
-            this.fiM.cancelFuture();
-            this.fiM.getHandler().sendEmptyMessage(3000);
+            this.flD.cancelFuture();
+            this.flD.getHandler().sendEmptyMessage(3000);
             return;
         }
-        this.fiM.setTotalScrollY(this.fiM.getTotalScrollY() + this.realOffset);
-        if (!this.fiM.isLoop()) {
-            float itemHeight = this.fiM.getItemHeight();
-            float f = (-this.fiM.getInitPosition()) * itemHeight;
-            float itemsCount = itemHeight * ((this.fiM.getItemsCount() - 1) - this.fiM.getInitPosition());
-            if (this.fiM.getTotalScrollY() <= f || this.fiM.getTotalScrollY() >= itemsCount) {
-                this.fiM.setTotalScrollY(this.fiM.getTotalScrollY() - this.realOffset);
-                this.fiM.cancelFuture();
-                this.fiM.getHandler().sendEmptyMessage(3000);
+        this.flD.setTotalScrollY(this.flD.getTotalScrollY() + this.realOffset);
+        if (!this.flD.isLoop()) {
+            float itemHeight = this.flD.getItemHeight();
+            float f = (-this.flD.getInitPosition()) * itemHeight;
+            float itemsCount = itemHeight * ((this.flD.getItemsCount() - 1) - this.flD.getInitPosition());
+            if (this.flD.getTotalScrollY() <= f || this.flD.getTotalScrollY() >= itemsCount) {
+                this.flD.setTotalScrollY(this.flD.getTotalScrollY() - this.realOffset);
+                this.flD.cancelFuture();
+                this.flD.getHandler().sendEmptyMessage(3000);
                 return;
             }
         }
-        this.fiM.getHandler().sendEmptyMessage(1000);
+        this.flD.getHandler().sendEmptyMessage(1000);
         this.realTotalOffset -= this.realOffset;
     }
 }

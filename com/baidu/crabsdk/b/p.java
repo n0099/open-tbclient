@@ -4,47 +4,47 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class p {
-    private static PackageInfo anA;
-    private static String anB;
-    private static PackageManager anz;
+    private static PackageManager aob;
+    private static PackageInfo aoc;
+    private static String aod;
     private static Context mContext;
 
     public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? anA == null ? "N/A" : anA.versionName : com.baidu.crabsdk.a.o;
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aoc == null ? "N/A" : aoc.versionName : com.baidu.crabsdk.a.o;
     }
 
     public static int M() {
-        if (anA == null) {
+        if (aoc == null) {
             return 0;
         }
-        return anA.versionCode;
+        return aoc.versionCode;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            anz = context.getPackageManager();
+            aob = context.getPackageManager();
             try {
-                anA = anz.getPackageInfo(mContext.getPackageName(), 0);
+                aoc = aob.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
         }
     }
 
-    public static String uR() {
+    public static String vf() {
         return mContext.getPackageName();
     }
 
-    public static String uS() {
-        if (anB == null) {
-            if (anA == null) {
+    public static String vg() {
+        if (aod == null) {
+            if (aoc == null) {
                 return "N/A";
             }
-            anB = anA.applicationInfo.loadLabel(anz).toString();
+            aod = aoc.applicationInfo.loadLabel(aob).toString();
         }
-        return anB;
+        return aod;
     }
 }

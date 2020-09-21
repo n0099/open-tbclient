@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.ArrayList;
-/* loaded from: classes19.dex */
+/* loaded from: classes8.dex */
 public class PlayerEventTrigger extends AbsEventTrigger {
     private ArrayList<Integer> mAttentionEventArray = new ArrayList<>(9);
 

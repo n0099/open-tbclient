@@ -10,7 +10,7 @@ import com.xiaomi.push.fc;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.at;
 import com.xiaomi.push.service.bb;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PingReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

@@ -6,55 +6,55 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class a {
 
     /* renamed from: com.baidu.poly.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    static class RunnableC0263a implements Runnable {
-        final /* synthetic */ com.baidu.poly.b.a bEZ;
+    /* loaded from: classes9.dex */
+    static class RunnableC0261a implements Runnable {
+        final /* synthetic */ com.baidu.poly.b.a bHa;
 
         /* renamed from: com.baidu.poly.a.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        class C0264a extends com.baidu.poly.b.a {
-            final /* synthetic */ JSONArray bEX;
+        /* loaded from: classes9.dex */
+        class C0262a extends com.baidu.poly.b.a {
+            final /* synthetic */ JSONArray bGY;
 
-            C0264a(JSONArray jSONArray) {
-                this.bEX = jSONArray;
+            C0262a(JSONArray jSONArray) {
+                this.bGY = jSONArray;
             }
 
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
-                com.baidu.poly.b.a aVar = RunnableC0263a.this.bEZ;
+                com.baidu.poly.b.a aVar = RunnableC0261a.this.bHa;
                 if (aVar != null) {
                     aVar.onResult(i, str);
                 }
                 if (i == 1) {
-                    a.b(this.bEX);
+                    a.b(this.bGY);
                 }
             }
         }
 
-        RunnableC0263a(com.baidu.poly.b.a aVar) {
-            this.bEZ = aVar;
+        RunnableC0261a(com.baidu.poly.b.a aVar) {
+            this.bHa = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONArray TW = a.TW();
-            if (TW == null) {
+            JSONArray UF = a.UF();
+            if (UF == null) {
                 return;
             }
-            com.baidu.poly.a.b.a.a(TW, new C0264a(TW));
+            com.baidu.poly.a.b.a.a(UF, new C0262a(UF));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized JSONArray TW() {
+    public static synchronized JSONArray UF() {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         synchronized (a.class) {
-            File file = new File(g.Us().getFilesDir(), "poly_cashier_commission_record_cache.json");
+            File file = new File(g.Vb().getFilesDir(), "poly_cashier_commission_record_cache.json");
             if (file.exists()) {
                 try {
                     jSONArray = new JSONArray(c.n(file));
@@ -76,14 +76,14 @@ public class a {
         synchronized (a.class) {
             if (jSONArray != null) {
                 if (jSONArray.length() != 0) {
-                    c.a(jSONArray.toString(), new File(g.Us().getFilesDir(), "poly_cashier_commission_record_cache.json"));
+                    c.a(jSONArray.toString(), new File(g.Vb().getFilesDir(), "poly_cashier_commission_record_cache.json"));
                 }
             }
         }
     }
 
     public static void b(com.baidu.poly.b.a aVar) {
-        com.baidu.poly.c.a.execute(new RunnableC0263a(aVar));
+        com.baidu.poly.c.a.execute(new RunnableC0261a(aVar));
     }
 
     public static void c(JSONObject jSONObject) {
@@ -92,15 +92,15 @@ public class a {
                 jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
             } catch (JSONException e) {
             }
-            JSONArray TW = TW();
-            if (TW == null) {
-                TW = new JSONArray();
+            JSONArray UF = UF();
+            if (UF == null) {
+                UF = new JSONArray();
             }
-            TW.put(jSONObject);
-            if (TW.length() > 100) {
-                TW.remove(0);
+            UF.put(jSONObject);
+            if (UF.length() > 100) {
+                UF.remove(0);
             }
-            b(TW);
+            b(UF);
         }
     }
 }

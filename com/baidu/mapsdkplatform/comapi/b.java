@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class b extends Handler {
     final /* synthetic */ a a;
 

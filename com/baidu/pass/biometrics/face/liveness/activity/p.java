@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.face.liveness.activity;
 import android.view.View;
 import com.baidu.pass.biometrics.base.debug.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class p implements View.OnClickListener {
     final /* synthetic */ com.baidu.pass.biometrics.face.liveness.view.a a;
     final /* synthetic */ LivenessRecogActivity b;

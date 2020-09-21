@@ -9,9 +9,9 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.b;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.b;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class CompletableMerge extends a {
     final boolean delayErrors;
     final int maxConcurrency;
@@ -22,7 +22,7 @@ public final class CompletableMerge extends a {
         this.source.subscribe(new CompletableMergeSubscriber(cVar, this.maxConcurrency, this.delayErrors));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class CompletableMergeSubscriber extends AtomicInteger implements io.reactivex.disposables.b, j<e> {
         private static final long serialVersionUID = -2108443387387077490L;
         final c actual;
@@ -50,7 +50,7 @@ public final class CompletableMerge extends a {
             return this.set.isDisposed();
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -64,7 +64,7 @@ public final class CompletableMerge extends a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(e eVar) {
             getAndIncrement();
             MergeInnerObserver mergeInnerObserver = new MergeInnerObserver();
@@ -72,7 +72,7 @@ public final class CompletableMerge extends a {
             eVar.a(mergeInnerObserver);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             if (!this.delayErrors) {
                 this.set.dispose();
@@ -93,7 +93,7 @@ public final class CompletableMerge extends a {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (decrementAndGet() == 0) {
                 if (this.error.get() != null) {
@@ -143,7 +143,7 @@ public final class CompletableMerge extends a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes25.dex */
         public final class MergeInnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 251330541679988317L;
 

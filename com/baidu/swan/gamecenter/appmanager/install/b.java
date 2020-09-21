@@ -5,11 +5,11 @@ import android.util.Log;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.swan.apps.ap.v;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class b extends ActivityDelegation {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private JSONObject dne;
-    private c dnw = new c();
+    private JSONObject dph;
+    private c dpy = new c();
     private String mPackageName;
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
@@ -17,27 +17,27 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
         }
-        this.dne = v.parseString(this.mParams.getString("ubc_params", ""));
+        this.dph = v.parseString(this.mParams.getString("ubc_params", ""));
         JSONObject parseString = v.parseString(this.mParams.getString("data", ""));
         this.mPackageName = parseString.optString("packageName");
         this.mResult.putString("packageName", this.mPackageName);
-        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new RunnableC0486b(parseString, this.dne, this.dnw));
+        com.baidu.swan.gamecenter.appmanager.a.b.sExecutorService.execute(new RunnableC0481b(parseString, this.dph, this.dpy));
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
-        com.baidu.swan.gamecenter.appmanager.a.aKb().a(jSONObject.optString("url"), aVar);
+        com.baidu.swan.gamecenter.appmanager.a.aKM().a(jSONObject.optString("url"), aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.gamecenter.appmanager.c.b bVar) {
         if (bVar != null) {
-            this.mResult.putString("functionType", bVar.aKD());
+            this.mResult.putString("functionType", bVar.aLo());
             this.mResult.putString("resultData", bVar.getResult());
             this.mResult.putInt("resultStatus", bVar.getStatus());
-            if (!bVar.aKC()) {
-                com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dne));
+            if (!bVar.aLn()) {
+                com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, "installApp", "fail", String.valueOf(bVar.getStatus()), new com.baidu.swan.gamecenter.appmanager.d.a(this.dph));
             }
         }
         release();
@@ -57,19 +57,19 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.mPackageName);
         }
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, "installApp", "fail", String.valueOf(31003), new com.baidu.swan.gamecenter.appmanager.d.a(this.dne));
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, "installApp", "fail", String.valueOf(31003), new com.baidu.swan.gamecenter.appmanager.d.a(this.dph));
         release();
     }
 
     private void release() {
-        if (this.dnw != null) {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().e(this.mPackageName, this.dnw);
-            this.dnw = null;
+        if (this.dpy != null) {
+            com.baidu.swan.gamecenter.appmanager.a.aKM().e(this.mPackageName, this.dpy);
+            this.dpy = null;
         }
-        this.dnw = null;
+        this.dpy = null;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class c implements com.baidu.swan.gamecenter.appmanager.b.a {
         private String mFilePath;
         private String mPackageName;
@@ -98,27 +98,27 @@ public class b extends ActivityDelegation {
     }
 
     /* renamed from: com.baidu.swan.gamecenter.appmanager.install.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class RunnableC0486b implements Runnable {
-        private JSONObject dne;
-        private JSONObject dnx;
-        private com.baidu.swan.gamecenter.appmanager.b.a dny;
+    /* loaded from: classes14.dex */
+    private static class RunnableC0481b implements Runnable {
+        private com.baidu.swan.gamecenter.appmanager.b.a dpA;
+        private JSONObject dph;
+        private JSONObject dpz;
 
-        private RunnableC0486b(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
-            this.dnx = jSONObject;
-            this.dne = jSONObject2;
-            this.dny = aVar;
+        private RunnableC0481b(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull com.baidu.swan.gamecenter.appmanager.b.a aVar) {
+            this.dpz = jSONObject;
+            this.dph = jSONObject2;
+            this.dpA = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().bS(this.dne);
-            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dnx.optString("packageName"), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dne));
-            b.a(this.dnx, this.dny);
+            com.baidu.swan.gamecenter.appmanager.a.aKM().bV(this.dph);
+            com.baidu.swan.gamecenter.appmanager.d.c.a(this.dpz.optString("packageName"), "installApp", null, null, new com.baidu.swan.gamecenter.appmanager.d.a(this.dph));
+            b.a(this.dpz, this.dpA);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     private static class a implements Runnable {
         private String mFilePath;
 
@@ -128,8 +128,8 @@ public class b extends ActivityDelegation {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.swan.gamecenter.appmanager.a.aKb().uh(this.mFilePath);
-            com.baidu.swan.gamecenter.appmanager.a.aKb().aKf();
+            com.baidu.swan.gamecenter.appmanager.a.aKM().uA(this.mFilePath);
+            com.baidu.swan.gamecenter.appmanager.a.aKM().aKQ();
         }
     }
 }

@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class d {
     public static boolean h(File file, String str) {
         return a(file, str, true);
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void My(String str) {
+    public static void Na(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -97,7 +97,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Mz(String str) {
+    public static JSONArray Nb(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void MA(String str) {
+    public static void Nc(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.khv + g.a.khl + str));
+            n.deleteFileOrDir(new File(g.a.kpV + g.a.kpL + str));
         }
     }
 }

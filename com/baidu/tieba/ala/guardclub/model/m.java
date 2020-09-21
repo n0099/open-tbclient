@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.guardclub.model;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface m {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, com.baidu.live.guardclub.a aVar, List<k> list, com.baidu.live.guardclub.f fVar, int i2, boolean z, boolean z2);
 

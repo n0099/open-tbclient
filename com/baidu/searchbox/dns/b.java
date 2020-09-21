@@ -7,7 +7,7 @@ import com.baidu.searchbox.dns.util.DnsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes11.dex */
 public class b {
     static List<String> i;
 
@@ -19,7 +19,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.searchbox.dns.c.a k = new a.C0311a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+        com.baidu.searchbox.dns.c.a k = new a.C0309a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
         com.baidu.searchbox.dns.d.a i4 = k.i();
         com.baidu.searchbox.dns.d.a.a h = k.h();
         int j = k.j();

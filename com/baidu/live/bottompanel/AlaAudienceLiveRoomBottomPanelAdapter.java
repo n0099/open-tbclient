@@ -7,29 +7,29 @@ import com.baidu.live.liveroom.d.d;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d aBs;
+    private d aBY;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> aBr = new ArrayList();
+    private final List<d> aBX = new ArrayList();
 
     public void setData(List<d> list) {
-        this.aBr.clear();
+        this.aBX.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aBr.addAll(list);
+            this.aBX.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aBr.size();
+        return this.aBX.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.aBr, i);
+        d dVar = (d) ListUtils.getItem(this.aBX, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.aBs != viewGroup) {
-                    if (this.aBs != null) {
-                        this.aBs.enterBackground();
+                if (this.aBY != viewGroup) {
+                    if (this.aBY != null) {
+                        this.aBY.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.aBs = dVar;
+                    this.aBY = dVar;
                 }
             }
         }
@@ -68,9 +68,9 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
         return (obj instanceof d) && ((d) obj).getPanelView() == view;
     }
 
-    public void Bv() {
-        if (this.aBs != null) {
-            this.aBs.enterForeground();
+    public void BK() {
+        if (this.aBY != null) {
+            this.aBY.enterForeground();
         }
     }
 

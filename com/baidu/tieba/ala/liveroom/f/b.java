@@ -17,26 +17,28 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.core.atomdata.YuyinAlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private TextView cjo;
-    private HeadImageView gpC;
-    private AlaLastLiveroomInfo gpD;
-    private int gpE;
-    private int gpF;
+    private TextView clp;
+    private HeadImageView gsQ;
+    private AlaLastLiveroomInfo gsR;
+    private int gsS;
+    private int gsT;
     private TbPageContext mContext;
     private ValueAnimator mValueAnimator;
     private View mView;
-    private boolean gpI = false;
+    private boolean gsW = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -45,7 +47,7 @@ public class b {
                     b.this.startAnim();
                     return;
                 case 2:
-                    b.this.gpI = true;
+                    b.this.gsW = true;
                     b.this.hide();
                     return;
                 default:
@@ -53,29 +55,29 @@ public class b {
             }
         }
     };
-    private int gpG = com.baidu.live.w.a.Nk().beJ.aHt;
-    private int gpH = com.baidu.live.w.a.Nk().beJ.aHu;
+    private int gsU = com.baidu.live.x.a.NN().bhy.aIK;
+    private int gsV = com.baidu.live.x.a.NN().bhy.aIL;
 
     public b(@NonNull TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.gpE = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds8);
-        this.gpF = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds94);
+        this.gsS = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds8);
+        this.gsT = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds94);
         init();
     }
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.h.ala_back_to_last_live_button, (ViewGroup) null);
-        this.gpC = (HeadImageView) this.mView.findViewById(a.g.back_to_last_live_portrait);
-        this.gpC.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.gpC.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.gpC.setIsRound(true);
-        this.gpC.setAutoChangeStyle(false);
-        this.gpC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cjo = (TextView) this.mView.findViewById(a.g.back_to_last_live_content);
+        this.gsQ = (HeadImageView) this.mView.findViewById(a.g.back_to_last_live_portrait);
+        this.gsQ.setDefaultResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.gsQ.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.gsQ.setIsRound(true);
+        this.gsQ.setAutoChangeStyle(false);
+        this.gsQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.clp = (TextView) this.mView.findViewById(a.g.back_to_last_live_content);
     }
 
     public void show() {
-        if (this.mView != null && this.mView.getParent() != null && !this.gpI) {
+        if (this.mView != null && this.mView.getParent() != null && !this.gsW) {
             this.mView.setVisibility(0);
         }
     }
@@ -88,18 +90,18 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            bPf();
-            this.gpC.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
-            this.gpD = alaLastLiveroomInfo;
+            bQr();
+            this.gsQ.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
+            this.gsR = alaLastLiveroomInfo;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startAnim() {
         int i;
-        int width = this.cjo.getWidth();
+        int width = this.clp.getWidth();
         int width2 = this.mView.getWidth();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gpC.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsQ.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.addRule(11);
             layoutParams.removeRule(1);
@@ -108,11 +110,11 @@ public class b {
             layoutParams.addRule(1, a.g.back_to_last_live_icon);
             i = 0;
         }
-        this.gpC.setLayoutParams(layoutParams);
+        this.gsQ.setLayoutParams(layoutParams);
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }
-        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.gpE).setDuration(i);
+        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.gsS).setDuration(i);
         this.mValueAnimator.setInterpolator(new AccelerateInterpolator());
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.f.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -125,43 +127,63 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.mView.getLayoutParams().width = b.this.gpF;
+                b.this.mView.getLayoutParams().width = b.this.gsT;
                 b.this.mView.requestLayout();
                 Message message = new Message();
                 message.what = 2;
-                b.this.mHandler.sendMessageDelayed(message, b.this.gpH);
+                b.this.mHandler.sendMessageDelayed(message, b.this.gsV);
             }
         });
         this.mValueAnimator.start();
     }
 
-    private void bPf() {
-        if (this.gpC != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gpC.getLayoutParams();
+    private void bQr() {
+        if (this.gsQ != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gsQ.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(11);
             }
             layoutParams.addRule(1, a.g.back_to_last_live_content);
-            this.gpC.setLayoutParams(layoutParams);
+            this.gsQ.setLayoutParams(layoutParams);
         }
     }
 
-    public void bPg() {
-        if (this.gpD != null && this.gpD.getLastLiveId() > 0 && this.mContext != null) {
+    public void bQs() {
+        if (this.gsR != null && this.gsR.getLastLiveId() > 0 && this.mContext != null) {
+            if (this.gsR.getIsAudio() == 1) {
+                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
+                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.gsR.getLastLiveId(), "", "live_sdk");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    if (!TextUtils.isEmpty(this.gsR.getLastCover())) {
+                        jSONObject.put("cover", this.gsR.getLastCover());
+                    }
+                    if (!TextUtils.isEmpty(this.gsR.getLastVideoUrl())) {
+                        jSONObject.put("live_url", this.gsR.getLastVideoUrl());
+                    }
+                    jSONObject.put("enterLiveId", this.gsR.getLastLiveId());
+                    yuyinAlaLiveRoomActivityConfig.addExtraByParams(jSONObject.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501059, "close_video_activity"));
+                return;
+            }
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-            alaLiveRoomActivityConfig.addExtraByLiveId(this.gpD.getLastLiveId(), "", AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
-            JSONObject jSONObject = new JSONObject();
+            alaLiveRoomActivityConfig.addExtraByLiveId(this.gsR.getLastLiveId(), "", "live_sdk");
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.gpD.getLastCover())) {
-                    jSONObject.put("cover", this.gpD.getLastCover());
+                if (!TextUtils.isEmpty(this.gsR.getLastCover())) {
+                    jSONObject2.put("cover", this.gsR.getLastCover());
                 }
-                if (!TextUtils.isEmpty(this.gpD.getLastVideoUrl())) {
-                    jSONObject.put("live_url", this.gpD.getLastVideoUrl());
+                if (!TextUtils.isEmpty(this.gsR.getLastVideoUrl())) {
+                    jSONObject2.put("live_url", this.gsR.getLastVideoUrl());
                 }
-                jSONObject.put("enterLiveId", this.gpD.getLastLiveId());
-                alaLiveRoomActivityConfig.addExtraByParams(jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+                jSONObject2.put("enterLiveId", this.gsR.getLastLiveId());
+                alaLiveRoomActivityConfig.addExtraByParams(jSONObject2.toString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
         }
@@ -175,16 +197,16 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams bPh() {
+    private RelativeLayout.LayoutParams bQt() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds204);
         return layoutParams;
     }
 
-    public void au(ViewGroup viewGroup) {
+    public void av(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, bPh());
+            viewGroup.addView(this.mView, bQt());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -193,16 +215,16 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             Message message = new Message();
             message.what = 1;
-            this.mHandler.sendMessageDelayed(message, this.gpG);
+            this.mHandler.sendMessageDelayed(message, this.gsU);
         }
     }
 
-    public void bPi() {
+    public void bQu() {
         release();
     }
 
     private void release() {
-        this.gpI = false;
+        this.gsW = false;
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
@@ -213,7 +235,7 @@ public class b {
         }
     }
 
-    public void bPj() {
+    public void bQv() {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }

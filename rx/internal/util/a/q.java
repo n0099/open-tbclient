@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.osr;
+        E[] eArr = this.oBY;
         long j = this.producerIndex;
-        long hd = hd(j);
-        if (b(eArr, hd) != null) {
+        long hr = hr(j);
+        if (b(eArr, hr) != null) {
             return false;
         }
-        b(eArr, hd, e);
+        b(eArr, hr, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long hd = hd(j);
-        E[] eArr = this.osr;
-        E b = b(eArr, hd);
+        long hr = hr(j);
+        E[] eArr = this.oBY;
+        E b = b(eArr, hr);
         if (b == null) {
             return null;
         }
-        b(eArr, hd, null);
+        b(eArr, hr, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return he(hd(this.consumerIndex));
+        return hs(hr(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eft = eft();
+        long ejq = ejq();
         while (true) {
-            long efs = efs();
-            long eft2 = eft();
-            if (eft == eft2) {
-                return (int) (efs - eft2);
+            long ejp = ejp();
+            long ejq2 = ejq();
+            if (ejq == ejq2) {
+                return (int) (ejp - ejq2);
             }
-            eft = eft2;
+            ejq = ejq2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return efs() == eft();
+        return ejp() == ejq();
     }
 
     private void soProducerIndex(long j) {
-        ae.oJA.a(this, oJu, j);
+        ae.oTf.a(this, oSZ, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.oJA.a(this, oJt, j);
+        ae.oTf.a(this, oSY, j);
     }
 
-    private long efs() {
-        return ae.oJA.e(this, oJu);
+    private long ejp() {
+        return ae.oTf.e(this, oSZ);
     }
 
-    private long eft() {
-        return ae.oJA.e(this, oJt);
+    private long ejq() {
+        return ae.oTf.e(this, oSY);
     }
 }

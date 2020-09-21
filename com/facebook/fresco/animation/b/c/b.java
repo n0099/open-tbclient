@@ -5,56 +5,56 @@ import android.graphics.Rect;
 import com.facebook.fresco.animation.b.c;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements c {
-    private static final Class<?> njM = b.class;
-    private com.facebook.imagepipeline.animated.base.a nrB;
-    private AnimatedImageCompositor nrC;
-    private final AnimatedImageCompositor.a nrD = new AnimatedImageCompositor.a() { // from class: com.facebook.fresco.animation.b.c.b.1
+    private static final Class<?> ntL = b.class;
+    private AnimatedImageCompositor nBA;
+    private final AnimatedImageCompositor.a nBB = new AnimatedImageCompositor.a() { // from class: com.facebook.fresco.animation.b.c.b.1
         @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
         public void b(int i, Bitmap bitmap) {
         }
 
         @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.a
         @Nullable
-        public com.facebook.common.references.a<Bitmap> Lz(int i) {
-            return b.this.nrj.Lv(i);
+        public com.facebook.common.references.a<Bitmap> Me(int i) {
+            return b.this.nBh.Ma(i);
         }
     };
-    private final com.facebook.fresco.animation.b.b nrj;
+    private final com.facebook.fresco.animation.b.b nBh;
+    private com.facebook.imagepipeline.animated.base.a nBz;
 
     public b(com.facebook.fresco.animation.b.b bVar, com.facebook.imagepipeline.animated.base.a aVar) {
-        this.nrj = bVar;
-        this.nrB = aVar;
-        this.nrC = new AnimatedImageCompositor(this.nrB, this.nrD);
+        this.nBh = bVar;
+        this.nBz = aVar;
+        this.nBA = new AnimatedImageCompositor(this.nBz, this.nBB);
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public void setBounds(@Nullable Rect rect) {
-        com.facebook.imagepipeline.animated.base.a k = this.nrB.k(rect);
-        if (k != this.nrB) {
-            this.nrB = k;
-            this.nrC = new AnimatedImageCompositor(this.nrB, this.nrD);
+        com.facebook.imagepipeline.animated.base.a k = this.nBz.k(rect);
+        if (k != this.nBz) {
+            this.nBz = k;
+            this.nBA = new AnimatedImageCompositor(this.nBz, this.nBB);
         }
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public int getIntrinsicWidth() {
-        return this.nrB.getWidth();
+        return this.nBz.getWidth();
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public int getIntrinsicHeight() {
-        return this.nrB.getHeight();
+        return this.nBz.getHeight();
     }
 
     @Override // com.facebook.fresco.animation.b.c
     public boolean a(int i, Bitmap bitmap) {
         try {
-            this.nrC.c(i, bitmap);
+            this.nBA.c(i, bitmap);
             return true;
         } catch (IllegalStateException e) {
-            com.facebook.common.c.a.b(njM, e, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
+            com.facebook.common.c.a.b(ntL, e, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
             return false;
         }
     }

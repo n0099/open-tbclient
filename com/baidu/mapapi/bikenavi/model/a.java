@@ -1,8 +1,8 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         private String a;
         private String b;
@@ -55,7 +55,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private String a;
         private String b;
@@ -82,8 +82,8 @@ public class a {
     }
 
     /* renamed from: com.baidu.mapapi.bikenavi.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public static class C0211a {
+    /* loaded from: classes3.dex */
+    public static class C0210a {
         private String a;
         private String b;
         private String c;

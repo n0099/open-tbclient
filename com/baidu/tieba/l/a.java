@@ -9,34 +9,34 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 class a {
-    private static final int khZ = ah(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int kia = ah(new byte[]{106, 117, 110, 107});
-    private static final int kib = ah(new byte[]{109, 100, 97, 116});
-    private static final int kic = ah(new byte[]{109, 111, 111, 118});
-    private static final int kie = ah(new byte[]{112, 110, 111, 116});
-    private static final int kif = ah(new byte[]{115, 107, 105, 112});
-    private static final int kig = ah(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int kih = ah(new byte[]{80, 73, 67, 84});
-    private static final int kii = ah(new byte[]{102, 116, 121, 112});
-    private static final int kij = ah(new byte[]{117, 117, 105, 100});
-    private static final int kik = ah(new byte[]{99, 109, 111, 118});
-    private static final int kil = ah(new byte[]{115, 116, 99, 111});
-    private static final int kim = ah(new byte[]{99, 111, 54, 52});
+    private static final int kqz = ah(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int kqA = ah(new byte[]{106, 117, 110, 107});
+    private static final int kqB = ah(new byte[]{109, 100, 97, 116});
+    private static final int kqC = ah(new byte[]{109, 111, 111, 118});
+    private static final int kqD = ah(new byte[]{112, 110, 111, 116});
+    private static final int kqE = ah(new byte[]{115, 107, 105, 112});
+    private static final int kqF = ah(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int kqG = ah(new byte[]{80, 73, 67, 84});
+    private static final int kqH = ah(new byte[]{102, 116, 121, 112});
+    private static final int kqI = ah(new byte[]{117, 117, 105, 100});
+    private static final int kqJ = ah(new byte[]{99, 109, 111, 118});
+    private static final int kqK = ah(new byte[]{115, 116, 99, 111});
+    private static final int kqL = ah(new byte[]{99, 111, 54, 52});
 
-    static long Dh(int i) {
+    static long DI(int i) {
         return i & 4294967295L;
     }
 
-    static int fz(long j) throws RuntimeException {
+    static int fN(long j) throws RuntimeException {
         if (j > 2147483647L || j < 0) {
             throw new RuntimeException("uint32 value is too large");
         }
         return (int) j;
     }
 
-    static long fA(long j) throws RuntimeException {
+    static long fO(long j) throws RuntimeException {
         if (j < 0) {
             throw new RuntimeException("uint64 value is too large");
         }
@@ -61,7 +61,7 @@ class a {
         return read == byteBuffer.capacity();
     }
 
-    public static int ML(String str) {
+    public static int Nn(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -95,16 +95,16 @@ class a {
                 i = i2;
                 break;
             }
-            long Dh = Dh(order.getInt());
+            long DI = DI(order.getInt());
             i = order.getInt();
-            if (i == kii) {
-                int fz = fz(Dh);
-                ByteBuffer order2 = ByteBuffer.allocate(fz).order(ByteOrder.BIG_ENDIAN);
+            if (i == kqH) {
+                int fN = fN(DI);
+                ByteBuffer order2 = ByteBuffer.allocate(fN).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
-                if (fileChannel.read(order2) >= fz - 8) {
+                if (fileChannel.read(order2) >= fN - 8) {
                     order2.flip();
-                    if ((i == khZ && i != kia && i != kib && i != kic && i != kie && i != kif && i != kig && i != kih && i != kij && i != kii) || Dh < 8) {
+                    if ((i == kqz && i != kqA && i != kqB && i != kqC && i != kqD && i != kqE && i != kqF && i != kqG && i != kqI && i != kqH) || DI < 8) {
                         break;
                     }
                     i2 = i;
@@ -112,26 +112,26 @@ class a {
                     break;
                 }
             } else {
-                if (Dh == 1) {
+                if (DI == 1) {
                     order.clear();
                     if (!a(fileChannel, order)) {
                         break;
                     }
-                    Dh = fA(order.getLong());
-                    fileChannel.position((fileChannel.position() + Dh) - 16);
+                    DI = fO(order.getLong());
+                    fileChannel.position((fileChannel.position() + DI) - 16);
                 } else {
-                    fileChannel.position((fileChannel.position() + Dh) - 8);
+                    fileChannel.position((fileChannel.position() + DI) - 8);
                 }
-                if (i == khZ) {
+                if (i == kqz) {
                 }
                 i2 = i;
             }
         }
-        return i != kic ? 0 : 1;
+        return i != kqC ? 0 : 1;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
-    public static boolean fl(String str, String str2) {
+    public static boolean fy(String str, String str2) {
         FileInputStream fileInputStream;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -192,14 +192,14 @@ class a {
                 j = j4;
                 break;
             }
-            j2 = Dh(order.getInt());
+            j2 = DI(order.getInt());
             i2 = order.getInt();
-            if (i2 == kii) {
-                int fz = fz(j2);
-                byteBuffer2 = ByteBuffer.allocate(fz).order(ByteOrder.BIG_ENDIAN);
+            if (i2 == kqH) {
+                int fN = fN(j2);
+                byteBuffer2 = ByteBuffer.allocate(fN).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 byteBuffer2.put(order);
-                if (fileChannel.read(byteBuffer2) < fz - 8) {
+                if (fileChannel.read(byteBuffer2) < fN - 8) {
                     long j5 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -208,7 +208,7 @@ class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == khZ && i2 != kia && i2 != kib && i2 != kic && i2 != kie && i2 != kif && i2 != kig && i2 != kih && i2 != kij && i2 != kii) {
+                if (i2 == kqz && i2 != kqA && i2 != kqB && i2 != kqC && i2 != kqD && i2 != kqE && i2 != kqF && i2 != kqG && i2 != kqI && i2 != kqH) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -231,62 +231,62 @@ class a {
                         j = j8;
                         break;
                     }
-                    j2 = fA(order.getLong());
+                    j2 = fO(order.getLong());
                     fileChannel.position((fileChannel.position() + j2) - 16);
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == khZ) {
+                if (i2 == kqz) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != kic) {
+        if (i != kqC) {
             return false;
         }
-        int fz2 = fz(j2);
-        long size = fileChannel.size() - fz2;
-        ByteBuffer order2 = ByteBuffer.allocate(fz2).order(ByteOrder.BIG_ENDIAN);
+        int fN2 = fN(j2);
+        long size = fileChannel.size() - fN2;
+        ByteBuffer order2 = ByteBuffer.allocate(fN2).order(ByteOrder.BIG_ENDIAN);
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == kik) {
+        if (order2.getInt(12) == kqJ) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != kil && i3 != kim) {
+            if (i3 != kqK && i3 != kqL) {
                 order2.position(order2.position() + 1);
-            } else if (Dh(order2.getInt(position)) > order2.remaining()) {
+            } else if (DI(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
             } else {
                 order2.position(position + 12);
                 if (order2.remaining() < 4) {
                     throw new RuntimeException("malformed atom");
                 }
-                int fz3 = fz(order2.getInt());
-                if (i3 == kil) {
-                    if (order2.remaining() < fz3 * 4) {
+                int fN3 = fN(order2.getInt());
+                if (i3 == kqK) {
+                    if (order2.remaining() < fN3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
-                    for (int i4 = 0; i4 < fz3; i4++) {
+                    for (int i4 = 0; i4 < fN3; i4++) {
                         int i5 = order2.getInt(order2.position());
-                        int i6 = i5 + fz2;
+                        int i6 = i5 + fN2;
                         if (i5 < 0 && i6 >= 0) {
                             throw new RuntimeException("This is bug in original qt-faststart.c: stco atom should be extended to co64 atom as new offset value overflows uint32, but is not implemented.");
                         }
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != kim) {
+                } else if (i3 != kqL) {
                     continue;
-                } else if (order2.remaining() < fz3 * 8) {
+                } else if (order2.remaining() < fN3 * 8) {
                     throw new RuntimeException("bad atom size/element count");
                 } else {
-                    for (int i7 = 0; i7 < fz3; i7++) {
-                        order2.putLong(order2.getLong(order2.position()) + fz2);
+                    for (int i7 = 0; i7 < fN3; i7++) {
+                        order2.putLong(order2.getLong(order2.position()) + fN2);
                     }
                 }
             }

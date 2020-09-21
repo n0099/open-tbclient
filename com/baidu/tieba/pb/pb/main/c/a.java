@@ -5,12 +5,12 @@ import com.baidu.card.b;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tieba.card.aa;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public abstract class a {
-    protected b.a aeW;
-    protected TbPageContext efr;
-    protected aa kQe;
-    protected OriginalThreadInfo kQf;
+    protected b.a afo;
+    protected TbPageContext ehG;
+    protected aa kYG;
+    protected OriginalThreadInfo kYH;
     protected int mSkinType = 3;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
@@ -20,14 +20,14 @@ public abstract class a {
     public abstract void onChangeSkinType(TbPageContext tbPageContext, int i);
 
     public a(TbPageContext tbPageContext) {
-        this.efr = tbPageContext;
+        this.ehG = tbPageContext;
     }
 
     public void a(aa aaVar) {
-        this.kQe = aaVar;
+        this.kYG = aaVar;
     }
 
     public void a(b.a aVar) {
-        this.aeW = aVar;
+        this.afo = aVar;
     }
 }

@@ -7,12 +7,12 @@ import android.os.IBinder;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class AdDownloadService extends Service {
     private a mBinder = new a();
     private com.baidu.swan.game.ad.downloader.c.c mDownloadManager;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public class a extends Binder {
         public a() {
         }
@@ -33,8 +33,8 @@ public class AdDownloadService extends Service {
             AdDownloadService.this.mDownloadManager.h(downloadInfo);
         }
 
-        public DownloadInfo tF(String str) {
-            return AdDownloadService.this.mDownloadManager.tF(str);
+        public DownloadInfo tY(String str) {
+            return AdDownloadService.this.mDownloadManager.tY(str);
         }
     }
 

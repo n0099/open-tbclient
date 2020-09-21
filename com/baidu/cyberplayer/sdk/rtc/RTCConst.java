@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class RTCConst {
     public static final int RTC_ROOM_EVENT_AVAILABLE_SEND_BITRATE = 200;
     public static final int RTC_ROOM_EVENT_CONNECTION_LOST = 103;

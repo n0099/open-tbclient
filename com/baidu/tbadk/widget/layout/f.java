@@ -7,28 +7,28 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int fcN;
-    protected int fcO;
-    private double fcP;
-    private boolean fcQ;
+    private int ffF;
+    protected int ffG;
+    private double ffH;
+    private boolean ffI;
 
     public f() {
-        this.fcN = 3;
-        this.fcO = this.fcN;
-        this.fcQ = true;
+        this.ffF = 3;
+        this.ffG = this.ffF;
+        this.ffI = true;
     }
 
     public f(int i) {
-        this.fcN = 3;
-        this.fcO = this.fcN;
-        this.fcQ = true;
+        this.ffF = 3;
+        this.ffG = this.ffF;
+        this.ffI = true;
         if (i > 0) {
-            this.fcO = i;
+            this.ffG = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.c
-    public int qX(int i) {
+    public int ro(int i) {
         return 1;
     }
 
@@ -44,44 +44,44 @@ public class f implements c {
         }
         int count = y.getCount(list);
         if (count >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.fcN);
+            constrainImageLayout.setImageMaxChildCount(this.ffF);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = count - this.fcO;
+        int i3 = count - this.ffG;
         if (i3 > 0) {
-            int i4 = this.fcO + i;
+            int i4 = this.ffG + i;
             List<MediaData> subList = y.subList(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.fcQ) {
+            if (!this.ffI) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(subList, i, true, this.fcQ);
+            constrainImageLayout.setUrls(subList, i, true, this.ffI);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(y.subList(list, i, count), i);
             constrainImageLayout.setExtraCenterText(null);
             i2 = count;
         }
-        constrainImageLayout.setSingleImageRatio(rb(count));
+        constrainImageLayout.setSingleImageRatio(rs(count));
         return i2;
     }
 
-    private double rb(int i) {
+    private double rs(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.fcP > 0.0d) {
-            return this.fcP;
+        if (this.ffH > 0.0d) {
+            return this.ffH;
         }
         return 0.6666666666666666d;
     }
 
     public void u(double d) {
-        this.fcP = d;
+        this.ffH = d;
     }
 }

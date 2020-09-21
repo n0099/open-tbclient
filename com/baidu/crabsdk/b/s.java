@@ -1,7 +1,7 @@
 package com.baidu.crabsdk.b;
 
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static String Q() {
         StringBuilder sb = new StringBuilder();
@@ -85,7 +85,7 @@ public final class s {
         return sb.toString();
     }
 
-    public static Thread ds(String str) {
+    public static Thread du(String str) {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {
             for (Thread thread : allStackTraces.keySet()) {

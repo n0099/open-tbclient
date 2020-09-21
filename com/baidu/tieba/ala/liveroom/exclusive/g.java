@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ac;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class g {
-    private TbImageView fAM;
+    private TbImageView fDY;
     private ViewGroup mContentView;
     private Context mContext;
     public View mRootView;
@@ -19,22 +19,22 @@ public class g {
     public g(View view) {
         this.mContext = view.getContext();
         this.mRootView = view;
-        this.fAM = (TbImageView) this.mRootView.findViewById(a.g.iv_scene_avatar);
-        this.fAM.setDefaultBgResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.fAM.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
-        this.fAM.setIsRound(true);
-        this.fAM.setAutoChangeStyle(false);
-        this.fAM.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.fAM.setDrawBorder(false);
+        this.fDY = (TbImageView) this.mRootView.findViewById(a.g.iv_scene_avatar);
+        this.fDY.setDefaultBgResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.fDY.setDefaultErrorResource(a.f.sdk_pic_mycenter_avatar_def);
+        this.fDY.setIsRound(true);
+        this.fDY.setAutoChangeStyle(false);
+        this.fDY.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.fDY.setDrawBorder(false);
         this.mTextView = (TextView) this.mRootView.findViewById(a.g.tv_scene_name);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(a.g.ll_content_container);
     }
 
-    public void a(x xVar, boolean z, boolean z2) {
-        if (xVar != null) {
-            this.fAM.startLoad(xVar.imageUrl, 10, false);
-            this.mTextView.setText(xVar.getLabelName());
-            c.a(this.mContext, this.mContentView, z, xVar.startColor, xVar.endColor, z2);
+    public void a(ac acVar, boolean z, boolean z2) {
+        if (acVar != null) {
+            this.fDY.startLoad(acVar.imageUrl, 10, false);
+            this.mTextView.setText(acVar.getLabelName());
+            c.a(this.mContext, this.mContentView, z, acVar.startColor, acVar.endColor, z2);
         }
     }
 }

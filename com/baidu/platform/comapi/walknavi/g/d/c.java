@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class c {
     static Toast a = null;
 

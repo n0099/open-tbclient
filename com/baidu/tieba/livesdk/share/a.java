@@ -53,7 +53,7 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!CD(i)) {
+            if (!De(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -67,28 +67,28 @@ public class a implements IShareChannel, f {
         }
     }
 
-    private boolean CD(int i) {
+    private boolean De(int i) {
         boolean z = false;
         switch (i) {
             case 2:
             case 3:
                 z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0735b.share_weixin_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0732b.share_weixin_not_installed_yet));
                     break;
                 }
                 break;
             case 6:
                 z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0735b.share_weibo_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0732b.share_weibo_not_installed_yet));
                     break;
                 }
                 break;
             case 8:
                 z = y.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0735b.share_qq_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0732b.share_qq_not_installed_yet));
                     break;
                 }
                 break;

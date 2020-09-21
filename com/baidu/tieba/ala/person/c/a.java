@@ -8,22 +8,21 @@ import com.baidu.live.data.PersonUserData;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.person.a.d;
 import com.baidu.tieba.ala.person.c.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0650a gRh;
-    private com.baidu.live.n.a gRi;
-    private c gRj;
-    private c gRk;
+    private InterfaceC0647a gUP;
+    private com.baidu.live.o.a gUQ;
+    private c gUR;
+    private c gUS;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0650a {
-        void a(d dVar);
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0647a {
+        void a(com.baidu.tieba.ala.person.a.c cVar);
 
-        void b(d dVar);
+        void b(com.baidu.tieba.ala.person.a.c cVar);
 
         void c(PersonUserData personUserData);
 
@@ -32,13 +31,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gRj = new c(tbPageContext);
-        this.gRk = new c(tbPageContext);
-        this.gRj.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.gUR = new c(tbPageContext);
+        this.gUS = new c(tbPageContext);
+        this.gUR.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
-            public void c(d dVar) {
-                if (dVar != null && a.this.gRh != null) {
-                    a.this.gRh.a(dVar);
+            public void c(com.baidu.tieba.ala.person.a.c cVar) {
+                if (cVar != null && a.this.gUP != null) {
+                    a.this.gUP.a(cVar);
                 }
             }
 
@@ -46,11 +45,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.gRk.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.gUS.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
-            public void c(d dVar) {
-                if (dVar != null && a.this.gRh != null) {
-                    a.this.gRh.b(dVar);
+            public void c(com.baidu.tieba.ala.person.a.c cVar) {
+                if (cVar != null && a.this.gUP != null) {
+                    a.this.gUP.b(cVar);
                 }
             }
 
@@ -62,51 +61,51 @@ public class a {
 
     public void k(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.gRh != null) {
-                this.gRh.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
+            if (this.gUP != null) {
+                this.gUP.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_no_network));
                 return;
             }
             return;
         }
-        this.gRi = new com.baidu.live.n.a(new com.baidu.live.n.c() { // from class: com.baidu.tieba.ala.person.c.a.3
-            @Override // com.baidu.live.n.c
+        this.gUQ = new com.baidu.live.o.a(new com.baidu.live.o.c() { // from class: com.baidu.tieba.ala.person.c.a.3
+            @Override // com.baidu.live.o.c
             public void a(PersonUserData personUserData) {
-                if (a.this.gRh != null) {
-                    a.this.gRh.c(personUserData);
+                if (a.this.gUP != null) {
+                    a.this.gUP.c(personUserData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913214, personUserData));
             }
 
-            @Override // com.baidu.live.n.c
-            public void p(int i, String str6) {
-                if (a.this.gRh != null) {
-                    a.this.gRh.onFail(str6);
+            @Override // com.baidu.live.o.c
+            public void q(int i, String str6) {
+                if (a.this.gUP != null) {
+                    a.this.gUP.onFail(str6);
                 }
             }
         });
-        this.gRi.execute(str, str2, str3, str4, str5);
-        eh(str, str4);
+        this.gUQ.execute(str, str2, str3, str4, str5);
+        el(str, str4);
     }
 
-    public void eh(String str, String str2) {
+    public void el(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.gRj.setPn(-1);
-            this.gRj.i(0, str, str2);
-            this.gRk.setPn(-1);
-            this.gRk.i(1, str, str2);
+            this.gUR.setPn(-1);
+            this.gUR.i(0, str, str2);
+            this.gUS.setPn(-1);
+            this.gUS.i(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.gRi != null && !this.gRi.isCancelled()) {
-            this.gRi.cancel();
+        if (this.gUQ != null && !this.gUQ.isCancelled()) {
+            this.gUQ.cancel();
         }
-        if (this.gRh != null) {
-            this.gRh.onFail(null);
+        if (this.gUP != null) {
+            this.gUP.onFail(null);
         }
     }
 
-    public void a(InterfaceC0650a interfaceC0650a) {
-        this.gRh = interfaceC0650a;
+    public void a(InterfaceC0647a interfaceC0647a) {
+        this.gUP = interfaceC0647a;
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public class AdInfo implements Serializable {
     private static final long serialVersionUID = 1;
     public int adHeight;
@@ -79,11 +79,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b DV = b.DV(com.baidu.tieba.advert.sdk.c.a.bCi());
-        if (TextUtils.isEmpty(DV.videoLocalPath)) {
+        b Es = b.Es(com.baidu.tieba.advert.sdk.c.a.bDu());
+        if (TextUtils.isEmpty(Es.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(DV.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !DV.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(Es.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !Es.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {

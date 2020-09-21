@@ -1,18 +1,18 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class ag {
-    public int aDv;
-    public int aOI;
+    public int aEo;
+    public int aQH;
     public int accountType;
     public long beginTime;
-    public long dYE;
-    public String dYF;
-    public long dYG;
-    public long dYH;
-    public int dYI;
-    public int dYJ;
-    public int dYK;
     public String desc;
+    public long eaO;
+    public String eaP;
+    public long eaQ;
+    public long eaR;
+    public int eaS;
+    public int eaT;
+    public int eaU;
     public long endTime;
     public int id;
     public String name;

@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class VideoInfo implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
     private static final String KEY_VIDEO_DURATION = "video_l";

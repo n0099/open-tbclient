@@ -16,7 +16,7 @@ import com.baidu.mapapi.walknavi.model.WalkNaviDisplayOption;
 import com.baidu.mapapi.walknavi.model.a;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.R;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
     private Activity a;
     private com.baidu.platform.comapi.walknavi.g.a b;
@@ -39,7 +39,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
     }
 
     private void a(View view) {
-        this.i = (RelativeLayout) view.findViewById(R.raw.release_date);
+        this.i = (RelativeLayout) view.findViewById(2131165272);
         WalkNaviDisplayOption n = com.baidu.platform.comapi.walknavi.b.a().n();
         if (n == null || !n.getIsCustomWNaviGuideLayout()) {
             b(view);
@@ -116,12 +116,12 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     private void b(View view) {
         if (view != null) {
-            this.c = (ImageView) view.findViewById(R.raw.lottie_push_permission_dialog_animation);
-            this.d = (TextView) view.findViewById(R.raw.lottie_push_permission_dialog_animation_1);
-            this.e = (TextView) view.findViewById(R.raw.rim_video_lrc_tip);
-            this.h = view.findViewById(R.raw.lottie_photo);
-            this.f = (TextView) view.findViewById(R.raw.lottie_pull_refresh);
-            this.g = (TextView) view.findViewById(R.raw.lottie_pull_refresh_1);
+            this.c = (ImageView) view.findViewById(2131165224);
+            this.d = (TextView) view.findViewById(2131165225);
+            this.e = (TextView) view.findViewById(2131165273);
+            this.h = view.findViewById(2131165221);
+            this.f = (TextView) view.findViewById(2131165222);
+            this.g = (TextView) view.findViewById(2131165223);
             this.h.setVisibility(8);
             a(com.baidu.platform.comapi.walknavi.b.a().n());
         }
@@ -132,7 +132,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
             this.d.setVisibility(8);
             this.e.setVisibility(4);
             this.h.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_fade_in);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.layout.abc_action_bar_title_item);
             this.h.setAnimation(c);
             c.setAnimationListener(new e(this));
             c.start();
@@ -141,7 +141,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     public void d() {
         if (this.h.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.anim.abc_grow_fade_in_from_bottom);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.a, R.layout.abc_action_menu_item_layout);
             c.setAnimationListener(new f(this));
             this.h.startAnimation(c);
         }

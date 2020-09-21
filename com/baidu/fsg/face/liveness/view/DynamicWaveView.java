@@ -8,7 +8,7 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.fsg.face.base.d.h;
-/* loaded from: classes11.dex */
+/* loaded from: classes16.dex */
 public class DynamicWaveView extends View {
     private static final int a = 1715238655;
     private static final float b = 30.0f;

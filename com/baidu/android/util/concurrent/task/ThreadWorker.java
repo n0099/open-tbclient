@@ -2,7 +2,7 @@ package com.baidu.android.util.concurrent.task;
 
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class ThreadWorker implements Runnable {
     private final Object mLockObj = new Object();
     private Looper mLooper = null;

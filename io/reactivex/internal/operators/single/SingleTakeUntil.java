@@ -8,21 +8,21 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
-    final org.b.b<U> onu;
+    final org.a.b<U> oxd;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
         yVar.onSubscribe(takeUntilMainObserver);
-        this.onu.subscribe(takeUntilMainObserver.other);
+        this.oxd.subscribe(takeUntilMainObserver.other);
         this.source.a(takeUntilMainObserver);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TakeUntilMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -622603812305745221L;
         final y<? super T> actual;
@@ -78,7 +78,7 @@ public final class SingleTakeUntil<T, U> extends w<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static final class TakeUntilOtherSubscriber extends AtomicReference<d> implements j<Object> {
         private static final long serialVersionUID = 5170026210238877381L;
         final TakeUntilMainObserver<?> parent;
@@ -87,26 +87,26 @@ public final class SingleTakeUntil<T, U> extends w<T> {
             this.parent = takeUntilMainObserver;
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onNext(Object obj) {
             if (SubscriptionHelper.cancel(this)) {
                 this.parent.otherError(new CancellationException());
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onError(Throwable th) {
             this.parent.otherError(th);
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public void onComplete() {
             if (get() != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);

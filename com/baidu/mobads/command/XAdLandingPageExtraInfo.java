@@ -7,7 +7,7 @@ import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class XAdLandingPageExtraInfo extends XAdCommandExtraInfo {
     public static final Parcelable.Creator<XAdLandingPageExtraInfo> CREATOR = new c();
     public int e75;

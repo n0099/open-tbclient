@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class a {
-    private static b dRZ = null;
-    private static a dSa = null;
-    private static boolean dSb = false;
-    private static String dSc = "";
-    private static transient List<String> dSd = new ArrayList(5);
+    private static b dUj = null;
+    private static a dUk = null;
+    private static boolean dUl = false;
+    private static String dUm = "";
+    private static transient List<String> dUn = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (dSa == null) {
+        if (dUk == null) {
             synchronized (a.class) {
-                if (dSa == null) {
-                    dSa = new a();
-                    dRZ = b.c(baseFragmentActivity);
+                if (dUk == null) {
+                    dUk = new a();
+                    dUj = b.c(baseFragmentActivity);
                 }
             }
-        } else if (dRZ != null) {
-            dRZ.a(baseFragmentActivity.getPageContext());
+        } else if (dUj != null) {
+            dUj.a(baseFragmentActivity.getPageContext());
         }
-        if (dSb && dRZ != null) {
-            dRZ.baL();
-            dRZ.baM();
-            dSb = false;
+        if (dUl && dUj != null) {
+            dUj.bbF();
+            dUj.bbG();
+            dUl = false;
         }
-        return dSa;
+        return dUk;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        baI();
+        bbC();
         if (z) {
-            baE();
+            bby();
         }
         if (z2) {
-            baF();
+            bbz();
         }
-        hC(z3);
+        hz(z3);
         a(aVar);
     }
 
-    public void baE() {
-        baI();
-        if (dRZ != null) {
-            dRZ.baL();
-            dSb = false;
+    public void bby() {
+        bbC();
+        if (dUj != null) {
+            dUj.bbF();
+            dUl = false;
         }
     }
 
-    public void baF() {
-        baI();
-        if (dRZ != null) {
-            dRZ.baM();
-            dSb = false;
+    public void bbz() {
+        bbC();
+        if (dUj != null) {
+            dUj.bbG();
+            dUl = false;
         }
     }
 
-    public void hC(boolean z) {
-        baI();
-        if (dRZ != null) {
-            dRZ.hC(z);
+    public void hz(boolean z) {
+        bbC();
+        if (dUj != null) {
+            dUj.hz(z);
         }
     }
 
     public void a(b.a aVar) {
-        baI();
-        if (dRZ != null) {
-            dRZ.c(aVar);
+        bbC();
+        if (dUj != null) {
+            dUj.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        baI();
-        if (dRZ != null) {
-            if (dRZ.baJ()) {
-                dRZ.c(aVar);
+        bbC();
+        if (dUj != null) {
+            if (dUj.bbD()) {
+                dUj.c(aVar);
             }
-            dRZ.baK();
+            dUj.bbE();
         }
     }
 
     public void a(int i, b.a aVar) {
-        baI();
-        if (dRZ != null) {
-            if (dRZ.baJ()) {
-                dRZ.c(aVar);
+        bbC();
+        if (dUj != null) {
+            if (dUj.bbD()) {
+                dUj.c(aVar);
             }
-            dRZ.mG(i);
+            dUj.mR(i);
         }
     }
 
-    public void baG() {
-        baI();
-        if (dRZ != null) {
-            dRZ.baG();
-            dSb = true;
+    public void bbA() {
+        bbC();
+        if (dUj != null) {
+            dUj.bbA();
+            dUl = true;
         }
     }
 
     public void resetContext() {
-        baI();
-        if (dRZ != null) {
-            dRZ.resetContext();
+        bbC();
+        if (dUj != null) {
+            dUj.resetContext();
         }
     }
 
-    public void baH() {
-        baI();
+    public void bbB() {
+        bbC();
         resetContext();
-        baG();
+        bbA();
     }
 
-    private void baI() {
-        if (dRZ == null) {
+    private void bbC() {
+        if (dUj == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (dRZ != null) {
-                if (dSa != null) {
-                    dSa.baH();
+            if (dUj != null) {
+                if (dUk != null) {
+                    dUk.bbB();
                 }
-                dRZ.removeCallBack();
-                dRZ.baN();
-                dRZ = null;
+                dUj.removeCallBack();
+                dUj.bbH();
+                dUj = null;
             }
-            if (dSa != null) {
-                dSa = null;
+            if (dUk != null) {
+                dUk = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

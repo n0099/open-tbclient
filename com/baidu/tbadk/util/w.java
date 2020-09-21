@@ -1,56 +1,81 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.android.imsdk.internal.IMConnection;
+import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public final class w {
-    public static boolean isEMUI() {
-        return G("ro.build.version.emui", "ro.build.hw_emui_api_level");
+public class w {
+    private static w eYp = null;
+    private String eYo;
+    private Runnable eYq = new Runnable() { // from class: com.baidu.tbadk.util.w.1
+        @Override // java.lang.Runnable
+        public void run() {
+            HashMap hashMap = new HashMap();
+            hashMap.put("from", String.valueOf(w.this.mFrom));
+            hashMap.put("field_id", w.this.mFieldId);
+            if (w.this.mFrom == 2) {
+                hashMap.put("fid", w.this.eYo);
+            }
+            hashMap.put("animated", false);
+            hashMap.put("transparent", true);
+            hashMap.put("swipeback", false);
+            if (PluginPackageManager.pT().cC("com.baidu.tieba.pluginFlutter")) {
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    com.baidu.adp.lib.f.e.mX().postDelayed(w.this.eYq, 0L);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
+                com.baidu.tbadk.core.sharedPref.b.bjf().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+            }
+        }
+    };
+    private String mFieldId;
+    private int mFrom;
+
+    private w() {
     }
 
-    private static boolean G(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a bvD = a.bvD();
-            for (String str : strArr) {
-                if (bvD.getProperty(str) != null) {
-                    return true;
-                }
+    public static synchronized w bwL() {
+        w wVar;
+        synchronized (w.class) {
+            if (eYp == null) {
+                eYp = new w();
             }
-            return false;
-        } catch (IOException e) {
-            return false;
+            wVar = eYp;
+        }
+        return wVar;
+    }
+
+    private boolean a(int i, NewGodData newGodData) {
+        if (i != 5) {
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bjf().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bjf().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+        }
+        return true;
+    }
+
+    public void b(int i, NewGodData newGodData) {
+        a(i, newGodData, true);
+    }
+
+    public void a(int i, NewGodData newGodData, boolean z) {
+        if (a(i, newGodData)) {
+            removeCallbacks();
+            this.mFrom = i;
+            this.mFieldId = newGodData.getFieldId();
+            com.baidu.adp.lib.f.e.mX().postDelayed(this.eYq, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a eVB;
-        private final Properties eVC = new Properties();
+    public void removeCallbacks() {
+        com.baidu.adp.lib.f.e.mX().removeCallbacks(this.eYq);
+    }
 
-        private a() throws IOException {
-            this.eVC.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a bvD() throws IOException {
-            if (eVB == null) {
-                synchronized (a.class) {
-                    if (eVB == null) {
-                        eVB = new a();
-                    }
-                }
-            }
-            return eVB;
-        }
-
-        public String getProperty(String str) {
-            return this.eVC.getProperty(str);
-        }
+    public void setFid(String str) {
+        this.eYo = str;
     }
 }

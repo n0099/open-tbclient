@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
     private List<c> dataList;
-    public final ArrayList<e> fav = new ArrayList<>();
-    private e iWZ;
+    public final ArrayList<e> fdo = new ArrayList<>();
+    private e jfF;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,7 +21,7 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.iWZ = eVar;
+        this.jfF = eVar;
     }
 
     public void setData(List<c> list) {
@@ -59,10 +59,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e bT = this.iWZ.bT(view);
-            bT.setOnClickListener(this.mOnClickListener);
-            view.setTag(bT);
-            this.fav.add(bT);
+            e cc = this.jfF.cc(view);
+            cc.setOnClickListener(this.mOnClickListener);
+            view.setTag(cc);
+            this.fdo.add(cc);
         }
         e eVar = (e) view.getTag();
         if (y.getItem(this.dataList, i) != null) {
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void onSkinTypeChanged(int i) {
-        if (y.getCount(this.fav) > 0) {
-            Iterator<e> it = this.fav.iterator();
+        if (y.getCount(this.fdo) > 0) {
+            Iterator<e> it = this.fdo.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

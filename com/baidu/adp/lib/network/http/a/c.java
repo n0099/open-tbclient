@@ -1,69 +1,69 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
-    private String LW;
-    private String LZ;
-    private int Lp;
-    private int Ma;
-    private long Mb;
+    private int Lz;
+    private String Mh;
+    private String Mk;
+    private int Ml;
+    private long Mm;
     private String exception;
-    private boolean LX = false;
-    private boolean LY = false;
-    private int Ld = 0;
+    private boolean Mi = false;
+    private boolean Mj = false;
+    private int Ln = 0;
 
     public void am(boolean z) {
-        this.LX = z;
+        this.Mi = z;
     }
 
-    public boolean mD() {
-        return this.LY;
+    public boolean mI() {
+        return this.Mj;
     }
 
     public void an(boolean z) {
-        this.LY = z;
+        this.Mj = z;
     }
 
     public void setException(String str) {
         this.exception = str;
     }
 
-    public void ao(int i) {
-        this.Ld = i;
+    public void ar(int i) {
+        this.Ln = i;
     }
 
-    public void mE() {
+    public void mJ() {
         this.exception = "";
     }
 
-    public void bK(String str) {
-        this.LZ = str;
+    public void bM(String str) {
+        this.Mk = str;
     }
 
-    public String mF() {
-        return this.LZ;
+    public String mK() {
+        return this.Mk;
     }
 
-    public void ap(int i) {
-        this.Ma = i;
+    public void as(int i) {
+        this.Ml = i;
     }
 
     public void G(long j) {
-        this.Mb = j;
+        this.Mm = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.LX + "-statType_" + this.Ma + "-dnsErr_" + this.exception + "-hasRetry_" + this.Ld + "-cost_" + this.Mb + "-ipIndex_" + this.Lp + "-ipResult_" + this.LW;
+        return "isFromNet_" + this.Mi + "-statType_" + this.Ml + "-dnsErr_" + this.exception + "-hasRetry_" + this.Ln + "-cost_" + this.Mm + "-ipIndex_" + this.Lz + "-ipResult_" + this.Mh;
     }
 
-    public String mG() {
-        return this.LW;
+    public String mL() {
+        return this.Mh;
     }
 
-    public void bL(String str) {
-        this.LW = str;
+    public void bN(String str) {
+        this.Mh = str;
     }
 
-    public void al(int i) {
-        this.Lp = i;
+    public void ao(int i) {
+        this.Lz = i;
     }
 }

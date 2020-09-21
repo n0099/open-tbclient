@@ -4,7 +4,7 @@ import kotlin.Pair;
 import kotlin.jvm.a.m;
 import kotlin.jvm.internal.Lambda;
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$zipWithNext$1 extends Lambda implements m<T, T, Pair<? extends T, ? extends T>> {
     public static final SequencesKt___SequencesKt$zipWithNext$1 INSTANCE = new SequencesKt___SequencesKt$zipWithNext$1();
 

@@ -2,18 +2,22 @@ package com.baidu.searchbox.privateapi;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.NoProGuard;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
-public class PrivateApiUtils {
+/* loaded from: classes12.dex */
+public class PrivateApiUtils implements NoProGuard {
     private static final String SDK_VERSION_NAME = "REL";
     private static final int SDK_VERSION_P = 28;
+    private static final String SO_FILE_NAME = "libprivate-p-master.so";
 
     static {
         int i = Build.VERSION.SDK_INT;
         String str = Build.VERSION.CODENAME;
         if (i == 28 && !TextUtils.isEmpty(str) && SDK_VERSION_NAME.equals(str)) {
-            System.loadLibrary("private-p-master");
+            SoLoader.load(AppRuntime.getAppContext(), SO_FILE_NAME);
         }
     }
 

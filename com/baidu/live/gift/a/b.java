@@ -4,16 +4,16 @@ import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class b {
-    public String aHk;
-    public int aNb;
-    public int aOL;
-    public String aOb;
-    public String aOc;
-    public long aOd;
-    public g aSB;
-    public long aSO;
+    public String aIB;
+    public int aOT;
+    public String aPZ;
+    public int aQN;
+    public String aQa;
+    public long aQb;
+    public g aUI;
+    public long aUZ;
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -21,32 +21,32 @@ public class b {
     public String sceneFrom;
     public String userId;
     public String userName;
-    public Map<Long, Long> aSQ = new HashMap();
-    public String aSP = TbadkCoreApplication.getCurrentTbs();
+    public Map<Long, Long> aVb = new HashMap();
+    public String aVa = TbadkCoreApplication.getCurrentTbs();
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
-        this.aSO = j;
-        this.aHk = gVar.DR();
+        this.aUZ = j;
+        this.aIB = gVar.Eh();
         this.userId = str;
         this.userName = str2;
         this.liveId = str3;
         this.roomId = str4;
-        this.aOb = str5;
-        this.mGiftName = gVar.DS();
-        this.aOL = gVar.aNh;
-        this.aNb = gVar.DW();
+        this.aPZ = str5;
+        this.mGiftName = gVar.Ei();
+        this.aQN = gVar.aOZ;
+        this.aOT = gVar.Em();
         this.sceneFrom = gVar.getSceneFrom();
-        this.aSB = gVar;
+        this.aUI = gVar;
         this.otherParams = str6;
-        this.aOc = str7;
-        this.aOd = j2;
+        this.aQa = str7;
+        this.aQb = j2;
     }
 
-    public boolean Eb() {
-        return this.aNb == 6;
+    public boolean Er() {
+        return this.aOT == 6;
     }
 
-    public boolean Gh() {
-        return this.aNb == 7;
+    public boolean GH() {
+        return this.aOT == 7;
     }
 }

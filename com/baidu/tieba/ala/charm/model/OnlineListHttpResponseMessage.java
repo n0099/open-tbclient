@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.charm.model;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.k;
+import com.baidu.live.data.n;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aDG;
-    private k fRj;
-    private long fRk;
+    private AlaLiveUserInfoData aEz;
+    private n fUu;
+    private long fUv;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.fRj = new k();
-                this.fRj.parserJson(optJSONObject);
+                this.fUu = new n();
+                this.fUu.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aDG = new AlaLiveUserInfoData();
-                this.aDG.parserJson(optJSONObject2);
+                this.aEz = new AlaLiveUserInfoData();
+                this.aEz.parserJson(optJSONObject2);
             }
-            this.fRk = optJSONObject.optLong("live_total_price");
+            this.fUv = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bIv() {
+    public long bJD() {
         return this.mAudienceCount;
     }
 
-    public k bIw() {
-        return this.fRj;
+    public n bJE() {
+        return this.fUu;
     }
 
-    public AlaLiveUserInfoData bIx() {
-        return this.aDG;
+    public AlaLiveUserInfoData bJF() {
+        return this.aEz;
     }
 
-    public long bIy() {
-        return this.fRk;
+    public long bJG() {
+        return this.fUv;
     }
 }

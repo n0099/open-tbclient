@@ -5,36 +5,36 @@ import com.baidu.swan.apps.network.k;
 import kotlin.h;
 import kotlin.jvm.internal.q;
 @h
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public final void a(WebSocketTask webSocketTask) {
         q.m(webSocketTask, "task");
-        k aOJ = aOJ();
-        if (aOJ != null) {
-            aOJ.a(webSocketTask);
+        k aPu = aPu();
+        if (aPu != null) {
+            aPu.a(webSocketTask);
         }
     }
 
-    public final void oN(String str) {
+    public final void pg(String str) {
         q.m(str, "taskId");
-        k aOJ = aOJ();
-        if (aOJ != null) {
-            aOJ.oN(str);
+        k aPu = aPu();
+        if (aPu != null) {
+            aPu.pg(str);
         }
     }
 
-    public final boolean auV() {
-        k aOJ = aOJ();
-        if (aOJ != null) {
-            return aOJ.auV();
+    public final boolean avE() {
+        k aPu = aPu();
+        if (aPu != null) {
+            return aPu.avE();
         }
         return false;
     }
 
-    private final k aOJ() {
-        com.baidu.swan.apps.runtime.e azI = com.baidu.swan.apps.runtime.e.azI();
-        if (azI != null) {
-            return azI.azY();
+    private final k aPu() {
+        com.baidu.swan.apps.runtime.e aAr = com.baidu.swan.apps.runtime.e.aAr();
+        if (aAr != null) {
+            return aAr.aAH();
         }
         return null;
     }

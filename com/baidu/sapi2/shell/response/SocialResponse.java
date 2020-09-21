@@ -6,7 +6,7 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class SocialResponse extends SapiAccountResponse {
     public boolean bindConflict;
     public String nextUrl;

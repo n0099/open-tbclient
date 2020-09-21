@@ -19,7 +19,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SegAR extends c {
     private static final String TAG = SegAR.class.getSimpleName();
     private static final float[] uA = {0.0f, -1.0f, 1.0f, 0.0f};

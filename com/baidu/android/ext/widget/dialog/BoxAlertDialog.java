@@ -16,14 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.common.ui.R;
-import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes14.dex */
+import com.baidu.searchbox.ui.AlignTextView;
+/* loaded from: classes19.dex */
 public class BoxAlertDialog extends BaseDialog {
     private static final boolean DEBUG = false;
     public static final int HUNDRED = 100;
     private Builder mBuilder;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public interface IDecorate {
         void decorate(BoxAlertDialog boxAlertDialog, DialogElement dialogElement);
     }
@@ -69,7 +69,7 @@ public class BoxAlertDialog extends BaseDialog {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class Builder {
         public static final int DIALOG_NEGATIVE_TEXT_CANCEL = R.string.dialog_negative_title_cancel;
         public static final int DIALOG_POSITIVE_TEXT_OK = R.string.dialog_positive_title_ok;
@@ -169,6 +169,13 @@ public class BoxAlertDialog extends BaseDialog {
             if (spanned != null) {
                 this.mDialogElement.mMessage.setText(spanned);
                 setMsgContentParams();
+            }
+            return this;
+        }
+
+        public Builder setMessageAlign(AlignTextView.Align align) {
+            if (align != null && (this.mDialogElement.mMessage instanceof AlignTextView)) {
+                ((AlignTextView) this.mDialogElement.mMessage).setAlign(align);
             }
             return this;
         }
@@ -540,7 +547,7 @@ public class BoxAlertDialog extends BaseDialog {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes19.dex */
     public static class DialogElement {
         public LinearLayout mBtnPanelLayout;
         public View mCustomPanel;
@@ -588,10 +595,6 @@ public class BoxAlertDialog extends BaseDialog {
             this.mScrollView = (BoxScrollView) viewGroup.findViewById(R.id.message_scrollview);
             this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(R.id.btn_panel);
             this.mCustomPanel = viewGroup.findViewById(R.id.dialog_customPanel);
-            if (DeviceUtil.OSInfo.isGingerbread() || DeviceUtil.OSInfo.isGingerbreadmr1()) {
-                int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(R.dimen.dialog_text_padding);
-                this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
-            }
         }
 
         public void setMessageMaxHeight(int i) {

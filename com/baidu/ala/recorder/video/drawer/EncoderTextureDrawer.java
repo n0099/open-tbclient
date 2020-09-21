@@ -29,7 +29,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes12.dex */
 public class EncoderTextureDrawer {
     public static final int IDENTITY_90_MATRIX = 2;
     public static final int IDENTITY_MATRIX = 1;
@@ -429,7 +429,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class SWEncoder {
         public ImageReader imageReader;
         public byte[] sendBuffer;
@@ -448,7 +448,7 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes12.dex */
     public static class HWEncoder {
         public TextureEncoder encoder;
         public boolean requestReset = false;

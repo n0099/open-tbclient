@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class c extends aa {
     public c(j jVar) {
         super(jVar, "/swanAPI/setNavigationBarTitle");
@@ -29,14 +29,14 @@ public class c extends aa {
             return false;
         }
         String optString = optParamsAsJo.optString("title");
-        f XX = com.baidu.swan.apps.v.f.arY().XX();
-        if (XX == null) {
+        f YG = com.baidu.swan.apps.v.f.asJ().YG();
+        if (YG == null) {
             com.baidu.swan.apps.console.c.e("navigationTitle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.c ahm = XX.ahm();
-        if (!(ahm != null && ahm.J(optString, true))) {
+        com.baidu.swan.apps.core.d.c ahW = YG.ahW();
+        if (!(ahW != null && ahW.J(optString, true))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
             return false;

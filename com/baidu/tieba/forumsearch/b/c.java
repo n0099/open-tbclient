@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes18.dex */
+/* loaded from: classes23.dex */
 public class c {
-    private String hQJ;
-    private SearchForum hRj;
-    private List<SearchForum> hRk;
-    private ArrayList<q> hRl;
+    private String hXJ;
+    private SearchForum hYj;
+    private List<SearchForum> hYk;
+    private ArrayList<q> hYl;
 
     public c(String str) {
-        this.hQJ = str;
+        this.hXJ = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.hRj = dataRes.exact_match;
-            this.hRk = dataRes.fuzzy_match;
-            this.hRl = new ArrayList<>();
-            b bVar = new b(this.hQJ);
-            if (this.hRj != null) {
-                bVar.a(this.hRj);
-                this.hRl.add(bVar);
+            this.hYj = dataRes.exact_match;
+            this.hYk = dataRes.fuzzy_match;
+            this.hYl = new ArrayList<>();
+            b bVar = new b(this.hXJ);
+            if (this.hYj != null) {
+                bVar.a(this.hYj);
+                this.hYl.add(bVar);
             }
-            if (this.hRk != null) {
-                for (SearchForum searchForum : this.hRk) {
+            if (this.hYk != null) {
+                for (SearchForum searchForum : this.hYk) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.hQJ);
+                        b bVar2 = new b(this.hXJ);
                         bVar2.a(searchForum);
-                        this.hRl.add(bVar2);
+                        this.hYl.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<q> ckK() {
-        return this.hRl;
+    public ArrayList<q> cnX() {
+        return this.hYl;
     }
 }

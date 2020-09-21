@@ -4,44 +4,44 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.turbonet.net.TurbonetEngine;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public final class TurbonetContext {
     private String mAppName;
     private Context mContext;
-    private TurbonetEngine ncT;
-    private String ndu;
+    private TurbonetEngine nmS;
+    private String nnt;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         this.mContext = context;
         this.mAppName = str;
-        this.ndu = str2;
+        this.nnt = str2;
         a(turbonetConfig);
     }
 
-    public TurbonetEngine dLb() {
-        return this.ncT;
+    public TurbonetEngine dOZ() {
+        return this.nmS;
     }
 
-    public long dLc() {
-        return this.ncT.dKl();
+    public long dPa() {
+        return this.nmS.dOj();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.ncT = builder.Tr(this.mAppName).Tq(this.ndu).dLl();
+            this.nmS = builder.TQ(this.mAppName).TP(this.nnt).dPj();
         } else {
-            if (turbonetConfig.dLa()) {
-                builder.Tp(turbonetConfig.dKZ());
+            if (turbonetConfig.dOY()) {
+                builder.TO(turbonetConfig.dOX());
             }
             try {
-                if (turbonetConfig.dKY().has("nq") && turbonetConfig.dKY().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                if (turbonetConfig.dOW().has("nq") && turbonetConfig.dOW().getJSONObject("nq").getBoolean("network_quality_enabled")) {
                     builder.G(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.ncT = builder.Tr(this.mAppName).Tq(this.ndu).Ts(turbonetConfig.dKY().toString()).dLl();
+            this.nmS = builder.TQ(this.mAppName).TP(this.nnt).TR(turbonetConfig.dOW().toString()).dPj();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

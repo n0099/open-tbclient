@@ -1,6 +1,6 @@
 package com.baidu.pass.http;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements Runnable {
     final /* synthetic */ PassHttpClient a;
 

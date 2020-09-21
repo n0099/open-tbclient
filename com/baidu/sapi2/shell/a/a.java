@@ -10,7 +10,7 @@ import android.provider.MediaStore;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes12.dex */
+/* loaded from: classes25.dex */
 public class a {
     private static final String g = "screen_shot_observer";
     private static final String[] h = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
@@ -19,15 +19,15 @@ public class a {
     private IScreenShotListener b;
     private HandlerThread c;
     private Handler d;
-    private C0303a e;
-    private C0303a f;
+    private C0301a e;
+    private C0301a f;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    private class C0303a extends ContentObserver {
+    /* loaded from: classes25.dex */
+    private class C0301a extends ContentObserver {
         private final Uri a;
 
-        public C0303a(Uri uri, Handler handler) {
+        public C0301a(Uri uri, Handler handler) {
             super(handler);
             this.a = uri;
         }
@@ -50,8 +50,8 @@ public class a {
         this.c = new HandlerThread(g);
         this.c.start();
         this.d = new Handler(this.c.getLooper());
-        this.e = new C0303a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
-        this.f = new C0303a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
+        this.e = new C0301a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.d);
+        this.f = new C0301a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.d);
     }
 
     public void a() {

@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes19.dex */
+/* loaded from: classes24.dex */
 public abstract class GenericBucketRequest extends AbstractBceRequest {
     private static final int MAX_BUCKET_NAME_LENGTH = 63;
     private static final int MIN_BUCKET_NAME_LENGTH = 3;

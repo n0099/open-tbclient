@@ -2,6 +2,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.bp;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -12,13 +13,14 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
+    private IconStampData iconStampData;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     private bp mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
-    private String mjk;
-    private String mjl;
+    private String msJ;
+    private String msK;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -35,19 +37,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean dyb() {
+    public boolean dBU() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dyc() {
+    public boolean dBV() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dyd() {
+    public boolean dBW() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dye() {
+    public boolean dBX() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +65,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData ckU() {
+    public AntiData coh() {
         return this.antiData;
     }
 
@@ -107,20 +109,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String dyf() {
-        return this.mjk;
+    public String dBY() {
+        return this.msJ;
     }
 
-    public void Rc(String str) {
-        this.mjk = str;
+    public void RC(String str) {
+        this.msJ = str;
     }
 
-    public String dyg() {
-        return this.mjl;
+    public String dBZ() {
+        return this.msK;
     }
 
-    public void Rd(String str) {
-        this.mjl = str;
+    public void RD(String str) {
+        this.msK = str;
     }
 
     public CustomDialogData getActivityDialog() {
@@ -173,5 +175,13 @@ public class b {
 
     public VideoEasterEggData getVideoEasterEggData() {
         return this.mVideoEasterEggData;
+    }
+
+    public void setIconStampData(IconStampData iconStampData) {
+        this.iconStampData = iconStampData;
+    }
+
+    public IconStampData getIconStampData() {
+        return this.iconStampData;
     }
 }

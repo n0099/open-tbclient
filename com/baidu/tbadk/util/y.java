@@ -1,35 +1,33 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends Thread {
-    private int eVD;
-    private int imageNum;
-    private String type = null;
-
-    public y(int i, int i2) {
-        this.imageNum = 0;
-        this.eVD = 0;
-        this.imageNum = i;
-        this.eVD = i2;
-    }
-
-    public void setType(String str) {
-        this.type = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            com.baidu.tbadk.core.util.aa aaVar = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            aaVar.addPostData("img_num", String.valueOf(this.imageNum));
-            aaVar.addPostData("img_total", String.valueOf(this.eVD));
-            if (this.type != null) {
-                aaVar.addPostData("img_type", this.type);
+public class y {
+    public static final String bwN() {
+        com.baidu.q.a dQU = com.baidu.q.c.gh(TbadkCoreApplication.getInst()).dQU();
+        if (dQU == null) {
+            return null;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            String dQT = dQU.dQT();
+            if (!TextUtils.isEmpty(dQT)) {
+                jSONObject.put("v", dQT);
             }
-            aaVar.postNetData();
+            jSONObject.put(Config.STAT_SDK_CHANNEL, dQU.getStatusCode());
+            jSONObject.put("sup", dQU.isSupport() ? 1 : 0);
+            jSONObject.put("tl", dQU.dQS() ? 1 : 0);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                e.printStackTrace();
+                return null;
+            }
+            return null;
         }
     }
 }

@@ -15,50 +15,50 @@ import java.net.URL;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes19.dex */
+/* loaded from: classes10.dex */
 public class d implements Runnable {
-    private final com.baidu.swan.game.ad.downloader.c.d djX;
-    private final DownloadInfo dkd;
-    private final a dkg;
-    private long dkh;
+    private final com.baidu.swan.game.ad.downloader.c.d dlZ;
+    private final DownloadInfo dmf;
+    private final a dmi;
+    private long dmj;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void aID();
+        void aJi();
 
-        void aIx();
+        void aJo();
     }
 
     public d(com.baidu.swan.game.ad.downloader.c.d dVar, DownloadInfo downloadInfo, a aVar) {
-        this.djX = dVar;
-        this.dkd = downloadInfo;
-        this.dkh = downloadInfo.getProgress();
-        this.dkg = aVar;
+        this.dlZ = dVar;
+        this.dmf = downloadInfo;
+        this.dmj = downloadInfo.getProgress();
+        this.dmi = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Process.setThreadPriority(10);
         try {
-            if (this.dkd.getSize() <= 0) {
-                long tG = tG(this.dkd.getUri());
-                if (tG <= 0) {
+            if (this.dmf.getSize() <= 0) {
+                long tZ = tZ(this.dmf.getUri());
+                if (tZ <= 0) {
                     throw new DownloadException(6, "length <= 0");
                 }
-                this.dkd.setSize(tG);
+                this.dmf.setSize(tZ);
             }
-            this.dkd.setStatus(SwanAdDownloadState.DOWNLOADING.value());
-            this.djX.l(this.dkd);
+            this.dmf.setStatus(SwanAdDownloadState.DOWNLOADING.value());
+            this.dlZ.l(this.dmf);
             executeDownload();
         } catch (DownloadException e) {
-            this.dkd.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
-            this.dkd.setException(e);
-            this.djX.l(this.dkd);
-            this.djX.b(e);
+            this.dmf.setStatus(SwanAdDownloadState.DOWNLOAD_FAILED.value());
+            this.dmf.setException(e);
+            this.dlZ.l(this.dmf);
+            this.dlZ.b(e);
         }
     }
 
-    private long tG(String str) {
+    private long tZ(String str) {
         try {
             Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
             if (execute == null || !execute.isSuccessful()) {
@@ -96,13 +96,13 @@ public class d implements Runnable {
         int i = 0;
         try {
             try {
-                URL url = new URL(this.dkd.getUri());
-                long j = this.dkh;
+                URL url = new URL(this.dmf.getUri());
+                long j = this.dmj;
                 Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER).url(url).build()).execute();
                 if (execute != null) {
                     inputStream = execute.body().byteStream();
                     try {
-                        randomAccessFile = new RandomAccessFile(this.dkd.getPath(), "rw");
+                        randomAccessFile = new RandomAccessFile(this.dmf.getPath(), "rw");
                     } catch (DownloadPauseException e) {
                     } catch (ProtocolException e2) {
                         e = e2;
@@ -121,14 +121,14 @@ public class d implements Runnable {
                             if (read == -1) {
                                 break;
                             }
-                            aIE();
+                            aJp();
                             i += read;
                             randomAccessFile.write(bArr, 0, read);
-                            this.dkd.setProgress(this.dkh + i);
-                            this.dkg.aID();
+                            this.dmf.setProgress(this.dmj + i);
+                            this.dmi.aJo();
                         }
                         execute.body().close();
-                        this.dkg.aIx();
+                        this.dmi.aJi();
                     } catch (DownloadPauseException e5) {
                         randomAccessFile2 = randomAccessFile;
                         if (inputStream != null) {
@@ -215,8 +215,8 @@ public class d implements Runnable {
         }
     }
 
-    private void aIE() {
-        if (this.dkd.isPause()) {
+    private void aJp() {
+        if (this.dmf.isPause()) {
             throw new DownloadPauseException(7);
         }
     }

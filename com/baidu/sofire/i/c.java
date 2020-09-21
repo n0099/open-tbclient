@@ -1,5 +1,5 @@
 package com.baidu.sofire.i;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class c {
     private static long[] a = new long[256];
 

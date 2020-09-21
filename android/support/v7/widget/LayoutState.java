@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 class LayoutState {
     static final int INVALID_LAYOUT = Integer.MIN_VALUE;
     static final int ITEM_DIRECTION_HEAD = -1;

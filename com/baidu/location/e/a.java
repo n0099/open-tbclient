@@ -1,5 +1,5 @@
 package com.baidu.location.e;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static String a = "baidu_location_service";
     public static int b = 12000;

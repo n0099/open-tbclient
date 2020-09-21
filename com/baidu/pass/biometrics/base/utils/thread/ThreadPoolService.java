@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class ThreadPoolService {
     private static final int a = Runtime.getRuntime().availableProcessors();
     private static final ThreadFactory b = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
@@ -26,7 +26,7 @@ public class ThreadPoolService {
     private ThreadPoolExecutor e;
     private Handler f;
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes6.dex */
     private static class SingletonContainer {
         public static ThreadPoolService mSingleInstance = new ThreadPoolService();
 

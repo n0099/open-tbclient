@@ -7,61 +7,61 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static float ayZ = 0.65f;
-    public static float aza = 0.2f;
-    public static float azb = 0.65f;
-    public static float azc = 0.0f;
-    public static float azd = 0.0f;
-    public static float aze = 0.0f;
-    public static float azf = 1.0f;
-    public static float azg = 1.0f;
-    public static float azh = 0.0f;
-    public static List<Point> azi;
-    public static List<Point> azj;
-    public static List<Point> azk;
-    public static List<Point> azl;
-    public static List<List<Point>> azm;
-    public float azn = ayZ;
-    public float azo = aza;
-    public float azp = azb;
-    public float azq = azc;
-    public float azr = azd;
-    public float azs = aze;
-    public float azt = azf;
-    public float azu = azg;
-    public float azv = azh;
-    public List<Point> azw = azi;
-    public List<Point> azx = azj;
-    public List<Point> azy = azk;
-    public List<Point> azz = azl;
+    public static float azF = 0.65f;
+    public static float azG = 0.2f;
+    public static float azH = 0.65f;
+    public static float azI = 0.0f;
+    public static float azJ = 0.0f;
+    public static float azK = 0.0f;
+    public static float azL = 1.0f;
+    public static float azM = 1.0f;
+    public static float azN = 0.0f;
+    public static List<Point> azO;
+    public static List<Point> azP;
+    public static List<Point> azQ;
+    public static List<Point> azR;
+    public static List<List<Point>> azS;
+    public float azT = azF;
+    public float azU = azG;
+    public float azV = azH;
+    public float azW = azI;
+    public float azX = azJ;
+    public float azY = azK;
+    public float azZ = azL;
+    public float aAa = azM;
+    public float aAb = azN;
+    public List<Point> aAc = azO;
+    public List<Point> aAd = azP;
+    public List<Point> aAe = azQ;
+    public List<Point> aAf = azR;
 
     static {
-        AK();
+        AZ();
     }
 
-    public static void AK() {
-        azi = new ArrayList();
-        azi.add(new Point(0, 0));
-        azi.add(new Point(255, 255));
-        azj = new ArrayList();
-        azj.add(new Point(0, 0));
-        azj.add(new Point(255, 255));
-        azk = new ArrayList();
-        azk.add(new Point(0, 0));
-        azk.add(new Point(255, 255));
-        azl = new ArrayList();
-        azl.add(new Point(0, 0));
-        azl.add(new Point(255, 255));
-        azm = new ArrayList();
-        azm.add(azi);
-        azm.add(azj);
-        azm.add(azk);
-        azm.add(azl);
+    public static void AZ() {
+        azO = new ArrayList();
+        azO.add(new Point(0, 0));
+        azO.add(new Point(255, 255));
+        azP = new ArrayList();
+        azP.add(new Point(0, 0));
+        azP.add(new Point(255, 255));
+        azQ = new ArrayList();
+        azQ.add(new Point(0, 0));
+        azQ.add(new Point(255, 255));
+        azR = new ArrayList();
+        azR.add(new Point(0, 0));
+        azR.add(new Point(255, 255));
+        azS = new ArrayList();
+        azS.add(azO);
+        azS.add(azP);
+        azS.add(azQ);
+        azS.add(azR);
     }
 
-    public static b ab(JSONObject jSONObject) {
+    public static b ae(JSONObject jSONObject) {
         int i;
         int i2;
         int i3;
@@ -77,24 +77,24 @@ public class b {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("female");
             if (jSONObject2 != null) {
-                bVar.azn = (float) jSONObject2.optDouble("intensity_smooth");
-                bVar.azo = (float) jSONObject2.optDouble("intensity_white");
+                bVar.azT = (float) jSONObject2.optDouble("intensity_smooth");
+                bVar.azU = (float) jSONObject2.optDouble("intensity_white");
             }
             JSONObject jSONObject3 = jSONObject.getJSONObject("male");
             if (jSONObject3 != null) {
-                bVar.azp = (float) jSONObject3.optDouble("intensity_smooth");
-                bVar.azq = (float) jSONObject3.optDouble("intensity_white");
+                bVar.azV = (float) jSONObject3.optDouble("intensity_smooth");
+                bVar.azW = (float) jSONObject3.optDouble("intensity_white");
             }
-            bVar.azr = (float) jSONObject.optDouble("intensity_sharpness");
-            bVar.azs = (float) jSONObject.optDouble("intensity_brightness");
-            bVar.azt = (float) jSONObject.optDouble("intensity_contrast");
-            bVar.azu = (float) jSONObject.optDouble("intensity_saturation");
+            bVar.azX = (float) jSONObject.optDouble("intensity_sharpness");
+            bVar.azY = (float) jSONObject.optDouble("intensity_brightness");
+            bVar.azZ = (float) jSONObject.optDouble("intensity_contrast");
+            bVar.aAa = (float) jSONObject.optDouble("intensity_saturation");
             JSONObject optJSONObject = jSONObject.optJSONObject("curves");
             if (optJSONObject != null && optJSONObject.length() > 0) {
-                bVar.azv = (float) optJSONObject.optDouble("intensity_curves");
+                bVar.aAb = (float) optJSONObject.optDouble("intensity_curves");
                 JSONArray jSONArray = optJSONObject.getJSONArray("composite");
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    bVar.azw = new CopyOnWriteArrayList();
+                    bVar.aAc = new CopyOnWriteArrayList();
                     for (int i9 = 0; i9 < jSONArray.length(); i9++) {
                         JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
                         if (jSONObject4 == null || jSONObject4.length() <= 0) {
@@ -104,12 +104,12 @@ public class b {
                             i8 = jSONObject4.optInt("x");
                             i7 = jSONObject4.optInt("y");
                         }
-                        bVar.azw.add(new Point(i8, i7));
+                        bVar.aAc.add(new Point(i8, i7));
                     }
                 }
                 JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
                 if (jSONArray2 != null && jSONArray2.length() > 0) {
-                    bVar.azx = new CopyOnWriteArrayList();
+                    bVar.aAd = new CopyOnWriteArrayList();
                     for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
                         JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
                         if (jSONObject5 == null || jSONObject5.length() <= 0) {
@@ -119,12 +119,12 @@ public class b {
                             i6 = jSONObject5.optInt("x");
                             i5 = jSONObject5.optInt("y");
                         }
-                        bVar.azx.add(new Point(i6, i5));
+                        bVar.aAd.add(new Point(i6, i5));
                     }
                 }
                 JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
                 if (jSONArray3 != null && jSONArray3.length() > 0) {
-                    bVar.azy = new CopyOnWriteArrayList();
+                    bVar.aAe = new CopyOnWriteArrayList();
                     for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
                         JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
                         if (jSONObject6 == null || jSONObject6.length() <= 0) {
@@ -134,12 +134,12 @@ public class b {
                             i4 = jSONObject6.optInt("x");
                             i3 = jSONObject6.optInt("y");
                         }
-                        bVar.azy.add(new Point(i4, i3));
+                        bVar.aAe.add(new Point(i4, i3));
                     }
                 }
                 JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
                 if (jSONArray4 != null && jSONArray4.length() > 0) {
-                    bVar.azz = new CopyOnWriteArrayList();
+                    bVar.aAf = new CopyOnWriteArrayList();
                     for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
                         JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
                         if (jSONObject7 == null || jSONObject7.length() <= 0) {
@@ -149,7 +149,7 @@ public class b {
                             i2 = jSONObject7.optInt("x");
                             i = jSONObject7.optInt("y");
                         }
-                        bVar.azz.add(new Point(i2, i));
+                        bVar.aAf.add(new Point(i2, i));
                     }
                     return bVar;
                 }

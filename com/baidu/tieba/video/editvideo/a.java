@@ -3,23 +3,23 @@ package com.baidu.tieba.video.editvideo;
 import android.graphics.Bitmap;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes22.dex */
 public interface a {
-    void N(Bitmap bitmap);
+    void M(Bitmap bitmap);
 
-    void Og(String str);
+    void OH(String str);
 
-    void RD(String str);
+    void Sd(String str);
 
-    void bpP();
+    void bqJ();
 
-    void dBD();
+    void dFx();
 
-    void dfL();
+    void djo();
 
     void finishPage();
 
-    void fo(List<PendantData> list);
+    void fx(List<PendantData> list);
 
     void onNext();
 }

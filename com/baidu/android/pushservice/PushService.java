@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PushService extends Service {
     private boolean a = false;
     private Handler b = new Handler();

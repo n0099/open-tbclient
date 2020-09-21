@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class f {
     private BDLocation ac;
     private String ag;
@@ -54,7 +54,7 @@ public class f {
     public static String b = "";
     private static float N = -1.0f;
     private LocationManager f = null;
-    private C0208f h = null;
+    private C0207f h = null;
     private h i = null;
     private d m = null;
     private GpsStatus.NmeaListener o = null;
@@ -95,7 +95,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class a extends GnssMeasurementsEvent.Callback {
         public int a;
         public String b;
@@ -116,7 +116,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class b extends GnssNavigationMessage.Callback {
         public int a;
 
@@ -145,7 +145,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class c extends GnssStatus.Callback {
         private c() {
         }
@@ -244,7 +244,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class d implements GpsStatus.Listener {
         private long b;
 
@@ -356,7 +356,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static class e extends Handler {
         WeakReference<f> a;
         f b;
@@ -394,12 +394,12 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.f$f  reason: collision with other inner class name */
-    /* loaded from: classes20.dex */
-    public class C0208f implements LocationListener {
-        private C0208f() {
+    /* loaded from: classes3.dex */
+    public class C0207f implements LocationListener {
+        private C0207f() {
         }
 
-        /* synthetic */ C0208f(f fVar, com.baidu.location.c.g gVar) {
+        /* synthetic */ C0207f(f fVar, com.baidu.location.c.g gVar) {
             this();
         }
 
@@ -460,7 +460,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class g implements GpsStatus.NmeaListener {
         private g() {
         }
@@ -478,7 +478,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public class h implements LocationListener {
         private long b;
 
@@ -907,7 +907,7 @@ public class f {
             return;
         }
         try {
-            this.h = new C0208f(this, null);
+            this.h = new C0207f(this, null);
             try {
                 this.f.sendExtraCommand("gps", "force_xtra_injection", new Bundle());
             } catch (Exception e2) {

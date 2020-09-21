@@ -14,6 +14,7 @@ import android.view.View;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.PathUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -22,8 +23,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import okhttp3.Response;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes10.dex */
+/* loaded from: classes18.dex */
 public final class ImageUtils {
     private static final boolean DEBUG = false;
     public static final long DEFAULT_MAX_PIXELS = 131072;
@@ -49,7 +51,7 @@ public final class ImageUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [153=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [155=4] */
     public static Bitmap loadBitmapFromSDCard(String str, int i, int i2) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
@@ -397,9 +399,84 @@ public final class ImageUtils {
         return bitmap;
     }
 
-    @Deprecated
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [651=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0059 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x006e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v13, types: [okhttp3.ResponseBody] */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v16 */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v26, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r0v29 */
+    /* JADX WARN: Type inference failed for: r0v30 */
+    /* JADX WARN: Type inference failed for: r0v32, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:18:0x004c -> B:44:0x0040). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:27:0x0059 -> B:44:0x0040). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:33:0x0061 -> B:44:0x0040). Please submit an issue!!! */
     public static Bitmap getBitmapFromNet(Context context, int i, String str) {
-        return null;
+        Throwable th;
+        OutOfMemoryError e;
+        Bitmap bitmap = null;
+        try {
+            Response executeSync = HttpManager.getDefault(context).getRequest().url(str).build().executeSync();
+            if (executeSync != null && executeSync.code() == 200) {
+                ?? body = executeSync.body();
+                InputStream byteStream = body.byteStream();
+                try {
+                    try {
+                    } catch (Throwable th2) {
+                        bitmap = body;
+                        th = th2;
+                    }
+                } catch (IOException e2) {
+                } catch (IllegalStateException e3) {
+                } catch (Exception e4) {
+                }
+                if (byteStream != null) {
+                    try {
+                        System.currentTimeMillis();
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inSampleSize = i;
+                        body = BitmapFactory.decodeStream(byteStream, null, options);
+                        try {
+                            System.currentTimeMillis();
+                            Closeables.closeSafely(byteStream);
+                        } catch (OutOfMemoryError e5) {
+                            e = e5;
+                            e.printStackTrace();
+                            Closeables.closeSafely(byteStream);
+                            return body;
+                        }
+                    } catch (OutOfMemoryError e6) {
+                        body = 0;
+                        e = e6;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        try {
+                            Closeables.closeSafely(byteStream);
+                            throw th;
+                        } catch (IOException e7) {
+                            return bitmap;
+                        } catch (IllegalStateException e8) {
+                            return bitmap;
+                        } catch (Exception e9) {
+                            return bitmap;
+                        }
+                    }
+                    return body;
+                }
+            }
+            return null;
+        } catch (IOException e10) {
+            return null;
+        } catch (IllegalStateException e11) {
+            return null;
+        } catch (Exception e12) {
+            return null;
+        }
     }
 
     public static Bitmap createBitmap(int i, int i2, int i3, int i4, String str, int i5) {
@@ -508,7 +585,7 @@ public final class ImageUtils {
         return getBase64ImageFromBitmap(Bitmap.createScaledBitmap(bitmap, i2, i, true));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [837=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [882=4] */
     public static String getBase64ImageFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;

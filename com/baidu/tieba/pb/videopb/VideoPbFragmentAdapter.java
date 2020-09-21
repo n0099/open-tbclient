@@ -11,28 +11,28 @@ import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
 import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes21.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> kWq;
+    private List<String> leV;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.kWq == null) {
-            this.kWq = new ArrayList();
+        if (this.leV == null) {
+            this.leV = new ArrayList();
         }
-        this.kWq.clear();
-        if (com.baidu.tbadk.a.d.bah()) {
-            this.kWq.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.leV.clear();
+        if (com.baidu.tbadk.a.d.baW()) {
+            this.leV.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.kWq.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.kWq.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.leV.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.leV.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
         this.mFragments.clear();
-        if (com.baidu.tbadk.a.d.bah()) {
+        if (com.baidu.tbadk.a.d.baW()) {
             this.mFragments.add(DetailInfoAndReplyFragment.ac(videoPbFragment));
             return;
         }
@@ -42,10 +42,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return EO(i);
+        return Fp(i);
     }
 
-    public BaseFragment EO(int i) {
+    public BaseFragment Fp(int i) {
         if (this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
@@ -62,17 +62,17 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.kWq == null || i < 0 || i >= this.kWq.size()) {
+        if (this.leV == null || i < 0 || i >= this.leV.size()) {
             return null;
         }
-        return this.kWq.get(i);
+        return this.leV.get(i);
     }
 
-    public ArrayList<BaseFragment> dep() {
+    public ArrayList<BaseFragment> dhT() {
         return this.mFragments;
     }
 
-    public void EP(int i) {
+    public void Fq(int i) {
         if (this.mFragments != null) {
             int i2 = 0;
             while (i2 < this.mFragments.size()) {

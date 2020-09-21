@@ -6,25 +6,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class j {
-    private static final Set<Integer> daZ = new HashSet();
-    private static final Set<Integer> dba = new HashSet();
-    private static final Set<Integer> dbb = new HashSet();
+    private static final Set<Integer> dda = new HashSet();
+    private static final Set<Integer> ddb = new HashSet();
+    private static final Set<Integer> ddc = new HashSet();
 
     static {
-        daZ.add(2);
-        daZ.add(3);
-        daZ.add(4);
-        daZ.add(5);
-        daZ.add(6);
-        dba.add(7);
-        dba.add(1);
-        dbb.addAll(daZ);
-        dbb.addAll(dba);
+        dda.add(2);
+        dda.add(3);
+        dda.add(4);
+        dda.add(5);
+        dda.add(6);
+        ddb.add(7);
+        ddb.add(1);
+        ddc.addAll(dda);
+        ddc.addAll(ddb);
     }
 
-    public static Date aEI() {
+    public static Date aFs() {
         return new Date();
     }
 

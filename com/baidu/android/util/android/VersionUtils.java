@@ -6,13 +6,18 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class VersionUtils {
     private static final String TAG = "VersionUtils";
     private static String sBoxVersionCode = null;
     private static String sBoxVersionName = null;
 
+    @Deprecated
     public static String getVersionCode(Context context) {
+        return getVersionCode();
+    }
+
+    public static String getVersionCode() {
         Context appContext = AppRuntime.getAppContext();
         if (TextUtils.isEmpty(sBoxVersionCode)) {
             try {
@@ -27,6 +32,7 @@ public class VersionUtils {
         return getVersionName(AppRuntime.getAppContext());
     }
 
+    @Deprecated
     public static String getVersionName(Context context) {
         Context appContext = AppRuntime.getAppContext();
         if (TextUtils.isEmpty(sBoxVersionName)) {

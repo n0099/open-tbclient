@@ -30,7 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class FileHelper {
     private static final String DIR_DOWNLOAD = "download";
     public static final String DIR_ROOT = "tieba";
@@ -1550,7 +1550,7 @@ public class FileHelper {
         return false;
     }
 
-    public static void deleteFileOrDir(File file) {
+    public static boolean deleteFileOrDir(File file) {
         try {
             if (file.exists()) {
                 if (file.isDirectory()) {
@@ -1566,9 +1566,11 @@ public class FileHelper {
                 }
                 file.delete();
             }
+            return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             TiebaInitialize.file(e, "FileHelper.deleteFileOrDir");
+            return false;
         }
     }
 
@@ -1600,7 +1602,7 @@ public class FileHelper {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1495=5, 1496=5, 1498=5, 1499=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1498=5, 1499=5, 1501=5, 1502=5] */
     public static boolean saveFileByAbsolutePath(String str, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
         boolean z = false;
@@ -1721,7 +1723,7 @@ public class FileHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1600=4, 1601=4, 1602=4, 1597=4, 1598=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1600=4, 1601=4, 1603=4, 1604=4, 1605=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00ac */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x00ae */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x0016 */
@@ -1924,6 +1926,25 @@ public class FileHelper {
         return j;
     }
 
+    public static long getFileLength(File file) {
+        long j = 0;
+        if (file == null || !file.exists()) {
+            return 0L;
+        }
+        if (!file.isDirectory()) {
+            return file.length();
+        }
+        File[] listFiles = file.listFiles();
+        int length = listFiles.length;
+        int i = 0;
+        while (i < length) {
+            long fileLength = getFileLength(listFiles[i]) + j;
+            i++;
+            j = fileLength;
+        }
+        return j;
+    }
+
     public static boolean deleteFile(File file) {
         try {
             return file.delete();
@@ -1982,7 +2003,7 @@ public class FileHelper {
         return -1L;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class DataDir {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
         public static final String PACKAGE_VERSION_CUR_DIR = "/package.cur";

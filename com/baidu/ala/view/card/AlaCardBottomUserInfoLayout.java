@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.data.bw;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.af;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 /* loaded from: classes7.dex */
@@ -60,22 +60,22 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     public void setData(bw bwVar) {
-        if (bwVar != null && bwVar.beY() != null) {
-            AlaUserInfoData alaUserInfoData = bwVar.beY().user_info;
+        if (bwVar != null && bwVar.bfS() != null) {
+            AlaUserInfoData alaUserInfoData = bwVar.bfS().user_info;
             String str = "";
-            if (bwVar.beE() != null) {
-                str = bwVar.beE().getName_show();
+            if (bwVar.bfy() != null) {
+                str = bwVar.bfy().getName_show();
             } else if (alaUserInfoData != null) {
                 str = alaUserInfoData.user_name;
             }
-            if (ae.getTextLengthWithEmoji(str) > 10) {
-                str = ae.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
+            if (af.getTextLengthWithEmoji(str) > 10) {
+                str = af.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
             }
             this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), at.numFormatOverWan(bwVar.beY().audience_count)));
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), at.numFormatOverWan(bwVar.bfS().audience_count)));
         }
     }
 

@@ -1,25 +1,75 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tbadkCore.util.f;
 /* loaded from: classes.dex */
 public class j {
-    private final int dkP;
-    private final int dkQ;
-    private final TbPageContext<?> efr;
+    private String authToken;
+    private f.a eCl;
+    private int type;
 
-    public TbPageContext<?> bmF() {
-        return this.efr;
+    public static j Bp(String str) {
+        return new j(0, str);
     }
 
-    public int aJe() {
-        return this.dkQ;
+    public static j bnv() {
+        return new j(1, null);
     }
 
-    public int aJd() {
-        return this.dkP;
+    public static j bnw() {
+        return new j(2, null);
     }
 
-    public boolean isAvailable() {
-        return this.efr != null && this.dkQ > 0 && this.dkP > 0;
+    public static j bnx() {
+        return new j(3, null);
+    }
+
+    public j(int i, String str) {
+        this.type = i;
+        this.authToken = str;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public String getAuthToken() {
+        return this.authToken;
+    }
+
+    public f.a bny() {
+        return this.eCl;
+    }
+
+    public void a(f.a aVar) {
+        this.eCl = aVar;
+    }
+
+    /* loaded from: classes.dex */
+    public static class c {
+        public boolean isSuccess;
+
+        public c(boolean z) {
+            this.isSuccess = z;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class a extends c {
+        public String authSid;
+
+        public a(boolean z, String str) {
+            super(z);
+            this.authSid = str;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b extends c {
+        public String callbackKey;
+
+        public b(boolean z, String str) {
+            super(z);
+            this.callbackKey = str;
+        }
     }
 }

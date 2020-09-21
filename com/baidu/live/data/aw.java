@@ -1,22 +1,26 @@
 package com.baidu.live.data;
 
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class aw {
-    public int aJa;
-    public int aJb;
-    public int aJc;
-    public String aJd;
+    public String aJT;
+    public String aJU;
+    public long endTime;
+    public int flag;
+    public long serverTime;
+    public long startTime;
+    public int type;
 
-    public static aw B(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.type = jSONObject.optInt("type");
+            this.aJT = jSONObject.optString(AlaLiveStickerInfo.STICKER_ID);
+            this.startTime = jSONObject.optLong("start_time");
+            this.endTime = jSONObject.optLong("end_time");
+            this.serverTime = jSONObject.optLong("server_time");
+            this.aJU = jSONObject.optString("punish_key");
+            this.flag = jSONObject.optInt(FrsActivityConfig.FLAG);
         }
-        aw awVar = new aw();
-        awVar.aJa = jSONObject.optInt("supernatant_time") * 1000;
-        awVar.aJb = jSONObject.optInt("suoernatant_shownum");
-        awVar.aJc = jSONObject.optInt("pop_window_time") * 1000;
-        awVar.aJd = jSONObject.optString("guide_follow_text");
-        return awVar;
     }
 }

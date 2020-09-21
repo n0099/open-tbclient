@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.RandomAccess;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.h
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class i extends h {
     public static final <T> List<T> asList(T[] tArr) {
         kotlin.jvm.internal.q.m(tArr, "receiver$0");
@@ -15,12 +15,12 @@ public class i extends h {
     }
 
     @kotlin.h
-    /* loaded from: classes20.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] oso;
+        final /* synthetic */ byte[] oBV;
 
         a(byte[] bArr) {
-            this.oso = bArr;
+            this.oBV = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -49,31 +49,31 @@ public class i extends h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.oso.length;
+            return this.oBV.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.oso.length == 0;
+            return this.oBV.length == 0;
         }
 
         public boolean e(byte b) {
-            return f.a(this.oso, b);
+            return f.a(this.oBV, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: NU */
+        /* renamed from: Oz */
         public Byte get(int i) {
-            return Byte.valueOf(this.oso[i]);
+            return Byte.valueOf(this.oBV[i]);
         }
 
         public int f(byte b) {
-            return f.b(this.oso, b);
+            return f.b(this.oBV, b);
         }
 
         public int g(byte b) {
-            return f.c(this.oso, b);
+            return f.c(this.oBV, b);
         }
     }
 
@@ -84,7 +84,7 @@ public class i extends h {
 
     public static final byte[] q(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.m(bArr, "receiver$0");
-        f.dZ(i2, bArr.length);
+        f.ed(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.l((Object) copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

@@ -13,34 +13,34 @@ import java.util.Collection;
 import java.util.concurrent.Executor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public abstract class TurbonetEngine {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public enum AppState {
         APP_STATE_BACKGROUND,
         APP_STATE_FOREGROUND
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public enum QUICConnectStatus {
         UNKNOWN,
         REACHABLE,
         UNREACHABLE
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public interface RequestFinishedListener {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public enum TCPNetworkQualityStatus {
         UNKNOWN,
         WEAK,
         NORMAL
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static final class UrlRequestInfo {
     }
 
@@ -50,79 +50,79 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean dKE();
+    public abstract boolean dOC();
 
     abstract boolean isEnabled();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
-        private String dKl;
+        private String dMp;
         private String mAppName;
         private final Context mContext;
         private String mUserAgent;
-        private boolean nbZ;
-        private boolean nbx;
-        private long ndA;
-        private JSONObject ndB;
-        private String ndC;
-        private String nds;
-        private String ndu;
-        private LibraryLoader ndv;
-        private String ndw;
-        private boolean ndx;
-        private boolean ndy;
-        private int ndz;
+        private boolean nlY;
+        private boolean nlw;
+        private JSONObject nnA;
+        private String nnB;
+        private String nnr;
+        private String nnt;
+        private LibraryLoader nnu;
+        private String nnv;
+        private boolean nnw;
+        private boolean nnx;
+        private int nny;
+        private long nnz;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         public @interface HttpCacheSetting {
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes15.dex */
         public static abstract class LibraryLoader {
             public abstract void loadLibrary(String str);
         }
 
         public Builder(Context context) {
             this.mContext = context;
-            Tn("turbonet");
-            this.ndB = new JSONObject();
-            xH(false);
+            TM("turbonet");
+            this.nnA = new JSONObject();
+            xQ(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void dLd() {
-            if (this.ndv == null) {
-                if (this.ndw.equals("turbonet")) {
-                    System.loadLibrary(this.ndw);
+        public void dPb() {
+            if (this.nnu == null) {
+                if (this.nnv.equals("turbonet")) {
+                    System.loadLibrary(this.nnv);
                     return;
                 } else {
-                    System.load(this.ndw);
+                    System.load(this.nnv);
                     return;
                 }
             }
-            this.ndv.loadLibrary(this.ndw);
+            this.nnu.loadLibrary(this.nnv);
         }
 
-        public Builder Tn(String str) {
-            this.ndw = str;
+        public Builder TM(String str) {
+            this.nnv = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.ndB.optJSONObject(str);
+                JSONObject optJSONObject = this.nnA.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.ndB.put(str, optJSONObject);
+                this.nnA.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder To(String str) {
+        public Builder TN(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -133,91 +133,91 @@ public abstract class TurbonetEngine {
             return this.mUserAgent;
         }
 
-        public Builder xH(boolean z) {
+        public Builder xQ(boolean z) {
             e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.ndx = z;
+            this.nnw = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dLe() {
-            return this.ndx;
+        public boolean dPc() {
+            return this.nnw;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dLf() {
-            return this.ndy;
+        public boolean dPd() {
+            return this.nnx;
         }
 
-        public Builder Tp(String str) {
+        public Builder TO(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.nds = str;
+            this.nnr = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dKZ() {
-            return this.nds;
+        public String dOX() {
+            return this.nnr;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.nbx;
+            return this.nlw;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long dLg() {
-            return this.ndA;
+        public long dPe() {
+            return this.nnz;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int dLh() {
-            return this.ndz;
+        public int dPf() {
+            return this.nny;
         }
 
         public String getAppPackageName() {
-            return this.dKl;
+            return this.dMp;
         }
 
         public Builder G(boolean z, String str) {
             e("nq", "network_quality_enabled", Boolean.valueOf(z));
             e("nq", "watched_groups", str);
-            this.nbZ = z;
+            this.nlY = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean dLi() {
-            return this.nbZ;
+        public boolean dPg() {
+            return this.nlY;
         }
 
-        public Builder Tq(String str) {
+        public Builder TP(String str) {
             e("app", "cuid", str);
-            this.ndu = str;
+            this.nnt = str;
             return this;
         }
 
-        public Builder Tr(String str) {
+        public Builder TQ(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder Ts(String str) {
-            this.ndC = str;
+        public Builder TR(String str) {
+            this.nnB = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dLj() {
-            return this.ndC;
+        public String dPh() {
+            return this.nnB;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String dLk() {
-            return this.ndB.toString();
+        public String dPi() {
+            return this.nnA.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine dLl() {
+        public TurbonetEngine dPj() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                To(c.fW(this.mContext));
+                TN(c.gc(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -255,26 +255,26 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long nbR;
+        private final Long nlQ;
         @Nullable
-        private final Long nbS;
+        private final Long nlR;
         @Nullable
-        private final Long ndD;
+        private final Long nnC;
         @Nullable
-        private final Long ndE;
+        private final Long nnD;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.nbR = l;
-            this.nbS = l2;
-            this.ndD = l3;
-            this.ndE = l4;
+            this.nlQ = l;
+            this.nlR = l2;
+            this.nnC = l3;
+            this.nnD = l4;
         }
     }
 
-    public long dKl() {
+    public long dOj() {
         return 0L;
     }
 }

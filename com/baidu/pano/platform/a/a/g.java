@@ -17,7 +17,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes20.dex */
+/* loaded from: classes3.dex */
 public class g implements i {
     protected final HttpClient a;
 
@@ -95,7 +95,7 @@ public class g implements i {
     protected void a(HttpUriRequest httpUriRequest) throws IOException {
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends HttpEntityEnclosingRequestBase {
         public a() {
         }

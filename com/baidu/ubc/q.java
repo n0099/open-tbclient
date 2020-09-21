@@ -1,13 +1,15 @@
 package com.baidu.ubc;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes16.dex */
 public interface q {
-    String avl();
+    String avU();
 
-    List<String> dty();
+    List<String> dxr();
+
+    boolean isBeta();
 
     boolean isPeakTime();
 
-    boolean oR(String str);
+    boolean pk(String str);
 }

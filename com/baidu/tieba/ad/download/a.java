@@ -12,7 +12,7 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes20.dex */
 public class a {
     public static boolean h(Context context, File file) {
         return b(context, file, false);
@@ -43,7 +43,7 @@ public class a {
         return false;
     }
 
-    public static boolean ah(Context context, String str) {
+    public static boolean ak(Context context, String str) {
         ResolveInfo next;
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
@@ -86,7 +86,7 @@ public class a {
         return false;
     }
 
-    public static String av(Context context, String str) {
+    public static String ay(Context context, String str) {
         PackageInfo packageArchiveInfo;
         if (context == null || TextUtils.isEmpty(str) || (packageArchiveInfo = context.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
             return null;

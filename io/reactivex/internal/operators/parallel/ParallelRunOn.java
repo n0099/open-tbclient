@@ -9,11 +9,11 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import org.b.c;
-import org.b.d;
-/* loaded from: classes7.dex */
+import org.a.c;
+import org.a.d;
+/* loaded from: classes25.dex */
 public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
-    final io.reactivex.parallel.a<? extends T> ooZ;
+    final io.reactivex.parallel.a<? extends T> oyI;
     final int prefetch;
     final v scheduler;
 
@@ -26,10 +26,10 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                 ((h) this.scheduler).a(length, new a(cVarArr, cVarArr2));
             } else {
                 for (int i = 0; i < length; i++) {
-                    a(i, cVarArr, cVarArr2, this.scheduler.efd());
+                    a(i, cVarArr, cVarArr2, this.scheduler.eja());
                 }
             }
-            this.ooZ.a(cVarArr2);
+            this.oyI.a(cVarArr2);
         }
     }
 
@@ -43,28 +43,28 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     final class a implements h.a {
-        final c<T>[] opd;
+        final c<T>[] oyM;
         final c<? super T>[] subscribers;
 
         a(c<? super T>[] cVarArr, c<T>[] cVarArr2) {
             this.subscribers = cVarArr;
-            this.opd = cVarArr2;
+            this.oyM = cVarArr2;
         }
 
         @Override // io.reactivex.internal.schedulers.h.a
         public void a(int i, v.c cVar) {
-            ParallelRunOn.this.a(i, this.subscribers, this.opd, cVar);
+            ParallelRunOn.this.a(i, this.subscribers, this.oyM, cVar);
         }
     }
 
     @Override // io.reactivex.parallel.a
-    public int efo() {
-        return this.ooZ.efo();
+    public int ejl() {
+        return this.oyI.ejl();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     static abstract class BaseRunOnSubscriber<T> extends AtomicInteger implements j<T>, Runnable, d {
         private static final long serialVersionUID = 9222303586456402150L;
         volatile boolean cancelled;
@@ -85,7 +85,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.worker = cVar;
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public final void onNext(T t) {
             if (!this.done) {
                 if (!this.queue.offer(t)) {
@@ -97,7 +97,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public final void onError(Throwable th) {
             if (this.done) {
                 io.reactivex.e.a.onError(th);
@@ -108,7 +108,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             schedule();
         }
 
-        @Override // org.b.c
+        @Override // org.a.c
         public final void onComplete() {
             if (!this.done) {
                 this.done = true;
@@ -116,7 +116,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 b.a(this.requested, j);
@@ -124,7 +124,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             }
         }
 
-        @Override // org.b.d
+        @Override // org.a.d
         public final void cancel() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -144,7 +144,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class RunOnSubscriber<T> extends BaseRunOnSubscriber<T> {
         private static final long serialVersionUID = 1075119423897941642L;
         final c<? super T> actual;
@@ -154,7 +154,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.actual = cVar;
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
@@ -242,7 +242,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes25.dex */
     public static final class RunOnConditionalSubscriber<T> extends BaseRunOnSubscriber<T> {
         private static final long serialVersionUID = 1075119423897941642L;
         final io.reactivex.internal.a.a<? super T> actual;
@@ -252,7 +252,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
             this.actual = aVar;
         }
 
-        @Override // io.reactivex.j, org.b.c
+        @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;

@@ -12,12 +12,12 @@ import com.baidu.swan.games.network.websocket.e;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected SocketTaskState dvu;
+    protected SocketTaskState dxv;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     protected enum SocketTaskState {
         IDLE,
         OPEN,
@@ -27,7 +27,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.dvu = SocketTaskState.IDLE;
+        this.dxv = SocketTaskState.IDLE;
     }
 
     private void v(String str, Object obj) {
@@ -39,8 +39,8 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.dvu = SocketTaskState.OPEN;
-        v("open", new e.C0499e(new JSONObject(map)));
+        this.dxv = SocketTaskState.OPEN;
+        v("open", new e.C0494e(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -57,13 +57,13 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.dvu = SocketTaskState.CLOSE;
+        this.dxv = SocketTaskState.CLOSE;
         v("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString(TiebaInitialize.LogFields.REASON)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.dvu == SocketTaskState.IDLE) {
+        if (this.dxv == SocketTaskState.IDLE) {
             v(BdStatsConstant.StatsType.ERROR, new e.b(th.getMessage()));
         }
     }

@@ -1,9 +1,9 @@
 package com.google.gson;
 
+import com.google.gson.internal.Excluder;
 import com.google.gson.internal.a;
-import com.google.gson.internal.a.l;
-import com.google.gson.internal.a.n;
-import com.google.gson.internal.c;
+import com.google.gson.internal.bind.TreeTypeAdapter;
+import com.google.gson.internal.bind.TypeAdapters;
 import java.lang.reflect.Type;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -12,13 +12,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes23.dex */
 public final class GsonBuilder {
     private boolean complexMapKeySerialization;
     private String datePattern;
     private int dateStyle;
     private boolean escapeHtmlChars;
-    private c excluder;
+    private Excluder excluder;
     private final List<TypeAdapterFactory> factories;
     private FieldNamingStrategy fieldNamingPolicy;
     private boolean generateNonExecutableJson;
@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = c.nDa;
+        this.excluder = Excluder.nMW;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = c.nDa;
+        this.excluder = Excluder.nMW;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.dXi();
+        this.excluder = this.excluder.ebg();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.dXh();
+        this.excluder = this.excluder.ebf();
         return this;
     }
 
@@ -190,10 +190,10 @@ public final class GsonBuilder {
             this.instanceCreators.put(type, (InstanceCreator) obj);
         }
         if ((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer)) {
-            this.factories.add(l.a(com.google.gson.b.a.k(type), obj));
+            this.factories.add(TreeTypeAdapter.a(com.google.gson.b.a.k(type), obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(n.a(com.google.gson.b.a.k(type), (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.a(com.google.gson.b.a.k(type), (TypeAdapter) obj));
         }
         return this;
     }
@@ -206,10 +206,10 @@ public final class GsonBuilder {
     public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
         a.checkArgument((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
         if ((obj instanceof JsonDeserializer) || (obj instanceof JsonSerializer)) {
-            this.hierarchyFactories.add(l.a(cls, obj));
+            this.hierarchyFactories.add(TreeTypeAdapter.a(cls, obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(n.b(cls, (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.b(cls, (TypeAdapter) obj));
         }
         return this;
     }
@@ -245,8 +245,8 @@ public final class GsonBuilder {
         } else {
             return;
         }
-        list.add(n.a(Date.class, defaultDateTypeAdapter));
-        list.add(n.a(Timestamp.class, defaultDateTypeAdapter2));
-        list.add(n.a(java.sql.Date.class, defaultDateTypeAdapter3));
+        list.add(TypeAdapters.a(Date.class, defaultDateTypeAdapter));
+        list.add(TypeAdapters.a(Timestamp.class, defaultDateTypeAdapter2));
+        list.add(TypeAdapters.a(java.sql.Date.class, defaultDateTypeAdapter3));
     }
 }

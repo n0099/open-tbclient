@@ -1,5 +1,25 @@
 package com.baidu.live.p;
-/* loaded from: classes7.dex */
+
+import android.view.ViewGroup;
+import com.baidu.live.data.u;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public interface a {
-    void cg(boolean z);
+    boolean BP();
+
+    void IT();
+
+    boolean MK();
+
+    boolean N(JSONObject jSONObject);
+
+    void a(u uVar);
+
+    void b(ViewGroup viewGroup, u uVar);
+
+    void onDestroy();
+
+    void setCanVisible(boolean z);
+
+    void setIsHost(boolean z);
 }

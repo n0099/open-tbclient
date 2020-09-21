@@ -8,7 +8,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes20.dex */
+/* loaded from: classes12.dex */
 public final class j {
     public static final String[] a = {"java.lang.UnsatisfiedLinkError"};
     public static final String[] b = {"space left"};

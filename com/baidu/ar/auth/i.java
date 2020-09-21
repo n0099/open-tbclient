@@ -3,7 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import com.baidu.ar.auth.m;
 import com.baidu.ar.g.r;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 class i implements m {
     private m[] jB;
     private volatile boolean jC = false;

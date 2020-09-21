@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public interface IGiftLogger {
     void doDisplayGiftTabLog(String str, String str2, String str3);
 
